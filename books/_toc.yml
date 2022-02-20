@@ -1,0 +1,60 @@
+# 形式
+format: jb-book
+
+# 目次
+root: intro
+
+# 第一部
+parts: 
+  - caption: 第一部 ソケットプログラミング
+    chapters:
+      - file: markdown # 利用させるファイルのパス（拡張子除く）
+        title: 環境構築とプロトコル解析
+      - file: notebooks
+        title: 通信性能の計測
+      # - file: markdown
+      #   title: 多対多接続の設計・接続
+      # - file: markdown
+      #   title: 第一部レポートピアレビュー
+
+# 第二部
+# parts: 
+#   - caption: 第二部 Webサーバの実装
+#     chapters:
+#       - file: markdown
+#         title: 環境構築とプロトコル解析
+#       - file: notebooks
+#         title: 通信性能の計測
+#       - file: markdown
+#         title: 多対多接続の設計・接続
+#       - file: markdown
+#         title: 第一部レポートピアレビュー
+
+# 第三部
+# parts: 
+#   - caption: 第三部 Webシステムの性能
+#     chapters:
+#       - file: markdown
+#         title: 環境構築とプロトコル解析
+#       - file: notebooks
+#         title: 通信性能の計測
+#       - file: markdown
+#         title: 多対多接続の設計・接続
+#       - file: markdown
+#         title: 第一部レポートピアレビュー
+
+# 実験終了後の作業
+# parts: 
+#   - caption: 実験終了後の作業
+#     chapters:
+#       - file: markdown
+#         title: 実験終了後（必須）
+
+# その他
+# parts: 
+#   - caption: その他
+#     chapters:
+#       - file: markdown
+#         title: トラブルシューティング
+#       - file: markdown
+#         title: スタッフ向け情報

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  jupyter-book:
+    build: "./"
+    tty: true
+    volumes:
+      - ./books:/home/jovyan/books
+    ports:
+      - "4001:4001"
