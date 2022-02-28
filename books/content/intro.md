@@ -343,10 +343,14 @@
 
 ### スタッフ向け情報
 
--   [内部向け:各回の進め方](https://exp1.inf.shizuoka.ac.jp/%E5%86%85%E9%83%A8%E5%90%91%E3%81%91:%E5%90%84%E5%9B%9E%E3%81%AE%E9%80%B2%E3%82%81%E6%96%B9 "内部向け:各回の進め方")
--   [内部向け:備忘録(次年度への引継ぎメモ)](https://exp1.inf.shizuoka.ac.jp/%E5%86%85%E9%83%A8%E5%90%91%E3%81%91:%E5%82%99%E5%BF%98%E9%8C%B2(%E6%AC%A1%E5%B9%B4%E5%BA%A6%E3%81%B8%E3%81%AE%E5%BC%95%E7%B6%99%E3%81%8E%E3%83%A1%E3%83%A2) "内部向け:備忘録(次年度への引継ぎメモ)")
+- [内部向け:各回の進め方](staff/procedure)
+- [内部向け:備忘録(次年度への引継ぎメモ)](staff/memo)
+
+<!-- -   [内部向け:各回の進め方](https://exp1.inf.shizuoka.ac.jp/%E5%86%85%E9%83%A8%E5%90%91%E3%81%91:%E5%90%84%E5%9B%9E%E3%81%AE%E9%80%B2%E3%82%81%E6%96%B9 "内部向け:各回の進め方")
+-   [内部向け:備忘録(次年度への引継ぎメモ)](https://exp1.inf.shizuoka.ac.jp/%E5%86%85%E9%83%A8%E5%90%91%E3%81%91:%E5%82%99%E5%BF%98%E9%8C%B2(%E6%AC%A1%E5%B9%B4%E5%BA%A6%E3%81%B8%E3%81%AE%E5%BC%95%E7%B6%99%E3%81%8E%E3%83%A1%E3%83%A2) "内部向け:備忘録(次年度への引継ぎメモ)") -->
 
 ### 過去のページ
+
 - [2017-21年度](https://exp1.inf.shizuoka.ac.jp/Home)
 - [2015-6年度](http://exp1.inf.shizuoka.ac.jp/index.php?title=Home&oldid=875)
 - [2014年度](http://www.minelab.jp/NWprog-CSexp1/2014/)
