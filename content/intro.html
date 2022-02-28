@@ -1,0 +1,1071 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>情報科学実験Ⅰ &#8212; 情報科学実験Ⅰ</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="環境構築" href="preparation/preparation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">情報科学実験Ⅰ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   情報科学実験Ⅰ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  事前準備（在宅）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="preparation/preparation.html">
+   環境構築および動作確認
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第一部 ソケットプログラミング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="markdown.html">
+   環境構築とプロトコル解析
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks.html">
+     通信性能の計測
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  実験終了後（必須）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="end/cleanup.html">
+   実験機材のクリーンアップと解体
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  トラブルシューティング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="trouble_shooting/question.html">
+   質問の行い方
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="trouble_shooting/trouble.html">
+   よくあるトラブル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="trouble_shooting/uninstall.html">
+   各アプリケーションのアンインストール方法
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   事前準備 （在宅）
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     出席と進捗状況の確認について
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   第一部 ソケットプログラミング
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     [4月13日] 環境構築と実験の開始
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     [4月20日] 通信性能の計測
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     [4月27日] 多対多接続の設計・実装
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     [5月11日] 第一部レポートピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#web">
+   第二部 Webサーバの実装
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simple-http">
+     [5月18日] 個別レポートコメント，Simple HTTPサーバの構築
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#http-1">
+     [5月25日] HTTPサーバの高機能化(1)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#http-2">
+     [6月1日] HTTPサーバの高機能化(2)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     [6月8日] グループレビュー，第二部グループ発表会
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     [6月15日] 第二部レポートピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   第三部 Webシステムの性能
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     [6月22日] Webシステムの基礎
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     [6月29日] Webシステムの設計と実装
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     [7月6日] ベンチマークと分析
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     [7月13日 / 7月20日] パフォーマンスチューニング
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     [7月27日] グループレビュー，第三部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id16">
+   実験終了後（必須）
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id17">
+   その他
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     トラブルシューティング
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     スタッフ向け情報
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     過去のページ
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>情報科学実験Ⅰ</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   事前準備 （在宅）
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     出席と進捗状況の確認について
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   第一部 ソケットプログラミング
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     [4月13日] 環境構築と実験の開始
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     [4月20日] 通信性能の計測
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     [4月27日] 多対多接続の設計・実装
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     [5月11日] 第一部レポートピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#web">
+   第二部 Webサーバの実装
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simple-http">
+     [5月18日] 個別レポートコメント，Simple HTTPサーバの構築
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#http-1">
+     [5月25日] HTTPサーバの高機能化(1)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#http-2">
+     [6月1日] HTTPサーバの高機能化(2)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     [6月8日] グループレビュー，第二部グループ発表会
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     [6月15日] 第二部レポートピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   第三部 Webシステムの性能
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     [6月22日] Webシステムの基礎
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     [6月29日] Webシステムの設計と実装
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     [7月6日] ベンチマークと分析
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     [7月13日 / 7月20日] パフォーマンスチューニング
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     [7月27日] グループレビュー，第三部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id16">
+   実験終了後（必須）
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id17">
+   その他
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     トラブルシューティング
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     スタッフ向け情報
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     過去のページ
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="i">
+<h1>情報科学実験Ⅰ<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h1>
+<div class="admonition- admonition">
+<p class="admonition-title">連絡先</p>
+<ul class="simple">
+<li><p>担当教員：大木哲史，野口靖浩，峰野博史</p></li>
+<li><p>技術部：水野 匠，柴田頼紀</p></li>
+<li><p>TA：M2成田，M2鎌田，M1，M1，B4，B4</p></li>
+<li><p>質問窓口：csexp1-staff&#64;ml.inf.shizuoka.ac.jp</p></li>
+<li><p>レポート提出先： <a class="reference external" href="mailto:csexp1-report&#37;&#52;&#48;ml&#46;inf&#46;shizuoka&#46;ac&#46;jp">csexp1-report<span>&#64;</span>ml<span>&#46;</span>inf<span>&#46;</span>shizuoka<span>&#46;</span>ac<span>&#46;</span>jp</a></p></li>
+</ul>
+</div>
+<table class="full-width table" id="schedule">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">情報科学実験Ⅰスケジュール</span><a class="headerlink" href="#schedule" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Day</p></th>
+<th class="head"><p>日程</p></th>
+<th class="head"><p>対面</p></th>
+<th class="head"><p>在宅</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Day1</p></td>
+<td><p>4月12日</p></td>
+<td><p>奇数</p></td>
+<td><p>偶数</p></td>
+</tr>
+<tr class="row-odd"><td><p>Day2</p></td>
+<td><p>4月19日</p></td>
+<td><p>偶数</p></td>
+<td><p>奇数</p></td>
+</tr>
+<tr class="row-even"><td><p>Day3</p></td>
+<td><p>4月26日</p></td>
+<td><p>奇数</p></td>
+<td><p>偶数</p></td>
+</tr>
+<tr class="row-odd"><td><p>Day4</p></td>
+<td><p>5月10日</p></td>
+<td><p>-</p></td>
+<td><p>奇数&amp;偶数</p></td>
+</tr>
+<tr class="row-even"><td><p>Day5</p></td>
+<td><p>5月17日</p></td>
+<td><p>偶数</p></td>
+<td><p>奇数</p></td>
+</tr>
+<tr class="row-odd"><td><p>Day6</p></td>
+<td><p>5月24日</p></td>
+<td><p>奇数</p></td>
+<td><p>偶数</p></td>
+</tr>
+<tr class="row-even"><td><p>Day7</p></td>
+<td><p>5月31日</p></td>
+<td><p>偶数</p></td>
+<td><p>奇数</p></td>
+</tr>
+<tr class="row-odd"><td><p>Day8</p></td>
+<td><p>6月7日</p></td>
+<td><p>-</p></td>
+<td><p>奇数&amp;偶数</p></td>
+</tr>
+<tr class="row-even"><td><p>Day9</p></td>
+<td><p>6月14日</p></td>
+<td><p>-</p></td>
+<td><p>奇数&amp;偶数</p></td>
+</tr>
+<tr class="row-odd"><td><p>Day10</p></td>
+<td><p>6月21日</p></td>
+<td><p>奇数</p></td>
+<td><p>偶数</p></td>
+</tr>
+<tr class="row-even"><td><p>Day11</p></td>
+<td><p>6月28日</p></td>
+<td><p>偶数</p></td>
+<td><p>奇数</p></td>
+</tr>
+<tr class="row-odd"><td><p>Day12</p></td>
+<td><p>7月5日</p></td>
+<td><p>奇数</p></td>
+<td><p>偶数</p></td>
+</tr>
+<tr class="row-even"><td><p>Day13</p></td>
+<td><p>7月12日</p></td>
+<td><p>偶数</p></td>
+<td><p>奇数</p></td>
+</tr>
+<tr class="row-odd"><td><p>Day14</p></td>
+<td><p>7月19日</p></td>
+<td><p>奇数</p></td>
+<td><p>偶数</p></td>
+</tr>
+<tr class="row-even"><td><p>Day15</p></td>
+<td><p>7月26日</p></td>
+<td><p>-</p></td>
+<td><p>奇数&amp;偶数</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>事前準備 （在宅）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>2021年度はRaspberryPiについてはセットアップ済のイメージをこちらで用意します．</p>
+<p>実験ガイダンス時に機材一式を配布しますので，初回までに環境構築と動作確認を済ませておいてください．（必ず実験ガイダンスに参加すること！）</p>
+<p><a class="reference internal" href="preparation/preparation.html"><span class="doc std std-doc">環境構築および動作確認</span></a></p>
+<!-- ~\* [Raspbian環境のダウンロード](https://exp1.inf.shizuoka.ac.jp/Raspbian%E7%92%B0%E5%A2%83%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89 "Raspbian環境のダウンロード")~
+
+-   [VNCクライアントのインストール](https://exp1.inf.shizuoka.ac.jp/VNC%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB "VNCクライアントのインストール")
+-   RaspberryPiの準備
+
+~\*\*a) [RaspberryPiのセットアップ](https://exp1.inf.shizuoka.ac.jp/RaspberryPi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97 "RaspberryPiのセットアップ")~ ~\*\*b) [VNC接続](https://exp1.inf.shizuoka.ac.jp/VNC%E6%8E%A5%E7%B6%9A "VNC接続")~ ~\*\*c) [SSH接続](https://exp1.inf.shizuoka.ac.jp/SSH%E6%8E%A5%E7%B6%9A "SSH接続")~ ~\*\*d) [日本語入力環境](https://exp1.inf.shizuoka.ac.jp/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B%E7%92%B0%E5%A2%83 "日本語入力環境")（必要な人のみ）~
+
+-   [Virtual BoxとVMの準備](https://exp1.inf.shizuoka.ac.jp/Virtual_Box%E3%81%A8VM%E3%81%AE%E6%BA%96%E5%82%99 "Virtual BoxとVMの準備")
+-   [Teamsの準備](https://exp1.inf.shizuoka.ac.jp/Teams%E3%81%AE%E6%BA%96%E5%82%99 "Teamsの準備") -->
+<div class="section" id="id2">
+<h3>出席と進捗状況の確認について<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>毎回の演習時間の最初と最後に，スタッフが各班に出席および進捗状況を確認しに伺います（オンラインの場合はTeams等を使います）．</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>第一部 ソケットプログラミング<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>[4月13日] 環境構築と実験の開始<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/RaspberryPi%E3%81%AE%E6%8E%A5%E7%B6%9A%EF%BC%88%E5%9B%BA%E5%AE%9AIP%EF%BC%89">RaspberryPiの接続（固定IP）</a></p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%80%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第一部レポート</a>（初版提出: 5/8（土）23:59，最終版提出: 5/15（土）23:59）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>13:30: RaspberryPiを起動できましたか？</p></li>
+<li><p>14:30: RaspberryPiにPCからVNC接続できましたか？</p></li>
+<li><p>15:00: RaspberryPiにPCからファイルを転送できましたか？</p></li>
+<li><p>15:30: RaspberryPiにVMからSSH接続できましたか？</p></li>
+<li><p>16:00: VM上のLinuxにPCからファイルを転送できましたか？</p>
+<ul>
+<li><p>問題なく設定できた場合はそのまま次回の内容に進んでください．</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>[4月20日] 通信性能の計測<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%80%8C%E9%80%9A%E4%BF%A1%E6%80%A7%E8%83%BD%E3%81%AE%E8%A8%88%E6%B8%AC%E3%80%8D%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%85%A5%E5%87%BA%E5%8A%9B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">ファイル入出力プログラミング</a></p></li>
+<li><p>b) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%85%A5%E5%87%BA%E5%8A%9B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">ネットワーク入出力プログラミング</a></p></li>
+<li><p>c) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E5%85%A5%E5%87%BA%E5%8A%9B%E6%80%A7%E8%83%BD%E3%81%AE%E8%A8%88%E6%B8%AC">入出力性能の計測</a>（必須課題）</p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%80%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第一部レポート</a>（初版提出: 5/8（土）23:59，最終版提出: 5/15（土）23:59）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>13:30: 必須A課題1～6を進められましたか？</p></li>
+<li><p>14:00: 必須B課題7～10を進められましたか？</p></li>
+<li><p>15:00: バッファサイズを変更する前の入出力性能，並びにバッファサイズを変更した後の入出力性能は計測・記録できましたか？</p>
+<ul>
+<li><p>ファイルコピー性能</p></li>
+<li><p>通信性能</p></li>
+</ul>
+</li>
+<li><p>16:00: バッファサイズの変更による通信性能の変化について，なぜそのような変化となるのかについての原因の仮説を立てた上で，その仮説を支持する証拠を見つける実験を行えましたか？</p></li>
+<li><p>17:00: 本日の内容をレポートにまとめることができましたか？</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>[4月27日] 多対多接続の設計・実装<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%80%8C%E5%A4%9A%E5%AF%BE%E5%A4%9A%E6%8E%A5%E7%B6%9A%E3%81%AE%E8%A8%AD%E8%A8%88%E3%83%BB%E5%AE%9F%E8%A3%85%E3%80%8D%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) サーバプログラムの多重化</p></li>
+<li><p>a1) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/select_%E9%96%A2%E6%95%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%A4%9A%E9%87%8D%E5%8C%96">select 関数による多重化</a></p></li>
+<li><p>a2) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%9E%E3%83%AB%E3%83%81%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E3%81%AB%E3%82%88%E3%82%8B%E5%A4%9A%E9%87%8D%E5%8C%96">マルチスレッドによる多重化</a></p></li>
+<li><p>a3) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%9E%E3%83%AB%E3%83%81%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%AB%E3%82%88%E3%82%8B%E5%A4%9A%E9%87%8D%E5%8C%96">マルチプロセスによる多重化</a></p></li>
+<li><p>b) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%99%E3%83%B3%E3%83%81%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E8%A8%AD%E8%A8%88%E3%81%A8%E5%AE%9F%E8%A3%85">ベンチマークプログラムの設計と実装</a></p></li>
+<li><p>c) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E6%80%A7%E8%83%BD%E8%A8%88%E6%B8%AC">性能計測</a> (必須課題)</p></li>
+<li><p>d) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E9%9D%9E%E5%90%8C%E6%9C%9FI/O%E3%81%AB%E3%82%88%E3%82%8B%E5%A4%9A%E9%87%8D%E5%8C%96">非同期I/Oによる多重化</a> (発展課題)</p></li>
+<li><p>d1) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/libevent%E3%81%AB%E3%82%88%E3%82%8B%E5%A4%9A%E9%87%8D%E5%8C%96">libeventによる多重化</a></p></li>
+<li><p>d2) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/libuv%E3%81%AB%E3%82%88%E3%82%8B%E5%A4%9A%E9%87%8D%E5%8C%96">libuvによる多重化</a></p></li>
+<li><p>d3) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/epoll%E3%81%AB%E3%82%88%E3%82%8B%E5%A4%9A%E9%87%8D%E5%8C%96">epollによる多重化</a></p></li>
+<li><p>e) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E9%80%9A%E4%BF%A1%E5%A4%B1%E6%95%97%E3%81%AE%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90">通信失敗の原因分析</a> (発展課題)</p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%80%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第一部レポート</a>（初版提出: 5/8（土）23:59，最終版提出: 5/15（土）23:59）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>13:30: 多重化したサーバプログラムの動作を確認できましたか？</p></li>
+<li><p>14:00: ベンチマークプログラムの動作を確認できましたか？</p></li>
+<li><p>15:00: 仮説を立てて性能計測を実施しましたか？</p></li>
+<li><p>16:00: 仮説と性能計測結果との関係をレポートに向けて整理できましたか？</p></li>
+<li><p>17:00: 本日の内容をレポートにまとめることができましたか？</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>[5月11日] 第一部レポートピアレビュー<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%80%8C%E7%AC%AC%E4%B8%80%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%83%94%E3%82%A2%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%80%8D%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%94%E3%82%A2%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC">ピアレビュー</a></p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%80%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第一部レポート</a>（初版提出: 5/8（土）23:59，最終版提出: 5/15（土）23:59）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>14:00: ピアレビューを実施しましたか？</p></li>
+<li><p>15:00: それぞれどこを修正すべきか議論しましたか？</p></li>
+<li><p>16:00: 再実験するなど修正すべき箇所を更新できましたか？</p></li>
+<li><p>17:00: 第一部レポート（最終版）完成の目途はたちましたか？</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="web">
+<h2>第二部 Webサーバの実装<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="simple-http">
+<h3>[5月18日] 個別レポートコメント，Simple HTTPサーバの構築<a class="headerlink" href="#simple-http" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day6%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Raspberry_Pi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">Raspberry Piのセットアップ</a></p></li>
+<li><p>b) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Simple_HTTP%E3%82%B5%E3%83%BC%E3%83%90%E3%81%AE%E5%AE%9F%E8%A3%85">Simple HTTPサーバの実装</a></p></li>
+<li><p>c) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/HTTP%E3%83%99%E3%83%B3%E3%83%81%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E5%AE%9F%E8%A3%85">HTTPベンチマークプログラムの実装</a>（必須）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>14:00: Raspberry Piのセットアップは終わりましたか？</p></li>
+<li><p>15:00: Simple HTTPサーバとHTTPベンチマークプログラムは動きましたか？</p></li>
+<li><p>17:00: グループ内でお互いのサーバへ負荷試験を行い結果について議論しましたか？</p>
+<ul>
+<li><p>Simple HTTPサーバの性能計測</p></li>
+<li><p>Simple HTTPサーバの性能に関する考察</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="http-1">
+<h3>[5月25日] HTTPサーバの高機能化(1)<a class="headerlink" href="#http-1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day7%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E9%81%94%E6%88%90%E5%9F%BA%E6%BA%96">第二部達成基準</a></p></li>
+<li><p>b) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E8%A4%87%E6%95%B0%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E5%AF%BE%E5%BF%9C">複数クライアント対応</a>（必須）</p></li>
+<li><p>c) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%9B%E3%83%BC%E3%83%AB">セキュリティホール</a>（必須＋発展）</p></li>
+<li><p>d) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/HTTP%E3%82%B5%E3%83%BC%E3%83%90%E6%A9%9F%E8%83%BD%E6%8B%A1%E5%BC%B5">HTTPサーバ機能拡張</a>（選択）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>13:15: 第二部の達成基準を理解しグループ内で役割分担を話し合いましたか？</p></li>
+<li><p>15:00: 複数クライアント対応（必須）の全てを実装しテストできましたか？</p>
+<ul>
+<li><p>select, fork, pthread, Apache</p></li>
+<li><p>簡易性能比較</p></li>
+</ul>
+</li>
+<li><p>16:30: セキュリティホール（必須）の全てを実装し動作を確認しましたか？</p></li>
+<li><p>17:00: 選択課題や発展課題への挑戦スケジュールを相談しましたか？</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="http-2">
+<h3>[6月1日] HTTPサーバの高機能化(2)<a class="headerlink" href="#http-2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day8%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%A7%E8%A9%B0%E3%81%BE%E3%81%A3%E3%81%9F%E6%99%82%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95">第二部の実装で詰まった時の対処法</a></p></li>
+<li><p>b) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%8F%82%E8%80%83%E6%9B%B8%E7%B1%8D">第二部参考書籍</a></p></li>
+<li><p>c) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E7%99%BA%E8%A1%A8%E4%BC%9A">第二部グループ発表会</a>に向けた準備</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>14:00: 進捗状況をグループメンバーでお互いに報告し合い，本日の進め方について十分意識共有できましたか？</p></li>
+<li><p>15:00: 第二部の必須課題は全員しっかり理解できましたか？</p></li>
+<li><p>16:00: 第二部の選択課題や発展課題のどれに誰が取り組むか決めましたか？</p></li>
+<li><p>17:00: 発表資料の分担方法やスケジュールについて十分話し合って決めましたか？</p>
+<ul>
+<li><p>【グループ発表PPT〆 6/8（火）12:00】</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>[6月8日] グループレビュー，第二部グループ発表会<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day9%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC">グループレビュー</a></p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E7%99%BA%E8%A1%A8%E4%BC%9A">第二部グループ発表会</a></p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第二部レポート</a>（初版提出: 6/12（土）23:59，最終版提出: 6/19（土）23:59）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>14:00: 各班の発表資料を眺めて投票を済ませましたか？</p></li>
+<li><p>15:00: 他の班の発表内容や発表方法など参考になる部分を糧にしていますか？</p></li>
+<li><p>16:00: 他の班の発表内容を踏まえて第二部レポート内容の改良や追加実装＆追評価を考えてますか？</p></li>
+<li><p>17:00: 第二部レポートの各自担当部分を，どのように他班と差別化し各自レポートに整理するか議論しあいましたか？</p>
+<ul>
+<li><p>【個別：第二部レポート（初版）〆 6/12（土）23:59】</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>[6月15日] 第二部レポートピアレビュー<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day10%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%94%E3%82%A2%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC">ピアレビュー</a></p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第二部レポート</a>（初版提出: 6/12（土）23:59，最終版提出: 6/19（土）23:59）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>14:00: ピアレビューを実施しましたか？</p></li>
+<li><p>15:00: それぞれどこを修正すべきか議論しましたか？</p></li>
+<li><p>16:00: 再実験するなど修正すべき箇所を更新できましたか？</p></li>
+<li><p>17:00: 第二部レポート（最終版）完成の目途はたちましたか？</p>
+<ul>
+<li><p>【個別：第二部レポート（最終版）〆 6/19（土）23:59】</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>第三部 Webシステムの性能<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>[6月22日] Webシステムの基礎<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day11%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%89%E9%83%A8%E3%81%AE%E6%BA%96%E5%82%99">第三部の準備</a></p></li>
+<li><p>b) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Web%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%9F%BA%E7%A4%8E">Webシステムの基礎</a>（発展）</p></li>
+<li><p>c) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0(PHP)">サンプルプログラム(PHP)</a></p></li>
+<li><p>d) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0(JavaScript)">サンプルプログラム(JavaScript)</a></p></li>
+<li><p>e) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%99%E3%83%B3%E3%83%81%E3%83%9E%E3%83%BC%E3%82%AF%E3%82%BD%E3%83%95%E3%83%88ab%EF%BC%88Apache_Bench%EF%BC%89">ベンチマークソフトab（Apache Bench）</a>（必須）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>14:00: 第三部に必要な環境は正常に動作していますか？</p></li>
+<li><p>15:00: node.jsのHTTPサーバは動きましたか？</p></li>
+<li><p>16:00: サンプルプログラム２つ（PHP，JavaScript）とも動きましたか？</p></li>
+<li><p>17:00: サンプルプログラムの違いが何であるか，キャプチャしたトラフィックを用いて班内で議論し合いましたか？</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>[6月29日] Webシステムの設計と実装<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day12%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/DBMS%E3%81%A8%E3%81%AE%E6%8E%A5%E7%B6%9A">DBMSとの接続</a>（必須）</p></li>
+<li><p>b) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A9%B3%E7%B4%B0">最終課題の詳細</a></p></li>
+<li><p>c) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%89%E9%83%A8%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E7%99%BA%E8%A1%A8%E4%BC%9A">第三部グループ発表会</a></p></li>
+<li><p>d) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%89%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第三部レポート</a>（最終版提出: 8/7（土）23:59）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>14:00: PHPからDBMSへアクセスできるようになりましたか？</p></li>
+<li><p>15:00: 「可(C)」レベルの実装ができましたか？</p></li>
+<li><p>16:00: 「良(B)」or 「優(A)」レベルの実装ができましたか？</p></li>
+<li><p>17:00: 各自の実装の性能を分析しボトルネックが分かりましたか？</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>[7月6日] ベンチマークと分析<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day13%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p>a) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Apache_MPM%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Apache MPMについて</a></p></li>
+<li><p>b) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E5%AE%9F%E8%A3%85%E3%81%AE%E5%8F%82%E8%80%83%E3%81%A8%E3%81%AA%E3%82%8B%E3%83%AA%E3%83%B3%E3%82%AF%E9%9B%86">実装の参考となるリンク集</a></p></li>
+<li><p>c) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/WebSocket%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">WebSocketについて</a></p></li>
+<li><p>d) <a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E6%A4%9C%E8%A8%8E%E7%8A%B6%E6%B3%81%E3%81%AE%E7%A2%BA%E8%AA%8D">検討状況の確認</a>（必須）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>14:00: 第三部の達成基準を理解しグループ内で役割分担を話し合いましたか？</p></li>
+<li><p>15:00: 基礎課題と応用課題への挑戦スケジュールを相談しましたか？</p></li>
+<li><p>17:00: 各課題の結果と問題点を班内で議論し合いましたか？</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>[7月13日 / 7月20日] パフォーマンスチューニング<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day14%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%89%E9%83%A8%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E7%99%BA%E8%A1%A8%E4%BC%9A">第三部グループ発表会</a>の準備（実施日：7月27日）</p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%89%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第三部レポート</a>（最終版提出: 8/7（土）23:59）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>14:00: 進捗状況をグループメンバーでお互いに報告し合い，本日の進め方について十分意識共有できましたか？</p></li>
+<li><p>15:00: 第三部の基礎課題は全員しっかり理解できましたか？</p></li>
+<li><p>16:00: 第三部の応用課題の進捗状況を班内で共有しましたか？</p></li>
+<li><p>17:00: 発表資料作成の分担方法・スケジュールについて十分話し合って決めましたか？</p>
+<ul>
+<li><p>【グループ発表ポスターPPT中間提出〆 7/20（火）23:59→ fsに提出】</p></li>
+<li><p>【グループ発表ポスターPPT〆 7/27（火）12:00→ fsに提出】</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id15">
+<h3>[7月27日] グループレビュー，第三部グループ発表会<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Day15%E3%81%AE%E7%9B%AE%E7%9A%84%E3%81%A8%E6%A6%82%E8%A6%81">目的と概要</a></p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E6%9C%80%E7%B5%82%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E7%99%BA%E8%A1%A8%E4%BC%9A">最終グループ発表会</a>（本日）</p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%89%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第三部レポート</a>（最終版提出: 8/7（土）23:59）</p></li>
+</ul>
+<div class="admonition- admonition">
+<p class="admonition-title">本日の進捗確認チェックリスト</p>
+<ul class="simple">
+<li><p>12:45: 発表の準備は完了しましたか？</p></li>
+<li><p>17:00: 実験機材のクリーンアップと解体をいつ実施し誰がメール報告するか決めて，リーダはメールで連絡しましたか？</p>
+<ul>
+<li><p>【個別：第三部レポート（最終版）〆 8/7（火）23:59】</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>実験終了後（必須）<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="end/cleanup.html"><span class="doc std std-doc">実験機材のクリーンアップと解体</span></a>　※必須課題</p></li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h2>その他<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h3>トラブルシューティング<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="trouble_shooting/question.html"><span class="doc std std-doc">質問の行い方</span></a></p></li>
+<li><p><a class="reference internal" href="trouble_shooting/trouble.html"><span class="doc std std-doc">よくあるトラブル</span></a></p></li>
+<li><p><a class="reference internal" href="trouble_shooting/uninstall.html"><span class="doc std std-doc">各アプリケーションのアンインストール方法</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3>スタッフ向け情報<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="staff/procedure.html"><span class="doc std std-doc">内部向け:各回の進め方</span></a></p></li>
+<li><p><a class="reference internal" href="staff/memo.html"><span class="doc std std-doc">内部向け:備忘録(次年度への引継ぎメモ)</span></a></p></li>
+</ul>
+<!-- -   [内部向け:各回の進め方](https://exp1.inf.shizuoka.ac.jp/%E5%86%85%E9%83%A8%E5%90%91%E3%81%91:%E5%90%84%E5%9B%9E%E3%81%AE%E9%80%B2%E3%82%81%E6%96%B9 "内部向け:各回の進め方")
+-   [内部向け:備忘録(次年度への引継ぎメモ)](https://exp1.inf.shizuoka.ac.jp/%E5%86%85%E9%83%A8%E5%90%91%E3%81%91:%E5%82%99%E5%BF%98%E9%8C%B2(%E6%AC%A1%E5%B9%B4%E5%BA%A6%E3%81%B8%E3%81%AE%E5%BC%95%E7%B6%99%E3%81%8E%E3%83%A1%E3%83%A2) "内部向け:備忘録(次年度への引継ぎメモ)") -->
+</div>
+<div class="section" id="id20">
+<h3>過去のページ<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Home">2017-21年度</a></p></li>
+<li><p><a class="reference external" href="http://exp1.inf.shizuoka.ac.jp/index.php?title=Home&amp;oldid=875">2015-6年度</a></p></li>
+<li><p><a class="reference external" href="http://www.minelab.jp/NWprog-CSexp1/2014/">2014年度</a></p></li>
+<li><p><a class="reference external" href="http://www.minelab.jp/NWprog-CSexp1/2013/">2013年度</a></p></li>
+</ul>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="preparation/preparation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">環境構築</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Ohki Lab<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
