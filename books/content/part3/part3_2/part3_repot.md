@@ -281,7 +281,7 @@ IllustratorやPowerPointなどのドローソフトとルータ等の機材の�
     -   対数表示の利用も選択肢のひとつです．
         -   MS Excelの場合は軸の書式設定で「対数目盛を表示する」をチェックします．
 
-![graph.jpg](../../../images/part3/part3_1/graph.jpeg)
+![graph.jpg](../../../images/part3/part3_2/graph.jpeg)
 
 ## 参考文献
 
