@@ -13,32 +13,133 @@ parts:
   # 第一部
   - caption: 第一部 ソケットプログラミング
     chapters:
-      # - file: content/part1/part1_1/overview
-      #   title: 環境構築と実験の開始
-      #   sections:
-      #   - file: content/part1/part1_1/connect_raspberry
-      #     title: RaspberryPiの接続（固定IP）
+      - file: content/part1/part1_1/overview
+        title: 環境構築と実験の開始
+        sections:
+        - file: content/part1/part1_1/connect_raspberry
+          title: RaspberryPiの接続（固定IP）
       
-      # - file: content/part1/part1_2/overview
-      #   title: 通信性能の計測
-      #   sections:
-      #   - file: content/part1/part1_2/file_IO_programming
-      #     title: ファイル入出力プログラミング
-      #   - file: content/part1/part1_2/network_IO_programming
-      #     title: ネットワーク入出力プログラミング
-      #   - file: content/part1/part1_2/measurement_IO_performance
-      #     title: 入出力性能の計測（必須課題）
+      - file: content/part1/part1_2/overview
+        title: 通信性能の計測
+        sections:
+        - file: content/part1/part1_2/file_IO_programming
+          title: ファイル入出力プログラミング
+        - file: content/part1/part1_2/network_IO_programming
+          title: ネットワーク入出力プログラミング
+        - file: content/part1/part1_2/measurement_IO_performance
+          title: 入出力性能の計測（必須課題）
       
-      # - file: content/part1/part1_3/overview
-      #   title: 多対多接続の設計・実装
+      - file: content/part1/part1_3/overview
+        title: 多対多接続の設計・実装
         
-      # - file: content/part1/part1_4/overview
-      #   title: 第一部レポートピアレビュー
-      #   sections:
-      #   - file: content/part1/part1_4/peer_review
-      #     title: ピアレビュー
-      #   - file: content/part1/report/report
-      #     title: 第一部レポート
+      - file: content/part1/part1_4/overview
+        title: 第一部レポートピアレビュー
+        sections:
+        - file: content/part1/part1_4/peer_review
+          title: ピアレビュー
+
+      - file: content/part1/report/report
+        title: 第一部レポート
+
+  # 第二部
+  - caption: 第二部 Webサーバの実装
+    chapters:
+      - file: content/part2/part2_1/day6objective
+        title: Simple HTTPサーバの構築
+        sections:
+        - file: content/part2/part2_1/raspberrypi_setup
+          title: Raspberry Piのセットアップ
+        - file: content/part2/part2_1/simplehttpserver
+          title: Simple HTTPサーバの実装
+        - file: content/part2/part2_1/httpbenchmark
+          title: HTTPベンチマークプログラムの実装（必須）
+      
+      - file: content/part2/part2_2/day7objective
+        title: HTTPサーバの高機能化(1)
+        sections: 
+        - file: content/part2/part2_2/standardforachievement
+          title: 第二部達成基準
+        - file: content/part2/part2_2/multipleclient
+          title: 複数クライアント対応（必須）
+        - file: content/part2/part2_2/securityhole
+          title: セキュリティホール（必須+発展）
+        - file: content/part2/part2_2/httpserver_expansion
+          title: HTTPサーバ機能拡張（選択）
+      
+      - file: content/part2/part2_3/day8objective
+        title: HTTPサーバの高機能化(2)
+        sections:
+        - file: content/part2/part2_3/introuble
+          title: 第二部の実装で詰まった時の対処法
+        - file: content/part2/part2_3/referencebook
+          title: 第二部参考書籍
+
+      - file: content/part2/part2_4/day9objective
+        title: 第二部グループ発表会
+        sections:
+        - file: content/part2/part2_4/groupreview
+          title: グループレビュー
+        - file: content/part2/part2_4/grouppresentation
+          title: 第二部グループ発表会
+
+      - file: content/part2/part2_5/day10objective
+        title: 第二部レポートピアレビュー
+        sections:
+        - file: content/part2/part2_5/peerreview
+          title: ピアレビュー
+
+      - file: content/part2/report/report
+        title: 第二部レポート
+
+  # # 第三部
+  # - caption: 第二部 Webサーバの実装
+  #   chapters:
+  #     - file:
+  #       title: Webシステムの基礎
+  #       section:
+  #       - file: 
+  #         title: 第三部の準備
+  #       - file: 
+  #         title: Webシステムの基礎（発展）
+  #       - file: 
+  #         title: サンプルプログラム(PHP)
+  #       - file: 
+  #         title: サンプルプログラム(JavaScript)
+  #       - file: 
+  #         title: ベンチマークソフトab（Apache Bench）（必須）
+
+  #     - file:
+  #       title: Webシステムの設計と実装
+  #       section:
+  #       - file: 
+  #         title: DBMSとの接続（必須）
+  #       - file: 
+  #         title: 最終課題の詳細
+
+  #     - file:
+  #       title: ベンチマークと分析
+  #       section:
+  #       - file: 
+  #         title: Apache MPMについて
+  #       - file:
+  #         title: 実装の参考となるリンク集
+  #       - file:
+  #         title: WebSocketについて
+  #       - file:
+  #         title: 検討状況の確認（必須）
+
+  #     - file:
+  #       title: パフォーマンスチューニング
+  #       section:
+
+  #     - file:
+  #       title: 第三部グループ発表会
+  #       section:
+  #       - file:
+  #         title: 第三部グループ発表会
+
+  #     - file: content/part3/report/report
+  #       title: 第三部レポート
 
   # 実験終了後の作業
   - caption: 実験終了後（必須）
