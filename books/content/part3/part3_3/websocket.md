@@ -70,7 +70,7 @@ $ node chat.js                   # <--- サーバ用スクリプトchat.jsの起
 
 これで準備が整いましたので，Webブラウザでchat.htmlへアクセスしてみてください．チャットプログラムですので，Webブラウザを複数起動させたり複数人で試してみたりしてください．以下のようにチャットできれば成功です．ちなみに**Internetへ接続していないと正常に動作しません**のでご注意ください（chat.htmlの5行目でajax.googleapiを参照してますので）．
 
-![chat.jpg](../../../images/part3/part3_3/chat.jpeg.crdownload)
+![chat.jpg](../../../images/part3/part3_3/chat.jpeg)
 
 
 以下にソースコードと解説を載せますので，このチャットプログラムがどう実装されているのか理解してみてください．
