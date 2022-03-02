@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple HTTPサーバの実装 &#8212; 情報科学実験Ⅰ</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">情報科学実験Ⅰ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   情報科学実験Ⅰ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  事前準備（在宅）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preparation/preparation.html">
+   環境構築および動作確認
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第一部 ソケットプログラミング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../markdown.html">
+   環境構築とプロトコル解析
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     通信性能の計測
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  実験終了後（必須）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../end/cleanup.html">
+   実験機材のクリーンアップと解体
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  トラブルシューティング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/question.html">
+   質問の行い方
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/trouble.html">
+   よくあるトラブル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/uninstall.html">
+   各アプリケーションのアンインストール方法
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/part2/part2_1/simplehttpserver.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_1/simplehttpserver.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   はじめに
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   ソースコード解説
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#main">
+     main()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-http-session">
+     exp1_http_session()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-parse-status">
+     exp1_parse_status()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-check-file">
+     exp1_check_file()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-http-reply">
+     exp1_http_reply()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-send-404">
+     exp1_send_404()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-send-file">
+     exp1_send_file()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-h">
+     exp1.h
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   実行方法
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   おわりに
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Simple HTTPサーバの実装</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   はじめに
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   ソースコード解説
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#main">
+     main()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-http-session">
+     exp1_http_session()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-parse-status">
+     exp1_parse_status()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-check-file">
+     exp1_check_file()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-http-reply">
+     exp1_http_reply()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-send-404">
+     exp1_send_404()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-send-file">
+     exp1_send_file()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-h">
+     exp1.h
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   実行方法
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   おわりに
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="simple-http">
+<h1>Simple HTTPサーバの実装<a class="headerlink" href="#simple-http" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>最も単純なWebサーバとして，まずは以下に示す仕様の Simple HTTPサーバを実装します．</p>
+<ul class="simple">
+<li><p>GET に応答できること</p></li>
+<li><p>Keep-Alive はサポートしない</p></li>
+<li><p>Content-Typeは，HTMLとJPGのみサポートすること</p></li>
+<li><p>1回に1セッションのみ応答できればよい</p></li>
+</ul>
+<p>グループワークの課題に直結しますので，必ず各個人で動作させられるようにしてください．</p>
+<p>これまでと同様に，「exp1_」という接頭語のついている関数は本実験用に作成するものです．</p>
+<p>「exp1_」という接頭語の付いていない関数は，C言語の標準ライブラリ関数となりますので，manコマンドやGoogle先生で調べてみてください．</p>
+<p>以下に示すソースコードを実装し，各自でSimple HTTPサーバを動作させてみてください．</p>
+<p>ソースコードの簡単な解説も載せましたが，よく分からない部分はグループ内で相談し十分理解し合うようにしてください．</p>
+</div>
+<div class="section" id="id2">
+<h2>ソースコード解説<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>第一部で使用したソースコードと，以下の関数を組み合わせて Simple HTTPサーバを実装します．</p>
+<div class="section" id="main">
+<h3>main()<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h3>
+<p>まずはmain()関数から概説します．</p>
+<p>各自で動作を確認してほしいので，xxxxx という部分は各自の学籍番号の下5桁を記述してください．</p>
+<p>クライアントから接続要求が届いたら，以下を while(1) で無限に繰り返すという単純なプログラムです．</p>
+<ul class="simple">
+<li><p>exp1_http_session() というセッション処理のための実験I用関数に渡す</p></li>
+<li><p>exp1_http_session() の処理が終わったらアクセプトしたディスクリプタを正常終了し次の接続処理へ</p></li>
+</ul>
+<p>複数クライアントからの接続要求に対応できるようになっていませんし，特に処理内容の高速化も意識していない単純なものとなります．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nb">int</span> <span class="n">sock_listen</span><span class="p">;</span>
+
+  <span class="n">sock_listen</span> <span class="o">=</span> <span class="n">exp1_tcp_listen</span><span class="p">(</span><span class="n">xxxxx</span><span class="p">);</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+    <span class="n">struct</span> <span class="n">sockaddr</span> <span class="n">addr</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">sock_client</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="nb">len</span><span class="p">;</span>
+
+    <span class="n">sock_client</span> <span class="o">=</span> <span class="n">accept</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="p">(</span><span class="n">socklen_t</span><span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="nb">len</span><span class="p">);</span>
+    <span class="n">exp1_http_session</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span>
+
+    <span class="n">shutdown</span><span class="p">(</span><span class="n">sock_client</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>※ sock_listen はクライアントからの接続要求待ち受け用のディスクリプタ，sock_clientはクライアントとのHTTPデータ通信用のディスクリプタですので，無限ループ内で閉じているディスクリプタがどちらか注意してください．</p>
+</div>
+<div class="section" id="exp1-http-session">
+<h3>exp1_http_session()<a class="headerlink" href="#exp1-http-session" title="Permalink to this headline">¶</a></h3>
+<p>main()で実行する<a class="reference external" href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a>セッションに関する中心的な処理を記述している関数になります．</p>
+<p>具体的には以下のような処理を行っています．</p>
+<ul class="simple">
+<li><p>クライアントからデータを受信（ここではまず最初にHTTPリクエストを受信することになります）</p></li>
+<li><p>クライアントから受信したデータにおけるヘッダ部分を分解（exp1_parse_header()にて）し，抽出された情報をexp1_info_type構造体で宣言された変数 <strong>info</strong> へ格納</p></li>
+<li><p>抽出された情報infoを元にクライアントへ返すHTTPリプライを生成し返送（exp1_http_reply()にて）</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">exp1_http_session</span><span class="p">(</span><span class="nb">int</span> <span class="n">sock</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">2048</span><span class="p">];</span>
+  <span class="nb">int</span> <span class="n">recv_size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">exp1_info_type</span> <span class="n">info</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="nb">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span> <span class="o">+</span> <span class="n">recv_size</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">size</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">recv_size</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">exp1_parse_header</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">recv_size</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">info</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">exp1_http_reply</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">info</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>ここで，<strong>exp1_info_type構造体</strong> は以下のように宣言されています．以下では，最低限の情報のみしか管理してませんので，今後，Simple HTTPサーバを機能拡張し，様々な<a class="reference external" href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP.E3.83.A1.E3.83.83.E3.82.BB.E3.83.BC.E3.82.B8">HTTPメッセージ</a>を返信できるようにしていく際には，この構造体を拡張していくと楽と思います．</p>
+<ul class="simple">
+<li><p>cmd (HTTPリクエスト内の<a class="reference external" href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#.E3.83.A1.E3.82.BD.E3.83.83.E3.83.89">HTTPメソッド</a>用：GETやPOSTなど)</p></li>
+<li><p>path (HTTPリクエスト内のURI情報用)</p></li>
+<li><p>real_path (リクエスト対象の実体へのパス情報用)</p></li>
+<li><p>type (HTTPリプライにおけるContent-Typeフィールド用：test/htmlやimage/jpegなど)</p></li>
+<li><p>code (HTTPリプライにおける<a class="reference external" href="https://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">HTTPステータスコード</a>用)</p></li>
+<li><p>size（HTTPリプライにおけるContent-Lengthフィールド用）</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span>
+<span class="p">{</span>
+  <span class="n">char</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+  <span class="n">char</span> <span class="n">path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+  <span class="n">char</span> <span class="n">real_path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+  <span class="n">char</span> <span class="nb">type</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+  <span class="nb">int</span> <span class="n">code</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">size</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">exp1_info_type</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>クライアントからの<a class="reference external" href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP.E3.83.A1.E3.83.83.E3.82.BB.E3.83.BC.E3.82.B8">HTTPリクエスト</a>（例：GET / HTTP/1.0）をパース（構文解析）する関数です．</p>
+<p>現時点では，HTTPリクエストの1行目のみを抽出するステートマシン（状態機械）になっています．</p>
+<p>1行目を抽出（PARSE_STATUSかつ’\r’（復帰）でない間）したら，exp1_parse_status()へその行の情報（status（例：GET / HTTP/1.0））を渡します．</p>
+<p>exp1_parse_status()では，HTTPリクエストの1行目に含まれるHTTPメソッドのcmd（例：GET）やURI情報のpath（例：/）といった基本的な情報を <strong>info</strong> へ格納します．</p>
+<p>格納されたinfoをexp1_check_file()へ渡して，リクエスト対象の実体へのパス情報やHTTPリプライで返す具体的な情報を <strong>info</strong> へ追加格納します．</p>
+<p>HTTPリクエストをより詳細に解析させたい場合は，この関数を拡張していくと楽と思います．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">exp1_parse_header</span><span class="p">(</span><span class="n">char</span><span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="nb">int</span> <span class="n">size</span><span class="p">,</span> <span class="n">exp1_info_type</span><span class="o">*</span> <span class="n">info</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">char</span> <span class="n">status</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+  <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+  <span class="n">enum</span> <span class="n">state_type</span>
+  <span class="p">{</span>
+    <span class="n">PARSE_STATUS</span><span class="p">,</span>
+    <span class="n">PARSE_END</span>
+  <span class="p">}</span><span class="n">state</span><span class="p">;</span>
+
+  <span class="n">state</span> <span class="o">=</span> <span class="n">PARSE_STATUS</span><span class="p">;</span>
+  <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">switch</span><span class="p">(</span><span class="n">state</span><span class="p">){</span>
+    <span class="k">case</span> <span class="n">PARSE_STATUS</span><span class="p">:</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">){</span>
+        <span class="n">status</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">;</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">PARSE_END</span><span class="p">;</span>
+        <span class="n">exp1_parse_status</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">info</span><span class="p">);</span>
+        <span class="n">exp1_check_file</span><span class="p">(</span><span class="n">info</span><span class="p">);</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="n">status</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="n">PARSE_END</span><span class="p">){</span>
+      <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exp1-parse-status">
+<h3>exp1_parse_status()<a class="headerlink" href="#exp1-parse-status" title="Permalink to this headline">¶</a></h3>
+<p>HTTPリクエスト1行目（例：GET / HTTP/1.0）を解析する関数です．</p>
+<p>HTTPリクエストの1行目に含まれるHTTPメソッドをcmd (例：GET)へ，URI情報をpath (例：/)へ，ステートマシンで抽出し <strong>info</strong> へ格納します．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_parse_status</span><span class="p">(</span><span class="n">char</span><span class="o">*</span> <span class="n">status</span><span class="p">,</span> <span class="n">exp1_info_type</span> <span class="o">*</span><span class="n">pinfo</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">char</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+  <span class="n">char</span> <span class="n">path</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+  <span class="n">char</span><span class="o">*</span> <span class="n">pext</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+  <span class="n">enum</span> <span class="n">state_type</span>
+  <span class="p">{</span>
+    <span class="n">SEARCH_CMD</span><span class="p">,</span>
+    <span class="n">SEARCH_PATH</span><span class="p">,</span>
+    <span class="n">SEARCH_END</span>
+  <span class="p">}</span><span class="n">state</span><span class="p">;</span>
+
+  <span class="n">state</span> <span class="o">=</span> <span class="n">SEARCH_CMD</span><span class="p">;</span>
+  <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strlen</span><span class="p">(</span><span class="n">status</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">switch</span><span class="p">(</span><span class="n">state</span><span class="p">){</span>
+    <span class="k">case</span> <span class="n">SEARCH_CMD</span><span class="p">:</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">){</span>
+        <span class="n">cmd</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">;</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">SEARCH_PATH</span><span class="p">;</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="n">cmd</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">SEARCH_PATH</span><span class="p">:</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">){</span>
+        <span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">;</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">SEARCH_END</span><span class="p">;</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">strcpy</span><span class="p">(</span><span class="n">pinfo</span><span class="o">-&gt;</span><span class="n">cmd</span><span class="p">,</span> <span class="n">cmd</span><span class="p">);</span>
+  <span class="n">strcpy</span><span class="p">(</span><span class="n">pinfo</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span> <span class="n">path</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exp1-check-file">
+<h3>exp1_check_file()<a class="headerlink" href="#exp1-check-file" title="Permalink to this headline">¶</a></h3>
+<p>exp1_parse_status()で得られたinfo-&gt;pathから，リクエスト対象の実体へのパス情報へ変換する関数です．</p>
+<p>ファイルやディレクトリ情報を取得可能なシステムコール <a class="reference external" href="https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html">stat()</a> を用いて，ファイルが存在するか，指定されたURI情報がディレクトリ名なのか調査し，HTTPリプライで返すべく適切な<a class="reference external" href="https://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">HTTPステータスコード</a>を <strong>info-&gt;code</strong> へ格納しています．</p>
+<p>また，リクエスト対象のファイルサイズを取得し，HTTPリプライで返すContent-Length用に <strong>info-&gt;size</strong> へ格納しておきます．</p>
+<p>最後に，info-&gt;pathの拡張子を見て，HTTPリプライで返すContent-Type用に <strong>info-&gt;type</strong> へ適切な文字列を格納しておきます．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_check_file</span><span class="p">(</span><span class="n">exp1_info_type</span> <span class="o">*</span><span class="n">info</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">struct</span> <span class="n">stat</span> <span class="n">s</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
+  <span class="n">char</span><span class="o">*</span> <span class="n">pext</span><span class="p">;</span>
+
+  <span class="n">sprintf</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span> <span class="s2">&quot;html</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">);</span>
+  <span class="n">ret</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">((</span><span class="n">s</span><span class="o">.</span><span class="n">st_mode</span> <span class="o">&amp;</span> <span class="n">S_IFMT</span><span class="p">)</span> <span class="o">==</span> <span class="n">S_IFDIR</span><span class="p">){</span>
+    <span class="n">sprintf</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/index.html&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">ret</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+    <span class="n">info</span><span class="o">-&gt;</span><span class="n">code</span> <span class="o">=</span> <span class="mi">404</span><span class="p">;</span>
+  <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+    <span class="n">info</span><span class="o">-&gt;</span><span class="n">code</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="n">info</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="n">s</span><span class="o">.</span><span class="n">st_size</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">pext</span> <span class="o">=</span> <span class="n">strstr</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">pext</span> <span class="o">!=</span> <span class="n">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">pext</span><span class="p">,</span> <span class="s2">&quot;.html&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="nb">type</span><span class="p">,</span> <span class="s2">&quot;text/html&quot;</span><span class="p">);</span>
+  <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pext</span> <span class="o">!=</span> <span class="n">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">pext</span><span class="p">,</span> <span class="s2">&quot;.jpg&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="nb">type</span><span class="p">,</span> <span class="s2">&quot;image/jpeg&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exp1-http-reply">
+<h3>exp1_http_reply()<a class="headerlink" href="#exp1-http-reply" title="Permalink to this headline">¶</a></h3>
+<p>exp1_parse_header()で抽出された <strong>info</strong> を元に，クライアントへ返すべく適切なHTTPリプライを作成し返します．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_http_reply</span><span class="p">(</span><span class="nb">int</span> <span class="n">sock</span><span class="p">,</span> <span class="n">exp1_info_type</span> <span class="o">*</span><span class="n">info</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span>
+  <span class="nb">int</span> <span class="nb">len</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">){</span>
+    <span class="n">exp1_send_404</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;404 not found </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nb">len</span> <span class="o">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s2">&quot;HTTP/1.0 200 OK</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">);</span>
+  <span class="nb">len</span> <span class="o">+=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span> <span class="o">+</span> <span class="nb">len</span><span class="p">,</span> <span class="s2">&quot;Content-Length: </span><span class="si">%d</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">);</span>
+  <span class="nb">len</span> <span class="o">+=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span> <span class="o">+</span> <span class="nb">len</span><span class="p">,</span> <span class="s2">&quot;Content-Type: </span><span class="si">%s</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="nb">type</span><span class="p">);</span>
+  <span class="nb">len</span> <span class="o">+=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span> <span class="o">+</span> <span class="nb">len</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">);</span>
+
+  <span class="n">ret</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="nb">len</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">exp1_send_file</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exp1-send-404">
+<h3>exp1_send_404()<a class="headerlink" href="#exp1-send-404" title="Permalink to this headline">¶</a></h3>
+<p>info-&gt;pathで指定されたファイルがhtmlディレクトリに存在しなかった場合（<strong>info-&gt;code</strong> へエラーコード404が入っている場合），「404 Not Found」をクライアントへ返します．</p>
+<p>このサンプルソースコードでは，ステータスコード404はクライアントへ返していますが，404ページ自体は返信してませんのでご注意ください（4XX系を実装する人は適宜作成してください）．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_send_404</span><span class="p">(</span><span class="nb">int</span> <span class="n">sock</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span>
+  <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
+
+  <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s2">&quot;HTTP/1.0 404 Not Found</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+  <span class="n">ret</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exp1-send-file">
+<h3>exp1_send_file()<a class="headerlink" href="#exp1-send-file" title="Permalink to this headline">¶</a></h3>
+<p>info-&gt;real_pathで指定されたファイルがhtmlディレクトリに存在した場合は，そのファイルをfopen()で開き，fread()で読み込める間，読み込めたデータをsend()でクライアントへ分割して返信し，読み込めなくなったらファイルをfclose()します．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_send_file</span><span class="p">(</span><span class="nb">int</span> <span class="n">sock</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span> <span class="n">filename</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">FILE</span> <span class="o">*</span><span class="n">fp</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="nb">len</span><span class="p">;</span>
+  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span>
+
+  <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">fp</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">){</span>
+    <span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nb">len</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">char</span><span class="p">),</span> <span class="mi">16384</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+  <span class="k">while</span><span class="p">(</span><span class="nb">len</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="nb">len</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+      <span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
+      <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">len</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">char</span><span class="p">),</span> <span class="mi">1460</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exp1-h">
+<h3>exp1.h<a class="headerlink" href="#exp1-h" title="Permalink to this headline">¶</a></h3>
+<p>基本的にこれまで提示したexp1.hと同じと思いますが，念のため再掲しておきます．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdint.h&gt;</span>
+<span class="c1">#include &lt;string.h&gt;</span>
+<span class="c1">#include &lt;errno.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;math.h&gt;</span>
+<span class="c1">#include &lt;unistd.h&gt;</span>
+<span class="c1">#include &lt;termios.h&gt;</span>
+<span class="c1">#include &lt;time.h&gt;</span>
+<span class="c1">#include &lt;float.h&gt;</span>
+
+<span class="c1">#include &lt;sys/socket.h&gt;</span>
+<span class="c1">#include &lt;arpa/inet.h&gt;</span>
+<span class="c1">#include &lt;sys/ioctl.h&gt;</span>
+<span class="c1">#include &lt;netdb.h&gt;</span>
+
+<span class="c1">#include &lt;fcntl.h&gt;</span>
+<span class="c1">#include &lt;sys/stat.h&gt;</span>
+<span class="c1">#include &lt;sys/types.h&gt;</span>
+<span class="c1">#include &lt;dirent.h&gt;</span>
+<span class="c1">#include &lt;signal.h&gt;</span>
+<span class="c1">#include &lt;pthread.h&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>実行方法<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>各自のアカウントでログインし，作成したSimple HTTPサーバのソースコードのあるディレクトリへ移動しコンパイルしておいてください．</p></li>
+<li><p>以下のコマンドを入力して，こちらで用意しておいたサンプルページをダウンロードし解凍しておきます．</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ wget http://exp1.inf.shizuoka.ac.jp/images/3/31/day6.zip 
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ unzip day6.zip 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>先ほどコンパイルした各自のSimple HTTPサーバのプログラムを実行します．</p></li>
+<li><p>Webブラウザで「<a class="reference external" href="http://192.168.1.101">http://192.168.1.101</a>:xxxxx」(xxxxxは学籍番号の下5桁)と入力してEnterしてみてください．「It Works!」とWebブラウザ上に表示されたら成功です．</p></li>
+<li><p>皆さんの作成したSimple HTTPサーバが正常に動作し，サンプルページとして用意した index.htmlを返してくれたことになります（index.htmlに何が書いてあるか実際に開いて確認してみてください）．</p></li>
+<li><p>test.htmlというサンプルページも作成しておきましたので「<a class="reference external" href="http://192.168.1.101">http://192.168.1.101</a>:xxxxx/test.html」も試してみてください．)</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>おわりに<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>単純なHTTPのみを処理できるSimple HTTPサーバは，正常に動作しましたか？</p>
+<p>次は，このSimple HTTPサーバの性能を評価するベンチマークプログラムを作成してみましょう．</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/part2/part2_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Ohki Lab<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

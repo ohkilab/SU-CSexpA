@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raspberry Piのセットアップ &#8212; 情報科学実験Ⅰ</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">情報科学実験Ⅰ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   情報科学実験Ⅰ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  事前準備（在宅）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preparation/preparation.html">
+   環境構築および動作確認
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第一部 ソケットプログラミング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../markdown.html">
+   環境構築とプロトコル解析
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     通信性能の計測
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  実験終了後（必須）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../end/cleanup.html">
+   実験機材のクリーンアップと解体
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  トラブルシューティング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/question.html">
+   質問の行い方
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/trouble.html">
+   よくあるトラブル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/uninstall.html">
+   各アプリケーションのアンインストール方法
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/part2/part2_1/raspberrypi_setup.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_1/raspberrypi_setup.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   各種ソフトウェアのインストールと設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     実験で利用するソフトウェアのインストール
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     ファイアーウォールの設定
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#web-apache">
+   Webサーバ(Apache)の設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     自動起動の設定
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apache">
+     Apacheの初期設定
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       ユーザディレクトリの設定
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     その他注意事項
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mysql">
+   データベースサーバ(MySQL)の設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     MySQLの起動
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     MySQLの初期設定
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#db">
+       ユーザ毎のDBを作る
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Raspberry Piのセットアップ</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   各種ソフトウェアのインストールと設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     実験で利用するソフトウェアのインストール
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     ファイアーウォールの設定
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#web-apache">
+   Webサーバ(Apache)の設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     自動起動の設定
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apache">
+     Apacheの初期設定
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       ユーザディレクトリの設定
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     その他注意事項
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mysql">
+   データベースサーバ(MySQL)の設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     MySQLの起動
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     MySQLの初期設定
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#db">
+       ユーザ毎のDBを作る
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="raspberry-pi">
+<h1>Raspberry Piのセットアップ<a class="headerlink" href="#raspberry-pi" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>各種ソフトウェアのインストールと設定<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>第二部以降で必要になるソフトウェアをインストールします．</p>
+<div class="section" id="id2">
+<h3>実験で利用するソフトウェアのインストール<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>第二部以降で必要になるソフトウェアは，Webサーバ，データベースサーバ，サーバサイドプログラミング言語処理系，サーバサイドプログラミング言語処理系からデータベースにアクセスするためのライブラリです．</p>
+<p>Raspbien では，これらのソフトウェアを apt を使ってインストールします．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install apache2 apache2-doc apache2-utils　　　　　　　　　 &lt;--- WEBサーバーのインストール
+$ sudo apt install php7.3 php7.3-mysql apache2-mod-php7.3              &lt;--- PHPのインストール
+$ sudo apt install mariadb-server mariadb-client                       &lt;--- DBのインストール
+
+</pre></div>
+</div>
+<p>PCとRaspiを有線で直接接続している場合，RaspiはPCとは接続されていますが，インターネットに接続されていません． 色々と方法はありますが，以下，いくつかある手順で可能なものを試して実行しましょう．</p>
+<ul class="simple">
+<li><p>家にWiFiがある場合（かんたん）</p>
+<ul>
+<li><p>RasPiのWiFiをONにする</p></li>
+<li><p>上記コマンドで必要なソフトウェアをインストール</p></li>
+<li><p>インストールが終わったら必ずまたWiFiをOFFにしておきましょう（実験時のトラブルの元になります）</p></li>
+</ul>
+</li>
+<li><p>モニタ・キーボード等がある場合</p>
+<ul>
+<li><p>家のルータなどに有線LANで接続，モニタ・キーボードをRaspiに接続し起動（RasPi起動前に機器を接続しておいてください）</p></li>
+<li><p>RaspiのIP設定を固定IPからDHCPへ変更する</p></li>
+<li><p>インストール</p></li>
+<li><p>RaspiのIP設定をDHCPから固定IPへ戻してから，有線LANをルータから抜いて再度ノートPCと接続</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>RasPiの固定IP設定をDHCP設定へ変更する方法（再度，固定IPに戻す際はコメントアウトを外して以下実行）
+$ sudo vi /etc/dhcpcd.conf                      &lt;---- viエディタでなくてもOK
+最下部辺りの以下の行に移動して「i」押してコマンドモードから入力モードに切り替えて以下のように２行コメントアウト
+#interface eth0
+#static ip_address=192.168.1.101/24
+
+もし以下（static ....という固定IP設定の行）も存在する場合は，それらもすべてコメントアウト
+#static routers=xxx.xxx.xxx.xxx
+#static domain_name_servers=xxx.xxx.xxx.xxx
+
+「Esc」押して入力モードからコマンドモードに戻ってから「:wq!」と入力してEnter押して強制保存しviエディタから抜ける
+$ sudo systemctl restart dhcpcd
+$ sudo systemctl restart networking
+$ ip a                      &lt;---- DHCPでIPアドレス割り振られているか確認し，Raspi上のWebブラウザでホームページ等も閲覧できればOK
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>どちらも無理な場合</p>
+<ul>
+<li><p>PCでインストール用パッケージをダウンロード（パッケージは <a class="reference external" href="https://packages.debian.org/buster/">https://packages.debian.org/buster/</a> などから探せます）</p></li>
+<li><p>SCPでパッケージを転送</p></li>
+<li><p>dpkgコマンドでインストール</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>ファイアーウォールの設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>ファイアウォールは ufw を利用して設定します．新たに Webサーバをインストールしましたので，Webサーバが利用するポート80に対して外部からアクセスできるよう設定しておきます．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ufw allow 80/tcp
+
+</pre></div>
+</div>
+<p>以下のコマンドを利用して，設定内容を確認しておきます．<a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/RaspberryPi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">第一部</a>で行った設定を合わせて，以下のようにポートが開放されているはずです．なっていない方は再度以下を設定しておいてください（最後のソフトウェアのアップデートは時間を要しますので時間のある時に実施してください）．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install ufw
+$ sudo ufw disable
+$ sudo ufw default deny
+$ sudo ufw allow 22/tcp
+$ sudo ufw allow 80/tcp
+$ sudo ufw allow 5210/tcp
+$ sudo ufw allow 5900/tcp
+$ sudo ufw allow 11111/tcp
+$ sudo ufw enable
+
+$ sudo apt update
+$ sudo apt -y upgrade
+$ sudo reboot
+
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+5201/tcp                   ALLOW       Anywhere
+5900/tcp                   ALLOW       Anywhere
+11111/tcp                  ALLOW       Anywhere
+22/tcp (v6)                ALLOW       Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
+5201/tcp (v6)              ALLOW       Anywhere (v6)
+5900/tcp (v6)              ALLOW       Anywhere (v6)
+11111/tcp (v6)             ALLOW       Anywhere (v6)
+
+</pre></div>
+</div>
+<p>（補足）IPv6を使用しない場合は /etc/default/ufw 内で IPV6=no とすると無効にすることができます</p>
+</div>
+</div>
+<div class="section" id="web-apache">
+<h2>Webサーバ(Apache)の設定<a class="headerlink" href="#web-apache" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>自動起動の設定<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>それではいよいよWebサーバを設定します．既にWebサーバ(Apache)は上記の手順でインストールしていますので，RasPi起動時に自動的にWebサーバが起動（enable）するよう設定しつつ，Webサーバを起動（start）してみます．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl enable apache2.service
+$ sudo systemctl start apache2.service
+
+</pre></div>
+</div>
+<p>それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して， <strong><a class="reference external" href="http://192.168.1.101/">http://192.168.1.101</a></strong> にアクセスしてみましょう（DHCP設定になっている人は，$ ip a 等でIPアドレスを確認して適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．</p>
+<p><img alt="raspi-apache.png" src="../../../_images/raspi-apache.png" /></p>
+<p>アクセスができませんか？できない場合はWebサーバを起動させたRasPi側のファイアーウォールの設定や，学生PCのIPアドレスがWebサーバと通信可能なIPアドレス（同じネットワークアドレスで異なるIPアドレス）となっているかどうか等を確認してみましょう．</p>
+</div>
+<div class="section" id="apache">
+<h3>Apacheの初期設定<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>ユーザディレクトリの設定<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>ここまでで確認したApache2 Debian Default PageはWebサーバ全体のページです．Webサーバ上のディレクトリでは <strong>/var/www/html</strong> に対応します（ただし，Apache2 Debian Default Pageはちょっと特殊なページで，/var/www/html に index.html がない時に自動生成されて表示されるページです）．つまり，/var/www/html に置かれたファイルが <a class="reference external" href="http://192.168.1.101/">http://192.168.1.101/</a> にアクセスした時に参照されることになります．</p>
+<p>また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定できるようになっています．例えば，<strong><a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a><strong>にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，</strong><a class="reference external" href="http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D">http://サーバ名/~アカウント名</a></strong> にアクセスした時にホームディレクトリのpublic_htmlのコンテンツを表示する機能です．具体例としては，<strong><a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a></strong> にアクセスした時に <strong>/home/ohki/public_html</strong> のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ <strong><a class="reference external" href="http://192.168.1.101/~pi/">http://192.168.1.101/~pi/</a></strong> に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．</p>
+<p><img alt="raspi-404.png" src="../../../_images/raspi-404.png" /></p>
+<p>ユーザディレクトリの設定をする前に，少しApacheの設定ディレクトリ <strong>/etc/apache2</strong> の中身をのぞいてみましょう．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls /etc/apache2
+apache2.conf    conf-enabled  magic           mods-enabled  sites-available
+conf-available  envvars       mods-available  ports.conf    sites-enabled
+
+</pre></div>
+</div>
+<p>xxx-available や xxx-enabled というディレクトリがあるのがわかりますか？ RasPiのRaspbian OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに mods-enabled の中身を見てみましょう．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -l /etc/apache2/mods-enabled/
+total 0
+lrwxrwxrwx 1 root root 36 Mar 11 15:37 access_compat.load -&gt; ../mods-available/access_compat.load
+lrwxrwxrwx 1 root root 28 Mar 11 15:37 alias.conf -&gt; ../mods-available/alias.conf
+lrwxrwxrwx 1 root root 28 Mar 11 15:37 alias.load -&gt; ../mods-available/alias.load
+...
+＜中略＞
+...
+lrwxrwxrwx 1 root root 31 Mar 11 15:37 setenvif.conf -&gt; ../mods-available/setenvif.conf
+lrwxrwxrwx 1 root root 31 Mar 11 15:37 setenvif.load -&gt; ../mods-available/setenvif.load
+lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.conf -&gt; ../mods-available/status.conf
+lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.load -&gt; ../mods-available/status.load
+
+</pre></div>
+</div>
+<p>全て mods-available へのシンボリックリンクになっていることがわかりますね．つまり，それぞれの役割は</p>
+<ul class="simple">
+<li><p>mods-available：モジュールを読み込むためのファイル，およびモジュールの設定ファイルの実体を配置</p></li>
+<li><p>mods-enabled ：mods-availableのうち有効にするモジュールへのシンボリックリンクを配置</p></li>
+</ul>
+<p>となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド「a2enmod」（シンボリックリンクを作成する）および「a2dismod（シンボリックリンクを削除する）」がRaspbianには用意されていますのでこれを使いましょう．</p>
+<p>本題のユーザーディレクトリに関しては既にuserdirというモジュールがmods-availableにインストールされています．上記のa2enmodコマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo a2enmod userdir
+$ sudo systemctl restart apache2
+
+</pre></div>
+</div>
+<p>それでは，再度ブラウザで <strong><a class="reference external" href="http://192.168.1.101/~pi">http://192.168.1.101/~pi</a></strong> にアクセスしてみましょう．</p>
+<p><img alt="raspi-forbidden.png" src="../../../_images/raspi-forbidden.png" /></p>
+<p>表示が変わりましたか？Apacheのデフォルトの設定では /home/pi/public_html 以下にユーザのコンテンツを配置するようになっていますが，public_html が存在しないためエラーが発生しています．作ってあげましょう．ついでに適当な内容のindex.htmlを作っておきます．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir /home/pi/public_html/
+$ cd /home/pi/public_html/
+$ echo &#39;hello world&#39; &gt; index.html
+
+</pre></div>
+</div>
+<p>それでは，改めてブラウザでアクセスしてみましょう．上記で作成した内容が表示されればOKです．</p>
+<p><img alt="raspi-helloworld.png" src="../../../_images/raspi-helloworld.png" /></p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>その他注意事項<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Forbiddenのエラーがなくならない場合はファイルやディレクトリのアクセス権限が原因である場合も考えられます．以下のURL等を参考に原因を突き止めてみてください．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://itpro.nikkeibp.co.jp/article/COLUMN/20080219/294152/">http://itpro.nikkeibp.co.jp/article/COLUMN/20080219/294152/</a></p></li>
+<li><p><a class="reference external" href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230728/">http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230728/</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="mysql">
+<h2>データベースサーバ(MySQL)の設定<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
+<p>今回はデータベースサーバとして mariadb-server パッケージをインストールしました．この<a class="reference external" href="https://ja.wikipedia.org/wiki/MariaDB">MariaDB</a>というソフトウェアは，MySQLというデータベースサーバから派生したオープンソースのリレーショナルデータベースサーバです．コマンド体系もMySQL時代のものを踏襲していることもあり，以降 MySQL という名称を使って説明します．</p>
+<div class="section" id="id7">
+<h3>MySQLの起動<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>既に何度も行ってきましたので，もう説明は不要だと思います．RasPi起動時に自動的にMySQLも起動（enable）するように設定しつつ，今から動作確認したいのでサービスを開始（start）させています．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl enable mariadb.service
+$ sudo systemctl start mariadb.service
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>MySQLの初期設定<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>初期設定ウィザードが用意されていますので，起動して初期設定を進めます．初期状態では root パスワードは設定されていません（<strong>このrootアカウントはOSのアカウントではなくMySQLサーバ上のアカウントですので誤解のなきよう</strong>）ので，何も入力せず<strong>ENTER</strong>を押します．すると，rootパスワードの設定を求められますので設定します．以降はデフォルトの<strong>Y</strong>でOKです．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo mysql_secure_installation
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we&#39;ll need the current
+password for the root user.  If you&#39;ve just installed MariaDB, and
+you haven&#39;t set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n]
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from &#39;localhost&#39;.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] y
+ ... Success!
+
+By default, MariaDB comes with a database named &#39;test&#39; that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you&#39;ve completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+
+</pre></div>
+</div>
+<p>ここで，もし<strong>MariaDBのrootのパスワードが不明な場合</strong>は，以下の手順で再設定してください．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># MariaDBのサービスを停める
+$ sudo systemctl stop mariadb.service
+
+# MariaDBをセーフモードで立ち上げる
+$ sudo mysqld_safe --skip-grant-tables &amp;
+
+# MariaDBへrootでログイン
+$ mysql -u root
+
+# rootのパスワードを設定（MariaDBのコマンドライン上で）
+MariaDB [(none)]&gt; use mysql;
+MariaDB [(mysql)]&gt; select host,user,password,plugin from user;                         # 念のため確認
+MariaDB [(mysql)]&gt; update user set password=password(&#39;ここにパスワードを記述&#39;) where User=&#39;root&#39;;
+MariaDB [(mysql)]&gt; update user set plugin=&#39;&#39; where User=&#39;root&#39;;                        # unix_socketを無効に
+
+MariaDB [(mysql)]&gt; flush privileges;
+MariaDB [(mysql)]&gt; exit;
+
+# 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）
+$ sudo reboot
+
+</pre></div>
+</div>
+<p>次にデフォルトのストレージエンジンを設定します．</p>
+<ul class="simple">
+<li><p>この実験ではAriaを使用します．デフォルトのInnoDBは高機能ですが，格納データが肥大化するという問題があり，今回のような容量の小さなSDカードで大きなデータを扱う場合はSDカードの容量を使い果たしてしまう可能性があります．Ariaはトランザクションをサポートしていない等の制約はありますが，MariaDBが産んだ高機能かつ最新のストレージエンジンです．<a class="reference external" href="https://mariadb.com/kb/en/mariadb/storage-engines/">ストレージエンジンに関してはこちらを参照</a>．</p></li>
+</ul>
+<p>設定ファイル <strong>/etc/mysql/mariadb.conf.d/50-server.cnf</strong> を開き，[mysqld]の直下に<strong>default-storage-engine=Aria</strong>の行を追加しましょう．追加したらMariaDBをリスタートします．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">mysqld</span><span class="p">]</span>
+
+<span class="c1">#</span>
+<span class="c1"># * Basic Settings</span>
+<span class="c1">#</span>
+<span class="n">user</span>            <span class="o">=</span> <span class="n">mysql</span>
+<span class="n">pid</span><span class="o">-</span><span class="n">file</span>        <span class="o">=</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mysqld</span><span class="o">/</span><span class="n">mysqld</span><span class="o">.</span><span class="n">pid</span>
+<span class="n">socket</span>          <span class="o">=</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mysqld</span><span class="o">/</span><span class="n">mysqld</span><span class="o">.</span><span class="n">sock</span>
+<span class="n">port</span>            <span class="o">=</span> <span class="mi">3306</span>
+<span class="n">basedir</span>         <span class="o">=</span> <span class="o">/</span><span class="n">usr</span>
+<span class="n">datadir</span>         <span class="o">=</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">mysql</span>
+<span class="n">tmpdir</span>          <span class="o">=</span> <span class="o">/</span><span class="n">tmp</span>
+<span class="n">lc</span><span class="o">-</span><span class="n">messages</span><span class="o">-</span><span class="nb">dir</span> <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">mysql</span>
+<span class="n">skip</span><span class="o">-</span><span class="n">external</span><span class="o">-</span><span class="n">locking</span>
+
+<span class="c1"># Instead of skip-networking the default is now to listen only on</span>
+<span class="c1"># localhost which is more compatible and is not less secure.</span>
+<span class="n">bind</span><span class="o">-</span><span class="n">address</span>            <span class="o">=</span> <span class="mf">127.0.0.1</span>
+
+<span class="c1"># この1行を追加する</span>
+<span class="n">default</span><span class="o">-</span><span class="n">storage</span><span class="o">-</span><span class="n">engine</span><span class="o">=</span><span class="n">Aria</span>
+
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart mariadb.service
+</pre></div>
+</div>
+<div class="section" id="db">
+<h4>ユーザ毎のDBを作る<a class="headerlink" href="#db" title="Permalink to this headline">¶</a></h4>
+<p>MySQLサーバ上にユーザごとのデータベースを作成します．また，そのデータベースにアクセスできるユーザを作成します（<strong>このユーザはOS上のアカウントではなく，MySQLサーバ上のアカウントです</strong>）．</p>
+<ul class="simple">
+<li><p>作成するデータベースの例</p>
+<ul>
+<li><p>データベース名: ohkiDB</p></li>
+<li><p>ユーザ名: ohki</p></li>
+</ul>
+</li>
+</ul>
+<p>初期化時に設定した root パスワードを使って，各ユーザとデータベースを作成します．</p>
+<p>最初のコマンド <strong>CREATE DATABASE ohkiDB CHARACTER SET utf8;</strong> は 文字コード <strong>utf-8</strong> のデータベース <strong>ohkiDB</strong> を作成します．2番目のコマンド <strong>GRANT ALL PRIVILEGES ON ohkiDB.* TO ohki&#64;localhost IDENTIFIED BY ‘difficult-password’;</strong> は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．3番目のコマンド <strong>FLUSH PRIVILEGES;</strong> は2番目のコマンドの結果を即時有効にするためのコマンドです．4番目のコマンド <strong>show databases;</strong> は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が <strong>;</strong> で終わることに気を付けてください．</p>
+<p><strong>difficult-password</strong> は当然ですが，みなさん個人個人で考えた難しいパスワードを設定してください．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mysql -u root -p
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">password</span><span class="p">:</span> <span class="o">********</span>
+<span class="n">Welcome</span> <span class="n">to</span> <span class="n">the</span> <span class="n">MariaDB</span> <span class="n">monitor</span><span class="o">.</span>  <span class="n">Commands</span> <span class="n">end</span> <span class="k">with</span> <span class="p">;</span> <span class="ow">or</span> \<span class="n">g</span><span class="o">.</span>
+<span class="n">Your</span> <span class="n">MariaDB</span> <span class="n">connection</span> <span class="nb">id</span> <span class="ow">is</span> <span class="mi">7</span>
+<span class="n">Server</span> <span class="n">version</span><span class="p">:</span> <span class="mf">10.0.23</span><span class="o">-</span><span class="n">MariaDB</span> <span class="n">MariaDB</span> <span class="n">Server</span>
+
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2015</span><span class="p">,</span> <span class="n">Oracle</span><span class="p">,</span> <span class="n">MariaDB</span> <span class="n">Corporation</span> <span class="n">Ab</span> <span class="ow">and</span> <span class="n">others</span><span class="o">.</span>
+
+<span class="n">Type</span> <span class="s1">&#39;help;&#39;</span> <span class="ow">or</span> <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> <span class="n">help</span><span class="o">.</span> <span class="n">Type</span> <span class="s1">&#39;\c&#39;</span> <span class="n">to</span> <span class="n">clear</span> <span class="n">the</span> <span class="n">current</span> <span class="nb">input</span> <span class="n">statement</span><span class="o">.</span>
+
+<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">ohkiDB</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="n">row</span> <span class="n">affected</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">PRIVILEGES</span> <span class="n">ON</span> <span class="n">ohkiDB</span><span class="o">.*</span> <span class="n">TO</span> <span class="n">ohki</span><span class="nd">@localhost</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="s1">&#39;difficult-password&#39;</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="n">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mf">0.01</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">FLUSH</span> <span class="n">PRIVILEGES</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="n">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mf">0.01</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">show</span> <span class="n">databases</span><span class="p">;</span>
+<span class="o">+--------------------+</span>
+<span class="o">|</span> <span class="n">Database</span>           <span class="o">|</span>
+<span class="o">+--------------------+</span>
+<span class="o">|</span> <span class="n">information_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mysql</span>              <span class="o">|</span>
+<span class="o">|</span> <span class="n">performance_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">ohkiDB</span>         <span class="o">|</span>
+<span class="o">+--------------------+</span>
+<span class="mi">4</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.01</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">quit</span>
+<span class="n">Bye</span>
+
+</pre></div>
+</div>
+<p>データベースが作成できたら，そのユーザでデータベースにアクセスできることを確認しましょう（当然，パスワードは各ユーザのものを入力します）．テーブルの作成などWrite権限についても確認した方が良いですが，ここではRead権限の確認をすることでいったん良いことにします．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mysql -u ohki -p
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">password</span><span class="p">:</span>
+<span class="n">Welcome</span> <span class="n">to</span> <span class="n">the</span> <span class="n">MariaDB</span> <span class="n">monitor</span><span class="o">.</span>  <span class="n">Commands</span> <span class="n">end</span> <span class="k">with</span> <span class="p">;</span> <span class="ow">or</span> \<span class="n">g</span><span class="o">.</span>
+<span class="n">Your</span> <span class="n">MariaDB</span> <span class="n">connection</span> <span class="nb">id</span> <span class="ow">is</span> <span class="mi">9</span>
+<span class="n">Server</span> <span class="n">version</span><span class="p">:</span> <span class="mf">10.0.23</span><span class="o">-</span><span class="n">MariaDB</span> <span class="n">MariaDB</span> <span class="n">Server</span>
+
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2015</span><span class="p">,</span> <span class="n">Oracle</span><span class="p">,</span> <span class="n">MariaDB</span> <span class="n">Corporation</span> <span class="n">Ab</span> <span class="ow">and</span> <span class="n">others</span><span class="o">.</span>
+
+<span class="n">Type</span> <span class="s1">&#39;help;&#39;</span> <span class="ow">or</span> <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> <span class="n">help</span><span class="o">.</span> <span class="n">Type</span> <span class="s1">&#39;\c&#39;</span> <span class="n">to</span> <span class="n">clear</span> <span class="n">the</span> <span class="n">current</span> <span class="nb">input</span> <span class="n">statement</span><span class="o">.</span>
+
+<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">use</span> <span class="n">ohkiDB</span><span class="p">;</span>
+<span class="n">Database</span> <span class="n">changed</span>
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">ohkiDB</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">show</span> <span class="n">tables</span><span class="p">;</span>
+<span class="n">Empty</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">ohkiDB</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">quit</span>
+<span class="n">Bye</span>
+
+</pre></div>
+</div>
+<p>ここで，もしrootのパスワードが不明な場合は，前述の手順で再設定してください（複数人でアクセスするサーバ機の場合，どなたか一人が代表で実施すればOK）．</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/part2/part2_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Ohki Lab<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

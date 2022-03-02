@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>セキュリティホール &#8212; 情報科学実験Ⅰ</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">情報科学実験Ⅰ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   情報科学実験Ⅰ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  事前準備（在宅）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preparation/preparation.html">
+   環境構築および動作確認
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第一部 ソケットプログラミング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../markdown.html">
+   環境構築とプロトコル解析
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     通信性能の計測
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  実験終了後（必須）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../end/cleanup.html">
+   実験機材のクリーンアップと解体
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  トラブルシューティング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/question.html">
+   質問の行い方
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/trouble.html">
+   よくあるトラブル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/uninstall.html">
+   各アプリケーションのアンインストール方法
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/part2/part2_2/securityhole.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_2/securityhole.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   はじめに
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   [必須課題] セグメンテーションフォルト
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   [必須課題] 脆弱性のあるプログラムの実行
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   [発展課題]バッファオーバーフロー
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   [発展課題]バッファオーバーランで任意のコマンドを実行
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   [発展課題]バッファオーバーランでリモートからシェルに接続
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   おわりに
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>セキュリティホール</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   はじめに
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   [必須課題] セグメンテーションフォルト
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   [必須課題] 脆弱性のあるプログラムの実行
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   [発展課題]バッファオーバーフロー
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   [発展課題]バッファオーバーランで任意のコマンドを実行
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   [発展課題]バッファオーバーランでリモートからシェルに接続
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   おわりに
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>セキュリティホール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>まず最初に十分理解していいただきたいのは，以下の実験内容は教育目的であって絶対に悪用しないでください．</p>
+<p>インターネット上には，ポートスキャン方法やクラッキング方法など様々な情報が氾濫していますが，本実験環境のローカルネットワーク内における実験用サーバに対してのみ試してみて構いませんが，そのからくりを理解できていない人は周囲に迷惑をかける可能性もありますので十分注意して実施してください．外部サーバや他人のPCに対して試してみるということは絶対にしないでください．</p>
+<p>学内のトラフィックは，情報基盤センターのツールで監視されています．皆さんはコンピュータネットワークの授業で，通信の仕組み（接続元IPアドレス・ポート番号，プロトコル種別，接続先IPアドレス・ポート番号の5つの情報で通信フローは識別可能）を学んでいるわけですので，どのような仕組みで監視できるのか認識しているものと思いますが，意図せぬウィルス感染や不正アクセスでも情報基盤センターから連絡は来ますので，十分注意して以下の課題に取り組んでください．皆さんのノートPCのMACアドレスは入学時に学内DBへ登録されているはずです．実験機材のMACアドレスもこちらで把握しています．また，学内DHCP（無線であろうが有線であろうが）でIPアドレスをもらっている場合，どのMACアドレスへいつからいつまでどのIPアドレスを割り振ったかログに記録されてます．学内にはネットワーク機器の運用規則がありますので，遵守するとともに敢えて抜け道を探すようなことは絶対にしないでください．もし抜け道に気づいてしまった場合は，真摯に教えてください．将来のネットワークエンジニアの卵として良い方向での成長を楽しみにしたいと思います．</p>
+<p>また，もし何か意図せぬことが発生しているような気がする場合は，「学内ネットへ接続しているルータWAN側のLANケーブルを抜く」ということでお願いします． （自宅で実施している場合は，インターネットに接続せずに実施することを心がけてください）</p>
+<p>よく，「ホームページが改竄（かいざん）された」というニュースや「セキュリティホールが見つかったのでソフトウェアアップデートしましょう」というような周知があるかと思いますが，これまでに実装したSimple HTTPサーバにもセキュリティホールがあります（というかあまり深く考えずにネットワークプログラムを開発すると，セキュリティホールだらけになりますので注意してください）．</p>
+<p>ここでは，セキュリティホールの基本であるバッファオーバフローを利用した攻撃方法について理解し，実際に以下のステップを実験用端末で試してみてセキュリティホールを実感してください．</p>
+<ul class="simple">
+<li><p>[必須課題]セグメンテーションフォルト</p></li>
+<li><p>[必須課題]脆弱性のあるプログラムの実行</p></li>
+<li><p>[発展課題]バッファオーバーフロー</p></li>
+<li><p>[発展課題]バッファオーバーランで任意のコマンドを実行</p></li>
+<li><p>[発展課題]バッファオーバーランでリモートからシェルに接続</p></li>
+</ul>
+<p>上から順番に少しずつ攻撃を高度化したものになります．つまり，一番下に示すリモートサーバのシェルに接続できれば，ホームページの改竄もできてしまいます．</p>
+<p>ここで，昨今のOSはデフォルトでは以下の対策が施されていますので，今回は<strong>敢えて体験できるよう以下の設定を解除</strong>してから実施してください．その他にも最新のセキュリティ対策が施されている場合がありますので，状況に応じて解除して実施してください．ただし，レポートにはその旨をしっかり記述し，読み手が同様の実験結果を再現するのに必要な情報をしっかり記述してください（レポート内容が正しいか（コピペや虚偽でないか），こちらでも試して確認する場合がありますので）．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E7%A9%BA%E9%96%93%E9%85%8D%E7%BD%AE%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%8C%96">アドレス空間レイアウトのランダマイズ化</a>（ASLR: Address Space Layout Randomization）を実験のために無効化：<strong>% sudo sysctl -w kernel.randomize_va_space=0</strong></p></li>
+<li><p><a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2">データ実行防止</a> （DEP: Data Execution Prevention）と<a class="reference external" href="http://saitoh.hatenablog.jp/entry/2014/08/24/223531">スタック保護</a>（SSP: stack-smashing protection）を実験のために無効化：　<strong>% gcc -z execstack -fno-stack-protector xxxx.c</strong></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>[必須課題] セグメンテーションフォルト<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>下記プログラムにおいて，セグメンテーションフォルトが発生する理由について考察してください． また，セグメンテーションフォルトとは何か説明してください</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;exp1.h&quot;</span>
+
+<span class="n">void</span> <span class="n">test_func</span><span class="p">(</span><span class="n">char</span> <span class="o">*</span><span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">uint32_t</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">0x88776655</span><span class="p">;</span>
+  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+  <span class="n">uint32_t</span> <span class="n">z</span> <span class="o">=</span> <span class="mh">0xccbbaa99</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+  <span class="n">uint64_t</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: buf</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: &amp;y</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: msg</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: &amp;z</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">z</span><span class="p">);</span>
+
+
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;start dump memory</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+  <span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="n">uint64_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">z</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: &quot;</span><span class="p">,</span> <span class="n">base</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+      <span class="n">uint8_t</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">uint8_t</span><span class="o">*</span><span class="p">)</span> <span class="n">base</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%02x</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">j</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="n">base</span> <span class="o">+=</span> <span class="mi">8</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;end dump memory</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+
+  <span class="n">strcpy</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">uint32_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mh">0x44332211</span><span class="p">;</span>
+  <span class="n">char</span> <span class="n">data</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">&quot;abcd&quot;</span> <span class="s2">&quot;efgh&quot;</span> <span class="s2">&quot;ijkl&quot;</span> <span class="s2">&quot;mnop&quot;</span> <span class="s2">&quot;qrst&quot;</span> <span class="s2">&quot;uvwx&quot;</span>
+                <span class="s2">&quot;abcd&quot;</span> <span class="s2">&quot;efgh&quot;</span> <span class="s2">&quot;ijkl&quot;</span> <span class="s2">&quot;mnop&quot;</span> <span class="s2">&quot;qrst&quot;</span> <span class="s2">&quot;uvwx&quot;</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: &amp;x</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: main</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">main</span><span class="p">);</span>
+
+  <span class="n">test_func</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>余裕のある人は上記の条件下でもセグメンテーションフォルトが発生しないようにプログラムを変更してみましょう．</p>
+</div>
+<div class="section" id="id4">
+<h2>[必須課題] 脆弱性のあるプログラムの実行<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>以下に示す上記プログラムの実行結果について，どのような動作の結果なのか説明してください</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mh">0x00000000ffffe5d0</span><span class="p">:</span> <span class="n">data</span>
+<span class="mh">0x00000000ffffe60c</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">x</span>
+<span class="mh">0x00000000004006e8</span><span class="p">:</span> <span class="n">main</span>
+<span class="mh">0x00000000ffffe590</span><span class="p">:</span> <span class="n">buf</span>
+<span class="mh">0x00000000ffffe5a4</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">y</span>
+<span class="mh">0x00000000ffffe5d0</span><span class="p">:</span> <span class="n">msg</span>
+<span class="mh">0x00000000ffffe58c</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">z</span>
+
+<span class="n">start</span> <span class="n">dump</span> <span class="n">memory</span>
+<span class="mh">0x00000000ffffe58c</span><span class="p">:</span> <span class="mi">99</span><span class="n">aabbccd0e5ffff</span>
+<span class="mh">0x00000000ffffe594</span><span class="p">:</span> <span class="n">ff7f0000d0e5ffff</span>
+<span class="mh">0x00000000ffffe59c</span><span class="p">:</span> <span class="n">ff7f00000f094000</span>
+<span class="mh">0x00000000ffffe5a4</span><span class="p">:</span> <span class="mi">5566778803000000</span>
+<span class="mh">0x00000000ffffe5ac</span><span class="p">:</span> <span class="mi">00000000</span><span class="n">ace5ffff</span>
+<span class="mh">0x00000000ffffe5b4</span><span class="p">:</span> <span class="n">ff7f0000b4e5ffff</span>
+<span class="mh">0x00000000ffffe5bc</span><span class="p">:</span> <span class="n">ff7f000010e6ffff</span>
+<span class="mh">0x00000000ffffe5c4</span><span class="p">:</span> <span class="n">ff7f0000a4074000</span>
+<span class="mh">0x00000000ffffe5cc</span><span class="p">:</span> <span class="mi">0000000061626364</span>
+<span class="mh">0x00000000ffffe5d4</span><span class="p">:</span> <span class="mi">65666768696</span><span class="n">a6b6c</span>
+<span class="mh">0x00000000ffffe5dc</span><span class="p">:</span> <span class="mi">6</span><span class="n">d6e6f7071727374</span>
+<span class="mh">0x00000000ffffe5e4</span><span class="p">:</span> <span class="mi">7576777861626364</span>
+<span class="mh">0x00000000ffffe5ec</span><span class="p">:</span> <span class="mi">65666768696</span><span class="n">a6b6c</span>
+<span class="mh">0x00000000ffffe5f4</span><span class="p">:</span> <span class="mi">6</span><span class="n">d6e6f7071727374</span>
+<span class="mh">0x00000000ffffe5fc</span><span class="p">:</span> <span class="mf">7576777800e6</span><span class="n">ffff</span>
+<span class="mh">0x00000000ffffe604</span><span class="p">:</span> <span class="n">ff7f000000000000</span>
+<span class="mh">0x00000000ffffe60c</span><span class="p">:</span> <span class="mi">1122334400000000</span>
+<span class="mh">0x00000000ffffe614</span><span class="p">:</span> <span class="mi">000000005</span><span class="n">ded2114</span>
+<span class="n">end</span> <span class="n">dump</span> <span class="n">memory</span>
+
+<span class="n">Segmentation</span> <span class="n">fault</span> <span class="p">(</span><span class="n">core</span> <span class="n">dumped</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>皆さんの実装したプログラムが，どのようにメモリ上に展開され実行されているか理解できると様々な意図せぬ動作の解決に役立ちます． ちなみに，上記の出力は分かりやすさを重視するために，以下のようにしてASLRを解除した場合の出力になります．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ sudo sysctl -w kernel.randomize_va_space=0 
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html">バッファオーバーラン ～その１・こうして起こる～</a>]</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>[発展課題]バッファオーバーフロー<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>プログラムが管理しているメモリ上に確保するバッファ領域に対して，脆弱性のある実装をしているとバッファ領域の上限を超えた部分に情報を格納（バッファオーバーフロー）してしまうことがあります．これによりプログラムが意図した通りに動作しなくなってしまう場合があります．詳細は「バッファオーバーフロー」で検索して調べてみてください．</p>
+<p>Simple HTTPサーバにはこの脆弱性がありますので，クライアント側プログラムを工夫することで，バッファオーバーフローを生じさせSimple HTTPサーバを停止させる攻撃ができます．Simple HTTPサーバプログラムのどこに脆弱性があり，その結果，どのようにクライアント側プログラムを工夫するとバッファオーバーフローが生じるのか検討し，実際に試してみてください．レポートには以下の項目を記述してください．</p>
+<ul class="simple">
+<li><p>攻撃用のクライアント側ソースコード（該当部のみでよい）</p></li>
+<li><p>Simple HTTPサーバが停止していることの分かるスクリーンショット</p></li>
+<li><p>上記の解説</p></li>
+<li><p>対策用のサーバ側ソースコード（該当部のみでよい）</p></li>
+<li><p>Simple HTTPサーバが停止しなくなったことの分かるスクリーンショット</p></li>
+<li><p>上記の解説</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>[発展課題]バッファオーバーランで任意のコマンドを実行<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>バッファオーバーフローを利用して，サーバ側でシェルを起動できれば任意のコマンドを実行させることができるようになります．例えば以下のようなサイトもありますので，参考にして実現してみてください．要約すると，次のようなデータを送り込めばよいことになります．gdbを使用してメモリ上の値を分析しながら実施すると具体的なイメージがわくと思います（ちなみにSSP (Stack-Smashing Protection)も無効にしておきましょう）．サーバ側でシェルを起動できると，サーバプログラムを実行した端末画面で任意のコマンドを入力し実行できるようになります（サーバ側の端末画面で入力できてもあまり意味ないですが）．</p>
+<ul class="simple">
+<li><p>シェルコード（シェルを起動するコード）を作成する</p></li>
+<li><p>データ中にシェルコードを含める</p></li>
+<li><p>バッファ長の適切な位置にシェルコードの先頭アドレスを入れておく</p></li>
+</ul>
+<p>参考URL</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html">バッファオーバーラン ～その１・こうして起こる～</a></p></li>
+<li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2014/03/14/151011">単純なスタックバッファオーバーフロー攻撃をやってみる</a></p></li>
+<li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2014/07/06/185125">x86とx64の両方で動くシェルコードを書いてみる</a></p></li>
+<li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2014/07/31/010158">x64でROP stager + Return-to-dl-resolve + __libc_csu_init gadgetsによるASLR+DEP回避をやってみる</a></p></li>
+<li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2015/03/06/220345">ARMで単純なスタックバッファオーバーフロー攻撃をやってみる</a></p></li>
+<li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2015/03/06/020437">Linux ARM用のシェルコードを書いてみる</a></p></li>
+<li><p><a class="reference external" href="https://azeria-labs.com/downloads/HITB-v1.0.pdf">Lab: ARM Assembly Shellcode From Zero to ARM Assembly Bind Shellcode</a></p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>[発展課題]バッファオーバーランでリモートからシェルに接続<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>上記の任意のコマンド実行できるようになったらいよいよあと一息です．クライアント側で入力したコマンドをサーバへ送信＆実行させ，そのサーバ側での実行結果の出力をクライアント側へ送信＆表示させるように実装すれば，リモートからサーバ上の任意のコマンドを実行し好き放題できるようになります（もちろん通常は実行したコマンドがログとして残りますので，世の中のよくできたクラックツールは様々な工夫が施されておりますし，いたちごっこですのでサイバー攻防の発展は凄まじいですが）．例えば，サーバ側で実行させるシェルコードで，ディスクリプタを複製できるdup2()システムコールを実行させてaccept()で受け付けたソケットのディスクリプタを標準入出力へ複製してからexecve()するようにしておくといった方法があります．</p>
+<p>参考URL</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.atmarkit.co.jp/ait/articles/0211/23/news001.html">侵入者の攻撃手法とその対策</a></p></li>
+<li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2014/03/15/065034">スタックバッファオーバーフローによる標準入力からのシェル起動</a></p></li>
+<li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2014/05/16/035057">ネットワークソケットを利用したシェル起動</a></p></li>
+<li><p><a class="reference external" href="https://www.rcesecurity.com/2014/07/slae-shell-reverse-tcp-shellcode-linux-x86/">SLAE: Shell Reverse TCP Shellcode (Linux/x86)</a></p></li>
+<li><p><a class="reference external" href="http://postd.cc/64-bit-linux-return-oriented-programming/">Return-Oriented Programmingで64ビットLinuxを攻撃する手法</a></p></li>
+<li><p><a class="reference external" href="http://rintaro.hateblo.jp/entry/2015/09/08/173521">pwn合宿 ～夏の陣～</a></p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>おわりに<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>以上のようにセキュリティホールに対するサイバー攻防の発展は凄まじいですが，十分理解していいただきたいのは，この実験内容は教育目的ですので倫理観を持って絶対に悪用しないでください．</p>
+<p>なお，静岡大学では，enPiT Basic SecCap 夏季特別講義として本内容を高度化した「サイバー攻防基礎演習」を行う予定です．余裕がある方は下記内容を先取りして取り組んでくれても構いません．また，今回の実験にも役にたつ情報が多く記載されていますので，ご参考にしてください．</p>
+<p>enPiT サイバー攻防基礎演習サイト</p>
+<p><a class="reference external" href="https://seccap.inf.shizuoka.ac.jp/pbl/">https://seccap.inf.shizuoka.ac.jp/pbl/</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/part2/part2_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Ohki Lab<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
