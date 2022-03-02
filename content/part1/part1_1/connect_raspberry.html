@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="「通信性能の計測」の目的と概要 - 情報科学実験I" href="../part1_2/overview.html" />
+    <link rel="prev" title="目標と概要" href="overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,23 +110,209 @@ const thebe_selector_output = ".output, .cell_output"
   第一部 ソケットプログラミング
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../markdown.html">
-   環境構築とプロトコル解析
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="overview.html">
+   環境構築と実験の開始
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     RaspberryPiの接続（固定IP）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part1_2/overview.html">
+   通信性能の計測
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../notebooks.html">
-     通信性能の計測
+    <a class="reference internal" href="../part1_2/file_IO_programming.html">
+     ファイル入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1_2/network_IO_programming.html">
+     ネットワーク入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1_2/measurement_IO_performance.html">
+     入出力性能の計測（必須課題）
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1_3/overview.html">
+   多対多接続の設計・実装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part1_4/overview.html">
+   第一部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1_4/peer_review.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../report/report.html">
+   第一部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第二部 Webサーバの実装
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_1/day6objective.html">
+   Simple HTTPサーバの構築
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html">
+     Raspberry Piのセットアップ
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/simplehttpserver.html">
+     Simple HTTPサーバの実装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/httpbenchmark.html">
+     HTTPベンチマークプログラムの実装（必須）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_2/day7objective.html">
+   HTTPサーバの高機能化(1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/standardforachievement.html">
+     第二部達成基準
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/multipleclient.html">
+     複数クライアント対応（必須）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/securityhole.html">
+     セキュリティホール（必須+発展）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/httpserver_expansion.html">
+     HTTPサーバ機能拡張（選択）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_3/day8objective.html">
+   HTTPサーバの高機能化(2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_3/introuble.html">
+     第二部の実装で詰まった時の対処法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_3/referencebook.html">
+     第二部参考書籍
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_4/day9objective.html">
+   第二部グループ発表会
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_4/groupreview.html">
+     グループレビュー
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_4/grouppresentation.html">
+     第二部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_5/day10objective.html">
+   第二部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_5/peerreview.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part2/report/report.html">
+   第二部レポート
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -518,36 +706,36 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="raspberrypi">
 <h3>RaspberryPi を電源と接続<a class="headerlink" href="#raspberrypi" title="Permalink to this headline">¶</a></h3>
 <p>RaspberryPi の microUSB 端子に電源を接続します．</p>
-<p><span class="xref myst">raspi-usb.jpg</span></p>
+<p><img alt="raspi-usb.jpg" src="../../../_images/400px-raspi-usb.jpg" /></p>
 </div>
 <div class="section" id="raspberrypi-pc">
 <h3>RaspberryPi と PC との接続<a class="headerlink" href="#raspberrypi-pc" title="Permalink to this headline">¶</a></h3>
 <p>RaspberryPi と PC を LAN ケーブルで直結します（以下の例では USB 接続の LAN アダプタを使っていますが，PC に備え付けの有線 LAN ポートがあればそれに接続します）．</p>
-<p><span class="xref myst">raspi-pc.jpg</span></p>
+<p><img alt="raspi-pc.jpg" src="../../../_images/raspi-pc.jpg" /></p>
 </div>
 <div class="section" id="pc-lan-ip">
 <h3>PC の有線 LAN デバイスに IP アドレスを設定<a class="headerlink" href="#pc-lan-ip" title="Permalink to this headline">¶</a></h3>
 <p>WindowsPC 上のイーサネットデバイスに RaspberryPi と同じサブネットワークの IP アドレス（192.168.1.102）を設定します．</p>
 <p>ただし，Windows 上で複数のイーサネットデバイスを認識している場合がありますので（特に VirtualBox などの VM 環境を構築している場合は仮想イーサネットデバイスが存在するはず），RaspberryPi と接続したイーサネットデバイスを確認してから作業を進めてください．</p>
 <p>設定の「ネットワークとインターネット」の「状態」から「アダプターのオプションを設定する」を選択します．</p>
-<p><span class="xref myst">raspi-con1.png</span></p>
+<p><img alt="raspi-con1.png" src="../../../_images/400px-raspi-con1.png" /></p>
 <p>RaspberryPi と接続したイーサネットデバイスのプロパティを開きます．</p>
-<p><span class="xref myst">raspi-con2.png</span></p>
+<p><img alt="raspi-con2.png" src="../../../_images/400px-raspi-con2.png" /></p>
 <p>インターネットプロトコルバージョン 4（TCP/IPv4）のプロパティを開きます．</p>
-<p><span class="xref myst">raspi-con3.png</span></p>
+<p><img alt="raspi-con3.png" src="../../../_images/400px-raspi-con3.png" /></p>
 <p>IP アドレスとサブネットマスクを設定します．</p>
 <ul class="simple">
 <li><p>IP アドレス: 192.168.1.102</p></li>
 <li><p>サブネットマスク: 255.255.255.0</p></li>
 </ul>
-<p><span class="xref myst">raspi-con4.png</span></p>
+<p><img alt="raspi-con4.png" src="../../../_images/400px-raspi-con4.png" /></p>
 <p>コマンドプロンプトから ipconfig コマンドを実行し，IP アドレスとサブネットマスクが設定されていることを確認する．</p>
-<p><span class="xref myst">raspi-con5.png</span></p>
+<p><img alt="raspi-con5.png" src="../../../_images/400px-raspi-con5.png" /></p>
 </div>
 <div class="section" id="id2">
 <h3>RaspberryPi との接続確認<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>コマンドプロンプトから RaspberryPi の IP アドレスに ping を実行し，接続を確認する．</p>
-<p><span class="xref myst">raspi-con6.png</span></p>
+<p><img alt="raspi-con6.png" src="../../../_images/400px-raspi-con6.png" /></p>
 </div>
 </div>
 <div class="section" id="pc-raspbarrypi-vnc">
@@ -560,13 +748,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>パスワード: raspberry</p></li>
 </ul>
 <p>VNC を起動し，RaspberryPi の IP アドレス (192.168.1.101) に接続します．</p>
-<p><span class="xref myst">vnc1.png</span></p>
+<p><img alt="vnc1.png" src="../../../_images/400px-vnc1.png" /></p>
 <p>初回のみセキュリティ警告が出ますので Continue します．</p>
-<p><span class="xref myst">vnc2.png</span></p>
+<p><img alt="vnc2.png" src="../../../_images/400px-vnc2.png" /></p>
 <p>ユーザ名とパスワードを入力します．</p>
-<p><span class="xref myst">vnc3.png</span></p>
+<p><img alt="vnc3.png" src="../../../_images/400px-vnc3.png" /></p>
 <p>デスクトップ画面にログインできます．</p>
-<p><span class="xref myst">vnc4.png</span></p>
+<p><img alt="vnc4.png" src="../../../_images/400px-vnc4.png" /></p>
 </div>
 <div class="section" id="id3">
 <h3>パスワードの変更<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
@@ -580,7 +768,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="lan">
 <h3>無線 LAN の無効化<a class="headerlink" href="#lan" title="Permalink to this headline">¶</a></h3>
-<p><span class="xref myst">wifi-off.png</span></p>
+<p><img alt="wifi-off.png" src="../../../_images/wifi-off.png" /></p>
 <p>RaspberryPi のセキュリティアップデートを実施するなど（最初に配布したイメージは配布時点のセキュリティアップデート済です），特にネットワーク接続が必要な場合以外は無線 LAN を無効にしておきます．</p>
 <p>今回の実験では PC と接続している有線 LAN ネットワークを利用しますので，まだ十分な知識とスキルを身に着けていない方は，混乱がないよう無線 LAN ネットワークを無効にしておいてください．</p>
 <p>画像のように表示される場合は既に Wifi は OFF に設定されています．</p>
@@ -630,19 +818,19 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>TeraTerm を起動，予め調べておいた RaspberryPi の IP アドレス（192.168.1.101）を入力して SSH で接続</p></li>
 </ul>
-<p><span class="xref myst">tterm1.png</span></p>
+<p><img alt="tterm1.png" src="../../../_images/400px-tterm1.png" /></p>
 <ul class="simple">
 <li><p>RaspberryPi 上のアカウント（pi）でログイン</p></li>
 </ul>
-<p><span class="xref myst">tterm2.png</span></p>
+<p><img alt="tterm2.png" src="../../../_images/400px-tterm2.png" /></p>
 <ul class="simple">
 <li><p>初回のみセキュリティ警告が出てくるので[続行]を押す</p></li>
 </ul>
-<p><span class="xref myst">tterm3.png</span></p>
+<p><img alt="tterm3.png" src="../../../_images/400px-tterm3.png" /></p>
 <ul class="simple">
 <li><p>ログインに成功すればコマンドプロンプトが出てきます．</p></li>
 </ul>
-<p><span class="xref myst">tterm4.png</span></p>
+<p><img alt="tterm4.png" src="../../../_images/400px-tterm4.png" /></p>
 </div>
 <div class="section" id="id5">
 <h2>RaspberryPi へのファイル転送<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
@@ -653,11 +841,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>ユーザ名: pi</p></li>
 <li><p>パスワード: 設定したパスワード</p></li>
 </ul>
-<p><span class="xref myst">winscp1.png</span>]</p>
+<p><img alt="winscp1.png" src="../../../_images/600px-winscp1.png" />]</p>
 <p>最初にアクセスした時のみセキュリティ警告が出ますので OK します．</p>
-<p><span class="xref myst">winscp2.png</span>]</p>
+<p><img alt="winscp2.png" src="../../../_images/400px-winscp2.png" />]</p>
 <p>エクスプローラのようにドラッグ＆ドラップや右クリックメニューでファイルの転送や操作が可能です．</p>
-<p><span class="xref myst">winscp3.png</span></p>
+<p><img alt="winscp3.png" src="../../../_images/600px-winscp3.png" /></p>
 </div>
 <div class="section" id="vm-raspbarrypi">
 <h2>VM から RaspbarryPi への接続の確認<a class="headerlink" href="#vm-raspbarrypi" title="Permalink to this headline">¶</a></h2>
@@ -673,15 +861,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ ping <span class="m">192</span>.168.1.101
 </pre></div>
 </div>
-<p><span class="xref myst">vm2raspi1.png</span></p>
+<p><img alt="vm2raspi1.png" src="../../../_images/400px-vm2raspi1.png" /></p>
 <p>SSH で RaspberryPi にログインします．VM 上の Linux とユーザ名が異なりますので，明示的にログインユーザ名を指定してください（ -l pi ）．</p>
 <p>最初の接続のみ，ホスト鍵を受け入れるか聞かれますので “yes” とします．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ slogin 192.168.1.101 -l pi
 </pre></div>
 </div>
-<p><span class="xref myst">vm2raspi2.png</span></p>
+<p><img alt="vm2raspi2.png" src="../../../_images/400px-vm2raspi2.png" /></p>
 <p>ユーザ名とパスワードが一致すれば，ログインできます．</p>
-<p><span class="xref myst">vm2raspi3.png</span></p>
+<p><img alt="vm2raspi3.png" src="../../../_images/400px-vm2raspi3.png" /></p>
 </div>
 </div>
 <div class="section" id="vm-linux-pc">
@@ -693,19 +881,19 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>VirtualBox のメニューから「仮想マシン」→「設定」を開きます．</p>
-<p><span class="xref myst">scpvm1.png</span></p>
+<p><img alt="scpvm1.png" src="../../../_images/400px-scpvm1.png" /></p>
 <p>ネットワークの設定から「高度」タブを開き「ポートフォーワーディング」を開きます．</p>
-<p><span class="xref myst">scpvm2.png</span></p>
+<p><img alt="scpvm2.png" src="../../../_images/400px-scpvm2.png" /></p>
 <p>右上のアイコンをクリックして，フォワーディングルールを追加します．</p>
 <p>ここでは，ホスト OS（Windows）のポート 22 への接続をゲスト OS（Linux）のポート 22 に転送する設定を行います．</p>
-<p><span class="xref myst">scpvm3.png</span></p>
+<p><img alt="scpvm3.png" src="../../../_images/400px-scpvm3.png" /></p>
 <p>WinSCP を起動し，接続先のホストとして以下の指定して接続します．</p>
 <ul class="simple">
 <li><p>ホスト名: localhost</p></li>
 <li><p>ユーザ名: ゲスト OS に設定したユーザ名</p></li>
 <li><p>パスワード: ゲスト OS に設定したパスワード</p></li>
 </ul>
-<p><span class="xref myst">scpvm4.png</span></p>
+<p><img alt="scpvm4.png" src="../../../_images/400px-scpvm4.png" /></p>
 <div class="section" id="id6">
 <h3>外部から接続する場合<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>VirtualBox の設定上は外部から SSH 接続できる設定ですが，実際には Windows ファイアウォールが接続を遮断して接続できない場合がありますので注意してください．</p>
@@ -750,7 +938,21 @@ const thebe_selector_output = ".output, .cell_output"
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">目標と概要</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../part1_2/overview.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">「通信性能の計測」の目的と概要 - 情報科学実験I</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2021年度 &#8212; 情報科学実験Ⅰ</title>
+    <title>内部向け:備忘録(次年度への引継ぎメモ) &#8212; 情報科学実験Ⅰ</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -110,8 +110,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../markdown.html">
-   環境構築とプロトコル解析
+  <a class="reference internal" href="../part1/part1_1/overview.html">
+   環境構築と実験の開始
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -120,11 +120,197 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks.html">
-     通信性能の計測
+    <a class="reference internal" href="../part1/part1_1/connect_raspberry.html">
+     RaspberryPiの接続（固定IP）
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part1/part1_2/overview.html">
+   通信性能の計測
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_2/file_IO_programming.html">
+     ファイル入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_2/network_IO_programming.html">
+     ネットワーク入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_2/measurement_IO_performance.html">
+     入出力性能の計測（必須課題）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1/part1_3/overview.html">
+   多対多接続の設計・実装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part1/part1_4/overview.html">
+   第一部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_4/peer_review.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1/report/report.html">
+   第一部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第二部 Webサーバの実装
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_1/day6objective.html">
+   Simple HTTPサーバの構築
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_1/raspberrypi_setup.html">
+     Raspberry Piのセットアップ
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_1/simplehttpserver.html">
+     Simple HTTPサーバの実装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_1/httpbenchmark.html">
+     HTTPベンチマークプログラムの実装（必須）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_2/day7objective.html">
+   HTTPサーバの高機能化(1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_2/standardforachievement.html">
+     第二部達成基準
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_2/multipleclient.html">
+     複数クライアント対応（必須）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_2/securityhole.html">
+     セキュリティホール（必須+発展）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_2/httpserver_expansion.html">
+     HTTPサーバ機能拡張（選択）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_3/day8objective.html">
+   HTTPサーバの高機能化(2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_3/introuble.html">
+     第二部の実装で詰まった時の対処法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_3/referencebook.html">
+     第二部参考書籍
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_4/day9objective.html">
+   第二部グループ発表会
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_4/groupreview.html">
+     グループレビュー
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_4/grouppresentation.html">
+     第二部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_5/day10objective.html">
+   第二部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_5/peerreview.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2/report/report.html">
+   第二部レポート
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -247,40 +433,40 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
    2021年度
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
      連絡
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
      ソフトウェア情報
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
    2020年度
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
      連絡
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
      新規・更新ページ情報
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
      ソフトウェア情報
     </a>
    </li>
@@ -296,7 +482,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>2021年度</h1>
+                <h1>内部向け:備忘録(次年度への引継ぎメモ)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -306,40 +492,40 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
    2021年度
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
      連絡
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
      ソフトウェア情報
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
    2020年度
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
      連絡
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
      新規・更新ページ情報
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
      ソフトウェア情報
     </a>
    </li>
@@ -354,19 +540,21 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="section" id="id1">
-<h1>2021年度<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>内部向け:備忘録(次年度への引継ぎメモ)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id2">
-<h2>連絡<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-</div>
+<h2>2021年度<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
-<h2>ソフトウェア情報<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-</div>
+<h3>連絡<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="id4">
-<h1>2020年度<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
+<h3>ソフトウェア情報<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 <div class="section" id="id5">
-<h2>連絡<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>2020年度<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>連絡<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>今年度は新型コロナウィルスの影響により本実験を在宅で行うこととなりました.</p></li>
 </ul>
@@ -413,8 +601,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Chromeからアクセスできない(場合がある). (net::ERR_HTTP2_PROTOCOL_ERROR 200)</p></li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2>新規・更新ページ情報<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>新規・更新ページ情報<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/RaspberryPi%E3%81%AE%E6%8E%A5%E7%B6%9A%EF%BC%88%E5%9B%BA%E5%AE%9AIP%EF%BC%89#.E3.83.86.E3.82.AD.E3.82.B9.E3.83.88.E3.82.A8.E3.83.87.E3.82.A3.E3.82.BF.E3.82.92.E4.BD.BF.E3.81.A3.E3.81.9F.E6.8E.A5.E7.B6.9A_.28.E4.BB.BB.E6.84.8F.29">RaspberryPiの接続（固定IP)</a></p></li>
 <li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Atom%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89">Atomを使った環境構築</a></p></li>
@@ -427,8 +615,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%89%B9%E5%88%A5:%E3%83%9A%E3%83%BC%E3%82%B8%E4%B8%80%E8%A6%A7?from=&amp;to=&amp;namespace=10">全テンプレート</a></p></li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h2>ソフトウェア情報<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>ソフトウェア情報<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Raspberry Pi OS（旧：Raspbian）</p></li>
 </ul>
@@ -449,6 +637,7 @@ Codename:buster
 <li><p>Apache</p></li>
 <li><p>ApacheBench</p></li>
 </ul>
+</div>
 </div>
 </div>
 

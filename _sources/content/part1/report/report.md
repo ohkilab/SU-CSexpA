@@ -271,19 +271,19 @@ Illustrator や PowerPoint などのドローソフトとルータ等の機材�
 
 ## 補足：Teams 課題機能によるレポート提出方法
 
-[teams report 001.png](../../../images/part1/report/600px-teams_report_001.png)
+![teams report 001.png](../../../images/part1/report/600px-teams_report_001.png)
 
 左側のタブから「課題」を選択し，「割り当て済み」の課題から対象のレポートを選択します
 
-[teams report 002.png](../../../images/part1/report/600px-teams_report_002.png)
+![teams report 002.png](../../../images/part1/report/600px-teams_report_002.png)
 
 「作業の追加」をクリックして提出するファイルをアップロードします．
 
-[teams report 003.png](../../../images/part1/report/600px-teams_report_003.png)
+![teams report 003.png](../../../images/part1/report/600px-teams_report_003.png)
 
 ファイルがアップロードされていることを確認したら，右上の「提出」ボタンをクリックします
 
-[teams report 004.png](../../../images/part1/report/600px-teams_report_004.png)
+![teams report 004.png](../../../images/part1/report/600px-teams_report_004.png)
 
 右上の提出ボタンが「提出を取り消す」に変わって，提出日時が表示されていたら提出完了です．
 

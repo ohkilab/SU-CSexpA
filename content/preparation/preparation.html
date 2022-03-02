@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Markdown Files" href="../markdown.html" />
+    <link rel="next" title="目標と概要" href="../part1/part1_1/overview.html" />
     <link rel="prev" title="情報科学実験Ⅰ" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -112,8 +112,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../markdown.html">
-   環境構築とプロトコル解析
+  <a class="reference internal" href="../part1/part1_1/overview.html">
+   環境構築と実験の開始
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -122,11 +122,197 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks.html">
-     通信性能の計測
+    <a class="reference internal" href="../part1/part1_1/connect_raspberry.html">
+     RaspberryPiの接続（固定IP）
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part1/part1_2/overview.html">
+   通信性能の計測
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_2/file_IO_programming.html">
+     ファイル入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_2/network_IO_programming.html">
+     ネットワーク入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_2/measurement_IO_performance.html">
+     入出力性能の計測（必須課題）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1/part1_3/overview.html">
+   多対多接続の設計・実装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part1/part1_4/overview.html">
+   第一部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_4/peer_review.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1/report/report.html">
+   第一部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第二部 Webサーバの実装
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_1/day6objective.html">
+   Simple HTTPサーバの構築
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_1/raspberrypi_setup.html">
+     Raspberry Piのセットアップ
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_1/simplehttpserver.html">
+     Simple HTTPサーバの実装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_1/httpbenchmark.html">
+     HTTPベンチマークプログラムの実装（必須）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_2/day7objective.html">
+   HTTPサーバの高機能化(1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_2/standardforachievement.html">
+     第二部達成基準
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_2/multipleclient.html">
+     複数クライアント対応（必須）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_2/securityhole.html">
+     セキュリティホール（必須+発展）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_2/httpserver_expansion.html">
+     HTTPサーバ機能拡張（選択）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_3/day8objective.html">
+   HTTPサーバの高機能化(2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_3/introuble.html">
+     第二部の実装で詰まった時の対処法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_3/referencebook.html">
+     第二部参考書籍
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_4/day9objective.html">
+   第二部グループ発表会
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_4/groupreview.html">
+     グループレビュー
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_4/grouppresentation.html">
+     第二部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part2/part2_5/day10objective.html">
+   第二部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part2/part2_5/peerreview.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2/report/report.html">
+   第二部レポート
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -400,10 +586,10 @@ No. VNC® Viewer is always free to use. Just accept the EULA the first time you 
             <p class="prev-next-title">情報科学実験Ⅰ</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../markdown.html" title="next page">
+    <a class='right-next' id="next-link" href="../part1/part1_1/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markdown Files</p>
+        <p class="prev-next-title">目標と概要</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

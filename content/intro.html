@@ -111,8 +111,8 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="markdown.html">
-   環境構築とプロトコル解析
+  <a class="reference internal" href="part1/part1_1/overview.html">
+   環境構築と実験の開始
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -121,11 +121,197 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="notebooks.html">
-     通信性能の計測
+    <a class="reference internal" href="part1/part1_1/connect_raspberry.html">
+     RaspberryPiの接続（固定IP）
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part1/part1_2/overview.html">
+   通信性能の計測
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part1/part1_2/file_IO_programming.html">
+     ファイル入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part1/part1_2/network_IO_programming.html">
+     ネットワーク入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part1/part1_2/measurement_IO_performance.html">
+     入出力性能の計測（必須課題）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part1/part1_3/overview.html">
+   多対多接続の設計・実装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part1/part1_4/overview.html">
+   第一部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part1/part1_4/peer_review.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part1/report/report.html">
+   第一部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第二部 Webサーバの実装
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part2/part2_1/day6objective.html">
+   Simple HTTPサーバの構築
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_1/raspberrypi_setup.html">
+     Raspberry Piのセットアップ
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_1/simplehttpserver.html">
+     Simple HTTPサーバの実装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_1/httpbenchmark.html">
+     HTTPベンチマークプログラムの実装（必須）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part2/part2_2/day7objective.html">
+   HTTPサーバの高機能化(1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_2/standardforachievement.html">
+     第二部達成基準
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_2/multipleclient.html">
+     複数クライアント対応（必須）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_2/securityhole.html">
+     セキュリティホール（必須+発展）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_2/httpserver_expansion.html">
+     HTTPサーバ機能拡張（選択）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part2/part2_3/day8objective.html">
+   HTTPサーバの高機能化(2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_3/introuble.html">
+     第二部の実装で詰まった時の対処法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_3/referencebook.html">
+     第二部参考書籍
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part2/part2_4/day9objective.html">
+   第二部グループ発表会
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_4/groupreview.html">
+     グループレビュー
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_4/grouppresentation.html">
+     第二部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part2/part2_5/day10objective.html">
+   第二部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="part2/part2_5/peerreview.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part2/report/report.html">
+   第二部レポート
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -647,15 +833,6 @@ const thebe_selector_output = ".output, .cell_output"
 <p>2021年度はRaspberryPiについてはセットアップ済のイメージをこちらで用意します．</p>
 <p>実験ガイダンス時に機材一式を配布しますので，初回までに環境構築と動作確認を済ませておいてください．（必ず実験ガイダンスに参加すること！）</p>
 <p><a class="reference internal" href="preparation/preparation.html"><span class="doc std std-doc">環境構築および動作確認</span></a></p>
-<!-- ~\* [Raspbian環境のダウンロード](https://exp1.inf.shizuoka.ac.jp/Raspbian%E7%92%B0%E5%A2%83%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89 "Raspbian環境のダウンロード")~
-
--   [VNCクライアントのインストール](https://exp1.inf.shizuoka.ac.jp/VNC%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB "VNCクライアントのインストール")
--   RaspberryPiの準備
-
-~\*\*a) [RaspberryPiのセットアップ](https://exp1.inf.shizuoka.ac.jp/RaspberryPi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97 "RaspberryPiのセットアップ")~ ~\*\*b) [VNC接続](https://exp1.inf.shizuoka.ac.jp/VNC%E6%8E%A5%E7%B6%9A "VNC接続")~ ~\*\*c) [SSH接続](https://exp1.inf.shizuoka.ac.jp/SSH%E6%8E%A5%E7%B6%9A "SSH接続")~ ~\*\*d) [日本語入力環境](https://exp1.inf.shizuoka.ac.jp/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B%E7%92%B0%E5%A2%83 "日本語入力環境")（必要な人のみ）~
-
--   [Virtual BoxとVMの準備](https://exp1.inf.shizuoka.ac.jp/Virtual_Box%E3%81%A8VM%E3%81%AE%E6%BA%96%E5%82%99 "Virtual BoxとVMの準備")
--   [Teamsの準備](https://exp1.inf.shizuoka.ac.jp/Teams%E3%81%AE%E6%BA%96%E5%82%99 "Teamsの準備") -->
 <div class="section" id="id2">
 <h3>出席と進捗状況の確認について<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>毎回の演習時間の最初と最後に，スタッフが各班に出席および進捗状況を確認しに伺います（オンラインの場合はTeams等を使います）．</p>
@@ -992,8 +1169,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference internal" href="staff/procedure.html"><span class="doc std std-doc">内部向け:各回の進め方</span></a></p></li>
 <li><p><a class="reference internal" href="staff/memo.html"><span class="doc std std-doc">内部向け:備忘録(次年度への引継ぎメモ)</span></a></p></li>
 </ul>
-<!-- -   [内部向け:各回の進め方](https://exp1.inf.shizuoka.ac.jp/%E5%86%85%E9%83%A8%E5%90%91%E3%81%91:%E5%90%84%E5%9B%9E%E3%81%AE%E9%80%B2%E3%82%81%E6%96%B9 "内部向け:各回の進め方")
--   [内部向け:備忘録(次年度への引継ぎメモ)](https://exp1.inf.shizuoka.ac.jp/%E5%86%85%E9%83%A8%E5%90%91%E3%81%91:%E5%82%99%E5%BF%98%E9%8C%B2(%E6%AC%A1%E5%B9%B4%E5%BA%A6%E3%81%B8%E3%81%AE%E5%BC%95%E7%B6%99%E3%81%8E%E3%83%A1%E3%83%A2) "内部向け:備忘録(次年度への引継ぎメモ)") -->
 </div>
 <div class="section" id="id20">
 <h3>過去のページ<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
@@ -1004,6 +1179,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="http://www.minelab.jp/NWprog-CSexp1/2013/">2013年度</a></p></li>
 </ul>
 </div>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
