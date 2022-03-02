@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ベンチマークプログラムの設計と実装 - 情報科学実験I &#8212; 情報科学実験Ⅰ</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">情報科学実験Ⅰ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   情報科学実験Ⅰ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  事前準備（在宅）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preparation/preparation.html">
+   環境構築および動作確認
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第一部 ソケットプログラミング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../markdown.html">
+   環境構築とプロトコル解析
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../notebooks.html">
+     通信性能の計測
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  実験終了後（必須）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../end/cleanup.html">
+   実験機材のクリーンアップと解体
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  トラブルシューティング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/question.html">
+   質問の行い方
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/trouble.html">
+   よくあるトラブル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/uninstall.html">
+   各アプリケーションのアンインストール方法
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/part1/part1_3/benchmarking_program.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_3/benchmarking_program.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   はじめに
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   サンプルコード
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     時間計測部分
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     スレッドの生成と計測部分
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     接続時間と送受信時間の計測
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>ベンチマークプログラムの設計と実装 - 情報科学実験I</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   はじめに
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   サンプルコード
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     時間計測部分
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     スレッドの生成と計測部分
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     接続時間と送受信時間の計測
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="i">
+<h1>ベンチマークプログラムの設計と実装 - 情報科学実験I<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h1>
+<p>[TOC]</p>
+<div class="section" id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>以下の動作を行うクライアントプログラムを開発します．</p>
+<ul class="simple">
+<li><p>あるサーバに対して1接続につきM回のEchoBack通信を実施する</p></li>
+<li><p>上記の「M回のEchoBack通信」をN並列で実行する</p></li>
+</ul>
+<p>すなわち，サーバがN台のクライアントから同時に接続を受け，それぞれの接続の中でM回のEchoBack通信を行う状況を作り出します．</p>
+<p>シングルスレッドでブロッキング関数を使ってサーバに接続した場合（具体的には send/recv 関数を使って送受信する場合），順番に送受信を行うことになりますので，ある時点ではサーバは1接続しか扱っていないことになります．これではサーバに負荷がかかりませんので，マルチスレッドを利用してN並列でサーバと接続可能なクライアントプログラムを実装します．</p>
+</div>
+<div class="section" id="id2">
+<h2>サンプルコード<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行するベンチマークプログラムのサンプルを提供するので，それぞれの実験方法の必要に応じて修正等を行って利用してください．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/day3/tcpbenchmark.tgz">tcpbenchmark</a>（静大のネットワークからのみアクセス可能）</p></li>
+<li><p>\<a class="reference external" href="http://fs.inf.in.shizuoka.ac.jp">fs.inf.in.shizuoka.ac.jp</a>\share\class\情報科学実験I\第一部サンプルコード\tcpbenchmark.tgz（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）</p></li>
+</ul>
+<p>基本的な使い方は以下の通りですが，それぞれでソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やせる拡張を行ってもよいでしょう）．</p>
+<p>実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は sudo ./hogehoge の様に<strong>管理者権限で実行</strong>をしてみて下さい．(20210428 柴田追記)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ tcpbenchmark <span class="m">192</span>.168.0.100 <span class="m">1000</span> <span class="m">1</span> <span class="m">30</span> <span class="m">100</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>第1引数: 接続先IPアドレス</p></li>
+<li><p>第2引数: 接続先ポート番号</p></li>
+<li><p>第3引数: 試行数（『「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行する』測定を何回試行するか）</p></li>
+<li><p>第4引数: スレッド数(N)</p></li>
+<li><p>第5引数: EchoBack回数(M)</p></li>
+</ul>
+<div class="section" id="id3">
+<h3>時間計測部分<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．計測開示の時刻と計測終了時の時刻を構造体で管理し，差分を取って所要時間を表示しています．</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">__timeCounter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">startTs</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">endTs</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">TIMECOUNTER</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">countStart</span><span class="p">(</span><span class="n">TIMECOUNTER</span><span class="o">*</span><span class="w"> </span><span class="n">tc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">startTs</span><span class="p">));</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">countEnd</span><span class="p">(</span><span class="n">TIMECOUNTER</span><span class="o">*</span><span class="w"> </span><span class="n">tc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">endTs</span><span class="p">));</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="cm">/**</span>
+<span class="cm">   * amount required time </span>
+<span class="cm">   */</span><span class="w"></span>
+<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">diffRealSec</span><span class="p">(</span><span class="n">TIMECOUNTER</span><span class="o">*</span><span class="w"> </span><span class="n">tc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="kt">time_t</span><span class="w"> </span><span class="n">diffsec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">difftime</span><span class="p">(</span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">endTs</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">,</span><span class="w"> </span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">startTs</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">diffnanosec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">endTs</span><span class="p">.</span><span class="n">tv_nsec</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">startTs</span><span class="p">.</span><span class="n">tv_nsec</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">diffsec</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">diffnanosec</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printUsedTime</span><span class="p">(</span><span class="n">TIMECOUNTER</span><span class="o">*</span><span class="w"> </span><span class="n">tc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;UsedTime: %10.10f(sec)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">diffRealSec</span><span class="p">(</span><span class="n">tc</span><span class="p">));</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>スレッドの生成と計測部分<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>単位時間あたりの処理能力を計測する必要があるので，スレッド生成処理のタイムラグを除外するために，予め全てのスレッドを生成しておき，スタートフラグを以って全スレッドが並行してサーバに接続開始するように設計しています．</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tplistNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="n">THREADPARAM</span><span class="o">*</span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">THREADPARAM</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">THREADPARAM</span><span class="p">));</span><span class="w"></span>
+<span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">serverInfo</span><span class="p">.</span><span class="n">hostName</span><span class="p">,</span><span class="w"> </span><span class="n">hostName</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">serverInfo</span><span class="p">.</span><span class="n">portNum</span><span class="p">,</span><span class="w"> </span><span class="n">portNum</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="n">tplist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tp</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">attr</span><span class="p">,</span><span class="w"> </span><span class="n">thread_func</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;pthread_create&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;thread %d created.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="c1">// スレッドの準備終了</span>
+<span class="w"> </span><span class="n">isPrepared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start count down: 2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">// 1 sec</span>
+<span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start count down: 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">// 1 sec</span>
+<span class="w">       </span>
+<span class="w">       </span><span class="c1">// スレッドスタート及び計測開始</span>
+<span class="w"> </span><span class="n">countStart</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="n">isRunnable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Thread Start!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">       </span>
+<span class="w">       </span><span class="c1">// スレッド終了待ち</span>
+<span class="w">       </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tplistNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pthread_join</span><span class="p">(</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="nb">NULL</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">           </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;pthread_join&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">       </span>
+<span class="w">           </span><span class="c1">// 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））</span>
+<span class="w">           </span><span class="n">countEnd</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="p">}</span><span class="w"></span>
+<span class="w">       </span><span class="p">}</span><span class="w"></span>
+<span class="w">       </span><span class="c1">// 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））</span>
+<span class="w">       </span><span class="n">countEnd</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
+<span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>接続時間と送受信時間の計測<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>各スレッドにおける接続時間と送受信時間を計測しています。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">RECONNECT_MAX</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// 接続時間計測開始</span>
+<span class="w">   </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// サーバにソケット接続</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">csocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clientTCPSocket</span><span class="p">(</span><span class="n">si</span><span class="o">-&gt;</span><span class="n">hostName</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="o">-&gt;</span><span class="n">portNum</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;client_socket():error</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// 接続時間計測終了</span>
+<span class="w">   </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">csocket</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="c1">// connection refused ( maybe server down )</span>
+<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;maybe server down.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// 接続時間計測終了</span>
+<span class="w">   </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// 実際の送受信処理の計測の前に接続確認を行う</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csocket is not connected.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// 送受信時間計測開始</span>
+<span class="w">   </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// 送受信処理</span>
+<span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="n">ECHOBACKNUM</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failSendRecvNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// 送受信時間計測終了</span>
+<span class="w">   </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="c1">// ソケットクローズ</span>
+<span class="w">   </span><span class="n">close</span><span class="p">(</span><span class="n">csocket</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/part1/part1_3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Ohki Lab<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
