@@ -87,16 +87,6 @@
 
 [環境構築および動作確認](preparation/preparation)
 
-<!-- ~\* [Raspbian環境のダウンロード](https://exp1.inf.shizuoka.ac.jp/Raspbian%E7%92%B0%E5%A2%83%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89 "Raspbian環境のダウンロード")~
-
--   [VNCクライアントのインストール](https://exp1.inf.shizuoka.ac.jp/VNC%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB "VNCクライアントのインストール")
--   RaspberryPiの準備
-
-~\*\*a) [RaspberryPiのセットアップ](https://exp1.inf.shizuoka.ac.jp/RaspberryPi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97 "RaspberryPiのセットアップ")~ ~\*\*b) [VNC接続](https://exp1.inf.shizuoka.ac.jp/VNC%E6%8E%A5%E7%B6%9A "VNC接続")~ ~\*\*c) [SSH接続](https://exp1.inf.shizuoka.ac.jp/SSH%E6%8E%A5%E7%B6%9A "SSH接続")~ ~\*\*d) [日本語入力環境](https://exp1.inf.shizuoka.ac.jp/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B%E7%92%B0%E5%A2%83 "日本語入力環境")（必要な人のみ）~
-
--   [Virtual BoxとVMの準備](https://exp1.inf.shizuoka.ac.jp/Virtual_Box%E3%81%A8VM%E3%81%AE%E6%BA%96%E5%82%99 "Virtual BoxとVMの準備")
--   [Teamsの準備](https://exp1.inf.shizuoka.ac.jp/Teams%E3%81%AE%E6%BA%96%E5%82%99 "Teamsの準備") -->
-
 ### 出席と進捗状況の確認について
 
 毎回の演習時間の最初と最後に，スタッフが各班に出席および進捗状況を確認しに伺います（オンラインの場合はTeams等を使います）．
