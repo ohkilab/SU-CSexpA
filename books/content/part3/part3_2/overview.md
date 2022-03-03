@@ -4,10 +4,10 @@
 
 ## 最終課題環境の確認と構築
 
--   a) [DBMSとの接続](./connection_to_dbms.html "DBMSとの接続")（必須）
--   b) [最終課題の詳細](./final_task_details.html "最終課題の詳細")
--   c) [第三部グループ発表会](./part3_group_presentation.html "第三部グループ発表会")
--   d) [第三部レポート](./part3_repot.html "第三部レポート")
+-   a) [DBMSとの接続](./connection_to_dbms "DBMSとの接続")（必須）
+-   b) [最終課題の詳細](./final_task_details "最終課題の詳細")
+-   c) [第三部グループ発表会](./part3_group_presentation "第三部グループ発表会")
+-   d) [第三部レポート](./part3_repot "第三部レポート")
 
 ## レポートに関して
 
