@@ -4,10 +4,10 @@
 
 ## Webシステムの超高性能化（最終課題）
 
--   a) [Apache MPMについて](./about_apache_mpm.html "Apache MPMについて")
--   b) [実装の参考となるリンク集](./useful_links.html "実装の参考となるリンク集")
--   c) [WebSocketについて](./websocket.html "WebSocketについて")
--   d) [検討状況の確認](./conformation_of_status.html "検討状況の確認")（必須）
+-   a) [Apache MPMについて](./about_apache_mpm "Apache MPMについて")
+-   b) [実装の参考となるリンク集](./useful_links "実装の参考となるリンク集")
+-   c) [WebSocketについて](./websocket "WebSocketについて")
+-   d) [検討状況の確認](./conformation_of_status "検討状況の確認")（必須）
 
 ## レポートに関して
 

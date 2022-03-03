@@ -6,5 +6,5 @@
 
 ## 第三部グループ発表会準備
 
--   a) [第三部グループ発表会](../part3_2/part3_group_presentation.html "第三部グループ発表会")
--   b) [第三部レポート](../part3_2/part3_repot.html "第三部レポート")
+-   a) [第三部グループ発表会](../part3_2/part3_group_presentation "第三部グループ発表会")
+-   b) [第三部レポート](../part3_2/part3_repot "第三部レポート")

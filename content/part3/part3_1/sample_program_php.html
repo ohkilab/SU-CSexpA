@@ -583,7 +583,7 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="section" id="id1">
 <h1>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>Webシステムを構築する上で重要となるWebサーバについて，Node.jsを用いたWebサーバを試してみました．次は，代表的なWebサーバ用ソフトウェアであるApacheを用いて，PHPで作成されるWebページを返すような単純なWebシステムを構築してみましょう．</p>
-<p>まず，サーバ端末上の皆さんのホームディレクトリにあるpublic_htmlディレクトリにあるファイルへ，Webブラウザで表示できるようにUserdir設定を有効にしてください． public_html ディレクトリがない方や，userdirの設定が終わっていない方は，第二部 <span class="xref myst">Raspberry_Piのセットアップ</span> を参照してください．</p>
+<p>まず，サーバ端末上の皆さんのホームディレクトリにあるpublic_htmlディレクトリにあるファイルへ，Webブラウザで表示できるようにUserdir設定を有効にしてください． public_html ディレクトリがない方や，userdirの設定が終わっていない方は，第二部 <a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html"><span class="doc std std-doc">Raspberry_Piのセットアップ</span></a> を参照してください．</p>
 <p>次に，サーバ端末上の皆さんのホームディレクトリにあるpublic_htmlディレクトリへ，以下のような内容で<strong>index.php</strong>というPHPファイルを作成してみてください．もちろんサーバ端末へリモートログインしてファイル作成しても構いませんが，ローカルのノートPC上で作成して，<a class="reference external" href="https://winscp.net/eng/docs/lang:jp">WinSCP</a>のようなSFTPクライアントプログラムを用いてサーバ端末へアップロードする方法も一般的ですので慣れておいてください（WinSCPの画面で，ローカル側からサーバ側へファイルをドラッグすればアップロードされます．ダウンロードは逆になります）．</p>
 <p>実際にサーバ端末へアップロードされたかどうか，サーバ端末へリモートログインしてアップロードしたディレクトリでlsコマンドを打って確認してみてください．</p>
 <p>次に，ApacheがPHPファイルを実行した結果をWebブラウザへ返せるか確認します．ノートPC上のWebブラウザから以下のURLを入力してみてください（ユーザ名の部分は，サーバ端末上に作成した皆さんのアカウント名になります）．ApacheはURLでファイル名を指定されなかった場合，そのディレクトリにある<strong>index.html</strong>や<strong>index.php</strong>をデフォルトで返すようになっています（設定ファイルで変更可能です）．</p>
