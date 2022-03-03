@@ -1,0 +1,1070 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>はじめに &#8212; 情報科学実験Ⅰ</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">情報科学実験Ⅰ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   情報科学実験Ⅰ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  事前準備（在宅）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preparation/preparation.html">
+   環境構築および動作確認
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第一部 ソケットプログラミング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part1/part1_1/overview.html">
+   環境構築と実験の開始
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_1/connect_raspberry.html">
+     RaspberryPiの接続（固定IP）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part1/part1_2/overview.html">
+   通信性能の計測
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">
+     ファイル入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">
+     ネットワーク入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">
+     入出力性能の計測（必須課題）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part1/part1_3/overview.html">
+   多対多接続の設計・実装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part1/part1_4/overview.html">
+   第一部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_4/peer_review.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part1/report/report.html">
+   第一部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第二部 Webサーバの実装
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_1/day6objective.html">
+   Simple HTTPサーバの構築
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html">
+     Raspberry Piのセットアップ
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/simplehttpserver.html">
+     Simple HTTPサーバの実装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/httpbenchmark.html">
+     HTTPベンチマークプログラムの実装（必須）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_2/day7objective.html">
+   HTTPサーバの高機能化(1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/standardforachievement.html">
+     第二部達成基準
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/multipleclient.html">
+     複数クライアント対応（必須）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/securityhole.html">
+     セキュリティホール（必須+発展）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/httpserver_expansion.html">
+     HTTPサーバ機能拡張（選択）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_3/day8objective.html">
+   HTTPサーバの高機能化(2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_3/introuble.html">
+     第二部の実装で詰まった時の対処法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_3/referencebook.html">
+     第二部参考書籍
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_4/day9objective.html">
+   第二部グループ発表会
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_4/groupreview.html">
+     グループレビュー
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_4/grouppresentation.html">
+     第二部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_5/day10objective.html">
+   第二部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_5/peerreview.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part2/report/report.html">
+   第二部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  実験終了後（必須）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../end/cleanup.html">
+   実験機材のクリーンアップと解体
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  トラブルシューティング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/question.html">
+   質問の行い方
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/trouble.html">
+   よくあるトラブル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/uninstall.html">
+   各アプリケーションのアンインストール方法
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/part3/part3_2/final_task_details.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_2/final_task_details.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   はじめに
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   使用機材について
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   データセットのダウンロード
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#php">
+     PHPのエラー表示設定と確認
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     データセットのダウンロード
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geotag-csv">
+       geotag.csvの概要
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tag-csv">
+       tag.csvの概要
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     テーブルの作成
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     テーブル作成がうまくいかない人用の手順
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     インデックスの作成
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   基礎課題（全員必須）
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a">
+     実装A
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b">
+     実装B
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c">
+     実装C
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     性能比較
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   応用課題（分担で①は必須、②は任意）
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     ①超高性能化（ハイパフォーマンス）チーム
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     ②自由課題（イマジネーション）チーム
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   おわりに
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>はじめに</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   はじめに
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   使用機材について
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   データセットのダウンロード
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#php">
+     PHPのエラー表示設定と確認
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     データセットのダウンロード
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geotag-csv">
+       geotag.csvの概要
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tag-csv">
+       tag.csvの概要
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     テーブルの作成
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     テーブル作成がうまくいかない人用の手順
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     インデックスの作成
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   基礎課題（全員必須）
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a">
+     実装A
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b">
+     実装B
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c">
+     実装C
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     性能比較
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   応用課題（分担で①は必須、②は任意）
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     ①超高性能化（ハイパフォーマンス）チーム
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     ②自由課題（イマジネーション）チーム
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   おわりに
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="id1">
+<h1>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>最終課題は，Webシステムの超高性能化に関する課題です．</p>
+<p>具体的には，1000万行程の大きなデータ（CSV形式）を2つ用意しましたので，Webブラウザで検索キーワードを入力すると，これら2ファイルを統合的に検索し結果をソートして表示するWebアプリケーションを実装してもらいます．何も工夫せず安直に実装すると検索結果が表示されるまで数分かかってしまうこともありますので，三層クライアントサーバ型のWebシステムにおいて，どこにボトルネックが生じうるのか，どのようにボトルネックの箇所が遷移していくのか，グループ内で議論や試行錯誤し，できるだけ多くのリクエストに耐えられる超高性能なWebシステムを実現できるようグループ間で競ってもらいます．様々なアプローチが考えられますが，大きくオンメモリ型か非オンメモリ型かでそれぞれ超高性能なWebシステムを目指してほしいと思います（どちらか一方のみでも構いません）．</p>
+<p>第三部最後のグループ発表会では，各グループの実現した超高性能なWebシステムについて特徴を紹介してもらい，その性能測定結果をアピールしてもらいます．どのような工夫で性能向上させるかは，世の中で実際に使用されうる手法であれば何でも構いません（もし実運用に耐えられないような小手先の仕組みの場合は，参考という形でアピールしてください．実施した内容や検討した内容はポジティブに受け取りますので）．</p>
+<p>最終課題も，<strong>グループ発表会</strong>と<strong>個別レポート</strong>で評価しますので，チームワークだけでなく主体性，独自性も養ってください．また，これまでのグループワークを通し，実装の得意な人，計測や考察の得意な人，自由な発想で取り組みたい人，などそれぞれ何となく自身を分析できるようになってきたと思います．まずは，下記の**基礎課題（必須）<strong>全てをグループ内で議論しながら実施してください．さらに，以下に示す</strong>応用課題（分担で①は必須，②は任意）**については各自の興味関心，得意分野に応じて，それぞれ複数人になるよう相談して決めてください（半々で実施する必要はありませんし，重複していても構いませんが「二兎を追う者は一兎をも得ず」にならないようご注意ください）．</p>
+<ul class="simple">
+<li><p>基礎課題（必須）</p></li>
+<li><p>応用課題（分担で①は必須，②は任意）</p>
+<ul>
+<li><p>①必須：Webシステムの<strong>超高性能化</strong>に重点的に取り組む人(<strong>①超高性能化（ハイパフォーマンス）チーム</strong>)</p></li>
+<li><p>②任意：<strong>超興味深い</strong>Webシステムの自由課題に重点的に取り組む人(<strong>②自由課題（イマジネーション）チーム</strong>)</p></li>
+</ul>
+</li>
+</ul>
+<p>もちろん両方に取り組んでもらってもよいですが，限られた時間内で達成感を得られる方に専念した方がよいと思います．また，それぞれ開発したプログラムのソースコード最終版も個別レポートと一緒に提出してもらいます．第三者が眺めて理解しやすいような構造やコメントを意識してください．</p>
+</div>
+<div class="section" id="id2">
+<h1>使用機材について<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<p>最終課題には「基礎課題」および「応用課題」の二種類の課題があります． 基礎課題にはRaspberry Piを使用して取り組んでください． 応用課題（超高性能化および自由課題）では，<strong>Raspberry Pi以外の機材（例えば，以前の実験で利用していたNUCが何台かあります）も利用可能</strong>とします． また，<strong>一台だけでなく複数台Raspberry Piを組み合わせた構成も利用可</strong>とします．皆さんの自由な発想による課題へのチャレンジを期待しています．</p>
+<p>ただし，複雑なシステム構成においてはパフォーマンスの計測も困難になることには十分に注意してください．パフォーマンスに影響する要件を抽出し，それぞれが何故，どの程度影響を与えたのかを，公平に評価・レポートすることが重要です．</p>
+</div>
+<div class="section" id="id3">
+<h1>データセットのダウンロード<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="php">
+<h2>PHPのエラー表示設定と確認<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h2>
+<p>デフォルト設定では，PHPでWebアプリケーションを実装した場合，PHP実行時のエラー内容が画面に表示されず正常に動作しているのかしていないのか良く分かりません．また，裏で検索処理に時間を要しているだけなのにPHP実行時間が重たく30秒を超えてしまうような場合，自動的にPHPの実行を停止してしまいます．Webシステムの本番運用ではこのようなデフォルト設定が望ましいですが，Webシステムの開発中は設定を変更した方が便利ですので以下のようにPHPの設定ファイルを修正してください（<a class="reference external" href="https://qiita.com/hide/items/5bfe5b322872c61a6896">よく使う Vim のコマンドまとめ</a>）．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/php.ini
+</pre></div>
+</div>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># ブログラムのタイムアウト設定を30 -&gt; 300秒へ変更</span><span class="w"></span>
+<span class="na">max_execution_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">300</span><span class="w"></span>
+
+<span class="c1"># .................</span><span class="w"></span>
+<span class="c1"># 画面へのエラー表示設定をOff -&gt; Onへ変更</span><span class="w"></span>
+<span class="na">display_errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">On</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>データセットのダウンロード<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>最終課題用の２つのデータセットをダウンロードしてください．それぞれダウンロードするのにそこそこ時間を要しますので余裕をもって事前に~，各サーバ上のWebブラウザを用いて代表者一名が~ダウンロードしておくとよいでしょう．</p>
+<p>~ダウンロードしたファイルは，管理者権限でルートディレクトリ「/」へ誰でも読み書きできるディレクトリ「例：/data」を作成し，そこへ入れておくことで，班員が各自のホームディレクトリへコピーするといった方法で共有するとよいと思います．~</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/part3/geotag.zip">geotag.zip</a>（約439MB）（静大のネットワークからのみアクセス可能）</p></li>
+<li><p>\<a class="reference external" href="http://fs.inf.in.shizuoka.ac.jp">fs.inf.in.shizuoka.ac.jp</a>\share\class\情報科学実験I\第三部サンプルデータ\geotag.zip（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）</p></li>
+</ul>
+<p>どちらも同じファイルなので，可能な方法でダウンロードしてください．解凍するとgeotag.csv (約1.1GB)とtag.csv (約445MB)の2つのファイルが入っています．</p>
+<p>※ パケット容量制限等でどうしてもダウンロードが難しい方はUSBメモリ等でお渡ししますのでTeamsにてご相談ください</p>
+<div class="section" id="geotag-csv">
+<h3>geotag.csvの概要<a class="headerlink" href="#geotag-csv" title="Permalink to this headline">¶</a></h3>
+<p>Flickrで共有されている<strong>撮影位置の緯度経度</strong>の付いた写真1000万枚のリストになります．</p>
+<table><tbody><tr><td><b>列名</b></td><td><b>概要</b></td><td><b>例</b></td></tr><tr><td>ID</td><td>各写真で一意の識別子</td><td>4532230686</td></tr><tr><td>撮影時刻</td><td>TIMESTAMP形式</td><td>2010-04-18 12:14:07</td></tr><tr><td>緯度</td><td>撮影位置の緯度(倍精度)</td><td>40.744769</td></tr><tr><td>経度</td><td>撮影位置の経度(倍精度)</td><td>-73.958823</td></tr><tr><td>画像のURL</td><td>Flickrサーバ上の画像URL</td><td>http://farm5.staticflickr.com/40～略～m.jpg</td></tr></tbody></table>
+</div>
+<div class="section" id="tag-csv">
+<h3>tag.csvの概要<a class="headerlink" href="#tag-csv" title="Permalink to this headline">¶</a></h3>
+<p>geotag.csvに含まれる画像へ付与されているタグのリストになります．IDの重複は許しており，タグ毎に一行となっています．</p>
+<table><tbody><tr><td><b>列名</b></td><td><b>概要</b></td><td><b>例</b></td></tr><tr><td>ID</td><td>各写真で一意の識別子</td><td>4532230686</td></tr><tr><td>タグ</td><td>Varchar形式</td><td>dog</td></tr></tbody></table>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>テーブルの作成<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>テーブルを作成し，ダウンロードしたCSVファイル（データセット）からデータをテーブルへ流し込んでみましょう．参考まで標準的なスキーマを以下に記しておきます．もちろんもっと賢い格納方法についてグループ内で試行錯誤してくれて構いませんので，ぜひ取り組んでみてください（ただし，ここはまだ本質ではありません）．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>--mysqlの設定変更（該当箇所を以下のように変更するか，なければ追記）
+$ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
+default-storage-engine=Aria
+character-set-server=utf8
+collation-server=utf8_general_ci
+
+--必要なら既存のテーブルを削除
+DROP TABLE tag,geotag;
+
+--テーブルの作成
+CREATE TABLE geotag(
+  id BIGINT UNSIGNED PRIMARY KEY,
+  time DATETIME,
+  latitude DOUBLE,
+  longitude DOUBLE,
+  url VARCHAR(100)
+);
+
+CREATE TABLE tag(
+  id BIGINT UNSIGNED,
+  tag VARCHAR(300)
+);
+
+--CSVファイルの流し込み
+LOAD DATA LOCAL INFILE &quot;/data/geotag.csv&quot; INTO TABLE geotag FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;&quot;&#39;;
+LOAD DATA LOCAL INFILE &quot;/data/tag.csv&quot; INTO TABLE tag FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;&quot;&#39;;
+</pre></div>
+</div>
+<p>約1,000万件のデータセット（約1.1GB）ですから，データベースへの流し込みにはそこそこ時間を要します． 事前に実験した結果ではgeotagのLOADに45分程度，tagのLOADに10分程度の実行時間になります．これと比べて著しく時間がかかる場合は何らかの原因で失敗している可能性がありますので，下記のテーブル作成がうまくいかない人用の手順を見ながら再度試してみてください．</p>
+<ul class="simple">
+<li><p>CSVファイルを読み込む命令: <a class="reference external" href="http://dev.mysql.com/doc/refman/4.1/ja/load-data.html">http://dev.mysql.com/doc/refman/4.1/ja/load-data.html</a></p></li>
+</ul>
+<p>上記のCREATE文では，キーに指定されたID以外のインデックスを作成しません．インデックスの効果を実感するために，以下のSQLで問い合わせしてみましょう．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--インデックスを作成しているフィールドで検索</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">geotag</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7738073352</span><span class="p">;</span><span class="w"></span>
+<span class="c1">--  すぐに結果が返ってきます</span>
+
+<span class="c1">--インデックスを作成していないフィールドで検索</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">geotag</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">latitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">38</span><span class="p">.</span><span class="mi">9466</span><span class="p">;</span><span class="w"></span>
+<span class="c1">--  しばらく時間を要します</span>
+</pre></div>
+</div>
+<p>前者はインデックスを作成しているため，高速に結果が返ってきたはずです．一方，インデックスを作成していない後者はしばらく時間を要したと思います．これがインデックスの効果です．ちなみにMariaDBはデフォルトで，主キーに対してB-treeを用いたインデックスを作成しています．A&amp;Dで勉強したように，B-treeを用いて探索するため高速に結果が返ってきます（もちろん様々な特性に応じた工夫が施されていると思います）．</p>
+<p>ここで，一般的にインデックスが作成されているフィールドを検索する場合，特に何も指定しなければ自動的にインデックスを使用して検索されますが，SELECT文に<strong>IGNORE INDEX</strong>句を加えることで，敢えて強制的に<strong>インデックスを使用しない</strong>という指定もできます．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--インデックスを強制的に使用しないで問い合わせをする方法</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">geotag</span><span class="w"> </span><span class="k">IGNORE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="p">(</span><span class="k">PRIMARY</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7738073352</span><span class="p">;</span><span class="w"></span>
+<span class="c1">--PRIMARYは主キーに自動で付けられるインデックスの名前</span>
+
+<span class="c1">--インデックスがあるのにインデックスを使用しないため検索に時間を要します</span>
+</pre></div>
+</div>
+<p>インデックス使用の有無に関するMySQLリファレンスへの関連リンク</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dev.mysql.com/doc/refman/5.6/ja/index-hints.html">インデックスヒント構文</a></p></li>
+<li><p><a class="reference external" href="http://dev.mysql.com/doc/refman/5.1/ja/show-index.html">SHOW INDEX 構文</a></p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>テーブル作成がうまくいかない人用の手順<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>下記手順を試してみてください</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>--mysqlを止める
+$ sudo service mysql stop
+--（一度失敗等して動作が重くなっている人のみ！）一度mysqlデータベースを全削除
+$ sudo rm -rf /var/lib/mysql（必要ならバックアップとっておいてください．残り容量注意）
+--mysqlの初期化
+$ sudo mysql_install_db
+--mysqlを再起動
+$ sudo service mysql start
+--必要なら既存のテーブルを削除
+DROP TABLE tag,geotag<span class="p">;</span>
+-- 再度テーブルの作成からチャレンジ
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>インデックスの作成<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>緯度経度や撮影時刻，タグなどを条件とした検索を効率良く行うため，必要なフィールド用のインデックスを作成してみましょう．ただし，インデックスを作成すると検索は速くなりますが，インデックスの分だけディスク容量を消費しますので注意しましょう（インデックスの作成に必要な容量は計算で見積もることができますので調べてみるとよいでしょう）．</p>
+<p>具体的に，皆さんの環境でインデックスの作成によってどの程度ディスク容量を使用するか試してみましょう．以下のようにコマンドを入力し，インデックスを作成する前のテーブルが消費しているデータ容量をチェックしてみましょう．テーブルが消費しているデータ容量などの詳細は，<strong>information_schema</strong>と呼ばれるDBのpartitionsテーブルへ保存されています．</p>
+<p>data_lengthがテーブルの大きさ，index_lengthがインデクスの大きさ，単位はbyteで確認できます．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--メタデータを保持しているinformation_schmeと呼ばれるDBへ移動</span>
+<span class="n">use</span><span class="w"> </span><span class="n">information_schema</span><span class="p">;</span><span class="w"></span>
+<span class="k">select</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="n">data_length</span><span class="p">,</span><span class="n">index_length</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;geotag&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;tag&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">--実験で使用している実験用DB（例：CSexp1DB，皆さんの作成したDB名へ適宜読み替え）へ戻る</span>
+<span class="n">use</span><span class="w"> </span><span class="n">CSexp1DB</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="c1">------------+-------------+--------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">data_length</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">index_length</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------------+-------------+--------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">geotag</span><span class="w">     </span><span class="o">|</span><span class="w">  </span><span class="mi">1180311552</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">183001088</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">|</span><span class="w"> </span><span class="n">tag</span><span class="w">        </span><span class="o">|</span><span class="w">  </span><span class="mi">1002242048</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">297779200</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------------+-------------+--------------+</span>
+</pre></div>
+</div>
+<p>それでは，次に必要な項目のインデックスを作成してみましょう．端末のハードウェア性能にもよりますが，1,000万件のB-treeを作成する訳ですからインデックスを一つ作成するだけで5分程度の時間を要します．</p>
+<p>ここで「i_xxxx」はインデックス名です．インデックス名は自由に設定できますが，インデックス名であることが一目瞭然になるよう対象フィールド名の前に「i_」を付けたものをインデックス名とすることにしました．例えば，tagフィールド用のインデックス名は「i_tag」としています．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_lat</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="n">latitude</span><span class="p">);</span><span class="w"></span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_log</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="n">longitude</span><span class="p">);</span><span class="w"></span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_time</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="k">time</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_tag</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tag</span><span class="p">(</span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>ここで，最後の「CREATE INDEX i_tag USING BTREE ON tag(tag);」を実行すると「ERROR 1238 (HY000): Variable ‘innodb_large_prefix’ is a read only variable」というエラーが発生するかもしれません．皆さんに最初に設定してもらったデフォルトストレージエンジン Aria の制約となります．ストレージエンジンを InnoDBに変更すれば，innodb_large_prefix を設定できるようになりますので興味ある方は試してみてください（ストレージエンジンの変更にはそこそこ時間を要しますので）．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>mysql &gt; show enginescreate table テーブル名;                 # ストレージエンジン（Engine）を確認
+mysql &gt; alter table テーブル名 engine=任意のエンジン;        # ストレージエンジンの変更
+（そこそこ時間がかかります）
+mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム名)
+
+</pre></div>
+</div>
+<p>最後に，上記のインデックス作成によってテーブルが消費しているデータ容量がどの程度増加したか確認してみましょう．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--メタデータを保持しているinformation_schmeと呼ばれるDBへ移動</span>
+<span class="n">use</span><span class="w"> </span><span class="n">information_schema</span><span class="p">;</span><span class="w"></span>
+<span class="k">select</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="n">data_length</span><span class="p">,</span><span class="n">index_length</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;geotag&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;tag&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">--実験で使用している実験用DB（例：CSexp1DB，皆さんの作成したDB名へ適宜読み替え）へ戻る</span>
+<span class="n">use</span><span class="w"> </span><span class="n">CSexp1DB</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="c1">------------+-------------+--------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">data_length</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">index_length</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------------+-------------+--------------+</span>
+<span class="o">|</span><span class="w"> </span><span class="n">geotag</span><span class="w">     </span><span class="o">|</span><span class="w">  </span><span class="mi">2111832064</span><span class="w"> </span><span class="o">|</span><span class="w">    </span><span class="mi">707444736</span><span class="w"> </span><span class="o">|</span><span class="w"></span>
+<span class="o">+</span><span class="c1">------------+-------------+--------------+</span>
+</pre></div>
+</div>
+<p>上記のインデックス作成によって，テーブルが消費しているデータ容量が<strong>約183MBから約707MBへ増加した</strong>ことが分かります．</p>
+<p>ディスク容量は潤沢にある場合は良いですが，闇雲にインデックスを作成しすぎるとディスク容量不足に陥るので注意しましょう．今回のような大容量のデータセットを扱う場合，インデックスを作成しないと実用的な応答速度が得られませんが，性能とコストのバランスが重要となりますので，インデックスの作成方法や構造など試行錯誤してみてください．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://dev.mysql.com/doc/refman/5.1/ja/create-index.html">インデクス作成に関するMySQLリファレンス</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h1>基礎課題（全員必須）<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h1>
+<p><strong>任意のタグを持つ写真の撮影時刻・緯度・経度・URLの一覧を，撮影時刻順で出力するプログラム</strong>を様々な方針で実装してもらいます．</p>
+<p>ここで，任意のタグは静的にハードコーティングするのではなく，Webブラウザの検索フォームからユーザが指定できるよう実装してください．</p>
+<p>イメージを掴みやすくなるようこれから実装するprocA（実装A）～C（実装C）を呼び出すための共通のindex.htmlを用意しました．以下のgitリポジトリからサンプルプログラム（index.html, progA.php, progB.php, progC.phpの４つ）をcloneしてください．これらprogA.php（実装A）, progB.php（実装B）, progC.php（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザでindex.htmlを表示し，どのような構造になっているか動作を確認してみてください．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/abarth500/CSexp1-Last.git">https://github.com/abarth500/CSexp1-Last.git</a></p></li>
+</ul>
+<p>以下の項目は，実装A～Cの全てに対し共通で実装してもらいたい仕様ですので必ず実装してください．</p>
+<p>【<strong>追加実装する共通仕様</strong>】</p>
+<ul class="simple">
+<li><p>ユーザの入力した任意のタグに合致する写真を表示すること</p></li>
+<li><p>各写真に対し，写真，緯度・経度，撮影時刻の情報を表示すること</p></li>
+<li><p>撮影時刻の降順で写真を表示すること</p></li>
+<li><p>結果が100件を超える場合，最新のもの100件を表示すること</p></li>
+</ul>
+<div class="section" id="a">
+<h2>実装A<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h2>
+<p>実装Aは，<strong>データベースを使用せずにCSVファイルを開いて検索するようなプログラム</strong>を実装してください．</p>
+<p>実装Aの仕様を以下に示します．</p>
+<p>【仕様】</p>
+<ul class="simple">
+<li><p>progA.phpとして実装すること</p></li>
+</ul>
+<p>【ヒント】</p>
+<p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p>
+<p>インデックスのような機能を独自実装してくれて構いません．</p>
+<p>PHPのみで全ての機能を実装する必要はありません．以下の関数を用いるとPHPから実行形式のファイルを実行できます．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.php.net/manual/ja/function.exec.php">exec関数</a></p></li>
+<li><p><a class="reference external" href="http://www.php.net/manual/ja/function.system.php">system関数</a></p></li>
+<li><p><a class="reference external" href="http://www.php.net/manual/ja/function.passthru.php">passthru関数</a></p></li>
+</ul>
+<p>ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
+</div>
+<div class="section" id="b">
+<h2>実装B<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h2>
+<p>実装Bは，実装Aと同仕様のプログラムを，<strong>データベースを使用して，ただし「i_tag」インデックスは使用しないで検索するようなプログラム</strong>を実装してください．</p>
+<p>実装Bの仕様を以下に示します．</p>
+<p>【仕様】</p>
+<ul class="simple">
+<li><p>progB.phpとして実装すること</p></li>
+<li><p>データベースを使用すること（ただし<strong>i_tag</strong>インデックスを使用してはいけない）</p></li>
+</ul>
+<p>【ヒント】</p>
+<p>「i_tag」インデックスを使用しない設定は，<strong>SELECT * FROM tag IGNORE INDEX(i_tag) WHERE tag like ‘beach’;</strong></p>
+<p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p>
+<p>「任意のタグに合致する写真のリスト」は，SELECT文1文で実現できますが，インデックスを使用しない場合，クエリを分割したり，一部をSQLではなくプログラム側で処理するというような構造も効果的かもしれません．</p>
+<p>ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
+</div>
+<div class="section" id="c">
+<h2>実装C<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h2>
+<p>実装Cは，実装Bのプログラムを，<strong>インデックスを使用して検索するプログラム</strong>を実装してください．</p>
+<p>【仕様】</p>
+<ul class="simple">
+<li><p>progC.phpとして実装すること</p></li>
+<li><p>データベースならびにインデックスを使用すること</p></li>
+</ul>
+<p>【ヒント】</p>
+<p>SELECT文から「<strong>IGNORE INDEX</strong>」を削除するだけで構いません．</p>
+<p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p>
+</div>
+<div class="section" id="id9">
+<h2>性能比較<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>上記，<strong>実装Ａ～Ｃ</strong>の性能を，abコマンドを使って性能比較し結果を分析してください．</p>
+<p>上記３実装の性能は恐らく「実装B＜実装A＜実装C」なりそうですが，実装Aの工夫によって「実装B＜実装C＜実装A」も可能かもしれませんね．</p>
+<p>特に<strong>実装Aで超高性能なプログラム</strong>になるよう頑張ってください．</p>
+<p>グループ内全員の各実装の性能をグラフ化して比較し，グループ内で一番高性能な各実装を代表としてグループ発表で紹介してください．</p>
+<p>ここで，皆さんの使用しているサーバ機やクライアント機における<strong>CPUのコア数やスレッド数</strong>（ハードウェア的制約），Linuxにおける<strong>ファイルディスクリプタ数の上限</strong>（ソフトウェア的制約）についてもご注意ください． またCPUによっては，高負荷になってCPU温度が高くなると動作周波数を落として性能を抑えるものもあります．何度も連続で負荷試験を行うと計測値が不安定になっていくことがありますのでご注意ください（CPUにヒートシンクを付けたり，CPUファンを付けたりすると多少効果あるかもしれません）．</p>
+<p>【仕様】</p>
+<ul class="simple">
+<li><p>検索するタグは<strong>fiat</strong></p></li>
+<li><p>以下の様にURL中のクエリストリングとして指定すること</p>
+<ul>
+<li><p><a class="reference external" href="http://192.168.1.101/~username/directory/progA.php?tag=fiat">http://192.168.1.101/~username/directory/progA.php?tag=fiat</a></p></li>
+</ul>
+</li>
+<li><p>abのコマンドライン引数は以下の数値を基本とすること（グループ間の性能比較をする際の設定）</p>
+<ul>
+<li><p>-n 20</p></li>
+<li><p>-c 10</p></li>
+</ul>
+</li>
+</ul>
+<p>【補足】</p>
+<p>もしAjax等の非同期実行でクエリを発行するような高度な実装をした人は，そのクエリの実行時間が測れるようurlを設定してください．</p>
+<p><strong>クライアントサイドのみ</strong>や主メモリ内のみで完結するような，本質的に異なる次元の工夫による実装の性能結果は， <strong>オンメモリ型</strong>であることなど明記し，<strong>参考値</strong>として性能結果を示してください（全体アーキテクチャや本質的な違いなど明確に説明してください）．</p>
+<p>いずれにせよロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
+<p>上記abコマンドの引数（各班の性能差を際立たせるために重めの負荷になるよう設定）で各実装を複数回性能比較するとかなりの時間を要しますので，普段のデバッグ時は軽めの負荷で検証を進めてください．グループ発表や個別レポートに掲載する値は，上記abコマンドの引数の結果でお願いします．もし上記設定値での計測でも時間がかかりすぎて困難な場合は，cの値を下げていき，最終的には-n 1，-c 1での計測でも構いません．ただし，abのパラメータ値は，発表時も個別レポートでも必ず気付きやすいよう強調して明記しておいてください．</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h1>応用課題（分担で①は必須、②は任意）<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id11">
+<h2>①超高性能化（ハイパフォーマンス）チーム<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>【独自仕様による実装】</p>
+<p>チケット予約サイトのようなWebシステムでは，不特定多数の膨大な同時アクセスに耐えられなければなりません．スケールアップやスケールアウトといった様々なアプローチがありますが，ここでは<strong>実装A</strong>をさらに改良して，<strong>実装C</strong>の速度を上回る検索パフォーマンスを目指しましょう．CSVファイルを前処理して，独自のデータ構造で保存する，Raspberry Piを複数利用しクラスタ化して検索する等，方法は問いません．皆さんの独創的なアプローチを期待しています．</p>
+<ul class="simple">
+<li><p>検索するタグは<strong>実装Ｃ</strong>と同様fiat</p>
+<ul>
+<li><p>ただし，fiat以外の検索ワードを入れた際にも正しく動作するように設計すること</p></li>
+</ul>
+</li>
+<li><p>abのコマンドライン引数は以下の数値を基本とすること（グループ間の性能比較をする際の設定）</p>
+<ul>
+<li><p>-n 20</p></li>
+<li><p>-c 10</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>＜補足＞</strong>最終課題の発表資料では，<strong>実装A</strong>の結果として発表して頂いて構いません．</p>
+<p>【Apache MPMによる高速化結果との比較（任意でやれるところまで）】</p>
+<p>Webサーバとして世界的にデファクトとなっているApacheに搭載されているマルチプロセス機能(<strong>Apache MPM</strong>)の性能を用いた高速化を試し，独自実装による高速化結果と比較を行いましょう． Apacheのデフォルト設定では，<strong>Prefork</strong>と呼ばれる手法が指定されてますが，他にも<strong>Worker</strong>や<strong>Event</strong>といった手法も指定できます．</p>
+<p>第二部で自作したWebサーバとの違いも考慮しながら，これらの設定がどのようなものか調査し理解すると共に，実際にどのように性能に違いが出るのか，どうしてそうなるのか論理的な分析をしてください．</p>
+<p>ここで，皆さんの使用しているサーバ機やクライアント機における<strong>CPUのコア数やスレッド数</strong>（ハードウェア的制約），Linuxにおける<strong>ファイルディスクリプタ数の上限</strong>（ソフトウェア的制約）についてもご注意ください． 必須ではありませんが，以下の項目等について評価を行い，独自実装との差を検証してみるとよいでしょう．</p>
+<ul class="simple">
+<li><p><strong>実装Ｃ</strong>について，Apache設定変更の影響を分析する</p></li>
+<li><p>Apache MPMの各方式について要点を整理し，どのような結果になるか論理的な仮説を立てる</p></li>
+<li><p>MPM各計測結果を箱ひげ図などで可視化する</p></li>
+<li><p>MPM各計測結果について，なぜそうなったのか，どうして仮説通りにならなかったのか（なったのか），など論理的な考察をまとめる</p></li>
+<li><p>KeepAliveのON/OFFで性能差が出るようなabコマンドの設定を考え，性能計測を実施する</p></li>
+<li><p>KeepAlive各計測結果について，なぜそうなったのか，どうして仮説通りにならなかったのか（なったのか），など論理的な考察をまとめる</p></li>
+<li><p>第三者が再現できるよう実験条件を明記する</p></li>
+</ul>
+<p>【補足】</p>
+<p>~~Apacheの設定を変更するとグループ全員の測定に影響を与えますので，必ずグループのメンバーの了解を取って，あるいはグループのメンバー全員で協力して実施しましょう．~~計測対象のホームページは，最終課題の実装でなくても構いません．もし第二部でKeepAlive対応のWebサーバを実装したなら，そのWebサーバで性能計測しても構いません．重要なのは，各自で「仮説」を立てて検証することです．「この設定をこう変更したら，このような性能変化が計測できるかもしれない」というような仮設を立ててから実際に検証しましょう．</p>
+</div>
+<div class="section" id="id12">
+<h2>②自由課題（イマジネーション）チーム<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>自由に面白いWebシステムを実装してみましょう．</p>
+<p>「Flickrの写真データを用いたシステム」を基本課題としますが，これ以外に面白いWebシステムを思いついた方は自由な発想で取り組んでくれてOKです．</p>
+<p>例えば，写真の撮影位置の緯度経度情報が含まれていますので，検索機能をつけたり，地図へ表示する機能をつけたり，自由な発想で<strong>超興味深い</strong>Webシステムを実装してみましょう．</p>
+<p>【仕様】</p>
+<ul class="simple">
+<li><p>ネタがかぶらないよう，自由課題を実施する人達と十分意識合わせをし，それぞれ違う<strong>超興味深い</strong>Webシステムを実装すること</p></li>
+</ul>
+<p>【補足】</p>
+<p>以下を意識して工夫すると<strong>超興味深い</strong>ものになると思います．</p>
+<ul class="simple">
+<li><p>これまでの実装プログラムや，node.js，WebSocket等の発展課題と絡めたWebシステム</p></li>
+<li><p>たとえば，RDBのデータの代わりに<a class="reference external" href="http://www.flickr.com/services/api/">Flickr Webサービス</a>を直接利用するようなWebシステム</p>
+<ul>
+<li><p>Flickrの写真を使用する場合，写真の枚数は実験用データの1,000万件とはいいませんが，10万件以上の写真を対象としてみてください</p></li>
+</ul>
+</li>
+<li><p>世の中には様々なWeb APIが公開されてますので，Amazon，Google，IBM，Microsoft等が公開している<strong>AI系のAPI</strong>も活用してみると面白くなりそうです</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id13">
+<h1>おわりに<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h1>
+<p>指示されたことを実施して報告するだけの「ふ～ん．だからどうした？」という報告書ではなく，実施した結果に対して「なぜ？」「どうして？」を考えて仮説を立てて検証してその結果どうなったか，「どうしてそのような結果になったのか？」「へーなるほどね」と感じさせるグループ発表や個別レポートを期待してます．</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/part3/part3_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Ohki Lab<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

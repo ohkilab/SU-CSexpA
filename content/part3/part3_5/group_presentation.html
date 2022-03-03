@@ -1,0 +1,903 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>グループ発表会 &#8212; 情報科学実験Ⅰ</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">情報科学実験Ⅰ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   情報科学実験Ⅰ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  事前準備（在宅）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preparation/preparation.html">
+   環境構築および動作確認
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第一部 ソケットプログラミング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part1/part1_1/overview.html">
+   環境構築と実験の開始
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_1/connect_raspberry.html">
+     RaspberryPiの接続（固定IP）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part1/part1_2/overview.html">
+   通信性能の計測
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">
+     ファイル入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">
+     ネットワーク入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">
+     入出力性能の計測（必須課題）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part1/part1_3/overview.html">
+   多対多接続の設計・実装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part1/part1_4/overview.html">
+   第一部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_4/peer_review.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part1/report/report.html">
+   第一部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第二部 Webサーバの実装
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_1/day6objective.html">
+   Simple HTTPサーバの構築
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html">
+     Raspberry Piのセットアップ
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/simplehttpserver.html">
+     Simple HTTPサーバの実装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/httpbenchmark.html">
+     HTTPベンチマークプログラムの実装（必須）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_2/day7objective.html">
+   HTTPサーバの高機能化(1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/standardforachievement.html">
+     第二部達成基準
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/multipleclient.html">
+     複数クライアント対応（必須）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/securityhole.html">
+     セキュリティホール（必須+発展）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/httpserver_expansion.html">
+     HTTPサーバ機能拡張（選択）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_3/day8objective.html">
+   HTTPサーバの高機能化(2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_3/introuble.html">
+     第二部の実装で詰まった時の対処法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_3/referencebook.html">
+     第二部参考書籍
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_4/day9objective.html">
+   第二部グループ発表会
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_4/groupreview.html">
+     グループレビュー
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_4/grouppresentation.html">
+     第二部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_5/day10objective.html">
+   第二部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_5/peerreview.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part2/report/report.html">
+   第二部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  実験終了後（必須）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../end/cleanup.html">
+   実験機材のクリーンアップと解体
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  トラブルシューティング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/question.html">
+   質問の行い方
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/trouble.html">
+   よくあるトラブル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/uninstall.html">
+   各アプリケーションのアンインストール方法
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/part3/part3_5/group_presentation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_5/group_presentation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   グループ発表会
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     スケジュールおよび会場
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     資料と発表形式
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     発表資料の提出方法
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       ＜中間提出 (第三部のみ）＞
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       ＜最終版提出＞
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zoom">
+     Zoomアカウント作成および事前テスト
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Zoomを使った発表の具体的な流れ
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#faq">
+       FAQ・諸注意
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       事前テストでのチェック項目
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   Zoomの利用方法
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     アプリのインストール
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     ログインする
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     画面を共有する
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     （補足）ブレイクアウトルームへの参加
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     FAQ
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>グループ発表会</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   グループ発表会
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     スケジュールおよび会場
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     資料と発表形式
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     発表資料の提出方法
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       ＜中間提出 (第三部のみ）＞
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       ＜最終版提出＞
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zoom">
+     Zoomアカウント作成および事前テスト
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Zoomを使った発表の具体的な流れ
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#faq">
+       FAQ・諸注意
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       事前テストでのチェック項目
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   Zoomの利用方法
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     アプリのインストール
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     ログインする
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     画面を共有する
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     （補足）ブレイクアウトルームへの参加
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     FAQ
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="id1">
+<h1>グループ発表会<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><strong>（5/25更新）オンライン型での実施に向け，本ページの内容は変更される可能性があります．定期的に確認するようにしてください．</strong></p>
+<p>本年度のグループ発表会はZoom ( <a class="reference external" href="https://zoom.us/">https://zoom.us/</a> ) を利用したオンライン発表会を実施します．</p>
+<p>以下の情報を参考に準備を進めてください（準備にあたり不明な点などがあればTeamsまで）．</p>
+<div class="section" id="id2">
+<h2>スケジュールおよび会場<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>＜<strong>第二部</strong>＞</p>
+<ul class="simple">
+<li><p>日時：2021年6月8日（火） 12:45〜17:30</p></li>
+<li><p>場所：オンライン（開始30分前から入室可能）</p></li>
+<li><p>Zoom URL：当日にTeamsにてお知らせします</p></li>
+<li><p>優秀発表投票用URL：当日にTeamsにてお知らせします</p></li>
+<li><p>スケジュール：</p>
+<ul>
+<li><p>12:45-13:00　イントロダクションおよび資料確認</p></li>
+<li><p>13:00-14:00　前半グループ発表（各班2名）</p></li>
+<li><p>14:30-15:30　後半グループ発表（各班2名）</p>
+<ul>
+<li><p>第二部 投票URL： 当日にTeamsにてお知らせします</p></li>
+</ul>
+</li>
+<li><p>15:30-17:00　上位グループ発表（上位４班）</p>
+<ul>
+<li><p>発表内容要約などアンケートフォームで回答</p></li>
+</ul>
+</li>
+<li><p>17:00-17:30　講評</p></li>
+</ul>
+</li>
+</ul>
+<p>＜<strong>第三部</strong>＞</p>
+<ul class="simple">
+<li><p>日時：2021年7月27日（火） 12:45〜17:30</p></li>
+<li><p>場所：オンライン（開始30分前から入室可能）</p></li>
+<li><p>Zoom URL：当日にTeamsにてお知らせします</p></li>
+<li><p>優秀発表投票用URL：当日にTeamsにてお知らせします</p></li>
+<li><p>スケジュール：</p>
+<ul>
+<li><p>12:45-13:15　イントロダクションおよび資料確認</p></li>
+<li><p>13:15-14:15　前半グループ発表（各班2名）</p></li>
+<li><p>14:30-15:30　後半グループ発表（各班2名）</p>
+<ul>
+<li><p>第三部 投票URL： 当日にTeamsにてお知らせします</p></li>
+</ul>
+</li>
+<li><p>15:45-17:05　上位グループ発表（上位４班）</p>
+<ul>
+<li><p>発表内容の要約など[url アンケートフォーム]で回答（一人１回のみ，兼出欠，URLは当日までに掲載）</p></li>
+</ul>
+</li>
+<li><p>17:05-17:35　講評</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>資料と発表形式<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>PowerPointで作成してください</p>
+<ul>
+<li><p>通常のスライド形式，枚数は表紙を除いて<strong>10枚以内としてください</strong>（10枚を超える分は付録スライドとしてください）</p></li>
+<li><p><strong>10分程度で発表できるような構成を心がけてください</strong>．</p></li>
+<li><p>各スライドには該当箇所を担当した人の名前を（目立つ場所に）記載しておいてください</p></li>
+</ul>
+</li>
+<li><p>図表やスクリーンショットを効果的に使用して見せる（読ませるのではない）スライドを意識してください</p></li>
+<li><p>各実装における班員全員の性能差を示した上で，<strong>一番高性能な人の実装の工夫点</strong>を紹介してください</p></li>
+<li><p>前処理にそこそこ時間を要す場合，前処理に要した時間も説明してください</p></li>
+<li><p>これはどうかなという実装の場合，全体アーキテクチャや構造など明確に説明したうえで参考値として紹介してください</p></li>
+<li><p>自由課題を実施した人はデモを録画した動画などを用意してもよいでしょう</p>
+<ul>
+<li><p>実際のデモを動かすことも可ですが，オンライン発表ですのでその際は十分なリハーサルをして臨んでください</p></li>
+</ul>
+</li>
+<li><p>限られた時間で他グループと差別化を図った<strong>惹きつけるプレゼン</strong>を意識してください</p></li>
+<li><p>他に気になることがあったら検討しますので早めに相談してください</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>発表資料の提出方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>＜中間提出 (第三部のみ）＞<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>7/20の深夜23:59までに現時点でのポスター発表資料の提出をお願いします． ここで提出したポスター発表資料は計画的にグループワークが順調に進んでいるかチェックすることが第一の目的です． よりクオリティを高めるために発表日までに更新してくれて構いませんので，当日の素晴らしいプレゼンテーションを期待してます．</p>
+<p><strong>\<a class="reference external" href="http://fs.inf.in.shizuoka.ac.jp">fs.inf.in.shizuoka.ac.jp</a>\share\submit\2021情報科学実験1\第3部発表会_中間</strong></p>
+<p>ファイル名：(実験名)-(部)-(部屋&amp;班).pptx　　　例）CS実験I-Part3-A7.pptx</p>
+<p>なお，提出はグループの代表者一人が行えばOKです．代表者は提出が完了したかどうかをTeamsで報告するなどして，提出状況をグループ内で共有するようにしてください．</p>
+</div>
+<div class="section" id="id6">
+<h3>＜最終版提出＞<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><strong>当日発表資料を以下の場所にアップロードして下さい．</strong></p>
+<p>発表当日<strong>12:00まで</strong>に最終版の提出をお願いします．</p>
+<p><strong>第二部の場合</strong>
+<strong>\<a class="reference external" href="http://fs.inf.in.shizuoka.ac.jp">fs.inf.in.shizuoka.ac.jp</a>\share\submit\2021情報科学実験1\第2部発表会</strong></p>
+<p><strong>第三部の場合</strong>
+<strong>\<a class="reference external" href="http://fs.inf.in.shizuoka.ac.jp">fs.inf.in.shizuoka.ac.jp</a>\share\submit\2021情報科学実験1\第3部発表会_最終</strong></p>
+<p>ファイル名：(実験名)-(部)-(部屋&amp;班)<strong>-最終版</strong>.pptx　　　例）CS実験I-Part2-A7**-最終版**.pptx</p>
+<p><strong>Teamsではアップロードできませんので，情報学部のVPNサービスを利用して下さい．</strong> <strong>不明な点がある場合は，askにてお問い合わせ下さい．</strong></p>
+</div>
+</div>
+<div class="section" id="zoom">
+<h2>Zoomアカウント作成および事前テスト<a class="headerlink" href="#zoom" title="Permalink to this headline">¶</a></h2>
+<p>オンライン発表にはトラブルがつきものです．Zoomについては以下既に皆さんも講義等で使ったことがあるかもしれませんが，</p>
+<p>ソフトウェアのインストールや，接続方法や音声・画面共有の確認などを行っておきましょう．またグループで相談して，Zoomを使った発表練習をあらかじめ行なっておいてください．</p>
+<div class="section" id="id7">
+<h3>Zoomを使った発表の具体的な流れ<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>会議に参加すると下記の画像のような画面となります（会議への参加方法は本ページ下部の「Zoomの利用方法」を参照してください）</p>
+<p><img alt="zoom main.png" src="../../../_images/960px-zoom_main.png" /></p>
+<ol class="simple">
+<li><p>発表者は開始時刻より前にあらかじめ自分の班番号が書かれたブレイクアウトルームへ移動してください（注1, 注10〜注12）</p></li>
+<li><p>聴講者は開始時刻より前にアップロードされた資料に軽く目を通して，興味がありそうな発表を選んでおいてください（注2）．</p></li>
+<li><p>開始時刻になったら聴講者は発表を聴きたいブレイクアウトルームに移動してください．</p></li>
+<li><p>発表者は聴講者が来たら随時スライドの内容を説明してください（注3〜注5）．</p></li>
+<li><p>説明が終わったら聴講者は質問を行ってください．マイクを使ってくれてもよいですし，チャット等で行ってくれても構いません（注6，注7）</p></li>
+<li><p>聴講した人は，<strong>優れていると思った発表3件</strong>に投票を行なってください（自分たちの班には投票しないでください）（注8）．</p></li>
+<li><p>前半後半で上記作業を繰り返します</p></li>
+<li><p>最も得票数を集めた上位4件が第二部発表会の優秀班となります．優秀班は続いて全参加者に対して10分間のプレゼンを行なって頂きます（注9）．</p></li>
+<li><p>最後に教員から講評を行って終了です</p></li>
+</ol>
+</div>
+<div class="section" id="faq">
+<h3>FAQ・諸注意<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>（注1）前半，後半ごとに発表者は各班2名，それぞれ異なるメンバーを割り当ててください（発表者以外は聴講を行ってください）</p></li>
+<li><p>（注2）全ての班の発表を聞く必要はありません．1班10分+α程度と想定して，5〜6班聴きたいものを選んでおいてください．</p></li>
+<li><p>（注3）聴講者が何度も来た場合は繰り返し説明を行ってください（ポスター発表と同じ）．</p></li>
+<li><p>（注4）聴講者が発表の途中から入ってくることがありますが，気にせず続けてください．聴講者は最初のほうが気になる場合，「最初の～ページまでを話してもらえますか？」とお願いしましょう．</p></li>
+<li><p>（注5）発表者2名の分担はお任せします．画面共有をどちらがするかなど含めて，やりやすいやり方を事前テストで相談しておいてください．</p></li>
+<li><p>（注6）発表者が話している時は，聴講者は「カメラ」「マイク」ともにOFFにしておいてください．質問時はマイクのみONにしても構いません．</p></li>
+<li><p>（注7）質問者は自分の名前を名乗ってから質問するようにしてください．発表者は誰にどんな質問をされたかをメモしておいてください．<strong>その内容はレポートに「発表会で受けた質問」という項を作って記載しておいてください</strong></p></li>
+<li><p>（注8）前半の聴講者は前半が終わった時点で，後半の聴講者は後半が終わった段階で投票を行ってください</p></li>
+<li><p>（注9）優秀発表者のプレゼンはメインルームにて行います．全ての人は時間になったら<strong>ブレイクアウトルームを退出して</strong>メインルームに戻ってきてください．</p></li>
+<li><p>（注10）班員が3名（1名欠席，もともと3名等）の場合は1名の発表者となるパートを他の2名がサポートするなどして，うまく分担してください（聴講時間が減りますが発表を優先してください）．</p></li>
+<li><p>（注11）班員が2名となってしまった場合は前後半を1名ずつで担当してください．班員が5名の場合は前半か後半の発表者を3名としてください．</p></li>
+<li><p>（注12）班員が1名しかいない場合は前後半のどちらか一方で発表を行ってください</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>事前テストでのチェック項目<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Zoomのインストール</p></li>
+<li><p>接続のテスト</p>
+<ul>
+<li><p>Zoomへのアクセス，可能であれば他の班員と協力してマイク等のテストを行なってください</p></li>
+</ul>
+</li>
+<li><p>発表のテスト</p>
+<ul>
+<li><p>画面共有機能を使った発表のテストを行なってください</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h1>Zoomの利用方法<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h1>
+<p>簡単にZoomの使用方法を記載しておきます。こちらを参考に事前テストを行なってください。</p>
+<div class="section" id="id10">
+<h2>アプリのインストール<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>以下のURLからダウンロードしてください</p>
+<p><a class="reference external" href="https://zoom.us/download#client_4meeting">https://zoom.us/download#client_4meeting</a></p>
+</div>
+<div class="section" id="id11">
+<h2>ログインする<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>2つの方法があります．</p>
+<ol class="simple">
+<li><p>URLからログイン</p></li>
+<li><p>会議IDとパスコードを使ってログイン</p></li>
+</ol>
+<p>1. の場合はアプリがインストール済であればURLをクリックするだけで自動的にアプリが立ち上がり，会議に参加できます．</p>
+<p>2. についてはアプリを起動した後，会議IDとパスコードを入力する必要があります．以下で詳しく手順を説明します．</p>
+<p><img alt="zoom login 01.png" src="../../../_images/zoom_login_001.png" /></p>
+<p>アプリの起動画面です．「参加」ボタンを押してください．</p>
+<p><img alt="zoom login 02.png" src="../../../_images/zoom_login_002.png" /></p>
+<p>会議IDを入力する画面になりますので，事前に配布された会議IDを入力してください．</p>
+<p>会議ID入力後にパスコードの入力画面になりますので，パスコードを入力すれば会議への参加が完了します．</p>
+</div>
+<div class="section" id="id12">
+<h2>画面を共有する<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p><img alt="zoom screenshare 01.png" src="../../../_images/960px-zoom_screenshare_001.png" />
+画面を共有する時は下部メニューの「画面の共有」を選択してください。</p>
+<p><img alt="zoom screenshare.png" src="../../../_images/960px-zoom_screenshare.png" /></p>
+<p>選択すると、共有可能な画面のリストが出てきます。全画面や特定のアプリを対象とした画面共有が可能です。</p>
+<p><strong>当日のトラブルで最も多いのが画面共有のトラブルです。事前に必ず手順を確認しておくようにしましょう。</strong></p>
+</div>
+<div class="section" id="id13">
+<h2>（補足）ブレイクアウトルームへの参加<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>注）ブレイクアウトルームはホスト側が事前にルームを作成する必要があります．ブレイクアウトルームへの参加については</p>
+<p>事前テストを行わなくても大丈夫ですが，もしテストを行いたい場合は，ホストとなる人を1人用意して試してみてください．</p>
+<p><img alt="zoom breakoutroom 000.png" src="../../../_images/960px-zoom_breakoutroom_000.png" />
+Zoom会議に入室すると上の画面になると思います。</p>
+<p>下部メニューに「ブレイクアウトルーム」というアイコンがありますのでクリックしてください。</p>
+<p><img alt="zoom breakoutroom 001.png" src="../../../_images/zoom_breakoutroom_001.png" /></p>
+<p>参加できるブレイクアウトルームの一覧が出てきますので、参加したいブレイクアウトルームの名前の右端にマウスを持っていってください。</p>
+<p>右端にマウスを持っていくと「参加」の文字が出てきますのでクリックしてください（少しわかりにくいかもしれませんが、画像で「参加」と出ているあたりにマウスを持っていってください）</p>
+<p><img alt="zoom breakoutroom 002.png" src="../../../_images/960px-zoom_breakoutroom_002.png" /></p>
+<p>ブレイクアウトルームに参加した後の画面です。ブレイクアウトルームから退出したい時は右下の「ルームを退出する」のボタンを押してください。</p>
+<p><img alt="zoom breakoutroom 003.png" src="../../../_images/zoom_breakoutroom_003.png" /></p>
+<p>「ルームを退出する」を押すと、選択肢として「ミーティングから退出する」と「ブレイクアウトルームを退出する」の2つが出てきます。</p>
+<p>この時、基本的に**「ブレイクアウトルームを退出する」**を選択してください。</p>
+<p>ミーティングから退出するを選択するとZoomが終了してしまいます。メインルームに戻る時や他のブレイクアウトルームに移動する場合は、必ず**「ブレイクアウトルームを退出する」**を選択する必要があります。</p>
+</div>
+<div class="section" id="id14">
+<h2>FAQ<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>グループ発表は何人でやればよい？</p>
+<ul>
+<li><p>1人でも4人でもよいですが，あらかじめ決めておいてください．画面共有を各人で行うのは効率が悪いので，誰か1人が画面共有を行い，スライドはその人が進めるようにしてください．</p></li>
+<li><p>投票結果がわかり次第，Teamsでどなたが発表するのかを（1人か4人かも含めて）伺いますので教えてください．</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/part3/part3_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Ohki Lab<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

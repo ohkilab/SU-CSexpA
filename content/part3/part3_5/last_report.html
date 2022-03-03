@@ -1,0 +1,1067 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>個別最終レポート &#8212; 情報科学実験Ⅰ</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">情報科学実験Ⅰ</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   情報科学実験Ⅰ
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  事前準備（在宅）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preparation/preparation.html">
+   環境構築および動作確認
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第一部 ソケットプログラミング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part1/part1_1/overview.html">
+   環境構築と実験の開始
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_1/connect_raspberry.html">
+     RaspberryPiの接続（固定IP）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part1/part1_2/overview.html">
+   通信性能の計測
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">
+     ファイル入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">
+     ネットワーク入出力プログラミング
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">
+     入出力性能の計測（必須課題）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part1/part1_3/overview.html">
+   多対多接続の設計・実装
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part1/part1_4/overview.html">
+   第一部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part1/part1_4/peer_review.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part1/report/report.html">
+   第一部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  第二部 Webサーバの実装
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_1/day6objective.html">
+   Simple HTTPサーバの構築
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html">
+     Raspberry Piのセットアップ
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/simplehttpserver.html">
+     Simple HTTPサーバの実装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_1/httpbenchmark.html">
+     HTTPベンチマークプログラムの実装（必須）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_2/day7objective.html">
+   HTTPサーバの高機能化(1)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/standardforachievement.html">
+     第二部達成基準
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/multipleclient.html">
+     複数クライアント対応（必須）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/securityhole.html">
+     セキュリティホール（必須+発展）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_2/httpserver_expansion.html">
+     HTTPサーバ機能拡張（選択）
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_3/day8objective.html">
+   HTTPサーバの高機能化(2)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_3/introuble.html">
+     第二部の実装で詰まった時の対処法
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_3/referencebook.html">
+     第二部参考書籍
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_4/day9objective.html">
+   第二部グループ発表会
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_4/groupreview.html">
+     グループレビュー
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_4/grouppresentation.html">
+     第二部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../part2/part2_5/day10objective.html">
+   第二部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part2/part2_5/peerreview.html">
+     ピアレビュー
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../part2/report/report.html">
+   第二部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  実験終了後（必須）
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../end/cleanup.html">
+   実験機材のクリーンアップと解体
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  トラブルシューティング
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/question.html">
+   質問の行い方
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/trouble.html">
+   よくあるトラブル
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trouble_shooting/uninstall.html">
+   各アプリケーションのアンインストール方法
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/part3/part3_5/last_report.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_5/last_report.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   個別最終レポート
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     学務情報システムでの提出
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     メール添付での提出
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#word">
+     提出WORDファイルのテンプレート
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     表紙に関して
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     内容に関して
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   ツール紹介
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tex">
+     TeX
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     図・グラフなどの作成（TeXの場合）
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uml">
+     シーケンス図などのUMLの図の作成
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     ネットワーク構成図の作成
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     スクリーンショットの撮り方
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pdf">
+     PDFの作成
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   提出前のチェックリスト
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     構成
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     書式
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     文体
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     グラフ
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id15">
+   参考文献
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>個別最終レポート</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   個別最終レポート
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     学務情報システムでの提出
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     メール添付での提出
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#word">
+     提出WORDファイルのテンプレート
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     表紙に関して
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     内容に関して
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   ツール紹介
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tex">
+     TeX
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     図・グラフなどの作成（TeXの場合）
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uml">
+     シーケンス図などのUMLの図の作成
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     ネットワーク構成図の作成
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     スクリーンショットの撮り方
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pdf">
+     PDFの作成
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   提出前のチェックリスト
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     構成
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     書式
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     文体
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     グラフ
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id15">
+   参考文献
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="id1">
+<h1>個別最終レポート<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>学務情報システムでの提出<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>学務情報システムへレポート（.docx），ソースコード一式（コンパイルに必要なファイル群一式をzipで圧縮，実行形式ファイルは含めないこと！）を提出してください．</p>
+<p>また，<strong>実験終了後のサーバ初期化や解体作業の予定者と予定日</strong>も相談して決めて，各自のレポート最後に誰がいつ実施するのか追記しておいてください．</p>
+<p>学務情報システムで提出できない人は，例外としてメール添付によるレポート提出（圧縮してあっても添付ファイル群の拡張子に注意！）も受け付けます．メール添付での提出の場合，数日たっても受領のメール返信がない場合は，<strong>添付なしのメール</strong>で提出できているか確認メールをお願いします</p>
+</div>
+<div class="section" id="id3">
+<h2>メール添付での提出<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>To: <a class="reference external" href="mailto:csexp1-report&#37;&#52;&#48;ml&#46;inf&#46;shizuoka&#46;ac&#46;jp">csexp1-report<span>&#64;</span>ml<span>&#46;</span>inf<span>&#46;</span>shizuoka<span>&#46;</span>ac<span>&#46;</span>jp</a></p></li>
+<li><p>Cc: &lt;自分のメアド&gt;</p></li>
+<li><p>Subject: CS実験I-Last-班番号-cs13xxx</p>
+<ul>
+<li><p>例）CS実験I-Last-B3-cs13385</p></li>
+</ul>
+</li>
+<li><p>添付: レポート（.docx），ソースコード一式（コンパイルに必要なファイル群一式をzipで圧縮，実行形式ファイルは含めないこと！含めるとメールサーバでメール自体が破棄されてしまいそうですので）</p></li>
+<li><p>提出後に誤りを見つけて再提出したい場合は，件名の最後に「(2回目)」というように分かるよう記載すること</p></li>
+<li><p>メールの本文には，以下（あくまで例です）のように記載すること</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>科学科実験Iご担当の先生方へ
+
+B3班の70xx-00xx静大太郎です．
+最終個別レポートを提出させていただきます．
+
+実験終了後のサーバ初期化や解体作業は，静大花子さんが2017年8月10日に実施してくれることになりました．
+
+どうぞよろしくお願いいたします．
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="word">
+<h2>提出WORDファイルのテンプレート<a class="headerlink" href="#word" title="Permalink to this headline">¶</a></h2>
+<p>以下のテンプレートを使って個別最終レポートを作成してください．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:CSexp1Chapter3Report.zip">WordのPart3用テンプレート</a></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>表紙に関して<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>ここまでの課題で最低限の知識と技術を身に着けているか確認したいため，必ず自力で実施してください（自力でできない人はこれまでの専門科目を再復習したうえで，来年度もう一度再履修してください）．レポート内容や実装方法に関する相談は問題ありませんが，<strong>この結果を教えてあげること</strong>は絶対にしないでください．</p>
+<p>以下のクエリでデータベースからidと画像を取得しレポート表紙に張り付けてください(テンプレート表紙にあるサンプル画像を差し替えてください)．</p>
+<p>このクエリは，皆さんの<strong>学籍番号</strong>を使ったSELECT文です．つまり，全員異なる画像を張り付けることになります．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--学籍番号が70310051の場合，以下の数値部分に学籍番号先頭の「70」をとった数値を入れる</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">geotag</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">geotag</span><span class="w"></span>
+<span class="w">  </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="w"></span>
+<span class="w">  </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">  </span><span class="k">OFFSET</span><span class="w"> </span><span class="mi">310051</span><span class="p">);</span><span class="w"></span>
+<span class="c1">--       ^^^^^^---ここ！</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>内容に関して<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>以下を参考に個別最終レポートを完成させてください．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>第1章基礎課題（全員）
+ 1.1.実装A
+  (ア)仕様
+    ここに記載してください。
+  (イ)実装の特徴
+    ここに詳細な説明を記載してください。
+ 1.2.実装B
+  (ア)仕様
+    ここに記載してください。
+  (イ)実装の特徴
+    ここに詳細な説明を記載してください。
+ 1.3.実装C
+  (ア)仕様
+    ここに記載してください。
+  (イ)実装の特徴
+    ここに詳細な説明を記載してください。
+ 1.4.性能比較
+  (ア)仮説と実験条件
+    仮説を検証するための実験条件を、第三者が再現できるよう図表を用いて記載してください。
+  (イ)結果
+    ここに様々な観点（リソース使用状況，設定値（ソースコード、OS等）、など）で分析（試行回数、検定、
+   平均、95%信頼区間、箱ひげ図、など）した結果を図表でまとめてください。
+  (ウ)考察
+    結果に対する考察を論理的にまとめてください．
+
+第2章応用課題（担当した方のみで構いません）
+ 2.1.超高性能化
+  (ア)MPM実験の概要と仮説，実験条件
+    仮説を検証するための実験条件を、第三者が再現できるよう図表を用いて記載してください。
+  (イ)MPM実験の結果
+    ここに様々な観点（リソース使用状況、設定値（ソースコード、OS等）、など）で分析（試行回数、検定、
+   平均、95%信頼区間、箱ひげ図、など）した結果を図表でまとめてください。
+  (ウ)MPM実験の考察
+    結果に対する考察を論理的にまとめてください。
+  (エ)KeepAlive実験の概要と仮説，実験条件
+    仮説を検証するための実験条件を、第三者が再現できるよう図表を用いて記載してください。
+  (オ)KeepAlive実験の結果
+    ここに様々な観点（リソース使用状況、設定値（ソースコード、OS等）、など）で分析（試行回数、検定、
+    平均、95%信頼区間、箱ひげ図、など）した結果を図表でまとめてください。
+  (カ)KeepAlive実験の考察
+    結果に対する考察を論理的にまとめてください。
+ 2.2.自由課題
+  (ア)背景と仕様
+    ここに記載してください。
+  (イ)実装の特徴
+    ここに詳細な説明を記載してください。
+  (ウ)結果と考察
+    結果に対する考察を論理的にまとめてください。
+
+第3章実験I全般のまとめ（来年度の参考にさせてください）
+ 3.1.実験内容や進め方の改訂について（良さそうな案は反映させたいと思います）
+  (ア)第一部について
+    来年度に向けたコメントや具体的な改定案などありましたらここに記載してください。
+  (イ)第二部について
+    来年度に向けたコメントや具体的な改定案などありましたらここに記載してください。
+  (ウ)第三部について
+    来年度に向けたコメントや具体的な改定案などありましたらここに記載してください。
+ 3.2.実験I全般の感想
+  実験I全般で得たこと、興味深かったこと、自身や周囲の取り組み状況、
+ 感想など今後の参考にしますので自由に書いてください。
+
+謝辞
+  本最終課題を実施するにあたって、お世話になった方々をリストアップしてください。
+  例）学籍番号、名前
+
+  また，実験終了後のサーバ初期化や解体作業は，静大花子さんが2017年8月10日に実施してくれることになりました．
+  ここに記して感謝の意を表したいと思います．
+
+参考文献
+  本レポートをまとめるにあたって、参考にした文献などを記載してください。
+  [1]書籍の場合，著者名あるいは編者名，書名，参照ページ，出版社，出版年．
+  [2]論文集に掲載された論文・雑誌論文・記事の場合，著者名，論文タイトル，学会名，
+      雑誌名，巻数・号数，掲載ページ，掲載年．
+  [3]Ｗｅｂページ（インターネットのページ）の場合，作成者（分かれば），Webページ
+      のタイトル，アドレス（URL），アクセスした日付．
+  [4]など
+
+付録
+  ソースコードを以下に貼り付けてくれてもよいですし，全ソースコード（実行形式ファイルは不要）
+ を圧縮し別ファイルとして添付してくれても構いません．こちらで再現できるファイル群一式がそろ
+ っていると助かります．
+
+</pre></div>
+</div>
+<p>参考文献や以下のサイトなども参考に，体裁の整った良いレポートを作成してください．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://yufu.cs.inf.shizuoka.ac.jp/mediawiki/index.php/%E5%AE%9F%E9%A8%93%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9">レポートの書き方</a> (学内ONLY, written by Professor Shiomi!!)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h1>ツール紹介<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
+<p>レポートを作成する際に便利なツールを紹介します．このツールを利用することが必須ではありません．むしろ，自分の方法にあったツールを自分で探す（探す方法を確立する）方がより重要です．</p>
+<div class="section" id="tex">
+<h2>TeX<a class="headerlink" href="#tex" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>LaTeX</p>
+<ul>
+<li><p><a class="reference external" href="https://texwiki.texjp.org/">TeX Wiki</a></p></li>
+<li><p><a class="reference external" href="https://texwiki.texjp.org/?TeX%E5%85%A5%E6%89%8B%E6%B3%95">TeX Wiki: TeX入手方法</a></p></li>
+<li><p><a class="reference external" href="https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80">TeX Wiki: LaTeX入門</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>図・グラフなどの作成（TeXの場合）<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>図・グラフなどは各自が選んだソフトウェアで作成してください．ただし，TeXに取り込む場合には eps 形式に変換する必要があります（他の形式（例えば画像形式やPDF形式）でも不可能ではないです）．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://kano.arkoak.com/2015/09/26/eps/">PowerPointからTeX用のepsファイルを生成する方法</a></p></li>
+<li><p><a class="reference external" href="http://qiita.com/tubo28/items/1f8672fb164aafa9ab31">Metafile to EPS Converter で Windows Metafile を EPS に変換</a></p>
+<ul>
+<li><p><a class="reference external" href="https://wiki.lyx.org/Windows/MetafileToEPSConverter">Meta file to EPS Converter</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.cs.bu.edu/~reyzin/pictips.html">How to Convert PowerPoint Pictures for Use in LaTeX</a></p></li>
+</ul>
+</div>
+<div class="section" id="uml">
+<h2>シーケンス図などのUMLの図の作成<a class="headerlink" href="#uml" title="Permalink to this headline">¶</a></h2>
+<p>シーケンス図などのUMLで定義された図を作成する場合は，IllustratorやPowerPointなどのドローソフトで作成しても良いですが，モデリングツールを利用しても良いでしょう．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://astah.change-vision.com/ja/product/astah-community.html">Astah* community edition</a></p></li>
+<li><p><a class="reference external" href="https://support.office.com/ja-jp/article/UML-%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B-c61c371b-b150-4958-b128-902000133b26">MS Visio: UMLシーケンス図を作成する</a></p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>ネットワーク構成図の作成<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>IllustratorやPowerPointなどのドローソフトとルータ等の機材のフリー画像（PowerPointの場合は「挿入→ネットワーク画像」から “ネットワーク機器” などのキーワードで検索（クリエイティブ・コモンズライセンスに限定））を使って作成しても良いですが，ネットワーク構成図を作成する機能を持つアプリケーションを使っても良いでしょう．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.microsoft.com/ja-jp/visio/free/ite.aspx">ITエンジニア向け Visioシェイプ</a></p>
+<ul>
+<li><p>MS Visioに同梱されているネットワーク関係のステンシルでも十分ですが，特定メーカの機器のステンシルを使いたい場合はここからダウンロード</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://www.petitmonte.com/network/network_diagram.html">ネットワーク構成図を無料で作成する[アイコン/素材</a>]</p></li>
+<li><p><a class="reference external" href="https://www.draw.io/">draw.io</a></p>
+<ul>
+<li><p>新規に作成するダイアグラムの種類から Network Diagramを作成</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://blockdiag.com/en/">blockdiag - simple diagram images generator</a></p>
+<ul>
+<li><p>テキストベースでグラフを作成するツール．ネットワーク構成図を作るには<a class="reference external" href="http://blockdiag.com/en/nwdiag/index.html">nwdiag</a>を用いると良いです．</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>スクリーンショットの撮り方<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>画面のスクリーンショットを撮る場合はOS標準の方法と専用のアプリケーションを導入する方法があります．機能に多少の違いがありますので，必要なスクリーンショットに合わせて使い分けてください．</p>
+<ul class="simple">
+<li><p>Windows標準の方法</p>
+<ul>
+<li><p><a class="reference external" href="https://allabout.co.jp/gm/gc/20843/">Windowsのスクリーンショットの撮り方</a></p></li>
+<li><p><a class="reference external" href="https://support.microsoft.com/ja-jp/help/13776/windows-use-snipping-tool-to-capture-screenshots">Snipping Tool を使ってスクリーン ショットをキャプチャする</a></p></li>
+</ul>
+</li>
+<li><p>専用アプリケーションの例</p>
+<ul>
+<li><p><a class="reference external" href="http://lightscreen.com.ar/">Lightscreen</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="pdf">
+<h2>PDFの作成<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>MS Officeの場合</p>
+<ul>
+<li><p>直接PDFファイルをエクスポート可能です．</p>
+<ul>
+<li><p>参考: <a class="reference external" href="https://support.office.com/ja-jp/article/PDF-%E3%81%AB%E4%BF%9D%E5%AD%98%E3%81%BE%E3%81%9F%E3%81%AF%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B-d85416c5-7d77-4fd6-a216-6f4bf7c7c110">PDF に保存または変換する</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TeXの場合</p>
+<ul>
+<li><p>DVI形式のファイルに対して dvipdfmx コマンドを使ってPDFに変換します．</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id10">
+<h1>提出前のチェックリスト<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id11">
+<h2>構成<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>使用機材は明記しているか？</p>
+<ul>
+<li><p>最低限、読んだ人が実験を再現できるだけの情報が必要です．</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>書式<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>指定したフォーマットを使用しているか？</p>
+<ul>
+<li><p>学会、会社、行政文書など、すべてに規定されたフォーマットがあります．</p></li>
+</ul>
+</li>
+<li><p>すべての図と表にキャプションがついているか？</p></li>
+<li><p>すべての図と表は本文中で引用されているか？</p></li>
+<li><p>すべての図と表は本文中で引用されている箇所が明確か？</p>
+<ul>
+<li><p>読者が意図通りの箇所を参照できるような本文中の表現，図・表の表現が必要です．特に図・表に含まれる情報量が過剰な場合，読者は混乱します．本文の論旨に必要な箇所を本文中の図・表とし，全体の情報は付録で提示するなどの工夫を検討してください．</p></li>
+</ul>
+</li>
+<li><p>図・表のキャプションの書式は適正か？</p>
+<ul>
+<li><p>図のキャプションは図の下側に配置</p></li>
+<li><p>表のキャプションは表の上側に配置</p></li>
+</ul>
+</li>
+<li><p>すべての参考文献は本文中で引用されているか？</p></li>
+<li><p>フォントの種類やサイズが統一されているか？</p>
+<ul>
+<li><p>文書全体で1つのフォントに統一する必要はありませんが，第1章の見出しはボールド体，第2章の見出しは明朝体などといった不整合は許容されません．</p></li>
+</ul>
+</li>
+<li><p>句読点は統一されているか？ (、。 もしくは，．のいずれかに統一すること)</p>
+<ul>
+<li><p>半角のカンマ・ピリオド(, . )を使う場合には直後にスペースが必要です．</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>文体<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>箇条書きを必要以上に多用していないか？</p></li>
+<li><p>こそあど言葉(これ，それ，このなど)を多用していないか？</p>
+<ul>
+<li><p>読者が参照先に迷うため，極力こそあど言葉は避けてください．</p></li>
+<li><p>具体的な名詞を使って代替することができるはずです．</p></li>
+</ul>
+</li>
+<li><p>接続詞(そのため、しかしなど)を必要以上に多用していないか？</p>
+<ul>
+<li><p>接続詞を多用しなければならないときは文章の構成がおかしい場合が多いです．</p></li>
+<li><p>一般的には接続詞は続く文章を強調したい場合に使います．</p></li>
+</ul>
+</li>
+<li><p>必要以上に1文が長くなっていないか？</p>
+<ul>
+<li><p>「～し，」という表現を多用していないか？</p>
+<ul>
+<li><p>「～し，」という言葉を使うと一見文章がつながってみますが，実は論理的につながっていない場合が多いです．</p></li>
+<li><p>「～し，」という表現を使いそうになったら，2つの文章に分けることができないか考えてみてください．</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h2>グラフ<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>適切なグラフの種類を選択しているか？</p>
+<ul>
+<li><p>用途に応じてグラフの種類が存在します．例えば，折れ線グラフと散布図は見かけ上類似点がありますが，利用目的が異なります．折れ線グラフは1つのものごとの移り変わりを表現する場合（典型的には時系列データ），散布図は2つの数値データの関係を表現する場合に採用します．これ以外のグラフについても，用途に合わせて適切なグラフの種類を選択してください．</p>
+<ul>
+<li><p>参考: <a class="reference external" href="http://office-qa.com/Excel/ex194.htm">Excel2010：折れ線グラフと散布図の違いとは</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>軸ラベルが用意されているか？</p></li>
+<li><p>軸ラベルには単位が記載されているか？</p></li>
+<li><p>グラフ中の値を読むことができるサイズ・品質か？</p>
+<ul>
+<li><p>対数表示の利用も選択肢のひとつです．</p>
+<ul>
+<li><p>MS Excelの場合は軸の書式設定で「対数目盛を表示する」をチェックします．</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="graph.jpg" src="../../../_images/graph.jpeg" /></p>
+</div>
+</div>
+<div class="section" id="id15">
+<h1>参考文献<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amazon.co.jp/dp/4022608080/">日本語の作文技術 (朝日文庫): 本多 勝一</a></p></li>
+<li><p><a class="reference external" href="http://gihyo.jp/book/2017/978-4-7741-8705-1">[改訂第7版］LaTeX2ε美文書作成入門</a></p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/part3/part3_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Ohki Lab<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
