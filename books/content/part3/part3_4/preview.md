@@ -6,5 +6,5 @@
 
 ## 第三部グループ発表会準備
 
--   a) [第三部グループ発表会](https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%89%E9%83%A8%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E7%99%BA%E8%A1%A8%E4%BC%9A "第三部グループ発表会")
--   b) [第三部レポート](https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%89%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88 "第三部レポート")
+-   a) [第三部グループ発表会](../part3_2/part3_group_presentation.html "第三部グループ発表会")
+-   b) [第三部レポート](../part3_2/part3_repot.html "第三部レポート")
