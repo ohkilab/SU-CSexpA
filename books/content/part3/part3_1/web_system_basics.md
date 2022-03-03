@@ -37,7 +37,6 @@ Raspberry Pi OS(旧：Raspbian) の場合これだとうまくいかないこと
 ```
 $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
-
 ```
 
 参考URL: [https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
@@ -51,14 +50,12 @@ http.createServer(function (req, res) {
     res.end('Hello World\n');
 }).listen(8080, '192.168.1.101');
 console.log('Server running at http://192.168.1.101:8080/');
-
 ```
 
 ```
  $ cd /var/www/html
  $ sudo vi /var/www/html/test.js
  $ node test.js
-
 ```
 
 -   [http://192.168.1.101:8080/](http://192.168.1.101:8080/)
@@ -69,7 +66,6 @@ console.log('Server running at http://192.168.1.101:8080/');
 $ sudo ufw disable
 $ sudo ufw allow 10080/tcp
 $ sudo ufw enable
-
 ```
 
 ## node.js上で動作するWebサーバの性能比較（発展課題）
