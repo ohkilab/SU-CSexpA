@@ -91,55 +91,57 @@ parts:
       - file: content/part2/report/report
         title: 第二部レポート
 
-  # # 第三部
-  # - caption: 第二部 Webサーバの実装
-  #   chapters:
-  #     - file:
-  #       title: Webシステムの基礎
-  #       section:
-  #       - file: 
-  #         title: 第三部の準備
-  #       - file: 
-  #         title: Webシステムの基礎（発展）
-  #       - file: 
-  #         title: サンプルプログラム(PHP)
-  #       - file: 
-  #         title: サンプルプログラム(JavaScript)
-  #       - file: 
-  #         title: ベンチマークソフトab（Apache Bench）（必須）
+  # 第三部
+  - caption: 第三部 Webシステムの性能
+    chapters:
+      - file: content/part3/part3_1/overview
+        title: Webシステムの基礎
+        sections:
+        - file: content/part3/part3_1/preparation
+          title: 第三部の準備
+        - file: content/part3/part3_1/web_system_basics
+          title: Webシステムの基礎（発展）
+        - file: content/part3/part3_1/sample_program_php
+          title: サンプルプログラム(PHP)
+        - file: content/part3/part3_1/sample_program_js
+          title: サンプルプログラム(JavaScript)
+        - file: content/part3/part3_1/benchmark_soft_ab
+          title: ベンチマークソフトab（Apache Bench）（必須）
 
-  #     - file:
-  #       title: Webシステムの設計と実装
-  #       section:
-  #       - file: 
-  #         title: DBMSとの接続（必須）
-  #       - file: 
-  #         title: 最終課題の詳細
+      - file: content/part3/part3_2/overview
+        title: Webシステムの設計と実装
+        sections:
+        - file: content/part3/part3_2/connection_to_dbms
+          title: DBMSとの接続（必須）
+        - file: content/part3/part3_2/final_task_details
+          title: 最終課題の詳細
+        - file: content/part3/part3_2/part3_group_presentation
+          title: 第三部グループ発表会
+        - file: content/part3/part3_2/part3_repot
 
-  #     - file:
-  #       title: ベンチマークと分析
-  #       section:
-  #       - file: 
-  #         title: Apache MPMについて
-  #       - file:
-  #         title: 実装の参考となるリンク集
-  #       - file:
-  #         title: WebSocketについて
-  #       - file:
-  #         title: 検討状況の確認（必須）
+      - file: content/part3/part3_3/overview
+        title: ベンチマークと分析
+        sections:
+        - file: content/part3/part3_3/about_apache_mpm
+          title: Apache MPMについて
+        - file: content/part3/part3_3/useful_links
+          title: 実装の参考となるリンク集
+        - file: content/part3/part3_3/websocket
+          title: WebSocketについて
+        - file: content/part3/part3_3/conformation_of_status
+          title: 検討状況の確認（必須）
 
-  #     - file:
-  #       title: パフォーマンスチューニング
-  #       section:
+      - file: content/part3/part3_4/preview
+        title: パフォーマンスチューニング
 
-  #     - file:
-  #       title: 第三部グループ発表会
-  #       section:
-  #       - file:
-  #         title: 第三部グループ発表会
+      - file: content/part3/part3_5/overview
+        title: 第三部グループ発表会
+        sections:
+        - file: content/part3/part3_5/last_presentation
+          title: 第三部グループ発表会
 
-  #     - file: content/part3/report/report
-  #       title: 第三部レポート
+      - file: content/part3/part3_5/last_report
+        title: 第三部レポート
 
   # 実験終了後の作業
   - caption: 実験終了後（必須）
