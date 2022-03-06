@@ -1,3 +1,5 @@
+# Apache MPMについて
+
 ## 概要
 
 Apache MPM (Multi Processing Module)とは，多数のWebブラウザからの接続要求をどのように処理するかをモジュール化したもので，設定ファイルを編集することで処理方法を変えることができます．
@@ -178,7 +180,7 @@ Apache MPM（Apache公式ページの解説）
 -   [Apache MPM event](https://httpd.apache.org/docs/2.4/en/mod/event.html)
 -   [Apache MPM worker](https://httpd.apache.org/docs/2.4/en/mod/worker.html)
 
-```apache
+```
 ＜mpm_prefork_module デフォルト設定＞
    StartServers 5
    MinSpareServers 5
@@ -187,7 +189,7 @@ Apache MPM（Apache公式ページの解説）
    MaxConnectionsPerChild 0
 ```
 
-```apache
+```
 ＜mpm_event_module デフォルト設定＞
    StartServers 2
    MinSpareThreads 25
@@ -198,7 +200,7 @@ Apache MPM（Apache公式ページの解説）
    MaxConnectionsPerChild 0
 ```
 
-```apache
+```
 ＜mpm_worker_module デフォルト設定＞
    StartServers 2
    MinSpareThreads 25
