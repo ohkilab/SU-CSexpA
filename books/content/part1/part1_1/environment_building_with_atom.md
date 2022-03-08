@@ -1,0 +1,263 @@
+# Atom を使った環境構築
+
+## 概要
+
+このページでは, テキストエディター Atom を用いて Raspberry Pi の開発環境を整えます.
+なお, Atom だけでなく VScode にも同じような機能が存在するようですが, 今回は Atom に絞って環境構築を行います.(VScode で環境を整えたい方は各自調べてください)
+この環境構築において, ノート PC の OS は Windows10 としています. Mac 版や Linux 版の Atom でも行えますが, 多少異なる点があると思います.
+以下がページ作成時の環境です.
+
+<table><caption>ページ作成時の環境</caption><tbody><tr><td>作成日時</td><td>2020/09/01</td></tr><tr><td>ノートPC</td><td>Dynabook U63(2018年度 生協PC)</td></tr><tr><td>OS</td><td>Windows10 Pro 1909</td></tr><tr><td>Atom</td><td>1.49.0</td></tr></tbody></table>
+
+今回導入する remote-ftp によりファイルの操作を, platformio-ide-terminal により SSH 接続を行います.
+
+Windows10 バージョン 1803 から, SSH クライアントが組み込まれたため TeraTerm を利用しなくても SSH 接続が可能となりました。
+
+```
+参考となるサイト
+https://mimimopu.com/atom_raspberry_pi_programing/
+
+```
+
+以下のサイトからテキストエディタ Atom を入手してください.
+[Atom 公式サイト](https://atom.io/)
+
+インストール方法がわからない方は『Atom インストール』等で調べればたくさんヒットしますので, 各自調べてみてください.
+
+```
+インストールの際に参考となるサイト
+https://www.kkaneko.jp/tools/win/atom.html
+https://pg-happy.jp/atom-texteditor.html
+
+```
+
+## Atom 各種設定
+
+Atom の各種設定を行います.
+
+とりあえず, Atom の日本語化を行います. 英語のまま利用しても構いません.
+
+File ＞ Settings ＞ Install
+
+より, パッケージのダウンロードが行えます. 検索欄に「japanese-menu」と入力し, 一番先頭に来たものをダウンロードします.
+
+[![](https://exp1.inf.shizuoka.ac.jp/images/thumb/7/71/atom-japanese.jpg/500px-atom-japanese.jpg)](https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:atom-japanese.jpg)
+
+japanese-menu(インストール済みの状態)
+
+インストール終了後, Atom を再起動してください.
+これより先の説明では日本語化された Atom で説明を行っていきます. (上記の「File」なら「ファイル」)
+
+他にも便利なパッケージはいくつもあるので, 好みのパッケージをインストールしてみて下さい.
+以下の表は便利なパッケージの一部です.
+
+<table><caption>便利なパッケージ</caption><tbody><tr><th>パッケージ名</th><th>用途</th><th>リンク</th></tr><tr><td>japanese-menu</td><td>Atomが日本語化されます</td><td><a rel="nofollow" href="https://atom.io/packages/japanese-menu">https://atom.io/packages/japanese-menu</a></td></tr><tr><td><span color="#ff0000">remote-ftp</span></td><td>AtomからFTP・SFTP接続が行えます</td><td><a rel="nofollow" href="https://atom.io/packages/remote-ftp">https://atom.io/packages/remote-ftp</a></td></tr><tr><td><span color="#ff0000">platformio-ide-terminal</span></td><td>AtomからWindowsの「コマンドプロンプト」や「PowerShell」が直接利用できます</td><td><a rel="nofollow" href="https://atom.io/packages/platformio-ide-terminal">https://atom.io/packages/platformio-ide-terminal</a></td></tr><tr><td>highlight-selected</td><td>ダブルクリックした単語全部にハイライトが付きます</td><td><a rel="nofollow" href="https://atom.io/packages/highlight-selected">https://atom.io/packages/highlight-selected</a></td></tr><tr><td>minimap</td><td>ミニマップを表示させることができます.<br>上記のhighlight-selectedでハイライトされたものも反映されます.</td><td><a rel="nofollow" href="https://atom.io/packages/minimap">https://atom.io/packages/minimap</a></td></tr><tr><td>file-type-icons</td><td>tree-viewに表示されるファイルのアイコンが分かりやすくなります.</td><td><a rel="nofollow" href="https://atom.io/packages/file-type-icons">https://atom.io/packages/file-type-icons</a></td></tr></tbody></table>
+
+**パッケージ名が 赤色 のものは今回の環境構築に置いて必須なパッケージです. インストールしておいてください.**
+
+Atom には無数にパッケージがあるので各自調べてみたら面白そうなのがあるかもしれません.
+
+```
+Atomのパッケージを詳しく紹介しているサイト
+https://www.sejuku.net/blog/3099
+https://qiita.com/snowsunny/items/f40c3291a580f3215797
+
+```
+
+## remote-ftp の設定
+
+まず, Atom パッケージである「remote-ftp」をインストールしてください.
+
+remote-ftp は, Atom 上で WinSCP のようなファイル操作を行い, ファイルの編集を Atom 上で行うことができるようになるパッケージです.
+このパッケージを使うことによって, Windows 上から Raspberry Pi 上のファイルを直接編集することができるようになり, Windows と Raspberry Pi 間のファイルの移動の手間がなくなります.
+
+実際には, Raspberry Pi 上の編集するファイルを指定したフォルダに自動でダウンロードし, ファイルを編集・保存後に自動的に Raspberry Pi へアップロードしています.
+
+[![](https://exp1.inf.shizuoka.ac.jp/images/thumb/a/a5/Atom_remote-ftp.jpg/500px-Atom_remote-ftp.jpg)](https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:Atom_remote-ftp.jpg)
+
+接続用 config ファイルの作成(プロジェクトフォルダ名『remote-ftp』)
+
+インストールが終了したら, Raspberry Pi との接続設定を行います.
+Atom のメニューバーより
+
+ファイル ＞ プロジェクトフォルダを追加
+
+から, Raspberry Pi のファイルを一時保存するフォルダを選択します.
+この指定したフォルダにファイルを保存することによって, Windows 上から編集できるようになっています.
+皆さんがいつもプログラミングで使っているフォルダ等に空フォルダを作って指定していただいて結構です.(フォルダ名も適当な名前で大丈夫です)
+
+プロジェクトフォルダを追加したら, エディタの左側にツリービューが表示されたと思います.
+（もともと Atom を使っている方は, remote-ftp で利用するプロジェクトフォルダが先頭に来るようにしてください.）
+
+追加したプロジェクトフォルダは空フォルダなので中には何も入っていないと思います.
+この中に Raspberry Pi と接続を行うための設定ファイルを追加します.
+右の画像のように Atom のメニューバーより
+
+パッケージ ＞ Remote FTP ＞ Create SFTP config file
+
+を押すことによって「.ftpconfig」というファイルが作成されます.
+※メニューバーでクリックするのは「Create SFTP config file」です. 「Create FTP config file」ではありません.
+
+生成されたファイルの以下の部分だけを変更してください.
+
+```
+"host": "example.com",
+"user": "user",
+"pass": "pass",
+
+```
+
+```
+"host": "192.168.1.101",
+"user": "pi",
+"pass": "raspberry",
+
+```
+
+[![](https://exp1.inf.shizuoka.ac.jp/images/thumb/5/5a/Atom-ftp-connect.gif/500px-Atom-ftp-connect.gif)](https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:Atom-ftp-connect.gif)
+
+接続成功した時の動作（クリックすれば GIF で動きます）
+
+要するに,
+
+- 「host」の部分が接続先
+- 「user」がゲスト OS に設定したユーザ名
+- 「pass」がゲスト OS に設定したパスワード
+
+となっています. (パスワードを変更した場合は, 「pass」の部分を適宜変更してください)
+
+変更が終了したら保存してください.
+
+保存が終わったら, Atom のメニューバーより
+
+パッケージ ＞ Remote FTP ＞ Toggle
+
+を押してください.
+押したら左側のツリービューに「Remote」というタブが現れると思います.
+
+その「Remote」タブを押して, 「Connect」ボタンを押すと Raspberry Pi と接続できます.
+接続できたら設定終了です.
+
+初期設定では接続先のディレクトリは Raspberry Pi の root になっています. そのため, 編集中のファイルがあるディレクトリまで潜るのが大変な場合があると思います.
+そんなときは最初に設定を行った接続設定ファイルである「.ftpconfig」ファイルの「remote："/"」の部分を変更することで, 接続先のディレクトリを指定することができます.
+
+例えば以下のように変更するとします.
+
+```
+"remote": "/"
+
+```
+
+```
+"remote": "/home/pi"
+
+```
+
+変更を行ったあとは再接続してください(ツリービュー右クリック →「Disconnect」→「Connect」)
+
+そうすると, 接続直後から pi ディレクトリの内容がツリービューに表示されたと思います.
+このように, 「remote」要素の設定では, 接続時の接続先ディレクトリを指定することができます.
+しかし, pi ディレクトリより上の階層は行けなくなってしまいますので必要に応じて適宜変更してください.
+
+```
+参考となるサイト
+https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html
+https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d
+
+```
+
+## platformio-ide-terminal の設定
+
+まず, Atom パッケージである「platformio-ide-terminal」をインストールしてください.
+
+platformio-ide-terminal は, Atom 上で Windows の「コマンドプロンプト」や「PowerShell」を利用することができるパッケージです.
+
+これを利用して, Raspberry Pi と SSH 接続を行います.
+
+[![](https://exp1.inf.shizuoka.ac.jp/images/thumb/1/15/atom-terminal.JPG/300px-atom-terminal.JPG)](https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:atom-terminal.JPG)
+
+インストールが完了したら, エディタの下の部分に右図のような「+」ボタンが新しく表示されているはずです. (表示されない場合は Atom を再起動してみてください)
+これをクリックするとターミナルが開きます.
+
+または, ショートカットキーとして「ctrl + @」が設定されておりますので、これを利用して開くこともできます.
+ターミナルが起動している状態でこのショートカットを押すとターミナル表示部の表示・収納ができます.
+
+このパッケージでは複数のターミナルを起動させることもできます.
+
+初期設定では, 開かれるターミナルは「PowerShell」が設定されています.
+開かれたターミナルがきちんと使えるか, なにかコマンドを打って確認してみます.
+
+```shell
+例）$ ping 192.168.1.101
+
+```
+
+きちんと普通の PowerShell と同様の動作をしましたか？動作していればインストールは完了です.
+
+ssh コマンドと今回導入した platformio-ide-terminal を使って Raspberry Pi と SSH 接続してみます. 下記のコマンドを実行してみてください. (SSH コマンドが利用できない場合は下の[SSH の設定](https://exp1.inf.shizuoka.ac.jp/Atom%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89#SSH.E3.81.AE.E8.A8.AD.E5.AE.9A "Atomを使った環境構築")を行ってください)
+
+```shell
+$ ssh pi@192.168.1.101
+
+```
+
+入力して Enter を押したあと
+
+```shell
+pi@192.168.1.101's password:
+
+```
+
+と表示されますので Raspberry Pi のパスワードを入力してください. (入力した文字列は表示されませんが, きちんと入力されてます)
+
+パスワードを入力して Enter を押して, いろいろ文字列が表示されてから以下のように表示されれば SSH 接続完了です.
+
+```shell
+pi@raspberrypi:~ $
+
+```
+
+導入は完了しましたが, 使いやすくするためにちょっとだけ設定を変更していきます. 特に必須事項というわけではないです.
+
+ファイル ＞ 設定 ＞ パッケージ ＞ platformio-ide-terminal ＞ 設定
+
+から, platformio-ide-terminal の設定を行うことができます.
+
+<table><caption>各種設定</caption><tbody><tr><th>設定項目</th><th>おすすめ設定</th><th>説明</th></tr><tr><td>Core &gt; Auto Run Command</td><td>ssh pi@192.168.1.101</td><td>ターミナルを起動する度に同じSSHコマンドを実行するのは面倒ですよね？<br>ここの設定項目では起動直後に自動的にコマンドを実行させることができますので, SSH接続時のコマンドを入れておきます.</td></tr><tr><td>Style &gt; Animation Speed</td><td>2</td><td>ターミナルを表示・収納のスピードを少し速くしておきます.</td></tr><tr><td>Style &gt; Default Panel Height</td><td>250px</td><td>ここでは表示されるターミナルの高さを指定します.<br>個人によって好みの高さがあると思いますので調節してみてください.</td></tr><tr><td>Style &gt; Font Size</td><td>9</td><td>文字の大きさを設定します.<br>こちらも好みの大きさに調節してみてください.</td></tr><tr><td>Style &gt; Theme</td><td>pro</td><td>初期設定ではエディタ部とターミナル部の背景が同じで分かりづらいので変更します. proでは背景が黒, 文字色が白となります.</td></tr></tbody></table>
+
+```
+導入で参考となるサイト
+https://blanche-toile.com/web/atom-platformio-ide-terminal
+
+```
+
+## SSH の設定
+
+Windows10 バージョン 1803 から, SSH クライアントが組み込まれました.
+これにより「コマンドプロンプト」や「Power Shell」でも SSH 接続が可能となります.
+
+まず, SSH コマンドが利用できるか確認します.
+
+Windows のスタートメニューを右クリック ＞ Windows Power Shell
+
+をクリックして, PowerShell を起動させます.
+
+```shell
+$ ssh
+
+```
+
+と入力して「認識されません」等のエラーが表示されれば, あなたの PC には ssh クライアントがインストールされていません.
+
+Windows の「設定」 ＞ アプリ ＞ アプリと機能 ＞ オプション機能
+
+より「OpenSSH クライアント」を押して, 「インストール」をクリックします.
+
+インストールが完了したらもう一度コマンドを入力してみてください.
+先程のエラー表示がなくなり, コマンドの利用方法が表示されればインストール完了です.
+
+```
+参考となるサイト
+https://mimimopu.com/powershell-ssh-client/
+
+```
