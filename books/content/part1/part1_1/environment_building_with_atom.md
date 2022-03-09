@@ -41,7 +41,7 @@ File ＞ Settings ＞ Install
 
 より, パッケージのダウンロードが行えます. 検索欄に「japanese-menu」と入力し, 一番先頭に来たものをダウンロードします.
 
-[![](https://exp1.inf.shizuoka.ac.jp/images/thumb/7/71/atom-japanese.jpg/500px-atom-japanese.jpg)](https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:atom-japanese.jpg)
+![750px-atom-japanese.jpg](../../../images/part1/part1_1/750px-atom-japanese.jpg)
 
 japanese-menu(インストール済みの状態)
 
@@ -73,9 +73,7 @@ remote-ftp は, Atom 上で WinSCP のようなファイル操作を行い, フ�
 
 実際には, Raspberry Pi 上の編集するファイルを指定したフォルダに自動でダウンロードし, ファイルを編集・保存後に自動的に Raspberry Pi へアップロードしています.
 
-[![](https://exp1.inf.shizuoka.ac.jp/images/thumb/a/a5/Atom_remote-ftp.jpg/500px-Atom_remote-ftp.jpg)](https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:Atom_remote-ftp.jpg)
-
-接続用 config ファイルの作成(プロジェクトフォルダ名『remote-ftp』)
+![500px-Atom_remote-ftp.jpg](../../../images/part1/part1_1/750px-Atom_remote-ftp.jpg)
 
 インストールが終了したら, Raspberry Pi との接続設定を行います.
 Atom のメニューバーより
@@ -114,7 +112,7 @@ Atom のメニューバーより
 
 ```
 
-[![](https://exp1.inf.shizuoka.ac.jp/images/thumb/5/5a/Atom-ftp-connect.gif/500px-Atom-ftp-connect.gif)](https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:Atom-ftp-connect.gif)
+![750px-Atom-ftp-connect.gif](../../../images/part1/part1_1/750px-Atom-ftp-connect.gif)
 
 接続成功した時の動作（クリックすれば GIF で動きます）
 
@@ -174,7 +172,7 @@ platformio-ide-terminal は, Atom 上で Windows の「コマンドプロンプ�
 
 これを利用して, Raspberry Pi と SSH 接続を行います.
 
-[![](https://exp1.inf.shizuoka.ac.jp/images/thumb/1/15/atom-terminal.JPG/300px-atom-terminal.JPG)](https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:atom-terminal.JPG)
+![atom-terminal.jfif](../../../images/part1/part1_1/atom-terminal.jfif)
 
 インストールが完了したら, エディタの下の部分に右図のような「+」ボタンが新しく表示されているはずです. (表示されない場合は Atom を再起動してみてください)
 これをクリックするとターミナルが開きます.
@@ -194,7 +192,7 @@ platformio-ide-terminal は, Atom 上で Windows の「コマンドプロンプ�
 
 きちんと普通の PowerShell と同様の動作をしましたか？動作していればインストールは完了です.
 
-ssh コマンドと今回導入した platformio-ide-terminal を使って Raspberry Pi と SSH 接続してみます. 下記のコマンドを実行してみてください. (SSH コマンドが利用できない場合は下の[SSH の設定](https://exp1.inf.shizuoka.ac.jp/Atom%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89#SSH.E3.81.AE.E8.A8.AD.E5.AE.9A "Atomを使った環境構築")を行ってください)
+ssh コマンドと今回導入した platformio-ide-terminal を使って Raspberry Pi と SSH 接続してみます. 下記のコマンドを実行してみてください. (SSH コマンドが利用できない場合は下のSSH の設定を行ってください)
 
 ```shell
 $ ssh pi@192.168.1.101
