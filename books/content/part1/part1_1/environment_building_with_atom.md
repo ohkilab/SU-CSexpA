@@ -16,7 +16,6 @@ Windows10 バージョン 1803 から, SSH クライアントが組み込まれ�
 ```
 参考となるサイト
 https://mimimopu.com/atom_raspberry_pi_programing/
-
 ```
 
 以下のサイトからテキストエディタ Atom を入手してください.
@@ -28,7 +27,6 @@ https://mimimopu.com/atom_raspberry_pi_programing/
 インストールの際に参考となるサイト
 https://www.kkaneko.jp/tools/win/atom.html
 https://pg-happy.jp/atom-texteditor.html
-
 ```
 
 ## Atom 各種設定
@@ -61,7 +59,6 @@ Atom には無数にパッケージがあるので各自調べてみたら面白
 Atomのパッケージを詳しく紹介しているサイト
 https://www.sejuku.net/blog/3099
 https://qiita.com/snowsunny/items/f40c3291a580f3215797
-
 ```
 
 ## remote-ftp の設定
@@ -102,14 +99,12 @@ Atom のメニューバーより
 "host": "example.com",
 "user": "user",
 "pass": "pass",
-
 ```
 
 ```
 "host": "192.168.1.101",
 "user": "pi",
 "pass": "raspberry",
-
 ```
 
 ![750px-Atom-ftp-connect.gif](../../../images/part1/part1_1/750px-Atom-ftp-connect.gif)
@@ -143,12 +138,10 @@ Atom のメニューバーより
 
 ```
 "remote": "/"
-
 ```
 
 ```
 "remote": "/home/pi"
-
 ```
 
 変更を行ったあとは再接続してください(ツリービュー右クリック →「Disconnect」→「Connect」)
@@ -187,7 +180,6 @@ platformio-ide-terminal は, Atom 上で Windows の「コマンドプロンプ�
 
 ```shell
 例）$ ping 192.168.1.101
-
 ```
 
 きちんと普通の PowerShell と同様の動作をしましたか？動作していればインストールは完了です.
@@ -196,14 +188,12 @@ ssh コマンドと今回導入した platformio-ide-terminal を使って Raspb
 
 ```shell
 $ ssh pi@192.168.1.101
-
 ```
 
 入力して Enter を押したあと
 
 ```shell
 pi@192.168.1.101's password:
-
 ```
 
 と表示されますので Raspberry Pi のパスワードを入力してください. (入力した文字列は表示されませんが, きちんと入力されてます)
@@ -212,7 +202,6 @@ pi@192.168.1.101's password:
 
 ```shell
 pi@raspberrypi:~ $
-
 ```
 
 導入は完了しましたが, 使いやすくするためにちょっとだけ設定を変更していきます. 特に必須事項というわけではないです.
@@ -226,7 +215,6 @@ pi@raspberrypi:~ $
 ```
 導入で参考となるサイト
 https://blanche-toile.com/web/atom-platformio-ide-terminal
-
 ```
 
 ## SSH の設定
@@ -242,7 +230,6 @@ Windows のスタートメニューを右クリック ＞ Windows Power Shell
 
 ```shell
 $ ssh
-
 ```
 
 と入力して「認識されません」等のエラーが表示されれば, あなたの PC には ssh クライアントがインストールされていません.
@@ -257,5 +244,4 @@ Windows の「設定」 ＞ アプリ ＞ アプリと機能 ＞ オプション
 ```
 参考となるサイト
 https://mimimopu.com/powershell-ssh-client/
-
 ```

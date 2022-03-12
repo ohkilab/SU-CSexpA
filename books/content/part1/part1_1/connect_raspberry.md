@@ -6,7 +6,7 @@
 
 情報科学実験 I で配布した RaspberryPi は Ethernet デバイスに固定 IP（192.168.1.101）を設定してありますので，それを前提として PC から接続します．
 
-## RaspbarryPi と PC の有線ケーブルでの P2P 接続
+## RaspberryPi と PC の有線ケーブルでの P2P 接続
 
 ### RaspberryPi を電源と接続
 
@@ -57,7 +57,7 @@ IP アドレスとサブネットマスクを設定します．
 
 ![raspi-con6.png](../../../images/part1/part1_1/400px-raspi-con6.png)
 
-## PC から RaspbarryPi への VNC による接続
+## PC から RaspberryPi への VNC による接続
 
 ### VNC Client による接続
 
@@ -139,11 +139,11 @@ Windows 環境からの接続を例に説明します．
 
 - RaspberryPi 上のアカウント（pi）でログイン
 
-![tterm3.png](connect_raspberry.assets/400px-tterm3.png)
+![tterm3.png](../../../images/part1/part1_1/400px-tterm3.png)
 
 - 初回のみセキュリティ警告が出てくるので\[続行\]を押す
 
-![tterm2.png](connect_raspberry.assets/400px-tterm2.png)
+![tterm2.png](../../../images/part1/part1_1/400px-tterm2.png)
 
 - ログインに成功すればコマンドプロンプトが出てきます．
 
@@ -172,9 +172,9 @@ WinSCP を起動します． ログイン画面が開くので新規のホスト
 
 ### VM 環境の準備
 
-- [Virtual Box と VM の準備](./VirtualBox_preparation.md)を参考に，事前に準備しておいてください．
+- [Virtual Box と VM の準備](./VirtualBox_preparation)を参考に，事前に準備しておいてください．
 
-### VM 環境から RaspbarryPi への SSH 接続の確認
+### VM 環境から RaspberryPi への SSH 接続の確認
 
 VM 上の Linux のターミナルを開いて，RaspberryPi に Ping を送って通信状態を確認します．
 
@@ -251,4 +251,4 @@ VirtualBox の設定上は外部から SSH 接続できる設定ですが，実�
 なお, 上記の SSH 接続や WinSCP の設定などが済んでいることを前提として話を進めていきます.
 必ず上記の SSH 接続や WinSCP の設定を済ましてから取り組んでください.
 
-[Atom を使った環境構築](environment_building_with_atom.md)
+[Atom を使った環境構築](./environment_building_with_atom)
