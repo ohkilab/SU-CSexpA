@@ -14,6 +14,6 @@ VirtualBox を導入してください．拡張パック（Extension Pack）も�
 
 [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-静岡大学情報学部で学年度ごとに用意している Linux VM とインストールガイドは以下にあります． 以下の oooo 部分は入学年度で置き換えてください．
+静岡大学情報学部で学年度ごとに用意している Linux VM とインストールガイドは以下にあります． 以下の `oooo` 部分は入学年度で置き換えてください．
 
-http://whitebear.cs.inf.shizuoka.ac.jp/linux/oooo/
+`http://whitebear.cs.inf.shizuoka.ac.jp/linux/oooo/`
