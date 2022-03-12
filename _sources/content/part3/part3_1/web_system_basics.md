@@ -43,7 +43,7 @@ $ sudo apt-get install -y nodejs
 
 参考URL: [https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 
-次に，node.js上で動作するWebサーバプログラム（test.js）を以下のように作成してみましょう．「8080」という記載はWebサーバの待ち受けポート番号を表しています．
+次に，node.js上で動作するWebサーバプログラム（test.js）を以下のように作成してみましょう．「8080」という記載はWebサーバの待ち受けポート番号を表しています． ~班員間で重ならないポート番号を設定したり応答メッセージを変更したりして，各自のWebサーバプログラムへ接続できていることを確認してみてください．~
 
 ```
 var http = require('http');

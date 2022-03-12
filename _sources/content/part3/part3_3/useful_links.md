@@ -6,7 +6,7 @@
 
 ### PHP実行時のエラー表示設定
 
-Raspberry PiではPHPプログラムにエラーがあった場合，標準では **/var/log/apache2/error\_log**というファイルにエラー内容を書きだします（Fedora の場合は **/var/log/httpd/error\_log**でした）．
+Raspberry PiではPHPプログラムにエラーがあった場合，標準では**/var/log/apache2/error\_log**というファイルにエラー内容を書きだします（Fedora の場合は **/var/log/httpd/error\_log**でした）．
 
 このファイルはとても行数が多くなっていることが多いので，**tail**コマンドを使ってファイルの最後から中身を見ることが一般的です．
 
@@ -94,7 +94,7 @@ $ sudo sh - c "echo '' > /var/log/httpd/error_log"
 
 -   以下にPHPで使用しやすい設定例を示します
     -   Output: **PHP Serial**
-    -   **Do not sign call?** をチェック
+    -   **Do not sign call?**をチェック
     -   **extras**：得たい画像のメタデータ項目をカンマ区切りで入力
     -   **per\_page**：結果ページ１枚内に含まれる画像枚数（最大500枚）
     -   **page**：結果における何ページ目かの数

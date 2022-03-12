@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ネットワーク入出力プログラミング - 情報科学実験I &#8212; 情報科学実験Ⅰ</title>
+    <title>ネットワーク入出力プログラミング &#8212; 情報科学実験Ⅰ</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="入出力性能の計測 - 情報科学実験I" href="measurement_IO_performance.html" />
-    <link rel="prev" title="ファイル入出力プログラミング - 情報科学実験I" href="file_IO_programming.html" />
+    <link rel="next" title="入出力性能の計測" href="measurement_IO_performance.html" />
+    <link rel="prev" title="ファイル入出力プログラミング" href="file_IO_programming.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -571,19 +571,19 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#id2">
    はじめに
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
+    <a class="reference internal nav-link" href="#id3">
      参考情報
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id4">
    共有ライブラリ
   </a>
   <ul class="nav section-nav flex-column">
@@ -600,7 +600,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id5">
    共有ライブラリのビルド
   </a>
  </li>
@@ -620,66 +620,66 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id6">
      サーバ側実行方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id7">
      クライアント側実行方法
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
+  <a class="reference internal nav-link" href="#id8">
    [必須課題8] 一般的な関数を用いて入力文字列を送信
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id9">
      サーバ側ソースコードの一部: 008server.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
+    <a class="reference internal nav-link" href="#id10">
      クライアント側ソースコードの一部: 008client.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
+    <a class="reference internal nav-link" href="#id11">
      サーバ側実行方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
+    <a class="reference internal nav-link" href="#id12">
      クライアント側実行方法
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id12">
+  <a class="reference internal nav-link" href="#id13">
    [必須課題9] ファイル送受信
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
+    <a class="reference internal nav-link" href="#id14">
      サーバ側ソースコードの一部: 009server.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
+    <a class="reference internal nav-link" href="#id15">
      クライアント側ソースコードの一部: 009client.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id15">
+    <a class="reference internal nav-link" href="#id16">
      サーバ側実行方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id16">
+    <a class="reference internal nav-link" href="#id17">
      クライアント側実行方法
     </a>
    </li>
@@ -691,22 +691,22 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id17">
+    <a class="reference internal nav-link" href="#id18">
      サーバ側ソースコードの一部: 010server.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id18">
+    <a class="reference internal nav-link" href="#id19">
      クライアント側ソースコードの一部: 010client.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id19">
+    <a class="reference internal nav-link" href="#id20">
      サーバ側実行方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id20">
+    <a class="reference internal nav-link" href="#id21">
      クライアント側実行方法
     </a>
    </li>
@@ -722,7 +722,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>ネットワーク入出力プログラミング - 情報科学実験I</h1>
+                <h1>ネットワーク入出力プログラミング</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -733,19 +733,19 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#id2">
    はじめに
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
+    <a class="reference internal nav-link" href="#id3">
      参考情報
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id4">
    共有ライブラリ
   </a>
   <ul class="nav section-nav flex-column">
@@ -762,7 +762,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id5">
    共有ライブラリのビルド
   </a>
  </li>
@@ -782,66 +782,66 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id6">
      サーバ側実行方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id7">
      クライアント側実行方法
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
+  <a class="reference internal nav-link" href="#id8">
    [必須課題8] 一般的な関数を用いて入力文字列を送信
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id9">
      サーバ側ソースコードの一部: 008server.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
+    <a class="reference internal nav-link" href="#id10">
      クライアント側ソースコードの一部: 008client.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
+    <a class="reference internal nav-link" href="#id11">
      サーバ側実行方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
+    <a class="reference internal nav-link" href="#id12">
      クライアント側実行方法
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id12">
+  <a class="reference internal nav-link" href="#id13">
    [必須課題9] ファイル送受信
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
+    <a class="reference internal nav-link" href="#id14">
      サーバ側ソースコードの一部: 009server.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
+    <a class="reference internal nav-link" href="#id15">
      クライアント側ソースコードの一部: 009client.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id15">
+    <a class="reference internal nav-link" href="#id16">
      サーバ側実行方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id16">
+    <a class="reference internal nav-link" href="#id17">
      クライアント側実行方法
     </a>
    </li>
@@ -853,22 +853,22 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id17">
+    <a class="reference internal nav-link" href="#id18">
      サーバ側ソースコードの一部: 010server.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id18">
+    <a class="reference internal nav-link" href="#id19">
      クライアント側ソースコードの一部: 010client.c
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id19">
+    <a class="reference internal nav-link" href="#id20">
      サーバ側実行方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id20">
+    <a class="reference internal nav-link" href="#id21">
      クライアント側実行方法
     </a>
    </li>
@@ -883,19 +883,18 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="i">
-<h1>ネットワーク入出力プログラミング - 情報科学実験I<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h1>
-<p>[TOC]</p>
-<div class="section" id="id1">
-<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>この課題の目的はファイル入出力プログラミングの知識と経験を前提に，ネットワークプログラミングの理解を深めることです．<br />
-Raspberry Piと各自のノートPC上に構築したLinux環境を利用してサンプルプログラムをビルドして通信を行います．</p>
-<p>ネットワークを利用したプログラムは，ネットワークを対象に入出力を行います．<br />
-サーバプログラムとクライアントプログラム間で通信を行いますが，互いに通信を行う前にそれぞれのプログラムを個別に動作確認することが大事です．<br />
-ファイル入出力においてファイルの内容を確認して入出力の結果を確認したように，ネットワークを対象に入出力の結果を確認してみましょう．<br />
-その際，Day1で活用した<a class="reference external" href="https://www.wireshark.org/">パケットキャプチャのツール</a>が役に立ちます．</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>ネットワーク入出力プログラミング<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id2">
-<h3>参考情報<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>この課題の目的はファイル入出力プログラミングの知識と経験を前提に，ネットワークプログラミングの理解を深めることです．
+Raspberry Piと各自のノートPC上に構築したLinux環境を利用してサンプルプログラムをビルドして通信を行います．</p>
+<p>ネットワークを利用したプログラムは，ネットワークを対象に入出力を行います．
+サーバプログラムとクライアントプログラム間で通信を行いますが，互いに通信を行う前にそれぞれのプログラムを個別に動作確認することが大事です．
+ファイル入出力においてファイルの内容を確認して入出力の結果を確認したように，ネットワークを対象に入出力の結果を確認してみましょう．
+その際，<a class="reference external" href="https://www.wireshark.org/">パケットキャプチャのツール</a>が役に立ちます．</p>
+<div class="section" id="id3">
+<h3>参考情報<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>「Wiresharkの使い方」: みやたひろし. “パケットキャプチャの教科書”, SBクリエイティブ, p.19, 2017.</p></li>
 <li><p>「パケットキャプチャデータのフィルタに関わる機能」: みやたひろし. “パケットキャプチャの教科書”, SBクリエイティブ, p.27, 2017.</p></li>
@@ -903,29 +902,29 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 </ul>
 </div>
 </div>
-<div class="section" id="id3">
-<h2>共有ライブラリ<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>TCP接続を行うサーバ側・クライアント側で，共通の処理を関数化したソースコードを以下に示します．<br />
+<div class="section" id="id4">
+<h2>共有ライブラリ<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>TCP接続を行うサーバ側・クライアント側で，共通の処理を関数化したソースコードを以下に示します．
 これらの関数は共有ライブラリファイル exp1lib.h, exp1lib.c 内に記述し，各サンプルコードから利用するようにしています．</p>
 <div class="section" id="exp1-tcp-listen">
 <h3>exp1_tcp_listen<a class="headerlink" href="#exp1-tcp-listen" title="Permalink to this headline">¶</a></h3>
 <p>TCP接続を行うためのサーバ側ライブラリです（情報科学実験I用の共有ライブラリ）．</p>
 <p>プログラムの各行が何を行っているのか，コードリーディングして確認してください．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">exp1_tcp_listen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">port</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">addrinfo</span><span class="w"> </span><span class="n">hints</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hints</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">hints</span><span class="p">));</span><span class="w"></span>
 <span class="w">   </span><span class="n">hints</span><span class="p">.</span><span class="n">ai_family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AF_INET</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">hints</span><span class="p">.</span><span class="n">ai_socktype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">hints</span><span class="p">.</span><span class="n">ai_flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AI_PASSIVE</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">errcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">addrinfo</span><span class="o">*</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">errcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getaddrinfo</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hints</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">res</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">     </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;getaddrinfo():%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gai_strerror</span><span class="p">(</span><span class="n">errcode</span><span class="p">));</span><span class="w"></span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_family</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_socktype</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_protocol</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sock</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -933,7 +932,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <span class="w">     </span><span class="n">freeaddrinfo</span><span class="p">(</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">socket_option</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">socket_option_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">socket_option</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">SOL_SOCKET</span><span class="p">,</span><span class="w"> </span><span class="n">SO_REUSEADDR</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">socket_option</span><span class="p">,</span><span class="w"></span>
@@ -943,7 +942,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <span class="w">     </span><span class="n">freeaddrinfo</span><span class="p">(</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">binderr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_addr</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_addrlen</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">binderr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">     </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;bind&quot;</span><span class="p">);</span><span class="w"></span>
@@ -951,7 +950,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <span class="w">     </span><span class="n">freeaddrinfo</span><span class="p">(</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">listenerr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listen</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">SOMAXCONN</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">listenerr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">     </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;listen&quot;</span><span class="p">);</span><span class="w"></span>
@@ -970,12 +969,12 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <p>TCP接続を行うためのクライアント側ライブラリです（情報科学実験I用の共有ライブラリ）．</p>
 <p>プログラムの各行が何を行っているのか，コードリーディングして確認してください．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">exp1_tcp_connect</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">hostname</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">port</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">addrinfo</span><span class="w"> </span><span class="n">hints</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hints</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">hints</span><span class="p">));</span><span class="w"></span>
 <span class="w">   </span><span class="n">hints</span><span class="p">.</span><span class="n">ai_family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AF_INET</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">hints</span><span class="p">.</span><span class="n">ai_socktype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">addrinfo</span><span class="o">*</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">errcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">errcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getaddrinfo</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hints</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
@@ -983,7 +982,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <span class="w">     </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;getaddrinfo():%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gai_strerror</span><span class="p">(</span><span class="n">errcode</span><span class="p">));</span><span class="w"></span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">soc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">soc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_family</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_socktype</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_protocol</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">soc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -991,7 +990,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <span class="w">     </span><span class="n">freeaddrinfo</span><span class="p">(</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">connerr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">connerr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connect</span><span class="p">(</span><span class="n">soc</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_addr</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="o">-&gt;</span><span class="n">ai_addrlen</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">connerr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1000,7 +999,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <span class="w">     </span><span class="n">freeaddrinfo</span><span class="p">(</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">   </span><span class="n">freeaddrinfo</span><span class="p">(</span><span class="n">res</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">soc</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -1008,8 +1007,8 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 </div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>共有ライブラリのビルド<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>共有ライブラリのビルド<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>Makefileの内容はサンプルコードによって異なりますが，典型的には以下のような記述になっています．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nv">CC</span> <span class="o">=</span> gcc
  C++ <span class="o">=</span> g++
@@ -1018,23 +1017,23 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
  <span class="nv">LDFLAGS</span> <span class="o">=</span>
  <span class="nv">OBJECTS</span> <span class="o">=</span> 010server.o ../exp1lib.o
  <span class="nv">EXECUTABLE</span> <span class="o">=</span> 010server
- 
+
  all: <span class="k">$(</span>EXECUTABLE<span class="k">)</span>
- 
+
  <span class="k">$(</span>EXECUTABLE<span class="k">)</span>: <span class="k">$(</span>OBJECTS<span class="k">)</span>
          <span class="k">$(</span>LD<span class="k">)</span> <span class="k">$(</span>LDFLAGS<span class="k">)</span> <span class="k">$(</span>OBJECTS<span class="k">)</span> -o <span class="nv">$@</span>
- 
+
  .cpp.o:
          <span class="k">$(</span>C++<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> $&lt; -o <span class="nv">$@</span>
- 
+
  .c.o:
          <span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> $&lt; -o <span class="nv">$@</span>
- 
+
  clean:
          -rm -f <span class="si">${</span><span class="nv">EXECUTABLE</span><span class="si">}</span> *.o core tmp.txt
 </pre></div>
 </div>
-<p>共有ライブラリを各サンプルコードで共有するために別ディレクトリ（各サンプルコードの1つ上のディレクトリ）に配置しています．<br />
+<p>共有ライブラリを各サンプルコードで共有するために別ディレクトリ（各サンプルコードの1つ上のディレクトリ）に配置しています．
 そこで，以下のようにビルド対象に指定し，実行ファイルを作成する際にリンクするようにしています．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nv">OBJECTS</span> <span class="o">=</span> 010server.o ../exp1lib.o
 </pre></div>
@@ -1046,7 +1045,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <h3>サーバ側ソースコードの一部: 007server.c<a class="headerlink" href="#server-c" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 <span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1lib.h&quot;</span><span class="cp"></span>
-<span class="w"> </span>
+
 <span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_listen</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_client</span><span class="p">;</span><span class="w"></span>
@@ -1054,14 +1053,14 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="n">sock_listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_listen</span><span class="p">(</span><span class="s">&quot;11111&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">sock_client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">socklen_t</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">sock_client</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
@@ -1071,55 +1070,53 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <h3>クライアント側ソースコードの一部: 007client.c<a class="headerlink" href="#client-c" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 <span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1lib.h&quot;</span><span class="cp"></span>
-<span class="w"> </span>
+
 <span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                 </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [ip address]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
 <span class="w">                 </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_connect</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;11111&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">p</span><span class="p">));</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>サーバ側実行方法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>サーバ側実行方法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>以下のように実行するだけです．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./007server
 </pre></div>
 </div>
 <p>クライアントから文字列を受け取ると標準出力へ受信した文字列を出力して終了します．</p>
 </div>
-<div class="section" id="id6">
-<h3>クライアント側実行方法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>クライアント側実行方法<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>サーバのIPアドレスを指定して実行します．</p>
 <p>サーバ側が192.168.1.101の場合は以下のように入力します．</p>
 <p>入力待ち受け状態になるので文字列を入力してEnterを押すとサーバ側に文字列が表示されます．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./007client <span class="m">192</span>.168.1.101
 hello world
-
-$
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>[必須課題8] 一般的な関数を用いて入力文字列を送信<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id8">
-<h3>サーバ側ソースコードの一部: 008server.c<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h2>[必須課題8] 一般的な関数を用いて入力文字列を送信<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>サーバ側ソースコードの一部: 008server.c<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 <span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1lib.h&quot;</span><span class="cp"></span>
-<span class="w"> </span>
+
 <span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_listen</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_client</span><span class="p">;</span><span class="w"></span>
@@ -1127,40 +1124,40 @@ $
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="n">sock_listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_listen</span><span class="p">(</span><span class="s">&quot;11111&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">sock_client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">socklen_t</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recv</span><span class="p">(</span><span class="n">sock_client</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>必須課題7とほぼ同じソースコードで実現できます．</p>
 </div>
-<div class="section" id="id9">
-<h3>クライアント側ソースコードの一部: 008client.c<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>クライアント側ソースコードの一部: 008client.c<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 <span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1lib.h&quot;</span><span class="cp"></span>
-<span class="w"> </span>
+
 <span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                 </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [ip address]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
 <span class="w">                 </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_connect</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;11111&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">p</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 
@@ -1168,15 +1165,15 @@ $
 </div>
 <p>必須課題7とほぼ同じソースコードで実現できます．</p>
 </div>
-<div class="section" id="id10">
-<h3>サーバ側実行方法<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>サーバ側実行方法<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./008server
 </pre></div>
 </div>
 <p>クライアントから文字列を受け取ると標準出力に出力して終了します．</p>
 </div>
-<div class="section" id="id11">
-<h3>クライアント側実行方法<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>クライアント側実行方法<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>サーバのIPアドレスを指定して実行します．</p>
 <p>サーバ側が192.168.1.101の場合は以下のように入力します．</p>
 <p>入力待ち受け状態になるので文字列を入力してEnterを押すとサーバ側に文字列が表示されます．</p>
@@ -1189,13 +1186,13 @@ $
 </div>
 </div>
 </div>
-<div class="section" id="id12">
-<h2>[必須課題9] ファイル送受信<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id13">
-<h3>サーバ側ソースコードの一部: 009server.c<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<h2>[必須課題9] ファイル送受信<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>サーバ側ソースコードの一部: 009server.c<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 <span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1lib.h&quot;</span><span class="cp"></span>
-<span class="w"> </span>
+
 <span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_listen</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_client</span><span class="p">;</span><span class="w"></span>
@@ -1204,10 +1201,10 @@ $
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
 <span class="w">         </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="n">sock_listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_listen</span><span class="p">(</span><span class="s">&quot;11111&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">sock_client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">socklen_t</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;tmp.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recv</span><span class="p">(</span><span class="n">sock_client</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1216,28 +1213,28 @@ $
 <span class="w">         </span><span class="p">}</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id14">
-<h3>クライアント側ソースコードの一部: 009client.c<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>クライアント側ソースコードの一部: 009client.c<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 <span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1lib.h&quot;</span><span class="cp"></span>
-<span class="w"> </span>
+
 <span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
 <span class="w">         </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                 </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [ip address] [filename]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
 <span class="w">                 </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_connect</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;11111&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
@@ -1246,21 +1243,21 @@ $
 <span class="w">                 </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="p">}</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id15">
-<h3>サーバ側実行方法<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>サーバ側実行方法<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./009server
 </pre></div>
 </div>
 <p>クライアントからファイルを受け取るとtmp.txtに出力して終了します．</p>
 </div>
-<div class="section" id="id16">
-<h3>クライアント側実行方法<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>クライアント側実行方法<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <p>サーバのIPアドレスと送信したいファイル名を指定して実行します．</p>
 <p>サーバ側が192.168.1.101の場合は以下のように入力します．</p>
 <p>サーバー側の「tmp.txt」にファイルがコピーされれば正常動作です．</p>
@@ -1271,11 +1268,11 @@ $
 </div>
 <div class="section" id="echo-back">
 <h2>[必須課題10] echo back<a class="headerlink" href="#echo-back" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id17">
-<h3>サーバ側ソースコードの一部: 010server.c<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>サーバ側ソースコードの一部: 010server.c<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 <span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1lib.h&quot;</span><span class="cp"></span>
-<span class="w"> </span>
+
 <span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_listen</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_client</span><span class="p">;</span><span class="w"></span>
@@ -1283,7 +1280,7 @@ $
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="n">sock_listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_listen</span><span class="p">(</span><span class="s">&quot;11111&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">sock_client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">socklen_t</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recv</span><span class="p">(</span><span class="n">sock_client</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
@@ -1291,49 +1288,49 @@ $
 <span class="w">         </span><span class="n">send</span><span class="p">(</span><span class="n">sock_client</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span><span class="w"></span>
 <span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
-<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span><span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id18">
-<h3>クライアント側ソースコードの一部: 010client.c<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
-<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1lib.h&quot;</span><span class="cp"></span>
-<span class="w"> </span>
-<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">;</span><span class="w"></span>
-<span class="w">         </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
-<span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
-<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span>
-<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                 </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [ip address]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
-<span class="w">                 </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
-<span class="w">         </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
-<span class="w">         </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_connect</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;11111&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">         </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
-<span class="w">         </span><span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">p</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="w">         </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
-<span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id19">
-<h3>サーバ側実行方法<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<h3>クライアント側ソースコードの一部: 010client.c<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1lib.h&quot;</span><span class="cp"></span>
+
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                 </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [ip address]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">                 </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">         </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_connect</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;11111&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">p</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>サーバ側実行方法<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./010server
 </pre></div>
 </div>
 <p>クライアントから文字列を受け取ると標準出力に出力して終了します．</p>
 </div>
-<div class="section" id="id20">
-<h3>クライアント側実行方法<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h3>クライアント側実行方法<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <p>サーバのIPアドレスを指定して実行します．</p>
 <p>サーバ側が192.168.1.101の場合は以下のように入力します．</p>
 <p>入力待ち受け状態になるので文字列を入力してEnterを押すとサーバ側に文字列が表示されます．</p>
@@ -1376,13 +1373,13 @@ hello world
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">ファイル入出力プログラミング - 情報科学実験I</p>
+            <p class="prev-next-title">ファイル入出力プログラミング</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="measurement_IO_performance.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">入出力性能の計測 - 情報科学実験I</p>
+        <p class="prev-next-title">入出力性能の計測</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

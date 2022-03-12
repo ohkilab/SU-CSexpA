@@ -590,11 +590,6 @@ const thebe_selector_output = ".output, .cell_output"
      コマンド・オプション
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apache-bench">
-     [必須課題] Apache Benchによる性能計測結果の分析
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -640,11 +635,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
      コマンド・オプション
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apache-bench">
-     [必須課題] Apache Benchによる性能計測結果の分析
     </a>
    </li>
   </ul>
@@ -735,6 +725,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* 「Complete requests:      100」が，正常に応答のあったリクエスト数です．
 * 「Failed requests:        0」が，正常な応答のなかったリクエスト数です．
+
 </pre></div>
 </div>
 <p>上記の例では，リクエスト総数100に対して，Complete requestsが100，Failed requestsが0ですから，全てのリクエストに対し応答を正常に得られたことを示しています．</p>
@@ -748,9 +739,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>-n と -cで指定する値を徐々に増やして検証していくことで，どの程度のリクエスト数まで耐えられそうか性能評価ができます．具体的には，<strong>Failed requestsが0でなくなった時</strong>が，そのWebサーバの許容負荷の限界値と考えることができます．</p>
 <p>ただし，abで発行される全てのリクエストは指定したURLに対するものでしかありません．一般的なWebアクセスは様々なURLへ行われますので，厳密に言うと許容負荷の限界値そのものとは言えませんからご注意ください．様々なURLへ遷移する負荷パターンモデルを様々なユーザ数で設定できるような商用ベンチマークツールもあります．</p>
-</div>
-<div class="section" id="apache-bench">
-<h3>[必須課題] Apache Benchによる性能計測結果の分析<a class="headerlink" href="#apache-bench" title="Permalink to this headline">¶</a></h3>
 <p>皆さんのWebサーバのユーザディレクトリ<strong>public_html</strong>にある<strong>prog00.php</strong>と<strong>prog01.html</strong>に対して，abで負荷をかけ<strong>Requests per second</strong>の値を比較し，その結果が何を意味しているか考察してください．</p>
 <ul class="simple">
 <li><ol class="simple">

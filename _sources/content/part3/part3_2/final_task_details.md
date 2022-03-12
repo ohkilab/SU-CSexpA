@@ -50,7 +50,7 @@ display_errors = On
 ~ダウンロードしたファイルは，管理者権限でルートディレクトリ「/」へ誰でも読み書きできるディレクトリ「例：/data」を作成し，そこへ入れておくことで，班員が各自のホームディレクトリへコピーするといった方法で共有するとよいと思います．~
 
 -   [geotag.zip](https://exp1.inf.shizuoka.ac.jp/shizudai-only/part3/geotag.zip)（約439MB）（静大のネットワークからのみアクセス可能）
--   `\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験I\\第三部サンプルデータ\\geotag.zip`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
+-   \\\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験I\\第三部サンプルデータ\\geotag.zip（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
 
 どちらも同じファイルなので，可能な方法でダウンロードしてください．解凍するとgeotag.csv (約1.1GB)とtag.csv (約445MB)の2つのファイルが入っています．
 
