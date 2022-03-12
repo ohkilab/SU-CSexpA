@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="最終課題の詳細" href="final_task_details.html" />
@@ -1025,10 +1023,10 @@ $ sudo reboot
 <p>様々な方法が考えられますが，「<strong>addr1と2と3を連結した文字列に対して，like演算で抽出する</strong>」というような方法を思い浮かべたかもしれません．</p>
 <p>では，文字列を連結するにはどうしたらよさそうでしょうか．MariaDBのリファレンスマニュアルを探したりすれば，使えそうな文字列関数が見つかるかもしれません．</p>
 <p><a class="reference external" href="https://mariadb.com/kb/en/mariadb/string-functions/">MariaDBリファレンスマニュアル 文字列関数</a></p>
-<p>_CONCAT(str1,str2,…)_という関数がありますね．引数を全て連結した文字列を返す関数ですので，これが使えるかもしれません．連結したいのは，<strong>addr1</strong>，<strong>addr2</strong>，<strong>addr3</strong>ですから以下の様にできそうです．</p>
-<p><em>CONCAT(</em><strong>addr1</strong><em>,</em><strong>addr2</strong><em>,</em><strong>addr3</strong><em>)</em></p>
+<p><code class="docutils literal notranslate"><span class="pre">CONCAT(str1,str2,...)</span></code>という関数がありますね．引数を全て連結した文字列を返す関数ですので，これが使えるかもしれません．連結したいのは，<strong>addr1</strong>，<strong>addr2</strong>，<strong>addr3</strong>ですから以下の様にできそうです．</p>
+<p><code class="docutils literal notranslate"><span class="pre">CONCAT(addr1,addr2,addr3)</span></code></p>
 <p>この関数の返す文字列の一部に，<strong>中区城北</strong>が含まれていればよいわけですから，SQLのWHERE句は次のように書けそうです．</p>
-<p><em>CONCAT(</em><strong>addr1</strong><em>,</em><strong>addr2</strong><em>,</em><strong>addr3</strong><em>)</em> like ‘<strong>%中区城北%’</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CONCAT(addr1,addr2,addr3)</span> <span class="pre">like</span> <span class="pre">'%中区城北%'</span></code></p>
 <p>つまり，テーブル名<strong>zipShizuoka</strong>から<strong>中区城北</strong>が含まれている文字列の郵便番号<strong>zip</strong>を返すSQL文は，以下のように書けそうです．</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">zip</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">zipShizuoka</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">addr1</span><span class="p">,</span><span class="n">addr2</span><span class="p">,</span><span class="n">addr3</span><span class="p">)</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%中区城北%&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
@@ -1070,7 +1068,7 @@ $ sudo reboot
 <ul class="simple">
 <li><p><a class="reference external" href="http://php.net/manual/ja/mysqli.quickstart.dual-interface.php">Dual procedural and object-oriented interface</a></p></li>
 </ul>
-<p>【注意】 手続き型のインタフェースとオブジェクト指向型のインタフェースは別物です．混在して使うとトラブルの元ですので，ライブラリ中の各関数については，手続き型で書くなら手続き型のインタフェースを使用し，オブジェクト指向型で書くならオブジェクト指向型のインタフェースを利用してください．例えば，手続き型ではmysqli_query( <span class="math notranslate nohighlight">\(link, \)</span>query ) を使います．mysqli::query( <span class="math notranslate nohighlight">\(query )は使えません．当然，mysqli\_query( \)</span>query )は使えません（文法エラーにはなりませんので注意）．</p>
+<p>【注意】 手続き型のインタフェースとオブジェクト指向型のインタフェースは別物です．混在して使うとトラブルの元ですので，ライブラリ中の各関数については，手続き型で書くなら手続き型のインタフェースを使用し，オブジェクト指向型で書くならオブジェクト指向型のインタフェースを利用してください．例えば，手続き型ではmysqli_query( $link, $query ) を使います．mysqli::query( $query )は使えません．当然，mysqli_query( $query )は使えません（文法エラーにはなりませんので注意）．</p>
 </div>
 <div class="section" id="query-statements-vs-prepared-statements">
 <h3>補足2: Queryの設定方法（statements vs. prepared-statements）<a class="headerlink" href="#query-statements-vs-prepared-statements" title="Permalink to this headline">¶</a></h3>
@@ -1100,7 +1098,7 @@ $ sudo reboot
 <p><a class="reference external" href="http://php.net/manual/ja/tutorial.forms.php">http://php.net/manual/ja/tutorial.forms.php</a></p>
 <div class="section" id="id11">
 <h3>確認項目<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
-<p><s>以下の達成レベルに応じて班員の評価結果（SABC）をホワイトボードへ並べて記述してください（匿名で構いません）．必ず低いレベルのチェック項目（各レベル最低一つ以上）からクリアしていってください．レベルアップした人はホワイトボードの記載も更新していってください．</s></p>
+<p>以下の達成レベルを必ず低いレベルのチェック項目（各レベル最低一つ以上）からクリアしていってください．</p>
 <div class="section" id="c">
 <h4>「可(C)」レベル<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -1172,7 +1170,7 @@ $ sudo reboot
 </pre></div>
 </div>
 <p><strong>日本語が文字化けする</strong></p>
-<p>InternetExplorer（IE）を使っている場合，URLの<span class="math notranslate nohighlight">\(\_GET変数を取得する時に日本語が文字化けする問題があります．そのため，（ページ遷移の部分に関して）IE以外のブラウザだと動作するが，IEだと文字化けして動作しない，ということがあります．その場合は\)</span>_GET変数をurlencode()して，遷移先に渡すようにしましょう．</p>
+<p>InternetExplorer（IE）を使っている場合，URLの$_GET変数を取得する時に日本語が文字化けする問題があります．そのため，（ページ遷移の部分に関して）IE以外のブラウザだと動作するが，IEだと文字化けして動作しない，ということがあります．その場合は$_GET変数をurlencode()して，遷移先に渡すようにしましょう．</p>
 <p><a class="reference external" href="http://php.net/manual/ja/function.urlencode.php">PHP: urlencode - Manual</a></p>
 <p><strong>特定の範囲のデータをとってくる</strong></p>
 <p>「LIMIT オフセット値, 件数」，もしくは「LIMIT 件数 OFFSET オフセット値」といったSQL文を記載することで指定の範囲のデータを取得することができます．オフセットをいくつにすればよいかはページ番号さえわかれば計算できますよね？</p>
@@ -1203,7 +1201,7 @@ $ sudo reboot
 </div>
 <p><strong>検索結果の全レコード数を数える</strong></p>
 <p>ページ番号 3/20 といったような全体のページ数を計算したい場合，検索結果の全レコード数を毎回取得する必要があります． 上記のOFFSETを使ったSQLだと常にLIMITで指定した件数が返されるため，全件数が取得できません．方法として， 全件数を計算するSQLを発行するか，全件を取得してPHP側で数え上げるかのどちらかを行う必要があります．</p>
-<p><strong>(方法1)</strong> COUNT() 関数を使う</p>
+<p><strong>(方法1) COUNT() 関数を使う</strong></p>
 <p>COUNT() 関数を使うことでSELECT文により選択されたレコードの件数を得ることができます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span> <span class="n">FROM</span> <span class="n">zipShizuoka</span> <span class="n">WHERE</span> <span class="n">kana1</span> <span class="n">LIKE</span> <span class="s1">&#39;%ハママツ%&#39;</span><span class="p">;</span>
 <span class="o">+-------+</span>
@@ -1214,7 +1212,7 @@ $ sudo reboot
 <span class="mi">1</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.02</span> <span class="n">sec</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>(方法2)</strong> mysqli_num_rows() を使う</p>
+<p><strong>(方法2) mysqli_num_rows() を使う</strong></p>
 <p>PHPで mysqli_query() による検索処理を行なった後に mysqli_num_rows() を使って検索結果の全行数を得ることができます．</p>
 <p>実装するアプリケーションごとに，サーバとクライアント間の通信量やそれぞれが行う計算量は異なります．どのような場合にどちらのやり方が有効なのかについても考えてみましょう．</p>
 </div>

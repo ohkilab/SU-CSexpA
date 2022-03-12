@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>通信失敗の原因分析 - 情報科学実験I &#8212; 情報科学実験Ⅰ</title>
+    <title>epollによる多重化 - 情報科学実験I &#8212; 情報科学実験Ⅰ</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -522,7 +522,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/part1/part1_3/cause_analysis_communication_failure.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/content/part1/part1_3/multiplexing_epoll.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -542,7 +542,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_3/cause_analysis_communication_failure.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_3/multiplexing_epoll.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -583,7 +583,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>通信失敗の原因分析 - 情報科学実験I</h1>
+                <h1>epollによる多重化 - 情報科学実験I</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -607,13 +607,12 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="i">
-<h1>通信失敗の原因分析 - 情報科学実験I<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="epoll-i">
+<h1>epollによる多重化 - 情報科学実験I<a class="headerlink" href="#epoll-i" title="Permalink to this headline">¶</a></h1>
 <p>[TOC]</p>
 <div class="section" id="id1">
 <h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>サーバプログラムに対して大きな負荷をかけていくと通信に失敗する場合があります．失敗の原因を分析し，失敗頻度が下がる方法を検討してみてください．</p>
-<p>そのためには，通信失敗時のエラーコードを精査したり，送受信パケットの様子を収集し分析したり，OSのパラメータをチューニングしたり，サーバプログラム・クライアントプログラムのコードを分析する必要があります．場合によっては，CPU温度など様々なハードウェア構成要素やソフトウェア構成要素のどこにボトルネックが生じているのか可視化して分析してみてもよいかもしれません．</p>
+<p>Linux の epoll API を直接利用した場合について，必要なライブラリAPI等の調査・実装を行って計測対象に加えてみてください． 特に libevent, libuv 等のライブラリ関数を利用した場合との性能及び移植性の差異を比較して考察してみてください．</p>
 </div>
 </div>
 
