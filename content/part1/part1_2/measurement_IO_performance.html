@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>入出力性能の計測 - 情報科学実験I &#8212; 情報科学実験Ⅰ</title>
+    <title>入出力性能の計測 &#8212; 情報科学実験Ⅰ</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="「多対多接続の設計・実装」の目的と概要 - 情報科学実験I" href="../part1_3/overview.html" />
-    <link rel="prev" title="ネットワーク入出力プログラミング - 情報科学実験I" href="network_IO_programming.html" />
+    <link rel="next" title="Day3の目的と概要" href="../part1_3/overview.html" />
+    <link rel="prev" title="ネットワーク入出力プログラミング" href="network_IO_programming.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -571,71 +571,71 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#id2">
    はじめに
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id3">
    共通のヒント
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#id4">
      時間計測を行うサンプルコード
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id5">
      任意のサイズのファイル作成方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id6">
      きれいなグラフの作成方法
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id7">
    [必須課題1] バッファサイズを変更した場合のファイルコピー性能
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id8">
      要件
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id9">
      ヒント1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
+    <a class="reference internal nav-link" href="#id10">
      ヒント2（更に先に進む人向け）
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
+  <a class="reference internal nav-link" href="#id11">
    [必須課題2] バッファサイズを変更した場合の通信性能
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
+    <a class="reference internal nav-link" href="#id12">
      要件
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
+    <a class="reference internal nav-link" href="#id13">
      ヒント1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
+    <a class="reference internal nav-link" href="#id14">
      ヒント2（更に先に進む人向け）
     </a>
    </li>
@@ -651,7 +651,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>入出力性能の計測 - 情報科学実験I</h1>
+                <h1>入出力性能の計測</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -662,71 +662,71 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#id2">
    はじめに
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id3">
    共通のヒント
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
+    <a class="reference internal nav-link" href="#id4">
      時間計測を行うサンプルコード
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id5">
      任意のサイズのファイル作成方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id6">
      きれいなグラフの作成方法
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id7">
    [必須課題1] バッファサイズを変更した場合のファイルコピー性能
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id8">
      要件
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id9">
      ヒント1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
+    <a class="reference internal nav-link" href="#id10">
      ヒント2（更に先に進む人向け）
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
+  <a class="reference internal nav-link" href="#id11">
    [必須課題2] バッファサイズを変更した場合の通信性能
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
+    <a class="reference internal nav-link" href="#id12">
      要件
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
+    <a class="reference internal nav-link" href="#id13">
      ヒント1
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
+    <a class="reference internal nav-link" href="#id14">
      ヒント2（更に先に進む人向け）
     </a>
    </li>
@@ -741,11 +741,10 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="i">
-<h1>入出力性能の計測 - 情報科学実験I<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h1>
-<p>[TOC]</p>
-<div class="section" id="id1">
-<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>入出力性能の計測<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>この課題以降は参考情報のみを提示しますので，各自で実験方法から検討して課題を進めてください．</p>
 <p>実験に必要なツール・アプリケーションについても必須課題で作成したソースコードを参考に自作してください．</p>
 <p>レポートにまとめるにあたって以下の5つの情報は必須になります．</p>
@@ -757,29 +756,29 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>実験に用いたソースコード</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>共通のヒント<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
-<h3>時間計測を行うサンプルコード<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．<br />
-POSIX標準のライブラリは，ANSI標準には含まれませんのでビルド時に -std=c99 のようにANSIベースでのC99仕様に基づくビルドを指定している場合には，以下のライブラリは利用できません．<br />
-そこで，C99仕様にPOSIX標準及びGNU拡張を追加した -std=gnu99 を利用するようMakefileを修正しておいてください．</p>
+<h2>共通のヒント<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>時間計測を行うサンプルコード<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．
+POSIX標準のライブラリは，ANSI標準には含まれませんのでビルド時に <code class="docutils literal notranslate"><span class="pre">-std=c99</span></code> のようにANSIベースでのC99仕様に基づくビルドを指定している場合には，以下のライブラリは利用できません．
+そこで，C99仕様にPOSIX標準及びGNU拡張を追加した <code class="docutils literal notranslate"><span class="pre">-std=gnu99</span></code> を利用するようMakefileを修正しておいてください．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
 <span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
-<span class="w"> </span>
+
 <span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_current_timecount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">ts</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ts</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ts</span><span class="p">.</span><span class="n">tv_sec</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ts</span><span class="p">.</span><span class="n">tv_nsec</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_current_timecount</span><span class="p">();</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">    </span><span class="c1">// do something</span>
 <span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_current_timecount</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
@@ -787,36 +786,36 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h3>任意のサイズのファイル作成方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>任意のサイズのファイル作成方法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>実験のために任意のサイズのファイルを作成するには，ddコマンドを使うと良いでしょう．</p>
 <ul class="simple">
 <li><p>参考: <a class="reference external" href="http://www.itmedia.co.jp/help/tips/linux/l0606.html">容量指定のダミーファイルを作成したい</a></p></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>きれいなグラフの作成方法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>きれいなグラフの作成方法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>グラフを作成するソフトウェアは多く存在しますが，例えば<a class="reference external" href="http://www.mjograph.net/">mjograph</a>などを使うときれいなグラフを作ることができます．</p>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>[必須課題1] バッファサイズを変更した場合のファイルコピー性能<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id7">
-<h3>要件<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<h2>[必須課題1] バッファサイズを変更した場合のファイルコピー性能<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>要件<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>ユーザプログラム中のバッファサイズを変更した場合のread，writeとfread，fwriteの性能を比較してください．</p>
 <p>正確な計測・比較のために行った工夫を整理し報告してください．その上で，性能の差について要因を調査して考察を行ってください．</p>
 <p>他グループの報告するグラフとの性能比較を容易にするために，今回の性能比較のグラフを作成する場合には，横軸をバッファサイズ，縦軸をファイルのコピーに要した時間としてください（その際，実験条件の検討や記載が不十分ですと，公平な実験条件での結果かどうか不明確になりますのでご注意ください）．</p>
 </div>
-<div class="section" id="id8">
-<h3>ヒント1<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%85%A5%E5%87%BA%E5%8A%9B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">ファイル入出力プログラミング</a>の「必須課題6 ファイルのコピー」のソースコードを拡張します．<br />
+<div class="section" id="id9">
+<h3>ヒント1<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="file_IO_programming.html"><span class="doc std std-doc">ファイル入出力プログラミング</span></a>の「必須課題6 ファイルのコピー」のソースコードを拡張します．
 このプログラムでは char buf[] が，アプリケーション層でのバッファになっています．</p>
 </div>
-<div class="section" id="id9">
-<h3>ヒント2（更に先に進む人向け）<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p>標準ライブラリのファイル入出力関数 (先頭が f で始まる入出力関数群）は，関数内でバッファリング処理を行っています．<br />
-もし，計測したread/write, fread/fwrite の性能に違いがあるとしたら，関数内でのバッファリングの違いによるものかもしれません．<br />
-このアプリケーション層でのバッファのサイズを様々に変更して，より深い計測・分析を進めることで read/write, fread/fwrite の違い（関数内でのバッファリング処理との関係）やその理由を更にはっきりさせることができるでしょう．<br />
+<div class="section" id="id10">
+<h3>ヒント2（更に先に進む人向け）<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>標準ライブラリのファイル入出力関数 (先頭が f で始まる入出力関数群）は，関数内でバッファリング処理を行っています．
+もし，計測したread/write, fread/fwrite の性能に違いがあるとしたら，関数内でのバッファリングの違いによるものかもしれません．
+このアプリケーション層でのバッファのサイズを様々に変更して，より深い計測・分析を進めることで read/write, fread/fwrite の違い（関数内でのバッファリング処理との関係）やその理由を更にはっきりさせることができるでしょう．
 以下のサイト等も参考にしながら実際に試してみて結果を分析し深く考察してみてください．</p>
 <ul class="simple">
 <li><p>参考: <a class="reference external" href="https://linuxjm.osdn.jp/html/LDP_man-pages/man3/setbuf.3.html">Man page of setvbuf</a></p></li>
@@ -825,24 +824,24 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 </ul>
 </div>
 </div>
-<div class="section" id="id10">
-<h2>[必須課題2] バッファサイズを変更した場合の通信性能<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id11">
-<h3>要件<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<h2>[必須課題2] バッファサイズを変更した場合の通信性能<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h3>要件<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>ユーザプログラム中のバッファサイズを変更した場合のread，writeとrecv，sendの性能を比較してください．</p>
 <p>正確な計測・比較のために行った工夫を整理し報告してください．その上で，性能の差について要因を調査して考察を行ってください．</p>
 <p>他グループの報告のグラフとの比較を容易にするために，今回の性能比較のグラフを作成する場合には，横軸をバッファサイズ，縦軸をファイルの送信あるいは受信に要した時間としてください（その際，実験条件の検討や記載が不十分ですと，公平な実験条件での結果かどうか不明確になりますのでご注意ください）．</p>
 </div>
-<div class="section" id="id12">
-<h3>ヒント1<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%85%A5%E5%87%BA%E5%8A%9B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">ネットワーク入出力プログラミング</a>の「必須課題9 ファイル送受信」のソースコードを拡張します． このプログラムでは char buf[] がアプリケーション層でのバッファになっています．</p>
-</div>
 <div class="section" id="id13">
-<h3>ヒント2（更に先に進む人向け）<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
-<p>選択必須A課題1と同様にソケットに関しても，その内部にバッファを持っています．<br />
-その設定値について調査し，どのような条件で観測を行ったのかを明らかにすると良いでしょう．<br />
+<h3>ヒント1<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="network_IO_programming.html"><span class="doc std std-doc">ネットワーク入出力プログラミング</span></a>の「必須課題9 ファイル送受信」のソースコードを拡張します． このプログラムでは char buf[] がアプリケーション層でのバッファになっています．</p>
+</div>
+<div class="section" id="id14">
+<h3>ヒント2（更に先に進む人向け）<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>必須課題1と同様にソケットに関しても，その内部にバッファを持っています．
+その設定値について調査し，どのような条件で観測を行ったのかを明らかにすると良いでしょう．
 また，設定値を変更し，ソケット側のバッファ量による影響について分析してみても良いでしょう．</p>
-<p>注意： 以下のサイトで紹介されている変更は，現在動作しているKernelのパラメータを変更するものです．<br />
+<p>注意： 以下のサイトで紹介されている変更は，現在動作しているKernelのパラメータを変更するものです．
 変更の結果は，OSの挙動に影響を及ぼします．自分だけではなく，OS自体やサーバ上で動作しているサービス類，同じサーバにログインしている他の人にも影響することになりますので注意してください．</p>
 <ul class="simple">
 <li><p>参考: <a class="reference external" href="https://fisproject.jp/2017/04/tuning-kernel-parameters-for-linux/">【sysctl】Linux カーネルパラメータのチューニング</a></p></li>
@@ -880,13 +879,13 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">ネットワーク入出力プログラミング - 情報科学実験I</p>
+            <p class="prev-next-title">ネットワーク入出力プログラミング</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../part1_3/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">「多対多接続の設計・実装」の目的と概要 - 情報科学実験I</p>
+        <p class="prev-next-title">Day3の目的と概要</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -1,6 +1,4 @@
-# 性能計測 - 情報科学実験I
-
-[TOC]
+# 性能計測
 
 ## はじめに
 
@@ -36,11 +34,11 @@
 
 ### プロセス単位のメモリの最大使用量
 
-Linux OS上の実行プロセスのメモリ使用量は，ps などのコマンド（psの他にpmapやtopなど）で調べることができます． また，procfs を介してカーネル情報を参照することでも調査することができます．例えば，プロセス番号1（/sbin/init splash）のメモリ使用量は /proc/1/status ファイルを参照して調べることができます．例えば，以下のようにファイルの内容を参照すると，29,052 kB のメモリをピーク時に利用したことが分かります．
+Linux OS上の実行プロセスのメモリ使用量は，ps などのコマンド（psの他にpmapやtopなど）で調べることができます． また，procfs を介してカーネル情報を参照することでも調査することができます．例えば，プロセス番号1（`/sbin/init splash`）のメモリ使用量は `/proc/1/status` ファイルを参照して調べることができます．例えば，以下のようにファイルの内容を参照すると，29,052 kB のメモリをピーク時に利用したことが分かります．
 
 ```shell
 $ cat /proc/1/status | grep VmPeak
-cat /proc/1/status 
+cat /proc/1/status
 VmPeak:   29052 kB
 ```
 
@@ -54,7 +52,7 @@ $ pgrep -f PATTERN | xargs -t -IPID cat /proc/PID/status | grep VmPeak
 
 ```shell
 $ pgrep -f "/sbin/init" | xargs -t -IPID cat /proc/PID/status | grep VmPeak
-cat /proc/1/status 
+cat /proc/1/status
 VmPeak:   29052 kB
 ```
 
