@@ -60,7 +60,7 @@ move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
 例えば，以下のようなpost.txtがあったとします．これを解析するプログラムを作る方法です．
 
 ### post.txt
-```txt
+```
 POST /test/upload.php HTTP/1.1
 Host: sarulab.inf.shizuoka.ac.jp
 User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0

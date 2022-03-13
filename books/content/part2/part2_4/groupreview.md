@@ -4,11 +4,11 @@
 -   各班発表スライドを以下の名称（**全て半角文字で**）で，発表日当日【12時まで】に下記フォルダへ入れておいてください．
 
 -   第二部の場合
-    -   \\\\fs.inf.in.shizuoka.ac.jp\\share\\report\\(実施年度)情報科学実験I\\part2\\part2発表資料
+    -   **`\\fs.inf.in.shizuoka.ac.jp\\share\\report\\(実施年度)情報科学実験I\\part2\\part2発表資料`**
         -   (実験名)-(部)-(部屋番号＋班番号).pptx　　　例）CS実験I-Part2-B7.pptx
 
 -   第三部の場合
-    -   \\\\fs.inf.in.shizuoka.ac.jp\\share\\report\\(実施年度)情報科学実験I\\part3\\part3発表資料
+    -   **`\\fs.inf.in.shizuoka.ac.jp\\share\\report\\(実施年度)情報科学実験I\\part3\\part3発表資料`**
         -   (実験名)-(部)-(部屋番号＋班番号).pptx　　　例）CS実験I-Part3-B7.pptx
 
   

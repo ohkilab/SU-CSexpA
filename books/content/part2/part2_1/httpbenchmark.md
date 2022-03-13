@@ -42,7 +42,6 @@
        arr[r] = temp;
    }
  }
-
 ```
 
 ```c
@@ -56,7 +55,6 @@
      exit(-1);
    }
  }
-
 ```
 
 ```c
@@ -114,7 +112,6 @@
  
    free(th);
  }
-
 ```
 
 ### exp1\_eval\_thread()
@@ -170,7 +167,6 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
  
    pthread_exit(NULL);
  }
-
 ```
 
 ### exp1\_session\_error()
@@ -187,7 +183,6 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
  
    return;
  }
-
 ```
 
 ### exp1.h
@@ -219,7 +214,6 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
  #include <dirent.h>
  #include <signal.h>
  #include <pthread.h>
-
 ```
 
 ## 実行方法
