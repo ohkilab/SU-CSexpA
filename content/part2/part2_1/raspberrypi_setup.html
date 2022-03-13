@@ -748,10 +748,9 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>実験で利用するソフトウェアのインストール<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>第二部以降で必要になるソフトウェアは，Webサーバ，データベースサーバ，サーバサイドプログラミング言語処理系，サーバサイドプログラミング言語処理系からデータベースにアクセスするためのライブラリです．</p>
 <p>Raspbien では，これらのソフトウェアを apt を使ってインストールします．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install apache2 apache2-doc apache2-utils　　　　　　　　　 &lt;--- WEBサーバーのインストール
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt install apache2 apache2-doc apache2-utils　　　　　　　　　 &lt;--- WEBサーバーのインストール
 $ sudo apt install php7.3 php7.3-mysql apache2-mod-php7.3              &lt;--- PHPのインストール
 $ sudo apt install mariadb-server mariadb-client                       &lt;--- DBのインストール
-
 </pre></div>
 </div>
 <p>PCとRaspiを有線で直接接続している場合，RaspiはPCとは接続されていますが，インターネットに接続されていません． 色々と方法はありますが，以下，いくつかある手順で可能なものを試して実行しましょう．</p>
@@ -772,21 +771,20 @@ $ sudo apt install mariadb-server mariadb-client                       &lt;--- D
 </ul>
 </li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>RasPiの固定IP設定をDHCP設定へ変更する方法（再度，固定IPに戻す際はコメントアウトを外して以下実行）
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>RasPiの固定IP設定をDHCP設定へ変更する方法（再度，固定IPに戻す際はコメントアウトを外して以下実行）
 $ sudo vi /etc/dhcpcd.conf                      &lt;---- viエディタでなくてもOK
 最下部辺りの以下の行に移動して「i」押してコマンドモードから入力モードに切り替えて以下のように２行コメントアウト
-#interface eth0
-#static ip_address=192.168.1.101/24
+<span class="c1">#interface eth0</span>
+<span class="c1">#static ip_address=192.168.1.101/24</span>
 
 もし以下（static ....という固定IP設定の行）も存在する場合は，それらもすべてコメントアウト
-#static routers=xxx.xxx.xxx.xxx
-#static domain_name_servers=xxx.xxx.xxx.xxx
+<span class="c1">#static routers=xxx.xxx.xxx.xxx</span>
+<span class="c1">#static domain_name_servers=xxx.xxx.xxx.xxx</span>
 
 「Esc」押して入力モードからコマンドモードに戻ってから「:wq!」と入力してEnter押して強制保存しviエディタから抜ける
 $ sudo systemctl restart dhcpcd
 $ sudo systemctl restart networking
 $ ip a                      &lt;---- DHCPでIPアドレス割り振られているか確認し，Raspi上のWebブラウザでホームページ等も閲覧できればOK
-
 </pre></div>
 </div>
 <ul class="simple">
@@ -802,43 +800,40 @@ $ ip a                      &lt;---- DHCPでIPアドレス割り振られてい�
 <div class="section" id="id3">
 <h3>ファイアーウォールの設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>ファイアウォールは ufw を利用して設定します．新たに Webサーバをインストールしましたので，Webサーバが利用するポート80に対して外部からアクセスできるよう設定しておきます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ufw allow 80/tcp
-
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo ufw allow <span class="m">80</span>/tcp
 </pre></div>
 </div>
-<p>以下のコマンドを利用して，設定内容を確認しておきます．<a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/RaspberryPi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">第一部</a>で行った設定を合わせて，以下のようにポートが開放されているはずです．なっていない方は再度以下を設定しておいてください（最後のソフトウェアのアップデートは時間を要しますので時間のある時に実施してください）．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install ufw
+<p>以下のコマンドを利用して，ポート開放のための設定を行ってください（最後のソフトウェアのアップデートは時間を要しますので時間のある時に実施してください）．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt install ufw
 $ sudo ufw disable
 $ sudo ufw default deny
-$ sudo ufw allow 22/tcp
-$ sudo ufw allow 80/tcp
-$ sudo ufw allow 5210/tcp
-$ sudo ufw allow 5900/tcp
-$ sudo ufw allow 11111/tcp
-$ sudo ufw enable
+$ sudo ufw allow <span class="m">22</span>/tcp
+$ sudo ufw allow <span class="m">80</span>/tcp
+$ sudo ufw allow <span class="m">5210</span>/tcp
+$ sudo ufw allow <span class="m">5900</span>/tcp
+$ sudo ufw allow <span class="m">11111</span>/tcp
+$ sudo ufw <span class="nb">enable</span>
 
 $ sudo apt update
 $ sudo apt -y upgrade
 $ sudo reboot
-
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ufw status
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo ufw status
 Status: active
 
 To                         Action      From
 --                         ------      ----
-22/tcp                     ALLOW       Anywhere
-80/tcp                     ALLOW       Anywhere
-5201/tcp                   ALLOW       Anywhere
-5900/tcp                   ALLOW       Anywhere
-11111/tcp                  ALLOW       Anywhere
-22/tcp (v6)                ALLOW       Anywhere (v6)
-80/tcp (v6)                ALLOW       Anywhere (v6)
-5201/tcp (v6)              ALLOW       Anywhere (v6)
-5900/tcp (v6)              ALLOW       Anywhere (v6)
-11111/tcp (v6)             ALLOW       Anywhere (v6)
-
+<span class="m">22</span>/tcp                     ALLOW       Anywhere
+<span class="m">80</span>/tcp                     ALLOW       Anywhere
+<span class="m">5201</span>/tcp                   ALLOW       Anywhere
+<span class="m">5900</span>/tcp                   ALLOW       Anywhere
+<span class="m">11111</span>/tcp                  ALLOW       Anywhere
+<span class="m">22</span>/tcp <span class="o">(</span>v6<span class="o">)</span>                ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>
+<span class="m">80</span>/tcp <span class="o">(</span>v6<span class="o">)</span>                ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>
+<span class="m">5201</span>/tcp <span class="o">(</span>v6<span class="o">)</span>              ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>
+<span class="m">5900</span>/tcp <span class="o">(</span>v6<span class="o">)</span>              ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>
+<span class="m">11111</span>/tcp <span class="o">(</span>v6<span class="o">)</span>             ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>
 </pre></div>
 </div>
 <p>（補足）IPv6を使用しない場合は /etc/default/ufw 内で IPV6=no とすると無効にすることができます</p>
@@ -849,12 +844,11 @@ To                         Action      From
 <div class="section" id="id4">
 <h3>自動起動の設定<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>それではいよいよWebサーバを設定します．既にWebサーバ(Apache)は上記の手順でインストールしていますので，RasPi起動時に自動的にWebサーバが起動（enable）するよう設定しつつ，Webサーバを起動（start）してみます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl enable apache2.service
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl <span class="nb">enable</span> apache2.service
 $ sudo systemctl start apache2.service
-
 </pre></div>
 </div>
-<p>それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して， <strong><a class="reference external" href="http://192.168.1.101/">http://192.168.1.101</a></strong> にアクセスしてみましょう（DHCP設定になっている人は，$ ip a 等でIPアドレスを確認して適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．</p>
+<p>それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して， <strong><a class="reference external" href="http://192.168.1.101/">http://192.168.1.101</a></strong> にアクセスしてみましょう（DHCP設定になっている人は，｀$ ip a ｀等でIPアドレスを確認して適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．</p>
 <p><img alt="raspi-apache.png" src="../../../_images/raspi-apache.png" /></p>
 <p>アクセスができませんか？できない場合はWebサーバを起動させたRasPi側のファイアーウォールの設定や，学生PCのIPアドレスがWebサーバと通信可能なIPアドレス（同じネットワークアドレスで異なるIPアドレス）となっているかどうか等を確認してみましょう．</p>
 </div>
@@ -863,29 +857,27 @@ $ sudo systemctl start apache2.service
 <div class="section" id="id5">
 <h4>ユーザディレクトリの設定<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>ここまでで確認したApache2 Debian Default PageはWebサーバ全体のページです．Webサーバ上のディレクトリでは <strong>/var/www/html</strong> に対応します（ただし，Apache2 Debian Default Pageはちょっと特殊なページで，/var/www/html に index.html がない時に自動生成されて表示されるページです）．つまり，/var/www/html に置かれたファイルが <a class="reference external" href="http://192.168.1.101/">http://192.168.1.101/</a> にアクセスした時に参照されることになります．</p>
-<p>また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定できるようになっています．例えば，<strong><a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a><strong>にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，</strong><a class="reference external" href="http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D">http://サーバ名/~アカウント名</a></strong> にアクセスした時にホームディレクトリのpublic_htmlのコンテンツを表示する機能です．具体例としては，<strong><a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a></strong> にアクセスした時に <strong>/home/ohki/public_html</strong> のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ <strong><a class="reference external" href="http://192.168.1.101/~pi/">http://192.168.1.101/~pi/</a></strong> に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．</p>
+<p>また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定可能です．例えば，<strong><a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a><strong>にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，</strong><a class="reference external" href="http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D">http://サーバ名/~アカウント名</a></strong> にアクセスした時にホームディレクトリのpublic_htmlのコンテンツを表示する機能です．具体例としては，<strong><a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a></strong> にアクセスした時に <strong>/home/ohki/public_html</strong> のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ <strong><a class="reference external" href="http://192.168.1.101/~pi/">http://192.168.1.101/~pi/</a></strong> に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．</p>
 <p><img alt="raspi-404.png" src="../../../_images/raspi-404.png" /></p>
 <p>ユーザディレクトリの設定をする前に，少しApacheの設定ディレクトリ <strong>/etc/apache2</strong> の中身をのぞいてみましょう．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls /etc/apache2
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls /etc/apache2
 apache2.conf    conf-enabled  magic           mods-enabled  sites-available
 conf-available  envvars       mods-available  ports.conf    sites-enabled
-
 </pre></div>
 </div>
 <p>xxx-available や xxx-enabled というディレクトリがあるのがわかりますか？ RasPiのRaspbian OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに mods-enabled の中身を見てみましょう．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls -l /etc/apache2/mods-enabled/
-total 0
-lrwxrwxrwx 1 root root 36 Mar 11 15:37 access_compat.load -&gt; ../mods-available/access_compat.load
-lrwxrwxrwx 1 root root 28 Mar 11 15:37 alias.conf -&gt; ../mods-available/alias.conf
-lrwxrwxrwx 1 root root 28 Mar 11 15:37 alias.load -&gt; ../mods-available/alias.load
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls -l /etc/apache2/mods-enabled/
+total <span class="m">0</span>
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">36</span> Mar <span class="m">11</span> <span class="m">15</span>:37 access_compat.load -&gt; ../mods-available/access_compat.load
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">28</span> Mar <span class="m">11</span> <span class="m">15</span>:37 alias.conf -&gt; ../mods-available/alias.conf
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">28</span> Mar <span class="m">11</span> <span class="m">15</span>:37 alias.load -&gt; ../mods-available/alias.load
 ...
 ＜中略＞
 ...
-lrwxrwxrwx 1 root root 31 Mar 11 15:37 setenvif.conf -&gt; ../mods-available/setenvif.conf
-lrwxrwxrwx 1 root root 31 Mar 11 15:37 setenvif.load -&gt; ../mods-available/setenvif.load
-lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.conf -&gt; ../mods-available/status.conf
-lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.load -&gt; ../mods-available/status.load
-
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">31</span> Mar <span class="m">11</span> <span class="m">15</span>:37 setenvif.conf -&gt; ../mods-available/setenvif.conf
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">31</span> Mar <span class="m">11</span> <span class="m">15</span>:37 setenvif.load -&gt; ../mods-available/setenvif.load
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">29</span> Mar <span class="m">11</span> <span class="m">15</span>:37 status.conf -&gt; ../mods-available/status.conf
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">29</span> Mar <span class="m">11</span> <span class="m">15</span>:37 status.load -&gt; ../mods-available/status.load
 </pre></div>
 </div>
 <p>全て mods-available へのシンボリックリンクになっていることがわかりますね．つまり，それぞれの役割は</p>
@@ -895,18 +887,16 @@ lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.load -&gt; ../mods-available/statu
 </ul>
 <p>となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド「a2enmod」（シンボリックリンクを作成する）および「a2dismod（シンボリックリンクを削除する）」がRaspbianには用意されていますのでこれを使いましょう．</p>
 <p>本題のユーザーディレクトリに関しては既にuserdirというモジュールがmods-availableにインストールされています．上記のa2enmodコマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo a2enmod userdir
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo a2enmod userdir
 $ sudo systemctl restart apache2
-
 </pre></div>
 </div>
 <p>それでは，再度ブラウザで <strong><a class="reference external" href="http://192.168.1.101/~pi">http://192.168.1.101/~pi</a></strong> にアクセスしてみましょう．</p>
 <p><img alt="raspi-forbidden.png" src="../../../_images/raspi-forbidden.png" /></p>
 <p>表示が変わりましたか？Apacheのデフォルトの設定では /home/pi/public_html 以下にユーザのコンテンツを配置するようになっていますが，public_html が存在しないためエラーが発生しています．作ってあげましょう．ついでに適当な内容のindex.htmlを作っておきます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir /home/pi/public_html/
-$ cd /home/pi/public_html/
-$ echo &#39;hello world&#39; &gt; index.html
-
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir /home/pi/public_html/
+$ <span class="nb">cd</span> /home/pi/public_html/
+$ <span class="nb">echo</span> <span class="s1">&#39;hello world&#39;</span> &gt; index.html
 </pre></div>
 </div>
 <p>それでは，改めてブラウザでアクセスしてみましょう．上記で作成した内容が表示されればOKです．</p>
@@ -928,16 +918,15 @@ $ echo &#39;hello world&#39; &gt; index.html
 <div class="section" id="id7">
 <h3>MySQLの起動<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>既に何度も行ってきましたので，もう説明は不要だと思います．RasPi起動時に自動的にMySQLも起動（enable）するように設定しつつ，今から動作確認したいのでサービスを開始（start）させています．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl enable mariadb.service
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl <span class="nb">enable</span> mariadb.service
 $ sudo systemctl start mariadb.service
-
 </pre></div>
 </div>
 </div>
 <div class="section" id="id8">
 <h3>MySQLの初期設定<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>初期設定ウィザードが用意されていますので，起動して初期設定を進めます．初期状態では root パスワードは設定されていません（<strong>このrootアカウントはOSのアカウントではなくMySQLサーバ上のアカウントですので誤解のなきよう</strong>）ので，何も入力せず<strong>ENTER</strong>を押します．すると，rootパスワードの設定を求められますので設定します．以降はデフォルトの<strong>Y</strong>でOKです．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo mysql_secure_installation
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo mysql_secure_installation
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
@@ -999,31 +988,29 @@ All done!  If you&#39;ve completed all of the above steps, your MariaDB
 installation should now be secure.
 
 Thanks for using MariaDB!
-
 </pre></div>
 </div>
 <p>ここで，もし<strong>MariaDBのrootのパスワードが不明な場合</strong>は，以下の手順で再設定してください．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># MariaDBのサービスを停める
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># MariaDBのサービスを停める</span>
 $ sudo systemctl stop mariadb.service
 
-# MariaDBをセーフモードで立ち上げる
-$ sudo mysqld_safe --skip-grant-tables &amp;
+<span class="c1"># MariaDBをセーフモードで立ち上げる</span>
+$ sudo mysqld_safe --skip-grant-tables <span class="p">&amp;</span>
 
-# MariaDBへrootでログイン
+<span class="c1"># MariaDBへrootでログイン</span>
 $ mysql -u root
 
-# rootのパスワードを設定（MariaDBのコマンドライン上で）
-MariaDB [(none)]&gt; use mysql;
-MariaDB [(mysql)]&gt; select host,user,password,plugin from user;                         # 念のため確認
-MariaDB [(mysql)]&gt; update user set password=password(&#39;ここにパスワードを記述&#39;) where User=&#39;root&#39;;
-MariaDB [(mysql)]&gt; update user set plugin=&#39;&#39; where User=&#39;root&#39;;                        # unix_socketを無効に
+<span class="c1"># rootのパスワードを設定（MariaDBのコマンドライン上で）</span>
+MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; use mysql<span class="p">;</span>
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; <span class="k">select</span> host,user,password,plugin from user<span class="p">;</span>                         <span class="c1"># 念のため確認</span>
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; update user <span class="nb">set</span> <span class="nv">password</span><span class="o">=</span>password<span class="o">(</span><span class="s1">&#39;ここにパスワードを記述&#39;</span><span class="o">)</span> where <span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; update user <span class="nb">set</span> <span class="nv">plugin</span><span class="o">=</span><span class="s1">&#39;&#39;</span> where <span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>                        <span class="c1"># unix_socketを無効に</span>
 
-MariaDB [(mysql)]&gt; flush privileges;
-MariaDB [(mysql)]&gt; exit;
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; flush privileges<span class="p">;</span>
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; exit<span class="p">;</span>
 
-# 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）
+<span class="c1"># 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）</span>
 $ sudo reboot
-
 </pre></div>
 </div>
 <p>次にデフォルトのストレージエンジンを設定します．</p>
@@ -1031,34 +1018,33 @@ $ sudo reboot
 <li><p>この実験ではAriaを使用します．デフォルトのInnoDBは高機能ですが，格納データが肥大化するという問題があり，今回のような容量の小さなSDカードで大きなデータを扱う場合はSDカードの容量を使い果たしてしまう可能性があります．Ariaはトランザクションをサポートしていない等の制約はありますが，MariaDBが産んだ高機能かつ最新のストレージエンジンです．<a class="reference external" href="https://mariadb.com/kb/en/mariadb/storage-engines/">ストレージエンジンに関してはこちらを参照</a>．</p></li>
 </ul>
 <p>設定ファイル <strong>/etc/mysql/mariadb.conf.d/50-server.cnf</strong> を開き，[mysqld]の直下に<strong>default-storage-engine=Aria</strong>の行を追加しましょう．追加したらMariaDBをリスタートします．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">mysqld</span><span class="p">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>mysqld<span class="o">]</span>
 
 <span class="c1">#</span>
 <span class="c1"># * Basic Settings</span>
 <span class="c1">#</span>
-<span class="n">user</span>            <span class="o">=</span> <span class="n">mysql</span>
-<span class="n">pid</span><span class="o">-</span><span class="n">file</span>        <span class="o">=</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mysqld</span><span class="o">/</span><span class="n">mysqld</span><span class="o">.</span><span class="n">pid</span>
-<span class="n">socket</span>          <span class="o">=</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mysqld</span><span class="o">/</span><span class="n">mysqld</span><span class="o">.</span><span class="n">sock</span>
-<span class="n">port</span>            <span class="o">=</span> <span class="mi">3306</span>
-<span class="n">basedir</span>         <span class="o">=</span> <span class="o">/</span><span class="n">usr</span>
-<span class="n">datadir</span>         <span class="o">=</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">mysql</span>
-<span class="n">tmpdir</span>          <span class="o">=</span> <span class="o">/</span><span class="n">tmp</span>
-<span class="n">lc</span><span class="o">-</span><span class="n">messages</span><span class="o">-</span><span class="nb">dir</span> <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">mysql</span>
-<span class="n">skip</span><span class="o">-</span><span class="n">external</span><span class="o">-</span><span class="n">locking</span>
+<span class="nv">user</span>            <span class="o">=</span> mysql
+pid-file        <span class="o">=</span> /var/run/mysqld/mysqld.pid
+<span class="nv">socket</span>          <span class="o">=</span> /var/run/mysqld/mysqld.sock
+<span class="nv">port</span>            <span class="o">=</span> <span class="m">3306</span>
+<span class="nv">basedir</span>         <span class="o">=</span> /usr
+<span class="nv">datadir</span>         <span class="o">=</span> /var/lib/mysql
+<span class="nv">tmpdir</span>          <span class="o">=</span> /tmp
+lc-messages-dir <span class="o">=</span> /usr/share/mysql
+skip-external-locking
 
 <span class="c1"># Instead of skip-networking the default is now to listen only on</span>
 <span class="c1"># localhost which is more compatible and is not less secure.</span>
-<span class="n">bind</span><span class="o">-</span><span class="n">address</span>            <span class="o">=</span> <span class="mf">127.0.0.1</span>
+bind-address            <span class="o">=</span> <span class="m">127</span>.0.0.1
 
 <span class="c1"># この1行を追加する</span>
-<span class="n">default</span><span class="o">-</span><span class="n">storage</span><span class="o">-</span><span class="n">engine</span><span class="o">=</span><span class="n">Aria</span>
-
+default-storage-engine<span class="o">=</span>Aria
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart mariadb.service
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart mariadb.service
 </pre></div>
 </div>
 <div class="section" id="db">
@@ -1075,64 +1061,62 @@ $ sudo reboot
 <p>初期化時に設定した root パスワードを使って，各ユーザとデータベースを作成します．</p>
 <p>最初のコマンド <strong>CREATE DATABASE ohkiDB CHARACTER SET utf8;</strong> は 文字コード <strong>utf-8</strong> のデータベース <strong>ohkiDB</strong> を作成します．2番目のコマンド <strong>GRANT ALL PRIVILEGES ON ohkiDB.* TO ohki&#64;localhost IDENTIFIED BY ‘difficult-password’;</strong> は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．3番目のコマンド <strong>FLUSH PRIVILEGES;</strong> は2番目のコマンドの結果を即時有効にするためのコマンドです．4番目のコマンド <strong>show databases;</strong> は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が <strong>;</strong> で終わることに気を付けてください．</p>
 <p><strong>difficult-password</strong> は当然ですが，みなさん個人個人で考えた難しいパスワードを設定してください．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mysql -u root -p
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mysql -u root -p
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">password</span><span class="p">:</span> <span class="o">********</span>
-<span class="n">Welcome</span> <span class="n">to</span> <span class="n">the</span> <span class="n">MariaDB</span> <span class="n">monitor</span><span class="o">.</span>  <span class="n">Commands</span> <span class="n">end</span> <span class="k">with</span> <span class="p">;</span> <span class="ow">or</span> \<span class="n">g</span><span class="o">.</span>
-<span class="n">Your</span> <span class="n">MariaDB</span> <span class="n">connection</span> <span class="nb">id</span> <span class="ow">is</span> <span class="mi">7</span>
-<span class="n">Server</span> <span class="n">version</span><span class="p">:</span> <span class="mf">10.0.23</span><span class="o">-</span><span class="n">MariaDB</span> <span class="n">MariaDB</span> <span class="n">Server</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Enter password: ********
+Welcome to the MariaDB monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
+Your MariaDB connection id is <span class="m">7</span>
+Server version: <span class="m">10</span>.0.23-MariaDB MariaDB Server
 
-<span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2015</span><span class="p">,</span> <span class="n">Oracle</span><span class="p">,</span> <span class="n">MariaDB</span> <span class="n">Corporation</span> <span class="n">Ab</span> <span class="ow">and</span> <span class="n">others</span><span class="o">.</span>
+Copyright <span class="o">(</span>c<span class="o">)</span> <span class="m">2000</span>, <span class="m">2015</span>, Oracle, MariaDB Corporation Ab and others.
 
-<span class="n">Type</span> <span class="s1">&#39;help;&#39;</span> <span class="ow">or</span> <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> <span class="n">help</span><span class="o">.</span> <span class="n">Type</span> <span class="s1">&#39;\c&#39;</span> <span class="n">to</span> <span class="n">clear</span> <span class="n">the</span> <span class="n">current</span> <span class="nb">input</span> <span class="n">statement</span><span class="o">.</span>
+Type <span class="s1">&#39;help;&#39;</span> or <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> help. Type <span class="s1">&#39;\c&#39;</span> to clear the current input statement.
 
-<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">ohkiDB</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span><span class="p">;</span>
-<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="n">row</span> <span class="n">affected</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; CREATE DATABASE ohkiDB CHARACTER SET utf8<span class="p">;</span>
+Query OK, <span class="m">1</span> row affected <span class="o">(</span><span class="m">0</span>.00 sec<span class="o">)</span>
 
-<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">PRIVILEGES</span> <span class="n">ON</span> <span class="n">ohkiDB</span><span class="o">.*</span> <span class="n">TO</span> <span class="n">ohki</span><span class="nd">@localhost</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="s1">&#39;difficult-password&#39;</span><span class="p">;</span>
-<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="n">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mf">0.01</span> <span class="n">sec</span><span class="p">)</span>
+MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; GRANT ALL PRIVILEGES ON ohkiDB.* TO ohki@localhost IDENTIFIED BY <span class="s1">&#39;difficult-password&#39;</span><span class="p">;</span>
+Query OK, <span class="m">0</span> rows affected <span class="o">(</span><span class="m">0</span>.01 sec<span class="o">)</span>
 
-<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">FLUSH</span> <span class="n">PRIVILEGES</span><span class="p">;</span>
-<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="n">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mf">0.01</span> <span class="n">sec</span><span class="p">)</span>
+MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; FLUSH PRIVILEGES<span class="p">;</span>
+Query OK, <span class="m">0</span> rows affected <span class="o">(</span><span class="m">0</span>.01 sec<span class="o">)</span>
 
-<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">show</span> <span class="n">databases</span><span class="p">;</span>
-<span class="o">+--------------------+</span>
-<span class="o">|</span> <span class="n">Database</span>           <span class="o">|</span>
-<span class="o">+--------------------+</span>
-<span class="o">|</span> <span class="n">information_schema</span> <span class="o">|</span>
-<span class="o">|</span> <span class="n">mysql</span>              <span class="o">|</span>
-<span class="o">|</span> <span class="n">performance_schema</span> <span class="o">|</span>
-<span class="o">|</span> <span class="n">ohkiDB</span>         <span class="o">|</span>
-<span class="o">+--------------------+</span>
-<span class="mi">4</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.01</span> <span class="n">sec</span><span class="p">)</span>
+MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; show databases<span class="p">;</span>
++--------------------+
+<span class="p">|</span> Database           <span class="p">|</span>
++--------------------+
+<span class="p">|</span> information_schema <span class="p">|</span>
+<span class="p">|</span> mysql              <span class="p">|</span>
+<span class="p">|</span> performance_schema <span class="p">|</span>
+<span class="p">|</span> ohkiDB         <span class="p">|</span>
++--------------------+
+<span class="m">4</span> rows <span class="k">in</span> <span class="nb">set</span> <span class="o">(</span><span class="m">0</span>.01 sec<span class="o">)</span>
 
-<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">quit</span>
-<span class="n">Bye</span>
-
+MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; quit
+Bye
 </pre></div>
 </div>
 <p>データベースが作成できたら，そのユーザでデータベースにアクセスできることを確認しましょう（当然，パスワードは各ユーザのものを入力します）．テーブルの作成などWrite権限についても確認した方が良いですが，ここではRead権限の確認をすることでいったん良いことにします．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mysql -u ohki -p
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mysql -u ohki -p
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">password</span><span class="p">:</span>
-<span class="n">Welcome</span> <span class="n">to</span> <span class="n">the</span> <span class="n">MariaDB</span> <span class="n">monitor</span><span class="o">.</span>  <span class="n">Commands</span> <span class="n">end</span> <span class="k">with</span> <span class="p">;</span> <span class="ow">or</span> \<span class="n">g</span><span class="o">.</span>
-<span class="n">Your</span> <span class="n">MariaDB</span> <span class="n">connection</span> <span class="nb">id</span> <span class="ow">is</span> <span class="mi">9</span>
-<span class="n">Server</span> <span class="n">version</span><span class="p">:</span> <span class="mf">10.0.23</span><span class="o">-</span><span class="n">MariaDB</span> <span class="n">MariaDB</span> <span class="n">Server</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Enter password:
+Welcome to the MariaDB monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
+Your MariaDB connection id is <span class="m">9</span>
+Server version: <span class="m">10</span>.0.23-MariaDB MariaDB Server
 
-<span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">2015</span><span class="p">,</span> <span class="n">Oracle</span><span class="p">,</span> <span class="n">MariaDB</span> <span class="n">Corporation</span> <span class="n">Ab</span> <span class="ow">and</span> <span class="n">others</span><span class="o">.</span>
+Copyright <span class="o">(</span>c<span class="o">)</span> <span class="m">2000</span>, <span class="m">2015</span>, Oracle, MariaDB Corporation Ab and others.
 
-<span class="n">Type</span> <span class="s1">&#39;help;&#39;</span> <span class="ow">or</span> <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> <span class="n">help</span><span class="o">.</span> <span class="n">Type</span> <span class="s1">&#39;\c&#39;</span> <span class="n">to</span> <span class="n">clear</span> <span class="n">the</span> <span class="n">current</span> <span class="nb">input</span> <span class="n">statement</span><span class="o">.</span>
+Type <span class="s1">&#39;help;&#39;</span> or <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> help. Type <span class="s1">&#39;\c&#39;</span> to clear the current input statement.
 
-<span class="n">MariaDB</span> <span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span> <span class="n">use</span> <span class="n">ohkiDB</span><span class="p">;</span>
-<span class="n">Database</span> <span class="n">changed</span>
-<span class="n">MariaDB</span> <span class="p">[</span><span class="n">ohkiDB</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">show</span> <span class="n">tables</span><span class="p">;</span>
-<span class="n">Empty</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; use ohkiDB<span class="p">;</span>
+Database changed
+MariaDB <span class="o">[</span>ohkiDB<span class="o">]</span>&gt; show tables<span class="p">;</span>
+Empty <span class="nb">set</span> <span class="o">(</span><span class="m">0</span>.00 sec<span class="o">)</span>
 
-<span class="n">MariaDB</span> <span class="p">[</span><span class="n">ohkiDB</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">quit</span>
-<span class="n">Bye</span>
-
+MariaDB <span class="o">[</span>ohkiDB<span class="o">]</span>&gt; quit
+Bye
 </pre></div>
 </div>
 <p>ここで，もしrootのパスワードが不明な場合は，前述の手順で再設定してください（複数人でアクセスするサーバ機の場合，どなたか一人が代表で実施すればOK）．</p>

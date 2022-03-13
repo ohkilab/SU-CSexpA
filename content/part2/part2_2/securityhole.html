@@ -689,58 +689,58 @@ const thebe_selector_output = ".output, .cell_output"
 <p>上から順番に少しずつ攻撃を高度化したものになります．つまり，一番下に示すリモートサーバのシェルに接続できれば，ホームページの改竄もできてしまいます．</p>
 <p>ここで，昨今のOSはデフォルトでは以下の対策が施されていますので，今回は<strong>敢えて体験できるよう以下の設定を解除</strong>してから実施してください．その他にも最新のセキュリティ対策が施されている場合がありますので，状況に応じて解除して実施してください．ただし，レポートにはその旨をしっかり記述し，読み手が同様の実験結果を再現するのに必要な情報をしっかり記述してください（レポート内容が正しいか（コピペや虚偽でないか），こちらでも試して確認する場合がありますので）．</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E7%A9%BA%E9%96%93%E9%85%8D%E7%BD%AE%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%8C%96">アドレス空間レイアウトのランダマイズ化</a>（ASLR: Address Space Layout Randomization）を実験のために無効化：<strong>% sudo sysctl -w kernel.randomize_va_space=0</strong></p></li>
-<li><p><a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2">データ実行防止</a> （DEP: Data Execution Prevention）と<a class="reference external" href="http://saitoh.hatenablog.jp/entry/2014/08/24/223531">スタック保護</a>（SSP: stack-smashing protection）を実験のために無効化：　<strong>% gcc -z execstack -fno-stack-protector xxxx.c</strong></p></li>
+<li><p><a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E7%A9%BA%E9%96%93%E9%85%8D%E7%BD%AE%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%8C%96">アドレス空間レイアウトのランダマイズ化</a>（ASLR: Address Space Layout Randomization）を実験のために無効化：<code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">sudo</span> <span class="pre">sysctl</span> <span class="pre">-w</span> <span class="pre">kernel.randomize\_va\_space=0</span></code></p></li>
+<li><p><a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2">データ実行防止</a> （DEP: Data Execution Prevention）と<a class="reference external" href="http://saitoh.hatenablog.jp/entry/2014/08/24/223531">スタック保護</a>（SSP: stack-smashing protection）を実験のために無効化：　<code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">gcc</span> <span class="pre">-z</span> <span class="pre">execstack</span> <span class="pre">-fno-stack-protector</span> <span class="pre">xxxx.c</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h2>[必須課題] セグメンテーションフォルト<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>下記プログラムにおいて，セグメンテーションフォルトが発生する理由について考察してください． また，セグメンテーションフォルトとは何か説明してください</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;exp1.h&quot;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 
-<span class="n">void</span> <span class="n">test_func</span><span class="p">(</span><span class="n">char</span> <span class="o">*</span><span class="n">msg</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">uint32_t</span> <span class="n">y</span> <span class="o">=</span> <span class="mh">0x88776655</span><span class="p">;</span>
-  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
-  <span class="n">uint32_t</span> <span class="n">z</span> <span class="o">=</span> <span class="mh">0xccbbaa99</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
-  <span class="n">uint64_t</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">test_func</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x88776655</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xccbbaa99</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: buf</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: &amp;y</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: msg</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: &amp;z</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">z</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x%016x: buf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x%016x: &amp;y</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x%016x: msg</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x%016x: &amp;z</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">z</span><span class="p">);</span><span class="w"></span>
 
 
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;start dump memory</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-  <span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="n">uint64_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">z</span><span class="p">;</span>
-  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: &quot;</span><span class="p">,</span> <span class="n">base</span><span class="p">);</span>
-    <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
-      <span class="n">uint8_t</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">uint8_t</span><span class="o">*</span><span class="p">)</span> <span class="n">base</span><span class="p">;</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%02x</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">j</span><span class="p">));</span>
-    <span class="p">}</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="n">base</span> <span class="o">+=</span> <span class="mi">8</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;end dump memory</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;start dump memory</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint64_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x%016x: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">      </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">base</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%02x&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">base</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;end dump memory</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 
-  <span class="n">strcpy</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">msg</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="n">strcpy</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">uint32_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mh">0x44332211</span><span class="p">;</span>
-  <span class="n">char</span> <span class="n">data</span><span class="p">[]</span> <span class="o">=</span> <span class="s2">&quot;abcd&quot;</span> <span class="s2">&quot;efgh&quot;</span> <span class="s2">&quot;ijkl&quot;</span> <span class="s2">&quot;mnop&quot;</span> <span class="s2">&quot;qrst&quot;</span> <span class="s2">&quot;uvwx&quot;</span>
-                <span class="s2">&quot;abcd&quot;</span> <span class="s2">&quot;efgh&quot;</span> <span class="s2">&quot;ijkl&quot;</span> <span class="s2">&quot;mnop&quot;</span> <span class="s2">&quot;qrst&quot;</span> <span class="s2">&quot;uvwx&quot;</span><span class="p">;</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: &amp;x</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%016x</span><span class="s2">: main</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">main</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x44332211</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">data</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abcd&quot;</span><span class="w"> </span><span class="s">&quot;efgh&quot;</span><span class="w"> </span><span class="s">&quot;ijkl&quot;</span><span class="w"> </span><span class="s">&quot;mnop&quot;</span><span class="w"> </span><span class="s">&quot;qrst&quot;</span><span class="w"> </span><span class="s">&quot;uvwx&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;abcd&quot;</span><span class="w"> </span><span class="s">&quot;efgh&quot;</span><span class="w"> </span><span class="s">&quot;ijkl&quot;</span><span class="w"> </span><span class="s">&quot;mnop&quot;</span><span class="w"> </span><span class="s">&quot;qrst&quot;</span><span class="w"> </span><span class="s">&quot;uvwx&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x%016x: data</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x%016x: &amp;x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x%016x: main</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="p">);</span><span class="w"></span>
 
-  <span class="n">test_func</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="n">test_func</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>余裕のある人は上記の条件下でもセグメンテーションフォルトが発生しないようにプログラムを変更してみましょう．</p>
@@ -781,7 +781,7 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>皆さんの実装したプログラムが，どのようにメモリ上に展開され実行されているか理解できると様々な意図せぬ動作の解決に役立ちます． ちなみに，上記の出力は分かりやすさを重視するために，以下のようにしてASLRを解除した場合の出力になります．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ sudo sysctl -w kernel.randomize_va_space=0 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ sudo sysctl -w kernel.randomize_va_space<span class="o">=</span><span class="m">0</span> 
 </pre></div>
 </div>
 <div class="admonition hint">
@@ -840,8 +840,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>おわりに<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <p>以上のようにセキュリティホールに対するサイバー攻防の発展は凄まじいですが，十分理解していいただきたいのは，この実験内容は教育目的ですので倫理観を持って絶対に悪用しないでください．</p>
 <p>なお，静岡大学では，enPiT Basic SecCap 夏季特別講義として本内容を高度化した「サイバー攻防基礎演習」を行う予定です．余裕がある方は下記内容を先取りして取り組んでくれても構いません．また，今回の実験にも役にたつ情報が多く記載されていますので，ご参考にしてください．</p>
-<p>enPiT サイバー攻防基礎演習サイト</p>
-<p><a class="reference external" href="https://seccap.inf.shizuoka.ac.jp/pbl/">https://seccap.inf.shizuoka.ac.jp/pbl/</a></p>
+<p><a class="reference external" href="https://seccap.inf.shizuoka.ac.jp/pbl/">enPiT サイバー攻防基礎演習サイト</a></p>
 </div>
 </div>
 

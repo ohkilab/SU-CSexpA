@@ -728,7 +728,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>HTTPサーバ機能拡張の実装について，具体的にどのようになればよいのか世の中で使用されているWebサーバの動作を参考にするという方法があります．</p>
 <p>例えば，<a class="reference external" href="http://httpd.apache.org/">Apache</a>は商用でも利用される一般的なWebサーバーです．一方で，最先端のWeb技術がすぐに実装されるというわけではありません．</p>
 <p>最先端のWeb技術が比較的早く実装されるWebサーバとして，<a class="reference external" href="http://www.eclipse.org/jetty/">Jetty</a>が挙げられます．</p>
-<p>第一部で学んだプロトコル解析技術を用いて，正しい動作をApacheやJettyで確認してから，その通りに動作するプログラムを実装すると楽かもしれません．</p>
+<p>プロトコル解析技術を用いて，正しい動作をApacheやJettyで確認してから，その通りに動作するプログラムを実装すると楽かもしれません．</p>
 <p>ここで，Webサーバの挙動を分かりやすく解析するためには，接続するWebブラウザの設定における「同時接続数」を1にして分析した方が分かりやすいと思います（Webブラウザによって異なります）．</p>
 <p><a class="reference external" href="http://setting-tool.net/browser-max-connections-per-server">http://setting-tool.net/browser-max-connections-per-server</a></p>
 </div>
@@ -741,26 +741,26 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id4">
 <h2>必要最低限のコードを書いて試してみる<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>例えば，POST実装で躓（つまづ）いたとします．まず，POSTが動作するフォームをtest.htmlとして作ってみます（POSTの部分をGETに変えるとGETで動作しますが，ファイルのアップロードは動作しません）．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">enctype</span><span class="o">=</span><span class="s2">&quot;multipart/form-data&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;upload.php&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="o">&gt;</span>
-  <span class="n">upload</span> <span class="n">file</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;userfile&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;file&quot;</span> <span class="o">/&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;text1&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;value1&quot;</span> <span class="o">/&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;send&quot;</span> <span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;upload.php&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+  upload file: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;userfile&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;text1&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;value1&quot;</span> <span class="p">/&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;send&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>次に，Webサーバー側へupload.phpとしてPOSTを受け取るCGIを置きます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?php
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
-echo &#39;dumping $_POST&lt;br&gt;&#39;;
-var_dump($_POST);
-echo &quot;&lt;br&gt;&quot;;
-$uploaddir = &#39;./&#39;;
-echo &#39;dumping $FILES&lt;br&gt;&#39;;
-var_dump($_FILES);
-$uploadfile = $uploaddir . basename($_FILES[&#39;userfile&#39;][&#39;name&#39;]);
-move_uploaded_file($_FILES[&#39;userfile&#39;][&#39;tmp_name&#39;], $uploadfile);
+<span class="k">echo</span> <span class="s1">&#39;dumping $_POST&lt;br&gt;&#39;</span><span class="p">;</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+<span class="nv">$uploaddir</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s1">&#39;dumping $FILES&lt;br&gt;&#39;</span><span class="p">;</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">);</span>
+<span class="nv">$uploadfile</span> <span class="o">=</span> <span class="nv">$uploaddir</span> <span class="o">.</span> <span class="nb">basename</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]);</span>
+<span class="nb">move_uploaded_file</span><span class="p">(</span><span class="nv">$_FILES</span><span class="p">[</span><span class="s1">&#39;userfile&#39;</span><span class="p">][</span><span class="s1">&#39;tmp_name&#39;</span><span class="p">],</span> <span class="nv">$uploadfile</span><span class="p">);</span>
 
-?&gt;
+<span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </div>
 <p>この時の動作をWiresharkやFireBugで確認して，POSTがどのような動作をしているか把握します．このように必要最低限のコードを実装して試してみるという方法もあります．</p>
@@ -813,101 +813,101 @@ move_uploaded_file($_FILES[&#39;userfile&#39;][&#39;tmp_name&#39;], $uploadfile)
 </div>
 <div class="section" id="parse-header-body-c">
 <h3>parse_header_body.c<a class="headerlink" href="#parse-header-body-c" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;exp1.h&quot;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 
-<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span>
-  <span class="n">char</span> <span class="n">header</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span>
-  <span class="n">char</span> <span class="n">body</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span>
-  <span class="n">FILE</span><span class="o">*</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s2">&quot;post.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">);</span>
-  <span class="nb">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">header</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">body</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;post.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">enum</span> <span class="p">{</span>
-    <span class="n">E_FIND_CR</span><span class="p">,</span>
-    <span class="n">E_FIND_CRLF</span><span class="p">,</span>
-    <span class="n">E_FIND_CRLFCR</span><span class="p">,</span>
-    <span class="n">E_FIND_CRLFCRLF</span><span class="p">,</span>
-    <span class="n">E_FIND_NULL</span>
-  <span class="p">}</span> <span class="n">parse_status</span><span class="p">;</span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">E_FIND_CR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">E_FIND_CRLF</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">E_FIND_CRLFCR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">E_FIND_CRLFCRLF</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">E_FIND_NULL</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">parse_status</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">ret</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">fp</span><span class="p">);</span>
-  <span class="k">while</span><span class="p">(</span><span class="n">ret</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
-    <span class="n">size</span> <span class="o">+=</span> <span class="n">ret</span><span class="p">;</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">buf</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span> <span class="o">-</span> <span class="n">size</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="n">buf</span><span class="p">[</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">size</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">buf</span><span class="p">[</span><span class="n">size</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
 
-  <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">bzero</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">header</span><span class="p">));</span>
-  <span class="n">bzero</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">body</span><span class="p">));</span>
-  <span class="n">parse_status</span> <span class="o">=</span> <span class="n">E_FIND_CR</span><span class="p">;</span>
+<span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">bzero</span><span class="p">(</span><span class="n">header</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">header</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">bzero</span><span class="p">(</span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">body</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CR</span><span class="p">;</span><span class="w"></span>
 
-  <span class="k">while</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
-    <span class="n">switch</span><span class="p">(</span><span class="n">parse_status</span><span class="p">){</span>
-    <span class="k">case</span> <span class="n">E_FIND_CR</span><span class="p">:</span>
-      <span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-      <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">parse_status</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_CR</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
-      <span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">){</span>
-        <span class="n">parse_status</span> <span class="o">=</span> <span class="n">E_FIND_CRLF</span><span class="p">;</span>
-      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="n">parse_status</span> <span class="o">=</span> <span class="n">E_FIND_CR</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">E_FIND_CRLF</span><span class="p">:</span>
-      <span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-      <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CRLF</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CR</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_CRLF</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
-      <span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">){</span>
-        <span class="n">parse_status</span> <span class="o">=</span> <span class="n">E_FIND_CRLFCR</span><span class="p">;</span>
-      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="n">parse_status</span> <span class="o">=</span> <span class="n">E_FIND_CR</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">E_FIND_CRLFCR</span><span class="p">:</span>
-      <span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-      <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CRLFCR</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CR</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_CRLFCR</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
-      <span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">){</span>
-        <span class="n">parse_status</span> <span class="o">=</span> <span class="n">E_FIND_CRLFCRLF</span><span class="p">;</span>
-      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="n">parse_status</span> <span class="o">=</span> <span class="n">E_FIND_CR</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">E_FIND_CRLFCRLF</span><span class="p">:</span>
-      <span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-      <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CRLFCRLF</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CR</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_CRLFCRLF</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
-      <span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">){</span>
-        <span class="n">parse_status</span> <span class="o">=</span> <span class="n">E_FIND_NULL</span><span class="p">;</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="n">parse_status</span> <span class="o">=</span> <span class="n">E_FIND_CR</span><span class="p">;</span>
-      <span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CR</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
 
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">E_FIND_NULL</span><span class="p">:</span>
-      <span class="n">body</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-      <span class="n">j</span><span class="o">++</span><span class="p">;</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="n">default</span><span class="p">:</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;impossible</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-      <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_NULL</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">body</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;impossible</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;################ header is ##############</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;################ header is ##############</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="p">);</span><span class="w"></span>
 
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;################ body is ################</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;################ body is ################</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>次に，bodyの中の各変数を展開する必要があります．</p>
@@ -920,12 +920,12 @@ move_uploaded_file($_FILES[&#39;userfile&#39;][&#39;tmp_name&#39;], $uploadfile)
 <p>例えば，以下のsystem_sample.cとtest.phpを作成して，system_sample.cをコンパイル後実行してみてください．</p>
 <div class="section" id="system-sample-c">
 <h3>system_sample.c<a class="headerlink" href="#system-sample-c" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;exp1.h&quot;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 
-<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">system</span><span class="p">(</span><span class="s2">&quot;php test.php&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">system</span><span class="p">(</span><span class="s">&quot;php test.php&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -941,15 +941,15 @@ echo &quot;hello world\n&quot;;
 </div>
 <div class="section" id="dup2-sample-c">
 <h3>dup2_sample.c<a class="headerlink" href="#dup2-sample-c" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;exp1.h&quot;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 
-<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="nb">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="n">O_WRONLY</span> <span class="o">|</span> <span class="n">O_CREAT</span><span class="p">);</span>
-  <span class="n">dup2</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">);</span>
-  <span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;output.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_WRONLY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">O_CREAT</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">dup2</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>printf()の結果が，output.txtへ出力されたはずです．つまり，dup2()によって標準出力をoutput.txtのディスクリプタへ割り当てたことになります．</p>

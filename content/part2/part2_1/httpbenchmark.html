@@ -740,86 +740,83 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>各HTTPセッションが終了するのをpthread_join()で待機（pthread_create()で作ったスレッドは，detach()しない限りはjoin()しないとスタックなどのリソースを解放しないため，join()を忘れるとメモリリークを起こすので注意）</p></li>
 <li><p>clock_gettime()で終了時刻を記録し，差分を表示</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">void</span> <span class="n">randamize_array</span><span class="p">(</span><span class="nb">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="nb">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="n">NULL</span><span class="p">));</span>
-   <span class="k">for</span> <span class="p">(</span> <span class="nb">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-     <span class="nb">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-     <span class="nb">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">size</span><span class="p">;</span>
-       <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">];</span>
-       <span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
-   <span class="p">}</span>
- <span class="p">}</span>
-
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">randamize_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span><span class="w"></span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">     </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">];</span><span class="w"></span>
+<span class="w">       </span><span class="n">arr</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">void</span> <span class="n">update_rlimit</span><span class="p">(</span><span class="nb">int</span> <span class="n">resource</span><span class="p">,</span> <span class="nb">int</span> <span class="n">soft</span><span class="p">,</span> <span class="nb">int</span> <span class="n">hard</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">struct</span> <span class="n">rlimit</span> <span class="n">rl</span><span class="p">;</span>
-   <span class="n">getrlimit</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rl</span><span class="p">);</span>
-   <span class="n">rl</span><span class="o">.</span><span class="n">rlim_cur</span> <span class="o">=</span> <span class="n">soft</span><span class="p">;</span>
-   <span class="n">rl</span><span class="o">.</span><span class="n">rlim_max</span> <span class="o">=</span> <span class="n">hard</span><span class="p">;</span>
-   <span class="k">if</span> <span class="p">(</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rl</span> <span class="p">)</span> <span class="o">==</span>  <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-     <span class="n">perror</span><span class="p">(</span><span class="s2">&quot;setrlimit&quot;</span><span class="p">);</span>
-     <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-   <span class="p">}</span>
- <span class="p">}</span>
-
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">update_rlimit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">soft</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hard</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">rlimit</span><span class="w"> </span><span class="n">rl</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">getrlimit</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rl</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">rl</span><span class="p">.</span><span class="n">rlim_cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soft</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">rl</span><span class="p">.</span><span class="n">rlim_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hard</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="mi">-1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;setrlimit&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">     </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">base_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
- 
- <span class="n">char</span> <span class="n">g_hostname</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
- <span class="n">pthread_mutex_t</span> <span class="n">g_mutex</span><span class="p">;</span>
- <span class="nb">int</span> <span class="n">g_error_count</span><span class="p">;</span>
- 
- <span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
- 
-   <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">){</span>
-     <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;usage: </span><span class="si">%s</span><span class="s2"> [ip address] [# of clients]</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-     <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-   <span class="p">}</span>
-   <span class="n">strcpy</span><span class="p">(</span><span class="n">g_hostname</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-   <span class="nb">int</span> <span class="n">th_num</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
- 
-   <span class="nb">int</span> <span class="n">fileid_arr_size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-   <span class="nb">int</span> <span class="n">fileid_arr</span><span class="p">[</span><span class="n">fileid_arr_size</span><span class="p">];</span>
-   <span class="k">for</span> <span class="p">(</span> <span class="nb">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">fileid_arr_size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-     <span class="n">fileid_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-   <span class="p">}</span>
-   <span class="n">randamize_array</span><span class="p">(</span><span class="n">fileid_arr</span><span class="p">,</span> <span class="n">fileid_arr_size</span><span class="p">);</span>
- 
-   <span class="o">//</span> <span class="nb">set</span> <span class="n">resource</span> <span class="n">to</span> <span class="n">unlimited</span>
-   <span class="n">update_rlimit</span><span class="p">(</span><span class="n">RLIMIT_STACK</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="n">RLIM_INFINITY</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="n">RLIM_INFINITY</span><span class="p">);</span>
-   
-   <span class="n">g_error_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-   <span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_mutex</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
-   <span class="n">pthread_t</span><span class="o">*</span> <span class="n">th</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">pthread_t</span><span class="p">)</span> <span class="o">*</span> <span class="n">th_num</span><span class="p">);</span>
- 
-   <span class="n">struct</span> <span class="n">timespec</span> <span class="n">ts_start</span><span class="p">;</span>
-   <span class="n">struct</span> <span class="n">timespec</span> <span class="n">ts_end</span><span class="p">;</span>
-   <span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ts_start</span><span class="p">);</span>
- 
-   <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">th_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-     <span class="nb">int</span> <span class="o">*</span><span class="n">pfileid</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">));</span>
-     <span class="o">*</span><span class="n">pfileid</span> <span class="o">=</span> <span class="n">fileid_arr</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="n">fileid_arr_size</span><span class="p">];</span>
-     <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">th</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">exp1_eval_thread</span><span class="p">,</span> <span class="n">pfileid</span><span class="p">);</span>
-   <span class="p">}</span>
- 
-   <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">th_num</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-     <span class="n">pthread_join</span><span class="p">(</span><span class="n">th</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">NULL</span><span class="p">);</span>
-   <span class="p">}</span>
- 
-   <span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ts_end</span><span class="p">);</span>
-   <span class="n">time_t</span> <span class="n">diffsec</span> <span class="o">=</span> <span class="n">difftime</span><span class="p">(</span><span class="n">ts_end</span><span class="o">.</span><span class="n">tv_sec</span><span class="p">,</span> <span class="n">ts_start</span><span class="o">.</span><span class="n">tv_sec</span><span class="p">);</span>
-   <span class="n">long</span> <span class="n">diffnanosec</span> <span class="o">=</span> <span class="n">ts_end</span><span class="o">.</span><span class="n">tv_nsec</span> <span class="o">-</span> <span class="n">ts_start</span><span class="o">.</span><span class="n">tv_nsec</span><span class="p">;</span>
-   <span class="n">double</span> <span class="n">total_time</span> <span class="o">=</span> <span class="n">diffsec</span> <span class="o">+</span> <span class="n">diffnanosec</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">;</span>
- 
-   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;total time is </span><span class="si">%10.10f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">total_time</span><span class="p">);</span> 
-   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;session error ratio is </span><span class="si">%1.3f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="p">(</span><span class="n">double</span><span class="p">)</span><span class="n">g_error_count</span> <span class="o">/</span> <span class="p">(</span><span class="n">double</span><span class="p">)</span> <span class="n">th_num</span><span class="p">);</span>
- 
-   <span class="n">free</span><span class="p">(</span><span class="n">th</span><span class="p">);</span>
- <span class="p">}</span>
-
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">base_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">g_hostname</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
+<span class="w"> </span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">g_mutex</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">g_error_count</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span><span class="p">){</span><span class="w"></span>
+<span class="w">     </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [ip address] [# of clients]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">     </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="n">strcpy</span><span class="p">(</span><span class="n">g_hostname</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">th_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">fileid_arr_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">fileid_arr</span><span class="p">[</span><span class="n">fileid_arr_size</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">fileid_arr_size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">fileid_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="n">randamize_array</span><span class="p">(</span><span class="n">fileid_arr</span><span class="p">,</span><span class="w"> </span><span class="n">fileid_arr_size</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="c1">// set resource to unlimited</span>
+<span class="w">   </span><span class="n">update_rlimit</span><span class="p">(</span><span class="n">RLIMIT_STACK</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">RLIM_INFINITY</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">RLIM_INFINITY</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="n">g_error_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_mutex</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">pthread_t</span><span class="o">*</span><span class="w"> </span><span class="n">th</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">pthread_t</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">th_num</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">ts_start</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">ts_end</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ts_start</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">th_num</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">     </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pfileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
+<span class="w">     </span><span class="o">*</span><span class="n">pfileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fileid_arr</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="n">fileid_arr_size</span><span class="p">];</span><span class="w"></span>
+<span class="w">     </span><span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">th</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">exp1_eval_thread</span><span class="p">,</span><span class="w"> </span><span class="n">pfileid</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">th_num</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">     </span><span class="n">pthread_join</span><span class="p">(</span><span class="n">th</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ts_end</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="kt">time_t</span><span class="w"> </span><span class="n">diffsec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">difftime</span><span class="p">(</span><span class="n">ts_end</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">,</span><span class="w"> </span><span class="n">ts_start</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="kt">long</span><span class="w"> </span><span class="n">diffnanosec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ts_end</span><span class="p">.</span><span class="n">tv_nsec</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ts_start</span><span class="p">.</span><span class="n">tv_nsec</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">double</span><span class="w"> </span><span class="n">total_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diffsec</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">diffnanosec</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;total time is %10.10f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">total_time</span><span class="p">);</span><span class="w"> </span>
+<span class="w">   </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;session error ratio is %1.3f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">g_error_count</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">th_num</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="n">free</span><span class="p">(</span><span class="n">th</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -828,51 +825,50 @@ const thebe_selector_output = ".output, .cell_output"
 <p>exp1_eval_thread()では，HTTPのGETリクエストを作成してSimple HTTPサーバへTCPで接続（exp1_tcp_connect()）します</p>
 <p>Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さんの学籍番号の下5桁を入力したと思いますが，HTTPベンチマークプログラムが接続する相手のポート番号xxxxxにも自分の学籍番号の下5桁を入力してください．</p>
 <p>接続エラーがあった場合には，exp1_session_error()でエラーカウントを増加させます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">void</span><span class="o">*</span> <span class="n">exp1_eval_thread</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">param</span><span class="p">)</span>
- <span class="p">{</span>
-   <span class="nb">int</span> <span class="n">sock</span><span class="p">;</span>
-   <span class="nb">int</span><span class="o">*</span> <span class="n">pfileid</span><span class="p">;</span>
-   <span class="nb">int</span> <span class="n">fileid</span><span class="p">;</span>
-   <span class="n">char</span> <span class="n">command</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-   <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">2048</span><span class="p">];</span>
-   <span class="nb">int</span> <span class="n">total</span><span class="p">;</span>
-   <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
- 
-   <span class="n">pfileid</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="o">*</span><span class="p">)</span> <span class="n">param</span><span class="p">;</span>
-   <span class="n">fileid</span> <span class="o">=</span> <span class="o">*</span><span class="n">pfileid</span><span class="p">;</span>
-   <span class="n">free</span><span class="p">(</span><span class="n">pfileid</span><span class="p">);</span>
- 
-   <span class="n">sock</span> <span class="o">=</span> <span class="n">exp1_tcp_connect</span><span class="p">(</span><span class="n">g_hostname</span><span class="p">,</span> <span class="s2">&quot;80&quot;</span><span class="p">);</span>
-   <span class="k">if</span><span class="p">(</span><span class="n">sock</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
-     <span class="n">exp1_session_error</span><span class="p">();</span>
-     <span class="n">pthread_exit</span><span class="p">(</span><span class="n">NULL</span><span class="p">);</span>
-   <span class="p">}</span>
- 
-   <span class="n">sprintf</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="s2">&quot;GET </span><span class="si">%s</span><span class="s2">/</span><span class="si">%03d</span><span class="s2">.jpg HTTP/1.0</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">base_path</span><span class="p">,</span> <span class="n">fileid</span><span class="p">);</span>
-   <span class="n">ret</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">command</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
-   <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
-     <span class="n">exp1_session_error</span><span class="p">();</span>
-     <span class="n">pthread_exit</span><span class="p">(</span><span class="n">NULL</span><span class="p">);</span>
-   <span class="p">}</span>
- 
-   <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-   <span class="n">ret</span> <span class="o">=</span> <span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
- 
-   <span class="n">char</span> <span class="n">res_buf</span><span class="p">[</span><span class="mi">2048</span><span class="p">];</span>
-   <span class="n">strcpy</span><span class="p">(</span><span class="n">res_buf</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
-   <span class="n">char</span><span class="o">*</span> <span class="n">res_code</span> <span class="o">=</span> <span class="n">strtok</span><span class="p">(</span><span class="n">res_buf</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">);</span>
-   <span class="n">res_code</span> <span class="o">=</span> <span class="n">strtok</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">);</span>
- 
-   <span class="k">while</span><span class="p">(</span><span class="n">ret</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
-     <span class="n">total</span> <span class="o">+=</span> <span class="n">ret</span><span class="p">;</span>
-     <span class="n">ret</span> <span class="o">=</span> <span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-   <span class="p">}</span>
-   <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;GET </span><span class="si">%s</span><span class="s2">/</span><span class="si">%03d</span><span class="s2">.jpg HTTP/1.0&quot;</span><span class="p">,</span> <span class="n">base_path</span><span class="p">,</span> <span class="n">fileid</span><span class="p">);</span>
-   <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot; -&gt; Response Code: </span><span class="si">%s</span><span class="s2">: Recieved Size: </span><span class="si">%d</span><span class="s2"> bytes</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">res_code</span><span class="p">,</span> <span class="n">total</span><span class="p">);</span>
- 
-   <span class="n">pthread_exit</span><span class="p">(</span><span class="n">NULL</span><span class="p">);</span>
- <span class="p">}</span>
-
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">exp1_eval_thread</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">param</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">pfileid</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">fileid</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="n">command</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">2048</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="n">pfileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">param</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">fileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">pfileid</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">free</span><span class="p">(</span><span class="n">pfileid</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_connect</span><span class="p">(</span><span class="n">g_hostname</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;80&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">sock</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">     </span><span class="n">exp1_session_error</span><span class="p">();</span><span class="w"></span>
+<span class="w">     </span><span class="n">pthread_exit</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="n">sprintf</span><span class="p">(</span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GET %s/%03d.jpg HTTP/1.0</span><span class="se">\r\n\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">base_path</span><span class="p">,</span><span class="w"> </span><span class="n">fileid</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">command</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">     </span><span class="n">exp1_session_error</span><span class="p">();</span><span class="w"></span>
+<span class="w">     </span><span class="n">pthread_exit</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="n">res_buf</span><span class="p">[</span><span class="mi">2048</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">strcpy</span><span class="p">(</span><span class="n">res_buf</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">res_code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strtok</span><span class="p">(</span><span class="n">res_buf</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">res_code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">while</span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">     </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GET %s/%03d.jpg HTTP/1.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">base_path</span><span class="p">,</span><span class="w"> </span><span class="n">fileid</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; -&gt; Response Code: %s: Recieved Size: %d bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">res_code</span><span class="p">,</span><span class="w"> </span><span class="n">total</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="n">pthread_exit</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -880,45 +876,43 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>exp1_session_error()<a class="headerlink" href="#exp1-session-error" title="Permalink to this headline">¶</a></h3>
 <p>接続エラーがあった場合に，エラーカウント用にグローバル変数で用意したg_error_countを増加させます．</p>
 <p>その際，生成された複数のスレッドがそれぞれグローバル変数を更新する可能性があるため，pthread_mutex_lock()とpthread_mutex_unlock()でクリティカルセクションを排他制御しています．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">void</span> <span class="n">exp1_session_error</span><span class="p">()</span> <span class="p">{</span>
-   <span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_mutex</span><span class="p">);</span>
-   <span class="n">g_error_count</span><span class="o">++</span><span class="p">;</span>
-   <span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_mutex</span><span class="p">);</span>
- 
-   <span class="k">return</span><span class="p">;</span>
- <span class="p">}</span>
-
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_session_error</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="n">g_error_count</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">g_mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="exp1-h">
 <h3>exp1.h<a class="headerlink" href="#exp1-h" title="Permalink to this headline">¶</a></h3>
 <p>基本的にこれまで提示したexp1.hと同じと思いますが，念のため再掲しておきます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="c1">#include &lt;stdio.h&gt;</span>
- <span class="c1">#include &lt;stdint.h&gt;</span>
- <span class="c1">#include &lt;string.h&gt;</span>
- <span class="c1">#include &lt;strings.h&gt;</span>
- <span class="c1">#include &lt;errno.h&gt;</span>
- <span class="c1">#include &lt;stdlib.h&gt;</span>
- <span class="c1">#include &lt;math.h&gt;</span>
- <span class="c1">#include &lt;unistd.h&gt;</span>
- <span class="c1">#include &lt;termios.h&gt;</span>
- <span class="c1">#include &lt;time.h&gt;</span>
- <span class="c1">#include &lt;float.h&gt;</span>
- 
- <span class="c1">#include &lt;sys/socket.h&gt;</span>
- <span class="c1">#include &lt;arpa/inet.h&gt;</span>
- <span class="c1">#include &lt;sys/ioctl.h&gt;</span>
- <span class="c1">#include &lt;netdb.h&gt;</span>
- 
- <span class="c1">#include &lt;fcntl.h&gt;</span>
- <span class="c1">#include &lt;sys/stat.h&gt;</span>
- <span class="c1">#include &lt;sys/types.h&gt;</span>
- <span class="c1">#include &lt;sys/resource.h&gt;</span>
- <span class="c1">#include &lt;dirent.h&gt;</span>
- <span class="c1">#include &lt;signal.h&gt;</span>
- <span class="c1">#include &lt;pthread.h&gt;</span>
-
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;strings.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;termios.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;float.h&gt;</span><span class="cp"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/ioctl.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netdb.h&gt;</span><span class="cp"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/resource.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;dirent.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span><span class="cp"></span>
+<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pthread.h&gt;</span><span class="cp"></span>
 </pre></div>
 </div>
 </div>
@@ -930,21 +924,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>クライアント側（自分のノートPCのVirtualBox上のコマンドプロンプト）で上記のHTTPベンチマークプログラム（bench.exeという名前でコンパイル）を以下のように実行（サーバのIPアドレスとHTTPリクエスト数を指定）すると，指定した数のHTTPリクエストに対する全HTTPリプライが返ってくるまでの時間とセッションエラー率を表示</p></li>
 </ul>
 <p>例１）</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ ./bench 192.168.1.xxx 10
- total time is 1.0095188618
- session error ratio is 0.000 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ ./bench <span class="m">192</span>.168.1.xxx <span class="m">10</span>
+ total <span class="nb">time</span> is <span class="m">1</span>.0095188618
+ session error ratio is <span class="m">0</span>.000 
 </pre></div>
 </div>
 <p>例２）</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ ./bench 192.168.1.xxx 100
- total time is 3.2459170818
- session error ratio is 0.000 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ ./bench <span class="m">192</span>.168.1.xxx <span class="m">100</span>
+ total <span class="nb">time</span> is <span class="m">3</span>.2459170818
+ session error ratio is <span class="m">0</span>.000 
 </pre></div>
 </div>
 <p>例３）</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ ./bench 192.168.1.xxx 1000
- total time is 63.1578819752
- session error ratio is 0.148 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ ./bench <span class="m">192</span>.168.1.xxx <span class="m">1000</span>
+ total <span class="nb">time</span> is <span class="m">63</span>.1578819752
+ session error ratio is <span class="m">0</span>.148 
 </pre></div>
 </div>
 <p>total timeが実行時間で，session errorがセッションエラー率です．<br />

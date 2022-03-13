@@ -591,6 +591,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-parse-header">
+     exp1_parse_header()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exp1-parse-status">
      exp1_parse_status()
     </a>
@@ -670,6 +675,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exp1-http-session">
      exp1_http_session()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-parse-header">
+     exp1_parse_header()
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -753,24 +763,24 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>exp1_http_session() の処理が終わったらアクセプトしたディスクリプタを正常終了し次の接続処理へ</p></li>
 </ul>
 <p>複数クライアントからの接続要求に対応できるようになっていませんし，特に処理内容の高速化も意識していない単純なものとなります．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nb">int</span> <span class="n">sock_listen</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_listen</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">sock_listen</span> <span class="o">=</span> <span class="n">exp1_tcp_listen</span><span class="p">(</span><span class="n">xxxxx</span><span class="p">);</span>
+<span class="w">  </span><span class="n">sock_listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_tcp_listen</span><span class="p">(</span><span class="n">xxxxx</span><span class="p">);</span><span class="w"></span>
 
-  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-    <span class="n">struct</span> <span class="n">sockaddr</span> <span class="n">addr</span><span class="p">;</span>
-    <span class="nb">int</span> <span class="n">sock_client</span><span class="p">;</span>
-    <span class="nb">int</span> <span class="nb">len</span><span class="p">;</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sock_client</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">sock_client</span> <span class="o">=</span> <span class="n">accept</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span> <span class="p">(</span><span class="n">socklen_t</span><span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="nb">len</span><span class="p">);</span>
-    <span class="n">exp1_http_session</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span>
+<span class="w">    </span><span class="n">sock_client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock_listen</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">socklen_t</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">exp1_http_session</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">shutdown</span><span class="p">(</span><span class="n">sock_client</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
-    <span class="n">close</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">shutdown</span><span class="p">(</span><span class="n">sock_client</span><span class="p">,</span><span class="w"> </span><span class="n">SHUT_RDWR</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">sock_client</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>※ sock_listen はクライアントからの接続要求待ち受け用のディスクリプタ，sock_clientはクライアントとのHTTPデータ通信用のディスクリプタですので，無限ループ内で閉じているディスクリプタがどちらか注意してください．</p>
@@ -784,28 +794,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>クライアントから受信したデータにおけるヘッダ部分を分解（exp1_parse_header()にて）し，抽出された情報をexp1_info_type構造体で宣言された変数 <strong>info</strong> へ格納</p></li>
 <li><p>抽出された情報infoを元にクライアントへ返すHTTPリプライを生成し返送（exp1_http_reply()にて）</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">exp1_http_session</span><span class="p">(</span><span class="nb">int</span> <span class="n">sock</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">2048</span><span class="p">];</span>
-  <span class="nb">int</span> <span class="n">recv_size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">exp1_info_type</span> <span class="n">info</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">exp1_http_session</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">2048</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">recv_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">exp1_info_type</span><span class="w"> </span><span class="n">info</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-  <span class="k">while</span><span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-    <span class="nb">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span> <span class="o">+</span> <span class="n">recv_size</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">recv_size</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">if</span><span class="p">(</span><span class="n">size</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
-      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">){</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="n">recv_size</span> <span class="o">+=</span> <span class="n">size</span><span class="p">;</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">exp1_parse_header</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">recv_size</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">info</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="n">recv_size</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exp1_parse_header</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">recv_size</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">info</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="n">exp1_http_reply</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">info</span><span class="p">);</span>
+<span class="w">  </span><span class="n">exp1_http_reply</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">info</span><span class="p">);</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>ここで，<strong>exp1_info_type構造体</strong> は以下のように宣言されています．以下では，最低限の情報のみしか管理してませんので，今後，Simple HTTPサーバを機能拡張し，様々な<a class="reference external" href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP.E3.83.A1.E3.83.83.E3.82.BB.E3.83.BC.E3.82.B8">HTTPメッセージ</a>を返信できるようにしていく際には，この構造体を拡張していくと楽と思います．</p>
@@ -817,59 +827,62 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>code (HTTPリプライにおける<a class="reference external" href="https://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">HTTPステータスコード</a>用)</p></li>
 <li><p>size（HTTPリプライにおけるContent-Lengthフィールド用）</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span>
-<span class="p">{</span>
-  <span class="n">char</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
-  <span class="n">char</span> <span class="n">path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-  <span class="n">char</span> <span class="n">real_path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-  <span class="n">char</span> <span class="nb">type</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
-  <span class="nb">int</span> <span class="n">code</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="n">size</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">exp1_info_type</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">cmd</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">real_path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">type</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">exp1_info_type</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="exp1-parse-header">
+<h3>exp1_parse_header()<a class="headerlink" href="#exp1-parse-header" title="Permalink to this headline">¶</a></h3>
 <p>クライアントからの<a class="reference external" href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP.E3.83.A1.E3.83.83.E3.82.BB.E3.83.BC.E3.82.B8">HTTPリクエスト</a>（例：GET / HTTP/1.0）をパース（構文解析）する関数です．</p>
 <p>現時点では，HTTPリクエストの1行目のみを抽出するステートマシン（状態機械）になっています．</p>
 <p>1行目を抽出（PARSE_STATUSかつ’\r’（復帰）でない間）したら，exp1_parse_status()へその行の情報（status（例：GET / HTTP/1.0））を渡します．</p>
 <p>exp1_parse_status()では，HTTPリクエストの1行目に含まれるHTTPメソッドのcmd（例：GET）やURI情報のpath（例：/）といった基本的な情報を <strong>info</strong> へ格納します．</p>
 <p>格納されたinfoをexp1_check_file()へ渡して，リクエスト対象の実体へのパス情報やHTTPリプライで返す具体的な情報を <strong>info</strong> へ追加格納します．</p>
 <p>HTTPリクエストをより詳細に解析させたい場合は，この関数を拡張していくと楽と思います．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">exp1_parse_header</span><span class="p">(</span><span class="n">char</span><span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="nb">int</span> <span class="n">size</span><span class="p">,</span> <span class="n">exp1_info_type</span><span class="o">*</span> <span class="n">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">char</span> <span class="n">status</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-  <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">exp1_parse_header</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">exp1_info_type</span><span class="o">*</span><span class="w"> </span><span class="n">info</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">status</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">enum</span> <span class="n">state_type</span>
-  <span class="p">{</span>
-    <span class="n">PARSE_STATUS</span><span class="p">,</span>
-    <span class="n">PARSE_END</span>
-  <span class="p">}</span><span class="n">state</span><span class="p">;</span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">state_type</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">PARSE_STATUS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PARSE_END</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="n">state</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">state</span> <span class="o">=</span> <span class="n">PARSE_STATUS</span><span class="p">;</span>
-  <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="n">switch</span><span class="p">(</span><span class="n">state</span><span class="p">){</span>
-    <span class="k">case</span> <span class="n">PARSE_STATUS</span><span class="p">:</span>
-      <span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">){</span>
-        <span class="n">status</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">;</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">state</span> <span class="o">=</span> <span class="n">PARSE_END</span><span class="p">;</span>
-        <span class="n">exp1_parse_status</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">info</span><span class="p">);</span>
-        <span class="n">exp1_check_file</span><span class="p">(</span><span class="n">info</span><span class="p">);</span>
-      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="n">status</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">  </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PARSE_STATUS</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">state</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">PARSE_STATUS</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">status</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PARSE_END</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">exp1_parse_status</span><span class="p">(</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exp1_check_file</span><span class="p">(</span><span class="n">info</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">status</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">if</span><span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="n">PARSE_END</span><span class="p">){</span>
-      <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PARSE_END</span><span class="p">){</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -877,50 +890,50 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>exp1_parse_status()<a class="headerlink" href="#exp1-parse-status" title="Permalink to this headline">¶</a></h3>
 <p>HTTPリクエスト1行目（例：GET / HTTP/1.0）を解析する関数です．</p>
 <p>HTTPリクエストの1行目に含まれるHTTPメソッドをcmd (例：GET)へ，URI情報をpath (例：/)へ，ステートマシンで抽出し <strong>info</strong> へ格納します．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_parse_status</span><span class="p">(</span><span class="n">char</span><span class="o">*</span> <span class="n">status</span><span class="p">,</span> <span class="n">exp1_info_type</span> <span class="o">*</span><span class="n">pinfo</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">char</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-  <span class="n">char</span> <span class="n">path</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-  <span class="n">char</span><span class="o">*</span> <span class="n">pext</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_parse_status</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">exp1_info_type</span><span class="w"> </span><span class="o">*</span><span class="n">pinfo</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">cmd</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">pext</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">enum</span> <span class="n">state_type</span>
-  <span class="p">{</span>
-    <span class="n">SEARCH_CMD</span><span class="p">,</span>
-    <span class="n">SEARCH_PATH</span><span class="p">,</span>
-    <span class="n">SEARCH_END</span>
-  <span class="p">}</span><span class="n">state</span><span class="p">;</span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">state_type</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SEARCH_CMD</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">SEARCH_PATH</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">SEARCH_END</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="n">state</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">state</span> <span class="o">=</span> <span class="n">SEARCH_CMD</span><span class="p">;</span>
-  <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strlen</span><span class="p">(</span><span class="n">status</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="n">switch</span><span class="p">(</span><span class="n">state</span><span class="p">){</span>
-    <span class="k">case</span> <span class="n">SEARCH_CMD</span><span class="p">:</span>
-      <span class="k">if</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">){</span>
-        <span class="n">cmd</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">;</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">state</span> <span class="o">=</span> <span class="n">SEARCH_PATH</span><span class="p">;</span>
-      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="n">cmd</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">SEARCH_PATH</span><span class="p">:</span>
-      <span class="k">if</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">){</span>
-        <span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">;</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">state</span> <span class="o">=</span> <span class="n">SEARCH_END</span><span class="p">;</span>
-      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
-      <span class="p">}</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SEARCH_CMD</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">status</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">state</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">SEARCH_CMD</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">cmd</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SEARCH_PATH</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">cmd</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">SEARCH_PATH</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SEARCH_END</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">status</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="n">strcpy</span><span class="p">(</span><span class="n">pinfo</span><span class="o">-&gt;</span><span class="n">cmd</span><span class="p">,</span> <span class="n">cmd</span><span class="p">);</span>
-  <span class="n">strcpy</span><span class="p">(</span><span class="n">pinfo</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span> <span class="n">path</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="n">strcpy</span><span class="p">(</span><span class="n">pinfo</span><span class="o">-&gt;</span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="n">cmd</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">strcpy</span><span class="p">(</span><span class="n">pinfo</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -930,67 +943,67 @@ const thebe_selector_output = ".output, .cell_output"
 <p>ファイルやディレクトリ情報を取得可能なシステムコール <a class="reference external" href="https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html">stat()</a> を用いて，ファイルが存在するか，指定されたURI情報がディレクトリ名なのか調査し，HTTPリプライで返すべく適切な<a class="reference external" href="https://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">HTTPステータスコード</a>を <strong>info-&gt;code</strong> へ格納しています．</p>
 <p>また，リクエスト対象のファイルサイズを取得し，HTTPリプライで返すContent-Length用に <strong>info-&gt;size</strong> へ格納しておきます．</p>
 <p>最後に，info-&gt;pathの拡張子を見て，HTTPリプライで返すContent-Type用に <strong>info-&gt;type</strong> へ適切な文字列を格納しておきます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_check_file</span><span class="p">(</span><span class="n">exp1_info_type</span> <span class="o">*</span><span class="n">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">struct</span> <span class="n">stat</span> <span class="n">s</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
-  <span class="n">char</span><span class="o">*</span> <span class="n">pext</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_check_file</span><span class="p">(</span><span class="n">exp1_info_type</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">stat</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">pext</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">sprintf</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span> <span class="s2">&quot;html</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">);</span>
-  <span class="n">ret</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="n">sprintf</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;html%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
 
-  <span class="k">if</span><span class="p">((</span><span class="n">s</span><span class="o">.</span><span class="n">st_mode</span> <span class="o">&amp;</span> <span class="n">S_IFMT</span><span class="p">)</span> <span class="o">==</span> <span class="n">S_IFDIR</span><span class="p">){</span>
-    <span class="n">sprintf</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/index.html&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="p">((</span><span class="n">s</span><span class="p">.</span><span class="n">st_mode</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">S_IFMT</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">S_IFDIR</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">sprintf</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s/index.html&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="n">ret</span> <span class="o">=</span> <span class="n">stat</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stat</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
 
-  <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
-    <span class="n">info</span><span class="o">-&gt;</span><span class="n">code</span> <span class="o">=</span> <span class="mi">404</span><span class="p">;</span>
-  <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-    <span class="n">info</span><span class="o">-&gt;</span><span class="n">code</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="n">info</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="n">s</span><span class="o">.</span><span class="n">st_size</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">404</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">st_size</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="n">pext</span> <span class="o">=</span> <span class="n">strstr</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">);</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">pext</span> <span class="o">!=</span> <span class="n">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">pext</span><span class="p">,</span> <span class="s2">&quot;.html&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-    <span class="n">strcpy</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="nb">type</span><span class="p">,</span> <span class="s2">&quot;text/html&quot;</span><span class="p">);</span>
-  <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pext</span> <span class="o">!=</span> <span class="n">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">pext</span><span class="p">,</span> <span class="s2">&quot;.jpg&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-    <span class="n">strcpy</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="nb">type</span><span class="p">,</span> <span class="s2">&quot;image/jpeg&quot;</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="n">pext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strstr</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">pext</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">strcmp</span><span class="p">(</span><span class="n">pext</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.html&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;text/html&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">pext</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">strcmp</span><span class="p">(</span><span class="n">pext</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.jpg&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;image/jpeg&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="exp1-http-reply">
 <h3>exp1_http_reply()<a class="headerlink" href="#exp1-http-reply" title="Permalink to this headline">¶</a></h3>
 <p>exp1_parse_header()で抽出された <strong>info</strong> を元に，クライアントへ返すべく適切なHTTPリプライを作成し返します．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_http_reply</span><span class="p">(</span><span class="nb">int</span> <span class="n">sock</span><span class="p">,</span> <span class="n">exp1_info_type</span> <span class="o">*</span><span class="n">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span>
-  <span class="nb">int</span> <span class="nb">len</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_http_reply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">exp1_info_type</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
 
-  <span class="k">if</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">){</span>
-    <span class="n">exp1_send_404</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;404 not found </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">);</span>
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">code</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">404</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">exp1_send_404</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;404 not found %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nb">len</span> <span class="o">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s2">&quot;HTTP/1.0 200 OK</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">);</span>
-  <span class="nb">len</span> <span class="o">+=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span> <span class="o">+</span> <span class="nb">len</span><span class="p">,</span> <span class="s2">&quot;Content-Length: </span><span class="si">%d</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">);</span>
-  <span class="nb">len</span> <span class="o">+=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span> <span class="o">+</span> <span class="nb">len</span><span class="p">,</span> <span class="s2">&quot;Content-Type: </span><span class="si">%s</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="nb">type</span><span class="p">);</span>
-  <span class="nb">len</span> <span class="o">+=</span> <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span> <span class="o">+</span> <span class="nb">len</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HTTP/1.0 200 OK</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">len</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Content-Length: %d</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">len</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Content-Type: %s</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">len</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 
-  <span class="n">ret</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="nb">len</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
-    <span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
-    <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">SHUT_RDWR</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="n">exp1_send_file</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="n">exp1_send_file</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">real_path</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -998,80 +1011,80 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>exp1_send_404()<a class="headerlink" href="#exp1-send-404" title="Permalink to this headline">¶</a></h3>
 <p>info-&gt;pathで指定されたファイルがhtmlディレクトリに存在しなかった場合（<strong>info-&gt;code</strong> へエラーコード404が入っている場合），「404 Not Found」をクライアントへ返します．</p>
 <p>このサンプルソースコードでは，ステータスコード404はクライアントへ返していますが，404ページ自体は返信してませんのでご注意ください（4XX系を実装する人は適宜作成してください）．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_send_404</span><span class="p">(</span><span class="nb">int</span> <span class="n">sock</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span>
-  <span class="nb">int</span> <span class="n">ret</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_send_404</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s2">&quot;HTTP/1.0 404 Not Found</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
-  <span class="n">ret</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HTTP/1.0 404 Not Found</span><span class="se">\r\n\r\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 
-  <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
-    <span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
-    <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">SHUT_RDWR</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="exp1-send-file">
 <h3>exp1_send_file()<a class="headerlink" href="#exp1-send-file" title="Permalink to this headline">¶</a></h3>
 <p>info-&gt;real_pathで指定されたファイルがhtmlディレクトリに存在した場合は，そのファイルをfopen()で開き，fread()で読み込める間，読み込めたデータをsend()でクライアントへ分割して返信し，読み込めなくなったらファイルをfclose()します．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">exp1_send_file</span><span class="p">(</span><span class="nb">int</span> <span class="n">sock</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span> <span class="n">filename</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">FILE</span> <span class="o">*</span><span class="n">fp</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="nb">len</span><span class="p">;</span>
-  <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_send_file</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">16384</span><span class="p">];</span><span class="w"></span>
 
-  <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">);</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">fp</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">){</span>
-    <span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
-    <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">SHUT_RDWR</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nb">len</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">char</span><span class="p">),</span> <span class="mi">16384</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
-  <span class="k">while</span><span class="p">(</span><span class="nb">len</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
-    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="nb">len</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
-      <span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">SHUT_RDWR</span><span class="p">);</span>
-      <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nb">len</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">char</span><span class="p">),</span> <span class="mi">1460</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">16384</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="n">len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">      </span><span class="n">shutdown</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">SHUT_RDWR</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">1460</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="exp1-h">
 <h3>exp1.h<a class="headerlink" href="#exp1-h" title="Permalink to this headline">¶</a></h3>
 <p>基本的にこれまで提示したexp1.hと同じと思いますが，念のため再掲しておきます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
-<span class="c1">#include &lt;stdint.h&gt;</span>
-<span class="c1">#include &lt;string.h&gt;</span>
-<span class="c1">#include &lt;errno.h&gt;</span>
-<span class="c1">#include &lt;stdlib.h&gt;</span>
-<span class="c1">#include &lt;math.h&gt;</span>
-<span class="c1">#include &lt;unistd.h&gt;</span>
-<span class="c1">#include &lt;termios.h&gt;</span>
-<span class="c1">#include &lt;time.h&gt;</span>
-<span class="c1">#include &lt;float.h&gt;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;termios.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;float.h&gt;</span><span class="cp"></span>
 
-<span class="c1">#include &lt;sys/socket.h&gt;</span>
-<span class="c1">#include &lt;arpa/inet.h&gt;</span>
-<span class="c1">#include &lt;sys/ioctl.h&gt;</span>
-<span class="c1">#include &lt;netdb.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/ioctl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netdb.h&gt;</span><span class="cp"></span>
 
-<span class="c1">#include &lt;fcntl.h&gt;</span>
-<span class="c1">#include &lt;sys/stat.h&gt;</span>
-<span class="c1">#include &lt;sys/types.h&gt;</span>
-<span class="c1">#include &lt;dirent.h&gt;</span>
-<span class="c1">#include &lt;signal.h&gt;</span>
-<span class="c1">#include &lt;pthread.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;dirent.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pthread.h&gt;</span><span class="cp"></span>
 </pre></div>
 </div>
 </div>
