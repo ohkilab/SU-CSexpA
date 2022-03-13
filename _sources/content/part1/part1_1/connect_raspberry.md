@@ -1,4 +1,4 @@
-# RaspberryPi の接続（固定 IP）
+# RaspberryPi の接続（固定 IP） - 情報科学実験 I
 
 ## 概要
 
@@ -6,7 +6,7 @@
 
 情報科学実験 I で配布した RaspberryPi は Ethernet デバイスに固定 IP（192.168.1.101）を設定してありますので，それを前提として PC から接続します．
 
-## RaspberryPi と PC の有線ケーブルでの P2P 接続
+## RaspbarryPi と PC の有線ケーブルでの P2P 接続
 
 ### RaspberryPi を電源と接続
 
@@ -19,8 +19,6 @@ RaspberryPi の microUSB 端子に電源を接続します．
 RaspberryPi と PC を LAN ケーブルで直結します（以下の例では USB 接続の LAN アダプタを使っていますが，PC に備え付けの有線 LAN ポートがあればそれに接続します）．
 
 ![raspi-pc.jpg](../../../images/part1/part1_1/raspi-pc.jpg)
-
-## IPアドレスと接続の確認
 
 ### PC の有線 LAN デバイスに IP アドレスを設定
 
@@ -57,7 +55,7 @@ IP アドレスとサブネットマスクを設定します．
 
 ![raspi-con6.png](../../../images/part1/part1_1/400px-raspi-con6.png)
 
-## PC から RaspberryPi への VNC による接続
+## PC から RaspbarryPi への VNC による接続
 
 ### VNC Client による接続
 
@@ -139,11 +137,11 @@ Windows 環境からの接続を例に説明します．
 
 - RaspberryPi 上のアカウント（pi）でログイン
 
-![tterm3.png](../../../images/part1/part1_1/400px-tterm3.png)
+![tterm2.png](../../../images/part1/part1_1/400px-tterm2.png)
 
 - 初回のみセキュリティ警告が出てくるので\[続行\]を押す
 
-![tterm2.png](../../../images/part1/part1_1/400px-tterm2.png)
+![tterm3.png](../../../images/part1/part1_1/400px-tterm3.png)
 
 - ログインに成功すればコマンドプロンプトが出てきます．
 
@@ -158,7 +156,7 @@ WinSCP を起動します． ログイン画面が開くので新規のホスト
 - ユーザ名: pi
 - パスワード: 設定したパスワード
 
-![winscp1.png](../../../images/part1/part1_1/600px-winscp1.png)
+![winscp1.png](../../../images/part1/part1_1/600px-winscp1.png)\]
 
 最初にアクセスした時のみセキュリティ警告が出ますので OK します．
 
@@ -168,13 +166,13 @@ WinSCP を起動します． ログイン画面が開くので新規のホスト
 
 ![winscp3.png](../../../images/part1/part1_1/600px-winscp3.png)
 
-## VM から RaspberryPi への接続の確認
+## VM から RaspbarryPi への接続の確認
 
 ### VM 環境の準備
 
-- [Virtual Box と VM の準備](./VirtualBox_preparation)を参考に，事前に準備しておいてください．
+- [Virtual Box と VM の準備](https://exp1.inf.shizuoka.ac.jp/Virtual_Box%E3%81%A8VM%E3%81%AE%E6%BA%96%E5%82%99 "Virtual BoxとVMの準備")を参考に，事前に準備しておいてください．
 
-### VM 環境から RaspberryPi への SSH 接続の確認
+### VM 環境から RaspbarryPi への SSH 接続の確認
 
 VM 上の Linux のターミナルを開いて，RaspberryPi に Ping を送って通信状態を確認します．
 
@@ -188,7 +186,7 @@ SSH で RaspberryPi にログインします．VM 上の Linux とユーザ名�
 
 最初の接続のみ，ホスト鍵を受け入れるか聞かれますので "yes" とします．
 
-```shell
+```
  $ slogin 192.168.1.101 -l pi
 ```
 
@@ -213,7 +211,7 @@ VirtualBox のメニューから「仮想マシン」→「設定」を開きま
 
 ![scpvm1.png](../../../images/part1/part1_1/400px-scpvm1.png)
 
-ネットワークの設定から「高度」タブを開き「ポートフォワーディング」を開きます．
+ネットワークの設定から「高度」タブを開き「ポートフォーワーディング」を開きます．
 
 ![scpvm2.png](../../../images/part1/part1_1/400px-scpvm2.png)
 
@@ -251,4 +249,4 @@ VirtualBox の設定上は外部から SSH 接続できる設定ですが，実�
 なお, 上記の SSH 接続や WinSCP の設定などが済んでいることを前提として話を進めていきます.
 必ず上記の SSH 接続や WinSCP の設定を済ましてから取り組んでください.
 
-[Atom を使った環境構築](./environment_building_with_atom)
+[Atom を使った環境構築](https://exp1.inf.shizuoka.ac.jp/Atom%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89 "Atomを使った環境構築")

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RaspberryPi の接続（固定 IP） &#8212; 情報科学実験Ⅰ</title>
+    <title>RaspberryPi の接続（固定 IP） - 情報科学実験 I &#8212; 情報科学実験Ⅰ</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Day2 の目的と概要" href="../part1_2/overview.html" />
-    <link rel="prev" title="Day1 の目標と概要" href="overview.html" />
+    <link rel="next" title="「通信性能の計測」の目的と概要 - 情報科学実験I" href="../part1_2/overview.html" />
+    <link rel="prev" title="目標と概要" href="overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -576,8 +576,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#raspberrypi-pc-p2p">
-   RaspberryPi と PC の有線ケーブルでの P2P 接続
+  <a class="reference internal nav-link" href="#raspbarrypi-pc-p2p">
+   RaspbarryPi と PC の有線ケーブルでの P2P 接続
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -590,13 +590,6 @@ const thebe_selector_output = ".output, .cell_output"
      RaspberryPi と PC との接続
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ip">
-   IPアドレスと接続の確認
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pc-lan-ip">
      PC の有線 LAN デバイスに IP アドレスを設定
@@ -610,8 +603,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pc-raspberrypi-vnc">
-   PC から RaspberryPi への VNC による接続
+  <a class="reference internal nav-link" href="#pc-raspbarrypi-vnc">
+   PC から RaspbarryPi への VNC による接続
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -659,8 +652,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vm-raspberrypi">
-   VM から RaspberryPi への接続の確認
+  <a class="reference internal nav-link" href="#vm-raspbarrypi">
+   VM から RaspbarryPi への接続の確認
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -669,8 +662,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vm-raspberrypi-ssh">
-     VM 環境から RaspberryPi への SSH 接続の確認
+    <a class="reference internal nav-link" href="#vm-raspbarrypi-ssh">
+     VM 環境から RaspbarryPi への SSH 接続の確認
     </a>
    </li>
   </ul>
@@ -702,7 +695,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>RaspberryPi の接続（固定 IP）</h1>
+                <h1>RaspberryPi の接続（固定 IP） - 情報科学実験 I</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -718,8 +711,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#raspberrypi-pc-p2p">
-   RaspberryPi と PC の有線ケーブルでの P2P 接続
+  <a class="reference internal nav-link" href="#raspbarrypi-pc-p2p">
+   RaspbarryPi と PC の有線ケーブルでの P2P 接続
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -732,13 +725,6 @@ const thebe_selector_output = ".output, .cell_output"
      RaspberryPi と PC との接続
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ip">
-   IPアドレスと接続の確認
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pc-lan-ip">
      PC の有線 LAN デバイスに IP アドレスを設定
@@ -752,8 +738,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pc-raspberrypi-vnc">
-   PC から RaspberryPi への VNC による接続
+  <a class="reference internal nav-link" href="#pc-raspbarrypi-vnc">
+   PC から RaspbarryPi への VNC による接続
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -801,8 +787,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vm-raspberrypi">
-   VM から RaspberryPi への接続の確認
+  <a class="reference internal nav-link" href="#vm-raspbarrypi">
+   VM から RaspbarryPi への接続の確認
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -811,8 +797,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vm-raspberrypi-ssh">
-     VM 環境から RaspberryPi への SSH 接続の確認
+    <a class="reference internal nav-link" href="#vm-raspbarrypi-ssh">
+     VM 環境から RaspbarryPi への SSH 接続の確認
     </a>
    </li>
   </ul>
@@ -843,15 +829,15 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="raspberrypi-ip">
-<h1>RaspberryPi の接続（固定 IP）<a class="headerlink" href="#raspberrypi-ip" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="raspberrypi-ip-i">
+<h1>RaspberryPi の接続（固定 IP） - 情報科学実験 I<a class="headerlink" href="#raspberrypi-ip-i" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
 <h2>概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>実験室以外で実験を行う場合に，ディスプレイとマウス・キーボードがない状態で RaspberryPi へ接続する方法を説明します．</p>
 <p>情報科学実験 I で配布した RaspberryPi は Ethernet デバイスに固定 IP（192.168.1.101）を設定してありますので，それを前提として PC から接続します．</p>
 </div>
-<div class="section" id="raspberrypi-pc-p2p">
-<h2>RaspberryPi と PC の有線ケーブルでの P2P 接続<a class="headerlink" href="#raspberrypi-pc-p2p" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="raspbarrypi-pc-p2p">
+<h2>RaspbarryPi と PC の有線ケーブルでの P2P 接続<a class="headerlink" href="#raspbarrypi-pc-p2p" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="raspberrypi">
 <h3>RaspberryPi を電源と接続<a class="headerlink" href="#raspberrypi" title="Permalink to this headline">¶</a></h3>
 <p>RaspberryPi の microUSB 端子に電源を接続します．</p>
@@ -862,9 +848,6 @@ const thebe_selector_output = ".output, .cell_output"
 <p>RaspberryPi と PC を LAN ケーブルで直結します（以下の例では USB 接続の LAN アダプタを使っていますが，PC に備え付けの有線 LAN ポートがあればそれに接続します）．</p>
 <p><img alt="raspi-pc.jpg" src="../../../_images/raspi-pc.jpg" /></p>
 </div>
-</div>
-<div class="section" id="ip">
-<h2>IPアドレスと接続の確認<a class="headerlink" href="#ip" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pc-lan-ip">
 <h3>PC の有線 LAN デバイスに IP アドレスを設定<a class="headerlink" href="#pc-lan-ip" title="Permalink to this headline">¶</a></h3>
 <p>WindowsPC 上のイーサネットデバイスに RaspberryPi と同じサブネットワークの IP アドレス（192.168.1.102）を設定します．</p>
@@ -890,8 +873,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><img alt="raspi-con6.png" src="../../../_images/400px-raspi-con6.png" /></p>
 </div>
 </div>
-<div class="section" id="pc-raspberrypi-vnc">
-<h2>PC から RaspberryPi への VNC による接続<a class="headerlink" href="#pc-raspberrypi-vnc" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pc-raspbarrypi-vnc">
+<h2>PC から RaspbarryPi への VNC による接続<a class="headerlink" href="#pc-raspbarrypi-vnc" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="vnc-client">
 <h3>VNC Client による接続<a class="headerlink" href="#vnc-client" title="Permalink to this headline">¶</a></h3>
 <p>既にインストール済の VNC Client を起動し，RaspberryPi に設定済みの固定 IP アドレス 192.168.1.101 に接続します．</p>
@@ -974,11 +957,11 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>RaspberryPi 上のアカウント（pi）でログイン</p></li>
 </ul>
-<p><img alt="tterm3.png" src="../../../_images/400px-tterm3.png" /></p>
+<p><img alt="tterm2.png" src="../../../_images/400px-tterm2.png" /></p>
 <ul class="simple">
 <li><p>初回のみセキュリティ警告が出てくるので[続行]を押す</p></li>
 </ul>
-<p><img alt="tterm2.png" src="../../../_images/400px-tterm2.png" /></p>
+<p><img alt="tterm3.png" src="../../../_images/400px-tterm3.png" /></p>
 <ul class="simple">
 <li><p>ログインに成功すればコマンドプロンプトが出てきます．</p></li>
 </ul>
@@ -993,22 +976,22 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>ユーザ名: pi</p></li>
 <li><p>パスワード: 設定したパスワード</p></li>
 </ul>
-<p><img alt="winscp1.png" src="../../../_images/600px-winscp1.png" /></p>
+<p><img alt="winscp1.png" src="../../../_images/600px-winscp1.png" />]</p>
 <p>最初にアクセスした時のみセキュリティ警告が出ますので OK します．</p>
 <p><img alt="winscp2.png" src="../../../_images/400px-winscp2.png" />]</p>
 <p>エクスプローラのようにドラッグ＆ドラップや右クリックメニューでファイルの転送や操作が可能です．</p>
 <p><img alt="winscp3.png" src="../../../_images/600px-winscp3.png" /></p>
 </div>
-<div class="section" id="vm-raspberrypi">
-<h2>VM から RaspberryPi への接続の確認<a class="headerlink" href="#vm-raspberrypi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vm-raspbarrypi">
+<h2>VM から RaspbarryPi への接続の確認<a class="headerlink" href="#vm-raspbarrypi" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="vm">
 <h3>VM 環境の準備<a class="headerlink" href="#vm" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference internal" href="VirtualBox_preparation.html"><span class="doc std std-doc">Virtual Box と VM の準備</span></a>を参考に，事前に準備しておいてください．</p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Virtual_Box%E3%81%A8VM%E3%81%AE%E6%BA%96%E5%82%99">Virtual Box と VM の準備</a>を参考に，事前に準備しておいてください．</p></li>
 </ul>
 </div>
-<div class="section" id="vm-raspberrypi-ssh">
-<h3>VM 環境から RaspberryPi への SSH 接続の確認<a class="headerlink" href="#vm-raspberrypi-ssh" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="vm-raspbarrypi-ssh">
+<h3>VM 環境から RaspbarryPi への SSH 接続の確認<a class="headerlink" href="#vm-raspbarrypi-ssh" title="Permalink to this headline">¶</a></h3>
 <p>VM 上の Linux のターミナルを開いて，RaspberryPi に Ping を送って通信状態を確認します．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ ping <span class="m">192</span>.168.1.101
 </pre></div>
@@ -1016,7 +999,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><img alt="vm2raspi1.png" src="../../../_images/400px-vm2raspi1.png" /></p>
 <p>SSH で RaspberryPi にログインします．VM 上の Linux とユーザ名が異なりますので，明示的にログインユーザ名を指定してください（ -l pi ）．</p>
 <p>最初の接続のみ，ホスト鍵を受け入れるか聞かれますので “yes” とします．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ slogin <span class="m">192</span>.168.1.101 -l pi
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ slogin 192.168.1.101 -l pi
 </pre></div>
 </div>
 <p><img alt="vm2raspi2.png" src="../../../_images/400px-vm2raspi2.png" /></p>
@@ -1034,7 +1017,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>VirtualBox のメニューから「仮想マシン」→「設定」を開きます．</p>
 <p><img alt="scpvm1.png" src="../../../_images/400px-scpvm1.png" /></p>
-<p>ネットワークの設定から「高度」タブを開き「ポートフォワーディング」を開きます．</p>
+<p>ネットワークの設定から「高度」タブを開き「ポートフォーワーディング」を開きます．</p>
 <p><img alt="scpvm2.png" src="../../../_images/400px-scpvm2.png" /></p>
 <p>右上のアイコンをクリックして，フォワーディングルールを追加します．</p>
 <p>ここでは，ホスト OS（Windows）のポート 22 への接続をゲスト OS（Linux）のポート 22 に転送する設定を行います．</p>
@@ -1062,7 +1045,7 @@ const thebe_selector_output = ".output, .cell_output"
 興味のある方は実施してみてください.</p>
 <p>なお, 上記の SSH 接続や WinSCP の設定などが済んでいることを前提として話を進めていきます.
 必ず上記の SSH 接続や WinSCP の設定を済ましてから取り組んでください.</p>
-<p><a class="reference internal" href="environment_building_with_atom.html"><span class="doc std std-doc">Atom を使った環境構築</span></a></p>
+<p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Atom%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89">Atom を使った環境構築</a></p>
 </div>
 </div>
 
@@ -1095,13 +1078,13 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Day1 の目標と概要</p>
+            <p class="prev-next-title">目標と概要</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../part1_2/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Day2 の目的と概要</p>
+        <p class="prev-next-title">「通信性能の計測」の目的と概要 - 情報科学実験I</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

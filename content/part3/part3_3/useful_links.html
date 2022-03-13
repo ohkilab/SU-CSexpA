@@ -728,7 +728,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference external" href="http://php.net/manual/ja/index.php">PHPリファレンス</a></p>
 <div class="section" id="id2">
 <h3>PHP実行時のエラー表示設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>Raspberry PiではPHPプログラムにエラーがあった場合，標準では**/var/log/apache2/error_log**というファイルにエラー内容を書きだします（Fedora の場合は <strong>/var/log/httpd/error_log</strong>でした）．</p>
+<p>Raspberry PiではPHPプログラムにエラーがあった場合，標準では <strong>/var/log/apache2/error_log</strong>というファイルにエラー内容を書きだします（Fedora の場合は <strong>/var/log/httpd/error_log</strong>でした）．</p>
 <p>このファイルはとても行数が多くなっていることが多いので，<strong>tail</strong>コマンドを使ってファイルの最後から中身を見ることが一般的です．</p>
 <p>また，エラーログが大きくなりすぎないように自動的に複数ファイルに分割されていることもありますので，最新のエラーログフィルを最後から眺めてみてください．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rasbian OS の場合</span>
@@ -798,7 +798,7 @@ $ sudo tail -n <span class="m">50</span> /var/log/httpd/error_log
 <li><p>以下にPHPで使用しやすい設定例を示します</p>
 <ul>
 <li><p>Output: <strong>PHP Serial</strong></p></li>
-<li><p>**Do not sign call?**をチェック</p></li>
+<li><p><strong>Do not sign call?</strong> をチェック</p></li>
 <li><p><strong>extras</strong>：得たい画像のメタデータ項目をカンマ区切りで入力</p></li>
 <li><p><strong>per_page</strong>：結果ページ１枚内に含まれる画像枚数（最大500枚）</p></li>
 <li><p><strong>page</strong>：結果における何ページ目かの数</p></li>

@@ -6,7 +6,7 @@
 
 **fsの以下の場所へファイルを提出して下さい。**
 
-**\\\\fs.inf.in.shizuoka.ac.jp\\share\\submit\\2021情報科学実験1\\第3部最終レポート**
+**`\\fs.inf.in.shizuoka.ac.jp\\share\\submit\\2021情報科学実験1\\第3部最終レポート`**
 
 提出するレポートの形式は以下の2点です．
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>サーバープログラムによる多重化 &#8212; 情報科学実験Ⅰ</title>
+    <title>select 関数による多重化 - 情報科学実験I &#8212; 情報科学実験Ⅰ</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -522,7 +522,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/part1/part1_3/multiplexing_server_program.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/content/part1/part1_3/multiplexing_select_function.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -542,7 +542,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_3/multiplexing_server_program.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_3/multiplexing_select_function.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -568,76 +568,20 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   サーバープログラムによる多重化
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   はじめに
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#select">
-   select 関数による多重化
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   サンプルコード
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     はじめに
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     サンプルコード
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     参考
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   マルチスレッドによる多重化
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   参考
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     はじめに
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     サンプルコード
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     参考
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   マルチプロセスによる多重化
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     はじめに
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     サンプルコード
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     参考
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -649,7 +593,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>サーバープログラムによる多重化</h1>
+                <h1>select 関数による多重化 - 情報科学実験I</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -659,76 +603,20 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   サーバープログラムによる多重化
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   はじめに
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#select">
-   select 関数による多重化
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   サンプルコード
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     はじめに
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     サンプルコード
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     参考
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   マルチスレッドによる多重化
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   参考
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     はじめに
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     サンプルコード
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     参考
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   マルチプロセスによる多重化
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     はじめに
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     サンプルコード
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     参考
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -739,34 +627,26 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>サーバープログラムによる多重化<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>本項の内容は以下の三つから構成されます。</p>
-<ul class="simple">
-<li><p>select関数による多重化</p></li>
-<li><p>マルチスレッドによる多重化</p></li>
-<li><p>マルチプロセスによる多重化</p></li>
-</ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="select">
-<h1>select 関数による多重化<a class="headerlink" href="#select" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="select-i">
+<h1>select 関数による多重化 - 情報科学実験I<a class="headerlink" href="#select-i" title="Permalink to this headline">¶</a></h1>
+<p>[TOC]</p>
+<div class="section" id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>select関数による同期I/Oの多重化を利用してサーバプログラムを多重化します．</p>
 <p>以下にEchoBackのプログラムを題材として，サーバ側プログラムのアクセプト周辺に関してサンプルコードを示します（サンプルコード内で呼び出しているechoBack関数（前回までのEchoBack通信部分のコードと大差ないので内容は未掲載）が実際に通信を行う部分になりますので，その関数を適切なタイミングで適切なソケットと共に実行することが各サンプルコードの主眼になります）．</p>
 <p>サーバ側プログラム全体は示しませんので、前回のサンプルコードを改良して複数クライアントに対応するサーバプログラムを完成させてください．</p>
 </div>
-<div class="section" id="id3">
-<h2>サンプルコード<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>サンプルコード<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>あるクライアントとの間のEchoBack通信（クライアントからメッセージを受け取り，そのメッセージ（あるいはメッセージを加工したデータ）をクライアントに返送する通信）を1つの単位として処理します．</p>
 <p>このサーバは以下の2種類の通信に適切な応答を行う必要があります．</p>
 <ul class="simple">
 <li><p>新規のクライアントからの接続</p></li>
 <li><p>既存のクライアントからのEchoBack要求</p></li>
 </ul>
-<p>新規のクライアントからの接続を待つ間に，既存のクライアントからのEchoBack要求が届くこともありますし，既存のクライアントからのEchoBack要求を待つ間に新規のクライアントからの接続要求や，別のクライアントからのEchoBack要求が届くこともあります．
+<p>新規のクライアントからの接続を待つ間に，既存のクライアントからのEchoBack要求が届くこともありますし，既存のクライアントからのEchoBack要求を待つ間に新規のクライアントからの接続要求や，別のクライアントからのEchoBack要求が届くこともあります．<br />
 従って，特定の通信を期待した読み込み待ちでプログラムをブロックすると他の通信に対応できないことになります．</p>
-<p>select関数はOSのシステムコールを活用することで複数のソケットを監視し，任意のソケットが読み込み可能な状態となった時点でその情報を返します．
+<p>select関数はOSのシステムコールを活用することで複数のソケットを監視し，任意のソケットが読み込み可能な状態となった時点でその情報を返します．<br />
 その後，読み込み可能状態になったソケットのみを対象としてブロッキングI/O関数を利用した受信待ちを行ったとしても実質的に待ちなしでデータを受信することができます（読み込み待ちを行った時点で既に読み込み可能状態になっているため）．</p>
 <p>以下のサンプルコードの概要としては以下の処理を行っています．</p>
 <p>1. select関数に引数として与える監視するソケットの情報を生成する</p>
@@ -889,183 +769,10 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>参考<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>参考<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>[ネットワークプログラミング2 - 多重I/O（リンクは <code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\share\class\NetworkProgramming</span></code>）にあります]</p></li>
-</ul>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id5">
-<h1>マルチスレッドによる多重化<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id6">
-<h2>はじめに<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<p>マルチスレッドを用いてサーバプログラムを多重化します．</p>
-<p>以下にEchoBackのプログラムを題材として，サーバ側プログラムのアクセプト周辺のサンプルコードを示します（サンプルコード内で呼び出しているechoBackLoop関数（前回までのEchoBack通信部分のコードと大差ないので内容は未掲載）が実際に通信を行う部分になりますので，その関数に適切なスレッドを割り当て，適切なソケットと共に実行することが各サンプルコードの主眼になります）．</p>
-<p>サーバ側プログラム全体は示しませんので、前回のサンプルコードを改良して複数クライアントに対応するサーバプログラムを完成させてください．
-以下のサンプルコードは pthread ライブラリを利用していますので，ビルド時に -lpthread オプションを指定する必要があります．</p>
-</div>
-<div class="section" id="id7">
-<h2>サンプルコード<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<p>あるクライアントとの間のEchoBack通信（クライアントからメッセージを受け取り，そのメッセージ（あるいはメッセージを加工したデータ）をクライアントに返送する通信）の繰り返しを1つのスレッドとして処理します．</p>
-<p>このスレッドはクライアントから切断されるまで存続します．</p>
-<p>当該クライアントとの通信が終了した場合には自身でスレッドを終了します（スレッドのリソースもスレッド自身で終了処理します）．</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// thread function</span>
-<span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">thread_func</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">accP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">arg</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">accP</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span><span class="n">free</span><span class="p">(</span><span class="n">accP</span><span class="p">);</span><span class="w"></span>
-
-<span class="w"> </span><span class="n">pthread_detach</span><span class="p">(</span><span class="n">pthread_self</span><span class="p">());</span><span class="w"></span>
-
-<span class="w"> </span><span class="c1">// echoBackLoop関数は自分で作成すること</span>
-<span class="w"> </span><span class="n">echoBackLoop</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span><span class="w"></span>
-<span class="w"> </span><span class="n">close</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span><span class="w"></span>
-
-<span class="w"> </span><span class="n">pthread_exit</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>クライアントから新規の接続があった場合に新規にスレッドを作成して，そのクライアントとの間の通信を作成したスレッドに任せます．</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">acceptLoop</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_storage</span><span class="w"> </span><span class="n">from</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">from</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="c1">// エラー処理</span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errno</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EINTR</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;accept&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="c1">// クライアントからの接続が行われた場合</span>
-<span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="n">hbuf</span><span class="p">[</span><span class="n">NI_MAXHOST</span><span class="p">];</span><span class="w"></span>
-<span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="n">sbuf</span><span class="p">[</span><span class="n">NI_MAXSERV</span><span class="p">];</span><span class="w"></span>
-<span class="w">   </span><span class="n">getnameinfo</span><span class="p">((</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">hbuf</span><span class="p">,</span><span class="w"></span>
-<span class="w">     </span><span class="k">sizeof</span><span class="p">(</span><span class="n">hbuf</span><span class="p">),</span><span class="w"> </span><span class="n">sbuf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">sbuf</span><span class="p">),</span><span class="w"></span>
-<span class="w">     </span><span class="n">NI_NUMERICHOST</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NI_NUMERICSERV</span><span class="p">);</span><span class="w"></span>
-<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;accept:%s:%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hbuf</span><span class="p">,</span><span class="w"> </span><span class="n">sbuf</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">   </span><span class="c1">// スレッド生成</span>
-<span class="w">   </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
-<span class="w">   </span><span class="o">*</span><span class="n">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acc</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="n">pthread_t</span><span class="w"> </span><span class="n">th</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">th</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">thread_func</span><span class="p">,</span><span class="w"> </span><span class="n">param</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;pthread_create&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span><span class="w"> </span><span class="c1">// 切断</span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id8">
-<h2>参考<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>[ネットワークプログラミング3 - マルチスレッド（リンクは <code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\share\class\NetworkProgramming</span></code>）にあります]</p></li>
-</ul>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id9">
-<h1>マルチプロセスによる多重化<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id10">
-<h2>はじめに<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
-<p>マルチプロセスを用いてサーバプログラムを多重化します．</p>
-<p>以下にEchoBackのプログラムを題材としたサーバ側プログラムのアクセプト周辺のサンプルコードを示します（サンプルコード内で呼び出しているechoBackLoop関数（前回までのEchoBack通信部分のコードと大差ないので内容は未掲載）が実際に通信を行う部分になりますので，その関数に適切なプロセスを割り当て，適切なソケットを与えて実行することが各サンプルコードの主眼になります）．</p>
-<p>サーバ側プログラム全体は示しませんので、前回のサンプルコードを改良して複数クライアントに対応するサーバプログラムを完成させてください．</p>
-</div>
-<div class="section" id="id11">
-<h2>サンプルコード<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<p>あるクライアントとの間のEchoBack通信（クライアントからメッセージを受け取り，そのメッセージ（あるいはメッセージを加工したデータ）をクライアントに返送する通信）の繰り返しを個別のプロセスに担当させます．
-このプロセスはクライアントから切断されるまで存続します．</p>
-<p>当該クライアントとの通信が終了した場合には自身でプロセスを終了します．</p>
-<p>子プロセスのリソースはシグナルハンドラによって回収しますが，シグナルハンドラによる回収がうまくいかない場合には親プロセスによって回収します．</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">acceptLoop</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">// 子プロセス終了時のシグナルハンドラを指定</span>
-<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sigaction</span><span class="w"> </span><span class="n">sa</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGCHLD</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sa</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">sa</span><span class="p">.</span><span class="n">sa_handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sigChldHandler</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">sa</span><span class="p">.</span><span class="n">sa_flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SA_NODEFER</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGCHLD</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sa</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_storage</span><span class="w"> </span><span class="n">from</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">from</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// エラー処理</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errno</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EINTR</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;accept&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// クライアントからの接続が行われた場合</span>
-<span class="w">      </span><span class="kt">char</span><span class="w"> </span><span class="n">hbuf</span><span class="p">[</span><span class="n">NI_MAXHOST</span><span class="p">];</span><span class="w"></span>
-<span class="w">      </span><span class="kt">char</span><span class="w"> </span><span class="n">sbuf</span><span class="p">[</span><span class="n">NI_MAXSERV</span><span class="p">];</span><span class="w"></span>
-<span class="w">      </span><span class="n">getnameinfo</span><span class="p">((</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">hbuf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">hbuf</span><span class="p">),</span><span class="w"></span>
-<span class="w">          </span><span class="n">sbuf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">sbuf</span><span class="p">),</span><span class="w"></span>
-<span class="w">          </span><span class="n">NI_NUMERICHOST</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NI_NUMERICSERV</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;accept:%s:%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hbuf</span><span class="p">,</span><span class="w"> </span><span class="n">sbuf</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">      </span><span class="c1">// プロセス生成</span>
-<span class="w">      </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">();</span><span class="w"></span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// エラー処理</span>
-<span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;fork&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 子プロセス</span>
-<span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">);</span><span class="w">  </span><span class="c1">// サーバソケットクローズ</span>
-<span class="w">        </span><span class="n">echoBackLoop</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span><span class="w">    </span><span class="c1">// アクセプトソケットクローズ</span>
-<span class="w">        </span><span class="n">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">_exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 親プロセス</span>
-<span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span><span class="w">    </span><span class="c1">// アクセプトソケットクローズ</span>
-<span class="w">        </span><span class="n">acc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">      </span><span class="c1">// 子プロセスの終了処理</span>
-<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">waitpid</span><span class="p">(</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">WNOHANG</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 終了した(かつSIGCHLDでキャッチできなかった)子プロセスが存在する場合</span>
-<span class="w">        </span><span class="c1">// WNOHANGを指定してあるのでノンブロッキング処理</span>
-<span class="w">        </span><span class="c1">// 各子プロセス終了時に確実に回収しなくても新規クライアント接続時に回収できれば十分なため．</span>
-<span class="w">        </span><span class="n">printChildProcessStatus</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1">// シグナルハンドラによって子プロセスのリソースを回収する</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">sigChldHandler</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// 子プロセスの終了を待つ</span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">status</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">// 非同期シグナルハンドラ内でfprintfを使うことは好ましくないが，</span>
-<span class="w">  </span><span class="c1">// ここではプロセスの状態表示に簡単のため使うことにする</span>
-<span class="w">  </span><span class="n">printChildProcessStatus</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">printChildProcessStatus</span><span class="p">(</span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;sig_chld_handler:wait:pid=%d,status=%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;  WIFEXITED:%d,WEXITSTATUS:%d,WIFSIGNALED:%d,&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="s">&quot;WTERMSIG:%d,WIFSTOPPED:%d,WSTOPSIG:%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">WIFEXITED</span><span class="p">(</span><span class="n">status</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="n">WEXITSTATUS</span><span class="p">(</span><span class="n">status</span><span class="p">),</span><span class="w"> </span><span class="n">WIFSIGNALED</span><span class="p">(</span><span class="n">status</span><span class="p">),</span><span class="w"> </span><span class="n">WTERMSIG</span><span class="p">(</span><span class="n">status</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="n">WIFSTOPPED</span><span class="p">(</span><span class="n">status</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="n">WSTOPSIG</span><span class="p">(</span><span class="n">status</span><span class="p">));</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id12">
-<h2>参考<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>[ネットワークプログラミング4 - マルチプロセス（リンクは <code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\share\class\NetworkProgramming</span></code>）にあります]</p></li>
+<li><p>[ネットワークプログラミング2 - 多重I/O（リンクは \<a class="reference external" href="http://fs.inf.in.shizuoka.ac.jp">fs.inf.in.shizuoka.ac.jp</a>\share\class\NetworkProgramming）にあります]</p></li>
 </ul>
 </div>
 </div>
