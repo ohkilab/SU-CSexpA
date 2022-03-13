@@ -11,7 +11,7 @@ HTTPサーバ機能拡張の実装について，具体的にどのようにな�
 
 最先端のWeb技術が比較的早く実装されるWebサーバとして，[Jetty](http://www.eclipse.org/jetty/)が挙げられます．
 
-第一部で学んだプロトコル解析技術を用いて，正しい動作をApacheやJettyで確認してから，その通りに動作するプログラムを実装すると楽かもしれません．
+プロトコル解析技術を用いて，正しい動作をApacheやJettyで確認してから，その通りに動作するプログラムを実装すると楽かもしれません．
 
 ここで，Webサーバの挙動を分かりやすく解析するためには，接続するWebブラウザの設定における「同時接続数」を1にして分析した方が分かりやすいと思います（Webブラウザによって異なります）．
 
@@ -29,7 +29,7 @@ HTTP/2は，まだ[英語版](https://tools.ietf.org/html/rfc7540)しかない�
 
 例えば，POST実装で躓（つまづ）いたとします．まず，POSTが動作するフォームをtest.htmlとして作ってみます（POSTの部分をGETに変えるとGETで動作しますが，ファイルのアップロードは動作しません）．
 
-```
+```html
 <form enctype="multipart/form-data" action="upload.php" method="POST">
   upload file: <input name="userfile" type="file" /><br>
   <input type="text" name="text1" value="value1" /><br>
@@ -38,7 +38,7 @@ HTTP/2は，まだ[英語版](https://tools.ietf.org/html/rfc7540)しかない�
 ```
 次に，Webサーバー側へupload.phpとしてPOSTを受け取るCGIを置きます．
 
-```
+```php
 <?php
 
 echo 'dumping $_POST<br>';
@@ -60,7 +60,7 @@ move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
 例えば，以下のようなpost.txtがあったとします．これを解析するプログラムを作る方法です．
 
 ### post.txt
-```
+```txt
 POST /test/upload.php HTTP/1.1
 Host: sarulab.inf.shizuoka.ac.jp
 User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0
@@ -109,7 +109,7 @@ headerとbodyを分けるオートマトンは，以下のように描けます�
 
 ### parse\_header\_body.c
 
-```
+```c
 #include "exp1.h"
 
 int main()
@@ -218,7 +218,7 @@ headerで指定されている「boundary=---------------------------20124110774
 
 ### system\_sample.c
 
-```
+```c
 #include "exp1.h"
 
 int main()
@@ -239,7 +239,7 @@ system()で"php test.php > tmp.html" を実行させてから，tmp.htmlを読�
 
 ### dup2\_sample.c
 
-```
+```c
 #include "exp1.h"
 
 int main()

@@ -19,7 +19,7 @@ HTTPのステータスコードは，[HTTPステータスコード - Wikipedia](
 -   [リダイレクト時のステータスコードには何を使えばいいか？](http://www.symmetric.co.jp/blog/archives/123)
 -   [新人コーダーに知っておいて欲しいリダイレクトの基本](http://html-coding.co.jp/knowhow/tips/000572/)
 
-FirebugやChromeのデバッガで適切に動作しているか確認してみてください．
+ブラウザのデベロッパーツールを使って適切に動作しているか確認してみてください．
 
 ## 4XX系ステータスコードへの対応
 
@@ -39,8 +39,26 @@ FirebugやChromeのデバッガで適切に動作しているか確認してみ�
 
 ご参考まで，Base64の関数はネット上に落ちてますし，C言語のsystem関数を使って[Linuxのbase64コマンド](http://linuxjm.osdn.jp/html/GNU_coreutils/man1/base64.1.html)を 実行するという方法もあります．以下は，C言語のsystem関数を使ってBase64の文字列をデコードするサンプルソースコードです．このサンプルでは，tmpnam()を用いて一時的に作成したファイルへデコード結果を書き出し，catコマンドで表示しています（ただし以下に示すようにtmpnam()の使用にも注意しましょう）．
 
-<table data-tab-size="8" data-paste-markdown-skip="" data-tagsearch-lang="C" data-tagsearch-path="gistfile1.c"><tbody><tr><td id="file-gistfile1-c-L1" data-line-number="1"></td><td id="file-gistfile1-c-LC1">#<span>include</span> <span><span>"</span>exp1.h<span>"</span></span></td></tr><tr><td id="file-gistfile1-c-L2" data-line-number="2"></td><td id="file-gistfile1-c-LC2"></td></tr><tr><td id="file-gistfile1-c-L3" data-line-number="3"></td><td id="file-gistfile1-c-LC3"><span>int</span> <span>main</span>()</td></tr><tr><td id="file-gistfile1-c-L4" data-line-number="4"></td><td id="file-gistfile1-c-LC4">{</td></tr><tr><td id="file-gistfile1-c-L5" data-line-number="5"></td><td id="file-gistfile1-c-LC5"><span>char</span> str_base64[] = <span><span>"</span>ZXhwMTpzaGl6dXB5X2hhX3Bha3VyaQo=<span>"</span></span>;</td></tr><tr><td id="file-gistfile1-c-L6" data-line-number="6"></td><td id="file-gistfile1-c-LC6"><span>char</span> <span>tmpfile</span>[L_tmpnam];</td></tr><tr><td id="file-gistfile1-c-L7" data-line-number="7"></td><td id="file-gistfile1-c-LC7"><span>char</span> cmd[<span>1024</span>];</td></tr><tr><td id="file-gistfile1-c-L8" data-line-number="8"></td><td id="file-gistfile1-c-LC8"></td></tr><tr><td id="file-gistfile1-c-L9" data-line-number="9"></td><td id="file-gistfile1-c-LC9"><span>tmpnam</span>(<span>tmpfile</span>);</td></tr><tr><td id="file-gistfile1-c-L10" data-line-number="10"></td><td id="file-gistfile1-c-LC10"><span>printf</span>(<span><span>"</span>tmpfile is <span>%s</span><span>\n</span><span>"</span></span>, <span>tmpfile</span>);</td></tr><tr><td id="file-gistfile1-c-L11" data-line-number="11"></td><td id="file-gistfile1-c-LC11"></td></tr><tr><td id="file-gistfile1-c-L12" data-line-number="12"></td><td id="file-gistfile1-c-LC12"><span>sprintf</span>(cmd, <span><span>"</span>echo <span>%s</span> | base64 -d &gt; <span>%s</span><span>"</span></span>, str_base64, <span>tmpfile</span>);</td></tr><tr><td id="file-gistfile1-c-L13" data-line-number="13"></td><td id="file-gistfile1-c-LC13"><span>system</span>(cmd);</td></tr><tr><td id="file-gistfile1-c-L14" data-line-number="14"></td><td id="file-gistfile1-c-LC14"></td></tr><tr><td id="file-gistfile1-c-L15" data-line-number="15"></td><td id="file-gistfile1-c-LC15"><span>sprintf</span>(cmd, <span><span>"</span>cat <span>%s</span><span>"</span></span>, <span>tmpfile</span>);</td></tr><tr><td id="file-gistfile1-c-L16" data-line-number="16"></td><td id="file-gistfile1-c-LC16"><span>system</span>(cmd);</td></tr><tr><td id="file-gistfile1-c-L17" data-line-number="17"></td><td id="file-gistfile1-c-LC17"><span>remove</span>(<span>tmpfile</span>);</td></tr><tr><td id="file-gistfile1-c-L18" data-line-number="18"></td><td id="file-gistfile1-c-LC18">}</td></tr></tbody></table>
+```c
+#include "exp1.h"
 
+int main()
+{
+  char str_base64[] = "ZXhwMTpzaGl6dXB5X2hhX3Bha3VyaQo=";
+  char tmpfile[L_tmpnam];
+  char cmd[1024];
+
+  tmpnam(tmpfile);
+  printf("tmpfile is %s\n", tmpfile);
+
+  sprintf(cmd, "echo %s | base64 -d > %s", str_base64, tmpfile);
+  system(cmd);
+
+  sprintf(cmd, "cat %s", tmpfile);
+  system(cmd);
+  remove(tmpfile);
+}
+```
 -   [C言語 一時ファイル名(テンポラリファイル名)の作成 - stdio.h - \[ tmpnam](http://simd.jugem.jp/?eid=61) | 勇躍のゴミ箱\]
 -   [IPA ISEC　セキュア・プログラミング講座：C/C++言語編　第7章 データ漏えい対策：テンポラリファイル（Unix の一時ファイル）](http://www.ipa.go.jp/security/awareness/vendor/programmingv2/contents/c603.html)
 -   [C言語のtmpnam()って関数を知った](http://blog.clouder.jp/2008/10/29/ctmpnam/)
