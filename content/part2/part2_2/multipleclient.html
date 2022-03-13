@@ -733,9 +733,8 @@ poll()は，select()の毎回マスクを保存する必要があった点が改
 <p>プロセスとはOSから見た一つの実行単位です．<br />
 プログラムを実行すると，通常一つのプロセスとしてOSの管理下で動作し，その割り当てられたメモリ空間の中でスタックが積まれて関数が実行されたりします．<br />
 このプロセスを複数同時に動作させるとマルチプロセスになります．<br />
-ここでは，処理の途中までは一つのプロセスが処理を行い，処理の多重化が必要になった時点でfork()を呼び出し，親のプロセスの配下で子供のプロセスを生成するようにして複数クライアント対応を実現してみてください．<br />
-fork()の基本的な動作は以下となります．</p>
-<p>fork()の動作</p>
+ここでは，処理の途中までは一つのプロセスが処理を行い，処理の多重化が必要になった時点でfork()を呼び出し，親のプロセスの配下で子供のプロセスを生成するようにして複数クライアント対応を実現してみてください．</p>
+<p>fork()の基本的な動作は以下となります．</p>
 <ul class="simple">
 <li><p>子プロセスの生成: fork()を実行した時点で子プロセスが複製され並列処理を開始</p></li>
 <li><p>子プロセスの終了: 子プロセスが_exit()した時点で終了</p></li>
@@ -746,24 +745,24 @@ fork()の戻り値が0になるのは，プロセスが複製された時の子�
 fork()の戻り値が0以上になるのは，親プロセス側で，戻り値は子プロセスのプロセスIDになります．<br />
 プロセスIDは，kill()で強制終了させたい場合や，子プロセスの終了を得るために重要です．<br />
 子プロセス，親プロセスがどのように動作することで，標準出力（皆さんのディスプレイ）に何が表示されるか，どちらのプロセスがどのタイミングで何を出力しているのか理解し，グループメンバ全員とその理解で正しいかどうか確認してください.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;exp1.h&quot;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 
-<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-    <span class="nb">int</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">();</span><span class="w"></span>
 
-    <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-      <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;hello from child</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-      <span class="n">_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-      <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;pid = </span><span class="si">%d</span><span class="s2"> created</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">      </span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello from child</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;pid = %d created</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pid</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>なお，子プロセスの終了を親プロセスでwait()しないで放置すると，子プロセスで使用されたリソースがいつまでも解放されない状態（ゾンビプロセス）になってしまいます．<br />

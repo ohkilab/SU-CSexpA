@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ベンチマークプログラムの設計と実装 &#8212; 情報科学実験Ⅰ</title>
+    <title>ベンチマークプログラムの設計と実装 - 情報科学実験I &#8212; 情報科学実験Ⅰ</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -569,27 +569,27 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id1">
    はじめに
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id2">
    サンプルコード
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id3">
      時間計測部分
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id4">
      スレッドの生成と計測部分
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id5">
      接続時間と送受信時間の計測
     </a>
    </li>
@@ -605,7 +605,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>ベンチマークプログラムの設計と実装</h1>
+                <h1>ベンチマークプログラムの設計と実装 - 情報科学実験I</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -616,27 +616,27 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id1">
    はじめに
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id2">
    サンプルコード
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id3">
      時間計測部分
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id4">
      スレッドの生成と計測部分
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id5">
      接続時間と送受信時間の計測
     </a>
    </li>
@@ -651,10 +651,11 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>ベンチマークプログラムの設計と実装<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="i">
+<h1>ベンチマークプログラムの設計と実装 - 情報科学実験I<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h1>
+<p>[TOC]</p>
+<div class="section" id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>以下の動作を行うクライアントプログラムを開発します．</p>
 <ul class="simple">
 <li><p>あるサーバに対して1接続につきM回のEchoBack通信を実施する</p></li>
@@ -663,12 +664,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p>すなわち，サーバがN台のクライアントから同時に接続を受け，それぞれの接続の中でM回のEchoBack通信を行う状況を作り出します．</p>
 <p>シングルスレッドでブロッキング関数を使ってサーバに接続した場合（具体的には send/recv 関数を使って送受信する場合），順番に送受信を行うことになりますので，ある時点ではサーバは1接続しか扱っていないことになります．これではサーバに負荷がかかりませんので，マルチスレッドを利用してN並列でサーバと接続可能なクライアントプログラムを実装します．</p>
 </div>
-<div class="section" id="id3">
-<h2>サンプルコード<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>サンプルコード<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行するベンチマークプログラムのサンプルを提供するので，それぞれの実験方法の必要に応じて修正等を行って利用してください．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/day3/tcpbenchmark.tgz">tcpbenchmark</a>（静大のネットワークからのみアクセス可能）</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験I\第一部サンプルコード\tcpbenchmark.tgz</span></code>（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）</p></li>
+<li><p>\<a class="reference external" href="http://fs.inf.in.shizuoka.ac.jp">fs.inf.in.shizuoka.ac.jp</a>\share\class\情報科学実験I\第一部サンプルコード\tcpbenchmark.tgz（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）</p></li>
 </ul>
 <p>基本的な使い方は以下の通りですが，それぞれでソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やせる拡張を行ってもよいでしょう）．</p>
 <p>実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は sudo ./hogehoge の様に<strong>管理者権限で実行</strong>をしてみて下さい．(20210428 柴田追記)</p>
@@ -682,39 +683,39 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>第4引数: スレッド数(N)</p></li>
 <li><p>第5引数: EchoBack回数(M)</p></li>
 </ul>
-<div class="section" id="id4">
-<h3>時間計測部分<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>時間計測部分<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．計測開示の時刻と計測終了時の時刻を構造体で管理し，差分を取って所要時間を表示しています．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">__timeCounter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">startTs</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">endTs</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">TIMECOUNTER</span><span class="p">;</span><span class="w"></span>
-
+<span class="w"> </span>
 <span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">countStart</span><span class="p">(</span><span class="n">TIMECOUNTER</span><span class="o">*</span><span class="w"> </span><span class="n">tc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">startTs</span><span class="p">));</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
-
+<span class="w"> </span>
 <span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">countEnd</span><span class="p">(</span><span class="n">TIMECOUNTER</span><span class="o">*</span><span class="w"> </span><span class="n">tc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">endTs</span><span class="p">));</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
-
+<span class="w"> </span>
 <span class="w"> </span><span class="cm">/**</span>
-<span class="cm">   * amount required time</span>
+<span class="cm">   * amount required time </span>
 <span class="cm">   */</span><span class="w"></span>
 <span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">diffRealSec</span><span class="p">(</span><span class="n">TIMECOUNTER</span><span class="o">*</span><span class="w"> </span><span class="n">tc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="kt">time_t</span><span class="w"> </span><span class="n">diffsec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">difftime</span><span class="p">(</span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">endTs</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">,</span><span class="w"> </span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">startTs</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">diffnanosec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">endTs</span><span class="p">.</span><span class="n">tv_nsec</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tc</span><span class="o">-&gt;</span><span class="n">startTs</span><span class="p">.</span><span class="n">tv_nsec</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">diffsec</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">diffnanosec</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
-
+<span class="w"> </span>
 <span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printUsedTime</span><span class="p">(</span><span class="n">TIMECOUNTER</span><span class="o">*</span><span class="w"> </span><span class="n">tc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;UsedTime: %10.10f(sec)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">diffRealSec</span><span class="p">(</span><span class="n">tc</span><span class="p">));</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>スレッドの生成と計測部分<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>スレッドの生成と計測部分<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>単位時間あたりの処理能力を計測する必要があるので，スレッド生成処理のタイムラグを除外するために，予め全てのスレッドを生成しておき，スタートフラグを以って全スレッドが並行してサーバに接続開始するように設計しています．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tplistNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="n">THREADPARAM</span><span class="o">*</span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">THREADPARAM</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">THREADPARAM</span><span class="p">));</span><span class="w"></span>
@@ -722,31 +723,31 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="w"> </span><span class="n">strcpy</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">serverInfo</span><span class="p">.</span><span class="n">portNum</span><span class="p">,</span><span class="w"> </span><span class="n">portNum</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="n">tplist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tp</span><span class="p">;</span><span class="w"></span>
-
+<span class="w"> </span>
 <span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">attr</span><span class="p">,</span><span class="w"> </span><span class="n">thread_func</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;pthread_create&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;thread %d created.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="p">}</span><span class="w"></span>
-
+<span class="w"> </span>
 <span class="w"> </span><span class="c1">// スレッドの準備終了</span>
 <span class="w"> </span><span class="n">isPrepared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start count down: 2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">// 1 sec</span>
 <span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start count down: 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">// 1 sec</span>
-
+<span class="w">       </span>
 <span class="w">       </span><span class="c1">// スレッドスタート及び計測開始</span>
 <span class="w"> </span><span class="n">countStart</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="n">isRunnable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Thread Start!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-
+<span class="w">       </span>
 <span class="w">       </span><span class="c1">// スレッド終了待ち</span>
 <span class="w">       </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tplistNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pthread_join</span><span class="p">(</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="nb">NULL</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">           </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;pthread_join&quot;</span><span class="p">);</span><span class="w"></span>
-
+<span class="w">       </span>
 <span class="w">           </span><span class="c1">// 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））</span>
 <span class="w">           </span><span class="n">countEnd</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
 <span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
@@ -758,23 +759,23 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>接続時間と送受信時間の計測<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>接続時間と送受信時間の計測<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>各スレッドにおける接続時間と送受信時間を計測しています。</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">RECONNECT_MAX</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="c1">// 接続時間計測開始</span>
 <span class="w">   </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="c1">// サーバにソケット接続</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">csocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clientTCPSocket</span><span class="p">(</span><span class="n">si</span><span class="o">-&gt;</span><span class="n">hostName</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="o">-&gt;</span><span class="n">portNum</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;client_socket():error</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="c1">// 接続時間計測終了</span>
 <span class="w">   </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">csocket</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">   </span><span class="c1">// connection refused ( maybe server down )</span>
 <span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;maybe server down.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
@@ -782,10 +783,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
 <span class="w">   </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="c1">// 接続時間計測終了</span>
 <span class="w">   </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="c1">// 実際の送受信処理の計測の前に接続確認を行う</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csocket is not connected.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
@@ -793,19 +794,19 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="c1">// 送受信時間計測開始</span>
 <span class="w">   </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="c1">// 送受信処理</span>
 <span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="n">ECHOBACKNUM</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">   </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failSendRecvNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="c1">// 送受信時間計測終了</span>
 <span class="w">   </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span><span class="w"></span>
-
+<span class="w">   </span>
 <span class="w">   </span><span class="c1">// ソケットクローズ</span>
 <span class="w">   </span><span class="n">close</span><span class="p">(</span><span class="n">csocket</span><span class="p">);</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>

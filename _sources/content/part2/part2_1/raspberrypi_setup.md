@@ -9,11 +9,10 @@
 
 Raspbien では，これらのソフトウェアを apt を使ってインストールします．
 
-```
+```shell
 $ sudo apt install apache2 apache2-doc apache2-utils　　　　　　　　　 <--- WEBサーバーのインストール
 $ sudo apt install php7.3 php7.3-mysql apache2-mod-php7.3              <--- PHPのインストール
 $ sudo apt install mariadb-server mariadb-client                       <--- DBのインストール
-
 ```
 
 PCとRaspiを有線で直接接続している場合，RaspiはPCとは接続されていますが，インターネットに接続されていません． 色々と方法はありますが，以下，いくつかある手順で可能なものを試して実行しましょう．
@@ -28,8 +27,7 @@ PCとRaspiを有線で直接接続している場合，RaspiはPCとは接続さ
     -   RaspiのIP設定を固定IPからDHCPへ変更する
     -   インストール
     -   RaspiのIP設定をDHCPから固定IPへ戻してから，有線LANをルータから抜いて再度ノートPCと接続
-
-```
+```shell
 RasPiの固定IP設定をDHCP設定へ変更する方法（再度，固定IPに戻す際はコメントアウトを外して以下実行）
 $ sudo vi /etc/dhcpcd.conf                      <---- viエディタでなくてもOK
 最下部辺りの以下の行に移動して「i」押してコマンドモードから入力モードに切り替えて以下のように２行コメントアウト
@@ -44,7 +42,6 @@ $ sudo vi /etc/dhcpcd.conf                      <---- viエディタでなくて
 $ sudo systemctl restart dhcpcd
 $ sudo systemctl restart networking
 $ ip a                      <---- DHCPでIPアドレス割り振られているか確認し，Raspi上のWebブラウザでホームページ等も閲覧できればOK
-
 ```
 
 -   どちらも無理な場合
@@ -56,14 +53,13 @@ $ ip a                      <---- DHCPでIPアドレス割り振られている�
 
 ファイアウォールは ufw を利用して設定します．新たに Webサーバをインストールしましたので，Webサーバが利用するポート80に対して外部からアクセスできるよう設定しておきます．
 
-```
+```shell
 $ sudo ufw allow 80/tcp
-
 ```
 
-以下のコマンドを利用して，設定内容を確認しておきます．[第一部](https://exp1.inf.shizuoka.ac.jp/RaspberryPi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97 "RaspberryPiのセットアップ")で行った設定を合わせて，以下のようにポートが開放されているはずです．なっていない方は再度以下を設定しておいてください（最後のソフトウェアのアップデートは時間を要しますので時間のある時に実施してください）．
+以下のコマンドを利用して，設定内容を確認しておきます．以下のようにポートが開放されているはずです．なっていない方は再度以下を設定しておいてください（最後のソフトウェアのアップデートは時間を要しますので時間のある時に実施してください）．
 
-```
+```shell
 $ sudo apt install ufw
 $ sudo ufw disable
 $ sudo ufw default deny
@@ -77,10 +73,9 @@ $ sudo ufw enable
 $ sudo apt update
 $ sudo apt -y upgrade
 $ sudo reboot
-
 ```
 
-```
+```shell
 $ sudo ufw status
 Status: active
 
@@ -96,7 +91,6 @@ To                         Action      From
 5201/tcp (v6)              ALLOW       Anywhere (v6)
 5900/tcp (v6)              ALLOW       Anywhere (v6)
 11111/tcp (v6)             ALLOW       Anywhere (v6)
-
 ```
 
 （補足）IPv6を使用しない場合は /etc/default/ufw 内で IPV6=no とすると無効にすることができます
@@ -107,13 +101,12 @@ To                         Action      From
 
 それではいよいよWebサーバを設定します．既にWebサーバ(Apache)は上記の手順でインストールしていますので，RasPi起動時に自動的にWebサーバが起動（enable）するよう設定しつつ，Webサーバを起動（start）してみます．
 
-```
+```shell
 $ sudo systemctl enable apache2.service
 $ sudo systemctl start apache2.service
-
 ```
 
-それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して， **[http://192.168.1.101](http://192.168.1.101/)** にアクセスしてみましょう（DHCP設定になっている人は，$ ip a 等でIPアドレスを確認して適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．
+それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して， **[http://192.168.1.101](http://192.168.1.101/)** にアクセスしてみましょう（DHCP設定になっている人は，｀$ ip a ｀等でIPアドレスを確認して適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．
 
 ![raspi-apache.png](../../../images/part2/raspi-apache.png)
 
@@ -125,22 +118,21 @@ $ sudo systemctl start apache2.service
 
 ここまでで確認したApache2 Debian Default PageはWebサーバ全体のページです．Webサーバ上のディレクトリでは **/var/www/html** に対応します（ただし，Apache2 Debian Default Pageはちょっと特殊なページで，/var/www/html に index.html がない時に自動生成されて表示されるページです）．つまり，/var/www/html に置かれたファイルが [http://192.168.1.101/](http://192.168.1.101/) にアクセスした時に参照されることになります．
 
-また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定できるようになっています．例えば，**[http://192.168.1.101/~ohki](http://192.168.1.101/~ohki)**にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，**[http://サーバ名/~アカウント名](http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D)** にアクセスした時にホームディレクトリのpublic\_htmlのコンテンツを表示する機能です．具体例としては，**[http://192.168.1.101/~ohki](http://192.168.1.101/~ohki)** にアクセスした時に **/home/ohki/public\_html** のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ **[http://192.168.1.101/~pi/](http://192.168.1.101/~pi/)** に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．
+また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定可能です．例えば，**[http://192.168.1.101/~ohki](http://192.168.1.101/~ohki)**にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，**[http://サーバ名/~アカウント名](http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D)** にアクセスした時にホームディレクトリのpublic\_htmlのコンテンツを表示する機能です．具体例としては，**[http://192.168.1.101/~ohki](http://192.168.1.101/~ohki)** にアクセスした時に **/home/ohki/public\_html** のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ **[http://192.168.1.101/~pi/](http://192.168.1.101/~pi/)** に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．
 
 ![raspi-404.png](../../../images/part2/raspi-404.png)
 
 ユーザディレクトリの設定をする前に，少しApacheの設定ディレクトリ **/etc/apache2** の中身をのぞいてみましょう．
 
-```
+```shell
 $ ls /etc/apache2
 apache2.conf    conf-enabled  magic           mods-enabled  sites-available
 conf-available  envvars       mods-available  ports.conf    sites-enabled
-
 ```
 
 xxx-available や xxx-enabled というディレクトリがあるのがわかりますか？ RasPiのRaspbian OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに mods-enabled の中身を見てみましょう．
 
-```
+```shell
 $ ls -l /etc/apache2/mods-enabled/
 total 0
 lrwxrwxrwx 1 root root 36 Mar 11 15:37 access_compat.load -> ../mods-available/access_compat.load
@@ -153,7 +145,6 @@ lrwxrwxrwx 1 root root 31 Mar 11 15:37 setenvif.conf -> ../mods-available/setenv
 lrwxrwxrwx 1 root root 31 Mar 11 15:37 setenvif.load -> ../mods-available/setenvif.load
 lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.conf -> ../mods-available/status.conf
 lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.load -> ../mods-available/status.load
-
 ```
 
 全て mods-available へのシンボリックリンクになっていることがわかりますね．つまり，それぞれの役割は
@@ -165,10 +156,9 @@ lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.load -> ../mods-available/status.l
 
 本題のユーザーディレクトリに関しては既にuserdirというモジュールがmods-availableにインストールされています．上記のa2enmodコマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．
 
-```
+```shell
 $ sudo a2enmod userdir
 $ sudo systemctl restart apache2
-
 ```
 
 それでは，再度ブラウザで **[http://192.168.1.101/~pi](http://192.168.1.101/~pi)** にアクセスしてみましょう．
@@ -177,11 +167,10 @@ $ sudo systemctl restart apache2
 
 表示が変わりましたか？Apacheのデフォルトの設定では /home/pi/public\_html 以下にユーザのコンテンツを配置するようになっていますが，public\_html が存在しないためエラーが発生しています．作ってあげましょう．ついでに適当な内容のindex.htmlを作っておきます．
 
-```
+```shell
 $ mkdir /home/pi/public_html/
 $ cd /home/pi/public_html/
 $ echo 'hello world' > index.html
-
 ```
 
 それでは，改めてブラウザでアクセスしてみましょう．上記で作成した内容が表示されればOKです．
@@ -203,17 +192,16 @@ Forbiddenのエラーがなくならない場合はファイルやディレク�
 
 既に何度も行ってきましたので，もう説明は不要だと思います．RasPi起動時に自動的にMySQLも起動（enable）するように設定しつつ，今から動作確認したいのでサービスを開始（start）させています．
 
-```
+```shell
 $ sudo systemctl enable mariadb.service
 $ sudo systemctl start mariadb.service
-
 ```
 
 ### MySQLの初期設定
 
 初期設定ウィザードが用意されていますので，起動して初期設定を進めます．初期状態では root パスワードは設定されていません（**このrootアカウントはOSのアカウントではなくMySQLサーバ上のアカウントですので誤解のなきよう**）ので，何も入力せず**ENTER**を押します．すると，rootパスワードの設定を求められますので設定します．以降はデフォルトの**Y**でOKです．
 
-```
+```shell
 $ sudo mysql_secure_installation
 ```
 
@@ -277,12 +265,11 @@ All done!  If you've completed all of the above steps, your MariaDB
 installation should now be secure.
 
 Thanks for using MariaDB!
-
 ```
 
 ここで，もし**MariaDBのrootのパスワードが不明な場合**は，以下の手順で再設定してください．
 
-```
+```shell
 # MariaDBのサービスを停める
 $ sudo systemctl stop mariadb.service
 
@@ -303,7 +290,6 @@ MariaDB [(mysql)]> exit;
 
 # 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）
 $ sudo reboot
-
 ```
 
   
@@ -313,11 +299,11 @@ $ sudo reboot
 
 設定ファイル **/etc/mysql/mariadb.conf.d/50-server.cnf** を開き，\[mysqld\]の直下に**default-storage-engine=Aria**の行を追加しましょう．追加したらMariaDBをリスタートします．
 
-```
+```shell
 $ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 
-```
+```shell
 [mysqld]
 
 #
@@ -339,10 +325,9 @@ bind-address            = 127.0.0.1
 
 # この1行を追加する
 default-storage-engine=Aria
-
 ```
 
-```
+```shell
 $ sudo systemctl restart mariadb.service
 ```
 
@@ -360,11 +345,11 @@ MySQLサーバ上にユーザごとのデータベースを作成します．ま
 
 **difficult-password** は当然ですが，みなさん個人個人で考えた難しいパスワードを設定してください．
 
-```
+```shell
 $ mysql -u root -p
 ```
 
-```
+```shell
 Enter password: ********
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 7
@@ -396,16 +381,15 @@ MariaDB [(none)]> show databases;
 
 MariaDB [(none)]> quit
 Bye
-
 ```
 
 データベースが作成できたら，そのユーザでデータベースにアクセスできることを確認しましょう（当然，パスワードは各ユーザのものを入力します）．テーブルの作成などWrite権限についても確認した方が良いですが，ここではRead権限の確認をすることでいったん良いことにします．
 
-```
+```shell
 $ mysql -u ohki -p
 ```
 
-```
+```shell
 Enter password:
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 9
@@ -422,7 +406,6 @@ Empty set (0.00 sec)
 
 MariaDB [ohkiDB]> quit
 Bye
-
 ```
 
 ここで，もしrootのパスワードが不明な場合は，前述の手順で再設定してください（複数人でアクセスするサーバ機の場合，どなたか一人が代表で実施すればOK）．

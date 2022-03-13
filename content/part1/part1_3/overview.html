@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day3の目的と概要 &#8212; 情報科学実験Ⅰ</title>
+    <title>「多対多接続の設計・実装」の目的と概要 - 情報科学実験I &#8212; 情報科学実験Ⅰ</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Day4の目的と概要" href="../part1_4/overview.html" />
-    <link rel="prev" title="入出力性能の計測" href="../part1_2/measurement_IO_performance.html" />
+    <link rel="next" title="「第一部レポートピアレビュー」の目的と概要 - 情報科学実験I" href="../part1_4/overview.html" />
+    <link rel="prev" title="入出力性能の計測 - 情報科学実験I" href="../part1_2/measurement_IO_performance.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -602,7 +602,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Day3の目的と概要</h1>
+                <h1>「多対多接続の設計・実装」の目的と概要 - 情報科学実験I</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -643,8 +643,9 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="day3">
-<h1>Day3の目的と概要<a class="headerlink" href="#day3" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="i">
+<h1>「多対多接続の設計・実装」の目的と概要 - 情報科学実験I<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h1>
+<p>[TOC]</p>
 <div class="section" id="id1">
 <h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>複数クライアントからの接続に対して，同時にサービスを提供できるサーバプログラムを設計・開発します．実現するための技術が複数あります．以下の技術を用いて設計・実装したサーバプログラムに対してベンチマーク計測を実施し，多重化を行わない場合と各技術で多重化を行った場合の特徴を明らかにしてください．</p>
@@ -662,10 +663,10 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p>ユーザプログラムの通信終了までの実行時間について，以下の問に対して仮説を設定し，計測結果をもってその仮説を説明してください． また，そのような結果となった理由を考察してください．</p>
-<p><strong>問1）最も実行速度が速い方法はどれか？</strong></p>
-<p><strong>問2）最も通信待ち時間が少ない方法はどれか？</strong></p>
-<p><strong>問3）最も通信失敗が少ない方法はどれか？</strong></p>
-<p><strong>問4）最も少ないリソースで実行できる方法はどれか？</strong></p>
+<p>問1）最も実行速度が速い方法はどれか？</p>
+<p>問2）最も通信待ち時間が少ない方法はどれか？</p>
+<p>問3）最も通信失敗が少ない方法はどれか？</p>
+<p>問4）最も少ないリソースで実行できる方法はどれか？</p>
 <p>測定条件によって結果が異なる可能性があるため，それぞれの測定条件を周囲と相談した上で適切な測定条件を明記してください．</p>
 </div>
 <div class="section" id="id2">
@@ -673,7 +674,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>計測のためには各技術を利用して設計・実装したサーバプログラムと，そのサーバに負荷をかけてアクセスするクライアントプログラムが必要になります．</p>
 <div class="section" id="id3">
 <h3>サーバプログラム<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>サーバプログラムは<a class="reference internal" href="../part1_2/network_IO_programming.html"><span class="doc std std-doc">ネットワーク入出力プログラミング</span></a>の必須課題10のサンプルコードを参考にします．必須課題10ではEchoBack（クライアントプログラムから送信されたメッセージを受信すると，受信メッセージに追加メッセージを付与して返信する動作）のプログラムを開発しました．</p>
+<p>サーバプログラムは<a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%85%A5%E5%87%BA%E5%8A%9B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">ネットワーク入出力プログラミング</a>の必須課題10のサンプルコードを参考にします．必須課題10ではEchoBack（クライアントプログラムから送信されたメッセージを受信すると，受信メッセージに追加メッセージを付与して返信する動作）のプログラムを開発しました．</p>
 <p>このプログラムは単一のクライアントからの接続に対して応答することができますが，複数のクライアントからの接続があると最初に接続したクライアントとの通信が終わるまで他のクライアントからの接続は受け付けられません（他のクライアントを待たせる振る舞いをします）．そこで，このプログラムを複数のクライアントからの接続に対して同時に応答できるように拡張し，以下の実験用サーバプログラムを開発します．</p>
 <ul class="simple">
 <li><p>select 関数によって多重化したEchoBackサーバ</p></li>
@@ -718,13 +719,13 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">入出力性能の計測</p>
+            <p class="prev-next-title">入出力性能の計測 - 情報科学実験I</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../part1_4/overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Day4の目的と概要</p>
+        <p class="prev-next-title">「第一部レポートピアレビュー」の目的と概要 - 情報科学実験I</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>性能計測 &#8212; 情報科学実験Ⅰ</title>
+    <title>性能計測 - 情報科学実験I &#8212; 情報科学実験Ⅰ</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -569,39 +569,39 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id1">
    はじめに
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id2">
    計測条件
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id3">
      同時接続要求数
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id4">
      処理に要する時間
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id5">
    計測項目（例）
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id6">
      プロセス単位のメモリの最大使用量
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id7">
      ソケットの最大利用数
     </a>
    </li>
@@ -617,7 +617,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>性能計測</h1>
+                <h1>性能計測 - 情報科学実験I</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -628,39 +628,39 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id1">
    はじめに
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id2">
    計測条件
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
+    <a class="reference internal nav-link" href="#id3">
      同時接続要求数
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id4">
      処理に要する時間
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id5">
    計測項目（例）
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id6">
      プロセス単位のメモリの最大使用量
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id7">
      ソケットの最大利用数
     </a>
    </li>
@@ -675,32 +675,33 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>性能計測<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="i">
+<h1>性能計測 - 情報科学実験I<a class="headerlink" href="#i" title="Permalink to this headline">¶</a></h1>
+<p>[TOC]</p>
+<div class="section" id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>以下の計測条件や計測項目はあくまで参考ですのでより良い計測方法があればそれぞれのアイデアで改善して報告してください．</p>
 <p><strong>計測を行う前にサーバプログラムが正しく実装されていることを確認して下さい．複数の端末から telnet コマンドを用いて通信することで（多重化された）EchoBack が実現できているかどうかを確認することができます．</strong></p>
 </div>
-<div class="section" id="id3">
-<h2>計測条件<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>計測条件<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>以下のパラメータの違いによってどのような結果となるかを測定せよ．</p>
 <ul class="simple">
 <li><p>クライアント側の同時接続要求数</p></li>
 <li><p>サーバ側の応答処理に要する時間</p></li>
 </ul>
-<div class="section" id="id4">
-<h3>同時接続要求数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>同時接続要求数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>クライアントプログラムの並列数を変更して，同時接続要求数の違いによって測定結果がどのように変化するかを分析してください．</p>
 </div>
-<div class="section" id="id5">
-<h3>処理に要する時間<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>処理に要する時間<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>サーバプログラムの応答処理時間を変更して，応答処理時間の違いによって測定結果がどのように変化するかを分析してください．</p>
 <p>応答処理時間は，サーバプログラムのEchoBack応答を行う箇所にusleep関数を挿入して処理時間を調整してください（遅延時間+EchoBack処理時間になる）．</p>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>計測項目（例）<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>計測項目（例）<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>クライアントプログラムが接続に失敗した回数</p></li>
 <li><p>クライアントプログラムがメッセージの通信に失敗した回数</p></li>
@@ -709,11 +710,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>サーバプログラムのメモリの最大使用量</p></li>
 <li><p>サーバプログラムのソケットの最大利用数</p></li>
 </ul>
-<div class="section" id="id7">
-<h3>プロセス単位のメモリの最大使用量<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<p>Linux OS上の実行プロセスのメモリ使用量は，ps などのコマンド（psの他にpmapやtopなど）で調べることができます． また，procfs を介してカーネル情報を参照することでも調査することができます．例えば，プロセス番号1（<code class="docutils literal notranslate"><span class="pre">/sbin/init</span> <span class="pre">splash</span></code>）のメモリ使用量は <code class="docutils literal notranslate"><span class="pre">/proc/1/status</span></code> ファイルを参照して調べることができます．例えば，以下のようにファイルの内容を参照すると，29,052 kB のメモリをピーク時に利用したことが分かります．</p>
+<div class="section" id="id6">
+<h3>プロセス単位のメモリの最大使用量<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Linux OS上の実行プロセスのメモリ使用量は，ps などのコマンド（psの他にpmapやtopなど）で調べることができます． また，procfs を介してカーネル情報を参照することでも調査することができます．例えば，プロセス番号1（/sbin/init splash）のメモリ使用量は /proc/1/status ファイルを参照して調べることができます．例えば，以下のようにファイルの内容を参照すると，29,052 kB のメモリをピーク時に利用したことが分かります．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ cat /proc/1/status <span class="p">|</span> grep VmPeak
-cat /proc/1/status
+cat /proc/1/status 
 VmPeak:   <span class="m">29052</span> kB
 </pre></div>
 </div>
@@ -723,13 +724,13 @@ VmPeak:   <span class="m">29052</span> kB
 </div>
 <p>例えば，上述のプロセス番号1(/sbin/init splash)を調査するには “/sbin/init” をパターンとして指定します．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pgrep -f <span class="s2">&quot;/sbin/init&quot;</span> <span class="p">|</span> xargs -t -IPID cat /proc/PID/status <span class="p">|</span> grep VmPeak
-cat /proc/1/status
+cat /proc/1/status 
 VmPeak:   <span class="m">29052</span> kB
 </pre></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h3>ソケットの最大利用数<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>ソケットの最大利用数<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>各プロセスが作成したソケット数について，プロセス実行中の最大ソケット利用数を外部からのコマンド1つで調べる方法はなさそうです（もし見つけた人がいたら共有してください）．ある時点でプロセスが開いているソケット数については以下のように調査することができます．以下の操作を周期的に実行して最大数を調べるという方法がありそうです（ただし，読み取り権限を持たないプロセスについては調べられませんので注意してください）．もしくは，サーバプログラム自体に最大利用ソケット数を記録する仕組みを実装してもよいでしょう．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pgrep -f PATTERN <span class="p">|</span> xargs -IPID -t lsof -p PID <span class="p">|</span> grep TCP <span class="p">|</span> wc -l
 </pre></div>

@@ -591,6 +591,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-parse-header">
+     exp1_parse_header()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exp1-parse-status">
      exp1_parse_status()
     </a>
@@ -670,6 +675,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exp1-http-session">
      exp1_http_session()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exp1-parse-header">
+     exp1_parse_header()
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -828,6 +838,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span> <span class="n">exp1_info_type</span><span class="p">;</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="exp1-parse-header">
+<h3>exp1_parse_header()<a class="headerlink" href="#exp1-parse-header" title="Permalink to this headline">¶</a></h3>
 <p>クライアントからの<a class="reference external" href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP.E3.83.A1.E3.83.83.E3.82.BB.E3.83.BC.E3.82.B8">HTTPリクエスト</a>（例：GET / HTTP/1.0）をパース（構文解析）する関数です．</p>
 <p>現時点では，HTTPリクエストの1行目のみを抽出するステートマシン（状態機械）になっています．</p>
 <p>1行目を抽出（PARSE_STATUSかつ’\r’（復帰）でない間）したら，exp1_parse_status()へその行の情報（status（例：GET / HTTP/1.0））を渡します．</p>
