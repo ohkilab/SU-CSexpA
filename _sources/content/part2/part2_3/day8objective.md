@@ -30,6 +30,6 @@
 
 ## 第二部の参考情報
 
--   a) [第二部の実装で詰まった時の対処法](./introuble "第二部の実装で詰まった時の対処法")
--   b) [第二部参考書籍](./referencebook "第二部参考書籍")
--   c) [第二部グループ発表会](../part2_4/grouppresentation "第二部グループ発表会")に向けた準備
+-   a) [第二部の実装で詰まった時の対処法](https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%A7%E8%A9%B0%E3%81%BE%E3%81%A3%E3%81%9F%E6%99%82%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95 "第二部の実装で詰まった時の対処法")
+-   b) [第二部参考書籍](https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%8F%82%E8%80%83%E6%9B%B8%E7%B1%8D "第二部参考書籍")
+-   c) [第二部グループ発表会](https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%BA%8C%E9%83%A8%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E7%99%BA%E8%A1%A8%E4%BC%9A "第二部グループ発表会")に向けた準備

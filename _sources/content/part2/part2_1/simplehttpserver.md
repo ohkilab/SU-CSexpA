@@ -114,8 +114,6 @@ typedef struct
 } exp1_info_type;
 ```
 
-### exp1\_parse\_header()
-
 クライアントからの[HTTPリクエスト](https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP.E3.83.A1.E3.83.83.E3.82.BB.E3.83.BC.E3.82.B8)（例：GET / HTTP/1.0）をパース（構文解析）する関数です．
 
 現時点では，HTTPリクエストの1行目のみを抽出するステートマシン（状態機械）になっています．
