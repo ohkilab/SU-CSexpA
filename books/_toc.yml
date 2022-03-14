@@ -5,6 +5,10 @@ format: jb-book
 root: content/intro
 
 parts: 
+  - chapters: 
+    - file: content/schedule
+      title: 今年度の日程
+
   - caption: 事前準備（在宅）
     chapters:
       - file: content/preparation/preparation
@@ -14,13 +18,13 @@ parts:
   - caption: 第一部 ソケットプログラミング
     chapters:
       - file: content/part1/part1_1/overview
-        title: 環境構築と実験の開始
+        title: '[Day1] 環境構築と実験の開始'
         sections:
         - file: content/part1/part1_1/connect_raspberry
           title: RaspberryPiの接続（固定IP）
       
       - file: content/part1/part1_2/overview
-        title: 通信性能の計測
+        title: '[Day2] 通信性能の計測'
         sections:
         - file: content/part1/part1_2/file_IO_programming
           title: ファイル入出力プログラミング
@@ -30,10 +34,21 @@ parts:
           title: 入出力性能の計測（必須課題）
       
       - file: content/part1/part1_3/overview
-        title: 多対多接続の設計・実装
+        title: '[Day3] 多対多接続の設計・実装'
+        sections:
+        - file: content/part1/part1_3/multiplexing_server_program
+          title: サーバプログラムの多重化
+        - file: content/part1/part1_3/benchmarking_program
+          title: ベンチマークプログラムの設計と実装
+        - file: content/part1/part1_3/performance_measurement
+          title: 性能計測 (必須課題)
+        - file: content/part1/part1_3/multiplexing_asynchronous_IO
+          title: 非同期I/Oによる多重化 (発展課題)
+        - file: content/part1/part1_3/cause_analysis_communication_failure
+          title: 通信失敗の原因分析 (発展課題)
         
       - file: content/part1/part1_4/overview
-        title: 第一部レポートピアレビュー
+        title: '[Day4] 第一部レポートピアレビュー'
         sections:
         - file: content/part1/part1_4/peer_review
           title: ピアレビュー
@@ -45,7 +60,7 @@ parts:
   - caption: 第二部 Webサーバの実装
     chapters:
       - file: content/part2/part2_1/day6objective
-        title: Simple HTTPサーバの構築
+        title: '[Day5] Simple HTTPサーバの構築'
         sections:
         - file: content/part2/part2_1/raspberrypi_setup
           title: Raspberry Piのセットアップ
@@ -55,7 +70,7 @@ parts:
           title: HTTPベンチマークプログラムの実装（必須）
       
       - file: content/part2/part2_2/day7objective
-        title: HTTPサーバの高機能化(1)
+        title: '[Day6] HTTPサーバの高機能化(1)'
         sections: 
         - file: content/part2/part2_2/standardforachievement
           title: 第二部達成基準
@@ -67,7 +82,7 @@ parts:
           title: HTTPサーバ機能拡張（選択）
       
       - file: content/part2/part2_3/day8objective
-        title: HTTPサーバの高機能化(2)
+        title: '[Day7] HTTPサーバの高機能化(2)'
         sections:
         - file: content/part2/part2_3/introuble
           title: 第二部の実装で詰まった時の対処法
@@ -75,7 +90,7 @@ parts:
           title: 第二部参考書籍
 
       - file: content/part2/part2_4/day9objective
-        title: 第二部グループ発表会
+        title: '[Day8] 第二部グループ発表会'
         sections:
         - file: content/part2/part2_4/groupreview
           title: グループレビュー
@@ -83,7 +98,7 @@ parts:
           title: 第二部グループ発表会
 
       - file: content/part2/part2_5/day10objective
-        title: 第二部レポートピアレビュー
+        title: '[Day9] 第二部レポートピアレビュー'
         sections:
         - file: content/part2/part2_5/peerreview
           title: ピアレビュー
@@ -95,7 +110,7 @@ parts:
   - caption: 第三部 Webシステムの性能
     chapters:
       - file: content/part3/part3_1/overview
-        title: Webシステムの基礎
+        title: '[Day10] Webシステムの基礎'
         sections:
         - file: content/part3/part3_1/preparation
           title: 第三部の準備
@@ -109,18 +124,15 @@ parts:
           title: ベンチマークソフトab（Apache Bench）（必須）
 
       - file: content/part3/part3_2/overview
-        title: Webシステムの設計と実装
+        title: '[Day11] Webシステムの設計と実装'
         sections:
         - file: content/part3/part3_2/connection_to_dbms
           title: DBMSとの接続（必須）
         - file: content/part3/part3_2/final_task_details
           title: 最終課題の詳細
-        - file: content/part3/part3_2/part3_group_presentation
-          title: 第三部グループ発表会
-        - file: content/part3/part3_2/part3_repot
 
       - file: content/part3/part3_3/overview
-        title: ベンチマークと分析
+        title: '[Day12] ベンチマークと分析'
         sections:
         - file: content/part3/part3_3/about_apache_mpm
           title: Apache MPMについて
@@ -132,16 +144,24 @@ parts:
           title: 検討状況の確認（必須）
 
       - file: content/part3/part3_4/preview
-        title: パフォーマンスチューニング
+        title: '[Day13,14] パフォーマンスチューニング'
 
       - file: content/part3/part3_5/overview
-        title: 第三部グループ発表会
+        title: '[Day15] 第三部グループ発表会'
         sections:
         - file: content/part3/part3_5/last_presentation
           title: 第三部グループ発表会
 
       - file: content/part3/part3_5/last_report
         title: 第三部レポート
+
+  # レポートについて
+  - caption: レポート
+    chapters:
+      - file: content/report/report
+        title: レポート詳細
+      - file: content/report/how_to_write_reports
+        title: レポートの書き方
 
   # 実験終了後の作業
   - caption: 実験終了後（必須）
@@ -156,5 +176,5 @@ parts:
         title: 質問の行い方
       - file: content/trouble_shooting/trouble
         title: よくあるトラブル
-      - file: content/trouble_shooting/uninstall
-        title: 各アプリケーションのアンインストール方法
+      # - file: content/trouble_shooting/uninstall
+      #   title: 各アプリケーションのアンインストール方法
