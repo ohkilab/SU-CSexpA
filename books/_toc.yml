@@ -162,6 +162,8 @@ parts:
         title: レポート詳細
       - file: content/report/how_to_write_reports
         title: レポートの書き方
+      - file: content/report/peer_review
+        title: ピアレビューのやり方
 
   # 実験終了後の作業
   - caption: 実験終了後（必須）
