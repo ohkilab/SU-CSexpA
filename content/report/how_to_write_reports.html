@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>内部向け:備忘録(次年度への引継ぎメモ) &#8212; 情報科学実験A</title>
+    <title>レポートの書き方 &#8212; 情報科学実験A</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ピアレビュー" href="peer_review.html" />
+    <link rel="prev" title="レポートに関して" href="report.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -482,19 +484,19 @@ const thebe_selector_output = ".output, .cell_output"
   レポート
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../report/report.html">
+  <a class="reference internal" href="report.html">
    レポート詳細
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../report/how_to_write_reports.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    レポートの書き方
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../report/peer_review.html">
+  <a class="reference internal" href="peer_review.html">
    ピアレビューのやり方
   </a>
  </li>
@@ -568,7 +570,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/staff/memo.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/report/how_to_write_reports.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -588,7 +590,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/staff/memo.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/report/how_to_write_reports.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -616,42 +618,82 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   2021年度
+   ツール紹介
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tex">
+     TeX
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     連絡
+     図・グラフなどの作成（TeXの場合）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uml">
+     シーケンス図などの UML の図の作成
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     ソフトウェア情報
+     ネットワーク構成図の作成
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     スクリーンショットの撮り方
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pdf">
+     PDFの作成
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   2020年度
+  <a class="reference internal nav-link" href="#id6">
+   提出前のチェックリスト
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     連絡
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id7">
-     新規・更新ページ情報
+     構成
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
-     ソフトウェア情報
+     書式
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     文体
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     グラフ
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ms-word">
+   MS Word の参考リンク
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teams">
+   補足：Teams 課題機能によるレポート提出方法
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   参考文献
+  </a>
  </li>
 </ul>
 
@@ -663,7 +705,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>内部向け:備忘録(次年度への引継ぎメモ)</h1>
+                <h1>レポートの書き方</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -675,42 +717,82 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   2021年度
+   ツール紹介
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tex">
+     TeX
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     連絡
+     図・グラフなどの作成（TeXの場合）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uml">
+     シーケンス図などの UML の図の作成
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     ソフトウェア情報
+     ネットワーク構成図の作成
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     スクリーンショットの撮り方
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pdf">
+     PDFの作成
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   2020年度
+  <a class="reference internal nav-link" href="#id6">
+   提出前のチェックリスト
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     連絡
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id7">
-     新規・更新ページ情報
+     構成
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
-     ソフトウェア情報
+     書式
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     文体
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     グラフ
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ms-word">
+   MS Word の参考リンク
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teams">
+   補足：Teams 課題機能によるレポート提出方法
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   参考文献
+  </a>
  </li>
 </ul>
 
@@ -722,103 +804,271 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>内部向け:備忘録(次年度への引継ぎメモ)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>レポートの書き方<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id2">
-<h2>2021年度<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>ツール紹介<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>レポートを作成する際に便利なツールを紹介します．</p>
+<p>このツールを利用することが必須ではありません．むしろ，自分の方法にあったツールを自分で探す（探す方法を確立する）方がより重要です．</p>
+<div class="section" id="tex">
+<h3>TeX<a class="headerlink" href="#tex" title="Permalink to this headline">¶</a></h3>
+<p>例えば，TeXworksは，TeXでドキュメントを作成するためのシンプルな統合環境です．macOS用の優れた統合環境であるTeXShopをモデルに，同様の環境を全てのシステム上で実現すべく開発されています．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://texwiki.texjp.org/">TeX Wiki</a></p></li>
+<li><p><a class="reference external" href="https://texwiki.texjp.org/?TeX%E5%85%A5%E6%89%8B%E6%B3%95">TeX Wiki: TeX入手方法</a></p></li>
+<li><p><a class="reference external" href="https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80">TeX Wiki: LaTeX入門</a></p></li>
+</ul>
+</div>
 <div class="section" id="id3">
-<h3>連絡<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>図・グラフなどの作成（TeXの場合）<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>図・グラフなどは各自が選んだソフトウェアで作成してください．ただし，TeXに取り込む場合には eps 形式に変換する必要があります（他の形式（例えば画像形式やPDF形式）でも不可能ではないです）．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://kano.arkoak.com/2015/09/26/eps/">PowerPointからTeX用のepsファイルを生成する方法</a></p></li>
+<li><p><a class="reference external" href="http://qiita.com/tubo28/items/1f8672fb164aafa9ab31">Metafile to EPS Converter で Windows Metafile を EPS に変換</a></p>
+<ul>
+<li><p><a class="reference external" href="https://wiki.lyx.org/Windows/MetafileToEPSConverter">Meta file to EPS Converter</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.cs.bu.edu/~reyzin/pictips.html">How to Convert PowerPoint Pictures for Use in LaTeX</a></p></li>
+</ul>
+</div>
+<div class="section" id="uml">
+<h3>シーケンス図などの UML の図の作成<a class="headerlink" href="#uml" title="Permalink to this headline">¶</a></h3>
+<p>シーケンス図などの UML で定義された図を作成する場合は，Illustrator や PowerPoint などのドローソフトで作成しても良いですが，モデリングツールを利用しても良いでしょう．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://astah.change-vision.com/ja/product/astah-community.html">Astah* community edition</a></p></li>
+<li><p><a class="reference external" href="https://support.office.com/ja-jp/article/UML-%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B-c61c371b-b150-4958-b128-902000133b26">MS Visio: UML シーケンス図を作成する</a></p></li>
+</ul>
 </div>
 <div class="section" id="id4">
-<h3>ソフトウェア情報<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-</div>
+<h3>ネットワーク構成図の作成<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Illustrator や PowerPoint などのドローソフトとルータ等の機材のフリー画像（PowerPoint の場合は「挿入 → ネットワーク画像」から “ネットワーク機器” などのキーワードで検索（クリエイティブ・コモンズライセンスに限定））を使って作成しても良いですが，ネットワーク構成図を作成する機能を持つアプリケーションを使っても良いでしょう．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.microsoft.com/ja-jp/visio/free/ite.aspx">IT エンジニア向け Visio シェイプ</a></p>
+<ul>
+<li><p>MS Visio に同梱されているネットワーク関係のステンシルでも十分だが，特定メーカの機器のステンシルを使いたい場合はここからダウンロード．</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://www.petitmonte.com/network/network_diagram.html">ネットワーク構成図を無料で作成する[アイコン/素材]</a></p></li>
+<li><p><a class="reference external" href="https://www.draw.io/">draw.io</a></p>
+<ul>
+<li><p>新規に作成するダイアグラムの種類から Network Diagram を作成</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://blockdiag.com/en/">blockdiag - simple diagram images generator</a></p>
+<ul>
+<li><p>テキストベースでグラフを作成するツール．ネットワーク構成図を作るには<a class="reference external" href="http://blockdiag.com/en/nwdiag/index.html">nwdiag</a>を用いると良い．</p></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="id5">
-<h2>2020年度<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h3>スクリーンショットの撮り方<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>画面のスクリーンショットを撮る場合は OS 標準の方法と専用のアプリケーションを導入する方法があります．機能に多少の違いがありますので，必要なスクリーンショットに合わせて使い分けてください．</p>
+<p>レポートにスクリーンショットを貼り付ける場合のファイルフォーマットは PNG にします（JPG のような印刷時に劣化するフォーマットを避けるという意図です）．</p>
+<ul class="simple">
+<li><p>Windows 標準の方法</p>
+<ul>
+<li><p><a class="reference external" href="https://allabout.co.jp/gm/gc/20843/">Windows のスクリーンショットの撮り方</a></p></li>
+<li><p><a class="reference external" href="https://support.microsoft.com/ja-jp/help/13776/windows-use-snipping-tool-to-capture-screenshots">Snipping Tool を使ってスクリーン ショットをキャプチャする</a></p></li>
+</ul>
+</li>
+<li><p>専用アプリケーションの例</p>
+<ul>
+<li><p><a class="reference external" href="http://lightscreen.com.ar/">Lightscreen</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="pdf">
+<h3>PDFの作成<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>MS Officeの場合</p>
+<ul>
+<li><p>直接PDFファイルをエクスポート可能です．</p>
+<ul>
+<li><p>参考: <a class="reference external" href="https://support.office.com/ja-jp/article/PDF-%E3%81%AB%E4%BF%9D%E5%AD%98%E3%81%BE%E3%81%9F%E3%81%AF%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B-d85416c5-7d77-4fd6-a216-6f4bf7c7c110">PDFに保存または変換する</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TeXの場合</p>
+<ul>
+<li><p>DVI形式のファイルに対して dvipdfmx コマンドを使ってPDFに変換します．</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="id6">
-<h3>連絡<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>今年度は新型コロナウィルスの影響により本実験を在宅で行うこととなりました.</p></li>
-</ul>
-<p>今年度では以下のように対応しました.</p>
-<ul class="simple">
-<li><p>資料→本実験ページ（例年通り）</p></li>
-<li><p>連絡事項・質問→Microsoft Teams</p></li>
-<li><p>学生間連絡→Microsoft Teams</p></li>
-<li><p>発表→Remo(<a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E7%99%BA%E8%A1%A8%E4%BC%9A">グループ発表会</a>)</p></li>
-<li><p>レポート提出→Live Campus（例年通り）</p></li>
-<li><p>ラズパイの配布・回収→対面（例年通り）＋郵送</p></li>
-<li><p>オンラインでの実施のため, グループワークにおいて班員との進捗確認が取りにくい（返信しない学生がいる）ので, 解決策を検討中です.</p></li>
-<li><p>ラズパイのオペレーティングシステム「Raspbian」の正式名称が2020年5月に「Raspberry Pi OS」に変更されました.</p></li>
-</ul>
-<p>それに伴い, 実験ページ全体で「Raspbian」の記述を「Raspberry Pi OS（旧：Raspbian）」に変更しました.</p>
-<p>参考：<a class="reference external" href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a></p>
-<ul class="simple">
-<li><p>毎年度ごとにこちらの備忘録のページとトラブルシューティングのページの更新をお願いします.(今年度まで何も記述がなかったので…)</p></li>
-<li><p>[済]第二部で使用する実験共通ライブラリexp1lib.c内のexp1_tcp_connect関数が原因となっているコアダンプが多発するという不具合がありました. 修正をしましたので動作確認お願いします.(7月, 野口先生)</p></li>
-<li><p>[済]第三部で使用するcsvファイル内部に不正なデータが存在します. 修正をお願いします.(<a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A9%B3%E7%B4%B0#.E3.83.87.E3.83.BC.E3.82.BF.E3.82.BB.E3.83.83.E3.83.88.E3.81.AE.E3.83.80.E3.82.A6.E3.83.B3.E3.83.AD.E3.83.BC.E3.83.89">最終課題の詳細 データセットのダウンロード</a>)</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1622611</span><span class="p">:</span><span class="n">zî1acspmsftiecsrgbööóhpcprtp3desclwtptðbkptrxyzgxyzbxyzdmndtpdmddävuedlviewôlumiømeastech0rtrcgtrcbtrctextcopyrightc1998hewlettpackardcompanydescsr</span><span class="p">},,,,</span>
-<span class="mi">6292424</span><span class="p">:</span><span class="n">nsavedstevtinstanceidxmpiid0a801174072068118083b39db25ae1c9stevtwhen20120831t0937170700stevtsoftwareagentadobephotoshoplightroom41macintoshstevtchanged</span><span class="p">},,,,</span>
-
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>第三部で行うCSVファイルのDBへの流し込み作業にかなりの時間を取られるため, 解決策を検討中です.(<a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A9%B3%E7%B4%B0#.E3.83.86.E3.83.BC.E3.83.96.E3.83.AB.E3.81.AE.E4.BD.9C.E6.88.90">最終課題の詳細 テーブルの作成</a>)</p></li>
-<li><p>配布するイメージに最初から入れておく</p></li>
-<li><p>HeidiSQL(データベース管理ソフト)を利用</p></li>
-<li><p>Creat文の見直し</p></li>
-</ul>
-<p>など</p>
-<ul class="simple">
-<li><p>できれば実験用ラズパイ全台にヒートシンクの装着をお願いします.</p></li>
-<li><p>第三部の<a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/DBMS%E3%81%A8%E3%81%AE%E6%8E%A5%E7%B6%9A#.E5.90.84.E7.8F.AD.E3.81.A7.E5.AE.9F.E8.A3.85.E7.8A.B6.E6.B3.81.E7.A2.BA.E8.AA.8D">住所検索アプリの作成</a>が<a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%AC%AC%E4%B8%89%E9%83%A8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">第三部レポート</a>の項目に含まれていませんでした.</p></li>
-<li><p>mediawikiのVer.1.35.0が9月25日にリリースされ, こちらのページもアップデートされてました(更新日不明).</p></li>
-</ul>
-<p>Ver.1.35.0バグ？</p>
-<ul class="simple">
-<li><p>thumbやframeの画像が左端に表示される.(右に設置できない)</p></li>
-<li><p>表のclass「wikitable」では通常罫線が表示されるが, 表示されなくなった.</p></li>
-<li><p>ページ上部に表示されていた実験教員等の情報が表示されなくなった. (<a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/MediaWiki:Hf-nsheader-">MediaWiki:Hf-nsheader-</a>)</p></li>
-<li><p>Chromeからアクセスできない(場合がある). (net::ERR_HTTP2_PROTOCOL_ERROR 200)</p></li>
-</ul>
-</div>
+<h2>提出前のチェックリスト<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id7">
-<h3>新規・更新ページ情報<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<h3>構成<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/RaspberryPi%E3%81%AE%E6%8E%A5%E7%B6%9A%EF%BC%88%E5%9B%BA%E5%AE%9AIP%EF%BC%89#.E3.83.86.E3.82.AD.E3.82.B9.E3.83.88.E3.82.A8.E3.83.87.E3.82.A3.E3.82.BF.E3.82.92.E4.BD.BF.E3.81.A3.E3.81.9F.E6.8E.A5.E7.B6.9A_.28.E4.BB.BB.E6.84.8F.29">RaspberryPiの接続（固定IP)</a></p></li>
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Atom%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89">Atomを使った環境構築</a></p></li>
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/Raspberry_Pi%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Raspberry Piについて</a></p></li>
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB(%E7%AC%AC%EF%BC%91%E9%83%A8)">よくあるトラブル(第１部)</a>[編集中]</p></li>
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB(%E7%AC%AC%EF%BC%92%E9%83%A8)">よくあるトラブル(第２部)</a>[編集中]</p></li>
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB(%E7%AC%AC%EF%BC%93%E9%83%A8)">よくあるトラブル(第３部)</a>[編集中]</p></li>
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E5%90%84%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%82%A2%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95">各アプリケーションのアンインストール方法</a>[編集中]</p></li>
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E6%9C%AA%E5%AE%9A">未定</a>[編集中]</p></li>
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/%E7%89%B9%E5%88%A5:%E3%83%9A%E3%83%BC%E3%82%B8%E4%B8%80%E8%A6%A7?from=&amp;to=&amp;namespace=10">全テンプレート</a></p></li>
+<li><p>使用機材は明記しているか？</p>
+<ul>
+<li><p>最低限，読んだ人が実験を再現できるだけの情報が必要です．</p></li>
+</ul>
+</li>
+<li><p>グループメンバーのコメントは全て削除されているか？
+　- レポートは授業におけるあなたの成果をまとめた文書です．体裁を整えることを忘れずに．</p></li>
+<li><p>変更履歴は反映されているか？
+　- 上記と同じ理由です．</p></li>
 </ul>
 </div>
 <div class="section" id="id8">
-<h3>ソフトウェア情報<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>書式<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Raspberry Pi OS（旧：Raspbian）</p></li>
+<li><p>指定したフォーマットを使用しているか？</p>
+<ul>
+<li><p>学会，会社，行政文書など，すべてに規定されたフォーマットがあります．</p></li>
+<li><p>プリントフォーマットが一致しているだけではなく，ドキュメント上で指定されたスタイルが指定されている必要があります．</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat \etc\debian_version
-10.3
-
-$lsb_release -a
-No LSB modules are available.
-Distributor ID:Raspbian
-Description:Raspbian GNU/Linux 10 (buster)
-Release:10
-Codename:buster
-</pre></div>
+</li>
+<li><p>すべての図と表にキャプションがついているか？</p></li>
+<li><p>すべての図と表は本文中で引用されているか？</p></li>
+<li><p>すべての図と表は本文中で引用されている箇所が明確か？</p>
+<ul>
+<li><p>読者が意図通りの箇所を参照できるような本文中の表現，図・表の表現が必要です．特に図・表に含まれる情報量が過剰な場合，読者は混乱します．本文の論旨に必要な箇所を本文中の図・表とし，全体の情報は付録で提示するなどの工夫を検討してください．</p></li>
+</ul>
+</li>
+<li><p>図・表のキャプションの書式は適正か？</p>
+<ul>
+<li><p>図のキャプションは図の下側に配置．</p></li>
+<li><p>表のキャプションは表の上側に配置．</p></li>
+</ul>
+</li>
+<li><p>すべての参考文献は本文中で引用されているか？</p></li>
+<li><p>フォントの種類やサイズが統一されているか？</p>
+<ul>
+<li><p>文書全体で 1 つのフォントに統一する必要はありませんが，第 1 章の見出しはボールド体，第 2 章の見出しは明朝体などといった不整合は許容されません．</p></li>
+</ul>
+</li>
+<li><p>句読点は統一されているか？ (、。もしくは，．のいずれかに統一すること)</p>
+<ul>
+<li><p>半角のカンマ・ピリオド(, . )を使う場合には直後にスペースが必要です．</p></li>
+</ul>
+</li>
+</ul>
 </div>
-<p>公式サイト：<a class="reference external" href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a></p>
+<div class="section" id="id9">
+<h3>文体<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>mariaDB</p></li>
-<li><p>Apache</p></li>
-<li><p>ApacheBench</p></li>
+<li><p>箇条書きを必要以上に多用していないか？</p></li>
+<li><p>こそあど言葉(これ，それ，このなど)を多用していないか？</p>
+<ul>
+<li><p>読者が参照先に迷うため，極力こそあど言葉は避けてください．</p></li>
+<li><p>具体的な名詞を使って代替することができるはずです．</p></li>
+</ul>
+</li>
+<li><p>接続詞(そのため，しかしなど)を必要以上に多用していないか？</p>
+<ul>
+<li><p>接続詞を多用しなければならないときは文章の構成がおかしい場合が多いです．</p></li>
+<li><p>一般的には接続詞は続く文章を強調したい場合に使います．</p></li>
+</ul>
+</li>
+<li><p>必要以上に 1 文が長くなっていないか？</p>
+<ul>
+<li><p>「～し，」という表現を多用していないか？</p>
+<ul>
+<li><p>「～し，」という言葉を使うと一見文章がつながってみますが，実は論理的につながっていない場合が多いです．</p></li>
+<li><p>「～し，」という表現を使いそうになったら，2 つの文章に分けることができないか考えてみてください．</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
+<div class="section" id="id10">
+<h3>グラフ<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>適切なグラフの種類を選択しているか？</p>
+<ul>
+<li><p>用途に応じてグラフの種類が存在します．例えば，折れ線グラフと散布図は見かけ上類似点がありますが，利用目的が異なります．折れ線グラフは 1 つのものごとの移り変わりを表現する場合（典型的には時系列データ），散布図は 2 つの数値データの関係を表現する場合に採用します．これ以外のグラフについても，用途に合わせて適切なグラフの種類を選択してください．</p>
+<ul>
+<li><p>参考: <a class="reference external" href="http://office-qa.com/Excel/ex194.htm">Excel2010：折れ線グラフと散布図の違いとは</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>軸ラベルが用意されているか？</p></li>
+<li><p>軸ラベルには単位が記載されているか？</p></li>
+<li><p>グラフ中の値を読むことができるサイズ・品質か？</p>
+<ul>
+<li><p>対数表示の利用も選択肢のひとつです．</p>
+<ul>
+<li><p>MS Excel の場合は軸の書式設定で「対数目盛を表示する」をチェックします．</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="graph.jpg" src="../../_images/graph.jpeg" /></p>
+</div>
+</div>
+<div class="section" id="ms-word">
+<h2>MS Word の参考リンク<a class="headerlink" href="#ms-word" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://news.mynavi.jp/series/word">Word はなぜ思い通りにならないのか?</a></p>
+<ul>
+<li><p>特に以下は参考になります．</p>
+<ul>
+<li><p>第 1 回 画像を好きな場所に配置できない</p></li>
+<li><p>第 6 回 インデントとぶら下げ</p></li>
+<li><p>第 14 回～ 16 回のスタイル関係</p></li>
+<li><p>第 19 回 アウトラインレベルの指定</p></li>
+<li><p>第 21 回 目次の作成</p></li>
+<li><p>第 22 回 箇条書きとリストのレベル</p></li>
+<li><p>第 24 回 改ページ位置の自動修正</p></li>
+<li><p>第 33 回 変更履歴の活用</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://word.eins-z.jp/">Word 入門へようこそ</a></p>
+<ul>
+<li><p>特に以下は参考になります．</p>
+<ul>
+<li><p>スタイルの適用、スタイルの変更</p></li>
+<li><p>段落番号・箇条書き・アウトライン</p></li>
+<li><p>図の挿入と調整</p></li>
+<li><p>グラフの挿入</p></li>
+<li><p>ページ番号</p></li>
+<li><p>図形の挿入</p></li>
+<li><p>表の挿入と体裁</p></li>
+<li><p>目次の作成と更新</p></li>
+<li><p>引用文献・文献目録・資料文献の管理</p></li>
+<li><p>図表番号・図表目次・更新・相互参照</p></li>
+<li><p>コメントの活用</p></li>
+<li><p>編集履歴の記録</p></li>
+<li><p>アウトライン（ただし，アウトラインは，スタイルをきちんと設定していてこその機能です）</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://siland.jp/note/word/%E6%A8%99%E6%BA%96%E3%81%AE%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%81%AE%E5%BD%B9%E5%89%B2%E3%81%A8%E3%80%81%E6%AE%B5%E8%90%BD%E3%81%8C%E4%BD%95%E3%81%8B%E3%82%92/%7C%E3%80%90%E3%83%AF%E3%83%BC%E3%83%89%E8%B6%85%E5%9F%BA%E7%A4%8E%EF%BC%91%E3%80%91%E6%A8%99%E6%BA%96%E3%81%AE%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%81%A8%E6%AE%B5%E8%90%BD%E3%82%92%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E3%81%A8%E3%83%AF%E3%83%BC%E3%83%89%E3%81%AF%E8%B6%85%E4%B8%8D%E4%BE%BF%E3%81%AA%E3%82%93%E3%81%A7%E3%81%99">Excel と Word で業務効率化！情報技術ライダー BLOG</a></p></li>
+<li><p><a class="reference external" href="https://prau-pc.jp/word/insert-citation/">Word（ワード）で引用文献や参考文献を挿入、管理する方法</a></p></li>
+</ul>
+</div>
+<div class="section" id="teams">
+<h2>補足：Teams 課題機能によるレポート提出方法<a class="headerlink" href="#teams" title="Permalink to this headline">¶</a></h2>
+<p><img alt="teams report 001.png" src="../../_images/600px-teams_report_001.png" /></p>
+<p>左側のタブから「課題」を選択し，「割り当て済み」の課題から対象のレポートを選択します</p>
+<p><img alt="teams report 002.png" src="../../_images/600px-teams_report_002.png" /></p>
+<p>「作業の追加」をクリックして提出するファイルをアップロードします．</p>
+<p><img alt="teams report 003.png" src="../../_images/600px-teams_report_003.png" /></p>
+<p>ファイルがアップロードされていることを確認したら，右上の「提出」ボタンをクリックします</p>
+<p><img alt="teams report 004.png" src="../../_images/600px-teams_report_004.png" /></p>
+<p>右上の提出ボタンが「提出を取り消す」に変わって，提出日時が表示されていたら提出完了です．</p>
+</div>
+<div class="section" id="id11">
+<h2>参考文献<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amazon.co.jp/dp/4022608080/">日本語の作文技術 (朝日文庫): 本多 勝一</a></p></li>
+<li><p><a class="reference external" href="https://studyusa-log.com/apa-style-citation">【2019 年版】APA スタイルでの参考文献の書き方と引用の仕方</a></p></li>
+<li><p><a class="reference external" href="https://owl.purdue.edu/owl/research_and_citation/apa6_style/apa_style_introduction.html">APA Style Introduction</a></p></li>
+<li><p><a class="reference external" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=4&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwi927ShrdLaAhXKH5QKHYXYDqcQFghbMAM&amp;url=https%3A%2F%2Fjipsti.jst.go.jp%2Fsist%2Fpdf%2FSIST_booklet2011.pdf&amp;usg=AOvVaw0KygsN7cVz5UnIJoRTU22f">参考文献の役割と書き方(SIST)</a></p></li>
+<li><p><a class="reference external" href="http://gihyo.jp/book/2017/978-4-7741-8705-1">[改訂第7版］LaTeX2ε美文書作成入門</a></p></li>
+</ul>
 </div>
 </div>
 
@@ -835,7 +1085,7 @@ Codename:buster
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/staff"
+            path: "./content/report"
         },
         predefinedOutput: true
     }
@@ -846,7 +1096,21 @@ Codename:buster
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="report.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">レポートに関して</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="peer_review.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ピアレビュー</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
