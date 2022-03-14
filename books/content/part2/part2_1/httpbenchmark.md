@@ -32,7 +32,7 @@
 -   各HTTPセッションが終了するのをpthread\_join()で待機（pthread\_create()で作ったスレッドは，detach()しない限りはjoin()しないとスタックなどのリソースを解放しないため，join()を忘れるとメモリリークを起こすので注意）
 -   clock\_gettime()で終了時刻を記録し，差分を表示
 
-```
+```c
  void randamize_array(int arr[], int size) {
    srand(time(NULL));
    for ( int i=0; i<size; i++ ) {
@@ -42,10 +42,9 @@
        arr[r] = temp;
    }
  }
-
 ```
 
-```
+```c
  void update_rlimit(int resource, int soft, int hard) {
    struct rlimit rl;
    getrlimit(resource, &rl);
@@ -56,10 +55,9 @@
      exit(-1);
    }
  }
-
 ```
 
-```
+```c
  const char* base_path = "";
  
  char g_hostname[256];
@@ -114,7 +112,6 @@
  
    free(th);
  }
-
 ```
 
 ### exp1\_eval\_thread()
@@ -125,7 +122,7 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
 
 接続エラーがあった場合には，exp1\_session\_error()でエラーカウントを増加させます．
 
-```
+```c
  void* exp1_eval_thread(void* param)
  {
    int sock;
@@ -170,7 +167,6 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
  
    pthread_exit(NULL);
  }
-
 ```
 
 ### exp1\_session\_error()
@@ -179,7 +175,7 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
 
 その際，生成された複数のスレッドがそれぞれグローバル変数を更新する可能性があるため，pthread\_mutex\_lock()とpthread\_mutex\_unlock()でクリティカルセクションを排他制御しています．
 
-```
+```c
  void exp1_session_error() {
    pthread_mutex_lock(&g_mutex);
    g_error_count++;
@@ -187,14 +183,13 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
  
    return;
  }
-
 ```
 
 ### exp1.h
 
 基本的にこれまで提示したexp1.hと同じと思いますが，念のため再掲しておきます．
 
-```
+```c
  #include <stdio.h>
  #include <stdint.h>
  #include <string.h>
@@ -219,7 +214,6 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
  #include <dirent.h>
  #include <signal.h>
  #include <pthread.h>
-
 ```
 
 ## 実行方法
@@ -229,7 +223,7 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
 
 例１）
 
-```
+```shell
  $ ./bench 192.168.1.xxx 10
  total time is 1.0095188618
  session error ratio is 0.000 
@@ -237,7 +231,7 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
 
 例２）
 
-```
+```shell
  $ ./bench 192.168.1.xxx 100
  total time is 3.2459170818
  session error ratio is 0.000 
@@ -245,7 +239,7 @@ Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さ
 
 例３）
 
-```
+```shell
  $ ./bench 192.168.1.xxx 1000
  total time is 63.1578819752
  session error ratio is 0.148 

@@ -4,11 +4,11 @@
 -   各班発表スライドを以下の名称（**全て半角文字で**）で，発表日当日【12時まで】に下記フォルダへ入れておいてください．
 
 -   第二部の場合
-    -   \\\\fs.inf.in.shizuoka.ac.jp\\share\\report\\(実施年度)情報科学実験I\\part2\\part2発表資料
+    -   **`\\fs.inf.in.shizuoka.ac.jp\\share\\report\\(実施年度)情報科学実験I\\part2\\part2発表資料`**
         -   (実験名)-(部)-(部屋番号＋班番号).pptx　　　例）CS実験I-Part2-B7.pptx
 
 -   第三部の場合
-    -   \\\\fs.inf.in.shizuoka.ac.jp\\share\\report\\(実施年度)情報科学実験I\\part3\\part3発表資料
+    -   **`\\fs.inf.in.shizuoka.ac.jp\\share\\report\\(実施年度)情報科学実験I\\part3\\part3発表資料`**
         -   (実験名)-(部)-(部屋番号＋班番号).pptx　　　例）CS実験I-Part3-B7.pptx
 
   
@@ -22,7 +22,7 @@
 -   インターネット上の素材など流用する場合は，スライドの隅にでも**参照URLなど出典情報**も含めてください
 -   発表スライドをアップロードした後に，誤りなど訂正して差し替える場合は（もちろん期限厳守）、ファイル名の後ろに**更新番号**をつけてどれが最新版なのか分かるようにしてください
 
--   -   (実験名)-(部)-(部屋番号＋班番号)**\-(更新番号)**.pptx　　　例）CS実験I-Part2-B7**\-3**.pptx
+    -   (実験名)-(部)-(部屋番号＋班番号)**\-(更新番号)**.pptx　　　例）CS実験I-Part2-B7　**\-3**.pptx
 
 ## グループレビュー
 
@@ -34,6 +34,6 @@
 投票は以下のURLから行ってください
 
 -   科二実験室用
-    -   \[第三部\] [https://forms.gle/DXeyMPDgNj3jGaRC6](https://forms.gle/DXeyMPDgNj3jGaRC6)
+    -   \[第三部\] 
 -   CC室用
-    -   \[第三部\] [https://forms.gle/NdjTihKYRKMfVExVA](https://forms.gle/NdjTihKYRKMfVExVA)
+    -   \[第三部\] 

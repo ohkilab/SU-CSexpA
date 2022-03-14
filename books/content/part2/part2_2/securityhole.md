@@ -23,13 +23,13 @@
 
 ここで，昨今のOSはデフォルトでは以下の対策が施されていますので，今回は**敢えて体験できるよう以下の設定を解除**してから実施してください．その他にも最新のセキュリティ対策が施されている場合がありますので，状況に応じて解除して実施してください．ただし，レポートにはその旨をしっかり記述し，読み手が同様の実験結果を再現するのに必要な情報をしっかり記述してください（レポート内容が正しいか（コピペや虚偽でないか），こちらでも試して確認する場合がありますので）．
 
--   [アドレス空間レイアウトのランダマイズ化](http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E7%A9%BA%E9%96%93%E9%85%8D%E7%BD%AE%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%8C%96)（ASLR: Address Space Layout Randomization）を実験のために無効化：**% sudo sysctl -w kernel.randomize\_va\_space=0**
--   [データ実行防止](http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2) （DEP: Data Execution Prevention）と[スタック保護](http://saitoh.hatenablog.jp/entry/2014/08/24/223531)（SSP: stack-smashing protection）を実験のために無効化：　**% gcc -z execstack -fno-stack-protector xxxx.c**
+-   [アドレス空間レイアウトのランダマイズ化](http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E7%A9%BA%E9%96%93%E9%85%8D%E7%BD%AE%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%8C%96)（ASLR: Address Space Layout Randomization）を実験のために無効化：`% sudo sysctl -w kernel.randomize\_va\_space=0`
+-   [データ実行防止](http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2) （DEP: Data Execution Prevention）と[スタック保護](http://saitoh.hatenablog.jp/entry/2014/08/24/223531)（SSP: stack-smashing protection）を実験のために無効化：　`% gcc -z execstack -fno-stack-protector xxxx.c`
 
 ## \[必須課題\] セグメンテーションフォルト
 
 下記プログラムにおいて，セグメンテーションフォルトが発生する理由について考察してください． また，セグメンテーションフォルトとは何か説明してください
-```
+```c
 #include "exp1.h"
 
 void test_func(char *msg)
@@ -116,7 +116,7 @@ Segmentation fault (core dumped)
 ```
 皆さんの実装したプログラムが，どのようにメモリ上に展開され実行されているか理解できると様々な意図せぬ動作の解決に役立ちます． ちなみに，上記の出力は分かりやすさを重視するために，以下のようにしてASLRを解除した場合の出力になります．
 
-```
+```shell
  $ sudo sysctl -w kernel.randomize_va_space=0 
 ```
 ```{hint}
@@ -175,6 +175,4 @@ Simple HTTPサーバにはこの脆弱性がありますので，クライアン
 
 なお，静岡大学では，enPiT Basic SecCap 夏季特別講義として本内容を高度化した「サイバー攻防基礎演習」を行う予定です．余裕がある方は下記内容を先取りして取り組んでくれても構いません．また，今回の実験にも役にたつ情報が多く記載されていますので，ご参考にしてください．
 
-enPiT サイバー攻防基礎演習サイト
-
-[https://seccap.inf.shizuoka.ac.jp/pbl/](https://seccap.inf.shizuoka.ac.jp/pbl/)
+[enPiT サイバー攻防基礎演習サイト](https://seccap.inf.shizuoka.ac.jp/pbl/)

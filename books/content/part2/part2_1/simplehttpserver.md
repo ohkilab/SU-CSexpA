@@ -35,7 +35,7 @@
 
 複数クライアントからの接続要求に対応できるようになっていませんし，特に処理内容の高速化も意識していない単純なものとなります．
 
-```
+```c
 int main(int argc, char **argv)
 {
   int sock_listen;
@@ -68,7 +68,7 @@ main()で実行する[HTTP](https://ja.wikipedia.org/wiki/Hypertext_Transfer_Pro
 -   クライアントから受信したデータにおけるヘッダ部分を分解（exp1\_parse\_header()にて）し，抽出された情報をexp1\_info\_type構造体で宣言された変数 **info** へ格納
 -   抽出された情報infoを元にクライアントへ返すHTTPリプライを生成し返送（exp1\_http\_reply()にて）
 
-```
+```c
 int exp1_http_session(int sock)
 {
   char buf[2048];
@@ -102,7 +102,7 @@ int exp1_http_session(int sock)
 -   code (HTTPリプライにおける[HTTPステータスコード](https://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89)用)
 -   size（HTTPリプライにおけるContent-Lengthフィールド用）
 
-```
+```c
 typedef struct
 {
   char cmd[64];
@@ -113,6 +113,8 @@ typedef struct
   int size;
 } exp1_info_type;
 ```
+
+### exp1\_parse\_header()
 
 クライアントからの[HTTPリクエスト](https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP.E3.83.A1.E3.83.83.E3.82.BB.E3.83.BC.E3.82.B8)（例：GET / HTTP/1.0）をパース（構文解析）する関数です．
 
@@ -126,7 +128,7 @@ exp1\_parse\_status()では，HTTPリクエストの1行目に含まれるHTTP�
 
 HTTPリクエストをより詳細に解析させたい場合は，この関数を拡張していくと楽と思います．
 
-```
+```c
 int exp1_parse_header(char* buf, int size, exp1_info_type* info)
 {
   char status[1024];
@@ -171,7 +173,7 @@ HTTPリクエスト1行目（例：GET / HTTP/1.0）を解析する関数です�
 
 HTTPリクエストの1行目に含まれるHTTPメソッドをcmd (例：GET)へ，URI情報をpath (例：/)へ，ステートマシンで抽出し **info** へ格納します．
 
-```
+```c
 void exp1_parse_status(char* status, exp1_info_type *pinfo)
 {
   char cmd[1024];
@@ -228,7 +230,7 @@ exp1\_parse\_status()で得られたinfo->pathから，リクエスト対象の�
 
 最後に，info->pathの拡張子を見て，HTTPリプライで返すContent-Type用に **info->type** へ適切な文字列を格納しておきます．
 
-```
+```c
 void exp1_check_file(exp1_info_type *info)
 {
   struct stat s;
@@ -264,7 +266,7 @@ void exp1_check_file(exp1_info_type *info)
 
 exp1\_parse\_header()で抽出された **info** を元に，クライアントへ返すべく適切なHTTPリプライを作成し返します．
 
-```
+```c
 void exp1_http_reply(int sock, exp1_info_type *info)
 {
   char buf[16384];
@@ -299,7 +301,7 @@ info->pathで指定されたファイルがhtmlディレクトリに存在しな
 
 このサンプルソースコードでは，ステータスコード404はクライアントへ返していますが，404ページ自体は返信してませんのでご注意ください（4XX系を実装する人は適宜作成してください）．
 
-```
+```c
 void exp1_send_404(int sock)
 {
   char buf[16384];
@@ -320,7 +322,7 @@ void exp1_send_404(int sock)
 
 info->real\_pathで指定されたファイルがhtmlディレクトリに存在した場合は，そのファイルをfopen()で開き，fread()で読み込める間，読み込めたデータをsend()でクライアントへ分割して返信し，読み込めなくなったらファイルをfclose()します．
 
-```
+```c
 void exp1_send_file(int sock, char* filename)
 {
   FILE *fp;
@@ -353,7 +355,7 @@ void exp1_send_file(int sock, char* filename)
 
 基本的にこれまで提示したexp1.hと同じと思いますが，念のため再掲しておきます．
 
-```
+```c
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
