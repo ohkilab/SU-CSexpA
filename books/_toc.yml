@@ -144,7 +144,7 @@ parts:
           title: 検討状況の確認（必須）
 
       - file: content/part3/part3_4/overview
-        title: '[Day13,14] パフォーマンスチューニング'
+        title: '[Day13,14] 発表会準備'
 
       - file: content/part3/part3_5/overview
         title: '[Day15] 第三部グループ発表会'
