@@ -1,5 +1,10 @@
 # Day12の目的と概要
 
+-   a) [Apache MPMについて](./about_apache_mpm "Apache MPMについて")
+-   b) [実装の参考となるリンク集](./useful_links "実装の参考となるリンク集")
+-   c) [WebSocketについて](./websocket "WebSocketについて")
+-   d) [検討状況の確認](./conformation_of_status "検討状況の確認")（必須）
+
 ```{admonition} 本日の進捗確認チェックリスト
 - 14:00: 第三部の達成基準を理解しグループ内で役割分担を話し合いましたか？
 - 15:00: 基礎課題と応用課題への挑戦スケジュールを相談しましたか？
@@ -9,12 +14,6 @@
 
 最終課題に向けて，以下の情報も参考にして，各自の担当部分についてグループ内で状況を共有し，どこにオリジナリティを出すか相談しながら魅力的なプレゼン資料作成にとりかかってください．
 
-## Webシステムの超高性能化（最終課題）
-
--   a) [Apache MPMについて](./about_apache_mpm "Apache MPMについて")
--   b) [実装の参考となるリンク集](./useful_links "実装の参考となるリンク集")
--   c) [WebSocketについて](./websocket "WebSocketについて")
--   d) [検討状況の確認](./conformation_of_status "検討状況の確認")（必須）
 
 ## レポートに関して
 
