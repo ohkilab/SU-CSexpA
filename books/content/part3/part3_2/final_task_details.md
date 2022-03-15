@@ -243,7 +243,8 @@ use CSexp1DB;
 
 イメージを掴みやすくなるようこれから実装するprocA（実装A）～C（実装C）を呼び出すための共通のindex.htmlを用意しました．以下のgitリポジトリからサンプルプログラム（index.html, progA.php, progB.php, progC.phpの４つ）をcloneしてください．これらprogA.php（実装A）, progB.php（実装B）, progC.php（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザでindex.htmlを表示し，どのような構造になっているか動作を確認してみてください．
 
--   [https://github.com/abarth500/CSexp1-Last.git](https://github.com/abarth500/CSexp1-Last.git)
+
+- [https://github.com/ohkilab/SU-CSexpA-Last](https://github.com/ohkilab/SU-CSexpA-Last)
 
 以下の項目は，実装A～Cの全てに対し共通で実装してもらいたい仕様ですので必ず実装してください．
 
