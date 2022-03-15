@@ -1,5 +1,17 @@
-# Day11の目的と概要
+# Day10の目的と概要
 
+-   a) [第三部の準備](./preparation "第三部の準備")
+-   b) [Webシステムの基礎](./web_system_basics "Webシステムの基礎")（発展）
+-   c) [サンプルプログラム(PHP)](./sample_program_php "サンプルプログラム(PHP)")
+-   d) [サンプルプログラム(JavaScript)](./sample_program_js "サンプルプログラム(JavaScript)")
+-   e) [ベンチマークソフトab（Apache Bench）](./benchmark_soft_ab "ベンチマークソフトab（Apache Bench）")（必須）
+
+```{admonition} 本日の進捗確認チェックリスト
+- 14:00: 第三部に必要な環境は正常に動作していますか？
+- 15:00: node.jsのHTTPサーバは動きましたか？
+- 16:00: サンプルプログラム２つ（PHP，JavaScript）とも動きましたか？
+- 17:00: サンプルプログラムの違いが何であるか，キャプチャしたトラフィックを用いて班内で議論し合いましたか？
+```
 ## はじめに
 
 第二部では，簡単に言えばWebブラウザで閲覧できるシステム，つまり「Webシステム」の根幹をなす「Webサーバ」と「Webクライアント」，それらのやりとりで使用される「HTTP (Hyper Text Transfer Protocol)」 について十分理解し，実装や拡張できるようになることを目的としました．
