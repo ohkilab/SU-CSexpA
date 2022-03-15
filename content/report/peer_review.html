@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>各アプリケーションのアンインストール方法 &#8212; 情報科学実験A</title>
+    <title>ピアレビュー &#8212; 情報科学実験A</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="実験機材のクリーンアップと解体" href="../end/cleanup.html" />
+    <link rel="prev" title="レポートの書き方" href="how_to_write_reports.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -482,19 +484,19 @@ const thebe_selector_output = ".output, .cell_output"
   レポート
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../report/report.html">
+  <a class="reference internal" href="report.html">
    レポート詳細
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../report/how_to_write_reports.html">
+  <a class="reference internal" href="how_to_write_reports.html">
    レポートの書き方
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../report/peer_review.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    ピアレビューのやり方
   </a>
  </li>
@@ -518,12 +520,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="question.html">
+  <a class="reference internal" href="../trouble_shooting/question.html">
    質問の行い方
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="trouble.html">
+  <a class="reference internal" href="../trouble_shooting/trouble.html">
    よくあるトラブル
   </a>
  </li>
@@ -568,7 +570,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/trouble_shooting/uninstall.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/report/peer_review.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -588,7 +590,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/trouble_shooting/uninstall.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/report/peer_review.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -615,23 +617,23 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#raspberry-pi-os-raspbian">
-   Raspberry Pi OS(旧：Raspbian)
+  <a class="reference internal nav-link" href="#id2">
+   事前準備
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apache">
-   Apache
+  <a class="reference internal nav-link" href="#id3">
+   レビュー方法
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mariadb">
-   MariaDB
+  <a class="reference internal nav-link" href="#id4">
+   全体レビュー
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#php">
-   PHP
+  <a class="reference internal nav-link" href="#id5">
+   レビューを受けてレポート改善
   </a>
  </li>
 </ul>
@@ -644,7 +646,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>各アプリケーションのアンインストール方法</h1>
+                <h1>ピアレビュー</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -655,23 +657,23 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#raspberry-pi-os-raspbian">
-   Raspberry Pi OS(旧：Raspbian)
+  <a class="reference internal nav-link" href="#id2">
+   事前準備
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apache">
-   Apache
+  <a class="reference internal nav-link" href="#id3">
+   レビュー方法
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mariadb">
-   MariaDB
+  <a class="reference internal nav-link" href="#id4">
+   全体レビュー
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#php">
-   PHP
+  <a class="reference internal nav-link" href="#id5">
+   レビューを受けてレポート改善
   </a>
  </li>
 </ul>
@@ -684,23 +686,61 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>各アプリケーションのアンインストール方法<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>インストールしたアプリケーションがうまく動作しない・初期化したい場合のために，アンインストール方法を記載しておきます.</p>
-<div class="section" id="raspberry-pi-os-raspbian">
-<h2>Raspberry Pi OS(旧：Raspbian)<a class="headerlink" href="#raspberry-pi-os-raspbian" title="Permalink to this headline">¶</a></h2>
-<p>編集中</p>
+<h1>ピアレビュー<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>事前準備<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>各自のレポートファイル（MS Wordフォーマット）</p></li>
+</ul>
+<p>レポート初版を提出する時点でグループの他メンバーにピアレビューしてもらうためのページを準備してあるはずです．</p>
+<p>以下のようになっていない場合は，急いでレポートピアレビューのページを準備してください．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>表紙
+レポートピアレビュー（1人目用）
+レポートピアレビュー（2人目用）
+レポートピアレビュー（3人目用）
+　　　　：
+レポートピアレビュー（N人目用）
+目次
+　　　　：
+</pre></div>
 </div>
-<div class="section" id="apache">
-<h2>Apache<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h2>
-<p>編集中</p>
+<p>レビューはMS Wordの校閲機能（特にコメント機能並びに変更履歴の記録機能）を使って行います．</p>
+<p>最終的にレビューを受けたファイルと，そのレビュー内容を踏まえて作成した最終版のファイルの両方が提出対象になります．</p>
 </div>
-<div class="section" id="mariadb">
-<h2>MariaDB<a class="headerlink" href="#mariadb" title="Permalink to this headline">¶</a></h2>
-<p>編集中</p>
+<div class="section" id="id3">
+<h2>レビュー方法<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>自分のレポートをグループの他のメンバにレビューしてもらうようにします．従って，4人グループですと自分のレポートを3人からレビューをしてもらう &amp; 自分は3つのレポートのレビューをすることになります．自分のレポートは初版提出時に既にチェック済のはずですので，この時間では自分自身のレポートはレビューの対象とはしません．</p>
+<p>複数人が並行してレビュー作業を行える方が効率が良いので，レビューはOffice365を利用して行います．</p>
+<ol class="simple">
+<li><p>MS Teams の各班のチャネルを開いて下さい</p></li>
+<li><p>各班のチャネルの「ファイル」タブを開いて下さい．</p></li>
+<li><p>初版のレポートのファイル（e.g. <code class="docutils literal notranslate"><span class="pre">CS実験I_Part1_A1_7091-1234初版.docx</span></code>）をアップロードします．</p></li>
+</ol>
+<p><img alt="peer_review_open_channel.png" src="../../_images/peer_review_open_channel.png" /></p>
+<p><img alt="peer_review_upload_1streport.png" src="../../_images/peer_review_upload_1streport.png" /></p>
+<p>グループ全員のファイルがアップロードされたことを確認して下さい．</p>
+<ol class="simple">
+<li><p>アップロードされたファイルをクリックするとファイルが開きますので，更に「編集」ボタンをクリックします．</p></li>
+<li><p>ブラウザ上でファイルが開きますので編集モードを「チェック／コメント」に変更します（編集履歴が保存される状態になります）．</p></li>
+<li><p>レポートを読んだ上で，気づいた点についてコメントを追加したり，修正案を示したり校正して下さい．</p></li>
+</ol>
+<p><img alt="peer_review_open_file.png" src="../../_images/peer_review_open_file.png" /></p>
+<p><img alt="peer_review_start_comment.png" src="../../_images/peer_review_start_comment.png" /></p>
+<p><img alt="peer_review_example_comment.png/600px-peer_review_example_comment.png)" src="../../_images/peer_review_example_comment.png" /></p>
 </div>
-<div class="section" id="php">
-<h2>PHP<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h2>
-<p>編集中</p>
+<div class="section" id="id4">
+<h2>全体レビュー<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>レビューを受けたレポートを参照します．</p></li>
+<li><p>他のレビューアからの指摘をチェックして，理解し納得できて自分がこのままレポートを更新できる指摘と，このままではうまくレポートを更新できない指摘（レビューアに質問したい指摘，レビューアによってあるいは自分とレビューアとの間の考え方がに差異があるなど考え方を整理したい指摘）に整理します．</p></li>
+<li><p>このままではレポートを更新できない指摘について，レビューアに確認するなどしてレポート作成者がレポートを改善できるまでに整理し具体化して下さい．</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>レビューを受けてレポート改善<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>レビュー内容を元にレポートを改善します．</p>
+<p>更にこのピアレビューの活動に対する考察を最後に追加してください．</p>
+<p>今回，ピアレビューして<strong>コメント記載済みの初版レポートは，最終レポートの提出時に合わせて提出</strong>して下さい．</p>
 </div>
 </div>
 
@@ -717,7 +757,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/trouble_shooting"
+            path: "./content/report"
         },
         predefinedOutput: true
     }
@@ -728,7 +768,21 @@ const thebe_selector_output = ".output, .cell_output"
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="how_to_write_reports.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">レポートの書き方</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../end/cleanup.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">実験機材のクリーンアップと解体</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

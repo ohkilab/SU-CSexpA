@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>よくあるトラブル &#8212; 情報科学実験Ⅰ</title>
+    <title>よくあるトラブル &#8212; 情報科学実験A</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="各アプリケーションのアンインストール方法" href="uninstall.html" />
     <link rel="prev" title="質問の行い方" href="question.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -78,7 +77,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <h1 class="site-logo" id="site-title">情報科学実験Ⅰ</h1>
+      <h1 class="site-logo" id="site-title">情報科学実験A</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
@@ -89,7 +88,14 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   情報科学実験Ⅰ
+   メインページ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   今年度の日程
   </a>
  </li>
 </ul>
@@ -113,7 +119,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part1/part1_1/overview.html">
-   環境構築と実験の開始
+   [Day1] 環境構築と実験の開始
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -130,7 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part1/part1_2/overview.html">
-   通信性能の計測
+   [Day2] 通信性能の計測
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -155,17 +161,49 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part1/part1_3/overview.html">
-   多対多接続の設計・実装
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part1/part1_4/overview.html">
-   第一部レポートピアレビュー
+  <a class="reference internal" href="../part1/part1_3/overview.html">
+   [Day3] 多対多接続の設計・実装
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_3/multiplexing_server_program.html">
+     サーバープログラムによる多重化
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_3/benchmarking_program.html">
+     ベンチマークプログラムの設計と実装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_3/performance_measurement.html">
+     性能計測 (必須課題)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_3/multiplexing_asynchronous_IO.html">
+     非同期IOによる多重化
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1/part1_3/cause_analysis_communication_failure.html">
+     通信失敗の原因分析 (発展課題)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../part1/part1_4/overview.html">
+   [Day4] 第一部レポートピアレビュー
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -191,10 +229,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part2/part2_1/day6objective.html">
-   Simple HTTPサーバの構築
+   [Day5] Simple HTTPサーバの構築
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -218,10 +256,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part2/part2_2/day7objective.html">
-   HTTPサーバの高機能化(1)
+   [Day6] HTTPサーバの高機能化(1)
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -250,10 +288,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part2/part2_3/day8objective.html">
-   HTTPサーバの高機能化(2)
+   [Day7] HTTPサーバの高機能化(2)
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -272,10 +310,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part2/part2_4/day9objective.html">
-   第二部グループ発表会
+   [Day8] 第二部グループ発表会
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -294,10 +332,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part2/part2_5/day10objective.html">
-   第二部レポートピアレビュー
+   [Day9] 第二部レポートピアレビュー
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -323,10 +361,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part3/part3_1/overview.html">
-   Webシステムの基礎
+   [Day10] Webシステムの基礎
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -360,10 +398,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part3/part3_2/overview.html">
-   Webシステムの設計と実装
+   [Day11] Webシステムの設計と実装
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -378,24 +416,14 @@ const thebe_selector_output = ".output, .cell_output"
      最終課題の詳細
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3/part3_2/part3_group_presentation.html">
-     第三部グループ発表会
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3/part3_2/part3_repot.html">
-     第三部レポート
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part3/part3_3/overview.html">
-   ベンチマークと分析
+   [Day12] ベンチマークと分析
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -424,15 +452,15 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../part3/part3_4/preview.html">
-   パフォーマンスチューニング
+   [Day13,14] パフォーマンスチューニング
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part3/part3_5/overview.html">
-   第三部グループ発表会
+   [Day15] 第三部グループ発表会
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -447,6 +475,28 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../part3/part3_5/last_report.html">
    第三部レポート
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  レポート
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../report/report.html">
+   レポート詳細
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../report/how_to_write_reports.html">
+   レポートの書き方
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../report/peer_review.html">
+   ピアレビューのやり方
   </a>
  </li>
 </ul>
@@ -476,11 +526,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    よくあるトラブル
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="uninstall.html">
-   各アプリケーションのアンインストール方法
   </a>
  </li>
 </ul>
@@ -584,64 +629,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   第一部
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   第二部
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mariadb">
-     mariaDBが正しくインストールできない
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     用語の説明
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
    第三部
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id5">
      レポートの表紙に貼り付ける画像が取得できない(存在しない)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#google-map">
-     Google Mapが表示されない
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apache-bench">
-     Apache Benchの使い方
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     参考になるサイト
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#db">
-     DBでキャッシュが保持されてしまう
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     DBへのデータ流し込みが永遠に終わらない
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     DB変換に時間がかかる
     </a>
    </li>
   </ul>
@@ -680,64 +673,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   第一部
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   第二部
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mariadb">
-     mariaDBが正しくインストールできない
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     用語の説明
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
    第三部
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id5">
      レポートの表紙に貼り付ける画像が取得できない(存在しない)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#google-map">
-     Google Mapが表示されない
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apache-bench">
-     Apache Benchの使い方
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     参考になるサイト
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#db">
-     DBでキャッシュが保持されてしまう
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     DBへのデータ流し込みが永遠に終わらない
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     DB変換に時間がかかる
     </a>
    </li>
   </ul>
@@ -758,26 +699,27 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id3">
 <h3>指定されたソフトウェアが見つからない，インストール方法や使い方が分からない<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>ソフトウェアのバージョンアップ等のため，インストール画面や設定方法が多少異なる場合があります(例えば，初期ディレクトリの設定方法など)．何をしてもらいたいのか目的を理解していれば，その目的を達成するためのツールや手段は記載している方法以外でも構いませんので，インターネットで調べたり周囲の班員とも相談しながら目的達成していってください．その際，課題ページの修正が必要な部分について教員らに報告しておいてください．更新しておきたいと思いますので．</p>
+<!-- 
+
+## 第一部
+
+## 第二部
+
+### mariaDBが正しくインストールできない
+
+編集中
+
+### 用語の説明
+
+編集中 
+
+-->
 </div>
 </div>
 <div class="section" id="id4">
-<h2>第一部<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-</div>
+<h2>第三部<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id5">
-<h2>第二部<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="mariadb">
-<h3>mariaDBが正しくインストールできない<a class="headerlink" href="#mariadb" title="Permalink to this headline">¶</a></h3>
-<p>編集中</p>
-</div>
-<div class="section" id="id6">
-<h3>用語の説明<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<p>編集中</p>
-</div>
-</div>
-<div class="section" id="id7">
-<h2>第三部<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id8">
-<h3>レポートの表紙に貼り付ける画像が取得できない(存在しない)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>レポートの表紙に貼り付ける画像が取得できない(存在しない)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>もともとFlickrに存在していた画像が削除されてしまっています.</p>
 <p>表紙に画像を貼る代わりに</p>
 <ul class="simple">
@@ -785,33 +727,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>検索したURL</p></li>
 </ul>
 <p>の2点を記載するようにお願いします.</p>
-</div>
-<div class="section" id="google-map">
-<h3>Google Mapが表示されない<a class="headerlink" href="#google-map" title="Permalink to this headline">¶</a></h3>
-<p>与えられているAPIキーは学内ネットワークでないと接続できません.<br />
-学内ネットワークに接続するか, もしくは各自でAPIキーを取得してください.<br />
-<a class="reference external" href="https://console.cloud.google.com/">https://console.cloud.google.com</a></p>
-</div>
-<div class="section" id="apache-bench">
-<h3>Apache Benchの使い方<a class="headerlink" href="#apache-bench" title="Permalink to this headline">¶</a></h3>
-<p>編集中</p>
-</div>
-<div class="section" id="id9">
-<h3>参考になるサイト<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p>編集中</p>
-</div>
-<div class="section" id="db">
-<h3>DBでキャッシュが保持されてしまう<a class="headerlink" href="#db" title="Permalink to this headline">¶</a></h3>
-<p>編集中</p>
-</div>
-<div class="section" id="id10">
-<h3>DBへのデータ流し込みが永遠に終わらない<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<p>編集中</p>
-</div>
-<div class="section" id="id11">
-<h3>DB変換に時間がかかる<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
-<p>編集中</p>
-</div>
+<!-- 
+
+### Google Mapが表示されない
+
+与えられているAPIキーは学内ネットワークでないと接続できません.  
+学内ネットワークに接続するか, もしくは各自でAPIキーを取得してください.  
+[https://console.cloud.google.com](https://console.cloud.google.com/)
+
+### Apache Benchの使い方
+
+編集中
+
+### 参考になるサイト
+
+編集中
+
+### DBでキャッシュが保持されてしまう
+
+編集中
+
+### DBへのデータ流し込みが永遠に終わらない
+
+編集中
+
+### DB変換に時間がかかる
+
+編集中 
+
+--></div>
 </div>
 </div>
 
@@ -846,13 +790,6 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">質問の行い方</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="uninstall.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">各アプリケーションのアンインストール方法</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
