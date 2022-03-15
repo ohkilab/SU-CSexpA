@@ -152,9 +152,6 @@ parts:
         - file: content/part3/part3_5/last_presentation
           title: 第三部グループ発表会
 
-      - file: content/part3/part3_5/last_report
-        title: 第三部レポート
-
   # レポートについて
   - caption: レポート
     chapters:
