@@ -4,7 +4,7 @@
 
 サンプルプログラム（PHP）をJavaScriptで書き直したサンプルプログラム（JavaScript）が以下のリポジトリにありますので，これまで同様の方法でダウンロードして実行してみてください．プログラミング言語が異なるだけで，実行結果は全く同じになっていると思います．なお，このサンプルプログラム（JavaScript）では[jQueryライブラリ](http://jquery.com/)を使用しています．jQueryもプログラム中に **$** が多々出てきますが，これはPHP等でいう変数という意味ではありませんので注意してください．
 
-GitHubリポジトリ [https://github.com/abarth500/CSexp1-01](https://github.com/abarth500/CSexp1-01)
+[https://github.com/ohkilab/SU-CSexpA-01](https://github.com/ohkilab/SU-CSexpA-01)
 
 さて，全く同じWebページを表示するサンプルプログラム（PHP）とサンプルプログラム（JavaScript）では，何が違うのでしょうか？
 

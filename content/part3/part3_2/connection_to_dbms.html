@@ -453,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../part3_4/overview.html">
-   [Day13,14] パフォーマンスチューニング
+   [Day13,14] 発表会準備
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -472,11 +472,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part3_5/last_report.html">
-   第三部レポート
-  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -992,7 +987,7 @@ $ sudo reboot
 <div class="section" id="id3">
 <h3>静岡県の郵便番号一覧をダウンロード<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>郵便番号のリストは，<a class="reference external" href="http://www.post.japanpost.jp/zipcode/download.html">ゆうちょのページ</a>で公開されています．ただし，半角カタカナだったり，特に今回は不要なフィールドが含まれていたりしますので，静岡県の郵便番号と住所を「,」で区切ったデータのみを抽出し，以下のGitリポジトリへ<strong>zip-shizuoka.csv</strong>というファイルで置いておきました．</p>
-<p>GitHubリポジトリ <a class="reference external" href="https://github.com/abarth500/CSexp1-02">https://github.com/abarth500/CSexp1-02</a></p>
+<p>GitHubリポジトリ <a class="reference external" href="https://github.com/ohkilab/SU-CSexpA-02">https://github.com/ohkilab/SU-CSexpA-02</a></p>
 </div>
 <div class="section" id="id4">
 <h3>テーブルの作成<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
@@ -1007,7 +1002,7 @@ $ sudo reboot
 <ul>
 <li><p>フィールドは何個あるか？</p></li>
 <li><p>各フィールドの名前を何にするか？</p></li>
-<li><p>各フィールドの<a class="reference external" href="http://dev.mysql.com/doc/refman/5.1-olh/ja/data-types.html">データ型</a>を何にするか？</p></li>
+<li><p>各フィールドの<a class="reference external" href="https://dev.mysql.com/doc/refman/5.6/ja/data-types.html">データ型</a>を何にするか？</p></li>
 </ul>
 </li>
 </ul>
@@ -1057,9 +1052,9 @@ $ sudo reboot
 <p>以下に示すようなデータを抽出できるような<strong>SELECT文</strong>を考えてみてください．</p>
 <ul class="simple">
 <li><p>「城北」が住所に含まれる地域の郵便番号を表示するには？(ヒント：<a class="reference external" href="http://dev.mysql.com/doc/refman/4.1/ja/string-comparison-functions.html">LIKE演算子</a>)</p></li>
-<li><p>郵便番号を辞書順で降順にソートして表示するには？(ヒント：<a class="reference external" href="http://www.yukun.info/blog/2008/11/mysql-sort-record-order-by-asc-desc.html">ORDER BY句</a>)</p></li>
+<li><p>郵便番号を辞書順で降順にソートして表示するには？(ヒント：<a class="reference external" href="https://gihyo.jp/dev/serial/01/mysql-road-construction-news/0147">ORDER BY句</a>)</p></li>
 <li><p>各市区町村別がそれぞれ何個の郵便番号を持っているか？(ヒント：<a class="reference external" href="http://dev.mysql.com/doc/refman/5.1/ja/group-by-modifiers.html">GROUP BY句</a>)</p></li>
-<li><p>出力を個数の多い順にソートして表示するには？(ヒント：<a class="reference external" href="http://www.yukun.info/blog/2008/11/mysql-sort-record-order-by-asc-desc.html">ORDER BY句</a>)</p></li>
+<li><p>出力を個数の多い順にソートして表示するには？(ヒント：<a class="reference external" href="https://qiita.com/ozlee/items/b3983c96f23b27d9044d">ORDER BY句</a>)</p></li>
 </ul>
 </div>
 <div class="section" id="id6">

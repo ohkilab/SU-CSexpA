@@ -7,14 +7,14 @@ Raspberry Pi上のRaspbian OS に標準でインストールされている VNC 
 
 [RealVNC](https://www.realvnc.com/en/connect/download/viewer/windows/)
 
-> RealVNC社の "Frequently asked questions" より引用  
-> Do I need to license the software?  
+> RealVNC社の "Frequently asked questions" より引用
+> Do I need to license the software?
 > No. VNC® Viewer is always free to use. Just accept the EULA the first time you run.
 
 ## Virtual BoxとVMの準備
 
 ### 概要
-従来，情報科学実験Iではグループを構成して実験を進める計画になっています．従って，グループ内の複数のRaspberryPi間で通信を行うプログラムを構築し，その通信内容や通信性能を計測し，分析します．しかしながら，個人で実験を進めなければならない場合も時にはあるかと思いますので，その際は各自のノートPC上にLinux環境を構築して通信アプリケーションの片側を実行するようにします．
+従来，情報科学実験Aではグループを構成して実験を進める計画になっています．従って，グループ内の複数のRaspberryPi間で通信を行うプログラムを構築し，その通信内容や通信性能を計測し，分析します．しかしながら，個人で実験を進めなければならない場合も時にはあるかと思いますので，その際は各自のノートPC上にLinux環境を構築して通信アプリケーションの片側を実行するようにします．
 
 RaspberryPi同士の通信環境とは異なる環境になりますので，異なる環境間で計測結果の比較を行うことは妥当ではありません． この点には注意が必要ですが，通信アプリケーションの開発と動作確認には使えるでしょう．
 

@@ -86,7 +86,7 @@ aptによるgitのインストールが成功しない場合は様々な問題�
 
 Windows端末でGitを使用するには，[GitHub Desktop](https://desktop.github.com/)をインストールするのが簡単です．GUIもCUI（Windows Powershell）も同時にインストールされますのでお手軽です．
 
--   [GitHub for Windows を Windows7 にインストールする手順](http://qiita.com/busonx/items/4a1ce97885ceaab4c477)
+-   [GitHub DesktopはWindows用Gitツール インストールと使い方の解説](https://ferret-plus.com/8498)
 -   [GitHub Desktop を使って楽々 GitHub 入門](http://yohshiy.blog.fc2.com/blog-entry-326.html)
 
 などなど

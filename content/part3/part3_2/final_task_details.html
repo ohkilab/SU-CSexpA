@@ -453,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../part3_4/overview.html">
-   [Day13,14] パフォーマンスチューニング
+   [Day13,14] 発表会準備
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -472,11 +472,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part3_5/last_report.html">
-   第三部レポート
-  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -995,7 +990,7 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <h3>インデックスの作成<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>緯度経度や撮影時刻，タグなどを条件とした検索を効率良く行うため，必要なフィールド用のインデックスを作成してみましょう．ただし，インデックスを作成すると検索は速くなりますが，インデックスの分だけディスク容量を消費しますので注意しましょう（インデックスの作成に必要な容量は計算で見積もることができますので調べてみるとよいでしょう）．</p>
 <p>具体的に，皆さんの環境でインデックスの作成によってどの程度ディスク容量を使用するか試してみましょう．以下のようにコマンドを入力し，インデックスを作成する前のテーブルが消費しているデータ容量をチェックしてみましょう．テーブルが消費しているデータ容量などの詳細は，<strong>information_schema</strong>と呼ばれるDBのpartitionsテーブルへ保存されています．</p>
-<p>data_lengthがテーブルの大きさ，index_lengthがインデクスの大きさ，単位はbyteで確認できます．</p>
+<p>data_lengthがテーブルの大きさ，index_lengthがインデックスの大きさ，単位はbyteで確認できます．</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--メタデータを保持しているinformation_schmeと呼ばれるDBへ移動</span>
 <span class="n">use</span><span class="w"> </span><span class="n">information_schema</span><span class="p">;</span><span class="w"></span>
 <span class="k">select</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="n">data_length</span><span class="p">,</span><span class="n">index_length</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;geotag&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;tag&#39;</span><span class="p">;</span><span class="w"></span>
@@ -1048,7 +1043,7 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <p>上記のインデックス作成によって，テーブルが消費しているデータ容量が<strong>約183MBから約707MBへ増加した</strong>ことが分かります．</p>
 <p>ディスク容量は潤沢にある場合は良いですが，闇雲にインデックスを作成しすぎるとディスク容量不足に陥るので注意しましょう．今回のような大容量のデータセットを扱う場合，インデックスを作成しないと実用的な応答速度が得られませんが，性能とコストのバランスが重要となりますので，インデックスの作成方法や構造など試行錯誤してみてください．</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://dev.mysql.com/doc/refman/5.1/ja/create-index.html">インデクス作成に関するMySQLリファレンス</a></p></li>
+<li><p><a class="reference external" href="http://dev.mysql.com/doc/refman/5.1/ja/create-index.html">インデックス作成に関するMySQLリファレンス</a></p></li>
 </ul>
 </div>
 </div>
@@ -1058,7 +1053,7 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <p>ここで，任意のタグは静的にハードコーティングするのではなく，Webブラウザの検索フォームからユーザが指定できるよう実装してください．</p>
 <p>イメージを掴みやすくなるようこれから実装するprocA（実装A）～C（実装C）を呼び出すための共通のindex.htmlを用意しました．以下のgitリポジトリからサンプルプログラム（index.html, progA.php, progB.php, progC.phpの４つ）をcloneしてください．これらprogA.php（実装A）, progB.php（実装B）, progC.php（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザでindex.htmlを表示し，どのような構造になっているか動作を確認してみてください．</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/abarth500/CSexp1-Last.git">https://github.com/abarth500/CSexp1-Last.git</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ohkilab/SU-CSexpA-Last">https://github.com/ohkilab/SU-CSexpA-Last</a></p></li>
 </ul>
 <p>以下の項目は，実装A～Cの全てに対し共通で実装してもらいたい仕様ですので必ず実装してください．</p>
 <p>【<strong>追加実装する共通仕様</strong>】</p>
@@ -1177,7 +1172,7 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <li><p>第三者が再現できるよう実験条件を明記する</p></li>
 </ul>
 <p>【補足】</p>
-<p>~~Apacheの設定を変更するとグループ全員の測定に影響を与えますので，必ずグループのメンバーの了解を取って，あるいはグループのメンバー全員で協力して実施しましょう．~~計測対象のホームページは，最終課題の実装でなくても構いません．もし第二部でKeepAlive対応のWebサーバを実装したなら，そのWebサーバで性能計測しても構いません．重要なのは，各自で「仮説」を立てて検証することです．「この設定をこう変更したら，このような性能変化が計測できるかもしれない」というような仮設を立ててから実際に検証しましょう．</p>
+<p>Apacheの設定を変更するとグループ全員の測定に影響を与えますので，必ずグループのメンバーの了解を取って，あるいはグループのメンバー全員で協力して実施しましょう．計測対象のホームページは，最終課題の実装でなくても構いません．もし第二部でKeepAlive対応のWebサーバを実装したなら，そのWebサーバで性能計測しても構いません．重要なのは，各自で「仮説」を立てて検証することです．「この設定をこう変更したら，このような性能変化が計測できるかもしれない」というような仮設を立ててから実際に検証しましょう．</p>
 </div>
 <div class="section" id="id13">
 <h3>②自由課題（イマジネーション）チーム<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>

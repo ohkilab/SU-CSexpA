@@ -453,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../part3_4/overview.html">
-   [Day13,14] パフォーマンスチューニング
+   [Day13,14] 発表会準備
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -472,11 +472,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part3_5/last_report.html">
-   第三部レポート
-  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -763,7 +758,7 @@ $ npm install websocket            <span class="c1"># &lt;--- WebSocketモジュ
 <p>検索窓に「<strong>MySQL</strong>」と入植して探してみましょう．結果がたくさん出てきたと思います．nodeに限りませんが，同じ目的を達成するためのモジュールを様々な人が実装してくれています（中には正常に動作しない中途半端なものや意図せぬ動作が埋め込まれたものもありますのでご注意ください）．</p>
 <p>一般的には，評価の高いモジュールや最初に出てきたモジュールを使用することが多いです．とりあえず今回は，最初に出てきた「<a class="reference external" href="https://npmjs.org/package/mysql">mysql</a>」というものを使用してみましょう．インストール方法もそのページに記載されていますので進めてみてください．サンプルコードもありますので，それらも参考に自分なりにプログラムを作成してみるとよいと思います．</p>
 <p>WebSocketを用いた通信プログラムの第一歩としてチャットプログラムが代表的です．以下のgitリポジトリにサンプルコードがありますのでダウンロードして試してみてください．</p>
-<p><a class="reference external" href="https://github.com/abarth500/CSexp1-04.git">https://github.com/abarth500/CSexp1-04.git</a></p>
+<p><a class="reference external" href="https://github.com/ohkilab/SU-CSexpA-04">https://github.com/ohkilab/SU-CSexpA-04</a></p>
 <p>ダウンロードすると<strong>chat.html</strong>と<strong>chat.js</strong>というファイルがあります．htmlファイルがクライアント，jsファイルがサーバです．htmlもプログラム自体は，JavaScriptで書かれていますので，サーバとクライアントの両方がJavaScriptで書かれているということになります．</p>
 <p>まず，両方のファイルをテキストエディタで開いてポート番号の記載がどうなっているか確認してください．<strong>10080</strong>以外を使用したい人は，両ファイルの該当箇所を修正してください．</p>
 <p>修正が終わったら，htmlファイルをWebサーバのディレクトリへコピーし，jsファイルをnode実行用に作成したディレクトリへコピーしてください．次に，サーバを起動します．JavaScriptはスクリプトですから，インタプリタを通して起動します．今回使用するインタプリタは，<strong>node</strong>です．以下のようにサーバ用スクリプト<strong>chat.js</strong>を起動させてください．</p>

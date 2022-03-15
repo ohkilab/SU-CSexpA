@@ -453,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../part3_4/overview.html">
-   [Day13,14] パフォーマンスチューニング
+   [Day13,14] 発表会準備
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -472,11 +472,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part3_5/last_report.html">
-   第三部レポート
-  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -829,7 +824,7 @@ $ sudo systemctl restart apache2
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo vim /etc/httpd/conf.modules.d/00-mpm.conf
 </pre></div>
 </div>
-<p>有効にしたいMPMモジュールについて<strong>LoadModule</strong>の行頭にある**#<strong>を外して，無効にしたいMPMモジュールの行頭に</strong>#**を挿入してください．</p>
+<p>有効にしたいMPMモジュールについて<strong>LoadModule</strong>の行頭にある <strong>#</strong> を外して，無効にしたいMPMモジュールの行頭に <strong>#</strong> を挿入してください．</p>
 <p>設定ファイル修正後は，Apacheの再起動を忘れずに！</p>
 <div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="c"># Select the MPM module which should be used by uncommenting exactly</span><span class="w"></span>
 <span class="c"># one of the following LoadModule lines:</span><span class="w"></span>
