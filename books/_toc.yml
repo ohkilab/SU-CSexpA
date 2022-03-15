@@ -4,8 +4,8 @@ format: jb-book
 # 目次
 root: content/intro
 
-parts: 
-  - chapters: 
+parts:
+  - chapters:
     - file: content/schedule
       title: 今年度の日程
 
@@ -13,7 +13,7 @@ parts:
     chapters:
       - file: content/preparation/preparation
         title: 環境構築および動作確認
-  
+
   # 第一部
   - caption: 第一部 ソケットプログラミング
     chapters:
@@ -22,7 +22,7 @@ parts:
         sections:
         - file: content/part1/part1_1/connect_raspberry
           title: RaspberryPiの接続（固定IP）
-      
+
       - file: content/part1/part1_2/overview
         title: '[Day2] 通信性能の計測'
         sections:
@@ -32,7 +32,7 @@ parts:
           title: ネットワーク入出力プログラミング
         - file: content/part1/part1_2/measurement_IO_performance
           title: 入出力性能の計測（必須課題）
-      
+
       - file: content/part1/part1_3/overview
         title: '[Day3] 多対多接続の設計・実装'
         sections:
@@ -46,7 +46,7 @@ parts:
           title: 非同期I/Oによる多重化 (発展課題)
         - file: content/part1/part1_3/cause_analysis_communication_failure
           title: 通信失敗の原因分析 (発展課題)
-        
+
       - file: content/part1/part1_4/overview
         title: '[Day4] 第一部レポートピアレビュー'
         sections:
@@ -68,10 +68,10 @@ parts:
           title: Simple HTTPサーバの実装
         - file: content/part2/part2_1/httpbenchmark
           title: HTTPベンチマークプログラムの実装（必須）
-      
+
       - file: content/part2/part2_2/day7objective
         title: '[Day6] HTTPサーバの高機能化(1)'
-        sections: 
+        sections:
         - file: content/part2/part2_2/standardforachievement
           title: 第二部達成基準
         - file: content/part2/part2_2/multipleclient
@@ -80,7 +80,7 @@ parts:
           title: セキュリティホール（必須+発展）
         - file: content/part2/part2_2/httpserver_expansion
           title: HTTPサーバ機能拡張（選択）
-      
+
       - file: content/part2/part2_3/day8objective
         title: '[Day7] HTTPサーバの高機能化(2)'
         sections:
@@ -143,7 +143,7 @@ parts:
         - file: content/part3/part3_3/conformation_of_status
           title: 検討状況の確認（必須）
 
-      - file: content/part3/part3_4/preview
+      - file: content/part3/part3_4/overview
         title: '[Day13,14] パフォーマンスチューニング'
 
       - file: content/part3/part3_5/overview
