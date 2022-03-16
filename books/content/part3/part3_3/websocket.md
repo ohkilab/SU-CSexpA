@@ -55,7 +55,7 @@ node.jsからMySQLへアクセスしたい場合は，MySQLモジュールを使
 
 WebSocketを用いた通信プログラムの第一歩としてチャットプログラムが代表的です．以下のgitリポジトリにサンプルコードがありますのでダウンロードして試してみてください．
 
-[https://github.com/abarth500/CSexp1-04.git](https://github.com/abarth500/CSexp1-04.git)
+[https://github.com/ohkilab/SU-CSexpA-04](https://github.com/ohkilab/SU-CSexpA-04)
 
 ダウンロードすると**chat.html**と**chat.js**というファイルがあります．htmlファイルがクライアント，jsファイルがサーバです．htmlもプログラム自体は，JavaScriptで書かれていますので，サーバとクライアントの両方がJavaScriptで書かれているということになります．
 

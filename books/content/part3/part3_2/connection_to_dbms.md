@@ -82,7 +82,7 @@ $ sudo reboot
 
 郵便番号のリストは，[ゆうちょのページ](http://www.post.japanpost.jp/zipcode/download.html)で公開されています．ただし，半角カタカナだったり，特に今回は不要なフィールドが含まれていたりしますので，静岡県の郵便番号と住所を「,」で区切ったデータのみを抽出し，以下のGitリポジトリへ**zip-shizuoka.csv**というファイルで置いておきました．
 
-GitHubリポジトリ [https://github.com/abarth500/CSexp1-02](https://github.com/abarth500/CSexp1-02)
+GitHubリポジトリ [https://github.com/ohkilab/SU-CSexpA-02](https://github.com/ohkilab/SU-CSexpA-02)
 
 ### テーブルの作成
 
@@ -100,7 +100,7 @@ MySQLのプロンプトが返ってきたら，SQLコマンドを受け付ける
 -   CREATE文を作る際に考慮すべき点
     -   フィールドは何個あるか？
     -   各フィールドの名前を何にするか？
-    -   各フィールドの[データ型](http://dev.mysql.com/doc/refman/5.1-olh/ja/data-types.html)を何にするか？
+    -   各フィールドの[データ型](https://dev.mysql.com/doc/refman/5.6/ja/data-types.html)を何にするか？
 
 以降の作業で，グループ内で相談しやすいよう以下のようにテーブル名と列名を共通にしておきましょう．
 
@@ -153,9 +153,9 @@ MySQLのプロンプトが返ってきたら，SQLコマンドを受け付ける
 以下に示すようなデータを抽出できるような**SELECT文**を考えてみてください．
 
 -   「城北」が住所に含まれる地域の郵便番号を表示するには？(ヒント：[LIKE演算子](http://dev.mysql.com/doc/refman/4.1/ja/string-comparison-functions.html))
--   郵便番号を辞書順で降順にソートして表示するには？(ヒント：[ORDER BY句](http://www.yukun.info/blog/2008/11/mysql-sort-record-order-by-asc-desc.html))
+-   郵便番号を辞書順で降順にソートして表示するには？(ヒント：[ORDER BY句](https://gihyo.jp/dev/serial/01/mysql-road-construction-news/0147))
 -   各市区町村別がそれぞれ何個の郵便番号を持っているか？(ヒント：[GROUP BY句](http://dev.mysql.com/doc/refman/5.1/ja/group-by-modifiers.html))
--   出力を個数の多い順にソートして表示するには？(ヒント：[ORDER BY句](http://www.yukun.info/blog/2008/11/mysql-sort-record-order-by-asc-desc.html))
+-   出力を個数の多い順にソートして表示するには？(ヒント：[ORDER BY句](https://qiita.com/ozlee/items/b3983c96f23b27d9044d))
 
 ### 高度な問い合わせ例
 
