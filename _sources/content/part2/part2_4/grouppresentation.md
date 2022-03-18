@@ -20,4 +20,4 @@
 
 ## グループ発表会の詳細
 
-[グループ発表会](../../part3/part3_5/group_presentation "グループ発表会")を参照してください
+[グループ発表会詳細](../../group_presentation/group_presentation_detail "グループ発表会詳細")を参照してください

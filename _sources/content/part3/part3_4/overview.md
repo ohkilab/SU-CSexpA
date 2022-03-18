@@ -1,6 +1,6 @@
 # Day13, 14の目的と概要
 
--   a) [第三部グループ発表会](../part3_2/part3_group_presentation "第三部グループ発表会")
+-   a) [第三部グループ発表会](../part3_5/last_presentation "第三部グループ発表会")
 -   b) [第三部レポート](../../report/report.html#id6 "第三部レポート")
 
 ```{admonition} 本日の進捗確認チェックリスト
