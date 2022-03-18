@@ -33,9 +33,9 @@
 2.  各班のチャネルの「ファイル」タブを開いて下さい．
 3.  初版のレポートのファイル（e.g. `CS実験I_Part1_A1_7091-1234初版.docx`）をアップロードします．
 
-![peer_review_open_channel.png](../../images/part2/peer_review_open_channel.png)
+![peer_review_open_channel.png](../../images/report/peer_review/peer_review_open_channel.png)
 
-![peer_review_upload_1streport.png](../../images/part2/peer_review_upload_1streport.png)
+![peer_review_upload_1streport.png](../../images/report/peer_review/peer_review_upload_1streport.png)
 
 グループ全員のファイルがアップロードされたことを確認して下さい．
 
@@ -43,11 +43,11 @@
 2.  ブラウザ上でファイルが開きますので編集モードを「チェック／コメント」に変更します（編集履歴が保存される状態になります）．
 3.  レポートを読んだ上で，気づいた点についてコメントを追加したり，修正案を示したり校正して下さい．
 
-![peer_review_open_file.png](../../images/part2/peer_review_open_file.png)
+![peer_review_open_file.png](../../images/report/peer_review/peer_review_open_file.png)
 
-![peer_review_start_comment.png](../../images/part2/peer_review_start_comment.png)
+![peer_review_start_comment.png](../../images/report/peer_review/peer_review_start_comment.png)
 
-![peer_review_example_comment.png/600px-peer_review_example_comment.png)](../../images/part2/peer_review_example_comment.png)
+![peer_review_example_comment.png/600px-peer_review_example_comment.png)](../../images/report/peer_review/peer_review_example_comment.png)
 
 ## 全体レビュー
 

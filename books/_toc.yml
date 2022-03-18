@@ -7,7 +7,7 @@ root: content/intro
 parts:
   - chapters:
     - file: content/schedule
-      title: 今年度の日程
+      title: 今年度の講義について
 
   - caption: 事前準備（在宅）
     chapters:
@@ -31,7 +31,7 @@ parts:
         - file: content/part1/part1_2/network_IO_programming
           title: ネットワーク入出力プログラミング
         - file: content/part1/part1_2/measurement_IO_performance
-          title: 入出力性能の計測（必須課題）
+          title: 入出力性能の計測（必須）
 
       - file: content/part1/part1_3/overview
         title: '[Day3] 多対多接続の設計・実装'
@@ -41,20 +41,14 @@ parts:
         - file: content/part1/part1_3/benchmarking_program
           title: ベンチマークプログラムの設計と実装
         - file: content/part1/part1_3/performance_measurement
-          title: 性能計測 (必須課題)
+          title: 性能計測（必須）
         - file: content/part1/part1_3/multiplexing_asynchronous_IO
-          title: 非同期I/Oによる多重化 (発展課題)
+          title: 非同期I/Oによる多重化（発展）
         - file: content/part1/part1_3/cause_analysis_communication_failure
-          title: 通信失敗の原因分析 (発展課題)
+          title: 通信失敗の原因分析（発展）
 
       - file: content/part1/part1_4/overview
         title: '[Day4] 第一部レポートピアレビュー'
-        sections:
-        - file: content/part1/part1_4/peer_review
-          title: ピアレビュー
-
-      - file: content/part1/report/report
-        title: 第一部レポート
 
   # 第二部
   - caption: 第二部 Webサーバの実装
@@ -99,12 +93,6 @@ parts:
 
       - file: content/part2/part2_5/day10objective
         title: '[Day9] 第二部レポートピアレビュー'
-        sections:
-        - file: content/part2/part2_5/peerreview
-          title: ピアレビュー
-
-      - file: content/part2/report/report
-        title: 第二部レポート
 
   # 第三部
   - caption: 第三部 Webシステムの性能
@@ -152,6 +140,20 @@ parts:
         - file: content/part3/part3_5/last_presentation
           title: 第三部グループ発表会
 
+
+  # 実験終了後の作業
+  - caption: 実験終了後（必須）
+    chapters:
+      - file: content/end/cleanup
+        title: 実験機材のクリーンアップと解体
+
+  - caption: グループ発表会
+    chapters:
+      - file: content/group_presentation/group_presentation_detail
+        title: グループ発表会詳細
+      - file: content/group_presentation/group_review
+        title: グループレビュー
+
   # レポートについて
   - caption: レポート
     chapters:
@@ -161,12 +163,6 @@ parts:
         title: レポートの書き方
       - file: content/report/peer_review
         title: ピアレビューのやり方
-
-  # 実験終了後の作業
-  - caption: 実験終了後（必須）
-    chapters:
-      - file: content/end/cleanup
-        title: 実験機材のクリーンアップと解体
 
   # その他
   - caption: トラブルシューティング
