@@ -107,8 +107,35 @@ MySQLのプロンプトが返ってきたら，SQLコマンドを受け付ける
 -   テーブル名：**zipShizuoka**
 -   列名：以下を参照
 
-<table><tbody><tr><td><b>列名</b></td><td><b>概要</b></td><td><b>例</b></td></tr><tr><td><b>zip</b></td><td>郵便番号</td><td>4328011</td></tr><tr><td><b>kana1</b></td><td>都道府県名(全角カナ)</td><td>シズオカケン</td></tr><tr><td><b>kana2</b></td><td>市区町村名(全角カナ)</td><td>ハママツシナカク</td></tr><tr><td><b>kana3</b></td><td>その他住所(全角カナ)</td><td>ジョウホク</td></tr><tr><td><b>addr1</b></td><td>都道府県名</td><td>静岡県</td></tr><tr><td><b>addr2</b></td><td>市区町村名</td><td>浜松市中区</td></tr><tr><td><b>addr3</b></td><td>その他住所</td><td>城北</td></tr></tbody></table>
+```{list-table} スキーマ例
+:header-rows: 1
+:name: schema
 
+* - 列名
+  - 概要
+  - 例
+* - zip
+  - 郵便番号
+  - 4328011
+* - kana1
+  - 都道府県名(全角カナ)
+  - シズオカケン
+* - kana2
+  - 市区町村名(全角カナ)
+  - ハママツシナカク
+* - kana3
+  - その他住所(全角カナ)
+  - ジョウホク
+* - addr1
+  - 都道府県名
+  - 静岡県
+* - addr2
+  - 市区町村名
+  - 浜松市中区
+* - addr3
+  - その他住所
+  - 城北
+```
 **CREATE TABLE**文そのものを忘れてしまった人は，インターネットから情報を集めて復習しましょう．
 
 -   参考1 [https://dev.mysql.com/doc/refman/8.0/en/create-table.html](https://dev.mysql.com/doc/refman/8.0/en/create-table.html)

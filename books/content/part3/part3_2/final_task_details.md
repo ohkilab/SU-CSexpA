@@ -59,14 +59,48 @@ display_errors = On
 #### geotag.csvの概要
 
 Flickrで共有されている**撮影位置の緯度経度**の付いた写真1000万枚のリストになります．
+```{list-table} geotagの概要
+:header-rows: 1
+:name: geotag
 
-<table><tbody><tr><td><b>列名</b></td><td><b>概要</b></td><td><b>例</b></td></tr><tr><td>ID</td><td>各写真で一意の識別子</td><td>4532230686</td></tr><tr><td>撮影時刻</td><td>TIMESTAMP形式</td><td>2010-04-18 12:14:07</td></tr><tr><td>緯度</td><td>撮影位置の緯度(倍精度)</td><td>40.744769</td></tr><tr><td>経度</td><td>撮影位置の経度(倍精度)</td><td>-73.958823</td></tr><tr><td>画像のURL</td><td>Flickrサーバ上の画像URL</td><td>http://farm5.staticflickr.com/40～略～m.jpg</td></tr></tbody></table>
+* - 列名
+  - 概要
+  - 例
+* - ID
+  - 各写真で一意の識別子
+  - 4532230686
+* - 撮影時刻
+  - TIMESTAMP形式
+  - 2010-04-18 12:14:07
+* - 緯度
+  - 撮影位置の緯度(倍精度)
+  - 40.744769
+* - 経度
+  - 撮影位置の経度(倍精度)
+  - -73.958823
+* - 画像のURL
+  - Flickrサーバ上の画像URL
+  - http://farm5.staticflickr.com/40～略～m.jpg
+```
 
 #### tag.csvの概要
 
 geotag.csvに含まれる画像へ付与されているタグのリストになります．IDの重複は許しており，タグ毎に一行となっています．
 
-<table><tbody><tr><td><b>列名</b></td><td><b>概要</b></td><td><b>例</b></td></tr><tr><td>ID</td><td>各写真で一意の識別子</td><td>4532230686</td></tr><tr><td>タグ</td><td>Varchar形式</td><td>dog</td></tr></tbody></table>
+```{list-table} tagの概要
+:header-rows: 1
+:name: tag
+
+* - 列名
+  - 概要
+  - 例
+* - ID
+  - 各写真で一意の識別子
+  - 4532230686
+* - タグ
+  - Varchar形式
+  - dog
+```
 
 ### テーブルの作成
 
