@@ -30,7 +30,7 @@ workerは，「マルチスレッドとマルチプロセスのハイブリッ�
 
 eventは，workerの一種でマルチスレッドで動作する．workerとの違いはKeep-Alive（持続的接続）の処理方法である．workerやpreforkは，Keep-Aliveの持続性を保つために一度利用したスレッド・プロセスをそのまま待機させている．しかしクライアントからの接続が持続的に行われる可能性は保証されているわけではないため，待機していること自体が無駄になる可能性もある．そこで，Keep-Aliveの処理を別のスレッドに割り振って通信を処理する．この方式は長らく実験的サポートであったが，バージョン2.4.1から正式に採用された．
 
--   ＜Raspbian OSは以下の手順＞
+#### ＜Raspbian OSは以下の手順＞
 
 Apacheでは一般的に，設定は /etc/apache2/apache2.conf や /etc/apache2/httpd.conf に記述しますが，複数のモジュールを使うとこれらの設定ファイルが長くなりすぎて理解困難になってしまいます．そこで最近は，/etc/apache2/conf-enabled や /etc/apache2/modes-enabled 等のディレクトリ配下に読み込ませたい設定ファイルを用意した上でApacheを起動させればよいようになっています．以下に基本的な流れを説明しておきます．
 
@@ -101,7 +101,7 @@ phpinfo();
 ```
 
 
-どうにもうまういかない方は，apache2を再インストールして試してみるのが早いかもしれません． （configファイル等だけでなく依存パッケージ含めて完全にapache2をアンインストールしたい場合は，$ sudo apt-get autoremove --purge apache2 ですが，どこからやり直したいかによって以下で十分な場合が多いと思います）
+どうにもうまういかない方は，apache2を再インストールして試してみるのが早いかもしれません． （configファイル等だけでなく依存パッケージ含めて完全にapache2をアンインストールしたい場合は，`$ sudo apt-get autoremove --purge apache2` ですが，どこからやり直したいかによって以下で十分な場合が多いと思います）
 
 ```sh
 $ sudo service apache2 stop
@@ -116,7 +116,7 @@ $ sudo systemctl restart apache2
 
 これで，localhost/~pi 等へアクセスして index.html が表示されたら，上記のMPMの内容を再度試してみてください．
 
--   ＜Fedora OSは以下の手順＞
+#### ＜Fedora OSは以下の手順＞
 
 Apacheの設定ファイルを修正することで簡単に設定変更できます．設定ファイル修正後は，Apacheの再起動を忘れずに！
 
@@ -170,7 +170,7 @@ ab -n 10000 -c 1000 →リクエスト失敗（apr_recv : Connection timed out)
 
 例えば，Apacheの設定における**MaxRequestWorkers（Apache2.4以前はMaxClients）**を**10**といった極端に少ない値に設定して負荷試験を実施してみてください．このMaxClientsの値を変化させることで，「**処理しきれなくなるポイント**」がどのように変化していくのか計測しながらApacheの並列処理の仕組みを考察していってもよいと思います．
 
--   ＜Raspbian OSの場合＞
+### ＜Raspbian OSの場合＞
 
 /etc/apache2/mods-available ディレクトリ配下にある mpm\_event.conf や mpm\_prefork.conf や mpm\_worker.conf の設定を変更し，各モジュールを有効化して試してみてください．
 
@@ -211,7 +211,7 @@ Apache MPM（Apache公式ページの解説）
    MaxConnectionsPerChild 0
 ```
 
--   ＜Fedora OSの場合＞
+### ＜Fedora OSの場合＞
 
 [**Apache HTTP Server: MPMパラメータ チートシート**](https://heartbeats.jp/hbblog/2015/02/apache-mpm.html)
 
