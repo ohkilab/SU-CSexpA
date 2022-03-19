@@ -202,7 +202,7 @@ echo $str1.$str2;
 
 [https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api\_key=600dfca58e06413caa4125ce28da02b7&extras=url\_s&per\_page=30](https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=600dfca58e06413caa4125ce28da02b7&extras=url_s&per_page=30)
 
-また，PHPには様々な便利な関数が用意されています．先ほどのサンプルプログラム（PHP）における34行目を見てください．例えば，[file-get-contents.php](http://php.net/manual/ja/function.file-get-contents.php)という関数は，引数にファイルパスをとり，そのファイルを読み込んで中身を文字列で返すという関数です．引数にURLが指定されると，そのURLへHTTPアクセスして，その結果を文字列で返してくれます．つまり，この関数を用いると，HTTPアクセスだけでなく結果を変数へ格納までしてくれます．
+また，PHPには様々な便利な関数が用意されています．先ほどのサンプルプログラム（PHP）における34行目を見てください．例えば，[file-get-contents](http://php.net/manual/ja/function.file-get-contents.php)という関数は，引数にファイルパスをとり，そのファイルを読み込んで中身を文字列で返すという関数です．引数にURLが指定されると，そのURLへHTTPアクセスして，その結果を文字列で返してくれます．つまり，この関数を用いると，HTTPアクセスだけでなく結果を変数へ格納までしてくれます．
 
 第二部の実験で，苦労してHTTPを話すプログラムを実装したと思います．PHPやWeb APIを使用することで，とても簡単に凝ったWebアプリケーションを実装することができます． FlickrのWeb APIは，XML以外にもJSONやJSONPといったJavaScriptと親和性の高いフォーマットだけでなく，php\_serialというPHPと親和性の高いフォーマットで結果を返してもらうことができます． 今回のサンプルプログラム（PHP）の33行目のflickr.photos.getRecentでは，php\_serialというフォーマットで結果を返すよう指定しています． このフォーマットでエンコードされた文字列は，**deserialize**という関数を用いてPHPのオブジェクトモデル（シングルトン・配列・連想配列・オブジェクト）に変換できます．
 

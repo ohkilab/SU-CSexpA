@@ -836,7 +836,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>最終課題は，Webシステムの超高性能化に関する課題です．</p>
 <p>具体的には，1000万行程の大きなデータ（CSV形式）を2つ用意しましたので，Webブラウザで検索キーワードを入力すると，これら2ファイルを統合的に検索し結果をソートして表示するWebアプリケーションを実装してもらいます．何も工夫せず安直に実装すると検索結果が表示されるまで数分かかってしまうこともありますので，三層クライアントサーバ型のWebシステムにおいて，どこにボトルネックが生じうるのか，どのようにボトルネックの箇所が遷移していくのか，グループ内で議論や試行錯誤し，できるだけ多くのリクエストに耐えられる超高性能なWebシステムを実現できるようグループ間で競ってもらいます．様々なアプローチが考えられますが，大きくオンメモリ型か非オンメモリ型かでそれぞれ超高性能なWebシステムを目指してほしいと思います（どちらか一方のみでも構いません）．</p>
 <p>第三部最後のグループ発表会では，各グループの実現した超高性能なWebシステムについて特徴を紹介してもらい，その性能測定結果をアピールしてもらいます．どのような工夫で性能向上させるかは，世の中で実際に使用されうる手法であれば何でも構いません（もし実運用に耐えられないような小手先の仕組みの場合は，参考という形でアピールしてください．実施した内容や検討した内容はポジティブに受け取りますので）．</p>
-<p>最終課題も，<strong>グループ発表会</strong>と<strong>個別レポート</strong>で評価しますので，チームワークだけでなく主体性，独自性も養ってください．また，これまでのグループワークを通し，実装の得意な人，計測や考察の得意な人，自由な発想で取り組みたい人，などそれぞれ何となく自身を分析できるようになってきたと思います．まずは，下記の**基礎課題（必須）<strong>全てをグループ内で議論しながら実施してください．さらに，以下に示す</strong>応用課題（分担で①は必須，②は任意）**については各自の興味関心，得意分野に応じて，それぞれ複数人になるよう相談して決めてください（半々で実施する必要はありませんし，重複していても構いませんが「二兎を追う者は一兎をも得ず」にならないようご注意ください）．</p>
+<p>最終課題も，<strong>グループ発表会</strong>と<strong>個別レポート</strong>で評価しますので，チームワークだけでなく主体性，独自性も養ってください．また，これまでのグループワークを通し，実装の得意な人，計測や考察の得意な人，自由な発想で取り組みたい人，などそれぞれ何となく自身を分析できるようになってきたと思います．まずは，下記の <strong>基礎課題（必須）</strong> 全てをグループ内で議論しながら実施してください．さらに，以下に示す <strong>応用課題（分担で①は必須，②は任意）</strong> については各自の興味関心，得意分野に応じて，それぞれ複数人になるよう相談して決めてください（半々で実施する必要はありませんし，重複していても構いませんが「二兎を追う者は一兎をも得ず」にならないようご注意ください）．</p>
 <ul class="simple">
 <li><p>基礎課題（必須）</p></li>
 <li><p>応用課題（分担で①は必須，②は任意）</p>
@@ -872,8 +872,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id5">
 <h3>データセットのダウンロード<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>最終課題用の２つのデータセットをダウンロードしてください．それぞれダウンロードするのにそこそこ時間を要しますので余裕をもって事前に~，各サーバ上のWebブラウザを用いて代表者一名が~ダウンロードしておくとよいでしょう．</p>
-<p>~ダウンロードしたファイルは，管理者権限でルートディレクトリ「/」へ誰でも読み書きできるディレクトリ「例：/data」を作成し，そこへ入れておくことで，班員が各自のホームディレクトリへコピーするといった方法で共有するとよいと思います．~</p>
+<p>最終課題用の２つのデータセットをダウンロードしてください．それぞれダウンロードするのにそこそこ時間を要しますので余裕をもって事前に，ダウンロードしておくとよいでしょう．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/part3/geotag.zip">geotag.zip</a>（約439MB）（静大のネットワークからのみアクセス可能）</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験I\\第三部サンプルデータ\\geotag.zip</span></code>（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）</p></li>
@@ -883,43 +882,101 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="geotag-csv">
 <h4>geotag.csvの概要<a class="headerlink" href="#geotag-csv" title="Permalink to this headline">¶</a></h4>
 <p>Flickrで共有されている<strong>撮影位置の緯度経度</strong>の付いた写真1000万枚のリストになります．</p>
-<table><tbody><tr><td><b>列名</b></td><td><b>概要</b></td><td><b>例</b></td></tr><tr><td>ID</td><td>各写真で一意の識別子</td><td>4532230686</td></tr><tr><td>撮影時刻</td><td>TIMESTAMP形式</td><td>2010-04-18 12:14:07</td></tr><tr><td>緯度</td><td>撮影位置の緯度(倍精度)</td><td>40.744769</td></tr><tr><td>経度</td><td>撮影位置の経度(倍精度)</td><td>-73.958823</td></tr><tr><td>画像のURL</td><td>Flickrサーバ上の画像URL</td><td>http://farm5.staticflickr.com/40～略～m.jpg</td></tr></tbody></table>
+<table class="table" id="geotag">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">geotagの概要</span><a class="headerlink" href="#geotag" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>列名</p></th>
+<th class="head"><p>概要</p></th>
+<th class="head"><p>例</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ID</p></td>
+<td><p>各写真で一意の識別子</p></td>
+<td><p>4532230686</p></td>
+</tr>
+<tr class="row-odd"><td><p>撮影時刻</p></td>
+<td><p>TIMESTAMP形式</p></td>
+<td><p>2010-04-18 12:14:07</p></td>
+</tr>
+<tr class="row-even"><td><p>緯度</p></td>
+<td><p>撮影位置の緯度(倍精度)</p></td>
+<td><p>40.744769</p></td>
+</tr>
+<tr class="row-odd"><td><p>経度</p></td>
+<td><p>撮影位置の経度(倍精度)</p></td>
+<td><p>-73.958823</p></td>
+</tr>
+<tr class="row-even"><td><p>画像のURL</p></td>
+<td><p>Flickrサーバ上の画像URL</p></td>
+<td><p><a class="reference external" href="http://farm5.staticflickr.com/40%EF%BD%9E%E7%95%A5%EF%BD%9Em.jpg">http://farm5.staticflickr.com/40～略～m.jpg</a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="tag-csv">
 <h4>tag.csvの概要<a class="headerlink" href="#tag-csv" title="Permalink to this headline">¶</a></h4>
 <p>geotag.csvに含まれる画像へ付与されているタグのリストになります．IDの重複は許しており，タグ毎に一行となっています．</p>
-<table><tbody><tr><td><b>列名</b></td><td><b>概要</b></td><td><b>例</b></td></tr><tr><td>ID</td><td>各写真で一意の識別子</td><td>4532230686</td></tr><tr><td>タグ</td><td>Varchar形式</td><td>dog</td></tr></tbody></table>
+<table class="table" id="tag">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">tagの概要</span><a class="headerlink" href="#tag" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>列名</p></th>
+<th class="head"><p>概要</p></th>
+<th class="head"><p>例</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ID</p></td>
+<td><p>各写真で一意の識別子</p></td>
+<td><p>4532230686</p></td>
+</tr>
+<tr class="row-odd"><td><p>タグ</p></td>
+<td><p>Varchar形式</p></td>
+<td><p>dog</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="section" id="id6">
 <h3>テーブルの作成<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>テーブルを作成し，ダウンロードしたCSVファイル（データセット）からデータをテーブルへ流し込んでみましょう．参考まで標準的なスキーマを以下に記しておきます．もちろんもっと賢い格納方法についてグループ内で試行錯誤してくれて構いませんので，ぜひ取り組んでみてください（ただし，ここはまだ本質ではありません）．</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>--mysqlの設定変更（該当箇所を以下のように変更するか，なければ追記）
-$ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
-default-storage-engine=Aria
-character-set-server=utf8
-collation-server=utf8_general_ci
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">mysqlの設定変更（該当箇所を以下のように変更するか，なければ追記）</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">vi</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">mariadb</span><span class="p">.</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="mi">50</span><span class="o">-</span><span class="k">server</span><span class="p">.</span><span class="n">cnf</span><span class="w"></span>
+<span class="k">default</span><span class="o">-</span><span class="k">storage</span><span class="o">-</span><span class="k">engine</span><span class="o">=</span><span class="n">Aria</span><span class="w"></span>
+<span class="k">character</span><span class="o">-</span><span class="k">set</span><span class="o">-</span><span class="k">server</span><span class="o">=</span><span class="n">utf8</span><span class="w"></span>
+<span class="k">collation</span><span class="o">-</span><span class="k">server</span><span class="o">=</span><span class="n">utf8_general_ci</span><span class="w"></span>
 
---必要なら既存のテーブルを削除
-DROP TABLE tag,geotag;
+<span class="o">--</span><span class="n">必要なら既存のテーブルを削除</span><span class="w"></span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="n">geotag</span><span class="p">;</span><span class="w"></span>
 
---テーブルの作成
-CREATE TABLE geotag(
-  id BIGINT UNSIGNED PRIMARY KEY,
-  time DATETIME,
-  latitude DOUBLE,
-  longitude DOUBLE,
-  url VARCHAR(100)
-);
+<span class="o">--</span><span class="n">テーブルの作成</span><span class="w"></span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="kt">BIGINT</span><span class="w"> </span><span class="k">UNSIGNED</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="kt">time</span><span class="w"> </span><span class="kt">DATETIME</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">latitude</span><span class="w"> </span><span class="kt">DOUBLE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">longitude</span><span class="w"> </span><span class="kt">DOUBLE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">url</span><span class="w"> </span><span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
 
-CREATE TABLE tag(
-  id BIGINT UNSIGNED,
-  tag VARCHAR(300)
-);
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tag</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="kt">BIGINT</span><span class="w"> </span><span class="k">UNSIGNED</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">tag</span><span class="w"> </span><span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
 
---CSVファイルの流し込み
-LOAD DATA LOCAL INFILE &quot;/data/geotag.csv&quot; INTO TABLE geotag FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;&quot;&#39;;
-LOAD DATA LOCAL INFILE &quot;/data/tag.csv&quot; INTO TABLE tag FIELDS TERMINATED BY &#39;,&#39; ENCLOSED BY &#39;&quot;&#39;;
+<span class="o">--</span><span class="n">CSVファイルの流し込み</span><span class="w"></span>
+<span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"> </span><span class="k">LOCAL</span><span class="w"> </span><span class="k">INFILE</span><span class="w"> </span><span class="s2">&quot;/data/geotag.csv&quot;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">geotag</span><span class="w"> </span><span class="k">FIELDS</span><span class="w"> </span><span class="k">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="k">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">LOAD</span><span class="w"> </span><span class="k">DATA</span><span class="w"> </span><span class="k">LOCAL</span><span class="w"> </span><span class="k">INFILE</span><span class="w"> </span><span class="s2">&quot;/data/tag.csv&quot;</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">FIELDS</span><span class="w"> </span><span class="k">TERMINATED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="k">ENCLOSED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>約1,000万件のデータセット（約1.1GB）ですから，データベースへの流し込みにはそこそこ時間を要します． 事前に実験した結果ではgeotagのLOADに45分程度，tagのLOADに10分程度の実行時間になります．これと比べて著しく時間がかかる場合は何らかの原因で失敗している可能性がありますので，下記のテーブル作成がうまくいかない人用の手順を見ながら再度試してみてください．</p>
@@ -974,12 +1031,12 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <p>緯度経度や撮影時刻，タグなどを条件とした検索を効率良く行うため，必要なフィールド用のインデックスを作成してみましょう．ただし，インデックスを作成すると検索は速くなりますが，インデックスの分だけディスク容量を消費しますので注意しましょう（インデックスの作成に必要な容量は計算で見積もることができますので調べてみるとよいでしょう）．</p>
 <p>具体的に，皆さんの環境でインデックスの作成によってどの程度ディスク容量を使用するか試してみましょう．以下のようにコマンドを入力し，インデックスを作成する前のテーブルが消費しているデータ容量をチェックしてみましょう．テーブルが消費しているデータ容量などの詳細は，<strong>information_schema</strong>と呼ばれるDBのpartitionsテーブルへ保存されています．</p>
 <p>data_lengthがテーブルの大きさ，index_lengthがインデックスの大きさ，単位はbyteで確認できます．</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--メタデータを保持しているinformation_schmeと呼ばれるDBへ移動</span>
-<span class="n">use</span><span class="w"> </span><span class="n">information_schema</span><span class="p">;</span><span class="w"></span>
-<span class="k">select</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="n">data_length</span><span class="p">,</span><span class="n">index_length</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;geotag&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;tag&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">メタデータを保持しているinformation_schmeと呼ばれるDBへ移動</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">information_schema</span><span class="p">;</span><span class="w"></span>
+<span class="k">select</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="n">data_length</span><span class="p">,</span><span class="n">index_length</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">partitions</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;geotag&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;tag&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="c1">--実験で使用している実験用DB（例：CSexp1DB，皆さんの作成したDB名へ適宜読み替え）へ戻る</span>
-<span class="n">use</span><span class="w"> </span><span class="n">CSexp1DB</span><span class="p">;</span><span class="w"></span>
+<span class="o">--</span><span class="n">実験で使用している実験用DB（例：CSexp1DB，皆さんの作成したDB名へ適宜読み替え）へ戻る</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">CSexp1DB</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="c1">------------+-------------+--------------+</span>
@@ -992,28 +1049,27 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </div>
 <p>それでは，次に必要な項目のインデックスを作成してみましょう．端末のハードウェア性能にもよりますが，1,000万件のB-treeを作成する訳ですからインデックスを一つ作成するだけで5分程度の時間を要します．</p>
 <p>ここで「i_xxxx」はインデックス名です．インデックス名は自由に設定できますが，インデックス名であることが一目瞭然になるよう対象フィールド名の前に「i_」を付けたものをインデックス名とすることにしました．例えば，tagフィールド用のインデックス名は「i_tag」としています．</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_lat</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="n">latitude</span><span class="p">);</span><span class="w"></span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_log</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="n">longitude</span><span class="p">);</span><span class="w"></span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_time</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="k">time</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_lat</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="k">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="n">latitude</span><span class="p">);</span><span class="w"></span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_log</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="k">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="n">longitude</span><span class="p">);</span><span class="w"></span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_time</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="k">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">geotag</span><span class="p">(</span><span class="kt">time</span><span class="p">);</span><span class="w"></span>
 
-<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_tag</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tag</span><span class="p">(</span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_tag</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="k">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tag</span><span class="p">(</span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>ここで，最後の「CREATE INDEX i_tag USING BTREE ON tag(tag);」を実行すると「ERROR 1238 (HY000): Variable ‘innodb_large_prefix’ is a read only variable」というエラーが発生するかもしれません．皆さんに最初に設定してもらったデフォルトストレージエンジン Aria の制約となります．ストレージエンジンを InnoDBに変更すれば，innodb_large_prefix を設定できるようになりますので興味ある方は試してみてください（ストレージエンジンの変更にはそこそこ時間を要しますので）．</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>mysql &gt; show enginescreate table テーブル名;                 # ストレージエンジン（Engine）を確認
-mysql &gt; alter table テーブル名 engine=任意のエンジン;        # ストレージエンジンの変更
-（そこそこ時間がかかります）
-mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム名)
-
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">enginescreate</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">テーブル名</span><span class="p">;</span><span class="w">                 </span><span class="c1"># ストレージエンジン（Engine）を確認</span><span class="w"></span>
+<span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">テーブル名</span><span class="w"> </span><span class="k">engine</span><span class="o">=</span><span class="n">任意のエンジン</span><span class="p">;</span><span class="w">        </span><span class="c1"># ストレージエンジンの変更</span><span class="w"></span>
+<span class="n">（そこそこ時間がかかります）</span><span class="w"></span>
+<span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_カラム名</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="k">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">テーブル名</span><span class="p">(</span><span class="n">カラム名</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>最後に，上記のインデックス作成によってテーブルが消費しているデータ容量がどの程度増加したか確認してみましょう．</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--メタデータを保持しているinformation_schmeと呼ばれるDBへ移動</span>
-<span class="n">use</span><span class="w"> </span><span class="n">information_schema</span><span class="p">;</span><span class="w"></span>
-<span class="k">select</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="n">data_length</span><span class="p">,</span><span class="n">index_length</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;geotag&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;tag&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">メタデータを保持しているinformation_schmeと呼ばれるDBへ移動</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">information_schema</span><span class="p">;</span><span class="w"></span>
+<span class="k">select</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="n">data_length</span><span class="p">,</span><span class="n">index_length</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">partitions</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;geotag&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">table_name</span><span class="o">=</span><span class="s1">&#39;tag&#39;</span><span class="p">;</span><span class="w"></span>
 
-<span class="c1">--実験で使用している実験用DB（例：CSexp1DB，皆さんの作成したDB名へ適宜読み替え）へ戻る</span>
-<span class="n">use</span><span class="w"> </span><span class="n">CSexp1DB</span><span class="p">;</span><span class="w"></span>
+<span class="o">--</span><span class="n">実験で使用している実験用DB（例：CSexp1DB，皆さんの作成したDB名へ適宜読み替え）へ戻る</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">CSexp1DB</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="c1">------------+-------------+--------------+</span>
@@ -1034,7 +1090,7 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <h2>基礎課題（全員必須）<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <p><strong>任意のタグを持つ写真の撮影時刻・緯度・経度・URLの一覧を，撮影時刻順で出力するプログラム</strong>を様々な方針で実装してもらいます．</p>
 <p>ここで，任意のタグは静的にハードコーティングするのではなく，Webブラウザの検索フォームからユーザが指定できるよう実装してください．</p>
-<p>イメージを掴みやすくなるようこれから実装するprocA（実装A）～C（実装C）を呼び出すための共通のindex.htmlを用意しました．以下のgitリポジトリからサンプルプログラム（index.html, progA.php, progB.php, progC.phpの４つ）をcloneしてください．これらprogA.php（実装A）, progB.php（実装B）, progC.php（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザでindex.htmlを表示し，どのような構造になっているか動作を確認してみてください．</p>
+<p>イメージを掴みやすくなるようこれから実装するprogA（実装A）～C（実装C）を呼び出すための共通のindex.htmlを用意しました．以下のgitリポジトリからサンプルプログラム（index.html, progA.php, progB.php, progC.phpの４つ）をcloneしてください．これらprogA.php（実装A）, progB.php（実装B）, progC.php（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザでindex.htmlを表示し，どのような構造になっているか動作を確認してみてください．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/ohkilab/SU-CSexpA-Last">https://github.com/ohkilab/SU-CSexpA-Last</a></p></li>
 </ul>
@@ -1054,7 +1110,8 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <ul class="simple">
 <li><p>progA.phpとして実装すること</p></li>
 </ul>
-<p>【ヒント】</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
 <p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p>
 <p>インデックスのような機能を独自実装してくれて構いません．</p>
 <p>PHPのみで全ての機能を実装する必要はありません．以下の関数を用いるとPHPから実行形式のファイルを実行できます．</p>
@@ -1063,6 +1120,7 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <li><p><a class="reference external" href="http://www.php.net/manual/ja/function.system.php">system関数</a></p></li>
 <li><p><a class="reference external" href="http://www.php.net/manual/ja/function.passthru.php">passthru関数</a></p></li>
 </ul>
+</div>
 <p>ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
 </div>
 <div class="section" id="b">
@@ -1074,10 +1132,12 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <li><p>progB.phpとして実装すること</p></li>
 <li><p>データベースを使用すること（ただし<strong>i_tag</strong>インデックスを使用してはいけない）</p></li>
 </ul>
-<p>【ヒント】</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
 <p>「i_tag」インデックスを使用しない設定は，<strong>SELECT * FROM tag IGNORE INDEX(i_tag) WHERE tag like ‘beach’;</strong></p>
 <p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p>
 <p>「任意のタグに合致する写真のリスト」は，SELECT文1文で実現できますが，インデックスを使用しない場合，クエリを分割したり，一部をSQLではなくプログラム側で処理するというような構造も効果的かもしれません．</p>
+</div>
 <p>ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
 </div>
 <div class="section" id="c">
@@ -1088,13 +1148,15 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <li><p>progC.phpとして実装すること</p></li>
 <li><p>データベースならびにインデックスを使用すること</p></li>
 </ul>
-<p>【ヒント】</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
 <p>SELECT文から「<strong>IGNORE INDEX</strong>」を削除するだけで構いません．</p>
 <p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p>
 </div>
+</div>
 <div class="section" id="id10">
 <h3>性能比較<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<p>上記，<strong>実装Ａ～Ｃ</strong>の性能を，abコマンドを使って性能比較し結果を分析してください．</p>
+<p>上記，<strong>実装A～C</strong>の性能を，abコマンドを使って性能比較し結果を分析してください．</p>
 <p>上記３実装の性能は恐らく「実装B＜実装A＜実装C」なりそうですが，実装Aの工夫によって「実装B＜実装C＜実装A」も可能かもしれませんね．</p>
 <p>特に<strong>実装Aで超高性能なプログラム</strong>になるよう頑張ってください．</p>
 <p>グループ内全員の各実装の性能をグラフ化して比較し，グループ内で一番高性能な各実装を代表としてグループ発表で紹介してください．</p>
@@ -1128,7 +1190,7 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <p>【独自仕様による実装】</p>
 <p>チケット予約サイトのようなWebシステムでは，不特定多数の膨大な同時アクセスに耐えられなければなりません．スケールアップやスケールアウトといった様々なアプローチがありますが，ここでは<strong>実装A</strong>をさらに改良して，<strong>実装C</strong>の速度を上回る検索パフォーマンスを目指しましょう．CSVファイルを前処理して，独自のデータ構造で保存する，Raspberry Piを複数利用しクラスタ化して検索する等，方法は問いません．皆さんの独創的なアプローチを期待しています．</p>
 <ul class="simple">
-<li><p>検索するタグは<strong>実装Ｃ</strong>と同様fiat</p>
+<li><p>検索するタグは<strong>実装C</strong>と同様fiat</p>
 <ul>
 <li><p>ただし，fiat以外の検索ワードを入れた際にも正しく動作するように設計すること</p></li>
 </ul>
@@ -1146,7 +1208,7 @@ mysql &gt; CREATE INDEX i_カラム名 USING BTREE ON テーブル名(カラム�
 <p>第二部で自作したWebサーバとの違いも考慮しながら，これらの設定がどのようなものか調査し理解すると共に，実際にどのように性能に違いが出るのか，どうしてそうなるのか論理的な分析をしてください．</p>
 <p>ここで，皆さんの使用しているサーバ機やクライアント機における<strong>CPUのコア数やスレッド数</strong>（ハードウェア的制約），Linuxにおける<strong>ファイルディスクリプタ数の上限</strong>（ソフトウェア的制約）についてもご注意ください． 必須ではありませんが，以下の項目等について評価を行い，独自実装との差を検証してみるとよいでしょう．</p>
 <ul class="simple">
-<li><p><strong>実装Ｃ</strong>について，Apache設定変更の影響を分析する</p></li>
+<li><p><strong>実装C</strong>について，Apache設定変更の影響を分析する</p></li>
 <li><p>Apache MPMの各方式について要点を整理し，どのような結果になるか論理的な仮説を立てる</p></li>
 <li><p>MPM各計測結果を箱ひげ図などで可視化する</p></li>
 <li><p>MPM各計測結果について，なぜそうなったのか，どうして仮説通りにならなかったのか（なったのか），など論理的な考察をまとめる</p></li>

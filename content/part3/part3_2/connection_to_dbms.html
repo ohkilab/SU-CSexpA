@@ -994,7 +994,50 @@ $ sudo reboot
 <li><p>テーブル名：<strong>zipShizuoka</strong></p></li>
 <li><p>列名：以下を参照</p></li>
 </ul>
-<table><tbody><tr><td><b>列名</b></td><td><b>概要</b></td><td><b>例</b></td></tr><tr><td><b>zip</b></td><td>郵便番号</td><td>4328011</td></tr><tr><td><b>kana1</b></td><td>都道府県名(全角カナ)</td><td>シズオカケン</td></tr><tr><td><b>kana2</b></td><td>市区町村名(全角カナ)</td><td>ハママツシナカク</td></tr><tr><td><b>kana3</b></td><td>その他住所(全角カナ)</td><td>ジョウホク</td></tr><tr><td><b>addr1</b></td><td>都道府県名</td><td>静岡県</td></tr><tr><td><b>addr2</b></td><td>市区町村名</td><td>浜松市中区</td></tr><tr><td><b>addr3</b></td><td>その他住所</td><td>城北</td></tr></tbody></table>
+<table class="table" id="schema">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">スキーマ例</span><a class="headerlink" href="#schema" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>列名</p></th>
+<th class="head"><p>概要</p></th>
+<th class="head"><p>例</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>zip</p></td>
+<td><p>郵便番号</p></td>
+<td><p>4328011</p></td>
+</tr>
+<tr class="row-odd"><td><p>kana1</p></td>
+<td><p>都道府県名(全角カナ)</p></td>
+<td><p>シズオカケン</p></td>
+</tr>
+<tr class="row-even"><td><p>kana2</p></td>
+<td><p>市区町村名(全角カナ)</p></td>
+<td><p>ハママツシナカク</p></td>
+</tr>
+<tr class="row-odd"><td><p>kana3</p></td>
+<td><p>その他住所(全角カナ)</p></td>
+<td><p>ジョウホク</p></td>
+</tr>
+<tr class="row-even"><td><p>addr1</p></td>
+<td><p>都道府県名</p></td>
+<td><p>静岡県</p></td>
+</tr>
+<tr class="row-odd"><td><p>addr2</p></td>
+<td><p>市区町村名</p></td>
+<td><p>浜松市中区</p></td>
+</tr>
+<tr class="row-even"><td><p>addr3</p></td>
+<td><p>その他住所</p></td>
+<td><p>城北</p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>CREATE TABLE</strong>文そのものを忘れてしまった人は，インターネットから情報を集めて復習しましょう．</p>
 <ul class="simple">
 <li><p>参考1 <a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/create-table.html">https://dev.mysql.com/doc/refman/8.0/en/create-table.html</a></p></li>
@@ -1193,9 +1236,6 @@ $ sudo reboot
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;a href=&quot;./index.php?page=</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$page </span><span class="cp">?&gt;</span><span class="x">&amp;search=</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$_REQUEST</span><span class="p">[</span><span class="s2">&quot;search&quot;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;次のページへ&lt;/a&gt;</span>
 </pre></div>
 </div>
-<p><strong>日本語が文字化けする</strong></p>
-<p>InternetExplorer（IE）を使っている場合，URLの$_GET変数を取得する時に日本語が文字化けする問題があります．そのため，（ページ遷移の部分に関して）IE以外のブラウザだと動作するが，IEだと文字化けして動作しない，ということがあります．その場合は$_GET変数をurlencode()して，遷移先に渡すようにしましょう．</p>
-<p><a class="reference external" href="http://php.net/manual/ja/function.urlencode.php">PHP: urlencode - Manual</a></p>
 <p><strong>特定の範囲のデータをとってくる</strong></p>
 <p>「LIMIT オフセット値, 件数」，もしくは「LIMIT 件数 OFFSET オフセット値」といったSQL文を記載することで指定の範囲のデータを取得することができます．オフセットをいくつにすればよいかはページ番号さえわかれば計算できますよね？</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">SELECT</span> <span class="nb">zip</span> <span class="kn">from</span> <span class="nn">zipShizuoka</span> <span class="n">LIMIT</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">;</span>
@@ -1262,7 +1302,7 @@ $ sudo reboot
 </div>
 <div class="section" id="id16">
 <h2>おわりに<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
-<p>上記の課題を実装できた人は，Day11の内容を参考に性能評価を行いましょう． 課題の実装について工夫した部分（SABC）についてはレポートで報告してください．</p>
+<p>上記の課題を実装できた人は，Day10の内容を参考に性能評価を行いましょう． 課題の実装について工夫した部分（SABC）についてはレポートで報告してください．</p>
 </div>
 </div>
 

@@ -610,11 +610,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     コマンド・オプション
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#apache-bench">
      [必須課題] Apache Benchによる性能計測結果の分析
     </a>
@@ -622,7 +617,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id3">
    おわりに
   </a>
  </li>
@@ -662,11 +657,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     コマンド・オプション
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#apache-bench">
      [必須課題] Apache Benchによる性能計測結果の分析
     </a>
@@ -674,7 +664,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id3">
    おわりに
   </a>
  </li>
@@ -700,10 +690,71 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id2">
 <h3>使い方<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p><strong>ab</strong> [ <strong>-A</strong> <em>auth-username:password</em> ] [ <strong>-b</strong> <em>windowsize</em> ] [ <strong>-c</strong> <em>concurrency</em> ] [ <strong>-C</strong> <em>cookie-name=value</em> ] [ <strong>-d</strong> ] [ <strong>-e</strong> <em>csv-file</em> ] [ <strong>-f</strong> <em>protocol</em> ] [ <strong>-g</strong> <em>gnu-plot-file</em> ] [ <strong>-h</strong> ] [ <strong>-H</strong> <em>custom-header</em> ] [ <strong>-i</strong> ] [ <strong>-k</strong> ] [ <strong>-n</strong> <em>requests</em> ] [ <strong>-p</strong> <em>POST-file</em> ] [ <strong>-P</strong> <em>proxy-auth-username:password</em> ] [ <strong>-q</strong> ] [ <strong>-r</strong> ] [ <strong>-s</strong> ][ <strong>-S</strong> ] [ <strong>-t</strong> <em>timelimit</em> ] [ <strong>-T</strong> <em>content-type</em> ] [ <strong>-v</strong> <em>verbosity</em>] [ <strong>-V</strong> ] [ <strong>-w</strong> ] [ <strong>-x</strong> <em>-attributes</em> ] [ <strong>-X</strong> <em>proxy[:port]</em> ] [ <strong>-y</strong> <em>-attributes</em> ][ <strong>-z</strong> <em>-attributes</em> ] [ <strong>-Z</strong> <em>ciphersuite</em> ] [http[s]://]host-name[:port]/path</p>
-</div>
-<div class="section" id="id3">
-<h3>コマンド・オプション<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<table><tbody><tr><td><b>オプション</b></td><td><b>意味</b></td></tr><tr><td>-n 数値</td><td>テストで発行するリクエストの回数を数値で指定</td></tr><tr><td>-c 数値</td><td>テストで同時に発行するリクエストの数を数値で指定</td></tr><tr><td>-t 数値</td><td>サーバからのレスポンスの待ち時間（秒）を数値で指定</td></tr><tr><td>-p ファイル名</td><td>サーバへ送信するファイルがある場合に指定</td></tr><tr><td>-T コンテンツタイプ</td><td>サーバへ送信するコンテンツヘッダを指定</td></tr><tr><td>-v 数値</td><td>指定した数値に応じた動作情報を表示</td></tr><tr><td>-w</td><td>結果をHTMLで出力</td></tr><tr><td>-x 属性</td><td>HTML出力のtableタグに属性を追加（BORDERなど）</td></tr><tr><td>-y 属性</td><td>HTML出力のtrタグに属性を追加</td></tr><tr><td>-z 属性</td><td>HTML出力のtdまたはthタグに属性を追加</td></tr><tr><td>-C 'Cookie名称=値'</td><td>Cookie値を渡してテストする</td></tr><tr><td>-A ユーザー名:パスワード</td><td>ベーシック認証が必要なコンテンツにテストする</td></tr><tr><td>-P ユーザー名:パスワード</td><td>認証の必要なプロキシを通じてテストする</td></tr><tr><td>-X プロキシサーバ:port</td><td>プロキシ経由でリクエストする場合に指定</td></tr><tr><td>-V</td><td>abのバージョン番号を表示</td></tr><tr><td>-k</td><td>HTTP/1.1のKeepAliveを有効にしてテストする</td></tr><tr><td>-h</td><td>abのヘルプを表示</td></tr></tbody></table>
+<table class="table" id="options">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">コマンドオプション</span><a class="headerlink" href="#options" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>オプション</p></th>
+<th class="head"><p>意味</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-n 数値</p></td>
+<td><p>テストで発行するリクエストの回数を数値で指定</p></td>
+</tr>
+<tr class="row-odd"><td><p>-c 数値</p></td>
+<td><p>テストで同時に発行するリクエストの数を数値で指定</p></td>
+</tr>
+<tr class="row-even"><td><p>-t 数値</p></td>
+<td><p>サーバからのレスポンスの待ち時間（秒）を数値で指定</p></td>
+</tr>
+<tr class="row-odd"><td><p>-p ファイル名</p></td>
+<td><p>サーバへ送信するファイルがある場合に指定</p></td>
+</tr>
+<tr class="row-even"><td><p>-T コンテンツタイプ</p></td>
+<td><p>サーバへ送信するコンテンツヘッダを指定</p></td>
+</tr>
+<tr class="row-odd"><td><p>-v 数値</p></td>
+<td><p>指定した数値に応じた動作情報を表示</p></td>
+</tr>
+<tr class="row-even"><td><p>-w</p></td>
+<td><p>結果をHTMLで出力</p></td>
+</tr>
+<tr class="row-odd"><td><p>-x 属性</p></td>
+<td><p>HTML出力のtableタグに属性を追加（BORDERなど）</p></td>
+</tr>
+<tr class="row-even"><td><p>-y 属性</p></td>
+<td><p>HTML出力のtrタグに属性を追加</p></td>
+</tr>
+<tr class="row-odd"><td><p>-z 属性</p></td>
+<td><p>HTML出力のtdまたはthタグに属性を追加</p></td>
+</tr>
+<tr class="row-even"><td><p>-C ‘Cookie名称=値’</p></td>
+<td><p>Cookie値を渡してテストする</p></td>
+</tr>
+<tr class="row-odd"><td><p>-A ユーザー名:パスワード</p></td>
+<td><p>ベーシック認証が必要なコンテンツにテストする</p></td>
+</tr>
+<tr class="row-even"><td><p>-P ユーザー名:パスワード</p></td>
+<td><p>認証の必要なプロキシを通じてテストする</p></td>
+</tr>
+<tr class="row-odd"><td><p>-X プロキシサーバ:port</p></td>
+<td><p>プロキシ経由でリクエストする場合に指定</p></td>
+</tr>
+<tr class="row-even"><td><p>-V</p></td>
+<td><p>abのバージョン番号を表示</p></td>
+</tr>
+<tr class="row-odd"><td><p>-k</p></td>
+<td><p>HTTP/1.1のKeepAliveを有効にしてテストする</p></td>
+</tr>
+<tr class="row-even"><td><p>-h</p></td>
+<td><p>abのヘルプを表示</p></td>
+</tr>
+</tbody>
+</table>
 <p>基本的には，-nと-cオプションを使うことが多いです．例えば，100ユーザが同時に1リクエストを発行する場合は「-n 100 -c 100」，100ユーザが同時に10リクエストを発行する場合，リクエスト総数は100ユーザ×10リクエスト=1000リクエストなので「-n 1000 -c 100」を指定することになります．「-n 10 -c 100」と指定して，100ユーザが合計10リクエスト発行するということはできませんからご注意ください（Total発行リクエスト数が少ないよというエラーメッセージが表示されます）．</p>
 <ul class="simple">
 <li><p>-n：リクエストの総数を指定</p></li>
@@ -757,10 +808,10 @@ const thebe_selector_output = ".output, .cell_output"
   100%      2 (longest request)
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* 「Complete requests:      100」が，正常に応答のあったリクエスト数です．
-* 「Failed requests:        0」が，正常な応答のなかったリクエスト数です．
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>「Complete requests:      100」が，正常に応答のあったリクエスト数です．</p></li>
+<li><p>「Failed requests:        0」が，正常な応答のなかったリクエスト数です．</p></li>
+</ul>
 <p>上記の例では，リクエスト総数100に対して，Complete requestsが100，Failed requestsが0ですから，全てのリクエストに対し応答を正常に得られたことを示しています．</p>
 <ul class="simple">
 <li><p>「Requests per second: 8444.52 [#/sec] (mean)」が，単位時間（一般的には1秒）あたり何回のリクエストを発行できたか（応答があったか）の総数です．</p></li>
@@ -776,20 +827,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="apache-bench">
 <h3>[必須課題] Apache Benchによる性能計測結果の分析<a class="headerlink" href="#apache-bench" title="Permalink to this headline">¶</a></h3>
 <p>皆さんのWebサーバのユーザディレクトリ<strong>public_html</strong>にある<strong>prog00.php</strong>と<strong>prog01.html</strong>に対して，abで負荷をかけ<strong>Requests per second</strong>の値を比較し，その結果が何を意味しているか考察してください．</p>
-<ul class="simple">
-<li><ol class="simple">
+<ol class="simple">
 <li><p><strong>prog00.php</strong>と<strong>prog01.html</strong>の結果に，明確な差が出ましたか？それはどうしてでしょうか？キャプチャしたトラフィックを分析しながら説明してください．</p></li>
-</ol>
-</li>
-<li><ol class="simple">
 <li><p>今回の結果を踏まえて，どのような時にどのように実装するのがよさそうか自由に考察してください（ハードウェア，ソフトウェア，アルゴリズムとデータ構造の側面からなど）．</p></li>
-</ol>
-</li>
-<li><ol class="simple">
 <li><p>【発展】興味ある人は考察した内容を実際に試してみて，定量的かつ論理的に考察を深めてみてください．</p></li>
 </ol>
-</li>
-</ul>
 <p>ここで，abはWebサーバ上で実行するのではなく，皆さんのノートPC上のUbuntuからabコマンドで負荷試験を実行することに気を付けてください（皆さんのノートPCからネットワーク越しにRaspberry Piへ．なぜか分かりますよね？負荷試験ツールの実行にも負荷がかかりますから，同じハードウェア上で動作させたら正確な性能を計測できませんよね）．また，abコマンドがないよとエラーの表示される方は，以下のコマンドなどでabコマンドをインストールしてください．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ sudo apt install apache2-utils
 </pre></div>
@@ -798,8 +840,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>さらに，これも重要ですが，実験用に構築したRaspberry Pi上のWebサーバへ負荷試験を行う際は，ノートPC上のベンチマークソフトからのアクセス以外の意図せぬネットワークアクセス（たとえば，ブラウザによる通信など）が発生する可能性を可能な限り少なくして行いましょう．またバックグラウンドで動作する不要なサービスはできるだけ起動しないように設定しておくことも重要です．意図していたよりも多くの負荷がかかってしまうと，正しい性能評価ができません．また今後実際にこのような負荷試験を行うことがあった場合は，くれぐれもサービス提供中の本番サーバで実施することはやめましょう．</p>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>おわりに<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>おわりに<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>abを用いて，Webシステムへ負荷をかけて定量的な性能評価を行う基本的な方法は分かりましたか？</p>
 <p>また，一般的な使い方におけるPHPとjavascriptの特徴も理解できましたか？</p>
 </div>
