@@ -616,33 +616,28 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     注意
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
      手順
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id5">
    サンプルプログラム（PHP）の解説
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id6">
      PHPプログラムの配置
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id7">
      変数の定義
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
+    <a class="reference internal nav-link" href="#id8">
      +演算子と.演算子
     </a>
    </li>
@@ -654,7 +649,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
+  <a class="reference internal nav-link" href="#id9">
    おわりに
   </a>
  </li>
@@ -700,33 +695,28 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     注意
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
      手順
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id5">
    サンプルプログラム（PHP）の解説
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id6">
      PHPプログラムの配置
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id7">
      変数の定義
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
+    <a class="reference internal nav-link" href="#id8">
      +演算子と.演算子
     </a>
    </li>
@@ -738,7 +728,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
+  <a class="reference internal nav-link" href="#id9">
    おわりに
   </a>
  </li>
@@ -802,15 +792,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id3">
 <h2>サンプルプログラム（PHP）の実行<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
-<h3>注意<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p><strong>本サンプルプログラムはプログラム中からインターネットへのアクセスが発生します．</strong></p>
-<p><strong>本実験を行う場合は一時的にWiFiをOnにする，ルーター経由でPC接続するなど，RasPiをインターネットアクセス可能な状態にして実験を行なってください．</strong></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>本サンプルプログラムはプログラム中からインターネットへのアクセスが発生します．</p>
+<p>本実験を行う場合は一時的にWiFiをOnにする，ルーター経由でPC接続するなど，RasPiをインターネットアクセス可能な状態にして実験を行なってください．</p>
+</div>
 <p>なお，RasPiがインターネットアクセス可能な状態である場合，皆さんが立ち上げているWebサーバーはインターネット上の見知らぬ誰かからアクセスされる可能性があります（ルーター等を経由していればある程度は安全ですが）．</p>
 <p>ufwなどを使って，特定のIP（今回で言えば，実験に使う皆さんのPC）以外からのWebサーバーへのアクセスを受け付けない，等とすれば安心ですが，設定にはリスクが伴います（間違えると誰からもアクセスできないサーバーになってしまったりします）．ここでは設定を必須としませんが，設定したい方は各自でよく調べた上で設定してみてください，</p>
-</div>
-<div class="section" id="id5">
-<h3>手順<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>手順<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>先ほどと同様に，ノートPC上のWebブラウザから以下のURLを再読み込みしてみてください（ユーザ名の部分は，サーバ端末上に作成した皆さんのアカウント名になります）．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://192.168.0.200/~%E3%83%A6%E3%83%BC%E3%82%B6%E5%90%8D/">http://192.168.0.200/~ユーザ名/</a></p></li>
@@ -819,84 +809,89 @@ const thebe_selector_output = ".output, .cell_output"
 <p>このようなWebページが表示されたらOKです．このサンプルプログラム（PHP）はFlickrという写真共有サービスの写真を表示しています．Flickrには何十億枚という写真が共有されており，今も時々刻々と増加し続けていますが，アクセスした時点で最新の500枚をWebブラウザ上に表示するプログラムになっています．Web APIを用いると，外部のSNSやWebサービスと連携した魅力的なWebアプリケーションを簡単に実現することができます．</p>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>サンプルプログラム（PHP）の解説<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>サンプルプログラム（PHP）の解説<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>これまで皆さんは，<strong>printf</strong>関数と格闘してプログラムの実行結果を綺麗に出力しようと頑張ってきたと思います．Webアプリケーションでは，画像を多用したファンシーなデザインのWebページを簡単に作成するための仕組みがたくさんあります．実際，今回のサンプルプログラム（PHP）は，たった64行で実装されています．ようこそ高級言語の世界へ！</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;</span>
+
 <span class="x">  &lt;head&gt;</span>
-<span class="x">		&lt;title&gt;科学科実験Iサンプルプログラム&lt;/title&gt;</span>
-<span class="x">	&lt;style&gt;</span>
-<span class="x">.item{</span>
-<span class="x">	overflow:hidden;</span>
-<span class="x">	float:left;</span>
-<span class="x">	margin:10px;</span>
-<span class="x">	-webkit-box-shadow: 0 5px 3px -3px #777;</span>
-<span class="x">	   -moz-box-shadow: 0 5px 3px -3px #777;</span>
-<span class="x">	        box-shadow: 0 5px 3px -3px #777;</span>
-<span class="x">}</span>
-<span class="x">.title{</span>
-<span class="x">	height:32px;</span>
-<span class="x">	line-height:32px;</span>
-<span class="x">	font-size:16px;</span>
-<span class="x">	color:#fff;</span>
-<span class="x">}</span>
-<span class="x">body{</span>
-<span class="x">	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.74, #1d6723), color-stop(0.00, #a2d93f));</span>
-<span class="x">	background: -webkit-linear-gradient(top, #a2d93f 0%, #1d6723 74%);</span>
-<span class="x">	background: -moz-linear-gradient(top, #a2d93f 0%, #1d6723 74%);</span>
-<span class="x">	background: -o-linear-gradient(top, #a2d93f 0%, #1d6723 74%);</span>
-<span class="x">	background: -ms-linear-gradient(top, #a2d93f 0%, #1d6723 74%);</span>
-<span class="x">	background: linear-gradient(to bottom, #a2d93f 0%, #1d6723 74%);</span>
-<span class="x">}</span>
-<span class="x">	&lt;/style&gt;</span>
-<span class="x">	&lt;/head&gt;</span>
-<span class="x">	&lt;body&gt;</span>
-<span class="x">&lt;h1&gt;Flickrに最近アップロードされた500枚&lt;/h1&gt;</span>
+<span class="x">    &lt;title&gt;科学科実験Iサンプルプログラム&lt;/title&gt;</span>
+<span class="x">    &lt;style&gt;</span>
+<span class="x">      .item {</span>
+<span class="x">        overflow: hidden;</span>
+<span class="x">        float: left;</span>
+<span class="x">        margin: 10px;</span>
+<span class="x">        -webkit-box-shadow: 0 5px 3px -3px #777;</span>
+<span class="x">        -moz-box-shadow: 0 5px 3px -3px #777;</span>
+<span class="x">        box-shadow: 0 5px 3px -3px #777;</span>
+<span class="x">      }</span>
+
+<span class="x">      .title {</span>
+<span class="x">        height: 32px;</span>
+<span class="x">        line-height: 32px;</span>
+<span class="x">        font-size: 16px;</span>
+<span class="x">        color: #fff;</span>
+<span class="x">      }</span>
+
+<span class="x">      body {</span>
+<span class="x">        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.74, #1d6723), color-stop(0.00, #a2d93f));</span>
+<span class="x">        background: -webkit-linear-gradient(top, #a2d93f 0%, #1d6723 74%);</span>
+<span class="x">        background: -moz-linear-gradient(top, #a2d93f 0%, #1d6723 74%);</span>
+<span class="x">        background: -o-linear-gradient(top, #a2d93f 0%, #1d6723 74%);</span>
+<span class="x">        background: -ms-linear-gradient(top, #a2d93f 0%, #1d6723 74%);</span>
+<span class="x">        background: linear-gradient(to bottom, #a2d93f 0%, #1d6723 74%);</span>
+<span class="x">      }</span>
+<span class="x">    &lt;/style&gt;</span>
+<span class="x">  &lt;/head&gt;</span>
+
+<span class="x">  &lt;body&gt;</span>
+<span class="x">    &lt;h1&gt;Flickrに最近アップロードされた500枚&lt;/h1&gt;</span>
 <span class="cp">&lt;?php</span>
 <span class="nv">$Flickr_apikey</span> <span class="o">=</span> <span class="s2">&quot;600dfca58e06413caa4125ce28da02b7&quot;</span><span class="p">;</span>
 <span class="nv">$Flickr_getRecent</span> <span class="o">=</span> <span class="s2">&quot;https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&amp;api_key=&quot;</span><span class="o">.</span><span class="nv">$Flickr_apikey</span><span class="o">.</span><span class="s2">&quot;&amp;extras=url_s&amp;per_page=500&amp;format=php_serial&quot;</span><span class="p">;</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nb">unserialize</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$Flickr_getRecent</span><span class="p">));</span>
 <span class="nv">$colors</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-	<span class="s2">&quot;#f39700&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e60012&quot;</span><span class="p">,</span>	<span class="s2">&quot;#9caeb7&quot;</span><span class="p">,</span>	<span class="s2">&quot;#00a7db&quot;</span><span class="p">,</span>
-	<span class="s2">&quot;#009944&quot;</span><span class="p">,</span>	<span class="s2">&quot;#d7c447&quot;</span><span class="p">,</span>	<span class="s2">&quot;#9b7cb6&quot;</span><span class="p">,</span>	<span class="s2">&quot;#00ada9&quot;</span><span class="p">,</span>
-	<span class="s2">&quot;#bb641d&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e85298&quot;</span><span class="p">,</span>	<span class="s2">&quot;#0079c2&quot;</span><span class="p">,</span>	<span class="s2">&quot;#6cbb5a&quot;</span><span class="p">,</span>
-	<span class="s2">&quot;#b6007a&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e5171f&quot;</span><span class="p">,</span>	<span class="s2">&quot;#522886&quot;</span><span class="p">,</span>	<span class="s2">&quot;#0078ba&quot;</span><span class="p">,</span>
-	<span class="s2">&quot;#019a66&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e44d93&quot;</span><span class="p">,</span>	<span class="s2">&quot;#814721&quot;</span><span class="p">,</span>	<span class="s2">&quot;#a9cc51&quot;</span><span class="p">,</span>
-	<span class="s2">&quot;#ee7b1a&quot;</span><span class="p">,</span>	<span class="s2">&quot;#00a0de&quot;</span><span class="p">);</span>
+  <span class="s2">&quot;#f39700&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e60012&quot;</span><span class="p">,</span>	<span class="s2">&quot;#9caeb7&quot;</span><span class="p">,</span>	<span class="s2">&quot;#00a7db&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#009944&quot;</span><span class="p">,</span>	<span class="s2">&quot;#d7c447&quot;</span><span class="p">,</span>	<span class="s2">&quot;#9b7cb6&quot;</span><span class="p">,</span>	<span class="s2">&quot;#00ada9&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#bb641d&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e85298&quot;</span><span class="p">,</span>	<span class="s2">&quot;#0079c2&quot;</span><span class="p">,</span>	<span class="s2">&quot;#6cbb5a&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#b6007a&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e5171f&quot;</span><span class="p">,</span>	<span class="s2">&quot;#522886&quot;</span><span class="p">,</span>	<span class="s2">&quot;#0078ba&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#019a66&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e44d93&quot;</span><span class="p">,</span>	<span class="s2">&quot;#814721&quot;</span><span class="p">,</span>	<span class="s2">&quot;#a9cc51&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#ee7b1a&quot;</span><span class="p">,</span>	<span class="s2">&quot;#00a0de&quot;</span><span class="p">);</span>
 <span class="nv">$c</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="k">foreach</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s2">&quot;photos&quot;</span><span class="p">][</span><span class="s2">&quot;photo&quot;</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$k</span> <span class="o">=&gt;</span> <span class="nv">$photo</span><span class="p">){</span>
-	<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;url_s&quot;</span><span class="p">])){</span>
-		<span class="nv">$title</span> <span class="o">=</span> <span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">];</span>
-		<span class="nv">$url</span>   <span class="o">=</span> <span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;url_s&quot;</span><span class="p">];</span>
-		<span class="nv">$width</span> <span class="o">=</span> <span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;width_s&quot;</span><span class="p">];</span>
-		<span class="nv">$height</span><span class="o">=</span> <span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;height_s&quot;</span><span class="p">];</span>
-		<span class="nv">$size</span>  <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nv">$width</span><span class="p">,</span><span class="nv">$height</span><span class="p">);</span>
-		<span class="nv">$margin_top</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$size</span><span class="o">-</span><span class="nv">$height</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-		<span class="nv">$margin_left</span><span class="o">=</span> <span class="p">(</span><span class="nv">$size</span><span class="o">-</span><span class="nv">$width</span><span class="p">)</span> <span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-		<span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;item&quot; style=&quot;width:&#39;</span><span class="o">.</span><span class="nv">$size</span><span class="o">.</span><span class="s1">&#39;px;height:&#39;</span><span class="o">.</span><span class="p">(</span><span class="nv">$size</span><span class="o">+</span><span class="mi">32</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;px;background-color:&#39;</span><span class="o">.</span><span class="p">(</span><span class="nv">$colors</span><span class="p">[</span><span class="nv">$c</span><span class="o">%</span><span class="nb">count</span><span class="p">(</span><span class="nv">$colors</span><span class="p">)])</span><span class="o">.</span><span class="s1">&#39;;border:1px solid &#39;</span><span class="o">.</span><span class="p">(</span><span class="nv">$colors</span><span class="p">[</span><span class="nv">$c</span><span class="o">++%</span><span class="nb">count</span><span class="p">(</span><span class="nv">$colors</span><span class="p">)])</span><span class="o">.</span><span class="s1">&#39;;&quot;&gt;&#39;</span><span class="p">;</span>
-		<span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;image&quot;&gt;&#39;</span><span class="p">;</span>
-		<span class="k">echo</span> <span class="s1">&#39;&lt;img src=&quot;&#39;</span><span class="o">.</span><span class="nv">$url</span><span class="o">.</span><span class="s1">&#39;&quot; width=&quot;&#39;</span><span class="o">.</span><span class="nv">$width</span><span class="o">.</span><span class="s1">&#39;&quot; height=&quot;&#39;</span><span class="o">.</span><span class="nv">$height</span><span class="o">.</span><span class="s1">&#39;&quot; style=&quot;margin-bottom:&#39;</span><span class="o">.</span><span class="nv">$margin_top</span><span class="o">.</span><span class="s1">&#39;px;margin-top:&#39;</span><span class="o">.</span><span class="nv">$margin_top</span><span class="o">.</span><span class="s1">&#39;px;margin-left:&#39;</span><span class="o">.</span><span class="nv">$margin_left</span><span class="o">.</span><span class="s1">&#39;px;&quot;&gt;&#39;</span><span class="p">;</span>
-		<span class="k">echo</span> <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
-		<span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;title&quot;&gt;&#39;</span><span class="p">;</span>
-		<span class="k">echo</span> <span class="nv">$title</span><span class="p">;</span>
-		<span class="k">echo</span> <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
-		<span class="k">echo</span> <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
-	<span class="p">}</span>
+  <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;url_s&quot;</span><span class="p">])){</span>
+    <span class="nv">$title</span> <span class="o">=</span> <span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">];</span>
+    <span class="nv">$url</span>   <span class="o">=</span> <span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;url_s&quot;</span><span class="p">];</span>
+    <span class="nv">$width</span> <span class="o">=</span> <span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;width_s&quot;</span><span class="p">];</span>
+    <span class="nv">$height</span><span class="o">=</span> <span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;height_s&quot;</span><span class="p">];</span>
+    <span class="nv">$size</span>  <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nv">$width</span><span class="p">,</span><span class="nv">$height</span><span class="p">);</span>
+    <span class="nv">$margin_top</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$size</span><span class="o">-</span><span class="nv">$height</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nv">$margin_left</span><span class="o">=</span> <span class="p">(</span><span class="nv">$size</span><span class="o">-</span><span class="nv">$width</span><span class="p">)</span> <span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;item&quot; style=&quot;width:&#39;</span><span class="o">.</span><span class="nv">$size</span><span class="o">.</span><span class="s1">&#39;px;height:&#39;</span><span class="o">.</span><span class="p">(</span><span class="nv">$size</span><span class="o">+</span><span class="mi">32</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;px;background-color:&#39;</span><span class="o">.</span><span class="p">(</span><span class="nv">$colors</span><span class="p">[</span><span class="nv">$c</span><span class="o">%</span><span class="nb">count</span><span class="p">(</span><span class="nv">$colors</span><span class="p">)])</span><span class="o">.</span><span class="s1">&#39;;border:1px solid &#39;</span><span class="o">.</span><span class="p">(</span><span class="nv">$colors</span><span class="p">[</span><span class="nv">$c</span><span class="o">++%</span><span class="nb">count</span><span class="p">(</span><span class="nv">$colors</span><span class="p">)])</span><span class="o">.</span><span class="s1">&#39;;&quot;&gt;&#39;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;image&quot;&gt;&#39;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;img src=&quot;&#39;</span><span class="o">.</span><span class="nv">$url</span><span class="o">.</span><span class="s1">&#39;&quot; width=&quot;&#39;</span><span class="o">.</span><span class="nv">$width</span><span class="o">.</span><span class="s1">&#39;&quot; height=&quot;&#39;</span><span class="o">.</span><span class="nv">$height</span><span class="o">.</span><span class="s1">&#39;&quot; style=&quot;margin-bottom:&#39;</span><span class="o">.</span><span class="nv">$margin_top</span><span class="o">.</span><span class="s1">&#39;px;margin-top:&#39;</span><span class="o">.</span><span class="nv">$margin_top</span><span class="o">.</span><span class="s1">&#39;px;margin-left:&#39;</span><span class="o">.</span><span class="nv">$margin_left</span><span class="o">.</span><span class="s1">&#39;px;&quot;&gt;&#39;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;div class=&quot;title&quot;&gt;&#39;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$title</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">	&lt;/body&gt;</span>
+<span class="x">  &lt;/body&gt;</span>
+
 <span class="x">&lt;/html&gt;</span>
 </pre></div>
 </div>
 <p>PHPの使い方に関してはインターネットや書籍で調べてもらうとして，これまで勉強してきたCやJava等のプログラミング言語と比べて理解しにくい所のみを補足しておきます．</p>
-<div class="section" id="id7">
-<h3>PHPプログラムの配置<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>PHPプログラムの配置<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>今回のサンプルプログラム（PHP）をよく眺めてみてください．PHPの記述は31行目～62行目までしかなく，その外側はHTMLだということに気付くと思います．つまり，PHPのプログラムはHTMLへ埋め込まれる形で，<strong>&lt;?php</strong> と <strong>?&gt;</strong> で囲まれた行に記述します．</p>
 <p>次に，52行目～59行目を見てください．<strong>echo</strong>という関数が並んでいます．これはprintf等と同様に標準出力へデータを出力するための関数です（echoは実際には関数ではなく言語構造のため，例外的に引数に括弧は必要ありません．もちろん括弧を付けてもOKです）．</p>
 <p>echoの引数を見ると，HTMLが入っています．つまり，Webアプリケーションの場合，標準出力に出力された文字列をそのままWebサーバがネットワークを介してWebブラウザへ返します．Webブラウザは，Webサーバから受け取った文字列をHTMLとして解釈し表示しますので，PHPプログラムで<code class="docutils literal notranslate"><span class="pre">&lt;img</span> <span class="pre">src=&quot;画像のURL&quot;&gt;</span></code>というような文字列を出力すると，それを受け取ったWebブラウザは指定されたURLから画像をダウンロードし画面に表示してくれます．</p>
 </div>
-<div class="section" id="id8">
-<h3>変数の定義<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>変数の定義<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>例えば，32行目では <strong>$Flickr_apikey</strong> という変数を定義し，初期化しています．CやJavaとの違いは主に以下の二点で，変数の型は使用するときに動的に自動的に解釈されます．</p>
 <ul class="simple">
 <li><p>型定義は不要</p></li>
@@ -904,8 +899,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>また，35行目では配列の定義をしています．Cのプログラムでは配列の長さを考えるのは頭を使いましたよね．PHP(や大抵の最近の言語)では，配列の長さを気にせずに必要なだけ必要な時にデータを追加できます（もちろん追加した分のメモリ消費は増えますが）．</p>
 </div>
-<div class="section" id="id9">
-<h3>+演算子と.演算子<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>+演算子と.演算子<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>PHPでは型定義が不要で，使用する時に初めて型が定義されます．これは便利なようで問題も生じます．</p>
 <p>例えば，以下のようなプログラムを考えましょう．二つの変数に数字が入っています．これを <strong>+</strong> で繋げると当然，足し算結果が出力されます．しかし，数字ではなく文字列の1や2として処理したい場合もあります．文字列同士の連結はJavaでは <strong>+</strong> で繋げられますが，PHPでは型が無いため「文字列同士の連結」か「数値の和算」なのか区別がつきません．そこで，<strong>+</strong> は数値の和算のみにして，文字列の連結には <strong>.</strong> 演算子を使うことになっています．</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
@@ -927,8 +922,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>第二部の実験で，苦労してHTTPを話すプログラムを実装したと思います．PHPやWeb APIを使用することで，とても簡単に凝ったWebアプリケーションを実装することができます． FlickrのWeb APIは，XML以外にもJSONやJSONPといったJavaScriptと親和性の高いフォーマットだけでなく，php_serialというPHPと親和性の高いフォーマットで結果を返してもらうことができます． 今回のサンプルプログラム（PHP）の33行目のflickr.photos.getRecentでは，php_serialというフォーマットで結果を返すよう指定しています． このフォーマットでエンコードされた文字列は，<strong>deserialize</strong>という関数を用いてPHPのオブジェクトモデル（シングルトン・配列・連想配列・オブジェクト）に変換できます．</p>
 </div>
 </div>
-<div class="section" id="id10">
-<h2>おわりに<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h2>おわりに<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <p>これで喜んでたら何も始まりません．皆さんはまだコピペしかしていません．実験はここからですヨ！</p>
 </div>
 </div>
