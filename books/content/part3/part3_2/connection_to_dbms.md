@@ -82,7 +82,7 @@ $ sudo reboot
 
 郵便番号のリストは，[ゆうちょのページ](http://www.post.japanpost.jp/zipcode/download.html)で公開されています．ただし，半角カタカナだったり，特に今回は不要なフィールドが含まれていたりしますので，静岡県の郵便番号と住所を「,」で区切ったデータのみを抽出し，以下のGitリポジトリへ**zip-shizuoka.csv**というファイルで置いておきました．
 
-GitHubリポジトリ [https://github.com/ohkilab/SU-CSexpA-02](https://github.com/ohkilab/SU-CSexpA-02)
+- GitHubリポジトリ [https://github.com/ohkilab/SU-CSexpA-02](https://github.com/ohkilab/SU-CSexpA-02)
 
 ### テーブルの作成
 
