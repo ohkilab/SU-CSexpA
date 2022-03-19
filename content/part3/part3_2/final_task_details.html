@@ -1112,13 +1112,16 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p>
-<p>インデックスのような機能を独自実装してくれて構いません．</p>
-<p>PHPのみで全ての機能を実装する必要はありません．以下の関数を用いるとPHPから実行形式のファイルを実行できます．</p>
 <ul class="simple">
+<li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p></li>
+<li><p>インデックスのような機能を独自実装してくれて構いません．</p></li>
+<li><p>PHPのみで全ての機能を実装する必要はありません．以下の関数を用いるとPHPから実行形式のファイルを実行できます．</p>
+<ul>
 <li><p><a class="reference external" href="http://www.php.net/manual/ja/function.exec.php">exec関数</a></p></li>
 <li><p><a class="reference external" href="http://www.php.net/manual/ja/function.system.php">system関数</a></p></li>
 <li><p><a class="reference external" href="http://www.php.net/manual/ja/function.passthru.php">passthru関数</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
 <p>ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
@@ -1134,9 +1137,11 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>「i_tag」インデックスを使用しない設定は，<strong>SELECT * FROM tag IGNORE INDEX(i_tag) WHERE tag like ‘beach’;</strong></p>
-<p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p>
-<p>「任意のタグに合致する写真のリスト」は，SELECT文1文で実現できますが，インデックスを使用しない場合，クエリを分割したり，一部をSQLではなくプログラム側で処理するというような構造も効果的かもしれません．</p>
+<ul class="simple">
+<li><p>「i_tag」インデックスを使用しない設定は，<strong>SELECT * FROM tag IGNORE INDEX(i_tag) WHERE tag like ‘beach’;</strong></p></li>
+<li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p></li>
+<li><p>「任意のタグに合致する写真のリスト」は，SELECT文1文で実現できますが，インデックスを使用しない場合，クエリを分割したり，一部をSQLではなくプログラム側で処理するというような構造も効果的かもしれません．</p></li>
+</ul>
 </div>
 <p>ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
 </div>
@@ -1150,8 +1155,10 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>SELECT文から「<strong>IGNORE INDEX</strong>」を削除するだけで構いません．</p>
-<p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p>
+<ul class="simple">
+<li><p>SELECT文から「<strong>IGNORE INDEX</strong>」を削除するだけで構いません．</p></li>
+<li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="id10">

@@ -297,15 +297,13 @@ use CSexp1DB;
 -   progA.phpとして実装すること
 
 ```{hint}
-ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（index.htmlでその設定はすでにされています）．
+- ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（index.htmlでその設定はすでにされています）．
+- インデックスのような機能を独自実装してくれて構いません．
 
-インデックスのような機能を独自実装してくれて構いません．
-
-PHPのみで全ての機能を実装する必要はありません．以下の関数を用いるとPHPから実行形式のファイルを実行できます．
-
--   [exec関数](http://www.php.net/manual/ja/function.exec.php)
--   [system関数](http://www.php.net/manual/ja/function.system.php)
--   [passthru関数](http://www.php.net/manual/ja/function.passthru.php)
+- PHPのみで全ての機能を実装する必要はありません．以下の関数を用いるとPHPから実行形式のファイルを実行できます．
+  -   [exec関数](http://www.php.net/manual/ja/function.exec.php)
+  -   [system関数](http://www.php.net/manual/ja/function.system.php)
+  -   [passthru関数](http://www.php.net/manual/ja/function.passthru.php)
 ```
 
 ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．
@@ -323,11 +321,9 @@ PHPのみで全ての機能を実装する必要はありません．以下の�
 
 
 ```{hint}
-「i\_tag」インデックスを使用しない設定は，**SELECT \* FROM tag IGNORE INDEX(i\_tag) WHERE tag like 'beach';**
-
-ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（index.htmlでその設定はすでにされています）．
-
-「任意のタグに合致する写真のリスト」は，SELECT文1文で実現できますが，インデックスを使用しない場合，クエリを分割したり，一部をSQLではなくプログラム側で処理するというような構造も効果的かもしれません．
+- 「i\_tag」インデックスを使用しない設定は，**SELECT \* FROM tag IGNORE INDEX(i\_tag) WHERE tag like 'beach';**
+- ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（index.htmlでその設定はすでにされています）．
+- 「任意のタグに合致する写真のリスト」は，SELECT文1文で実現できますが，インデックスを使用しない場合，クエリを分割したり，一部をSQLではなくプログラム側で処理するというような構造も効果的かもしれません．
 ```
 
 ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．
@@ -343,9 +339,8 @@ PHPのみで全ての機能を実装する必要はありません．以下の�
 
 
 ```{hint}
-SELECT文から「**IGNORE INDEX**」を削除するだけで構いません．
-
-ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（index.htmlでその設定はすでにされています）．
+- SELECT文から「**IGNORE INDEX**」を削除するだけで構いません．
+- ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（index.htmlでその設定はすでにされています）．
 ```
 
 
