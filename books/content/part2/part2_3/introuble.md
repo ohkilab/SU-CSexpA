@@ -23,7 +23,7 @@ HTTPに関しては，IETFで全て標準化の文書が[RFC](https://www.ietf.o
 
 HTTP/1.1の場合，[RFC2616](https://tex2e.github.io/rfc-translater/html/rfc2616.html)として公開されています．
 
-また，HTTP/2は，[RFC7540](https://tex2e.github.io/rfc-translater/html/rfc7540.html)として公開されています．
+また，HTTP/2も，[RFC7540](https://tex2e.github.io/rfc-translater/html/rfc7540.html)として公開されています．
 
 ## 必要最低限のコードを書いて試してみる
 
