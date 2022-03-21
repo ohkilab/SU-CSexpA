@@ -177,12 +177,12 @@ $ echo 'hello world' > index.html
 
 ![raspi-helloworld.png](../../../images/part2/raspi-helloworld.png)
 
-### その他注意事項
-
+```{hint}
 Forbiddenのエラーがなくならない場合はファイルやディレクトリのアクセス権限が原因である場合も考えられます．以下のURL等を参考に原因を突き止めてみてください．
 
 -   [http://itpro.nikkeibp.co.jp/article/COLUMN/20080219/294152/](http://itpro.nikkeibp.co.jp/article/COLUMN/20080219/294152/)
 -   [http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230728/](http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230728/)
+```
 
 ## データベースサーバ(MySQL)の設定
 
