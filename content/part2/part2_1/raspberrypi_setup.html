@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Simple HTTPサーバの実装" href="simplehttpserver.html" />
-    <link rel="prev" title="Day6の目的と概要" href="day6objective.html" />
+    <link rel="prev" title="Day5の目的と概要" href="day6objective.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -633,11 +633,6 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     その他注意事項
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -646,12 +641,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id6">
      MySQLの起動
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id7">
      MySQLの初期設定
     </a>
     <ul class="nav section-nav flex-column">
@@ -723,11 +718,6 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     その他注意事項
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -736,12 +726,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id6">
      MySQLの起動
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id7">
      MySQLの初期設定
     </a>
     <ul class="nav section-nav flex-column">
@@ -816,14 +806,14 @@ $ ip a                      &lt;---- DHCPでIPアドレス割り振られてい�
 <ul>
 <li><p>PCでインストール用パッケージをダウンロード（パッケージは <a class="reference external" href="https://packages.debian.org/buster/">https://packages.debian.org/buster/</a> などから探せます）</p></li>
 <li><p>SCPでパッケージを転送</p></li>
-<li><p>dpkgコマンドでインストール</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dpkg</span></code>コマンドでインストール</p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h3>ファイアーウォールの設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>ファイアウォールは ufw を利用して設定します．新たに Webサーバをインストールしましたので，Webサーバが利用するポート80に対して外部からアクセスできるよう設定しておきます．</p>
+<p>ファイアウォールは <code class="docutils literal notranslate"><span class="pre">ufw</span></code> を利用して設定します．新たに Webサーバをインストールしましたので，Webサーバが利用するポート80に対して外部からアクセスできるよう設定しておきます．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo ufw allow <span class="m">80</span>/tcp
 </pre></div>
 </div>
@@ -872,7 +862,7 @@ To                         Action      From
 $ sudo systemctl start apache2.service
 </pre></div>
 </div>
-<p>それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して， <strong><a class="reference external" href="http://192.168.1.101/">http://192.168.1.101</a></strong> にアクセスしてみましょう（DHCP設定になっている人は，｀$ ip a ｀等でIPアドレスを確認して適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．</p>
+<p>それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して， <strong><a class="reference external" href="http://192.168.1.101/">http://192.168.1.101</a></strong> にアクセスしてみましょう（DHCP設定になっている人は，<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ip</span> <span class="pre">a</span> </code>等でIPアドレスを確認して適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．</p>
 <p><img alt="raspi-apache.png" src="../../../_images/raspi-apache.png" /></p>
 <p>アクセスができませんか？できない場合はWebサーバを起動させたRasPi側のファイアーウォールの設定や，学生PCのIPアドレスがWebサーバと通信可能なIPアドレス（同じネットワークアドレスで異なるIPアドレス）となっているかどうか等を確認してみましょう．</p>
 </div>
@@ -880,10 +870,10 @@ $ sudo systemctl start apache2.service
 <h3>Apacheの初期設定<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id5">
 <h4>ユーザディレクトリの設定<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<p>ここまでで確認したApache2 Debian Default PageはWebサーバ全体のページです．Webサーバ上のディレクトリでは <strong>/var/www/html</strong> に対応します（ただし，Apache2 Debian Default Pageはちょっと特殊なページで，/var/www/html に index.html がない時に自動生成されて表示されるページです）．つまり，/var/www/html に置かれたファイルが <a class="reference external" href="http://192.168.1.101/">http://192.168.1.101/</a> にアクセスした時に参照されることになります．</p>
-<p>また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定可能です．例えば，<strong><a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a><strong>にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，</strong><a class="reference external" href="http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D">http://サーバ名/~アカウント名</a></strong> にアクセスした時にホームディレクトリのpublic_htmlのコンテンツを表示する機能です．具体例としては，<strong><a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a></strong> にアクセスした時に <strong>/home/ohki/public_html</strong> のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ <strong><a class="reference external" href="http://192.168.1.101/~pi/">http://192.168.1.101/~pi/</a></strong> に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．</p>
+<p>ここまでで確認したApache2 Debian Default PageはWebサーバ全体のページです．Webサーバ上のディレクトリでは <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code>に対応します（ただし，Apache2 Debian Default Pageはちょっと特殊なページで，/var/www/html に index.html がない時に自動生成されて表示されるページです）．つまり，/var/www/html に置かれたファイルが <a class="reference external" href="http://192.168.1.101/">http://192.168.1.101/</a> にアクセスした時に参照されることになります．</p>
+<p>また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定可能です．例えば，<a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a>にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，<a class="reference external" href="http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D">http://サーバ名/~アカウント名</a> にアクセスした時にホームディレクトリのpublic_htmlのコンテンツを表示する機能です．具体例としては，<a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a> にアクセスした時に<code class="docutils literal notranslate"><span class="pre">/home/ohki/public\_html</span></code>のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ <a class="reference external" href="http://192.168.1.101/~pi/">http://192.168.1.101/~pi/</a>に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．</p>
 <p><img alt="raspi-404.png" src="../../../_images/raspi-404.png" /></p>
-<p>ユーザディレクトリの設定をする前に，少しApacheの設定ディレクトリ <strong>/etc/apache2</strong> の中身をのぞいてみましょう．</p>
+<p>ユーザディレクトリの設定をする前に，少しApacheの設定ディレクトリ <code class="docutils literal notranslate"><span class="pre">/etc/apache2</span></code> の中身をのぞいてみましょう．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls /etc/apache2
 apache2.conf    conf-enabled  magic           mods-enabled  sites-available
 conf-available  envvars       mods-available  ports.conf    sites-enabled
@@ -909,7 +899,7 @@ lrwxrwxrwx <span class="m">1</span> root root <span class="m">29</span> Mar <spa
 <li><p>mods-available：モジュールを読み込むためのファイル，およびモジュールの設定ファイルの実体を配置</p></li>
 <li><p>mods-enabled ：mods-availableのうち有効にするモジュールへのシンボリックリンクを配置</p></li>
 </ul>
-<p>となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド「a2enmod」（シンボリックリンクを作成する）および「a2dismod（シンボリックリンクを削除する）」がRaspbianには用意されていますのでこれを使いましょう．</p>
+<p>となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド<code class="docutils literal notranslate"><span class="pre">a2enmod</span></code>（シンボリックリンクを作成する）および<code class="docutils literal notranslate"><span class="pre">a2dismod</span></code>（シンボリックリンクを削除する）がRaspbianには用意されていますのでこれを使いましょう．</p>
 <p>本題のユーザーディレクトリに関しては既にuserdirというモジュールがmods-availableにインストールされています．上記のa2enmodコマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo a2enmod userdir
 $ sudo systemctl restart apache2
@@ -925,10 +915,8 @@ $ <span class="nb">echo</span> <span class="s1">&#39;hello world&#39;</span> &gt
 </div>
 <p>それでは，改めてブラウザでアクセスしてみましょう．上記で作成した内容が表示されればOKです．</p>
 <p><img alt="raspi-helloworld.png" src="../../../_images/raspi-helloworld.png" /></p>
-</div>
-</div>
-<div class="section" id="id6">
-<h3>その他注意事項<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
 <p>Forbiddenのエラーがなくならない場合はファイルやディレクトリのアクセス権限が原因である場合も考えられます．以下のURL等を参考に原因を突き止めてみてください．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://itpro.nikkeibp.co.jp/article/COLUMN/20080219/294152/">http://itpro.nikkeibp.co.jp/article/COLUMN/20080219/294152/</a></p></li>
@@ -936,19 +924,21 @@ $ <span class="nb">echo</span> <span class="s1">&#39;hello world&#39;</span> &gt
 </ul>
 </div>
 </div>
+</div>
+</div>
 <div class="section" id="mysql">
 <h2>データベースサーバ(MySQL)の設定<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
 <p>今回はデータベースサーバとして mariadb-server パッケージをインストールしました．この<a class="reference external" href="https://ja.wikipedia.org/wiki/MariaDB">MariaDB</a>というソフトウェアは，MySQLというデータベースサーバから派生したオープンソースのリレーショナルデータベースサーバです．コマンド体系もMySQL時代のものを踏襲していることもあり，以降 MySQL という名称を使って説明します．</p>
-<div class="section" id="id7">
-<h3>MySQLの起動<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>MySQLの起動<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>既に何度も行ってきましたので，もう説明は不要だと思います．RasPi起動時に自動的にMySQLも起動（enable）するように設定しつつ，今から動作確認したいのでサービスを開始（start）させています．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl <span class="nb">enable</span> mariadb.service
 $ sudo systemctl start mariadb.service
 </pre></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h3>MySQLの初期設定<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>MySQLの初期設定<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>初期設定ウィザードが用意されていますので，起動して初期設定を進めます．初期状態では root パスワードは設定されていません（<strong>このrootアカウントはOSのアカウントではなくMySQLサーバ上のアカウントですので誤解のなきよう</strong>）ので，何も入力せず<strong>ENTER</strong>を押します．すると，rootパスワードの設定を求められますので設定します．以降はデフォルトの<strong>Y</strong>でOKです．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo mysql_secure_installation
 </pre></div>
@@ -1083,7 +1073,10 @@ default-storage-engine<span class="o">=</span>Aria
 </li>
 </ul>
 <p>初期化時に設定した root パスワードを使って，各ユーザとデータベースを作成します．</p>
-<p>最初のコマンド <strong>CREATE DATABASE ohkiDB CHARACTER SET utf8;</strong> は 文字コード <strong>utf-8</strong> のデータベース <strong>ohkiDB</strong> を作成します．2番目のコマンド <strong>GRANT ALL PRIVILEGES ON ohkiDB.* TO ohki&#64;localhost IDENTIFIED BY ‘difficult-password’;</strong> は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．3番目のコマンド <strong>FLUSH PRIVILEGES;</strong> は2番目のコマンドの結果を即時有効にするためのコマンドです．4番目のコマンド <strong>show databases;</strong> は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が <strong>;</strong> で終わることに気を付けてください．</p>
+<p>最初のコマンド<code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">ohkiDB</span> <span class="pre">CHARACTER</span> <span class="pre">SET</span> <span class="pre">utf8;</span></code>は 文字コード <strong>utf-8</strong> のデータベース <strong>ohkiDB</strong> を作成します．
+2番目のコマンド<code class="docutils literal notranslate"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">ohkiDB.\*</span> <span class="pre">TO</span> <span class="pre">ohki&#64;localhost</span> <span class="pre">IDENTIFIED</span> <span class="pre">BY</span> <span class="pre">'difficult-password';</span></code>は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．
+3番目のコマンド <code class="docutils literal notranslate"><span class="pre">FLUSH</span> <span class="pre">PRIVILEGES;</span></code>は2番目のコマンドの結果を即時有効にするためのコマンドです．
+4番目のコマンド<code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">databases;</span></code>は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が<code class="docutils literal notranslate"><span class="pre">;</span></code>で終わることに気を付けてください．</p>
 <p><strong>difficult-password</strong> は当然ですが，みなさん個人個人で考えた難しいパスワードを設定してください．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mysql -u root -p
 </pre></div>
@@ -1178,7 +1171,7 @@ Bye
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Day6の目的と概要</p>
+            <p class="prev-next-title">Day5の目的と概要</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="simplehttpserver.html" title="next page">

@@ -783,7 +783,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>各自で動作を確認してほしいので，xxxxx という部分は各自の学籍番号の下5桁を記述してください．</p>
 <p>クライアントから接続要求が届いたら，以下を while(1) で無限に繰り返すという単純なプログラムです．</p>
 <ul class="simple">
-<li><p>exp1_http_session() というセッション処理のための実験I用関数に渡す</p></li>
+<li><p>exp1_http_session() というセッション処理のための実験A用関数に渡す</p></li>
 <li><p>exp1_http_session() の処理が終わったらアクセプトしたディスクリプタを正常終了し次の接続処理へ</p></li>
 </ul>
 <p>複数クライアントからの接続要求に対応できるようになっていませんし，特に処理内容の高速化も意識していない単純なものとなります．</p>
@@ -807,7 +807,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>※ sock_listen はクライアントからの接続要求待ち受け用のディスクリプタ，sock_clientはクライアントとのHTTPデータ通信用のディスクリプタですので，無限ループ内で閉じているディスクリプタがどちらか注意してください．</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>sock_listen はクライアントからの接続要求待ち受け用のディスクリプタ，sock_clientはクライアントとのHTTPデータ通信用のディスクリプタですので，無限ループ内で閉じているディスクリプタがどちらか注意してください．</p>
+</div>
 </div>
 <div class="section" id="exp1-http-session">
 <h3>exp1_http_session()<a class="headerlink" href="#exp1-http-session" title="Permalink to this headline">¶</a></h3>

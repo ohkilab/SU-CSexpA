@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Day7の目的と概要" href="../part2_2/day7objective.html" />
+    <link rel="next" title="Day6の目的と概要" href="../part2_2/day7objective.html" />
     <link rel="prev" title="Simple HTTPサーバの実装" href="simplehttpserver.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -969,7 +969,7 @@ const thebe_selector_output = ".output, .cell_output"
 最後の例のように，クライアントスレッド1000個がHTTPリクエストを送信した時，全てのHTTPリプライが返ってくるのに約63秒かかっています．<br />
 その内，exp_tcp_connect()やsend()で失敗したセッションが約14.8%あったいう結果になります．</p>
 <p>物理的に離れた場所でHTTPサーバプログラムとHTTPベンチマークプログラムを動作させると，ネットワークの距離や品質によって結果に違いが出てくると思います．<br />
-また，tc コマンド（Traffic Control）を使ってネットワーク遅延やパケットロスを疑似的に発生させてみることもできますので，興味ある人は試してみると面白いと思います．</p>
+また，<code class="docutils literal notranslate"><span class="pre">tc</span></code> コマンド（Traffic Control）を使ってネットワーク遅延やパケットロスを疑似的に発生させてみることもできますので，興味ある人は試してみると面白いと思います．</p>
 <p>以上のHTTPベンチマークプログラムを使った評価結果は，グラフにまとめレポートへ載せてください．<br />
 例えば，横軸を「HTTPリクエスト数」，縦軸を「応答時間」や「セッションエラー率」にしてグラフ化してみるといったことが考えられます．</p>
 </div>
@@ -1034,7 +1034,7 @@ const thebe_selector_output = ".output, .cell_output"
     <a class='right-next' id="next-link" href="../part2_2/day7objective.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Day7の目的と概要</p>
+        <p class="prev-next-title">Day6の目的と概要</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

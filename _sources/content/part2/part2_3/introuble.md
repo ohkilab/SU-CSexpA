@@ -21,9 +21,9 @@ HTTPサーバ機能拡張の実装について，具体的にどのようにな�
 
 HTTPに関しては，IETFで全て標準化の文書が[RFC](https://www.ietf.org/rfc.html)として公開されています（一部は日本語版もあり）．
 
-HTTP/1.1の場合，[RFC2616](http://www.spencernetwork.org/reference/rfc2616-ja-HTTP1.1.txt)として公開されています．
+HTTP/1.1の場合，[RFC2616](https://tex2e.github.io/rfc-translater/html/rfc2616.html)として公開されています．
 
-HTTP/2は，まだ[英語版](https://tools.ietf.org/html/rfc7540)しかないので少し苦労するかもしれません（[徐々にslideshare等でも増加](http://www.slideshare.net/search/slideshow?searchfrom=header&q=HTTP%2F2)）
+また，HTTP/2も，[RFC7540](https://tex2e.github.io/rfc-translater/html/rfc7540.html)として公開されています．
 
 ## 必要最低限のコードを書いて試してみる
 
@@ -227,7 +227,7 @@ int main()
 }
 ```
 ### test.php
-```
+```php
 <?php
 echo "hello world\n";
 ?>
@@ -253,3 +253,19 @@ int main()
 printf()の結果が，output.txtへ出力されたはずです．つまり，dup2()によって標準出力をoutput.txtのディスクリプタへ割り当てたことになります．
 
 ソケットに割り当てられたディスクリプタへ標準出力を割り当てれば実現できると思います（もちろん，一旦ファイルへ出力する方法でも構いません）．
+
+## 参考書籍
+
+最近の要点をしっかりまとめてある良書と思います
+
+-   [Linuxネットワークプログラミングバイブル（今は廃版でKindle版しかないようですが）](https://www.amazon.co.jp/dp/B00O8GIL62)
+-   [ハイパフォーマンス ブラウザネットワーキング ―ネットワークアプリケーションのためのパフォーマンス最適化](https://www.amazon.co.jp/dp/4873116767)
+
+以下は古くなりましたがご参考まで（当時よく読んでいた良書）
+
+-   [基礎からわかるTCP/IP ネットワーク実験プログラミング―Linux/FreeBSD対応](https://www.amazon.co.jp/dp/4274065847)
+-   [基礎からわかるTCP/IP アナライザ作成とパケット解析―Linux/FreeBSD対応](http://www.amazon.co.jp/dp/4274065820)
+-   [UNIXネットワークプログラミング〈Vol.1〉ネットワークAPI:ソケットとXTI](http://www.amazon.co.jp/dp/4894712059)
+-   [HTTP詳説―作ってわかるHTTPプロトコルのすべて](http://www.amazon.co.jp/dp/4894710412)
+-   [HTTPの教科書](http://www.amazon.co.jp/dp/479812625X)
+

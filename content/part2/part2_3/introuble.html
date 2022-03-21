@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="第二部参考書籍" href="referencebook.html" />
-    <link rel="prev" title="Day8の目的と概要" href="day8objective.html" />
+    <link rel="prev" title="Day7の目的と概要" href="day8objective.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -653,6 +653,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   参考書籍
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -732,6 +737,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   参考書籍
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -759,8 +769,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id3">
 <h2>標準化文書にあたる<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>HTTPに関しては，IETFで全て標準化の文書が<a class="reference external" href="https://www.ietf.org/rfc.html">RFC</a>として公開されています（一部は日本語版もあり）．</p>
-<p>HTTP/1.1の場合，<a class="reference external" href="http://www.spencernetwork.org/reference/rfc2616-ja-HTTP1.1.txt">RFC2616</a>として公開されています．</p>
-<p>HTTP/2は，まだ<a class="reference external" href="https://tools.ietf.org/html/rfc7540">英語版</a>しかないので少し苦労するかもしれません（<a class="reference external" href="http://www.slideshare.net/search/slideshow?searchfrom=header&amp;q=HTTP%2F2">徐々にslideshare等でも増加</a>）</p>
+<p>HTTP/1.1の場合，<a class="reference external" href="https://tex2e.github.io/rfc-translater/html/rfc2616.html">RFC2616</a>として公開されています．</p>
+<p>また，HTTP/2も，<a class="reference external" href="https://tex2e.github.io/rfc-translater/html/rfc7540.html">RFC7540</a>として公開されています．</p>
 </div>
 <div class="section" id="id4">
 <h2>必要最低限のコードを書いて試してみる<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
@@ -955,9 +965,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="test-php">
 <h3>test.php<a class="headerlink" href="#test-php" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?php
-echo &quot;hello world\n&quot;;
-?&gt;
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">echo</span> <span class="s2">&quot;hello world</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </div>
 <p>標準出力に「hello world」が出力されたと思います．次の課題は，この結果をどのようにネットワーク越しのリモート端末へ返送するかでしょうか．</p>
@@ -979,6 +989,22 @@ echo &quot;hello world\n&quot;;
 <p>printf()の結果が，output.txtへ出力されたはずです．つまり，dup2()によって標準出力をoutput.txtのディスクリプタへ割り当てたことになります．</p>
 <p>ソケットに割り当てられたディスクリプタへ標準出力を割り当てれば実現できると思います（もちろん，一旦ファイルへ出力する方法でも構いません）．</p>
 </div>
+</div>
+<div class="section" id="id5">
+<h2>参考書籍<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>最近の要点をしっかりまとめてある良書と思います</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amazon.co.jp/dp/B00O8GIL62">Linuxネットワークプログラミングバイブル（今は廃版でKindle版しかないようですが）</a></p></li>
+<li><p><a class="reference external" href="https://www.amazon.co.jp/dp/4873116767">ハイパフォーマンス ブラウザネットワーキング ―ネットワークアプリケーションのためのパフォーマンス最適化</a></p></li>
+</ul>
+<p>以下は古くなりましたがご参考まで（当時よく読んでいた良書）</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amazon.co.jp/dp/4274065847">基礎からわかるTCP/IP ネットワーク実験プログラミング―Linux/FreeBSD対応</a></p></li>
+<li><p><a class="reference external" href="http://www.amazon.co.jp/dp/4274065820">基礎からわかるTCP/IP アナライザ作成とパケット解析―Linux/FreeBSD対応</a></p></li>
+<li><p><a class="reference external" href="http://www.amazon.co.jp/dp/4894712059">UNIXネットワークプログラミング〈Vol.1〉ネットワークAPI:ソケットとXTI</a></p></li>
+<li><p><a class="reference external" href="http://www.amazon.co.jp/dp/4894710412">HTTP詳説―作ってわかるHTTPプロトコルのすべて</a></p></li>
+<li><p><a class="reference external" href="http://www.amazon.co.jp/dp/479812625X">HTTPの教科書</a></p></li>
+</ul>
 </div>
 </div>
 
@@ -1011,7 +1037,7 @@ echo &quot;hello world\n&quot;;
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Day8の目的と概要</p>
+            <p class="prev-next-title">Day7の目的と概要</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="referencebook.html" title="next page">

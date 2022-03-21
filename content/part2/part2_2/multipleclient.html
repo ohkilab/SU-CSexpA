@@ -815,44 +815,44 @@ killコマンドを使っても，ゾンビプロセスは親プロセスが終�
 <li><p>スレッド終了: 呼び出した関数が返ることでスレッド終了（pthread_exit()で終了も可能）</p></li>
 <li><p>スレッド合流: pthread_join()でスレッドの終了を待ち，戻り値を得ることも可能</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;exp1.h&quot;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
 
-<span class="n">void</span><span class="o">*</span> <span class="n">exp1_thread</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">param</span><span class="p">){</span>
-  <span class="nb">int</span><span class="o">*</span> <span class="n">psock</span><span class="p">;</span>
-  <span class="nb">int</span> <span class="n">sock</span><span class="p">;</span>
+<span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">exp1_thread</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">param</span><span class="p">){</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">psock</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">pthread_detach</span><span class="p">(</span><span class="n">pthread_self</span><span class="p">());</span>
-  <span class="n">psock</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="o">*</span><span class="p">)</span> <span class="n">param</span><span class="p">;</span>
-  <span class="n">sock</span> <span class="o">=</span> <span class="o">*</span><span class="n">psock</span><span class="p">;</span>
-  <span class="n">free</span><span class="p">(</span><span class="n">psock</span><span class="p">);</span>
-  
-  <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-  
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;thread </span><span class="si">%d</span><span class="s2"> is ending</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sock</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="n">pthread_detach</span><span class="p">(</span><span class="n">pthread_self</span><span class="p">());</span><span class="w"></span>
+<span class="w">  </span><span class="n">psock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">param</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">psock</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">free</span><span class="p">(</span><span class="n">psock</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;thread %d is ending</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="n">void</span> <span class="n">exp1_create_thread</span><span class="p">(</span><span class="nb">int</span> <span class="n">sock</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nb">int</span> <span class="o">*</span><span class="n">psock</span><span class="p">;</span>
-  <span class="n">pthread_t</span> <span class="n">th</span><span class="p">;</span>
-  <span class="n">psock</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">));</span>
-  <span class="o">*</span><span class="n">psock</span> <span class="o">=</span> <span class="n">sock</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">exp1_create_thread</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">psock</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pthread_t</span><span class="w"> </span><span class="n">th</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">psock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="o">*</span><span class="n">psock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sock</span><span class="p">;</span><span class="w"></span>
 
-  <span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">th</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">exp1_thread</span><span class="p">,</span> <span class="n">psock</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;thread </span><span class="si">%d</span><span class="s2"> is created</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sock</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">th</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">exp1_thread</span><span class="p">,</span><span class="w"> </span><span class="n">psock</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;thread %d is created</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sock</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 
-<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-    <span class="n">exp1_create_thread</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">exp1_create_thread</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>ここで注意しなけらばならないのは，スレッドでは1つだけ引数を呼び出す関数へ渡せるのですが，受け渡す変数のメモリ領域を確保しておかなければなりません．<br />
