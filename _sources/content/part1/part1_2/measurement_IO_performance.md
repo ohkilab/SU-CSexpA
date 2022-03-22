@@ -23,31 +23,31 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 そこで，C99仕様にPOSIX標準及びGNU拡張を追加した `-std=gnu99` を利用するようMakefileを修正しておいてください．
 
 ```c
-#include <stdio.h>
-#include <unistd.h>
-#include <time.h>
+ #include <stdio.h>
+ #include <unistd.h>
+ #include <time.h>
 
-double get_current_timecount() {
-  struct timespec ts;
-  clock_gettime(CLOCK_MONOTONIC, &ts);
-  return ts.tv_sec + ts.tv_nsec*1e-9;
-}
+ double get_current_timecount() {
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return ts.tv_sec + ts.tv_nsec*1e-9;
+ }
 
-int main( int argc, char* argv[] ) {
-  double t1 = get_current_timecount();
+ int main( int argc, char* argv[] ) {
+    double t1 = get_current_timecount();
 
-  // do something
-  sleep(3);
+    // do something
+    sleep(3);
 
-  double t2 = get_current_timecount();
-  printf("%lf\n", t2-t1);
-  return 0;
-}
+    double t2 = get_current_timecount();
+    printf("%lf\n", t2-t1);
+    return 0;
+ }
 ```
 
 ### 任意のサイズのファイル作成方法
 
-実験のために任意のサイズのファイルを作成するには，`dd`コマンドを使うと良いでしょう．
+実験のために任意のサイズのファイルを作成するには，ddコマンドを使うと良いでしょう．
 
 -   参考: [容量指定のダミーファイルを作成したい](http://www.itmedia.co.jp/help/tips/linux/l0606.html)
 
@@ -67,7 +67,7 @@ int main( int argc, char* argv[] ) {
 
 ### ヒント1
 
-[ファイル入出力プログラミング](./file_IO_programming.html#id22)の「必須課題6 ファイルのコピー」のソースコードを拡張します．
+[ファイル入出力プログラミング](./file_IO_programming)の「必須課題6 ファイルのコピー」のソースコードを拡張します．
 このプログラムでは char buf\[\] が，アプリケーション層でのバッファになっています．
 
 ### ヒント2（更に先に進む人向け）
@@ -91,12 +91,12 @@ int main( int argc, char* argv[] ) {
 
 他グループの報告のグラフとの比較を容易にするために，今回の性能比較のグラフを作成する場合には，横軸をバッファサイズ，縦軸をファイルの送信あるいは受信に要した時間としてください（その際，実験条件の検討や記載が不十分ですと，公平な実験条件での結果かどうか不明確になりますのでご注意ください）．
 
-```{hint}
-[ネットワーク入出力プログラミング](./network_IO_programming.html#id13)の「必須課題9 ファイル送受信」のソースコードを拡張します． このプログラムでは char buf\[\] がアプリケーション層でのバッファになっています．
-```
+### ヒント1
 
-```{hint}
-**さらに先に進む人向け**
+[ネットワーク入出力プログラミング](./network_IO_programming)の「必須課題9 ファイル送受信」のソースコードを拡張します． このプログラムでは char buf\[\] がアプリケーション層でのバッファになっています．
+
+### ヒント2（更に先に進む人向け）
+
 必須課題1と同様にソケットに関しても，その内部にバッファを持っています．
 その設定値について調査し，どのような条件で観測を行ったのかを明らかにすると良いでしょう．
 また，設定値を変更し，ソケット側のバッファ量による影響について分析してみても良いでしょう．
@@ -105,4 +105,3 @@ int main( int argc, char* argv[] ) {
 変更の結果は，OSの挙動に影響を及ぼします．自分だけではなく，OS自体やサーバ上で動作しているサービス類，同じサーバにログインしている他の人にも影響することになりますので注意してください．
 
 -   参考: [【sysctl】Linux カーネルパラメータのチューニング](https://fisproject.jp/2017/04/tuning-kernel-parameters-for-linux/)
-```

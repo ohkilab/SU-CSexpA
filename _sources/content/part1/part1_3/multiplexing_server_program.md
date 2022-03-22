@@ -1,5 +1,5 @@
 
-# サーバプログラムによる多重化
+# サーバープログラムによる多重化
 
 本項の内容は以下の三つから構成されます。
 
@@ -84,79 +84,78 @@ void acceptLoop(int sock) {
     timeout.tv_usec = 0;
 
     switch (select(width, (fd_set *) &ready, NULL, NULL, &timeout)) {
-      case -1:
-        // エラー処理
-        perror("select");
-        break;
-      case 0:
-        // タイムアウト
-        break;
-      default:
-        // I/Oレディあり
+    case -1:
+      // エラー処理
+      perror("select");
+      break;
+    case 0:
+      // タイムアウト
+      break;
+    default:
+      // I/Oレディあり
 
-        if (FD_ISSET(sock, &ready)) {
-          // サーバソケットレディの場合
-          struct sockaddr_storage from;
-          socklen_t len = sizeof(from);
-          int acc = 0;
-          if ((acc = accept(sock, (struct sockaddr *) &from, &len))
-              == -1) {
-            // エラー処理
-            if (errno != EINTR) {
-              perror("accept");
-            }
-          } else {
-            // クライアントからの接続が行われた場合
-            char hbuf[NI_MAXHOST];
-            char sbuf[NI_MAXSERV];
-            getnameinfo((struct sockaddr *) &from, len, hbuf,
-                sizeof(hbuf), sbuf, sizeof(sbuf),
-                NI_NUMERICHOST | NI_NUMERICSERV);
-            fprintf(stderr, "accept:%s:%s\n", hbuf, sbuf);
+      if (FD_ISSET(sock, &ready)) {
+        // サーバソケットレディの場合
+        struct sockaddr_storage from;
+        socklen_t len = sizeof(from);
+        int acc = 0;
+        if ((acc = accept(sock, (struct sockaddr *) &from, &len))
+            == -1) {
+          // エラー処理
+          if (errno != EINTR) {
+            perror("accept");
+          }
+        } else {
+          // クライアントからの接続が行われた場合
+          char hbuf[NI_MAXHOST];
+          char sbuf[NI_MAXSERV];
+          getnameinfo((struct sockaddr *) &from, len, hbuf,
+              sizeof(hbuf), sbuf, sizeof(sbuf),
+              NI_NUMERICHOST | NI_NUMERICSERV);
+          fprintf(stderr, "accept:%s:%s\n", hbuf, sbuf);
 
-            // クライアント管理配列に登録
-            int pos = -1;
-            int i = 0;
-            for (i = 0; i < childNum; i++) {
-              if (child[i] == -1) {
-                pos = i;
-                break;
-              }
-            }
-
-            if (pos == -1) {
-              if (childNum >= MAXCHILD) {
-                // 並列数が上限に達している場合は切断する
-                fprintf(stderr, "child is full.\n");
-                close(acc);
-              } else {
-                pos = childNum;
-                childNum = childNum + 1;
-              }
-            }
-
-            if (pos != -1) {
-              child[pos] = acc;
+          // クライアント管理配列に登録
+          int pos = -1;
+          int i = 0;
+          for (i = 0; i < childNum; i++) {
+            if (child[i] == -1) {
+              pos = i;
+              break;
             }
           }
-        }
 
-        // アクセプトしたソケットがレディの場合を確認する
-        int i = 0;
-        for (i = 0; i < childNum; i++) {
-          if (child[i] != -1 && FD_ISSET(child[i], &ready)) {
-            // クライアントとの通信処理
-            // エコーバックを行う（echoBack関数は自分で作成すること）
-            if ( echoBack(child[i]) == false ) {
-              close(child[i]);
-              child[i] = -1;
+          if (pos == -1) {
+            if (childNum >= MAXCHILD) {
+              // 並列数が上限に達している場合は切断する
+              fprintf(stderr, "child is full.\n");
+              close(acc);
+            } else {
+              pos = childNum;
+              childNum = childNum + 1;
             }
           }
+
+          if (pos != -1) {
+            child[pos] = acc;
+          }
         }
+      }
+
+      // アクセプトしたソケットがレディの場合を確認する
+      int i = 0;
+      for (i = 0; i < childNum; i++) {
+        if (child[i] != -1 && FD_ISSET(child[i], &ready)) {
+          // クライアントとの通信処理
+          // エコーバックを行う（echoBack関数は自分で作成すること）
+          if ( echoBack(child[i]) == false ) {
+            close(child[i]);
+            child[i] = -1;
+          }
+        }
+      }
     }
   }
 }
-
 ```
 
 ## 参考
@@ -173,7 +172,7 @@ void acceptLoop(int sock) {
 以下にEchoBackのプログラムを題材として，サーバ側プログラムのアクセプト周辺のサンプルコードを示します（サンプルコード内で呼び出しているechoBackLoop関数（前回までのEchoBack通信部分のコードと大差ないので内容は未掲載）が実際に通信を行う部分になりますので，その関数に適切なスレッドを割り当て，適切なソケットと共に実行することが各サンプルコードの主眼になります）．
 
 サーバ側プログラム全体は示しませんので、前回のサンプルコードを改良して複数クライアントに対応するサーバプログラムを完成させてください．
-以下のサンプルコードは pthread ライブラリを利用していますので，ビルド時に`-lpthread`オプションを指定する必要があります．
+以下のサンプルコードは pthread ライブラリを利用していますので，ビルド時に -lpthread オプションを指定する必要があります．
 
 ## サンプルコード
 
@@ -187,17 +186,17 @@ void acceptLoop(int sock) {
 // thread function
 void* thread_func(void *arg) {
 
-  int* accP = (int*)arg;
-  int acc = *accP;
-  free(accP);
+ int* accP = (int*)arg;
+ int acc = *accP;
+ free(accP);
 
-  pthread_detach(pthread_self());
+ pthread_detach(pthread_self());
 
-  // echoBackLoop関数は自分で作成すること
-  echoBackLoop(acc);
-  close(acc);
+ // echoBackLoop関数は自分で作成すること
+ echoBackLoop(acc);
+ close(acc);
 
-  pthread_exit(NULL);
+ pthread_exit(NULL);
 }
 ```
 
@@ -205,34 +204,34 @@ void* thread_func(void *arg) {
 
 ```c
 void acceptLoop(int sock) {
-  while (true) {
-    struct sockaddr_storage from;
-    socklen_t len = sizeof(from);
-    int acc = 0;
-    if ((acc = accept(sock, (struct sockaddr *) &from, &len)) == -1) {
-      // エラー処理
-      if (errno != EINTR) {
-        perror("accept");
-      }
-    } else {
-      // クライアントからの接続が行われた場合
-      char hbuf[NI_MAXHOST];
-      char sbuf[NI_MAXSERV];
-      getnameinfo((struct sockaddr *) &from, len, hbuf,
-          sizeof(hbuf), sbuf, sizeof(sbuf),
-          NI_NUMERICHOST | NI_NUMERICSERV);
-      fprintf(stderr, "accept:%s:%s\n", hbuf, sbuf);
+ while (true) {
+  struct sockaddr_storage from;
+  socklen_t len = sizeof(from);
+  int acc = 0;
+  if ((acc = accept(sock, (struct sockaddr *) &from, &len)) == -1) {
+   // エラー処理
+   if (errno != EINTR) {
+    perror("accept");
+   }
+  } else {
+   // クライアントからの接続が行われた場合
+   char hbuf[NI_MAXHOST];
+   char sbuf[NI_MAXSERV];
+   getnameinfo((struct sockaddr *) &from, len, hbuf,
+     sizeof(hbuf), sbuf, sizeof(sbuf),
+     NI_NUMERICHOST | NI_NUMERICSERV);
+   fprintf(stderr, "accept:%s:%s\n", hbuf, sbuf);
 
-      // スレッド生成
-      int* param = (int*)malloc(sizeof(int));
-      *param = acc;
-      pthread_t th;
-      if ( pthread_create(&th, NULL, thread_func, param) != 0 ) {
-        perror("pthread_create");
-        close(acc); // 切断
-      }
-    }
+   // スレッド生成
+   int* param = (int*)malloc(sizeof(int));
+   *param = acc;
+   pthread_t th;
+   if ( pthread_create(&th, NULL, thread_func, param) != 0 ) {
+    perror("pthread_create");
+    close(acc); // 切断
+   }
   }
+ }
 }
 ```
 
