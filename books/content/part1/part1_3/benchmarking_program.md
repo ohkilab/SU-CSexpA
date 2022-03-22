@@ -20,7 +20,7 @@
 
 基本的な使い方は以下の通りですが，それぞれでソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やせる拡張を行ってもよいでしょう）．
 
-実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は sudo ./hogehoge の様に**管理者権限で実行**をしてみて下さい．(20210428 柴田追記)
+実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は`sudo ./hogehoge`の様に**管理者権限で実行**をしてみて下さい．
 
 ```shell
  $ tcpbenchmark 192.168.0.100 1000 1 30 100
@@ -70,17 +70,17 @@ POSIX標準ではナノ秒単位で時間を扱うことができるライブラ
 
 ```c
  for (int i = 0; i < tplistNum; i++) {
- THREADPARAM* tp = (THREADPARAM*) malloc(sizeof(THREADPARAM));
- strcpy(tp->serverInfo.hostName, hostName);
- strcpy(tp->serverInfo.portNum, portNum);
- tp->result = false;
- tplist[i] = tp;
+  THREADPARAM* tp = (THREADPARAM*) malloc(sizeof(THREADPARAM));
+  strcpy(tp->serverInfo.hostName, hostName);
+  strcpy(tp->serverInfo.portNum, portNum);
+  tp->result = false;
+  tplist[i] = tp;
 
- if (pthread_create(&threadId[i], &attr, thread_func, tp)) {
- perror("pthread_create");
- return false;
- }
- fprintf(stderr, "thread %d created.\n", i);
+  if (pthread_create(&threadId[i], &attr, thread_func, tp)) {
+  perror("pthread_create");
+  return false;
+  }
+  fprintf(stderr, "thread %d created.\n", i);
  }
 
  // スレッドの準備終了
