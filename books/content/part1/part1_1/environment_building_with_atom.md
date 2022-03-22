@@ -187,7 +187,7 @@ Atom のメニューバーより
 このように, 「remote」要素の設定では, 接続時の接続先ディレクトリを指定することができます.
 しかし, pi ディレクトリより上の階層は行けなくなってしまいますので必要に応じて適宜変更してください.
 
-```
+```{hint}
 参考となるサイト
 https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html
 https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d
@@ -270,7 +270,7 @@ pi@raspberrypi:~ $
   - 初期設定ではエディタ部とターミナル部の背景が同じで分かりづらいので変更します. proでは背景が黒, 文字色が白となります.
 ```
 
-```
+```{hint}
 導入で参考となるサイト
 https://blanche-toile.com/web/atom-platformio-ide-terminal
 ```
@@ -299,7 +299,7 @@ Windows の「設定」 ＞ アプリ ＞ アプリと機能 ＞ オプション
 インストールが完了したらもう一度コマンドを入力してみてください.
 先程のエラー表示がなくなり, コマンドの利用方法が表示されればインストール完了です.
 
-```
+```{hint}
 参考となるサイト
 https://mimimopu.com/powershell-ssh-client/
 ```
