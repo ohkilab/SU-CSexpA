@@ -53,7 +53,7 @@ parts:
   # 第二部
   - caption: 第二部 Webサーバの実装
     chapters:
-      - file: content/part2/part2_1/day6objective
+      - file: content/part2/part2_1/overview
         title: '[Day5] Simple HTTPサーバの構築'
         sections:
         - file: content/part2/part2_1/raspberrypi_setup
@@ -63,7 +63,7 @@ parts:
         - file: content/part2/part2_1/httpbenchmark
           title: HTTPベンチマークプログラムの実装（必須）
 
-      - file: content/part2/part2_2/day7objective
+      - file: content/part2/part2_2/overview
         title: '[Day6] HTTPサーバの高機能化(1)'
         sections:
         - file: content/part2/part2_2/standardforachievement
@@ -75,15 +75,13 @@ parts:
         - file: content/part2/part2_2/httpserver_expansion
           title: HTTPサーバ機能拡張（選択）
 
-      - file: content/part2/part2_3/day8objective
+      - file: content/part2/part2_3/overview
         title: '[Day7] HTTPサーバの高機能化(2)'
         sections:
         - file: content/part2/part2_3/introuble
           title: 第二部の実装で詰まった時の対処法
-        - file: content/part2/part2_3/referencebook
-          title: 第二部参考書籍
 
-      - file: content/part2/part2_4/day9objective
+      - file: content/part2/part2_4/overview
         title: '[Day8] 第二部グループ発表会'
         sections:
         - file: content/part2/part2_4/groupreview
@@ -91,7 +89,7 @@ parts:
         - file: content/part2/part2_4/grouppresentation
           title: 第二部グループ発表会
 
-      - file: content/part2/part2_5/day10objective
+      - file: content/part2/part2_5/overview
         title: '[Day9] 第二部レポートピアレビュー'
 
   # 第三部
