@@ -7,7 +7,19 @@
 この環境構築において, ノート PC の OS は Windows10 としています. Mac 版や Linux 版の Atom でも行えますが, 多少異なる点があると思います.
 以下がページ作成時の環境です.
 
-<table><caption>ページ作成時の環境</caption><tbody><tr><td>作成日時</td><td>2020/09/01</td></tr><tr><td>ノートPC</td><td>Dynabook U63(2018年度 生協PC)</td></tr><tr><td>OS</td><td>Windows10 Pro 1909</td></tr><tr><td>Atom</td><td>1.49.0</td></tr></tbody></table>
+```{list-table}ページ作成時の環境
+:header-rows: 1
+:class: full-width table
+:name: environment
+* - 作製日時
+  - 2020/09/01
+* - ノートPC
+  - Dynabook U63(2018年度 生協PC)
+* - OS
+  - Windows 10 Pro 1909
+* - Atom
+  - 1.49.0
+```
 
 今回導入する remote-ftp によりファイルの操作を, platformio-ide-terminal により SSH 接続を行います.
 
@@ -49,7 +61,32 @@ japanese-menu(インストール済みの状態)
 他にも便利なパッケージはいくつもあるので, 好みのパッケージをインストールしてみて下さい.
 以下の表は便利なパッケージの一部です.
 
-<table><caption>便利なパッケージ</caption><tbody><tr><th>パッケージ名</th><th>用途</th><th>リンク</th></tr><tr><td>japanese-menu</td><td>Atomが日本語化されます</td><td><a rel="nofollow" href="https://atom.io/packages/japanese-menu">https://atom.io/packages/japanese-menu</a></td></tr><tr><td><span color="#ff0000">remote-ftp</span></td><td>AtomからFTP・SFTP接続が行えます</td><td><a rel="nofollow" href="https://atom.io/packages/remote-ftp">https://atom.io/packages/remote-ftp</a></td></tr><tr><td><span color="#ff0000">platformio-ide-terminal</span></td><td>AtomからWindowsの「コマンドプロンプト」や「PowerShell」が直接利用できます</td><td><a rel="nofollow" href="https://atom.io/packages/platformio-ide-terminal">https://atom.io/packages/platformio-ide-terminal</a></td></tr><tr><td>highlight-selected</td><td>ダブルクリックした単語全部にハイライトが付きます</td><td><a rel="nofollow" href="https://atom.io/packages/highlight-selected">https://atom.io/packages/highlight-selected</a></td></tr><tr><td>minimap</td><td>ミニマップを表示させることができます.<br>上記のhighlight-selectedでハイライトされたものも反映されます.</td><td><a rel="nofollow" href="https://atom.io/packages/minimap">https://atom.io/packages/minimap</a></td></tr><tr><td>file-type-icons</td><td>tree-viewに表示されるファイルのアイコンが分かりやすくなります.</td><td><a rel="nofollow" href="https://atom.io/packages/file-type-icons">https://atom.io/packages/file-type-icons</a></td></tr></tbody></table>
+```{list-table} atom 便利なパッケージ
+:header-rows: 1
+:class: full-width table
+:name: convenient package
+* - パッケージ名
+  - 用途
+  - リンク
+* - japanese-menu
+  - Atomが日本語化されます
+  - https://atom.io/packages/japanese-menu
+* - remote-ftp
+  - AtomからFTP・SFTP接続が行えます
+  - https://atom.io/packages/remote-ftp
+* - platformio-ide-terminal
+  - AtomからWindowsの「コマンドプロンプト」や「PowerShell」が直接利用できます
+  - https://atom.io/packages/platformio-ide-terminal
+* - highlight-selected
+  - ダブルクリックした単語全部にハイライトが付きます
+  - https://atom.io/packages/highlight-selected
+* - minimap
+  - ミニマップを表示させることができます.上記のhighlight-selectedでハイライトされたものも反映されます.
+  - https://atom.io/packages/minimap
+* - file-type-icons
+  - tree-viewに表示されるファイルのアイコンが分かりやすくなります.
+  - https://atom.io/packages/file-type-iconsク
+```
 
 **パッケージ名が 赤色 のものは今回の環境構築に置いて必須なパッケージです. インストールしておいてください.**
 
@@ -150,7 +187,7 @@ Atom のメニューバーより
 このように, 「remote」要素の設定では, 接続時の接続先ディレクトリを指定することができます.
 しかし, pi ディレクトリより上の階層は行けなくなってしまいますので必要に応じて適宜変更してください.
 
-```
+```{hint}
 参考となるサイト
 https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html
 https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d
@@ -210,9 +247,30 @@ pi@raspberrypi:~ $
 
 から, platformio-ide-terminal の設定を行うことができます.
 
-<table><caption>各種設定</caption><tbody><tr><th>設定項目</th><th>おすすめ設定</th><th>説明</th></tr><tr><td>Core &gt; Auto Run Command</td><td>ssh pi@192.168.1.101</td><td>ターミナルを起動する度に同じSSHコマンドを実行するのは面倒ですよね？<br>ここの設定項目では起動直後に自動的にコマンドを実行させることができますので, SSH接続時のコマンドを入れておきます.</td></tr><tr><td>Style &gt; Animation Speed</td><td>2</td><td>ターミナルを表示・収納のスピードを少し速くしておきます.</td></tr><tr><td>Style &gt; Default Panel Height</td><td>250px</td><td>ここでは表示されるターミナルの高さを指定します.<br>個人によって好みの高さがあると思いますので調節してみてください.</td></tr><tr><td>Style &gt; Font Size</td><td>9</td><td>文字の大きさを設定します.<br>こちらも好みの大きさに調節してみてください.</td></tr><tr><td>Style &gt; Theme</td><td>pro</td><td>初期設定ではエディタ部とターミナル部の背景が同じで分かりづらいので変更します. proでは背景が黒, 文字色が白となります.</td></tr></tbody></table>
 
+```{list-table} platformio-ide-terminalの各種設定
+:header-rows: 1
+:class: full-width table
+:name: platformio-ide-terminal setting
+
+* - 設定項目
+  - おすすめ設定
+  - 説明
+* - Core > Auto Run Command
+  - ssh pi@192.168.1.101
+  - ターミナルを起動する度に同じSSHコマンドを実行するのは面倒ですよね？ここの設定項目では起動直後に自動的にコマンドを実行させることができますので, SSH接続時のコマンドを入れておきます.Style > Animation Speed	2	ターミナルを表示・収納のスピードを少し速くしておきます.
+* - Style > Default Panel Height
+  - 250px
+  - ここでは表示されるターミナルの高さを指定します.個人によって好みの高さがあると思いますので調節してみてください.
+* - Style > Font Size
+  - 9
+  - 文字の大きさを設定します.こちらも好みの大きさに調節してみてください.
+* - Style > Theme
+  - pro
+  - 初期設定ではエディタ部とターミナル部の背景が同じで分かりづらいので変更します. proでは背景が黒, 文字色が白となります.
 ```
+
+```{hint}
 導入で参考となるサイト
 https://blanche-toile.com/web/atom-platformio-ide-terminal
 ```
@@ -241,7 +299,7 @@ Windows の「設定」 ＞ アプリ ＞ アプリと機能 ＞ オプション
 インストールが完了したらもう一度コマンドを入力してみてください.
 先程のエラー表示がなくなり, コマンドの利用方法が表示されればインストール完了です.
 
-```
+```{hint}
 参考となるサイト
 https://mimimopu.com/powershell-ssh-client/
 ```
