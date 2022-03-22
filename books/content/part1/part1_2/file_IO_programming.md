@@ -76,7 +76,7 @@
 
 Makefileの内容はサンプルコードによって異なりますが，典型的には以下のような記述になっています．
 
-```shell
+```makefile
  CC=gcc
  C++=g++
  LD=g++
@@ -138,15 +138,16 @@ Makefileの内容はサンプルコードによって異なりますが，典型
 ### ソースコード: 001.c
 
 ```c
- #include "exp1.h"
+#include "exp1.h"
 
- int main(int argc, char** argv) {
-       printf("The number of arguments is %d\n", argc);
-       for(int i=0; i<argc; i++) {
-               printf("argument %d is %s\n", i, argv[i]);
-       }
-       return 0;
- }
+int main(int argc, char** argv) {
+  printf("The number of arguments is %d\n", argc);
+  for(int i=0 ; i<argc ; i++) {
+    printf("argument %d is %s\n", i, argv[i]);
+  }
+  return 0;
+}
+
 ```
 
 -   参考: [Man page of printf](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/printf.3.html)
@@ -169,20 +170,20 @@ argument 2 is world
 ### ソースコード: 002.c
 
 ```c
- #include "exp1.h"
+#include "exp1.h"
 
- int main(int argc, char** argv) {
-       char buf[4];
-       int ret;
+int main(int argc, char** argv) {
+  char buf[4];
+  int ret;
 
-       ret = read(0, buf, 4);
-       printf("read %d bytes\n", ret);
+  ret = read(0, buf, 4);
+  printf("read %d bytes\n", ret);
 
-       ret = write(1, buf, ret);
-       printf("write %d bytes\n", ret);
+  ret = write(1, buf, ret);
+  printf("write %d bytes\n", ret);
 
-       return 0;
- }
+  return 0;
+}
 ```
 
 readとwriteは，入出力を行うシステムコールです．
@@ -217,27 +218,27 @@ write 3 bytes
 ### ソースコード: 003.c
 
 ```c
- #include "exp1.h"
+#include "exp1.h"
 
- int main(int argc, char** argv) {
-         int fd;
-         int ret;
-         char buf[4];
+int main(int argc, char** argv) {
+  int fd;
+  int ret;
+  char buf[4];
 
-         if (argc != 2) {
-                 printf("usage: %s [filename]\n", argv[0]);
-                 exit(-1);
-         }
+  if (argc != 2) {
+    printf("usage: %s [filename]\n", argv[0]);
+    exit(-1);
+  }
 
-         fd = open(argv[1], O_RDONLY);
-         printf("file descriptor = %d\n", fd);
-         ret = read(fd, buf, 4);
-         printf("read %d bytes\n", ret);
-         write(1, buf, ret);
-         close(fd);
+  fd = open(argv[1], O_RDONLY);
+  printf("file descriptor = %d\n", fd);
+  ret = read(fd, buf, 4);
+  printf("read %d bytes\n", ret);
+  write(1, buf, ret);
+  close(fd);
 
-         return 0;
- }
+  return 0;
+}
 ```
 
 
@@ -265,25 +266,25 @@ read 4 bytes
 ### ソースコード: 004.c
 
 ```c
- #include "exp1.h"
+#include "exp1.h"
 
- int main(int argc, char** argv) {
-         FILE* fp;
-         int ret;
-         char buf[1024];
+int main(int argc, char** argv) {
+  FILE* fp;
+  int ret;
+  char buf[1024];
 
-         if(argc != 2) {
-                 printf("usage: %s [filename]\n", argv[0]);
-                 exit(-1);
-         }
+  if(argc != 2) {
+    printf("usage: %s [filename]\n", argv[0]);
+    exit(-1);
+  }
 
-         fp = fopen(argv[1], "r");
-         ret = fread(buf, sizeof(char), 1024, fp);
-         fwrite(buf, sizeof(char), ret, stdout);
-         fclose(fp);
+  fp = fopen(argv[1], "r");
+  ret = fread(buf, sizeof(char), 1024, fp);
+  fwrite(buf, sizeof(char), ret, stdout);
+  fclose(fp);
 
-         return 0;
- }
+  return 0;
+}
 ```
 
 fopen，fread，fwrite，fcloseは，ファイルの入出力を行うopen，read，write，closeのラッパーです．
@@ -323,25 +324,25 @@ int main(int argc, char** argv)
 ### ソースコード: 005.c
 
 ```c
- #include "exp1.h"
+#include "exp1.h"
 
- int main(int argc, char** argv) {
-         FILE* fp;
-         char* p;
-         char buf[1024];
+int main(int argc, char** argv) {
+  FILE* fp;
+  char* p;
+  char buf[1024];
 
-         if(argc != 2) {
-                 printf("usage: %s [filename]\n", argv[0]);
-                 exit(-1);
-         }
+  if(argc != 2) {
+    printf("usage: %s [filename]\n", argv[0]);
+    exit(-1);
+  }
 
-         fp = fopen(argv[1], "r");
-         p = fgets(buf, 1024, fp);
-         fputs(p, stdout);
-         fclose(fp);
+  fp = fopen(argv[1], "r");
+  p = fgets(buf, 1024, fp);
+  fputs(p, stdout);
+  fclose(fp);
 
-         return 0;
- }
+  return 0;
+}
 ```
 
 fgets，fputsは，文字列の入出力を行うread，writeのラッパーです．
@@ -365,32 +366,33 @@ $ ./005 ../001/001.c
 ### ソースコード: 006.c
 
 ```c
- #include "exp1.h"
+#include "exp1.h"
 
- int main(int argc, char** argv) {
-         FILE* fpr;
-         FILE* fpw;
-         int ret;
-         char buf[4];
+int main(int argc, char** argv) {
+  FILE* fpr;
+  FILE* fpw;
+  int ret;
+  char buf[4];
 
-         if(argc != 2) {
-                 printf("usage: %s [filename]\n", argv[0]);
-                 exit(-1);
-         }
+  if(argc != 2) {
+    printf("usage: %s [filename]\n", argv[0]);
+    exit(-1);
+  }
 
-         fpr = fopen(argv[1], "r");
-         fpw = fopen("tmp.txt", "w");
+  fpr = fopen(argv[1], "r");
+  fpw = fopen("tmp.txt", "w");
 
-         ret = fread(buf, sizeof(char), 4, fpr);
-         while (ret > 0) {
-                 fwrite(buf, sizeof(char), ret, fpw);
-                 ret = fread(buf, sizeof(char), 4, fpr);
-         }
-         fclose(fpr);
-         fclose(fpw);
+  ret = fread(buf, sizeof(char), 4, fpr);
+  while (ret > 0) {
+    fwrite(buf, sizeof(char), ret, fpw);
+    ret = fread(buf, sizeof(char), 4, fpr);
+  }
+  fclose(fpr);
+  fclose(fpw);
 
-         return 0;
- }
+  return 0;
+}
+
 ```
 
 whileで繰り返し処理することでバッファサイズよりも大きなデータを扱うことができます．

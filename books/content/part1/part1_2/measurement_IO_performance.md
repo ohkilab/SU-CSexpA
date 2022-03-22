@@ -23,31 +23,31 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 そこで，C99仕様にPOSIX標準及びGNU拡張を追加した `-std=gnu99` を利用するようMakefileを修正しておいてください．
 
 ```c
- #include <stdio.h>
- #include <unistd.h>
- #include <time.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <time.h>
 
- double get_current_timecount() {
-    struct timespec ts;
-    clock_gettime(CLOCK_MONOTONIC, &ts);
-    return ts.tv_sec + ts.tv_nsec*1e-9;
- }
+double get_current_timecount() {
+  struct timespec ts;
+  clock_gettime(CLOCK_MONOTONIC, &ts);
+  return ts.tv_sec + ts.tv_nsec*1e-9;
+}
 
- int main( int argc, char* argv[] ) {
-    double t1 = get_current_timecount();
+int main( int argc, char* argv[] ) {
+  double t1 = get_current_timecount();
 
-    // do something
-    sleep(3);
+  // do something
+  sleep(3);
 
-    double t2 = get_current_timecount();
-    printf("%lf\n", t2-t1);
-    return 0;
- }
+  double t2 = get_current_timecount();
+  printf("%lf\n", t2-t1);
+  return 0;
+}
 ```
 
 ### 任意のサイズのファイル作成方法
 
-実験のために任意のサイズのファイルを作成するには，ddコマンドを使うと良いでしょう．
+実験のために任意のサイズのファイルを作成するには，`dd`コマンドを使うと良いでしょう．
 
 -   参考: [容量指定のダミーファイルを作成したい](http://www.itmedia.co.jp/help/tips/linux/l0606.html)
 
