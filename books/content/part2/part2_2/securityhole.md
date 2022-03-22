@@ -23,8 +23,8 @@
 
 ここで，昨今のOSはデフォルトでは以下の対策が施されていますので，今回は**敢えて体験できるよう以下の設定を解除**してから実施してください．その他にも最新のセキュリティ対策が施されている場合がありますので，状況に応じて解除して実施してください．ただし，レポートにはその旨をしっかり記述し，読み手が同様の実験結果を再現するのに必要な情報をしっかり記述してください（レポート内容が正しいか（コピペや虚偽でないか），こちらでも試して確認する場合がありますので）．
 
--   [アドレス空間レイアウトのランダマイズ化](http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E7%A9%BA%E9%96%93%E9%85%8D%E7%BD%AE%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%8C%96)（ASLR: Address Space Layout Randomization）を実験のために無効化：`% sudo sysctl -w kernel.randomize\_va\_space=0`
--   [データ実行防止](http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2) （DEP: Data Execution Prevention）と[スタック保護](http://saitoh.hatenablog.jp/entry/2014/08/24/223531)（SSP: stack-smashing protection）を実験のために無効化：　`% gcc -z execstack -fno-stack-protector xxxx.c`
+-   [アドレス空間レイアウトのランダマイズ化](http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E7%A9%BA%E9%96%93%E9%85%8D%E7%BD%AE%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%8C%96)（ASLR: Address Space Layout Randomization）を実験のために無効化：`$ sudo sysctl -w kernel.randomize\_va\_space=0`
+-   [データ実行防止](http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2) （DEP: Data Execution Prevention）と[スタック保護](http://saitoh.hatenablog.jp/entry/2014/08/24/223531)（SSP: stack-smashing protection）を実験のために無効化：　`$ gcc -z execstack -fno-stack-protector xxxx.c`
 
 ## \[必須課題\] セグメンテーションフォルト
 
@@ -120,7 +120,7 @@ Segmentation fault (core dumped)
  $ sudo sysctl -w kernel.randomize_va_space=0 
 ```
 ```{hint}
--   \[[バッファオーバーラン ～その１・こうして起こる～](http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html)\]
+-   [バッファオーバーラン ～その１・こうして起こる～](http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html)
 ```
 
 

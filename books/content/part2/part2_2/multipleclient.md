@@ -110,7 +110,7 @@ pthread実装の基本的な流れ
 -   スレッド終了: 呼び出した関数が返ることでスレッド終了（pthread\_exit()で終了も可能）
 -   スレッド合流: pthread\_join()でスレッドの終了を待ち，戻り値を得ることも可能
 
-```
+```c
 #include "exp1.h"
 
 void* exp1_thread(void *param){
