@@ -7,8 +7,6 @@
 この環境構築において, ノート PC の OS は Windows10 としています. Mac 版や Linux 版の Atom でも行えますが, 多少異なる点があると思います.
 以下がページ作成時の環境です.
 
-<table><caption>ページ作成時の環境</caption><tbody><tr><td>作成日時</td><td>2020/09/01</td></tr><tr><td>ノートPC</td><td>Dynabook U63(2018年度 生協PC)</td></tr><tr><td>OS</td><td>Windows10 Pro 1909</td></tr><tr><td>Atom</td><td>1.49.0</td></tr></tbody></table>
-
 ```{list-table}ページ作成時の環境
 :header-rows: 1
 :class: full-width table

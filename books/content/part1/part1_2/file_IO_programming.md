@@ -61,7 +61,7 @@
 
 ## ビルド方法
 
-各サンプルコードディレクトリ（e.g. 001/）以下にはビルドのためのMakefileを作成してあります．
+各サンプルコードディレクトリ（e.g. `001/`）以下にはビルドのためのMakefileを作成してあります．
 
 ```shell
  $ ls
@@ -100,14 +100,14 @@ Makefileの内容はサンプルコードによって異なりますが，典型
          -rm -f ${EXECUTABLE} ${EXECUTABLE}.exe ${OBJECTS} core
 ```
 
-\-pedantic-errorsは，厳密な文法チェックを行うためのオプションです．
+`-pedantic-errors`は，厳密な文法チェックを行うためのオプションです．
 警告が残っていてもコンパイルが完了する場合がありますがバグの原因になりますので，必ず警告も全て出ないように解決させておいてください．
 警告が残っているプログラムはチェック対象としませんのでご注意ください．
 
-\-O3は，最適化オプションです．
+`-O3`は，最適化オプションです．
 
-\-I../ は，include ファイルの探索パスに1つ上のディレクトリを追加する指定です．
-この指定によって，ソースコード中では #include "exp1.h" と記述した場合に ../exp1.h を読み込むことができるようになります．
+`-I../` は，include ファイルの探索パスに1つ上のディレクトリを追加する指定です．
+この指定によって，ソースコード中では `#include "exp1.h"` と記述した場合に `../exp1.h` を読み込むことができるようになります．
 
 ```shell
  CFLAGS=-c -Wall -pedantic-errors -O3 -std=c11 -I../
@@ -188,7 +188,7 @@ argument 2 is world
 readとwriteは，入出力を行うシステムコールです．
 
 -   [Man page of read](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man2/read.2.html)
--   [Man pge of write](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man2/write.2.html)
+-   [Man page of write](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man2/write.2.html)
 
 readとwriteで与えられている引数のファイル記述子(fd: file descriptor)は，0が標準入力，1が標準出力を意味しています．
 
@@ -290,8 +290,8 @@ fopen，fread，fwrite，fcloseは，ファイルの入出力を行うopen，rea
 
 -   [Man page of fopen](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fopen.3.html)
 -   [Man page of fread](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fread.3.html)
--   [Man pge of fwrite](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fwrite.3.html)
--   [Man pge of fclose](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fclose.3.html)
+-   [Man page of fwrite](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fwrite.3.html)
+-   [Man page of fclose](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fclose.3.html)
 
 ### 実行方法
 
