@@ -172,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../part1_3/multiplexing_server_program.html">
-     サーバープログラムによる多重化
+     サーバプログラムによる多重化
     </a>
    </li>
    <li class="toctree-l2">
@@ -674,7 +674,19 @@ const thebe_selector_output = ".output, .cell_output"
 なお, Atom だけでなく VScode にも同じような機能が存在するようですが, 今回は Atom に絞って環境構築を行います.(VScode で環境を整えたい方は各自調べてください)
 この環境構築において, ノート PC の OS は Windows10 としています. Mac 版や Linux 版の Atom でも行えますが, 多少異なる点があると思います.
 以下がページ作成時の環境です.</p>
-<table><caption>ページ作成時の環境</caption><tbody><tr><td>作成日時</td><td>2020/09/01</td></tr><tr><td>ノートPC</td><td>Dynabook U63(2018年度 生協PC)</td></tr><tr><td>OS</td><td>Windows10 Pro 1909</td></tr><tr><td>Atom</td><td>1.49.0</td></tr></tbody></table>
+<div class="highlight-{list-table}ページ作成時の環境 notranslate"><div class="highlight"><pre><span></span>:header-rows: 1
+:class: full-width table
+:name: environment
+* - 作製日時
+  - 2020/09/01
+* - ノートPC
+  - Dynabook U63(2018年度 生協PC)
+* - OS
+  - Windows 10 Pro 1909
+* - Atom
+  - 1.49.0
+</pre></div>
+</div>
 <p>今回導入する remote-ftp によりファイルの操作を, platformio-ide-terminal により SSH 接続を行います.</p>
 <p>Windows10 バージョン 1803 から, SSH クライアントが組み込まれたため TeraTerm を利用しなくても SSH 接続が可能となりました。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">参考となるサイト</span>
@@ -702,7 +714,46 @@ const thebe_selector_output = ".output, .cell_output"
 これより先の説明では日本語化された Atom で説明を行っていきます. (上記の「File」なら「ファイル」)</p>
 <p>他にも便利なパッケージはいくつもあるので, 好みのパッケージをインストールしてみて下さい.
 以下の表は便利なパッケージの一部です.</p>
-<table><caption>便利なパッケージ</caption><tbody><tr><th>パッケージ名</th><th>用途</th><th>リンク</th></tr><tr><td>japanese-menu</td><td>Atomが日本語化されます</td><td><a rel="nofollow" href="https://atom.io/packages/japanese-menu">https://atom.io/packages/japanese-menu</a></td></tr><tr><td><span color="#ff0000">remote-ftp</span></td><td>AtomからFTP・SFTP接続が行えます</td><td><a rel="nofollow" href="https://atom.io/packages/remote-ftp">https://atom.io/packages/remote-ftp</a></td></tr><tr><td><span color="#ff0000">platformio-ide-terminal</span></td><td>AtomからWindowsの「コマンドプロンプト」や「PowerShell」が直接利用できます</td><td><a rel="nofollow" href="https://atom.io/packages/platformio-ide-terminal">https://atom.io/packages/platformio-ide-terminal</a></td></tr><tr><td>highlight-selected</td><td>ダブルクリックした単語全部にハイライトが付きます</td><td><a rel="nofollow" href="https://atom.io/packages/highlight-selected">https://atom.io/packages/highlight-selected</a></td></tr><tr><td>minimap</td><td>ミニマップを表示させることができます.<br>上記のhighlight-selectedでハイライトされたものも反映されます.</td><td><a rel="nofollow" href="https://atom.io/packages/minimap">https://atom.io/packages/minimap</a></td></tr><tr><td>file-type-icons</td><td>tree-viewに表示されるファイルのアイコンが分かりやすくなります.</td><td><a rel="nofollow" href="https://atom.io/packages/file-type-icons">https://atom.io/packages/file-type-icons</a></td></tr></tbody></table>
+<table class="full-width table" id="convenient-package">
+<caption><span class="caption-text">atom 便利なパッケージ</span><a class="headerlink" href="#convenient-package" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>パッケージ名</p></th>
+<th class="head"><p>用途</p></th>
+<th class="head"><p>リンク</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>japanese-menu</p></td>
+<td><p>Atomが日本語化されます</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/japanese-menu">https://atom.io/packages/japanese-menu</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>remote-ftp</p></td>
+<td><p>AtomからFTP・SFTP接続が行えます</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/remote-ftp">https://atom.io/packages/remote-ftp</a></p></td>
+</tr>
+<tr class="row-even"><td><p>platformio-ide-terminal</p></td>
+<td><p>AtomからWindowsの「コマンドプロンプト」や「PowerShell」が直接利用できます</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/platformio-ide-terminal">https://atom.io/packages/platformio-ide-terminal</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>highlight-selected</p></td>
+<td><p>ダブルクリックした単語全部にハイライトが付きます</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/highlight-selected">https://atom.io/packages/highlight-selected</a></p></td>
+</tr>
+<tr class="row-even"><td><p>minimap</p></td>
+<td><p>ミニマップを表示させることができます.上記のhighlight-selectedでハイライトされたものも反映されます.</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/minimap">https://atom.io/packages/minimap</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>file-type-icons</p></td>
+<td><p>tree-viewに表示されるファイルのアイコンが分かりやすくなります.</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/file-type-icons%E3%82%AF">https://atom.io/packages/file-type-iconsク</a></p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>パッケージ名が 赤色 のものは今回の環境構築に置いて必須なパッケージです. インストールしておいてください.</strong></p>
 <p>Atom には無数にパッケージがあるので各自調べてみたら面白そうなのがあるかもしれません.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Atomのパッケージを詳しく紹介しているサイト</span>
@@ -772,11 +823,11 @@ Atom のメニューバーより</p>
 <p>そうすると, 接続直後から pi ディレクトリの内容がツリービューに表示されたと思います.
 このように, 「remote」要素の設定では, 接続時の接続先ディレクトリを指定することができます.
 しかし, pi ディレクトリより上の階層は行けなくなってしまいますので必要に応じて適宜変更してください.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">参考となるサイト</span>
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">rfs</span><span class="o">.</span><span class="n">jp</span><span class="o">/</span><span class="n">sb</span><span class="o">/</span><span class="n">atom</span><span class="o">-</span><span class="n">github</span><span class="o">/</span><span class="n">atom_package_remote_ftp</span><span class="o">.</span><span class="n">html</span>
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">qiita</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">t_rela</span><span class="o">/</span><span class="n">items</span><span class="o">/</span><span class="mi">07</span><span class="n">f5f3bbe32745f9fa0d</span>
-
-</pre></div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>参考となるサイト
+<a class="reference external" href="https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html">https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html</a>
+<a class="reference external" href="https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d">https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d</a></p>
 </div>
 </div>
 <div class="section" id="platformio-ide-terminal">
@@ -812,10 +863,42 @@ Atom のメニューバーより</p>
 <p>導入は完了しましたが, 使いやすくするためにちょっとだけ設定を変更していきます. 特に必須事項というわけではないです.</p>
 <p>ファイル ＞ 設定 ＞ パッケージ ＞ platformio-ide-terminal ＞ 設定</p>
 <p>から, platformio-ide-terminal の設定を行うことができます.</p>
-<table><caption>各種設定</caption><tbody><tr><th>設定項目</th><th>おすすめ設定</th><th>説明</th></tr><tr><td>Core &gt; Auto Run Command</td><td>ssh pi@192.168.1.101</td><td>ターミナルを起動する度に同じSSHコマンドを実行するのは面倒ですよね？<br>ここの設定項目では起動直後に自動的にコマンドを実行させることができますので, SSH接続時のコマンドを入れておきます.</td></tr><tr><td>Style &gt; Animation Speed</td><td>2</td><td>ターミナルを表示・収納のスピードを少し速くしておきます.</td></tr><tr><td>Style &gt; Default Panel Height</td><td>250px</td><td>ここでは表示されるターミナルの高さを指定します.<br>個人によって好みの高さがあると思いますので調節してみてください.</td></tr><tr><td>Style &gt; Font Size</td><td>9</td><td>文字の大きさを設定します.<br>こちらも好みの大きさに調節してみてください.</td></tr><tr><td>Style &gt; Theme</td><td>pro</td><td>初期設定ではエディタ部とターミナル部の背景が同じで分かりづらいので変更します. proでは背景が黒, 文字色が白となります.</td></tr></tbody></table>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">導入で参考となるサイト</span>
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">blanche</span><span class="o">-</span><span class="n">toile</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">web</span><span class="o">/</span><span class="n">atom</span><span class="o">-</span><span class="n">platformio</span><span class="o">-</span><span class="n">ide</span><span class="o">-</span><span class="n">terminal</span>
-</pre></div>
+<table class="full-width table" id="platformio-ide-terminal-setting">
+<caption><span class="caption-text">platformio-ide-terminalの各種設定</span><a class="headerlink" href="#platformio-ide-terminal-setting" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>設定項目</p></th>
+<th class="head"><p>おすすめ設定</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Core &gt; Auto Run Command</p></td>
+<td><p>ssh <a class="reference external" href="mailto:pi&#37;&#52;&#48;192&#46;168&#46;1&#46;101">pi<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>1<span>&#46;</span>101</a></p></td>
+<td><p>ターミナルを起動する度に同じSSHコマンドを実行するのは面倒ですよね？ここの設定項目では起動直後に自動的にコマンドを実行させることができますので, SSH接続時のコマンドを入れておきます.Style &gt; Animation Speed	2	ターミナルを表示・収納のスピードを少し速くしておきます.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Style &gt; Default Panel Height</p></td>
+<td><p>250px</p></td>
+<td><p>ここでは表示されるターミナルの高さを指定します.個人によって好みの高さがあると思いますので調節してみてください.</p></td>
+</tr>
+<tr class="row-even"><td><p>Style &gt; Font Size</p></td>
+<td><p>9</p></td>
+<td><p>文字の大きさを設定します.こちらも好みの大きさに調節してみてください.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Style &gt; Theme</p></td>
+<td><p>pro</p></td>
+<td><p>初期設定ではエディタ部とターミナル部の背景が同じで分かりづらいので変更します. proでは背景が黒, 文字色が白となります.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>導入で参考となるサイト
+<a class="reference external" href="https://blanche-toile.com/web/atom-platformio-ide-terminal">https://blanche-toile.com/web/atom-platformio-ide-terminal</a></p>
 </div>
 </div>
 <div class="section" id="ssh">
@@ -833,9 +916,10 @@ Atom のメニューバーより</p>
 <p>より「OpenSSH クライアント」を押して, 「インストール」をクリックします.</p>
 <p>インストールが完了したらもう一度コマンドを入力してみてください.
 先程のエラー表示がなくなり, コマンドの利用方法が表示されればインストール完了です.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">参考となるサイト</span>
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">mimimopu</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">powershell</span><span class="o">-</span><span class="n">ssh</span><span class="o">-</span><span class="n">client</span><span class="o">/</span>
-</pre></div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>参考となるサイト
+<a class="reference external" href="https://mimimopu.com/powershell-ssh-client/">https://mimimopu.com/powershell-ssh-client/</a></p>
 </div>
 </div>
 </div>

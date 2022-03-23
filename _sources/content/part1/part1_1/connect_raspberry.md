@@ -172,7 +172,7 @@ WinSCP を起動します． ログイン画面が開くので新規のホスト
 
 ### VM 環境の準備
 
-- [Virtual Box と VM の準備](./VirtualBox_preparation)を参考に，事前に準備しておいてください．
+- 前提として、[Virtual Box と VM の準備](./VirtualBox_preparation)で事前に準備を行っているかと思います．
 
 ### VM 環境から RaspberryPi への SSH 接続の確認
 
@@ -184,7 +184,7 @@ VM 上の Linux のターミナルを開いて，RaspberryPi に Ping を送っ�
 
 ![vm2raspi1.png](../../../images/part1/part1_1/400px-vm2raspi1.png)
 
-SSH で RaspberryPi にログインします．VM 上の Linux とユーザ名が異なりますので，明示的にログインユーザ名を指定してください（ -l pi ）．
+SSH で RaspberryPi にログインします．VM 上の Linux とユーザ名が異なりますので，明示的にログインユーザ名を指定してください（`-l pi` ）．
 
 最初の接続のみ，ホスト鍵を受け入れるか聞かれますので "yes" とします．
 

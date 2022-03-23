@@ -174,7 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../part1_3/multiplexing_server_program.html">
-     サーバープログラムによる多重化
+     サーバプログラムによる多重化
     </a>
    </li>
    <li class="toctree-l2">
@@ -648,16 +648,6 @@ const thebe_selector_output = ".output, .cell_output"
      要件
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
-     ヒント1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
-     ヒント2（更に先に進む人向け）
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -739,16 +729,6 @@ const thebe_selector_output = ".output, .cell_output"
      要件
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
-     ヒント1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
-     ヒント2（更に先に進む人向け）
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -782,32 +762,32 @@ const thebe_selector_output = ".output, .cell_output"
 <p>POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．
 POSIX標準のライブラリは，ANSI標準には含まれませんのでビルド時に <code class="docutils literal notranslate"><span class="pre">-std=c99</span></code> のようにANSIベースでのC99仕様に基づくビルドを指定している場合には，以下のライブラリは利用できません．
 そこで，C99仕様にPOSIX標準及びGNU拡張を追加した <code class="docutils literal notranslate"><span class="pre">-std=gnu99</span></code> を利用するようMakefileを修正しておいてください．</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
-<span class="w"> </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
 
-<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_current_timecount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">ts</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ts</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ts</span><span class="p">.</span><span class="n">tv_sec</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ts</span><span class="p">.</span><span class="n">tv_nsec</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">get_current_timecount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">ts</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">clock_gettime</span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ts</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ts</span><span class="p">.</span><span class="n">tv_sec</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ts</span><span class="p">.</span><span class="n">tv_nsec</span><span class="o">*</span><span class="mf">1e-9</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_current_timecount</span><span class="p">();</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_current_timecount</span><span class="p">();</span><span class="w"></span>
 
-<span class="w">    </span><span class="c1">// do something</span>
-<span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// do something</span>
+<span class="w">  </span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_current_timecount</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_current_timecount</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id5">
 <h3>任意のサイズのファイル作成方法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>実験のために任意のサイズのファイルを作成するには，ddコマンドを使うと良いでしょう．</p>
+<p>実験のために任意のサイズのファイルを作成するには，<code class="docutils literal notranslate"><span class="pre">dd</span></code>コマンドを使うと良いでしょう．</p>
 <ul class="simple">
 <li><p>参考: <a class="reference external" href="http://www.itmedia.co.jp/help/tips/linux/l0606.html">容量指定のダミーファイルを作成したい</a></p></li>
 </ul>
@@ -827,7 +807,7 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 </div>
 <div class="section" id="id9">
 <h3>ヒント1<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="file_IO_programming.html"><span class="doc std std-doc">ファイル入出力プログラミング</span></a>の「必須課題6 ファイルのコピー」のソースコードを拡張します．
+<p><a class="reference external" href="./file_IO_programming.html#id22">ファイル入出力プログラミング</a>の「必須課題6 ファイルのコピー」のソースコードを拡張します．
 このプログラムでは char buf[] が，アプリケーション層でのバッファになっています．</p>
 </div>
 <div class="section" id="id10">
@@ -850,13 +830,13 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 <p>ユーザプログラム中のバッファサイズを変更した場合のread，writeとrecv，sendの性能を比較してください．</p>
 <p>正確な計測・比較のために行った工夫を整理し報告してください．その上で，性能の差について要因を調査して考察を行ってください．</p>
 <p>他グループの報告のグラフとの比較を容易にするために，今回の性能比較のグラフを作成する場合には，横軸をバッファサイズ，縦軸をファイルの送信あるいは受信に要した時間としてください（その際，実験条件の検討や記載が不十分ですと，公平な実験条件での結果かどうか不明確になりますのでご注意ください）．</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p><a class="reference external" href="./network_IO_programming.html#id13">ネットワーク入出力プログラミング</a>の「必須課題9 ファイル送受信」のソースコードを拡張します． このプログラムでは char buf[] がアプリケーション層でのバッファになっています．</p>
 </div>
-<div class="section" id="id13">
-<h3>ヒント1<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="network_IO_programming.html"><span class="doc std std-doc">ネットワーク入出力プログラミング</span></a>の「必須課題9 ファイル送受信」のソースコードを拡張します． このプログラムでは char buf[] がアプリケーション層でのバッファになっています．</p>
-</div>
-<div class="section" id="id14">
-<h3>ヒント2（更に先に進む人向け）<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p><strong>さらに先に進む人向け</strong></p>
 <p>必須課題1と同様にソケットに関しても，その内部にバッファを持っています．
 その設定値について調査し，どのような条件で観測を行ったのかを明らかにすると良いでしょう．
 また，設定値を変更し，ソケット側のバッファ量による影響について分析してみても良いでしょう．</p>
@@ -865,6 +845,7 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 <ul class="simple">
 <li><p>参考: <a class="reference external" href="https://fisproject.jp/2017/04/tuning-kernel-parameters-for-linux/">【sysctl】Linux カーネルパラメータのチューニング</a></p></li>
 </ul>
+</div>
 </div>
 </div>
 </div>
