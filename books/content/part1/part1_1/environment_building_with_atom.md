@@ -191,7 +191,6 @@ Atom のメニューバーより
 参考となるサイト
 https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html
 https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d
-
 ```
 
 ## platformio-ide-terminal の設定
