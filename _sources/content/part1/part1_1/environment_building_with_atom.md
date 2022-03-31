@@ -7,7 +7,7 @@
 この環境構築において, ノート PC の OS は Windows10 としています. Mac 版や Linux 版の Atom でも行えますが, 多少異なる点があると思います.
 以下がページ作成時の環境です.
 
-```{list-table} ページ作成時の環境
+```{list-table}ページ作成時の環境
 :header-rows: 1
 :class: full-width table
 :name: environment
@@ -53,6 +53,8 @@ File ＞ Settings ＞ Install
 
 ![750px-atom-japanese.jpg](../../../images/part1/part1_1/750px-atom-japanese.jpg)
 
+japanese-menu(インストール済みの状態)
+
 インストール終了後, Atom を再起動してください.
 これより先の説明では日本語化された Atom で説明を行っていきます. (上記の「File」なら「ファイル」)
 
@@ -69,10 +71,10 @@ File ＞ Settings ＞ Install
 * - japanese-menu
   - Atomが日本語化されます
   - https://atom.io/packages/japanese-menu
-* - *remote-ftp*
+* - remote-ftp
   - AtomからFTP・SFTP接続が行えます
   - https://atom.io/packages/remote-ftp
-* - *platformio-ide-terminal*
+* - platformio-ide-terminal
   - AtomからWindowsの「コマンドプロンプト」や「PowerShell」が直接利用できます
   - https://atom.io/packages/platformio-ide-terminal
 * - highlight-selected
@@ -86,15 +88,14 @@ File ＞ Settings ＞ Install
   - https://atom.io/packages/file-type-iconsク
 ```
 
-**パッケージ名が 太字 のものは今回の環境構築に置いて必須なパッケージです. インストールしておいてください.**
+**パッケージ名が 赤色 のものは今回の環境構築に置いて必須なパッケージです. インストールしておいてください.**
 
 Atom には無数にパッケージがあるので各自調べてみたら面白そうなのがあるかもしれません.
 
-```{hint}
+```
 Atomのパッケージを詳しく紹介しているサイト
-
-- https://www.sejuku.net/blog/3099
-- https://qiita.com/snowsunny/items/f40c3291a580f3215797
+https://www.sejuku.net/blog/3099
+https://qiita.com/snowsunny/items/f40c3291a580f3215797
 ```
 
 ## remote-ftp の設定
@@ -127,7 +128,7 @@ Atom のメニューバーより
 パッケージ ＞ Remote FTP ＞ Create SFTP config file
 
 を押すことによって「.ftpconfig」というファイルが作成されます.
-メニューバーでクリックするのは「Create SFTP config file」です. 「Create FTP config file」ではありません.
+※メニューバーでクリックするのは「Create SFTP config file」です. 「Create FTP config file」ではありません.
 
 生成されたファイルの以下の部分だけを変更してください.
 
@@ -188,9 +189,8 @@ Atom のメニューバーより
 
 ```{hint}
 参考となるサイト
-
-- https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html
-- https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d
+https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html
+https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d
 ```
 
 ## platformio-ide-terminal の設定
@@ -256,7 +256,7 @@ pi@raspberrypi:~ $
   - おすすめ設定
   - 説明
 * - Core > Auto Run Command
-  - `ssh pi@192.168.1.101`
+  - ssh pi@192.168.1.101
   - ターミナルを起動する度に同じSSHコマンドを実行するのは面倒ですよね？ここの設定項目では起動直後に自動的にコマンドを実行させることができますので, SSH接続時のコマンドを入れておきます.Style > Animation Speed	2	ターミナルを表示・収納のスピードを少し速くしておきます.
 * - Style > Default Panel Height
   - 250px
@@ -271,8 +271,7 @@ pi@raspberrypi:~ $
 
 ```{hint}
 導入で参考となるサイト
-
-- https://blanche-toile.com/web/atom-platformio-ide-terminal
+https://blanche-toile.com/web/atom-platformio-ide-terminal
 ```
 
 ## SSH の設定
@@ -301,6 +300,5 @@ Windows の「設定」 ＞ アプリ ＞ アプリと機能 ＞ オプション
 
 ```{hint}
 参考となるサイト
-
-- https://mimimopu.com/powershell-ssh-client/
+https://mimimopu.com/powershell-ssh-client/
 ```

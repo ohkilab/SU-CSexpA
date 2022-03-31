@@ -112,7 +112,7 @@ fsへのファイルアップロードの際は各ファイルの容量を最大
 
 第一部のレポートは，以下のテンプレートを参考に作成し，課題ごとに実験の目的，実験環境，実験結果，**結果に基づく考察**を記載してください．
 
-- {download}`WordのPart1用テンプレート<../../templates/part1/report-part1-template.docx>`
+- [WordのPart1用テンプレート](https://exp1.inf.shizuoka.ac.jp/images/9/90/report_part1_sample.zip "report part1 sample.zip")
 
 結果が想像していた結果と異なっていたとしても，その結果になったという事実に変わりはありません．**なぜ，そのような結果になったのか**，**その結果は有効なのかそうでないのか**，などなど考えて察して書く内容は多岐に渡ります．想像していた結果と異なっていたとしても，**その結果に対する深い考察**をしてください．「実験計画法」や「統計解析」についても意識していけると今後の将来に役立つと思います．
 
@@ -215,7 +215,7 @@ fsへのファイルアップロードの際は各ファイルの容量を最大
 
 第三部のレポートは，以下のテンプレートを使って作成してください．
 
--   [WordのPart3用テンプレート](https://exp1.inf.shizuoka.ac.jp/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:CSexp1Chapter3Report.zip "ファイル:CSexp1Chapter3Report.zip")
+- {download}`report-part3-template.docx<../../templates/part3/report-part3-template.docx>`
 
 以下の章構成を参考に完成させてください．目次はあくまで一例ですので，必要に応じて章節は追加して構いません．
 

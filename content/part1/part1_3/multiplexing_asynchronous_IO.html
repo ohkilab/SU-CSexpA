@@ -130,12 +130,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../part1_1/connect_raspberry.html">
-     RaspberryPiの接続
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1_1/environment_building_with_atom.html">
-     Atomを使った環境構築（任意）
+     RaspberryPiの接続（固定IP）
     </a>
    </li>
   </ul>
@@ -826,7 +821,7 @@ $ sudo apt install libuv1 libuv1-dev
 異なるソケットに対応する処理（このサンプルコードの場合，初回接続時，接続後の各クライアントとの通信時）を1つの大きなループの中で条件分岐で記述するのではなく，別のコールバック関数で記述することができます．
 また，OS依存の関数呼び出し（epoll や kqueue など）をライブラリ関数内に隠蔽することでコードの移植性を保っています．</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/day4/tcpserverle.tgz">tcpserverle</a>(学内からのみアクセス可能)</p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/day4/tcpserverle.tgz">tcpserverle</a></p></li>
 </ul>
 <div class="section" id="in-tcpserverle-c">
 <h3>in TCPServerLE.c<a class="headerlink" href="#in-tcpserverle-c" title="Permalink to this headline">¶</a></h3>
@@ -993,7 +988,7 @@ $ sudo apt install libuv1 libuv1-dev
 <h2>サンプルコード<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>TCP/IP通信に必要となる各処理に対するユーザプログラム独自の処理をコールバックで実現することで，ユーザプログラム側で待ち状態となることを減らします．TCP/IP通信に必要となる各処理（bind, listen, accept, get_sockname, read, write, close, …）が libuv のライブラリ関数で置き換えられており，通信相手からの通信受信時の処理をコールバック関数で実現しています．</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/day4/tcpserveruv.tgz">tcpserveruv</a>(学内からのみアクセス可能)</p></li>
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/day4/tcpserveruv.tgz">tcpserveruv</a></p></li>
 </ul>
 <div class="section" id="in-tcpserveruv-c">
 <h3>in TCPServerUV.c<a class="headerlink" href="#in-tcpserveruv-c" title="Permalink to this headline">¶</a></h3>

@@ -130,12 +130,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../part1_1/connect_raspberry.html">
-     RaspberryPiの接続
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1_1/environment_building_with_atom.html">
-     Atomを使った環境構築（任意）
+     RaspberryPiの接続（固定IP）
     </a>
    </li>
   </ul>
@@ -675,7 +670,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>c) <a class="reference internal" href="performance_measurement.html"><span class="doc std std-doc">性能計測</span></a> (必須課題)</p></li>
 <li><p>d) <a class="reference internal" href="multiplexing_asynchronous_IO.html"><span class="doc std std-doc">非同期I/Oによる多重化</span></a> (発展課題)</p></li>
 <li><p>e) <a class="reference internal" href="cause_analysis_communication_failure.html"><span class="doc std std-doc">通信失敗の原因分析</span></a> (発展課題)</p></li>
-<li><p>f) <a class="reference external" href="../../report/report.html#id2">第一部レポート(初版)</a></p></li>
+<li><p>f) <a class="reference external" href="../../report/report.html#id5">第一部レポート</a></p></li>
 </ul>
 <div class="admonition- admonition">
 <p class="admonition-title">本日の進捗確認チェックリスト</p>
@@ -719,7 +714,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>計測のためには各技術を利用して設計・実装したサーバプログラムと，そのサーバに負荷をかけてアクセスするクライアントプログラムが必要になります．</p>
 <div class="section" id="id3">
 <h3>サーバプログラム<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>サーバプログラムはネットワーク入出力プログラミングの<a class="reference external" href="../part1_2/network_IO_programming.html#echo-back">必須課題10</a>のサンプルコードを参考にします．必須課題10ではEchoBack（クライアントプログラムから送信されたメッセージを受信すると，受信メッセージに追加メッセージを付与して返信する動作）のプログラムを開発しました．</p>
+<p>サーバプログラムは<a class="reference external" href="../part1_2/network_IO_programming.md#echo-back">ネットワーク入出力プログラミング</a>の必須課題10のサンプルコードを参考にします．必須課題10ではEchoBack（クライアントプログラムから送信されたメッセージを受信すると，受信メッセージに追加メッセージを付与して返信する動作）のプログラムを開発しました．</p>
 <p>このプログラムは単一のクライアントからの接続に対して応答することができますが，複数のクライアントからの接続があると最初に接続したクライアントとの通信が終わるまで他のクライアントからの接続は受け付けられません（他のクライアントを待たせる振る舞いをします）．そこで，このプログラムを複数のクライアントからの接続に対して同時に応答できるように拡張し，以下の実験用サーバプログラムを開発します．</p>
 <ul class="simple">
 <li><p>select 関数によって多重化したEchoBackサーバ</p></li>
