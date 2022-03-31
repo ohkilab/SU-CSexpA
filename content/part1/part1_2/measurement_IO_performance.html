@@ -130,7 +130,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../part1_1/connect_raspberry.html">
-     RaspberryPiの接続（固定IP）
+     RaspberryPiの接続
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1_1/environment_building_with_atom.html">
+     Atomを使った環境構築（任意）
     </a>
    </li>
   </ul>
@@ -626,25 +631,15 @@ const thebe_selector_output = ".output, .cell_output"
      要件
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     ヒント1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     ヒント2（更に先に進む人向け）
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
+  <a class="reference internal nav-link" href="#id9">
    [必須課題2] バッファサイズを変更した場合の通信性能
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
+    <a class="reference internal nav-link" href="#id10">
      要件
     </a>
    </li>
@@ -707,25 +702,15 @@ const thebe_selector_output = ".output, .cell_output"
      要件
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     ヒント1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     ヒント2（更に先に進む人向け）
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
+  <a class="reference internal nav-link" href="#id9">
    [必須課題2] バッファサイズを変更した場合の通信性能
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
+    <a class="reference internal nav-link" href="#id10">
      要件
     </a>
    </li>
@@ -804,14 +789,14 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 <p>ユーザプログラム中のバッファサイズを変更した場合のread，writeとfread，fwriteの性能を比較してください．</p>
 <p>正確な計測・比較のために行った工夫を整理し報告してください．その上で，性能の差について要因を調査して考察を行ってください．</p>
 <p>他グループの報告するグラフとの性能比較を容易にするために，今回の性能比較のグラフを作成する場合には，横軸をバッファサイズ，縦軸をファイルのコピーに要した時間としてください（その際，実験条件の検討や記載が不十分ですと，公平な実験条件での結果かどうか不明確になりますのでご注意ください）．</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>ファイル入出力プログラミングの「<a class="reference external" href="./file_IO_programming.html#id22">必須課題6 ファイルのコピー</a>」のソースコードを拡張します．
+このプログラムでは <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">buf[]</span></code> が，アプリケーション層でのバッファになっています．</p>
 </div>
-<div class="section" id="id9">
-<h3>ヒント1<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="./file_IO_programming.html#id22">ファイル入出力プログラミング</a>の「必須課題6 ファイルのコピー」のソースコードを拡張します．
-このプログラムでは char buf[] が，アプリケーション層でのバッファになっています．</p>
-</div>
-<div class="section" id="id10">
-<h3>ヒント2（更に先に進む人向け）<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p><strong>更に先に進む人向け</strong></p>
 <p>標準ライブラリのファイル入出力関数 (先頭が f で始まる入出力関数群）は，関数内でバッファリング処理を行っています．
 もし，計測したread/write, fread/fwrite の性能に違いがあるとしたら，関数内でのバッファリングの違いによるものかもしれません．
 このアプリケーション層でのバッファのサイズを様々に変更して，より深い計測・分析を進めることで read/write, fread/fwrite の違い（関数内でのバッファリング処理との関係）やその理由を更にはっきりさせることができるでしょう．
@@ -823,16 +808,17 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 </ul>
 </div>
 </div>
-<div class="section" id="id11">
-<h2>[必須課題2] バッファサイズを変更した場合の通信性能<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id12">
-<h3>要件<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id9">
+<h2>[必須課題2] バッファサイズを変更した場合の通信性能<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>要件<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>ユーザプログラム中のバッファサイズを変更した場合のread，writeとrecv，sendの性能を比較してください．</p>
 <p>正確な計測・比較のために行った工夫を整理し報告してください．その上で，性能の差について要因を調査して考察を行ってください．</p>
 <p>他グループの報告のグラフとの比較を容易にするために，今回の性能比較のグラフを作成する場合には，横軸をバッファサイズ，縦軸をファイルの送信あるいは受信に要した時間としてください（その際，実験条件の検討や記載が不十分ですと，公平な実験条件での結果かどうか不明確になりますのでご注意ください）．</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p><a class="reference external" href="./network_IO_programming.html#id13">ネットワーク入出力プログラミング</a>の「必須課題9 ファイル送受信」のソースコードを拡張します． このプログラムでは char buf[] がアプリケーション層でのバッファになっています．</p>
+<p>ネットワーク入出力プログラミングの「<a class="reference external" href="./network_IO_programming.html#id13">必須課題9 ファイル送受信</a>」のソースコードを拡張します． このプログラムでは <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">buf[]</span></code> がアプリケーション層でのバッファになっています．</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -840,11 +826,17 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 <p>必須課題1と同様にソケットに関しても，その内部にバッファを持っています．
 その設定値について調査し，どのような条件で観測を行ったのかを明らかにすると良いでしょう．
 また，設定値を変更し，ソケット側のバッファ量による影響について分析してみても良いでしょう．</p>
-<p>注意： 以下のサイトで紹介されている変更は，現在動作しているKernelのパラメータを変更するものです．
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>以下のサイトで紹介されている変更は，現在動作しているKernelのパラメータを変更するものです．
 変更の結果は，OSの挙動に影響を及ぼします．自分だけではなく，OS自体やサーバ上で動作しているサービス類，同じサーバにログインしている他の人にも影響することになりますので注意してください．</p>
+</div>
+</div>
 <ul class="simple">
 <li><p>参考: <a class="reference external" href="https://fisproject.jp/2017/04/tuning-kernel-parameters-for-linux/">【sysctl】Linux カーネルパラメータのチューニング</a></p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </div>
 </div>

@@ -30,7 +30,7 @@ Virtual Boxを導入してください．拡張パック（Extension Pack）も�
 
 [http://whitebear.cs.inf.shizuoka.ac.jp/linux/oooo/](http://whitebear.cs.inf.shizuoka.ac.jp/linux/oooo/)
 
-## Slackへの登録
-本年度は学生間の連絡にSlackを使います．
+## Teamsへの登録
+本年度は学生間の連絡にTeamsを使います．
 
-機材配布時に配った資料を参考に，Slackへの参加登録を済ませておいてください．
+機材配布時に配った資料を参考に，Teamsへの参加登録を済ませておいてください．
