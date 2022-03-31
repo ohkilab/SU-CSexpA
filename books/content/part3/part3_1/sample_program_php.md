@@ -57,7 +57,7 @@ PHPの試験用に教員側で用意したサンプルプログラム（PHP）�
  $ git clone --depth 1 git@github.com:ohkilab/SU-CSexpA-00.git
 ```
 
-実行したカレントディレクトリに，**SU-CSexpA-00**というディレクトリが作成され，そのディレクトリの中にprog00.phpというファイルがダウンロードされたと思います．
+実行したカレントディレクトリに，**SU-CSexpA-00**というディレクトリが作成され，そのディレクトリの中に`prog00.php`というファイルがダウンロードされたと思います．
 
 これを`index.php`という名前へ変更し「**~/public\_html**」へコピーしてみてください．
 
@@ -91,7 +91,7 @@ ufwなどを使って，特定のIP（今回で言えば，実験に使う皆さ
 <html>
 
   <head>
-    <title>科学科実験Iサンプルプログラム</title>
+    <title>科学科実験Aサンプルプログラム</title>
     <style>
       .item {
         overflow: hidden;
