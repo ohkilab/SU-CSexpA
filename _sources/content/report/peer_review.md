@@ -27,27 +27,37 @@
 
 自分のレポートをグループの他のメンバにレビューしてもらうようにします．従って，4人グループですと自分のレポートを3人からレビューをしてもらう & 自分は3つのレポートのレビューをすることになります．自分のレポートは初版提出時に既にチェック済のはずですので，この時間では自分自身のレポートはレビューの対象とはしません．
 
-複数人が並行してレビュー作業を行える方が効率が良いので，レビューはOffice365を利用して行います．
+複数人が並行してレビュー作業を行える方が効率が良いので，レビューはOffice365の共同編集機能を利用して行います．
 
-1.  MS Teams の各班のチャネルを開いて下さい
-2.  各班のチャネルの「ファイル」タブを開いて下さい．
-3.  初版のレポートのファイル（e.g. `CS実験I_Part1_A1_7091-1234初版.docx`）をアップロードします．
+自分のレポートの共有は以下の手順で行なってください．
 
-![peer_review_open_channel.png](../../images/report/peer_review/peer_review_open_channel.png)
+- 初版のレポートのファイル（e.g. `CS実験I_Part1_A1_7091-1234初版.docx`）を開きます．
 
-![peer_review_upload_1streport.png](../../images/report/peer_review/peer_review_upload_1streport.png)
+- 開いたWordの右上にある「共有」をクリックし，名前／場所／移動orコピーを設定してアップロードします．
 
-グループ全員のファイルがアップロードされたことを確認して下さい．
+![review_upload.png](../../images/report/peer_review/review_upload.png)
 
-1.  アップロードされたファイルをクリックするとファイルが開きますので，更に「編集」ボタンをクリックします．
-2.  ブラウザ上でファイルが開きますので編集モードを「チェック／コメント」に変更します（編集履歴が保存される状態になります）．
-3.  レポートを読んだ上で，気づいた点についてコメントを追加したり，修正案を示したり校正して下さい．
+- もう一度「共有」をクリックし，「リンクのコピー」にある「リンクを知っている 〜略〜 ユーザーが表示できます ＞」をクリックします．
 
-![peer_review_open_file.png](../../images/report/peer_review/peer_review_open_file.png)
+![review_uploaded.png](../../images/report/peer_review/review_uploaded.png)
 
-![peer_review_start_comment.png](../../images/report/peer_review/peer_review_start_comment.png)
+- 「編集を許可する」にチェックをつけて，「レビューモードでのみ開く」をオンにして「適用」をクリックします．
 
-![peer_review_example_comment.png/600px-peer_review_example_comment.png)](../../images/report/peer_review/peer_review_example_comment.png)
+![review_config.png](../../images/report/peer_review/review_config.png)
+
+- 「リンクをコピーしました」と出るので，Slackのグループチャンネルにリンクを貼り付けて送信します．
+
+![review_link_copy.png](../../images/report/peer_review/review_link_copy.png)
+
+他の人のレポートをレビューする際は以下の手順で行ってください．
+
+- 共有されたリンクをクリックして，ファイルを開く．
+
+![review_open.png](../../images/report/peer_review/review_open.png)
+
+- 編集モードが「チェック／コメント」になっていることを確認したら，そのままレポートを読んだ上で，気づいた点についてコメントを追加したり，修正案を示したり校正して下さい．
+
+![review_comment.png](../../images/report/peer_review/review_comment.png)
 
 ## 全体レビュー
 

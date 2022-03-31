@@ -298,6 +298,11 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../part2_4/groupreview.html">
+     グループレビュー
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../part2_4/grouppresentation.html">
      第二部グループ発表会
     </a>
@@ -467,7 +472,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../report/report.html">
-   レポート詳細
+   レポートに関して
   </a>
  </li>
  <li class="toctree-l1">
@@ -744,7 +749,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="main">
 <h3>main()<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h3>
 <p>まずはmain()関数から概説します．</p>
-<p>例えば，コンパイルして実行形式のファイル名を<code class="docutils literal notranslate"><span class="pre">bench.exe</span></code>としたら<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">./bench</span> <span class="pre">192.168.1.xxx</span> <span class="pre">15</span></code>というように実行すると，192.168.1.xxxのIPアドレスへ15回HTTPリクエストを送信し，全てのHTTPリプライが返ってくるまでの時間とセッションエラー率を表示してくれます．</p>
+<p>例えば，コンパイルして実行形式のファイル名をbench.exeとしたら「$ <strong>./bench <a class="reference external" href="http://192.168.1.xxx">192.168.1.xxx</a> 15</strong>」というように実行すると，192.168.1.xxxのIPアドレスへ15回HTTPリクエストを送信し，全てのHTTPリプライが返ってくるまでの時間とセッションエラー率を表示してくれます．</p>
 <p>少し長いですが，やっていることは単純です（実装を容易にするためいくつかグローバル変数を使用してますのでご注意ください）．</p>
 <ul class="simple">
 <li><p>main(int argc, char** argv)でコマンドライン引数を取得（引数の数が誤っていたら使用方法を表示）</p></li>

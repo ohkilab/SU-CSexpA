@@ -36,7 +36,7 @@ HTTP/1.1の場合，[RFC2616](https://tex2e.github.io/rfc-translater/html/rfc261
   <input type="submit" value="send" />
 </form>
 ```
-次に，Webサーバー側へ`upload.php`としてPOSTを受け取るCGIを置きます．
+次に，Webサーバー側へupload.phpとしてPOSTを受け取るCGIを置きます．
 
 ```php
 <?php
@@ -57,7 +57,7 @@ move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
 
 ## POST実装について
 
-例えば，以下のような`post.txt`があったとします．これを解析するプログラムを作る方法です．
+例えば，以下のようなpost.txtがあったとします．これを解析するプログラムを作る方法です．
 
 ### post.txt
 ```
@@ -105,7 +105,7 @@ headerとbodyを分けるオートマトンは，以下のように描けます�
 
 ![day8_chart.jpg](https://www-int.ist.osaka-u.ac.jp/sarulab/user/saru/exp1/day8_chart.jpg)
 
-このオートマトンの実装例を以下の`parse_header_body.c`に示します．
+このオートマトンの実装例を以下のparse\_header\_body.cに示します．
 
 ### parse\_header\_body.c
 
@@ -214,7 +214,7 @@ headerで指定されている「boundary=---------------------------20124110774
 
 [system()](http://linuxjm.osdn.jp/html/LDP_man-pages/man3/system.3.html)を用いることで，任意のプログラムやコマンドを呼び出すことができます．
 
-例えば，以下の`system_sample.c`と`test.php`を作成して，`system_sample.c`をコンパイル後実行してみてください．
+例えば，以下のsystem\_sample.cとtest.phpを作成して，system\_sample.cをコンパイル後実行してみてください．
 
 ### system\_sample.c
 
@@ -235,7 +235,7 @@ echo "hello world\n";
 
 標準出力に「hello world」が出力されたと思います．次の課題は，この結果をどのようにネットワーク越しのリモート端末へ返送するかでしょうか．
 
-system()で `php test.php > tmp.html` を実行させてから，`tmp.html`を読み込んでソケットで返すなど様々な実装方法がありそうですが，[dup2()](http://linuxjm.osdn.jp/html/LDP_man-pages/man2/dup.2.html)を用いると楽と思います．以下に示す`dup2_sample.c`をコンパイルして実行してみてください．
+system()で"php test.php > tmp.html" を実行させてから，tmp.htmlを読み込んでソケットで返すなど様々な実装方法がありそうですが，[dup2()](http://linuxjm.osdn.jp/html/LDP_man-pages/man2/dup.2.html)を用いると楽と思います．以下に示すdup2\_sample.cをコンパイルして実行してみてください．
 
 ### dup2\_sample.c
 

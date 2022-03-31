@@ -7,7 +7,7 @@
 
 第二部以降で必要になるソフトウェアは，Webサーバ，データベースサーバ，サーバサイドプログラミング言語処理系，サーバサイドプログラミング言語処理系からデータベースにアクセスするためのライブラリです．
 
-Raspbian では，これらのソフトウェアを apt を使ってインストールします．
+Raspbien では，これらのソフトウェアを apt を使ってインストールします．
 
 ```shell
 $ sudo apt install apache2 apache2-doc apache2-utils　　　　　　　　　 <--- WEBサーバーのインストール
@@ -15,7 +15,7 @@ $ sudo apt install php7.3 php7.3-mysql apache2-mod-php7.3              <--- PHP�
 $ sudo apt install mariadb-server mariadb-client                       <--- DBのインストール
 ```
 
-PCとRasPiを有線で直接接続している場合，RasPiはPCとは接続されていますが，インターネットに接続されていません． 色々と方法はありますが，以下，いくつかある手順で可能なものを試して実行しましょう．
+PCとRaspiを有線で直接接続している場合，RaspiはPCとは接続されていますが，インターネットに接続されていません． 色々と方法はありますが，以下，いくつかある手順で可能なものを試して実行しましょう．
 
 -   家にWiFiがある場合（かんたん）
     -   RasPiのWiFiをONにする
@@ -23,10 +23,10 @@ PCとRasPiを有線で直接接続している場合，RasPiはPCとは接続さ
     -   インストールが終わったら必ずまたWiFiをOFFにしておきましょう（実験時のトラブルの元になります）
 
 -   モニタ・キーボード等がある場合
-    -   家のルータなどに有線LANで接続，モニタ・キーボードをRasPiに接続し起動（RasPi起動前に機器を接続しておいてください）
-    -   RasPiのIP設定を固定IPからDHCPへ変更する
+    -   家のルータなどに有線LANで接続，モニタ・キーボードをRaspiに接続し起動（RasPi起動前に機器を接続しておいてください）
+    -   RaspiのIP設定を固定IPからDHCPへ変更する
     -   インストール
-    -   RasPiのIP設定をDHCPから固定IPへ戻してから，有線LANをルータから抜いて再度ノートPCと接続
+    -   RaspiのIP設定をDHCPから固定IPへ戻してから，有線LANをルータから抜いて再度ノートPCと接続
 ```shell
 RasPiの固定IP設定をDHCP設定へ変更する方法（再度，固定IPに戻す際はコメントアウトを外して以下実行）
 $ sudo vi /etc/dhcpcd.conf                      <---- viエディタでなくてもOK
@@ -41,7 +41,7 @@ $ sudo vi /etc/dhcpcd.conf                      <---- viエディタでなくて
 「Esc」押して入力モードからコマンドモードに戻ってから「:wq!」と入力してEnter押して強制保存しviエディタから抜ける
 $ sudo systemctl restart dhcpcd
 $ sudo systemctl restart networking
-$ ip a                      <---- DHCPでIPアドレス割り振られているか確認し，RasPi上のWebブラウザでホームページ等も閲覧できればOK
+$ ip a                      <---- DHCPでIPアドレス割り振られているか確認し，Raspi上のWebブラウザでホームページ等も閲覧できればOK
 ```
 
 -   どちらも無理な場合
@@ -93,7 +93,7 @@ To                         Action      From
 11111/tcp (v6)             ALLOW       Anywhere (v6)
 ```
 
-（補足）IPv6を使用しない場合は `/etc/default/ufw` 内で `IPV6=no` とすると無効にすることができます
+（補足）IPv6を使用しない場合は /etc/default/ufw 内で IPV6=no とすると無効にすることができます
 
 ## Webサーバ(Apache)の設定
 
@@ -116,9 +116,9 @@ $ sudo systemctl start apache2.service
 
 #### ユーザディレクトリの設定
 
-ここまでで確認したApache2 Debian Default PageはWebサーバ全体のページです．Webサーバ上のディレクトリでは `/var/www/html`に対応します（ただし，Apache2 Debian Default Pageはちょっと特殊なページで，`/var/www/html` に `index.html` がない時に自動生成されて表示されるページです）．つまり，`/var/www/html` に置かれたファイルが [http://192.168.1.101/](http://192.168.1.101/) にアクセスした時に参照されることになります．
+ここまでで確認したApache2 Debian Default PageはWebサーバ全体のページです．Webサーバ上のディレクトリでは `/var/www/html`に対応します（ただし，Apache2 Debian Default Pageはちょっと特殊なページで，`/var/www/html` に index.html がない時に自動生成されて表示されるページです）．つまり，`/var/www/html` に置かれたファイルが [http://192.168.1.101/](http://192.168.1.101/) にアクセスした時に参照されることになります．
 
-また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定可能です．例えば，[http://192.168.1.101/~ohki](http://192.168.1.101/~ohki)にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，[http://サーバ名/~アカウント名](http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D) にアクセスした時にホームディレクトリの`public_html`のコンテンツを表示する機能です．具体例としては，[http://192.168.1.101/~ohki](http://192.168.1.101/~ohki) にアクセスした時に`/home/ohki/public_html`のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ [http://192.168.1.101/~pi/](http://192.168.1.101/~pi/)に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．
+また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定可能です．例えば，[http://192.168.1.101/~ohki](http://192.168.1.101/~ohki)にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，[http://サーバ名/~アカウント名](http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D) にアクセスした時にホームディレクトリのpublic\_htmlのコンテンツを表示する機能です．具体例としては，[http://192.168.1.101/~ohki](http://192.168.1.101/~ohki) にアクセスした時に`/home/ohki/public_html`のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ [http://192.168.1.101/~pi/](http://192.168.1.101/~pi/)に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．
 
 ![raspi-404.png](../../../images/part2/raspi-404.png)
 
@@ -130,7 +130,7 @@ apache2.conf    conf-enabled  magic           mods-enabled  sites-available
 conf-available  envvars       mods-available  ports.conf    sites-enabled
 ```
 
-`xxx-available` や `xxx-enabled` というディレクトリがあるのがわかりますか？ RasPiのRaspbian OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに `mods-enabled` の中身を見てみましょう．
+xxx-available や xxx-enabled というディレクトリがあるのがわかりますか？ RasPiのRaspbian OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに mods-enabled の中身を見てみましょう．
 
 ```shell
 $ ls -l /etc/apache2/mods-enabled/
@@ -147,14 +147,14 @@ lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.conf -> ../mods-available/status.c
 lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.load -> ../mods-available/status.load
 ```
 
-全て `mods-available` へのシンボリックリンクになっていることがわかりますね．つまり，それぞれの役割は
+全て mods-available へのシンボリックリンクになっていることがわかりますね．つまり，それぞれの役割は
 
--   `mods-available`：モジュールを読み込むためのファイル，およびモジュールの設定ファイルの実体を配置
--   `mods-enabled` ：`mods-available`のうち有効にするモジュールへのシンボリックリンクを配置
+-   mods-available：モジュールを読み込むためのファイル，およびモジュールの設定ファイルの実体を配置
+-   mods-enabled ：mods-availableのうち有効にするモジュールへのシンボリックリンクを配置
 
 となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド`a2enmod`（シンボリックリンクを作成する）および`a2dismod`（シンボリックリンクを削除する）がRaspbianには用意されていますのでこれを使いましょう．
 
-本題のユーザーディレクトリに関しては既にuserdirというモジュールが`mods-available`にインストールされています．上記の`a2enmod`コマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．
+本題のユーザーディレクトリに関しては既にuserdirというモジュールがmods-availableにインストールされています．上記のa2enmodコマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．
 
 ```shell
 $ sudo a2enmod userdir
@@ -165,7 +165,7 @@ $ sudo systemctl restart apache2
 
 ![raspi-forbidden.png](../../../images/part2/raspi-forbidden.png)
 
-表示が変わりましたか？Apacheのデフォルトの設定では `/home/pi/public_html` 以下にユーザのコンテンツを配置するようになっていますが，`public_html` が存在しないためエラーが発生しています．作ってあげましょう．ついでに適当な内容の`index.html`を作っておきます．
+表示が変わりましたか？Apacheのデフォルトの設定では /home/pi/public\_html 以下にユーザのコンテンツを配置するようになっていますが，public\_html が存在しないためエラーが発生しています．作ってあげましょう．ついでに適当な内容のindex.htmlを作っておきます．
 
 ```shell
 $ mkdir /home/pi/public_html/
@@ -297,7 +297,7 @@ $ sudo reboot
 
 -   この実験ではAriaを使用します．デフォルトのInnoDBは高機能ですが，格納データが肥大化するという問題があり，今回のような容量の小さなSDカードで大きなデータを扱う場合はSDカードの容量を使い果たしてしまう可能性があります．Ariaはトランザクションをサポートしていない等の制約はありますが，MariaDBが産んだ高機能かつ最新のストレージエンジンです．[ストレージエンジンに関してはこちらを参照](https://mariadb.com/kb/en/mariadb/storage-engines/)．
 
-設定ファイル `/etc/mysql/mariadb.conf.d/50-server.cnf` を開き，\[mysqld\]の直下に`default-storage-engine=Aria`の行を追加しましょう．追加したらMariaDBをリスタートします．
+設定ファイル **/etc/mysql/mariadb.conf.d/50-server.cnf** を開き，\[mysqld\]の直下に**default-storage-engine=Aria**の行を追加しましょう．追加したらMariaDBをリスタートします．
 
 ```shell
 $ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -341,10 +341,10 @@ MySQLサーバ上にユーザごとのデータベースを作成します．ま
 
 初期化時に設定した root パスワードを使って，各ユーザとデータベースを作成します．
 
--   最初のコマンド`CREATE DATABASE ohkiDB CHARACTER SET utf8;`は 文字コード **utf-8** のデータベース **ohkiDB** を作成します．
--   2番目のコマンド`GRANT ALL PRIVILEGES ON ohkiDB.\* TO ohki@localhost IDENTIFIED BY 'difficult-password';`は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．
--   3番目のコマンド `FLUSH PRIVILEGES;`は2番目のコマンドの結果を即時有効にするためのコマンドです．
--   4番目のコマンド`show databases;`は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が`;`で終わることに気を付けてください．
+最初のコマンド`CREATE DATABASE ohkiDB CHARACTER SET utf8;`は 文字コード **utf-8** のデータベース **ohkiDB** を作成します．
+2番目のコマンド`GRANT ALL PRIVILEGES ON ohkiDB.\* TO ohki@localhost IDENTIFIED BY 'difficult-password';`は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．
+3番目のコマンド `FLUSH PRIVILEGES;`は2番目のコマンドの結果を即時有効にするためのコマンドです．
+4番目のコマンド`show databases;`は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が`;`で終わることに気を付けてください．
 
 **difficult-password** は当然ですが，みなさん個人個人で考えた難しいパスワードを設定してください．
 
