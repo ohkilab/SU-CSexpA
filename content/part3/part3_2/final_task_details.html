@@ -872,8 +872,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/part3/geotag.zip">geotag.zip</a>（約439MB）（静大のネットワークからのみアクセス可能）</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験I\\第三部サンプルデータ\\geotag.zip</span></code>（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）</p></li>
 </ul>
-<p>どちらも同じファイルなので，可能な方法でダウンロードしてください．解凍するとgeotag.csv (約1.1GB)とtag.csv (約445MB)の2つのファイルが入っています．</p>
-<p>※ パケット容量制限等でどうしてもダウンロードが難しい方はUSBメモリ等でお渡ししますのでTeamsにてご相談ください</p>
+<p>どちらも同じファイルなので，可能な方法でダウンロードしてください．解凍すると<code class="docutils literal notranslate"><span class="pre">geotag.csv</span></code> (約1.1GB)と<code class="docutils literal notranslate"><span class="pre">tag.csv</span></code> (約445MB)の2つのファイルが入っています．</p>
+<p>※ パケット容量制限等でどうしてもダウンロードが難しい方はUSBメモリ等でお渡ししますのでSlackにてご相談ください</p>
 <div class="section" id="geotag-csv">
 <h4>geotag.csvの概要<a class="headerlink" href="#geotag-csv" title="Permalink to this headline">¶</a></h4>
 <p>Flickrで共有されている<strong>撮影位置の緯度経度</strong>の付いた写真1000万枚のリストになります．</p>
@@ -916,7 +916,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="tag-csv">
 <h4>tag.csvの概要<a class="headerlink" href="#tag-csv" title="Permalink to this headline">¶</a></h4>
-<p>geotag.csvに含まれる画像へ付与されているタグのリストになります．IDの重複は許しており，タグ毎に一行となっています．</p>
+<p><code class="docutils literal notranslate"><span class="pre">geotag.csv</span></code>に含まれる画像へ付与されているタグのリストになります．IDの重複は許しており，タグ毎に一行となっています．</p>
 <table class="table" id="tag">
 <caption><span class="caption-number">Table 8 </span><span class="caption-text">tagの概要</span><a class="headerlink" href="#tag" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -1051,7 +1051,7 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">i_tag</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="k">BTREE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tag</span><span class="p">(</span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>ここで，最後の「CREATE INDEX i_tag USING BTREE ON tag(tag);」を実行すると「ERROR 1238 (HY000): Variable ‘innodb_large_prefix’ is a read only variable」というエラーが発生するかもしれません．皆さんに最初に設定してもらったデフォルトストレージエンジン Aria の制約となります．ストレージエンジンを InnoDBに変更すれば，innodb_large_prefix を設定できるようになりますので興味ある方は試してみてください（ストレージエンジンの変更にはそこそこ時間を要しますので）．</p>
+<p>ここで，最後の <strong>CREATE INDEX i_tag USING BTREE ON tag(tag);</strong> を実行すると「ERROR 1238 (HY000): Variable ‘innodb_large_prefix’ is a read only variable」というエラーが発生するかもしれません．皆さんに最初に設定してもらったデフォルトストレージエンジン Aria の制約となります．ストレージエンジンを InnoDBに変更すれば，innodb_large_prefix を設定できるようになりますので興味ある方は試してみてください（ストレージエンジンの変更にはそこそこ時間を要しますので）．</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">enginescreate</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">テーブル名</span><span class="p">;</span><span class="w">                 </span><span class="c1"># ストレージエンジン（Engine）を確認</span><span class="w"></span>
 <span class="n">mysql</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">テーブル名</span><span class="w"> </span><span class="k">engine</span><span class="o">=</span><span class="n">任意のエンジン</span><span class="p">;</span><span class="w">        </span><span class="c1"># ストレージエンジンの変更</span><span class="w"></span>
 <span class="n">（そこそこ時間がかかります）</span><span class="w"></span>
@@ -1085,7 +1085,7 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <h2>基礎課題（全員必須）<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <p><strong>任意のタグを持つ写真の撮影時刻・緯度・経度・URLの一覧を，撮影時刻順で出力するプログラム</strong>を様々な方針で実装してもらいます．</p>
 <p>ここで，任意のタグは静的にハードコーティングするのではなく，Webブラウザの検索フォームからユーザが指定できるよう実装してください．</p>
-<p>イメージを掴みやすくなるようこれから実装するprogA（実装A）～C（実装C）を呼び出すための共通のindex.htmlを用意しました．以下のgitリポジトリからサンプルプログラム（index.html, progA.php, progB.php, progC.phpの４つ）をcloneしてください．これらprogA.php（実装A）, progB.php（実装B）, progC.php（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザでindex.htmlを表示し，どのような構造になっているか動作を確認してみてください．</p>
+<p>イメージを掴みやすくなるようこれから実装するprogA（実装A）～C（実装C）を呼び出すための共通の<code class="docutils literal notranslate"><span class="pre">index.html</span></code>を用意しました．以下のgitリポジトリからサンプルプログラム（<code class="docutils literal notranslate"><span class="pre">index.html</span></code>, <code class="docutils literal notranslate"><span class="pre">progA.php</span></code>, <code class="docutils literal notranslate"><span class="pre">progB.php</span></code>, <code class="docutils literal notranslate"><span class="pre">progC.php</span></code>の４つ）をcloneしてください．これら<code class="docutils literal notranslate"><span class="pre">progA.php</span></code>（実装A）, <code class="docutils literal notranslate"><span class="pre">progB.php</span></code>（実装B）, <code class="docutils literal notranslate"><span class="pre">progC.php</span></code>（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザで<code class="docutils literal notranslate"><span class="pre">index.html</span></code>を表示し，どのような構造になっているか動作を確認してみてください．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/ohkilab/SU-CSexpA-Last">https://github.com/ohkilab/SU-CSexpA-Last</a></p></li>
 </ul>
@@ -1103,12 +1103,12 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <p>実装Aの仕様を以下に示します．</p>
 <p>【仕様】</p>
 <ul class="simple">
-<li><p>progA.phpとして実装すること</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">progA.php</span></code>として実装すること</p></li>
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <ul class="simple">
-<li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p></li>
+<li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（<code class="docutils literal notranslate"><span class="pre">index.html</span></code>でその設定はすでにされています）．</p></li>
 <li><p>インデックスのような機能を独自実装してくれて構いません．</p></li>
 <li><p>PHPのみで全ての機能を実装する必要はありません．以下の関数を用いるとPHPから実行形式のファイルを実行できます．</p>
 <ul>
@@ -1127,14 +1127,14 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <p>実装Bの仕様を以下に示します．</p>
 <p>【仕様】</p>
 <ul class="simple">
-<li><p>progB.phpとして実装すること</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">progB.php</span></code>として実装すること</p></li>
 <li><p>データベースを使用すること（ただし<strong>i_tag</strong>インデックスを使用してはいけない）</p></li>
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <ul class="simple">
 <li><p>「i_tag」インデックスを使用しない設定は，<strong>SELECT * FROM tag IGNORE INDEX(i_tag) WHERE tag like ‘beach’;</strong></p></li>
-<li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p></li>
+<li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（<code class="docutils literal notranslate"><span class="pre">index.html</span></code>でその設定はすでにされています）．</p></li>
 <li><p>「任意のタグに合致する写真のリスト」は，SELECT文1文で実現できますが，インデックスを使用しない場合，クエリを分割したり，一部をSQLではなくプログラム側で処理するというような構造も効果的かもしれません．</p></li>
 </ul>
 </div>
@@ -1145,14 +1145,14 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <p>実装Cは，実装Bのプログラムを，<strong>インデックスを使用して検索するプログラム</strong>を実装してください．</p>
 <p>【仕様】</p>
 <ul class="simple">
-<li><p>progC.phpとして実装すること</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">progC.php</span></code>として実装すること</p></li>
 <li><p>データベースならびにインデックスを使用すること</p></li>
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <ul class="simple">
 <li><p>SELECT文から「<strong>IGNORE INDEX</strong>」を削除するだけで構いません．</p></li>
-<li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（index.htmlでその設定はすでにされています）．</p></li>
+<li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（<code class="docutils literal notranslate"><span class="pre">index.html</span></code>でその設定はすでにされています）．</p></li>
 </ul>
 </div>
 </div>

@@ -1,6 +1,6 @@
 # Day15の目的と概要
 
--   a) [最終グループ発表会](./last_presentation "最終グループ発表会")
+-   a) [第三部グループ発表会](./last_presentation "第三部グループ発表会")
 -   b) [第三部レポート](../../report/report.html#id6 "第三部レポート")
 
 ```{admonition} 本日の進捗確認チェックリスト
