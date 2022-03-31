@@ -130,7 +130,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../part1_1/connect_raspberry.html">
-     RaspberryPiの接続（固定IP）
+     RaspberryPiの接続
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1_1/environment_building_with_atom.html">
+     Atomを使った環境構築（任意）
     </a>
    </li>
   </ul>
@@ -911,7 +916,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <p>ネットワークを利用したプログラムは，ネットワークを対象に入出力を行います．
 サーバプログラムとクライアントプログラム間で通信を行いますが，互いに通信を行う前にそれぞれのプログラムを個別に動作確認することが大事です．
 ファイル入出力においてファイルの内容を確認して入出力の結果を確認したように，ネットワークを対象に入出力の結果を確認してみましょう．
-その際，<a class="reference external" href="https://www.wireshark.org/">パケットキャプチャのツール</a>が役に立ちます．</p>
+その際，パケットキャプチャのツール(<a class="reference external" href="https://www.wireshark.org/">Wireshark</a>)が役に立ちます．</p>
 <div class="section" id="id3">
 <h3>参考情報<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -927,7 +932,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 これらの関数は共有ライブラリファイル<code class="docutils literal notranslate"><span class="pre">exp1lib.h</span></code>, <code class="docutils literal notranslate"><span class="pre">exp1lib.c</span></code>内に記述し，各サンプルコードから利用するようにしています．</p>
 <div class="section" id="exp1-tcp-listen">
 <h3>exp1_tcp_listen<a class="headerlink" href="#exp1-tcp-listen" title="Permalink to this headline">¶</a></h3>
-<p>TCP接続を行うためのサーバ側ライブラリです（情報科学実験I用の共有ライブラリ）．</p>
+<p>TCP接続を行うためのサーバ側ライブラリです（情報科学実験A用の共有ライブラリ）．</p>
 <p>プログラムの各行が何を行っているのか，コードリーディングして確認してください．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">exp1_tcp_listen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">port</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
@@ -985,7 +990,7 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 </div>
 <div class="section" id="exp1-tcp-connect">
 <h3>exp1_tcp_connect<a class="headerlink" href="#exp1-tcp-connect" title="Permalink to this headline">¶</a></h3>
-<p>TCP接続を行うためのクライアント側ライブラリです（情報科学実験I用の共有ライブラリ）．</p>
+<p>TCP接続を行うためのクライアント側ライブラリです（情報科学実験A用の共有ライブラリ）．</p>
 <p>プログラムの各行が何を行っているのか，コードリーディングして確認してください．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">exp1_tcp_connect</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">hostname</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">port</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 

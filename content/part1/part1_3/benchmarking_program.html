@@ -130,7 +130,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../part1_1/connect_raspberry.html">
-     RaspberryPiの接続（固定IP）
+     RaspberryPiの接続
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../part1_1/environment_building_with_atom.html">
+     Atomを使った環境構築（任意）
     </a>
    </li>
   </ul>
@@ -689,7 +694,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行するベンチマークプログラムのサンプルを提供するので，それぞれの実験方法の必要に応じて修正等を行って利用してください．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/day3/tcpbenchmark.tgz">tcpbenchmark</a>（静大のネットワークからのみアクセス可能）</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験I\第一部サンプルコード\tcpbenchmark.tgz</span></code>（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験A\第一部サンプルコード\tcpbenchmark.tgz</span></code>（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）</p></li>
 </ul>
 <p>基本的な使い方は以下の通りですが，それぞれでソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やせる拡張を行ってもよいでしょう）．</p>
 <p>実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./hogehoge</span></code>の様に<strong>管理者権限で実行</strong>をしてみて下さい．</p>
@@ -737,99 +742,99 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id5">
 <h3>スレッドの生成と計測部分<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>単位時間あたりの処理能力を計測する必要があるので，スレッド生成処理のタイムラグを除外するために，予め全てのスレッドを生成しておき，スタートフラグを以って全スレッドが並行してサーバに接続開始するように設計しています．</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tplistNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">THREADPARAM</span><span class="o">*</span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">THREADPARAM</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">THREADPARAM</span><span class="p">));</span><span class="w"></span>
-<span class="w">  </span><span class="n">strcpy</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">serverInfo</span><span class="p">.</span><span class="n">hostName</span><span class="p">,</span><span class="w"> </span><span class="n">hostName</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">strcpy</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">serverInfo</span><span class="p">.</span><span class="n">portNum</span><span class="p">,</span><span class="w"> </span><span class="n">portNum</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">tplist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tp</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tplistNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">THREADPARAM</span><span class="o">*</span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">THREADPARAM</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">THREADPARAM</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">serverInfo</span><span class="p">.</span><span class="n">hostName</span><span class="p">,</span><span class="w"> </span><span class="n">hostName</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">serverInfo</span><span class="p">.</span><span class="n">portNum</span><span class="p">,</span><span class="w"> </span><span class="n">portNum</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tplist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tp</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">attr</span><span class="p">,</span><span class="w"> </span><span class="n">thread_func</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;pthread_create&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">attr</span><span class="p">,</span><span class="w"> </span><span class="n">thread_func</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;pthread_create&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;thread %d created.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;thread %d created.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 
-<span class="c1">// スレッドの準備終了</span>
-<span class="n">isPrepared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start count down: 2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">// 1 sec</span>
-<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start count down: 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">// 1 sec</span>
+<span class="w">  </span><span class="c1">// スレッドの準備終了</span>
+<span class="w">  </span><span class="n">isPrepared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start count down: 2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">// 1 sec</span>
+<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;start count down: 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="c1">// 1 sec</span>
 
-<span class="c1">// スレッドスタート及び計測開始</span>
-<span class="n">countStart</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
-<span class="n">isRunnable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Thread Start!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// スレッドスタート及び計測開始</span>
+<span class="w">  </span><span class="n">countStart</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">isRunnable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Thread Start!!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// スレッド終了待ち</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tplistNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pthread_join</span><span class="p">(</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="nb">NULL</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;pthread_join&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// スレッド終了待ち</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tplistNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pthread_join</span><span class="p">(</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="nb">NULL</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;pthread_join&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">    </span><span class="c1">// 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））</span>
-<span class="w">    </span><span class="n">countEnd</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））</span>
+<span class="w">      </span><span class="n">countEnd</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="c1">// 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））</span>
-<span class="n">countEnd</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
-<span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））</span>
+<span class="w">  </span><span class="n">countEnd</span><span class="p">(</span><span class="n">tc</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id6">
 <h3>接続時間と送受信時間の計測<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>各スレッドにおける接続時間と送受信時間を計測しています。</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">RECONNECT_MAX</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">RECONNECT_MAX</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-<span class="w">  </span><span class="c1">// 接続時間計測開始</span>
-<span class="w">  </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 接続時間計測開始</span>
+<span class="w">    </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
 
-<span class="w">  </span><span class="c1">// サーバにソケット接続</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">csocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clientTCPSocket</span><span class="p">(</span><span class="n">si</span><span class="o">-&gt;</span><span class="n">hostName</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="o">-&gt;</span><span class="n">portNum</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;client_socket():error</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// サーバにソケット接続</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">csocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clientTCPSocket</span><span class="p">(</span><span class="n">si</span><span class="o">-&gt;</span><span class="n">hostName</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="o">-&gt;</span><span class="n">portNum</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;client_socket():error</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1">// 接続時間計測終了</span>
+<span class="w">      </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">csocket</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// connection refused ( maybe server down )</span>
+<span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;maybe server down.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// 接続時間計測終了</span>
 <span class="w">    </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">csocket</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// connection refused ( maybe server down )</span>
-<span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;maybe server down.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 実際の送受信処理の計測の前に接続確認を行う</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csocket is not connected.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 送受信時間計測開始</span>
+<span class="w">    </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 送受信処理</span>
+<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="n">ECHOBACKNUM</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failSendRecvNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 送受信時間計測終了</span>
+<span class="w">    </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ソケットクローズ</span>
+<span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">csocket</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">// 接続時間計測終了</span>
-<span class="w">  </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">// 実際の送受信処理の計測の前に接続確認を行う</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csocket is not connected.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">// 送受信時間計測開始</span>
-<span class="w">  </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">// 送受信処理</span>
-<span class="w">  </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="n">ECHOBACKNUM</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failSendRecvNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">// 送受信時間計測終了</span>
-<span class="w">  </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">// ソケットクローズ</span>
-<span class="w">  </span><span class="n">close</span><span class="p">(</span><span class="n">csocket</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

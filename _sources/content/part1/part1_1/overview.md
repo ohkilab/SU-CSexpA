@@ -1,6 +1,6 @@
-# Day1 の目標と概要
+# Day1 の目的と概要
 
--   [RaspberryPiの接続（固定IP）](./connect_raspberry.md)
+-   a) [RaspberryPiの接続（固定IP）](./connect_raspberry.md)
 
 ```{admonition} 本日の進捗確認チェックリスト
 - 13:30: RaspberryPiを起動できましたか？
