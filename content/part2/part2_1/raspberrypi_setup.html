@@ -303,11 +303,6 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../part2_4/groupreview.html">
-     グループレビュー
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../part2_4/grouppresentation.html">
      第二部グループ発表会
     </a>
@@ -761,13 +756,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id2">
 <h3>実験で利用するソフトウェアのインストール<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>第二部以降で必要になるソフトウェアは，Webサーバ，データベースサーバ，サーバサイドプログラミング言語処理系，サーバサイドプログラミング言語処理系からデータベースにアクセスするためのライブラリです．</p>
-<p>Raspbien では，これらのソフトウェアを apt を使ってインストールします．</p>
+<p>Raspbian では，これらのソフトウェアを apt を使ってインストールします．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt install apache2 apache2-doc apache2-utils　　　　　　　　　 &lt;--- WEBサーバーのインストール
 $ sudo apt install php7.3 php7.3-mysql apache2-mod-php7.3              &lt;--- PHPのインストール
 $ sudo apt install mariadb-server mariadb-client                       &lt;--- DBのインストール
 </pre></div>
 </div>
-<p>PCとRaspiを有線で直接接続している場合，RaspiはPCとは接続されていますが，インターネットに接続されていません． 色々と方法はありますが，以下，いくつかある手順で可能なものを試して実行しましょう．</p>
+<p>PCとRasPiを有線で直接接続している場合，RasPiはPCとは接続されていますが，インターネットに接続されていません． 色々と方法はありますが，以下，いくつかある手順で可能なものを試して実行しましょう．</p>
 <ul class="simple">
 <li><p>家にWiFiがある場合（かんたん）</p>
 <ul>
@@ -778,10 +773,10 @@ $ sudo apt install mariadb-server mariadb-client                       &lt;--- D
 </li>
 <li><p>モニタ・キーボード等がある場合</p>
 <ul>
-<li><p>家のルータなどに有線LANで接続，モニタ・キーボードをRaspiに接続し起動（RasPi起動前に機器を接続しておいてください）</p></li>
-<li><p>RaspiのIP設定を固定IPからDHCPへ変更する</p></li>
+<li><p>家のルータなどに有線LANで接続，モニタ・キーボードをRasPiに接続し起動（RasPi起動前に機器を接続しておいてください）</p></li>
+<li><p>RasPiのIP設定を固定IPからDHCPへ変更する</p></li>
 <li><p>インストール</p></li>
-<li><p>RaspiのIP設定をDHCPから固定IPへ戻してから，有線LANをルータから抜いて再度ノートPCと接続</p></li>
+<li><p>RasPiのIP設定をDHCPから固定IPへ戻してから，有線LANをルータから抜いて再度ノートPCと接続</p></li>
 </ul>
 </li>
 </ul>
@@ -798,7 +793,7 @@ $ sudo vi /etc/dhcpcd.conf                      &lt;---- viエディタでなく
 「Esc」押して入力モードからコマンドモードに戻ってから「:wq!」と入力してEnter押して強制保存しviエディタから抜ける
 $ sudo systemctl restart dhcpcd
 $ sudo systemctl restart networking
-$ ip a                      &lt;---- DHCPでIPアドレス割り振られているか確認し，Raspi上のWebブラウザでホームページ等も閲覧できればOK
+$ ip a                      &lt;---- DHCPでIPアドレス割り振られているか確認し，RasPi上のWebブラウザでホームページ等も閲覧できればOK
 </pre></div>
 </div>
 <ul class="simple">
@@ -850,7 +845,7 @@ To                         Action      From
 <span class="m">11111</span>/tcp <span class="o">(</span>v6<span class="o">)</span>             ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>
 </pre></div>
 </div>
-<p>（補足）IPv6を使用しない場合は /etc/default/ufw 内で IPV6=no とすると無効にすることができます</p>
+<p>（補足）IPv6を使用しない場合は <code class="docutils literal notranslate"><span class="pre">/etc/default/ufw</span></code> 内で <code class="docutils literal notranslate"><span class="pre">IPV6=no</span></code> とすると無効にすることができます</p>
 </div>
 </div>
 <div class="section" id="web-apache">
@@ -870,8 +865,8 @@ $ sudo systemctl start apache2.service
 <h3>Apacheの初期設定<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id5">
 <h4>ユーザディレクトリの設定<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<p>ここまでで確認したApache2 Debian Default PageはWebサーバ全体のページです．Webサーバ上のディレクトリでは <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code>に対応します（ただし，Apache2 Debian Default Pageはちょっと特殊なページで，<code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> に index.html がない時に自動生成されて表示されるページです）．つまり，<code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> に置かれたファイルが <a class="reference external" href="http://192.168.1.101/">http://192.168.1.101/</a> にアクセスした時に参照されることになります．</p>
-<p>また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定可能です．例えば，<a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a>にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，<a class="reference external" href="http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D">http://サーバ名/~アカウント名</a> にアクセスした時にホームディレクトリのpublic_htmlのコンテンツを表示する機能です．具体例としては，<a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a> にアクセスした時に<code class="docutils literal notranslate"><span class="pre">/home/ohki/public_html</span></code>のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ <a class="reference external" href="http://192.168.1.101/~pi/">http://192.168.1.101/~pi/</a>に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．</p>
+<p>ここまでで確認したApache2 Debian Default PageはWebサーバ全体のページです．Webサーバ上のディレクトリでは <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code>に対応します（ただし，Apache2 Debian Default Pageはちょっと特殊なページで，<code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> に <code class="docutils literal notranslate"><span class="pre">index.html</span></code> がない時に自動生成されて表示されるページです）．つまり，<code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code> に置かれたファイルが <a class="reference external" href="http://192.168.1.101/">http://192.168.1.101/</a> にアクセスした時に参照されることになります．</p>
+<p>また，Webサーバは複数ユーザが利用することを想定し，各人が自分のWebページを作成できるように設定可能です．例えば，<a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a>にアクセスした時には，アカウント:ohki のコンテンツを参照できるということです． Apacheにはこれを実現するユーザディレクトリという機能があります．この機能は，<a class="reference external" href="http://xn--vckucxg390m/~%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E5%90%8D">http://サーバ名/~アカウント名</a> にアクセスした時にホームディレクトリの<code class="docutils literal notranslate"><span class="pre">public_html</span></code>のコンテンツを表示する機能です．具体例としては，<a class="reference external" href="http://192.168.1.101/~ohki">http://192.168.1.101/~ohki</a> にアクセスした時に<code class="docutils literal notranslate"><span class="pre">/home/ohki/public_html</span></code>のコンテンツを表示することになります．試しに，ユーザー名 pi のユーザーディレクトリ <a class="reference external" href="http://192.168.1.101/~pi/">http://192.168.1.101/~pi/</a>に設定前の状態でブラウザでアクセスしてみると，以下のようにコンテンツがない，というメッセージが表示されるはずです．</p>
 <p><img alt="raspi-404.png" src="../../../_images/raspi-404.png" /></p>
 <p>ユーザディレクトリの設定をする前に，少しApacheの設定ディレクトリ <code class="docutils literal notranslate"><span class="pre">/etc/apache2</span></code> の中身をのぞいてみましょう．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls /etc/apache2
@@ -879,7 +874,7 @@ apache2.conf    conf-enabled  magic           mods-enabled  sites-available
 conf-available  envvars       mods-available  ports.conf    sites-enabled
 </pre></div>
 </div>
-<p>xxx-available や xxx-enabled というディレクトリがあるのがわかりますか？ RasPiのRaspbian OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに mods-enabled の中身を見てみましょう．</p>
+<p><code class="docutils literal notranslate"><span class="pre">xxx-available</span></code> や <code class="docutils literal notranslate"><span class="pre">xxx-enabled</span></code> というディレクトリがあるのがわかりますか？ RasPiのRaspbian OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに <code class="docutils literal notranslate"><span class="pre">mods-enabled</span></code> の中身を見てみましょう．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls -l /etc/apache2/mods-enabled/
 total <span class="m">0</span>
 lrwxrwxrwx <span class="m">1</span> root root <span class="m">36</span> Mar <span class="m">11</span> <span class="m">15</span>:37 access_compat.load -&gt; ../mods-available/access_compat.load
@@ -894,20 +889,20 @@ lrwxrwxrwx <span class="m">1</span> root root <span class="m">29</span> Mar <spa
 lrwxrwxrwx <span class="m">1</span> root root <span class="m">29</span> Mar <span class="m">11</span> <span class="m">15</span>:37 status.load -&gt; ../mods-available/status.load
 </pre></div>
 </div>
-<p>全て mods-available へのシンボリックリンクになっていることがわかりますね．つまり，それぞれの役割は</p>
+<p>全て <code class="docutils literal notranslate"><span class="pre">mods-available</span></code> へのシンボリックリンクになっていることがわかりますね．つまり，それぞれの役割は</p>
 <ul class="simple">
-<li><p>mods-available：モジュールを読み込むためのファイル，およびモジュールの設定ファイルの実体を配置</p></li>
-<li><p>mods-enabled ：mods-availableのうち有効にするモジュールへのシンボリックリンクを配置</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mods-available</span></code>：モジュールを読み込むためのファイル，およびモジュールの設定ファイルの実体を配置</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mods-enabled</span></code> ：<code class="docutils literal notranslate"><span class="pre">mods-available</span></code>のうち有効にするモジュールへのシンボリックリンクを配置</p></li>
 </ul>
 <p>となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド<code class="docutils literal notranslate"><span class="pre">a2enmod</span></code>（シンボリックリンクを作成する）および<code class="docutils literal notranslate"><span class="pre">a2dismod</span></code>（シンボリックリンクを削除する）がRaspbianには用意されていますのでこれを使いましょう．</p>
-<p>本題のユーザーディレクトリに関しては既にuserdirというモジュールがmods-availableにインストールされています．上記のa2enmodコマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．</p>
+<p>本題のユーザーディレクトリに関しては既にuserdirというモジュールが<code class="docutils literal notranslate"><span class="pre">mods-available</span></code>にインストールされています．上記の<code class="docutils literal notranslate"><span class="pre">a2enmod</span></code>コマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo a2enmod userdir
 $ sudo systemctl restart apache2
 </pre></div>
 </div>
 <p>それでは，再度ブラウザで <strong><a class="reference external" href="http://192.168.1.101/~pi">http://192.168.1.101/~pi</a></strong> にアクセスしてみましょう．</p>
 <p><img alt="raspi-forbidden.png" src="../../../_images/raspi-forbidden.png" /></p>
-<p>表示が変わりましたか？Apacheのデフォルトの設定では /home/pi/public_html 以下にユーザのコンテンツを配置するようになっていますが，public_html が存在しないためエラーが発生しています．作ってあげましょう．ついでに適当な内容のindex.htmlを作っておきます．</p>
+<p>表示が変わりましたか？Apacheのデフォルトの設定では <code class="docutils literal notranslate"><span class="pre">/home/pi/public_html</span></code> 以下にユーザのコンテンツを配置するようになっていますが，<code class="docutils literal notranslate"><span class="pre">public_html</span></code> が存在しないためエラーが発生しています．作ってあげましょう．ついでに適当な内容の<code class="docutils literal notranslate"><span class="pre">index.html</span></code>を作っておきます．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir /home/pi/public_html/
 $ <span class="nb">cd</span> /home/pi/public_html/
 $ <span class="nb">echo</span> <span class="s1">&#39;hello world&#39;</span> &gt; index.html
@@ -1031,7 +1026,7 @@ $ sudo reboot
 <ul class="simple">
 <li><p>この実験ではAriaを使用します．デフォルトのInnoDBは高機能ですが，格納データが肥大化するという問題があり，今回のような容量の小さなSDカードで大きなデータを扱う場合はSDカードの容量を使い果たしてしまう可能性があります．Ariaはトランザクションをサポートしていない等の制約はありますが，MariaDBが産んだ高機能かつ最新のストレージエンジンです．<a class="reference external" href="https://mariadb.com/kb/en/mariadb/storage-engines/">ストレージエンジンに関してはこちらを参照</a>．</p></li>
 </ul>
-<p>設定ファイル <strong>/etc/mysql/mariadb.conf.d/50-server.cnf</strong> を開き，[mysqld]の直下に<strong>default-storage-engine=Aria</strong>の行を追加しましょう．追加したらMariaDBをリスタートします．</p>
+<p>設定ファイル <code class="docutils literal notranslate"><span class="pre">/etc/mysql/mariadb.conf.d/50-server.cnf</span></code> を開き，[mysqld]の直下に<code class="docutils literal notranslate"><span class="pre">default-storage-engine=Aria</span></code>の行を追加しましょう．追加したらMariaDBをリスタートします．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/mysql/mariadb.conf.d/50-server.cnf
 </pre></div>
 </div>
@@ -1073,10 +1068,12 @@ default-storage-engine<span class="o">=</span>Aria
 </li>
 </ul>
 <p>初期化時に設定した root パスワードを使って，各ユーザとデータベースを作成します．</p>
-<p>最初のコマンド<code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">ohkiDB</span> <span class="pre">CHARACTER</span> <span class="pre">SET</span> <span class="pre">utf8;</span></code>は 文字コード <strong>utf-8</strong> のデータベース <strong>ohkiDB</strong> を作成します．
-2番目のコマンド<code class="docutils literal notranslate"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">ohkiDB.\*</span> <span class="pre">TO</span> <span class="pre">ohki&#64;localhost</span> <span class="pre">IDENTIFIED</span> <span class="pre">BY</span> <span class="pre">'difficult-password';</span></code>は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．
-3番目のコマンド <code class="docutils literal notranslate"><span class="pre">FLUSH</span> <span class="pre">PRIVILEGES;</span></code>は2番目のコマンドの結果を即時有効にするためのコマンドです．
-4番目のコマンド<code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">databases;</span></code>は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が<code class="docutils literal notranslate"><span class="pre">;</span></code>で終わることに気を付けてください．</p>
+<ul class="simple">
+<li><p>最初のコマンド<code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">ohkiDB</span> <span class="pre">CHARACTER</span> <span class="pre">SET</span> <span class="pre">utf8;</span></code>は 文字コード <strong>utf-8</strong> のデータベース <strong>ohkiDB</strong> を作成します．</p></li>
+<li><p>2番目のコマンド<code class="docutils literal notranslate"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">ohkiDB.\*</span> <span class="pre">TO</span> <span class="pre">ohki&#64;localhost</span> <span class="pre">IDENTIFIED</span> <span class="pre">BY</span> <span class="pre">'difficult-password';</span></code>は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．</p></li>
+<li><p>3番目のコマンド <code class="docutils literal notranslate"><span class="pre">FLUSH</span> <span class="pre">PRIVILEGES;</span></code>は2番目のコマンドの結果を即時有効にするためのコマンドです．</p></li>
+<li><p>4番目のコマンド<code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">databases;</span></code>は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が<code class="docutils literal notranslate"><span class="pre">;</span></code>で終わることに気を付けてください．</p></li>
+</ul>
 <p><strong>difficult-password</strong> は当然ですが，みなさん個人個人で考えた難しいパスワードを設定してください．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mysql -u root -p
 </pre></div>
