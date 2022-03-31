@@ -6,23 +6,6 @@
 
 このツールを利用することが必須ではありません．むしろ，自分の方法にあったツールを自分で探す（探す方法を確立する）方がより重要です．
 
-### TeX
-
-例えば，TeXworksは，TeXでドキュメントを作成するためのシンプルな統合環境です．macOS用の優れた統合環境であるTeXShopをモデルに，同様の環境を全てのシステム上で実現すべく開発されています．
-
-- [TeX Wiki](https://texwiki.texjp.org/)
-- [TeX Wiki: TeX入手方法](https://texwiki.texjp.org/?TeX%E5%85%A5%E6%89%8B%E6%B3%95)
-- [TeX Wiki: LaTeX入門](https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80)
-
-### 図・グラフなどの作成（TeXの場合）
-
-図・グラフなどは各自が選んだソフトウェアで作成してください．ただし，TeXに取り込む場合には eps 形式に変換する必要があります（他の形式（例えば画像形式やPDF形式）でも不可能ではないです）．
-
--   [PowerPointからTeX用のepsファイルを生成する方法](http://kano.arkoak.com/2015/09/26/eps/)
--   [Metafile to EPS Converter で Windows Metafile を EPS に変換](http://qiita.com/tubo28/items/1f8672fb164aafa9ab31)
-    -   [Meta file to EPS Converter](https://wiki.lyx.org/Windows/MetafileToEPSConverter)
--   [EPSファイルの作成方法](https://sekika.github.io/2015/10/18/eps-fig/)
-
 ### シーケンス図などの UML の図の作成
 
 シーケンス図などの UML で定義された図を作成する場合は，Illustrator や PowerPoint などのドローソフトで作成しても良いですが，モデリングツールを利用しても良いでしょう．
@@ -62,11 +45,9 @@ Illustrator や PowerPoint などのドローソフトとルータ等の機材�
 
 ### PDFの作成
 
--   MS Officeの場合
+-   MS Office
     -   直接PDFファイルをエクスポート可能です．
         -   参考: [PDFに保存または変換する](https://support.office.com/ja-jp/article/PDF-%E3%81%AB%E4%BF%9D%E5%AD%98%E3%81%BE%E3%81%9F%E3%81%AF%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B-d85416c5-7d77-4fd6-a216-6f4bf7c7c110)
--   TeXの場合
-    -   DVI形式のファイルに対して dvipdfmx コマンドを使ってPDFに変換します．
 
 ## 提出前のチェックリスト
 
