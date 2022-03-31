@@ -298,11 +298,6 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../part2_4/groupreview.html">
-     グループレビュー
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../part2_4/grouppresentation.html">
      第二部グループ発表会
     </a>
@@ -777,7 +772,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>次に，Webサーバー側へupload.phpとしてPOSTを受け取るCGIを置きます．</p>
+<p>次に，Webサーバー側へ<code class="docutils literal notranslate"><span class="pre">upload.php</span></code>としてPOSTを受け取るCGIを置きます．</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">echo</span> <span class="s1">&#39;dumping $_POST&lt;br&gt;&#39;</span><span class="p">;</span>
@@ -796,7 +791,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="post">
 <h2>POST実装について<a class="headerlink" href="#post" title="Permalink to this headline">¶</a></h2>
-<p>例えば，以下のようなpost.txtがあったとします．これを解析するプログラムを作る方法です．</p>
+<p>例えば，以下のような<code class="docutils literal notranslate"><span class="pre">post.txt</span></code>があったとします．これを解析するプログラムを作る方法です．</p>
 <div class="section" id="post-txt">
 <h3>post.txt<a class="headerlink" href="#post-txt" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">upload</span><span class="o">.</span><span class="n">php</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
@@ -838,7 +833,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>headerとbodyを分けるオートマトンは，以下のように描けます．</p>
 <p><img alt="day8_chart.jpg" src="https://www-int.ist.osaka-u.ac.jp/sarulab/user/saru/exp1/day8_chart.jpg" /></p>
-<p>このオートマトンの実装例を以下のparse_header_body.cに示します．</p>
+<p>このオートマトンの実装例を以下の<code class="docutils literal notranslate"><span class="pre">parse_header_body.c</span></code>に示します．</p>
 </div>
 <div class="section" id="parse-header-body-c">
 <h3>parse_header_body.c<a class="headerlink" href="#parse-header-body-c" title="Permalink to this headline">¶</a></h3>
@@ -946,7 +941,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="cphp">
 <h2>C言語からPHPなどを呼び出すことはできるか？<a class="headerlink" href="#cphp" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://linuxjm.osdn.jp/html/LDP_man-pages/man3/system.3.html">system()</a>を用いることで，任意のプログラムやコマンドを呼び出すことができます．</p>
-<p>例えば，以下のsystem_sample.cとtest.phpを作成して，system_sample.cをコンパイル後実行してみてください．</p>
+<p>例えば，以下の<code class="docutils literal notranslate"><span class="pre">system_sample.c</span></code>と<code class="docutils literal notranslate"><span class="pre">test.php</span></code>を作成して，<code class="docutils literal notranslate"><span class="pre">system_sample.c</span></code>をコンパイル後実行してみてください．</p>
 <div class="section" id="system-sample-c">
 <h3>system_sample.c<a class="headerlink" href="#system-sample-c" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
@@ -966,7 +961,7 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>標準出力に「hello world」が出力されたと思います．次の課題は，この結果をどのようにネットワーク越しのリモート端末へ返送するかでしょうか．</p>
-<p>system()で”php test.php &gt; tmp.html” を実行させてから，tmp.htmlを読み込んでソケットで返すなど様々な実装方法がありそうですが，<a class="reference external" href="http://linuxjm.osdn.jp/html/LDP_man-pages/man2/dup.2.html">dup2()</a>を用いると楽と思います．以下に示すdup2_sample.cをコンパイルして実行してみてください．</p>
+<p>system()で <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">test.php</span> <span class="pre">&gt;</span> <span class="pre">tmp.html</span></code> を実行させてから，<code class="docutils literal notranslate"><span class="pre">tmp.html</span></code>を読み込んでソケットで返すなど様々な実装方法がありそうですが，<a class="reference external" href="http://linuxjm.osdn.jp/html/LDP_man-pages/man2/dup.2.html">dup2()</a>を用いると楽と思います．以下に示す<code class="docutils literal notranslate"><span class="pre">dup2_sample.c</span></code>をコンパイルして実行してみてください．</p>
 </div>
 <div class="section" id="dup2-sample-c">
 <h3>dup2_sample.c<a class="headerlink" href="#dup2-sample-c" title="Permalink to this headline">¶</a></h3>

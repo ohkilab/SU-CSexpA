@@ -1,7 +1,7 @@
 # Day5の目的と概要
 
 -   a) [Raspberry Piのセットアップ](./raspberrypi_setup "Raspberry Piのセットアップ")
--   b) [Simple HTTPサーバの実装](./simplehtttpserver "Simple HTTPサーバの実装")
+-   b) [Simple HTTPサーバの実装](./simplehttpserver "Simple HTTPサーバの実装")
 -   c) [HTTPベンチマークプログラムの実装](./httpbenchmark "HTTPベンチマークプログラムの実装")（必須）
 
 ```{admonition} 本日の進捗確認チェックリスト
