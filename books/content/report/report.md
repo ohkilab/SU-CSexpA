@@ -215,7 +215,7 @@ fsへのファイルアップロードの際は各ファイルの容量を最大
 
 第三部のレポートは，以下のテンプレートを使って作成してください．
 
-- <a href="../../templates/part3/report-part3-template.docx" download>WordのPart3用テンプレート</a>
+- {download}`report-part3-template.docx<../../templates/part3/report-part3-template.docx>`
 
 以下の章構成を参考に完成させてください．目次はあくまで一例ですので，必要に応じて章節は追加して構いません．
 
