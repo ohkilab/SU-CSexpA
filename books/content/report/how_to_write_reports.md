@@ -6,29 +6,15 @@
 
 このツールを利用することが必須ではありません．むしろ，自分の方法にあったツールを自分で探す（探す方法を確立する）方がより重要です．
 
-### TeX
-
-例えば，TeXworksは，TeXでドキュメントを作成するためのシンプルな統合環境です．macOS用の優れた統合環境であるTeXShopをモデルに，同様の環境を全てのシステム上で実現すべく開発されています．
-
-- [TeX Wiki](https://texwiki.texjp.org/)
-- [TeX Wiki: TeX入手方法](https://texwiki.texjp.org/?TeX%E5%85%A5%E6%89%8B%E6%B3%95)
-- [TeX Wiki: LaTeX入門](https://texwiki.texjp.org/?LaTeX%E5%85%A5%E9%96%80)
-
-### 図・グラフなどの作成（TeXの場合）
-
-図・グラフなどは各自が選んだソフトウェアで作成してください．ただし，TeXに取り込む場合には eps 形式に変換する必要があります（他の形式（例えば画像形式やPDF形式）でも不可能ではないです）．
-
--   [PowerPointからTeX用のepsファイルを生成する方法](http://kano.arkoak.com/2015/09/26/eps/)
--   [Metafile to EPS Converter で Windows Metafile を EPS に変換](http://qiita.com/tubo28/items/1f8672fb164aafa9ab31)
-    -   [Meta file to EPS Converter](https://wiki.lyx.org/Windows/MetafileToEPSConverter)
--   [How to Convert PowerPoint Pictures for Use in LaTeX](https://www.cs.bu.edu/~reyzin/pictips.html)
-
 ### シーケンス図などの UML の図の作成
 
 シーケンス図などの UML で定義された図を作成する場合は，Illustrator や PowerPoint などのドローソフトで作成しても良いですが，モデリングツールを利用しても良いでしょう．
 
-- [Astah\* community edition](http://astah.change-vision.com/ja/product/astah-community.html)
+- [Astah\* UML](https://astah.change-vision.com/ja/product/astah-uml.html)
+  - 有料なので注意
 - [MS Visio: UML シーケンス図を作成する](https://support.office.com/ja-jp/article/UML-%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B-c61c371b-b150-4958-b128-902000133b26)
+- [GitMind](https://gitmind.com/jp/)
+  - インストールせずにブラウザ上でも使える無料ツール
 
 ### ネットワーク構成図の作成
 
@@ -36,11 +22,14 @@ Illustrator や PowerPoint などのドローソフトとルータ等の機材�
 
 - [IT エンジニア向け Visio シェイプ](http://www.microsoft.com/ja-jp/visio/free/ite.aspx)
   - MS Visio に同梱されているネットワーク関係のステンシルでも十分だが，特定メーカの機器のステンシルを使いたい場合はここからダウンロード．
-- [ネットワーク構成図を無料で作成する\[アイコン/素材\]](http://www.petitmonte.com/network/network_diagram.html)
-- [draw.io](https://www.draw.io/)
+- [draw.io(diagrams.net)](https://www.draw.io/)
   - 新規に作成するダイアグラムの種類から Network Diagram を作成
-- [blockdiag - simple diagram images generator](http://blockdiag.com/en/)
-  - テキストベースでグラフを作成するツール．ネットワーク構成図を作るには[nwdiag](http://blockdiag.com/en/nwdiag/index.html)を用いると良い．
+- [ネットワーク構成図を無料で作成する\[アイコン/素材\]](https://www.petitmonte.com/network/network_diagram.html)
+  - draw.ioとNetwork Notepadの使い方が簡単に説明されている
+- [Cacoo](https://cacoo.com/ja/)
+  - オンライン作図ツール．アカウント登録が必要なものの，100種類以上のテンプレートが搭載されており，簡単に作図が可能．
+- [Lucidchart](https://www.lucidchart.com/pages/ja/examples/network-diagram-software)
+  - ブラウザ上でネットワーク図を作れるオンラインツール．無料版では最大3つの図しかワークスペースに置けないため，注意が必要．
 
 ### スクリーンショットの撮り方
 
@@ -56,11 +45,9 @@ Illustrator や PowerPoint などのドローソフトとルータ等の機材�
 
 ### PDFの作成
 
--   MS Officeの場合
+-   MS Office
     -   直接PDFファイルをエクスポート可能です．
         -   参考: [PDFに保存または変換する](https://support.office.com/ja-jp/article/PDF-%E3%81%AB%E4%BF%9D%E5%AD%98%E3%81%BE%E3%81%9F%E3%81%AF%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B-d85416c5-7d77-4fd6-a216-6f4bf7c7c110)
--   TeXの場合
-    -   DVI形式のファイルに対して dvipdfmx コマンドを使ってPDFに変換します．
 
 ## 提出前のチェックリスト
 
@@ -145,31 +132,16 @@ Illustrator や PowerPoint などのドローソフトとルータ等の機材�
     - コメントの活用
     - 編集履歴の記録
     - アウトライン（ただし，アウトラインは，スタイルをきちんと設定していてこその機能です）
-- [Excel と Word で業務効率化！情報技術ライダー BLOG](http://siland.jp/note/word/%E6%A8%99%E6%BA%96%E3%81%AE%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%81%AE%E5%BD%B9%E5%89%B2%E3%81%A8%E3%80%81%E6%AE%B5%E8%90%BD%E3%81%8C%E4%BD%95%E3%81%8B%E3%82%92/%7C%E3%80%90%E3%83%AF%E3%83%BC%E3%83%89%E8%B6%85%E5%9F%BA%E7%A4%8E%EF%BC%91%E3%80%91%E6%A8%99%E6%BA%96%E3%81%AE%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%81%A8%E6%AE%B5%E8%90%BD%E3%82%92%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E3%81%A8%E3%83%AF%E3%83%BC%E3%83%89%E3%81%AF%E8%B6%85%E4%B8%8D%E4%BE%BF%E3%81%AA%E3%82%93%E3%81%A7%E3%81%99)
+- [Excel と Word で業務効率化！情報技術ライダー BLOG](http://siland.jp/note/category/word-basis/)
+    - 書かれている4記事すべて参考になります
 - [Word（ワード）で引用文献や参考文献を挿入、管理する方法](https://prau-pc.jp/word/insert-citation/)
-
-## 補足：Teams 課題機能によるレポート提出方法
-
-![teams report 001.png](../../images/report/how_to_write_reports/600px-teams_report_001.png)
-
-左側のタブから「課題」を選択し，「割り当て済み」の課題から対象のレポートを選択します
-
-![teams report 002.png](../../images/report/how_to_write_reports/600px-teams_report_002.png)
-
-「作業の追加」をクリックして提出するファイルをアップロードします．
-
-![teams report 003.png](../../images/report/how_to_write_reports/600px-teams_report_003.png)
-
-ファイルがアップロードされていることを確認したら，右上の「提出」ボタンをクリックします
-
-![teams report 004.png](../../images/report/how_to_write_reports/600px-teams_report_004.png)
-
-右上の提出ボタンが「提出を取り消す」に変わって，提出日時が表示されていたら提出完了です．
+- [仕事効率をアップさせる「Word」の便利機能7選](https://www.bcnretail.com/market/detail/20220113_262040.html)
+- [作業効率アップ！Wordショートカットキー75選](https://business-textbooks.com/word75shortcutkey/)
+    - ショートカットを極めたい人におすすめ
 
 ## 参考文献
 
 - [日本語の作文技術 (朝日文庫): 本多 勝一](https://www.amazon.co.jp/dp/4022608080/)
 - [【2019 年版】APA スタイルでの参考文献の書き方と引用の仕方](https://studyusa-log.com/apa-style-citation)
 - [APA Style Introduction](https://owl.purdue.edu/owl/research_and_citation/apa6_style/apa_style_introduction.html)
-- [参考文献の役割と書き方(SIST)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&ved=0ahUKEwi927ShrdLaAhXKH5QKHYXYDqcQFghbMAM&url=https%3A%2F%2Fjipsti.jst.go.jp%2Fsist%2Fpdf%2FSIST_booklet2011.pdf&usg=AOvVaw0KygsN7cVz5UnIJoRTU22f)
 - [\[改訂第7版］LaTeX2ε美文書作成入門](http://gihyo.jp/book/2017/978-4-7741-8705-1)
