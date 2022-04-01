@@ -934,7 +934,8 @@ $ mysql -u root -p
 </pre></div>
 </div>
 <p>ここで，もし<strong>MariaDBのrootのパスワードが不明な場合</strong>は，以下の手順で再設定してください．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># MariaDBのサービスを停める</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&lt;pre&gt;
+<span class="c1"># MariaDBのサービスを停める</span>
 $ sudo systemctl stop mariadb.service
 
 <span class="c1"># MariaDBをセーフモードで立ち上げる</span>
@@ -963,7 +964,7 @@ $ sudo reboot
 <p>ここでは，静岡県の郵便番号リストの登録されたデータベースを作成し，入力した住所の郵便番号を返すようなWebアプリケーションを実装してみましょう．例えば，Webブラウザ上で「城北」と入力すると，住所に城北を含んだ郵便番号のリストが結果のWebページに表示されるというイメージです．</p>
 <div class="section" id="id3">
 <h3>静岡県の郵便番号一覧をダウンロード<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>郵便番号のリストは，<a class="reference external" href="http://www.post.japanpost.jp/zipcode/download.html">ゆうちょのページ</a>で公開されています．ただし，半角カタカナだったり，特に今回は不要なフィールドが含まれていたりしますので，静岡県の郵便番号と住所を「,」で区切ったデータのみを抽出し，以下のGitリポジトリへ<code class="docutils literal notranslate"><span class="pre">zip-shizuoka.csv</span></code>というファイルで置いておきました．</p>
+<p>郵便番号のリストは，<a class="reference external" href="http://www.post.japanpost.jp/zipcode/download.html">ゆうちょのページ</a>で公開されています．ただし，半角カタカナだったり，特に今回は不要なフィールドが含まれていたりしますので，静岡県の郵便番号と住所を「,」で区切ったデータのみを抽出し，以下のGitリポジトリへ<strong>zip-shizuoka.csv</strong>というファイルで置いておきました．</p>
 <ul class="simple">
 <li><p>GitHubリポジトリ <a class="reference external" href="https://github.com/ohkilab/SU-CSexpA-02">https://github.com/ohkilab/SU-CSexpA-02</a></p></li>
 </ul>
@@ -1048,7 +1049,7 @@ $ sudo reboot
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>CSVファイルのパス（上記例だと<code class="docutils literal notranslate"><span class="pre">/path/import.csv</span></code>）は，git cloneをホームディレクトリで実行したなら<code class="docutils literal notranslate"><span class="pre">/home/各自のアカウント名/CSexp1-02/zip-shizuoka.csv</span></code>というような感じ</p></li>
+<li><p>CSVファイルのパス（上記例だと”/path/import.csv”）は，git cloneをホームディレクトリで実行したなら”/home/各自のアカウント名/CSexp1-02/zip-shizuoka.csv”というような感じ</p></li>
 <li><p><strong>table_name</strong>はこの課題では，zipShizuoka</p></li>
 </ul>
 <p>パスやテーブル名は，皆さんの環境に合わせて修正してください．ここで，CSVファイルのパスは，<strong>絶対パス</strong>で記述しましょう．相対パスでも書けますが，MySQLのデータファイルのある位置からの相対パスとなりますので，なかなか期待通りには書けないと思いますから．</p>

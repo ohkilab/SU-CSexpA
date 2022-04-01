@@ -32,9 +32,9 @@ eventは，workerの一種でマルチスレッドで動作する．workerとの
 
 #### ＜Raspbian OSは以下の手順＞
 
-Apacheでは一般的に，設定は `/etc/apache2/apache2.conf` や `/etc/apache2/httpd.conf` に記述しますが，複数のモジュールを使うとこれらの設定ファイルが長くなりすぎて理解困難になってしまいます．そこで最近は，`/etc/apache2/conf-enabled` や `/etc/apache2/modes-enabled` 等のディレクトリ配下に読み込ませたい設定ファイルを用意した上でApacheを起動させればよいようになっています．以下に基本的な流れを説明しておきます．
+Apacheでは一般的に，設定は /etc/apache2/apache2.conf や /etc/apache2/httpd.conf に記述しますが，複数のモジュールを使うとこれらの設定ファイルが長くなりすぎて理解困難になってしまいます．そこで最近は，/etc/apache2/conf-enabled や /etc/apache2/modes-enabled 等のディレクトリ配下に読み込ませたい設定ファイルを用意した上でApacheを起動させればよいようになっています．以下に基本的な流れを説明しておきます．
 
-まず，必要なモジュールをインストールすると，設定ファイルは `/etc/apache2/modes-available` に「モジュール名.load や モジュール名.conf」として用意されます．ここで，インストールできるモジュールリストは以下のコマンドで確認でき，インストールもできます．
+まず，必要なモジュールをインストールすると，設定ファイルは /etc/apache2/modes-available に「モジュール名.load や モジュール名.conf」として用意されます．ここで，インストールできるモジュールリストは以下のコマンドで確認でき，インストールもできます．
 
 ```sh
 $ apt search libapache2-mod                            <----- モジュールリストの確認
@@ -92,7 +92,7 @@ $ sudo systemctl status php7.3-fpm
 $ apache2ctl -M
 ```
 
-以前作成した以下の `index.php` をWebブラウザで表示（`localhost/~pi/index.php` 等）したときに，「Server API: FPM/FastCGI」というような表示が出ればOKです．
+以前作成した以下の index.php をWebブラウザで表示（localhost/~pi/index.php 等）したときに，「Server API: FPM/FastCGI」というような表示が出ればOKです．
 
 ```php
 <?php
@@ -114,7 +114,7 @@ $ sudo a2enmod userdir
 $ sudo systemctl restart apache2
 ```
 
-これで，`localhost/~pi` 等へアクセスして `index.html`が表示されたら，上記のMPMの内容を再度試してみてください．
+これで，localhost/~pi 等へアクセスして index.html が表示されたら，上記のMPMの内容を再度試してみてください．
 
 #### ＜Fedora OSは以下の手順＞
 
@@ -152,7 +152,7 @@ LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
 
 ## 性能計測のコツ
 
-性能計測でまず気になるのは，「**どの程度の同時接続数までエラーなく処理できるか？**」です．そのため，まずは`ab`のパラメータを大まかに変えながら「**処理しきれなくなるポイント**」あるいは「**性能が大きく低下するポイント**」を探りましょう．大まかな感触を得られたら，その周辺の負荷でパラメータを細かく変えながら詳細な性能曲線を探っていきましょう．
+性能計測でまず気になるのは，「**どの程度の同時接続数までエラーなく処理できるか？**」です．そのため，まずはabのパラメータを大まかに変えながら「**処理しきれなくなるポイント**」あるいは「**性能が大きく低下するポイント**」を探りましょう．大まかな感触を得られたら，その周辺の負荷でパラメータを細かく変えながら詳細な性能曲線を探っていきましょう．
 
 ```sh
 ab -n 1000 -c 100 →リクエスト正常終了（Requests per second 36.74)
@@ -172,7 +172,7 @@ ab -n 10000 -c 1000 →リクエスト失敗（apr_recv : Connection timed out)
 
 ### ＜Raspbian OSの場合＞
 
-`/etc/apache2/mods-available` ディレクトリ配下にある `mpm_event.conf` や `mpm_prefork.conf` や `mpm_worker.conf` の設定を変更し，各モジュールを有効化して試してみてください．
+/etc/apache2/mods-available ディレクトリ配下にある mpm\_event.conf や mpm\_prefork.conf や mpm\_worker.conf の設定を変更し，各モジュールを有効化して試してみてください．
 
 Apache MPM（Apache公式ページの解説）
 

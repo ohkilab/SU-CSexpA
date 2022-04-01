@@ -49,6 +49,7 @@ $ mysql -u root -p
 ここで，もし**MariaDBのrootのパスワードが不明な場合**は，以下の手順で再設定してください．
 
 ```sh
+<pre>
 # MariaDBのサービスを停める
 $ sudo systemctl stop mariadb.service
 
@@ -79,7 +80,7 @@ $ sudo reboot
 
 ### 静岡県の郵便番号一覧をダウンロード
 
-郵便番号のリストは，[ゆうちょのページ](http://www.post.japanpost.jp/zipcode/download.html)で公開されています．ただし，半角カタカナだったり，特に今回は不要なフィールドが含まれていたりしますので，静岡県の郵便番号と住所を「,」で区切ったデータのみを抽出し，以下のGitリポジトリへ`zip-shizuoka.csv`というファイルで置いておきました．
+郵便番号のリストは，[ゆうちょのページ](http://www.post.japanpost.jp/zipcode/download.html)で公開されています．ただし，半角カタカナだったり，特に今回は不要なフィールドが含まれていたりしますので，静岡県の郵便番号と住所を「,」で区切ったデータのみを抽出し，以下のGitリポジトリへ**zip-shizuoka.csv**というファイルで置いておきました．
 
 - GitHubリポジトリ [https://github.com/ohkilab/SU-CSexpA-02](https://github.com/ohkilab/SU-CSexpA-02)
 
@@ -149,7 +150,7 @@ MySQLのプロンプトが返ってきたら，SQLコマンドを受け付ける
 > load data local infile "/path/import.csv" into table table_name fields terminated by ',' lines terminated by '\r\n';
 ```
 
--   CSVファイルのパス（上記例だと`/path/import.csv`）は，git cloneをホームディレクトリで実行したなら`/home/各自のアカウント名/CSexp1-02/zip-shizuoka.csv`というような感じ
+-   CSVファイルのパス（上記例だと"/path/import.csv"）は，git cloneをホームディレクトリで実行したなら"/home/各自のアカウント名/CSexp1-02/zip-shizuoka.csv"というような感じ
 -   **table\_name**はこの課題では，zipShizuoka
 
 パスやテーブル名は，皆さんの環境に合わせて修正してください．ここで，CSVファイルのパスは，**絶対パス**で記述しましょう．相対パスでも書けますが，MySQLのデータファイルのある位置からの相対パスとなりますので，なかなか期待通りには書けないと思いますから．

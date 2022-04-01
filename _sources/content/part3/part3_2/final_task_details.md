@@ -51,9 +51,9 @@ display_errors = On
 -   [geotag.zip](https://exp1.inf.shizuoka.ac.jp/shizudai-only/part3/geotag.zip)（約439MB）（静大のネットワークからのみアクセス可能）
 -   `\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験I\\第三部サンプルデータ\\geotag.zip`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
 
-どちらも同じファイルなので，可能な方法でダウンロードしてください．解凍すると`geotag.csv` (約1.1GB)と`tag.csv` (約445MB)の2つのファイルが入っています．
+どちらも同じファイルなので，可能な方法でダウンロードしてください．解凍するとgeotag.csv (約1.1GB)とtag.csv (約445MB)の2つのファイルが入っています．
 
-※ パケット容量制限等でどうしてもダウンロードが難しい方はUSBメモリ等でお渡ししますのでSlackにてご相談ください
+※ パケット容量制限等でどうしてもダウンロードが難しい方はUSBメモリ等でお渡ししますのでTeamsにてご相談ください
 
 #### geotag.csvの概要
 
@@ -84,7 +84,7 @@ Flickrで共有されている**撮影位置の緯度経度**の付いた写真1
 
 #### tag.csvの概要
 
-`geotag.csv`に含まれる画像へ付与されているタグのリストになります．IDの重複は許しており，タグ毎に一行となっています．
+geotag.csvに含まれる画像へ付与されているタグのリストになります．IDの重複は許しており，タグ毎に一行となっています．
 
 ```{list-table} tagの概要
 :header-rows: 1
@@ -229,7 +229,7 @@ CREATE INDEX i_time USING BTREE ON geotag(time);
 CREATE INDEX i_tag USING BTREE ON tag(tag);
 ```
 
-ここで，最後の **CREATE INDEX i\_tag USING BTREE ON tag(tag);** を実行すると「ERROR 1238 (HY000): Variable 'innodb\_large\_prefix' is a read only variable」というエラーが発生するかもしれません．皆さんに最初に設定してもらったデフォルトストレージエンジン Aria の制約となります．ストレージエンジンを InnoDBに変更すれば，innodb\_large\_prefix を設定できるようになりますので興味ある方は試してみてください（ストレージエンジンの変更にはそこそこ時間を要しますので）．
+ここで，最後の「CREATE INDEX i\_tag USING BTREE ON tag(tag);」を実行すると「ERROR 1238 (HY000): Variable 'innodb\_large\_prefix' is a read only variable」というエラーが発生するかもしれません．皆さんに最初に設定してもらったデフォルトストレージエンジン Aria の制約となります．ストレージエンジンを InnoDBに変更すれば，innodb\_large\_prefix を設定できるようになりますので興味ある方は試してみてください（ストレージエンジンの変更にはそこそこ時間を要しますので）．
 
 ```mysql
 mysql > show enginescreate table テーブル名;                 # ストレージエンジン（Engine）を確認
@@ -272,7 +272,7 @@ use CSexp1DB;
 
 ここで，任意のタグは静的にハードコーティングするのではなく，Webブラウザの検索フォームからユーザが指定できるよう実装してください．
 
-イメージを掴みやすくなるようこれから実装するprogA（実装A）～C（実装C）を呼び出すための共通の`index.html`を用意しました．以下のgitリポジトリからサンプルプログラム（`index.html`, `progA.php`, `progB.php`, `progC.php`の４つ）をcloneしてください．これら`progA.php`（実装A）, `progB.php`（実装B）, `progC.php`（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザで`index.html`を表示し，どのような構造になっているか動作を確認してみてください．
+イメージを掴みやすくなるようこれから実装するprogA（実装A）～C（実装C）を呼び出すための共通のindex.htmlを用意しました．以下のgitリポジトリからサンプルプログラム（index.html, progA.php, progB.php, progC.phpの４つ）をcloneしてください．これらprogA.php（実装A）, progB.php（実装B）, progC.php（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザでindex.htmlを表示し，どのような構造になっているか動作を確認してみてください．
 
 
 - [https://github.com/ohkilab/SU-CSexpA-Last](https://github.com/ohkilab/SU-CSexpA-Last)
@@ -294,10 +294,10 @@ use CSexp1DB;
 
 【仕様】
 
--   `progA.php`として実装すること
+-   progA.phpとして実装すること
 
 ```{hint}
-- ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（`index.html`でその設定はすでにされています）．
+- ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（index.htmlでその設定はすでにされています）．
 - インデックスのような機能を独自実装してくれて構いません．
 
 - PHPのみで全ての機能を実装する必要はありません．以下の関数を用いるとPHPから実行形式のファイルを実行できます．
@@ -316,13 +316,13 @@ use CSexp1DB;
 
 【仕様】
 
--   `progB.php`として実装すること
+-   progB.phpとして実装すること
 -   データベースを使用すること（ただし**i\_tag**インデックスを使用してはいけない）
 
 
 ```{hint}
 - 「i\_tag」インデックスを使用しない設定は，**SELECT \* FROM tag IGNORE INDEX(i\_tag) WHERE tag like 'beach';**
-- ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（`index.html`でその設定はすでにされています）．
+- ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（index.htmlでその設定はすでにされています）．
 - 「任意のタグに合致する写真のリスト」は，SELECT文1文で実現できますが，インデックスを使用しない場合，クエリを分割したり，一部をSQLではなくプログラム側で処理するというような構造も効果的かもしれません．
 ```
 
@@ -334,13 +334,13 @@ use CSexp1DB;
 
 【仕様】
 
--   `progC.php`として実装すること
+-   progC.phpとして実装すること
 -   データベースならびにインデックスを使用すること
 
 
 ```{hint}
 - SELECT文から「**IGNORE INDEX**」を削除するだけで構いません．
-- ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（`index.html`でその設定はすでにされています）．
+- ユーザが入力したタグは，$\_REQUEST\["tag"\]に入っています（index.htmlでその設定はすでにされています）．
 ```
 
 

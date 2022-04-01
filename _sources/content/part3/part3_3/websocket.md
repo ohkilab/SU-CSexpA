@@ -49,19 +49,19 @@ node.jsからMySQLへアクセスしたい場合は，MySQLモジュールを使
 
 [https://npmjs.org/](https://npmjs.org/)
 
-検索窓に「**MySQL**」と入力して探してみましょう．結果がたくさん出てきたと思います．`node`に限りませんが，同じ目的を達成するためのモジュールを様々な人が実装してくれています（中には正常に動作しない中途半端なものや意図せぬ動作が埋め込まれたものもありますのでご注意ください）．
+検索窓に「**MySQL**」と入植して探してみましょう．結果がたくさん出てきたと思います．nodeに限りませんが，同じ目的を達成するためのモジュールを様々な人が実装してくれています（中には正常に動作しない中途半端なものや意図せぬ動作が埋め込まれたものもありますのでご注意ください）．
 
-一般的には，評価の高いモジュールや最初に出てきたモジュールを使用することが多いです．とりあえず今回は，最初に出てきた「[MySQL](https://npmjs.org/package/mysql)」というものを使用してみましょう．インストール方法もそのページに記載されていますので進めてみてください．サンプルコードもありますので，それらも参考に自分なりにプログラムを作成してみるとよいと思います．
+一般的には，評価の高いモジュールや最初に出てきたモジュールを使用することが多いです．とりあえず今回は，最初に出てきた「[mysql](https://npmjs.org/package/mysql)」というものを使用してみましょう．インストール方法もそのページに記載されていますので進めてみてください．サンプルコードもありますので，それらも参考に自分なりにプログラムを作成してみるとよいと思います．
 
 WebSocketを用いた通信プログラムの第一歩としてチャットプログラムが代表的です．以下のgitリポジトリにサンプルコードがありますのでダウンロードして試してみてください．
 
-- [https://github.com/ohkilab/SU-CSexpA-04](https://github.com/ohkilab/SU-CSexpA-04)
+[https://github.com/ohkilab/SU-CSexpA-04](https://github.com/ohkilab/SU-CSexpA-04)
 
-ダウンロードすると`chat.html`と`chat.js`というファイルがあります．htmlファイルがクライアント，jsファイルがサーバです．htmlもプログラム自体は，JavaScriptで書かれていますので，サーバとクライアントの両方がJavaScriptで書かれているということになります．
+ダウンロードすると**chat.html**と**chat.js**というファイルがあります．htmlファイルがクライアント，jsファイルがサーバです．htmlもプログラム自体は，JavaScriptで書かれていますので，サーバとクライアントの両方がJavaScriptで書かれているということになります．
 
 まず，両方のファイルをテキストエディタで開いてポート番号の記載がどうなっているか確認してください．**10080**以外を使用したい人は，両ファイルの該当箇所を修正してください．
 
-修正が終わったら，htmlファイルをWebサーバのディレクトリへコピーし，jsファイルを`node`実行用に作成したディレクトリへコピーしてください．次に，サーバを起動します．JavaScriptはスクリプトですから，インタプリタを通して起動します．今回使用するインタプリタは，`node`です．以下のようにサーバ用スクリプト`chat.js`を起動させてください．
+修正が終わったら，htmlファイルをWebサーバのディレクトリへコピーし，jsファイルをnode実行用に作成したディレクトリへコピーしてください．次に，サーバを起動します．JavaScriptはスクリプトですから，インタプリタを通して起動します．今回使用するインタプリタは，**node**です．以下のようにサーバ用スクリプト**chat.js**を起動させてください．
 
 ```sh
 $ cp chat.js ~/node　　　　　　　# <--- サーバ用スクリプトchat.jsをコピー
@@ -70,7 +70,7 @@ $ cd ~/node
 $ node chat.js                   # <--- サーバ用スクリプトchat.jsの起動
 ```
 
-これで準備が整いましたので，Webブラウザで`chat.html`へアクセスしてみてください．チャットプログラムですので，Webブラウザを複数起動させたり複数人で試してみたりしてください．以下のようにチャットできれば成功です．ちなみに**Internetへ接続していないと正常に動作しません**のでご注意ください（`chat.html`の5行目でajax.googleapiを参照してますので）．
+これで準備が整いましたので，Webブラウザでchat.htmlへアクセスしてみてください．チャットプログラムですので，Webブラウザを複数起動させたり複数人で試してみたりしてください．以下のようにチャットできれば成功です．ちなみに**Internetへ接続していないと正常に動作しません**のでご注意ください（chat.htmlの5行目でajax.googleapiを参照してますので）．
 
 ![chat.jpg](../../../images/part3/part3_3/chat.jpeg)
 
@@ -80,129 +80,154 @@ $ node chat.js                   # <--- サーバ用スクリプトchat.jsの起
 ### サーバ側（chat.js）
 
 ```js
-// Cのincludeと同様に，外部モジュールを読み込みます
 var WebSocketServer = require('websocket').server;
 var http = require('http');
 
 //クライアントと同じポートを指定しなければいけません。(10080以外のポートを使っている人はここの値を変えてください)
 var port = 10080;
 
-// WebSocketは，HTTPサーバとして接続を受け付けた後にプロトコルをWebSocketに変更するため，まずはHTTPサーバを作成します
-var server = http.createServer(function (request, response) {
-  console.log((new Date()) + ' Received request for ' + request.url);
-  response.writeHead(404);
-  response.end();
+var server = http.createServer(function(request, response) {
+    console.log((new Date()) + ' Received request for ' + request.url);
+    response.writeHead(404);
+    response.end();
 });
-server.listen(port, function () {
-  console.log((new Date()) + ' Server is listening on port ' + port);
+server.listen(port, function() {
+    console.log((new Date()) + ' Server is listening on port '+port);
 });
-
-// WebSocketサーバを立ち上げるための定形処理です
 
 wsServer = new WebSocketServer({
-  httpServer: server,
-  autoAcceptConnections: false
+    httpServer: server,
+    autoAcceptConnections: false
 });
 
 function originIsAllowed(origin) {
   return true;
 }
 
-// 接続クライアントを管理するための連想配列を定義しています
-
 var connections = {};
 var connectionIDCounter = 0;
 
-// クライアントからの接続要求が届いたときに呼び出されます
-wsServer.on('request', function (request) {
-  // 定形処理です
-  if (!originIsAllowed(request.origin)) {
-    request.reject();
-    console.log((new Date()) + ' Connection from origin ' + request.origin + ' rejected.');
-    return;
-  }
-  // その時点で接続している全クライアントへデータを送るための関数の定義です
-  var sendUTFAll = function (msg) {
-    Object.keys(connections).forEach(function (key) {
-      console.log("key:" + key);
-      connections[key].sendUTF(msg);
-    });
-  }
-  // クライアントの接続を受け付ける定形処理です
-  var sendBinaryAll = function (msg) {
-    Object.keys(connections).forEach(function (key) {
-      connections[key].sendBinary(msg);
-    });
-  }
-  var connection = request.accept('chat', request.origin);
-  connection.id = connectionIDCounter++;
-  connections[connection.id] = connection;
-  console.log((new Date()) + ' Connection ID ' + connection.id + ' accepted.');
-  // クライアントからデータが届いた時に呼ばれる関数で，内部では単に届いた文字列を全クライアントへ送り返しているだけです
-  connection.on('message', function (message) {
-    if (message.type === 'utf8') {
-      console.log('Received Message: ' + message.utf8Data);
-      sendUTFAll(message.utf8Data);
+wsServer.on('request', function(request) {
+    if (!originIsAllowed(request.origin)) {
+      request.reject();
+      console.log((new Date()) + ' Connection from origin ' + request.origin + ' rejected.');
+      return;
     }
-    else if (message.type === 'binary') {
-      console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
-      sendBytesAll(message.binaryData);
+    var sendUTFAll = function(msg){
+        Object.keys(connections).forEach(function(key){
+            console.log("key:"+key);
+            connections[key].sendUTF(msg);
+        });
     }
-  });
-  // クライアントとの接続を閉じた時に呼ばれる関数で，connections連想配列から自分自身を削除しています
-  connection.on('close', function (reasonCode, description) {
-    console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected. ' +
-      "Connection ID: " + connection.id);
-    delete connections[connection.id];
-  });
+    var sendBinaryAll = function(msg){
+        Object.keys(connections).forEach(function(key){
+            connections[key].sendBinary(msg);
+        });
+    }
+    var connection = request.accept('chat', request.origin);
+    connection.id = connectionIDCounter ++;
+    connections[connection.id] = connection;
+    console.log((new Date()) + ' Connection ID ' + connection.id + ' accepted.');
+    connection.on('message', function(message) {
+        if (message.type === 'utf8') {
+            console.log('Received Message: ' + message.utf8Data);
+            sendUTFAll(message.utf8Data);
+        }
+        else if (message.type === 'binary') {
+            console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
+            sendBytesAll(message.binaryData);
+        }
+    });
+    connection.on('close', function(reasonCode, description) {
+        console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected. ' +
+                    "Connection ID: " + connection.id);
+        delete connections[connection.id];
+    });
 });
 ```
 
-このサーバプログラムは，基本的にはechoプログラムです．ポート10080に接続したクライアントから届いた文字列を，そのまま接続されている他の全クライアントへ送信しています．コメントアウトにメモを載せておきますので，参考にしながらソースコードを読んでみてください．
+このサーバプログラムは，基本的にはechoプログラムです．ポート10080に接続したクライアントから届いた文字列を，そのまま接続されている他の全クライアントへ送信しています．以下にソースコードのメモを載せておきますので，参考にしながらソースコードを読んでみてください．
+
+-   1～2行目
+    -   Cのincludeと同様に，外部モジュールを読み込みます
+-   5行目
+    -   使用したいポートに合わせて修正してください
+-   7～14行目
+    -   WebSocketは，HTTPサーバとして接続を受け付けた後にプロトコルをWebSocketに変更するため，まずはHTTPサーバを作成します
+-   16～23行目
+    -   WebSocketサーバを立ち上げるための定形処理です
+-   25～26行目
+    -   接続クライアントを管理するための連想配列を定義しています
+-   28～行目
+    -   クライアントからの接続要求が届いたときに呼び出されます
+-   29～33行目
+    -   定形処理です
+-   34～44行目
+    -   その時点で接続している全クライアントへデータを送るための関数の定義です
+-   45～48行目
+    -   クライアントの接続を受け付ける定形処理です
+-   49～58行目
+    -   クライアントからデータが届いた時に呼ばれる関数で，内部では単に届いた文字列を全クライアントへ送り返しているだけです
+-   59～63行目
+    -   クライアントとの接続を閉じた時に呼ばれる関数で，connections連想配列から自分自身を削除しています
 
 ### クライアント側（chat.html）
 
 HTML全体を引用すると長いため，JavaScript部分だけ説明します（なお，ライブラリにjQueryを使ってます）
 
 ```js
-// jQueryの機能で，ページ全体がWebブラウザにロードされたタイミングでこの中のコードが実行されます
-$(document).ready(function () {
+$(document).ready(function(){
   //サーバと同じポートを指定しなければいけません。(10080以外のポートを使っている人はここの値を変えてください)
-  var port = 10080;
+	var port = 10080;
 
-  console.log("ready");
-  // WebSocketサーバのURLを指定してください
-  var ws = new WebSocket('ws://192.168.111.200:' + port + '/', ["chat"]);
-  // voiceというidを持つフォームが登録されたとき，つまりボタンが押されるか入力フォームでエンターキーが押されると，ここが実行されます
-  $("#voice").submit(function () {
-    // 名前のテキストフィールドが空欄の場合は適当に名前を付けます
-    if ($("#name").val() == "") {
-      $("#name").val("匿名さん" + Math.round(Math.random() * 1000));
-    }
-    // 発言のフィールドが空欄の場合は何もしないで処理を返します
-    if ($("#message").val() == "") {
-      return false;
-    }
-    // サーバに送るデータを作っており，名前と発言と発言時刻からなるJavaScriptの連想配列にします
-    var date = new Date();
-    date = date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日　" + date.getHours() + "時" + date.getMinutes() + "分" + date.getSeconds() + "秒";
-    var msg = {
-      "name": $("#name").val(),
-      "message": $("#message").val(),
-      "time": date
-    };
-    console.log("I said '" + $("#message").val() + "'");
-    // 発言のテキストフィールドを空欄にして，フォーカス（カーソル点滅）させます
-    $("#message").val("");
-    $("#message").focus();
-    // 連想配列をJSON（文字列）に変換してサーバへ送信します（[JSON](http://ja.wikipedia.org/wiki/JavaScript_Object_Notation)とは，JavaScriptのサブセットの文法を持つデータ記述言語でJavaScriptとの親和性が非常に高いのが特徴です）
-    ws.send(JSON.stringify(msg));
-    return false;
-  });
-  // サーバからデータが送信された時にここが実行され，ここではテーブルの先頭（ヘッダ行の直後）に発言の行を挿入しています
-  ws.onmessage = function (event) {
-    var data = JSON.parse(event.data);
-    $("#chat").after("<tr><td>" + data["name"] + "</td><td>" + data["message"] + "</td><td>" + data["time"] + "</td></tr>");
-  }
+	console.log("ready");
+	var ws = new WebSocket('ws://192.168.111.200:'+port+'/',["chat"]);
+	$("#voice").submit(function(){
+		if($("#name").val()==""){
+			$("#name").val("匿名さん"+Math.round(Math.random()*1000));
+		}
+		if($("#message").val() == ""){
+			return false;
+		}
+		var date = new Date();
+		date = date.getFullYear() +"年"+date.getMonth()+"月"+date.getDate()+"日　"+date.getHours()+"時"+date.getMinutes()+"分"+date.getSeconds()+"秒";
+		var msg = {
+			"name":$("#name").val(),
+			"message":$("#message").val(),
+			"time":date
+		};
+		console.log("I said '"+$("#message").val()+"'");
+		$("#message").val("");
+		$("#message").focus();
+		ws.send(JSON.stringify(msg));
+		return false;
+	});
+	ws.onmessage = function(event) {
+		var data = JSON.parse(event.data);
+		$("#chat").after("<tr><td>"+data["name"]+"</td><td>"+data["message"]+"</td><td>"+data["time"]+"</td></tr>");
+	}
 });
 ```
+
+
+
+-   1行目～
+    -   jQueryの機能で，ページ全体がWebブラウザにロードされたタイミングでこの中のコードが実行されます
+-   3行目
+    -   使用したいポートに合わせて修正してください
+-   6行目
+    -   WebSocketサーバのURLを指定してください
+-   7行目～
+    -   voiceというidを持つフォームが登録されたとき，つまりボタンが押されるか入力フォームでエンターキーが押されると，ここが実行されます
+-   8～10行目
+    -   名前のテキストフィールドが空欄の場合は適当に名前を付けます
+-   11～13行目
+    -   発言のフィールドが空欄の場合は何もしないで処理を返します
+-   14～20行目
+    -   サーバに送るデータを作っており，名前と発言と発言時刻からなるJavaScriptの連想配列にします
+-   22～23行目
+    -   発言のテキストフィールドを空欄にして，フォーカス（カーソル点滅）させます
+-   24行目
+    -   連想配列をJSON（文字列）に変換してサーバへ送信します（[JSON](http://ja.wikipedia.org/wiki/JavaScript_Object_Notation)とは，JavaScriptのサブセットの文法を持つデータ記述言語でJavaScriptとの親和性が非常に高いのが特徴です）
+-   27～29行目
+    -   サーバからデータが送信された時にここが実行され，ここではテーブルの先頭（ヘッダ行の直後）に発言の行を挿入しています
