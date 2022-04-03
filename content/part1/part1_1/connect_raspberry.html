@@ -1020,7 +1020,7 @@ $ sudo apt upgrade
 <div class="section" id="vm">
 <h3>VMのネットワーク設定<a class="headerlink" href="#vm" title="Permalink to this headline">¶</a></h3>
 <p>VirtualBoxを開いて，事前準備で構築したVMを選択し，設定を開きます．</p>
-<p>ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は<a class="reference external" href="./connect_raspberry.html#windows">Windowsのネットワークアダプタ設定</a>で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」ではない方を選択してください．</p>
+<p>ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は<a class="reference external" href="./connect_raspberry.html#windows">Windowsのネットワークアダプタ設定</a>で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」<strong>ではない方</strong>を選択し,OKを押してください．</p>
 <p><img alt="vm-network-setting1.png" src="../../../_images/vm-network-setting1.png" /></p>
 <p>次に選択したVMを起動し，右上のメニューをクリックして有線接続中＞有線設定を選択してください．（有線接続中ではなく，有線オフの場合もあります）</p>
 <p><img alt="vm-network-setting2.png" src="../../../_images/vm-network-setting2.png" /></p>
@@ -1028,7 +1028,7 @@ $ sudo apt upgrade
 <p><img alt="vm-network-setting3.png" src="../../../_images/vm-network-setting3.png" /></p>
 <p>IPv4&gt;リンクローカルのみにチェックを入れ，適用を押してください．</p>
 <p><img alt="vm-network-setting4.png" src="../../../_images/vm-network-setting4.png" /></p>
-<p>設定適用までしばらく時間がかかりますが，ターミナルで<code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">a</span></code>を打ち込み，下記のように169．254から始まるアドレスが確認できればれば設定完了です．</p>
+<p>設定適用までしばらく時間がかかりますが，ターミナルで<code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">a</span></code>を打ち込み，下記のように<code class="docutils literal notranslate"><span class="pre">169.254</span></code>から始まるアドレスが確認できれば設定完了です．</p>
 <p><img alt="vm-network-setting5.png" src="../../../_images/vm-network-setting5.png" /></p>
 </div>
 <div class="section" id="vm-raspberrypi">
