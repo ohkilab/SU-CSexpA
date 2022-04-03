@@ -5,6 +5,8 @@
 ディスプレイとマウス・キーボードがない状態でRaspberryPiへ接続する方法を説明します．
 最終的な構成は以下のようになります．
 
+![configuration.jpg](../../../images/part1/part1_1/configuration.jpg)
+
 実験中は基本この形式で接続してもらいます．
 
 ## 前準備
