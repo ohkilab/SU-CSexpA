@@ -182,7 +182,7 @@ WinSCP を起動します． ログイン画面が開くので新規のホスト
 
 VirtualBoxを開いて，事前準備で構築したVMを選択し，設定を開きます．
 
-ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は[Windowsのネットワークアダプタ設定](./connect_raspberry.html#windows)で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」ではない方を選択してください．
+ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は[Windowsのネットワークアダプタ設定](./connect_raspberry.html#windows)で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」**ではない方**を選択し,OKを押してください．
 
 ![vm-network-setting1.png](../../../images/part1/part1_1/vm-network-setting1.png)
 
@@ -198,7 +198,7 @@ IPv4>リンクローカルのみにチェックを入れ，適用を押してく
 
 ![vm-network-setting4.png](../../../images/part1/part1_1/vm-network-setting4.png)
 
-設定適用までしばらく時間がかかりますが，ターミナルで`ip a`を打ち込み，下記のように169．254から始まるアドレスが確認できればれば設定完了です．
+設定適用までしばらく時間がかかりますが，ターミナルで`ip a`を打ち込み，下記のように`169.254`から始まるアドレスが確認できれば設定完了です．
 
 ![vm-network-setting5.png](../../../images/part1/part1_1/vm-network-setting5.png)
 
