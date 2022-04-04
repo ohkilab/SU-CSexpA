@@ -934,6 +934,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="lan">
 <h4>無線 LAN の設定<a class="headerlink" href="#lan" title="Permalink to this headline">¶</a></h4>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 3B）からは無線接続が困難です．ソフトウェアのアップデート等でインターネットへの接続が必要となる場合には手動で有線を繋ぎ変えて接続を行ってください（どうしても無線を使いたい場合は<a class="reference external" href="https://blog.cles.jp/item/12794">ここ</a>などを参照すると良いかもしれません）</p>
+</div>
 <p>RaspberryPiは配布時点の環境が最新版とは限りません．実験では PC と接続している有線/無線 LAN ネットワークを利用しますので，脆弱性対策の観点から実験実施時はこまめにアップデートを行うようにしてください．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt update
 $ sudo apt upgrade
