@@ -745,14 +745,14 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id2">
 <h2>PHPの動作確認<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>まず，サーバ端末上の皆さんのホームディレクトリにあるpublic_htmlディレクトリにあるファイルへ，Webブラウザで表示できるようにUserdir設定を有効にしてください． public_html ディレクトリがない方や，userdirの設定が終わっていない方は，第二部 <a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html"><span class="doc std std-doc">Raspberry_Piのセットアップ</span></a> を参照してください．</p>
-<p>次に，サーバ端末上の皆さんのホームディレクトリにあるpublic_htmlディレクトリへ，以下のような内容で<strong>index.php</strong>というPHPファイルを作成してみてください．もちろんサーバ端末へリモートログインしてファイル作成しても構いませんが，ローカルのノートPC上で作成して，<a class="reference external" href="https://winscp.net/eng/docs/lang:jp">WinSCP</a>のようなSFTPクライアントプログラムを用いてサーバ端末へアップロードする方法も一般的ですので慣れておいてください（WinSCPの画面で，ローカル側からサーバ側へファイルをドラッグすればアップロードされます．ダウンロードは逆になります）．</p>
+<p>次に，サーバ端末上の皆さんのホームディレクトリにあるpublic_htmlディレクトリへ，以下のような内容で<code class="docutils literal notranslate"><span class="pre">index.php</span></code>というPHPファイルを作成してみてください．もちろんサーバ端末へリモートログインしてファイル作成しても構いませんが，ローカルのノートPC上で作成して，<a class="reference external" href="https://winscp.net/eng/docs/lang:jp">WinSCP</a>のようなSFTPクライアントプログラムを用いてサーバ端末へアップロードする方法も一般的ですので慣れておいてください（WinSCPの画面で，ローカル側からサーバ側へファイルをドラッグすればアップロードされます．ダウンロードは逆になります）．</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="nb">phpinfo</span><span class="p">();</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </div>
 <p>実際にサーバ端末へアップロードされたかどうか，サーバ端末へリモートログインしてアップロードしたディレクトリでlsコマンドを打って確認してみてください．</p>
-<p>次に，ApacheがPHPファイルを実行した結果をWebブラウザへ返せるか確認します．ノートPC上のWebブラウザから以下のURLを入力してみてください（ユーザ名の部分は，サーバ端末上に作成した皆さんのアカウント名になります）．ApacheはURLでファイル名を指定されなかった場合，そのディレクトリにある<strong>index.html</strong>や<strong>index.php</strong>をデフォルトで返すようになっています（設定ファイルで変更可能です）．</p>
+<p>次に，ApacheがPHPファイルを実行した結果をWebブラウザへ返せるか確認します．ノートPC上のWebブラウザから以下のURLを入力してみてください（ユーザ名の部分は，サーバ端末上に作成した皆さんのアカウント名になります）．ApacheはURLでファイル名を指定されなかった場合，そのディレクトリにある<code class="docutils literal notranslate"><span class="pre">index.html</span></code>や<code class="docutils literal notranslate"><span class="pre">index.php</span></code>をデフォルトで返すようになっています（設定ファイルで変更可能です）．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://192.168.1.101/~%E3%83%A6%E3%83%BC%E3%82%B6%E5%90%8D/">http://192.168.1.101/~ユーザ名/</a></p></li>
 </ul>
@@ -778,12 +778,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/ohkilab/SU-CSexpA-00">https://github.com/ohkilab/SU-CSexpA-00</a></p></li>
 </ul>
-<p>このリポジトリには，<strong>prog00.php</strong>という名前のサンプルプログラム（PHP）が一つだけ格納されています．GitHub上のリポジトリには様々な方法でアクセス可能ですが，ダウンロードしたいサーバ端末上の端末画面（コマンドライン）で以下のコマンドを入力すればclone（複製）が作成されます．「–depth 1」というオプションは，最新の１バージョンのみダウンロードするという意味です．</p>
+<p>このリポジトリには，<code class="docutils literal notranslate"><span class="pre">prog00.php</span></code>という名前のサンプルプログラム（PHP）が一つだけ格納されています．GitHub上のリポジトリには様々な方法でアクセス可能ですが，ダウンロードしたいサーバ端末上の端末画面（コマンドライン）で以下のコマンドを入力すればclone（複製）が作成されます．「–depth 1」というオプションは，最新の１バージョンのみダウンロードするという意味です．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ git clone --depth <span class="m">1</span> git@github.com:ohkilab/SU-CSexpA-00.git
 </pre></div>
 </div>
-<p>実行したカレントディレクトリに，<strong>SU-CSexpA-00</strong>というディレクトリが作成され，そのディレクトリの中にprog00.phpというファイルがダウンロードされたと思います．</p>
-<p>これを<strong>index.php</strong>という名前へ変更し「<strong>~/public_html</strong>」へコピーしてみてください．</p>
+<p>実行したカレントディレクトリに，<code class="docutils literal notranslate"><span class="pre">SU-CSexpA-00</span></code>というディレクトリが作成され，そのディレクトリの中に<code class="docutils literal notranslate"><span class="pre">prog00.php</span></code>というファイルがダウンロードされたと思います．</p>
+<p>これを<code class="docutils literal notranslate"><span class="pre">index.php</span></code>という名前へ変更し<code class="docutils literal notranslate"><span class="pre">~/public\_html</span></code>へコピーしてみてください．</p>
 </div>
 <div class="section" id="id3">
 <h2>サンプルプログラム（PHP）の実行<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
@@ -810,7 +810,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;</span>
 
 <span class="x">  &lt;head&gt;</span>
-<span class="x">    &lt;title&gt;科学科実験Iサンプルプログラム&lt;/title&gt;</span>
+<span class="x">    &lt;title&gt;科学科実験Aサンプルプログラム&lt;/title&gt;</span>
 <span class="x">    &lt;style&gt;</span>
 <span class="x">      .item {</span>
 <span class="x">        overflow: hidden;</span>

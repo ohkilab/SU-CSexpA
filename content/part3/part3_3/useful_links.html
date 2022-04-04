@@ -646,8 +646,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   その他
+  <a class="reference internal nav-link" href="#node-js">
+   Node.js関係
   </a>
  </li>
 </ul>
@@ -727,8 +727,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   その他
+  <a class="reference internal nav-link" href="#node-js">
+   Node.js関係
   </a>
  </li>
 </ul>
@@ -747,8 +747,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference external" href="http://php.net/manual/ja/index.php">PHPリファレンス</a></p>
 <div class="section" id="id2">
 <h3>PHP実行時のエラー表示設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>Raspberry PiではPHPプログラムにエラーがあった場合，標準では <strong>/var/log/apache2/error_log</strong>というファイルにエラー内容を書きだします（Fedora の場合は <strong>/var/log/httpd/error_log</strong>でした）．</p>
-<p>このファイルはとても行数が多くなっていることが多いので，<strong>tail</strong>コマンドを使ってファイルの最後から中身を見ることが一般的です．</p>
+<p>Raspberry PiではPHPプログラムにエラーがあった場合，標準では <code class="docutils literal notranslate"><span class="pre">/var/log/apache2/error\log</span></code>というファイルにエラー内容を書きだします（Fedora の場合は <code class="docutils literal notranslate"><span class="pre">/var/log/httpd/error\log</span></code>でした）．</p>
+<p>このファイルはとても行数が多くなっていることが多いので，<code class="docutils literal notranslate"><span class="pre">tail</span></code>コマンドを使ってファイルの最後から中身を見ることが一般的です．</p>
 <p>また，エラーログが大きくなりすぎないように自動的に複数ファイルに分割されていることもありますので，最新のエラーログフィルを最後から眺めてみてください．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rasbian OS の場合</span>
 $ sudo tail -n <span class="m">50</span> /var/log/apache2/error_log
@@ -760,9 +760,9 @@ $ sudo tail -n <span class="m">50</span> /var/log/httpd/error_log
 </div>
 <p>ここで，毎回，コマンドラインでこのコマンドを入力してエラーログを確認するのは手間ですし，複数人で同時にエラーが生じた場合，誰のエラーに対するエラーログかよくわかりません．</p>
 <p>そこで，Webブラウザの画面にPHP実行時のエラーを表示させる設定もあります．</p>
-<p>PHP関係の設定は，<strong>/etc/php.ini</strong>というファイルに記載されてますので，適宜関係しそうな記述を修正してみてください．</p>
+<p>PHP関係の設定は，<code class="docutils literal notranslate"><span class="pre">/etc/php.ini</span></code>というファイルに記載されてますので，適宜関係しそうな記述を修正してみてください．</p>
 <p>Apacheを再起動すると反映されます．</p>
-<p>例えば，PHPのエラーを表示させるには，php.iniファイルの一番末尾に以下の一行を加えてください．</p>
+<p>例えば，PHPのエラーを表示させるには，<code class="docutils literal notranslate"><span class="pre">php.ini</span></code>ファイルの一番末尾に以下の一行を加えてください．</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="na">display_errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">On</span><span class="w"></span>
 </pre></div>
 </div>
@@ -772,7 +772,7 @@ $ sudo tail -n <span class="m">50</span> /var/log/httpd/error_log
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo less +F /var/log/httpd/error_log
 </pre></div>
 </div>
-<p>等するとファイルの更新を監視するモードになります．その状態でWebブラウザを開き，PHPにアクセスしてみてください．（エラーがあれば）error_log にエラーが追記されたことがわかるでしょう． 監視モードから元に戻るにはCtrl+C（さらにQを押して終了），再度監視モードに戻るにはShift+Fで戻ることができます．</p>
+<p>等するとファイルの更新を監視するモードになります．その状態でWebブラウザを開き，PHPにアクセスしてみてください．（エラーがあれば）<code class="docutils literal notranslate"><span class="pre">error_log</span></code>にエラーが追記されたことがわかるでしょう． 監視モードから元に戻るにはCtrl+C（さらにQを押して終了），再度監視モードに戻るにはShift+Fで戻ることができます．</p>
 </div>
 <div class="section" id="id3">
 <h3>エラーログの消去方法<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
@@ -785,15 +785,15 @@ $ sudo tail -n <span class="m">50</span> /var/log/httpd/error_log
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>/dev/mapper/fedora-rootの使用率が100%に近い場合は，以下のコマンドでログファイルの大きさをチェック</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/dev/mapper/fedora-root</span></code>の使用率が100%に近い場合は，以下のコマンドでログファイルの大きさをチェック</p></li>
 </ul>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo ls -l /var/log/httpd/
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>error_logのサイズが大きいようなら次のコマンドでエラーログの中身を削除（もちろん中身を確認し問題ないなら）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error_log</span></code>のサイズが大きいようなら次のコマンドでエラーログの中身を削除（もちろん中身を確認し問題ないなら）</p></li>
 </ul>
-<p>例）HTTPログファイルの場合（echoで何も表示させない結果をerror_logへ書き込むことで中身を消去）</p>
+<p>例）HTTPログファイルの場合（<code class="docutils literal notranslate"><span class="pre">echo</span></code>で何も表示させない結果を<code class="docutils literal notranslate"><span class="pre">error_log</span></code>へ書き込むことで中身を消去）</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo sh - c <span class="s2">&quot;echo &#39;&#39; &gt; /var/log/httpd/error_log&quot;</span>
 </pre></div>
 </div>
@@ -907,8 +907,8 @@ $ mysql -u root -p                               <span class="c1"># &lt;--- ロ�
 <li><p><a class="reference external" href="http://www.thegeekstuff.com/2014/04/optimize-php-code">15 Tips to Optimize Your PHP Script for Better Performance for Developers</a></p></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2>その他<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="node-js">
+<h2>Node.js関係<a class="headerlink" href="#node-js" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://nodejs.org/docs/latest-v10.x/api/">node.jsリファレンス</a></p></li>
 </ul>
