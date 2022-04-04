@@ -1,28 +1,26 @@
-# RaspberryPi の接続（固定 IP）
+# RaspberryPi の接続
 
 ## 概要
 
 ディスプレイとマウス・キーボードがない状態でRaspberryPiへ接続する方法を説明します．
 最終的な構成は以下のようになります．
 
-![configuration.jpg](../../../images/part1/part1_1/configuration.jpg)
+```{image} ../../../images/part1/part1_1/configuration.png
+:alt: RaspberryPiの接続
+:width: 400px
+:align: center
+```
 
-実験中は基本この形式で接続してもらいます．
+実験中は基本的にこの形式で接続を行ってもらいます．
 
 ## 前準備
 
-本項では[環境構築及び動作確認](../../preparation/preparation)が完了している前提で作業を行います．
-
-まだであれば先に[環境構築及び動作確認](../../preparation/preparation)を行ってください．
-
-RaspberryPiへの接続はmDNSを用いてドメイン名で行います．これらについては説明しないため，詳しく知りたい人はavahi daemonやmDNSで調べてみてください．
-
-RaspberryPiの初期設定は以下のようになっています．
+本項では[環境構築及び動作確認](../../preparation/preparation)が完了している前提で作業を行います．まだであれば先に[環境構築及び動作確認](../../preparation/preparation)を行ってください．RaspberryPiへの接続はmDNSを用いてドメイン名で行います．これらについては説明しないため，詳しく知りたい人はavahi daemonやmDNSで調べてみてください．RaspberryPiの初期設定は以下のようになっています．
 
 - ユーザ名: pi
 - パスワード: raspberry
 
-以降，RaspberryPiへの接続はこのユーザー名とパスワードを用いていきます．
+以降，説明においては，RaspberryPiへの接続はこのユーザー名とパスワードを用いていきます．当然ですが，初期設定のままでは他の人もあなたのRaspberry Piにこのパスワードで接続が行えてしまい大変危険ですので，すぐにパスワードを変更しておきましょう．
 
 ### RaspberryPi と PC の有線ケーブルでの P2P 接続
 
@@ -33,6 +31,11 @@ RaspberryPi の microUSB 端子に電源を接続します．
 RaspberryPi と PC を LAN ケーブルで直結します（以下の例では USB 接続の LAN アダプタを使っていますが，PC に備え付けの有線 LAN ポートがあればそれに接続します）．
 
 ![raspi-pc.jpg](../../../images/part1/part1_1/raspi-pc.jpg)
+
+```{admonition} モニタを繋ぎたい方向け情報
+Raspberry Piは「 **microUSB 端子に電源を接続する前に** 」HDMIケーブルを接続しないとモニタを認識しません．モニタに画面が映らないと悩んでいる方はまずチェックしてください
+```
+
 
 ### Windowsのネットワークアダプター設定
 
@@ -89,11 +92,7 @@ VNC を起動し，RaspberryPi の ドメイン名 ( raspberrypi.local ) に接�
 
 #### パスワードの変更
 
-初期パスワードのままではセキュリティ上問題がありますので，パスワード変更を行います．
-
-ターミナルを開いて，以下のコマンドでパスワード変更をしてください．
-
-パスワード変更はコンソールログイン，VNC 接続や SSH 接続，sudo でのコマンド実行など全てに影響します．
+初期パスワードのままではセキュリティ上問題がありますので，パスワード変更を行います．ターミナルを開いて，以下のコマンドでパスワード変更をしてください．パスワード変更はコンソールログイン，VNC 接続や SSH 接続，sudo でのコマンド実行など全てに影響します．
 
 ```{important}
 ここで設定したパスワードを忘れると復旧は難しいので特に注意してください．
@@ -105,9 +104,7 @@ VNC を起動し，RaspberryPi の ドメイン名 ( raspberrypi.local ) に接�
 
 #### 無線 LAN の設定
 
-RaspberryPiは配布時点の環境が最新版とは限りません．
-
-実験では PC と接続している有線/無線 LAN ネットワークを利用しますので，脆弱性対策の観点から実験実施時はこまめにアップデートを行うようにしてください．
+RaspberryPiは配布時点の環境が最新版とは限りません．実験では PC と接続している有線/無線 LAN ネットワークを利用しますので，脆弱性対策の観点から実験実施時はこまめにアップデートを行うようにしてください．
 
 ```shell
 $ sudo apt update
@@ -178,11 +175,11 @@ WinSCP を起動します． ログイン画面が開くので新規のホスト
 
 ## VMからRaspberryPiへの接続
 
+VMからRaspberryPiへ接続する方法はいくつかの手段がありますが，ここではリンクローカルアドレスを用いた有線による簡易的な接続方法について説明します（他の方法を試したい方は各自で調べてみてください）．
+
 ### VMのネットワーク設定
 
-VirtualBoxを開いて，事前準備で構築したVMを選択し，設定を開きます．
-
-ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は[Windowsのネットワークアダプタ設定](./connect_raspberry.html#windows)で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」**ではない方**を選択し,OKを押してください．
+VirtualBoxを開いて，事前準備で構築したVMを選択し，設定を開きます．ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は[Windowsのネットワークアダプタ設定](./connect_raspberry.html#windows)で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」**ではない方**を選択し,OKを押してください．
 
 ![vm-network-setting1.png](../../../images/part1/part1_1/vm-network-setting1.png)
 
@@ -219,7 +216,6 @@ SSH で RaspberryPi にログインします．
  ```
 
 最初の接続のみ，ホスト鍵を受け入れるか聞かれますので "yes" と打ち込みenterを押してください．
-
 ユーザ名とパスワードが一致すれば，ログインできます．
 
 ![vm2raspi2.png](../../../images/part1/part1_1/vm2raspi2.png)
@@ -227,7 +223,6 @@ SSH で RaspberryPi にログインします．
 ### VM 上の Linux に PC からファイルを転送
 
 ホスト OS（Windows）からゲスト OS（Linux）にファイルを転送します．
-
 ゲスト OS 上に ssh server が起動していることが前提となりますので，インストールされていない場合は以下のコマンドでインストールします．
 
 ```shell
@@ -244,7 +239,6 @@ $ ip a
 ![scp-vm1.png](../../../images/part1/part1_1/scp-vm1.png)
 
 上記の例では接続するIPアドレスは`169.254.161.171`です．
-
 WinSCP を起動し，接続先のホストとして以下の指定をして接続します．
 
 - ホスト名: 先ほど確認したIPアドレス
