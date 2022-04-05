@@ -16,7 +16,7 @@
 「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行するベンチマークプログラムのサンプルを提供するので，それぞれの実験方法の必要に応じて修正等を行って利用してください．
 
 -   [tcpbenchmark](https://exp1.inf.shizuoka.ac.jp/shizudai-only/day3/tcpbenchmark.tgz)（静大のネットワークからのみアクセス可能）
--   `\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験I\第一部サンプルコード\tcpbenchmark.tgz`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
+-   `\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験A\第一部サンプルコード\tcpbenchmark.tgz`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
 
 基本的な使い方は以下の通りですが，それぞれでソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やせる拡張を行ってもよいでしょう）．
 
@@ -69,45 +69,45 @@ void printUsedTime(TIMECOUNTER* tc) {
 単位時間あたりの処理能力を計測する必要があるので，スレッド生成処理のタイムラグを除外するために，予め全てのスレッドを生成しておき，スタートフラグを以って全スレッドが並行してサーバに接続開始するように設計しています．
 
 ```c
-for (int i = 0; i < tplistNum; i++) {
-  THREADPARAM* tp = (THREADPARAM*) malloc(sizeof(THREADPARAM));
-  strcpy(tp->serverInfo.hostName, hostName);
-  strcpy(tp->serverInfo.portNum, portNum);
-  tp->result = false;
-  tplist[i] = tp;
+  for (int i = 0; i < tplistNum; i++) {
+    THREADPARAM* tp = (THREADPARAM*) malloc(sizeof(THREADPARAM));
+    strcpy(tp->serverInfo.hostName, hostName);
+    strcpy(tp->serverInfo.portNum, portNum);
+    tp->result = false;
+    tplist[i] = tp;
 
-  if (pthread_create(&threadId[i], &attr, thread_func, tp)) {
-    perror("pthread_create");
-    return false;
+    if (pthread_create(&threadId[i], &attr, thread_func, tp)) {
+      perror("pthread_create");
+      return false;
+    }
+    fprintf(stderr, "thread %d created.\n", i);
   }
-  fprintf(stderr, "thread %d created.\n", i);
-}
 
-// スレッドの準備終了
-isPrepared = true;
-fprintf(stderr, "start count down: 2\n");
-sleep(1);// 1 sec
-fprintf(stderr, "start count down: 1\n");
-sleep(1);// 1 sec
+  // スレッドの準備終了
+  isPrepared = true;
+  fprintf(stderr, "start count down: 2\n");
+  sleep(1);// 1 sec
+  fprintf(stderr, "start count down: 1\n");
+  sleep(1);// 1 sec
 
-// スレッドスタート及び計測開始
-countStart(tc);
-isRunnable = true;
-fprintf(stderr, "Thread Start!!\n");
+  // スレッドスタート及び計測開始
+  countStart(tc);
+  isRunnable = true;
+  fprintf(stderr, "Thread Start!!\n");
 
-// スレッド終了待ち
-for (int i = 0; i < tplistNum; i++) {
-  if (threadId[i] != -1 && pthread_join(threadId[i], NULL)) {
-    perror("pthread_join");
+  // スレッド終了待ち
+  for (int i = 0; i < tplistNum; i++) {
+    if (threadId[i] != -1 && pthread_join(threadId[i], NULL)) {
+      perror("pthread_join");
 
-    // 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））
-    countEnd(tc);
-    return false;
+      // 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））
+      countEnd(tc);
+      return false;
+    }
   }
-}
-// 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））
-countEnd(tc);
-return true;
+  // 所要時間計測（ベンチマーク全体の所要時間（接続・転送失敗の通信も含む））
+  countEnd(tc);
+  return true;
 ```
 
 ### 接続時間と送受信時間の計測
@@ -115,52 +115,52 @@ return true;
 各スレッドにおける接続時間と送受信時間を計測しています。
 
 ```c
-while (tp->result == false && tp->failConnectNum < RECONNECT_MAX ) {
+  while (tp->result == false && tp->failConnectNum < RECONNECT_MAX ) {
 
-  // 接続時間計測開始
-  countStart(&(tp->connectTime));
+    // 接続時間計測開始
+    countStart(&(tp->connectTime));
 
-  // サーバにソケット接続
-  if ((csocket = clientTCPSocket(si->hostName, si->portNum)) < 0) {
-    fprintf(stderr, "client_socket():error\n");
-    tp->result = false;
-    tp->failConnectNum++;
+    // サーバにソケット接続
+    if ((csocket = clientTCPSocket(si->hostName, si->portNum)) < 0) {
+      fprintf(stderr, "client_socket():error\n");
+      tp->result = false;
+      tp->failConnectNum++;
+
+      // 接続時間計測終了
+      countEnd(&(tp->connectTime));
+
+      if ( csocket == -2 ) {
+        // connection refused ( maybe server down )
+        fprintf(stderr, "maybe server down.\n");
+        break;
+      }
+      continue;
+    }
 
     // 接続時間計測終了
     countEnd(&(tp->connectTime));
 
-    if ( csocket == -2 ) {
-      // connection refused ( maybe server down )
-      fprintf(stderr, "maybe server down.\n");
-      break;
+    // 実際の送受信処理の計測の前に接続確認を行う
+    if ( sendRecvLoop(csocket, 1) == false ) {
+      fprintf(stderr, "csocket is not connected.\n");
+      tp->result = false;
+      tp->failConnectNum++;
+      continue;
     }
-    continue;
+
+    // 送受信時間計測開始
+    countStart(&(tp->sendRecvTime));
+
+    // 送受信処理
+    tp->result = sendRecvLoop(csocket, ECHOBACKNUM);
+    if ( tp->result == false ) {
+      tp->failSendRecvNum++;
+    }
+
+    // 送受信時間計測終了
+    countEnd(&(tp->sendRecvTime));
+
+    // ソケットクローズ
+    close(csocket);
   }
-
-  // 接続時間計測終了
-  countEnd(&(tp->connectTime));
-
-  // 実際の送受信処理の計測の前に接続確認を行う
-  if ( sendRecvLoop(csocket, 1) == false ) {
-    fprintf(stderr, "csocket is not connected.\n");
-    tp->result = false;
-    tp->failConnectNum++;
-    continue;
-  }
-
-  // 送受信時間計測開始
-  countStart(&(tp->sendRecvTime));
-
-  // 送受信処理
-  tp->result = sendRecvLoop(csocket, ECHOBACKNUM);
-  if ( tp->result == false ) {
-    tp->failSendRecvNum++;
-  }
-
-  // 送受信時間計測終了
-  countEnd(&(tp->sendRecvTime));
-
-  // ソケットクローズ
-  close(csocket);
-}
 ```

@@ -21,7 +21,9 @@ parts:
         title: '[Day1] 環境構築と実験の開始'
         sections:
         - file: content/part1/part1_1/connect_raspberry
-          title: RaspberryPiの接続（固定IP）
+          title: RaspberryPiの接続
+        - file: content/part1/part1_1/environment_building_with_atom
+          title: Atomを使った環境構築（任意）
 
       - file: content/part1/part1_2/overview
         title: '[Day2] 通信性能の計測'
@@ -43,7 +45,7 @@ parts:
         - file: content/part1/part1_3/performance_measurement
           title: 性能計測（必須）
         - file: content/part1/part1_3/multiplexing_asynchronous_IO
-          title: 非同期I/Oによる多重化（発展）
+          title: 非同期I/Oによる多重化（発展
         - file: content/part1/part1_3/cause_analysis_communication_failure
           title: 通信失敗の原因分析（発展）
 

@@ -6,9 +6,9 @@
 
 ### PHP実行時のエラー表示設定
 
-Raspberry PiではPHPプログラムにエラーがあった場合，標準では **/var/log/apache2/error\_log**というファイルにエラー内容を書きだします（Fedora の場合は **/var/log/httpd/error\_log**でした）．
+Raspberry PiではPHPプログラムにエラーがあった場合，標準では `/var/log/apache2/error\log`というファイルにエラー内容を書きだします（Fedora の場合は `/var/log/httpd/error\log`でした）．
 
-このファイルはとても行数が多くなっていることが多いので，**tail**コマンドを使ってファイルの最後から中身を見ることが一般的です．
+このファイルはとても行数が多くなっていることが多いので，`tail`コマンドを使ってファイルの最後から中身を見ることが一般的です．
 
 また，エラーログが大きくなりすぎないように自動的に複数ファイルに分割されていることもありますので，最新のエラーログフィルを最後から眺めてみてください．
 
@@ -26,11 +26,11 @@ $ sudo tail -n 50 /var/log/httpd/error_log
 
 そこで，Webブラウザの画面にPHP実行時のエラーを表示させる設定もあります．
 
-PHP関係の設定は，**/etc/php.ini**というファイルに記載されてますので，適宜関係しそうな記述を修正してみてください．
+PHP関係の設定は，`/etc/php.ini`というファイルに記載されてますので，適宜関係しそうな記述を修正してみてください．
 
 Apacheを再起動すると反映されます．
 
-例えば，PHPのエラーを表示させるには，php.iniファイルの一番末尾に以下の一行を加えてください．
+例えば，PHPのエラーを表示させるには，`php.ini`ファイルの一番末尾に以下の一行を加えてください．
 
 ```ini
  display_errors = On
@@ -46,7 +46,7 @@ Apacheを再起動すると反映されます．
 $ sudo less +F /var/log/httpd/error_log
 ```
 
-等するとファイルの更新を監視するモードになります．その状態でWebブラウザを開き，PHPにアクセスしてみてください．（エラーがあれば）error\_log にエラーが追記されたことがわかるでしょう． 監視モードから元に戻るにはCtrl+C（さらにQを押して終了），再度監視モードに戻るにはShift+Fで戻ることができます．
+等するとファイルの更新を監視するモードになります．その状態でWebブラウザを開き，PHPにアクセスしてみてください．（エラーがあれば）`error_log`にエラーが追記されたことがわかるでしょう． 監視モードから元に戻るにはCtrl+C（さらにQを押して終了），再度監視モードに戻るにはShift+Fで戻ることができます．
 
 ### エラーログの消去方法
 
@@ -60,15 +60,15 @@ $ sudo less +F /var/log/httpd/error_log
 $ df
 ```
 
--   /dev/mapper/fedora-rootの使用率が100%に近い場合は，以下のコマンドでログファイルの大きさをチェック
+-   `/dev/mapper/fedora-root`の使用率が100%に近い場合は，以下のコマンドでログファイルの大きさをチェック
 
 ```sh
 $ sudo ls -l /var/log/httpd/
 ```
 
--   error\_logのサイズが大きいようなら次のコマンドでエラーログの中身を削除（もちろん中身を確認し問題ないなら）
+-   `error_log`のサイズが大きいようなら次のコマンドでエラーログの中身を削除（もちろん中身を確認し問題ないなら）
 
-例）HTTPログファイルの場合（echoで何も表示させない結果をerror\_logへ書き込むことで中身を消去）
+例）HTTPログファイルの場合（`echo`で何も表示させない結果を`error_log`へ書き込むことで中身を消去）
 
 ```sh
 $ sudo sh - c "echo '' > /var/log/httpd/error_log"
@@ -175,6 +175,6 @@ $ mysql -u root -p                               # <--- ログイン試行
 -   [Linuxカーネルドキュメントプロジェクト](https://ja.osdn.net/projects/linux-kernel-docs/wiki/FrontPage)
 -   [15 Tips to Optimize Your PHP Script for Better Performance for Developers](http://www.thegeekstuff.com/2014/04/optimize-php-code)
 
-## その他
+## Node.js関係
 
 -   [node.jsリファレンス](https://nodejs.org/docs/latest-v10.x/api/)
