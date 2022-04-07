@@ -266,7 +266,7 @@ queryの設定方法も2種類の方法が用意されています．
 
 SQLインジェクション対策という観点から後者の方法が推奨されますので，前者で動作確認した後は，後者の方法を使ってみてください．
 
-## 本日の課題について
+## 各班で実装状況確認
 
 -   以下の仕様を満たすPHPプログラムを実装してください．
 	-   「郵便番号」or「住所」or「住所のカナ」の入力を受け付ける
@@ -311,111 +311,9 @@ SQLインジェクション対策という観点から後者の方法が推奨�
 -   「優」レベルをnode.jsで実装する
 -   その他，秀に相当すると感じさせる工夫や実装
 
-### 進め方
-#### サンプルコード
+## 実装状況の確認方法例
 
-以下に、可レベルに達していないサンプルコードを用意しました。
-
-これを元に実装を進めていっても構いません。
-
-また、詰まったら下のヒントも参考にしてみてください。
-
-```php
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>科学科実験Aサンプルプログラム</title>
-  </head>
-
-  <body>
-    <h1>住所検索</h1>
-
-    <form action="sample.php" method="GET">
-      <input type="text" name="keyword">
-      <input type="hidden" name="page" value="1">
-      <input type="submit" value="検索">
-    </form>
-<?php
-# 初期設定
-$mysqli = new mysqli('localhost', 'username', 'password', 'dbname');
-
-# mysqlとの接続
-if ($mysqli->connect_error) {
-  echo $mysqli->connect_error;
-  exit();
-} else {
-  $mysqli->set_charset("utf8");
-}
-
-# クエリの受け取り
-$keyword = $_GET['keyword'];
-# keywordクエリの中身が何もなかった場合終了
-if (!isset($keyword) || empty($keyword)) {
-  exit();
-}
-
-echo "$keyword". "の検索結果";
-echo "<br>";
-
-# クエリの受け取り
-$page = $_GET['page'];
-
-# pageクエリの中身が何もなかった場合、もしくはpage番号が負の数であれば1を入れる
-if (!isset($page) || $page < 0) {
-  $page = 1;
-}
-
-
-# 入力データの形式を判定
-$addr = "";
-$zip = "";
-$kana = "";
-if (preg_match("/^[0-9]+$/", $keyword)) {
-  $zip = $keyword;
-# 興味がある方は正規表現を用いてカタカナを場合分けする方法を調べてみてください
-# } else if (preg_match("", $keyword)){
-#   $kana = $keyword;
-} else {
-  $addr = $keyword;
-}
-
-# CONCATを用いて入力されたものを結合して検索
-$query = "SELECT addr2, addr3, zip FROM zipShizuoka WHERE CONCAT(addr1, addr2, addr3) like ? AND CONCAT(kana1, kana2, kana3) like ? AND zip like ? LIMIT ?, 10";
-
-$addr = '%'.$addr.'%';
-$zip = '%'.$zip.'%';
-$kana = '%'.$kana.'%';
-
-# offset値を訂正してください
-$offset = $page;
-
-# オフセット含めて10件のみ検索
-if ($stmt = $mysqli->prepare($query)) {
-  $stmt->bind_param("sssi", $addr, $kana, $zip, $offset);
-  $stmt->execute();
-  $stmt->bind_result($addr2, $addr3, $zipcode);
-  while ($stmt->fetch()) {
-    echo "$addr2 $addr3 $zipcode";
-    echo "<br>";
-  }
-  $stmt->close();
-} else {
-  echo "db error";
-}
-
-# mysqlとの接続をやめる
-$mysqli->close();
-
-?>
-    </div>
-  </body>
-
-</html>
-```
-
-#### ヒント
-
-##### 任意のカラム（郵便番号 or 住所 or カナ）による入力を受け付ける
+### 任意のカラム（郵便番号 or 住所 or カナ）による入力を受け付ける
 
 いくつか方法があるので紹介します
 
@@ -432,7 +330,7 @@ $mysqli->close();
 
 それぞれのやり方にメリット・デメリットがあります．どのような例外が存在するかについても考えておきましょう．
 
-##### 複数ページの実現
+### 複数ページの実現
 
 **次のページに行ったら全件表示されてしまう・・・**
 
