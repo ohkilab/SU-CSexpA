@@ -342,7 +342,7 @@ MySQLサーバ上にユーザごとのデータベースを作成します．ま
 初期化時に設定した root パスワードを使って，各ユーザとデータベースを作成します．
 
 -   最初のコマンド`CREATE DATABASE ohkiDB CHARACTER SET utf8;`は 文字コード **utf-8** のデータベース **ohkiDB** を作成します．
--   2番目のコマンド`GRANT ALL PRIVILEGES ON ohkiDB.\* TO ohki@localhost IDENTIFIED BY 'difficult-password';`は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．
+-   2番目のコマンド`GRANT ALL PRIVILEGES ON ohkiDB.* TO ohki@localhost IDENTIFIED BY 'difficult-password';`は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．
 -   3番目のコマンド `FLUSH PRIVILEGES;`は2番目のコマンドの結果を即時有効にするためのコマンドです．
 -   4番目のコマンド`show databases;`は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が`;`で終わることに気を付けてください．
 
