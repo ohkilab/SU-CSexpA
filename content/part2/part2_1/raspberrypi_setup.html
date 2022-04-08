@@ -762,42 +762,8 @@ $ sudo apt install php7.3 php7.3-mysql apache2-mod-php7.3              &lt;--- P
 $ sudo apt install mariadb-server mariadb-client                       &lt;--- DBのインストール
 </pre></div>
 </div>
-<p>PCとRasPiを有線で直接接続している場合，RasPiはPCとは接続されていますが，インターネットに接続されていません． 色々と方法はありますが，以下，いくつかある手順で可能なものを試して実行しましょう．</p>
 <ul class="simple">
-<li><p>家にWiFiがある場合（かんたん）</p>
-<ul>
-<li><p>RasPiのWiFiをONにする</p></li>
-<li><p>上記コマンドで必要なソフトウェアをインストール</p></li>
-<li><p>インストールが終わったら必ずまたWiFiをOFFにしておきましょう（実験時のトラブルの元になります）</p></li>
-</ul>
-</li>
-<li><p>モニタ・キーボード等がある場合</p>
-<ul>
-<li><p>家のルータなどに有線LANで接続，モニタ・キーボードをRasPiに接続し起動（RasPi起動前に機器を接続しておいてください）</p></li>
-<li><p>RasPiのIP設定を固定IPからDHCPへ変更する</p></li>
-<li><p>インストール</p></li>
-<li><p>RasPiのIP設定をDHCPから固定IPへ戻してから，有線LANをルータから抜いて再度ノートPCと接続</p></li>
-</ul>
-</li>
-</ul>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>RasPiの固定IP設定をDHCP設定へ変更する方法（再度，固定IPに戻す際はコメントアウトを外して以下実行）
-$ sudo vi /etc/dhcpcd.conf                      &lt;---- viエディタでなくてもOK
-最下部辺りの以下の行に移動して「i」押してコマンドモードから入力モードに切り替えて以下のように２行コメントアウト
-<span class="c1">#interface eth0</span>
-<span class="c1">#static ip_address=192.168.1.101/24</span>
-
-もし以下（static ....という固定IP設定の行）も存在する場合は，それらもすべてコメントアウト
-<span class="c1">#static routers=xxx.xxx.xxx.xxx</span>
-<span class="c1">#static domain_name_servers=xxx.xxx.xxx.xxx</span>
-
-「Esc」押して入力モードからコマンドモードに戻ってから「:wq!」と入力してEnter押して強制保存しviエディタから抜ける
-$ sudo systemctl restart dhcpcd
-$ sudo systemctl restart networking
-$ ip a                      &lt;---- DHCPでIPアドレス割り振られているか確認し，RasPi上のWebブラウザでホームページ等も閲覧できればOK
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>どちらも無理な場合</p>
+<li><p>接続できない場合</p>
 <ul>
 <li><p>PCでインストール用パッケージをダウンロード（パッケージは <a class="reference external" href="https://packages.debian.org/buster/">https://packages.debian.org/buster/</a> などから探せます）</p></li>
 <li><p>SCPでパッケージを転送</p></li>
@@ -857,7 +823,7 @@ To                         Action      From
 $ sudo systemctl start apache2.service
 </pre></div>
 </div>
-<p>それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して， <strong><a class="reference external" href="http://192.168.1.101/">http://192.168.1.101</a></strong> にアクセスしてみましょう（DHCP設定になっている人は，<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ip</span> <span class="pre">a</span> </code>等でIPアドレスを確認して適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．</p>
+<p>それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して，IPアドレスを調べてから <strong><a class="reference external" href="http://192.168.1.101/">http://192.168.1.101</a></strong> にアクセスしてみましょう（IPアドレスは適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．</p>
 <p><img alt="raspi-apache.png" src="../../../_images/raspi-apache.png" /></p>
 <p>アクセスができませんか？できない場合はWebサーバを起動させたRasPi側のファイアーウォールの設定や，学生PCのIPアドレスがWebサーバと通信可能なIPアドレス（同じネットワークアドレスで異なるIPアドレス）となっているかどうか等を確認してみましょう．</p>
 </div>

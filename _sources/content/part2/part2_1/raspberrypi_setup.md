@@ -15,36 +15,7 @@ $ sudo apt install php7.3 php7.3-mysql apache2-mod-php7.3              <--- PHP�
 $ sudo apt install mariadb-server mariadb-client                       <--- DBのインストール
 ```
 
-PCとRasPiを有線で直接接続している場合，RasPiはPCとは接続されていますが，インターネットに接続されていません． 色々と方法はありますが，以下，いくつかある手順で可能なものを試して実行しましょう．
-
--   家にWiFiがある場合（かんたん）
-    -   RasPiのWiFiをONにする
-    -   上記コマンドで必要なソフトウェアをインストール
-    -   インストールが終わったら必ずまたWiFiをOFFにしておきましょう（実験時のトラブルの元になります）
-
--   モニタ・キーボード等がある場合
-    -   家のルータなどに有線LANで接続，モニタ・キーボードをRasPiに接続し起動（RasPi起動前に機器を接続しておいてください）
-    -   RasPiのIP設定を固定IPからDHCPへ変更する
-    -   インストール
-    -   RasPiのIP設定をDHCPから固定IPへ戻してから，有線LANをルータから抜いて再度ノートPCと接続
-```shell
-RasPiの固定IP設定をDHCP設定へ変更する方法（再度，固定IPに戻す際はコメントアウトを外して以下実行）
-$ sudo vi /etc/dhcpcd.conf                      <---- viエディタでなくてもOK
-最下部辺りの以下の行に移動して「i」押してコマンドモードから入力モードに切り替えて以下のように２行コメントアウト
-#interface eth0
-#static ip_address=192.168.1.101/24
-
-もし以下（static ....という固定IP設定の行）も存在する場合は，それらもすべてコメントアウト
-#static routers=xxx.xxx.xxx.xxx
-#static domain_name_servers=xxx.xxx.xxx.xxx
-
-「Esc」押して入力モードからコマンドモードに戻ってから「:wq!」と入力してEnter押して強制保存しviエディタから抜ける
-$ sudo systemctl restart dhcpcd
-$ sudo systemctl restart networking
-$ ip a                      <---- DHCPでIPアドレス割り振られているか確認し，RasPi上のWebブラウザでホームページ等も閲覧できればOK
-```
-
--   どちらも無理な場合
+-   接続できない場合
     -   PCでインストール用パッケージをダウンロード（パッケージは [https://packages.debian.org/buster/](https://packages.debian.org/buster/) などから探せます）
     -   SCPでパッケージを転送
     -   `dpkg`コマンドでインストール
@@ -106,7 +77,7 @@ $ sudo systemctl enable apache2.service
 $ sudo systemctl start apache2.service
 ```
 
-それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して， **[http://192.168.1.101](http://192.168.1.101/)** にアクセスしてみましょう（DHCP設定になっている人は，`$ ip a `等でIPアドレスを確認して適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．
+それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して，IPアドレスを調べてから **[http://192.168.1.101](http://192.168.1.101/)** にアクセスしてみましょう（IPアドレスは適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．
 
 ![raspi-apache.png](../../../images/part2/raspi-apache.png)
 
@@ -292,7 +263,7 @@ MariaDB [(mysql)]> exit;
 $ sudo reboot
 ```
 
-  
+
 次にデフォルトのストレージエンジンを設定します．
 
 -   この実験ではAriaを使用します．デフォルトのInnoDBは高機能ですが，格納データが肥大化するという問題があり，今回のような容量の小さなSDカードで大きなデータを扱う場合はSDカードの容量を使い果たしてしまう可能性があります．Ariaはトランザクションをサポートしていない等の制約はありますが，MariaDBが産んだ高機能かつ最新のストレージエンジンです．[ストレージエンジンに関してはこちらを参照](https://mariadb.com/kb/en/mariadb/storage-engines/)．
