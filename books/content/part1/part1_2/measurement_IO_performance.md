@@ -18,10 +18,6 @@
 
 ### 時間計測を行うサンプルコード
 
-POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．
-POSIX標準のライブラリは，ANSI標準には含まれませんのでビルド時に `-std=c99` のようにANSIベースでのC99仕様に基づくビルドを指定している場合には，以下のライブラリは利用できません．
-そこで，C99仕様にPOSIX標準及びGNU拡張を追加した `-std=gnu99` を利用するようMakefileを修正しておいてください．
-
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -36,11 +32,13 @@ double get_current_timecount() {
 int main( int argc, char* argv[] ) {
   double t1 = get_current_timecount();
 
-  // do something
+  // このコードではsleep(3)が時間計測対象
   sleep(3);
 
   double t2 = get_current_timecount();
+
   printf("%lf\n", t2-t1);
+
   return 0;
 }
 ```
