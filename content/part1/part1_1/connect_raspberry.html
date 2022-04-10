@@ -678,6 +678,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#openssh-server">
+     openssh-serverのインストール
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vm">
      VMのネットワーク設定
     </a>
@@ -814,6 +819,11 @@ const thebe_selector_output = ".output, .cell_output"
    VMからRaspberryPiへの接続
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#openssh-server">
+     openssh-serverのインストール
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vm">
      VMのネットワーク設定
@@ -1020,6 +1030,16 @@ $ sudo apt upgrade
 <div class="section" id="vmraspberrypi">
 <h2>VMからRaspberryPiへの接続<a class="headerlink" href="#vmraspberrypi" title="Permalink to this headline">¶</a></h2>
 <p>VMからRaspberryPiへ接続する方法はいくつかの手段がありますが，ここではリンクローカルアドレスを用いた有線による簡易的な接続方法について説明します（他の方法を試したい方は各自で調べてみてください）．</p>
+<div class="section" id="openssh-server">
+<h3>openssh-serverのインストール<a class="headerlink" href="#openssh-server" title="Permalink to this headline">¶</a></h3>
+<p>ネットワーク設定を変更する前にVMを起動してください。
+後に行う作業にてssh server が起動していることが前提となりますので，インストールされていない場合は以下のコマンドでインストールします．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ sudo apt-get update
+ $ sudo apt-get install openssh-server
+</pre></div>
+</div>
+<p>作業が終了したらVMの設定を変更しますのでシャットダウンしてください。</p>
+</div>
 <div class="section" id="vm">
 <h3>VMのネットワーク設定<a class="headerlink" href="#vm" title="Permalink to this headline">¶</a></h3>
 <p>VirtualBoxを開いて，事前準備で構築したVMを選択し，設定を開きます．ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は<a class="reference external" href="./connect_raspberry.html#windows">Windowsのネットワークアダプタ設定</a>で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」<strong>ではない方</strong>を選択し,OKを押してください．</p>
@@ -1050,12 +1070,7 @@ $ sudo apt upgrade
 </div>
 <div class="section" id="vm-linux-pc">
 <h3>VM 上の Linux に PC からファイルを転送<a class="headerlink" href="#vm-linux-pc" title="Permalink to this headline">¶</a></h3>
-<p>ホスト OS（Windows）からゲスト OS（Linux）にファイルを転送します．
-ゲスト OS 上に ssh server が起動していることが前提となりますので，インストールされていない場合は以下のコマンドでインストールします．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ sudo apt-get update
- $ sudo apt-get install openssh-server
-</pre></div>
-</div>
+<p>ホスト OS（Windows）からゲスト OS（Linux）にファイルを転送します．</p>
 <p>以下のコマンドでIPアドレスを確認しておいてください．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ip a
 </pre></div>

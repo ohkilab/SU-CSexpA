@@ -181,6 +181,18 @@ WinSCP を起動します． ログイン画面が開くので新規のホスト
 
 VMからRaspberryPiへ接続する方法はいくつかの手段がありますが，ここではリンクローカルアドレスを用いた有線による簡易的な接続方法について説明します（他の方法を試したい方は各自で調べてみてください）．
 
+### openssh-serverのインストール
+
+ネットワーク設定を変更する前にVMを起動してください。
+後に行う作業にてssh server が起動していることが前提となりますので，インストールされていない場合は以下のコマンドでインストールします．
+
+```shell
+ $ sudo apt-get update
+ $ sudo apt-get install openssh-server
+```
+
+作業が終了したらVMの設定を変更しますのでシャットダウンしてください。
+
 ### VMのネットワーク設定
 
 VirtualBoxを開いて，事前準備で構築したVMを選択し，設定を開きます．ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は[Windowsのネットワークアダプタ設定](./connect_raspberry.html#windows)で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」**ではない方**を選択し,OKを押してください．
@@ -227,12 +239,6 @@ SSH で RaspberryPi にログインします．
 ### VM 上の Linux に PC からファイルを転送
 
 ホスト OS（Windows）からゲスト OS（Linux）にファイルを転送します．
-ゲスト OS 上に ssh server が起動していることが前提となりますので，インストールされていない場合は以下のコマンドでインストールします．
-
-```shell
- $ sudo apt-get update
- $ sudo apt-get install openssh-server
-```
 
 以下のコマンドでIPアドレスを確認しておいてください．
 
