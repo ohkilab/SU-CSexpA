@@ -45,7 +45,7 @@ parts:
         - file: content/part1/part1_3/performance_measurement
           title: 性能計測（必須）
         - file: content/part1/part1_3/multiplexing_asynchronous_IO
-          title: 非同期I/Oによる多重化（発展
+          title: 非同期I/Oによる多重化（発展）
         - file: content/part1/part1_3/cause_analysis_communication_failure
           title: 通信失敗の原因分析（発展）
 
@@ -97,6 +97,9 @@ parts:
   # 第三部
   - caption: 第三部 Webシステムの性能
     chapters:
+      - file: content/part3/part3_2/final_task_details
+        title: 最終課題
+      
       - file: content/part3/part3_1/overview
         title: '[Day10] Webシステムの基礎'
         sections:
@@ -116,8 +119,8 @@ parts:
         sections:
         - file: content/part3/part3_2/connection_to_dbms
           title: DBMSとの接続（必須）
-        - file: content/part3/part3_2/final_task_details
-          title: 最終課題の詳細
+        # - file: content/part3/part3_2/final_task_details
+        #   title: 最終課題の詳細
 
       - file: content/part3/part3_3/overview
         title: '[Day12] ベンチマークと分析'

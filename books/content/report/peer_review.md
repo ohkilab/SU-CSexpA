@@ -31,23 +31,19 @@
 
 自分のレポートの共有は以下の手順で行なってください．
 
-- 初版のレポートのファイル（e.g. `CS実験A_Part1_A1_7091-1234初版.docx`）を開きます．
+1. 初版のレポートのファイル（e.g. `CS実験A_Part1_A1_7091-1234初版.docx`）を開きます．
 
-- 開いたWordの右上にある「共有」をクリックし，名前／場所／移動orコピーを設定してアップロードします．
+2. 開いたWordの右上にある「共有」をクリックし，名前／場所／移動orコピーを設定してアップロードします．
 
-![review_upload.png](../../images/report/peer_review/review_upload.png)
+3. もう一度「共有」をクリックし，「リンクのコピー」にある「リンクを知っているShizuoka Universityのユーザーが表示できます ＞」をクリックします．
 
-- もう一度「共有」をクリックし，「リンクのコピー」にある「リンクを知っている 〜略〜 ユーザーが表示できます ＞」をクリックします．
+4. 「編集を許可する」にチェックをつけて，「レビューモードでのみ開く」をオンにして「適用」をクリックします．
 
-![review_uploaded.png](../../images/report/peer_review/review_uploaded.png)
+5. 「リンクをコピーしました」と出るので，Slackのグループチャンネルにリンクを貼り付けて送信します．
 
-- 「編集を許可する」にチェックをつけて，「レビューモードでのみ開く」をオンにして「適用」をクリックします．
+<img src="../../_images/review_upload.png" width="48%"> &nbsp;&nbsp; <img src="../../_images/review_uploaded.png" width="48%">
 
-![review_config.png](../../images/report/peer_review/review_config.png)
-
-- 「リンクをコピーしました」と出るので，Slackのグループチャンネルにリンクを貼り付けて送信します．
-
-![review_link_copy.png](../../images/report/peer_review/review_link_copy.png)
+<img src="../../_images/review_config.png" width="48%"> &nbsp;&nbsp; <img src="../../_images/review_link_copy.png" width="48%">
 
 他の人のレポートをレビューする際は以下の手順で行ってください．
 
