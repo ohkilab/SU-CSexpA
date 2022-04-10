@@ -107,6 +107,6 @@ int main( int argc, char* argv[] ) {
 ```{caution}
 以下のサイトで紹介されている変更は，現在動作しているKernelのパラメータを変更するものです．
 変更の結果は，OSの挙動に影響を及ぼします．自分だけではなく，OS自体やサーバ上で動作しているサービス類，同じサーバにログインしている他の人にも影響することになりますので注意してください．
-
+```
 -   参考: [【sysctl】Linux カーネルパラメータのチューニング](https://fisproject.jp/2017/04/tuning-kernel-parameters-for-linux/)
 ```

@@ -321,11 +321,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../part3/part3_2/final_task_details.html">
-   最終課題
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../part3/part3_1/overview.html">
    [Day10] Webシステムの基礎
@@ -376,6 +371,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../../part3/part3_2/connection_to_dbms.html">
      DBMSとの接続（必須）
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../part3/part3_2/final_task_details.html">
+     最終課題の詳細
     </a>
    </li>
   </ul>
@@ -803,7 +803,7 @@ Atom のメニューバーより</p>
 <span class="s2">&quot;pass&quot;</span><span class="p">:</span> <span class="s2">&quot;pass&quot;</span><span class="p">,</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.101&quot;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;raspberrypi.local&quot;</span><span class="p">,</span>
 <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;pi&quot;</span><span class="p">,</span>
 <span class="s2">&quot;pass&quot;</span><span class="p">:</span> <span class="s2">&quot;raspberry&quot;</span><span class="p">,</span>
 </pre></div>
@@ -859,16 +859,16 @@ Atom のメニューバーより</p>
 <p>このパッケージでは複数のターミナルを起動させることもできます.</p>
 <p>初期設定では, 開かれるターミナルは「PowerShell」が設定されています.
 開かれたターミナルがきちんと使えるか, なにかコマンドを打って確認してみます.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>例）$ ping <span class="m">192</span>.168.1.101
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>例）$ ping raspberrypi.local
 </pre></div>
 </div>
 <p>きちんと普通の PowerShell と同様の動作をしましたか？動作していればインストールは完了です.</p>
 <p>ssh コマンドと今回導入した platformio-ide-terminal を使って Raspberry Pi と SSH 接続してみます. 下記のコマンドを実行してみてください. (SSH コマンドが利用できない場合は下のSSH の設定を行ってください)</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ssh pi@192.168.1.101
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ssh pi@raspberrypi.local
 </pre></div>
 </div>
 <p>入力して Enter を押したあと</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@192.168.1.101&#39;s password:
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi.local&#39;s password:
 </pre></div>
 </div>
 <p>と表示されますので Raspberry Pi のパスワードを入力してください. (入力した文字列は表示されませんが, きちんと入力されてます)</p>
@@ -894,7 +894,7 @@ Atom のメニューバーより</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Core &gt; Auto Run Command</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pi&#64;192.168.1.101</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pi&#64;raspberrypi.local</span></code></p></td>
 <td><p>ターミナルを起動する度に同じSSHコマンドを実行するのは面倒ですよね？ここの設定項目では起動直後に自動的にコマンドを実行させることができますので, SSH接続時のコマンドを入れておきます.Style &gt; Animation Speed	2	ターミナルを表示・収納のスピードを少し速くしておきます.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Style &gt; Default Panel Height</p></td>
