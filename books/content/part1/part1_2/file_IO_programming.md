@@ -16,7 +16,7 @@
 
 -   1\. RaspberryPiにログインする
 -   2\. ホームディレクトリに以下のサンプルコードファイルをダウンロードする．
-    -   [https://exp1.inf.shizuoka.ac.jp/shizudai-only/day2/part1-2B.tgz](http://exp1.inf.shizuoka.ac.jp/shizudai-only/day2/part1-2B.tgz)（静大のネットワークからのみアクセス可能）
+    -   [https://exp1.inf.shizuoka.ac.jp/shizudai-only/day2/part1-2B.tgz](https://exp1.inf.shizuoka.ac.jp/shizudai-only/day2/part1-2B.tgz)（静大のネットワークからのみアクセス可能）
     -   `\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験A\第一部サンプルコード\part1-2B.tgz`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
 
 -   3\. ダウンロードしたサンプルコードファイルを展開する
