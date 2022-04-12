@@ -889,7 +889,12 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Windowsのネットワークアダプター設定<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
 <p>Windowsで設定を開き，ネットワークとインターネット＞状態を選択してください．下までスクロールすると，「アダプターのオプションを変更する」という項目が見えると思いますので，クリックしてください．</p>
 <p><img alt="win-adopter1.png" src="../../../_images/win-adopter1.png" /></p>
-<p>ここまでの設定が順調であればイーサネットが二つ表示されていると思います．</p>
+<p>ここまでの設定が順調であればイーサネットが2つ表示されていると思います．
+人によってはイーサネット名が異なりますが，以下の2つがあればOKです．</p>
+<ul class="simple">
+<li><p>PCに付属されているEthernetアダプター（上記だと，Intel(R) Ethernet Connection I219-V）</p></li>
+<li><p>VirtualBox Host-Only Ethernet Adapter</p></li>
+</ul>
 <p><img alt="win-adopter2.png" src="../../../_images/win-adopter2.png" /></p>
 <p>右クリックし，プロパティ＞インターネットプロトコル バージョン4(TCP/IP)を選択，その下に表示されているプロパティをクリックしてください．</p>
 <p><img alt="win-adopter3.png" src="../../../_images/win-adopter3.png" /></p>
