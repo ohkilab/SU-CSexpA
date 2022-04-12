@@ -43,7 +43,11 @@ Windowsで設定を開き，ネットワークとインターネット＞状態�
 
 ![win-adopter1.png](../../../images/part1/part1_1/win-adopter1.png)
 
-ここまでの設定が順調であればイーサネットが二つ表示されていると思います．
+ここまでの設定が順調であればイーサネットが2つ表示されていると思います．
+人によってはイーサネット名が異なりますが，以下の2つがあればOKです．
+
+- PCに付属されているEthernetアダプター（上記だと，Intel(R) Ethernet Connection I219-V）
+- VirtualBox Host-Only Ethernet Adapter
 
 ![win-adopter2.png](../../../images/part1/part1_1/win-adopter2.png)
 
