@@ -2,9 +2,9 @@
 
 -   a) [サーバプログラムの多重化](./multiplexing_server_program "サーバープログラムの多重化")
 -   b) [ベンチマークプログラムの設計と実装](./benchmarking_program "ベンチマークプログラムの設計と実装")
--   c) [性能計測](./performance_measurement "性能計測") (必須課題)
--   d) [非同期I/Oによる多重化](./multiplexing_asynchronous_IO "非同期I/Oによる多重化") (発展課題)
--   e) [通信失敗の原因分析](./cause_analysis_communication_failure "通信失敗の原因分析") (発展課題)
+-   c) [性能計測](./performance_measurement "性能計測") (必須)
+-   d) [非同期I/Oによる多重化](./multiplexing_asynchronous_IO "非同期I/Oによる多重化") (発展)
+-   e) [通信失敗の原因分析](./cause_analysis_communication_failure "通信失敗の原因分析") (発展)
 -   f) [第一部レポート(初版)](../../report/report.html#id2 "第一部レポート")
 
 ```{admonition} 本日の進捗確認チェックリスト

@@ -86,8 +86,6 @@ parts:
       - file: content/part2/part2_4/overview
         title: '[Day8] 第二部グループ発表会'
         sections:
-        - file: content/part2/part2_4/groupreview
-          title: グループレビュー
         - file: content/part2/part2_4/grouppresentation
           title: 第二部グループ発表会
 
@@ -154,8 +152,8 @@ parts:
     chapters:
       - file: content/group_presentation/group_presentation_detail
         title: グループ発表会詳細
-      - file: content/group_presentation/group_review
-        title: グループレビュー
+      # - file: content/group_presentation/group_review
+      #   title: グループレビュー
 
   # レポートについて
   - caption: レポート

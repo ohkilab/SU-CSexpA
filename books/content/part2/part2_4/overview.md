@@ -1,8 +1,7 @@
 # Day8の目的と概要
 
--   a) [グループレビュー](../../group_presentation/group_review "グループレビュー")
--   [第二部グループ発表会](./grouppresentation "第二部グループ発表会")
--   [第二部レポート（初版）](../../report/report.html#id2 "第二部レポート（初版）")
+-   a) [第二部グループ発表会](./grouppresentation "第二部グループ発表会")
+-   b) [第二部レポート（初版）](../../report/report.html#id2 "第二部レポート（初版）")
 
 ```{admonition} 本日の進捗確認チェックリスト
 - 14:00: 各班の発表資料を眺めて投票を済ませましたか？
