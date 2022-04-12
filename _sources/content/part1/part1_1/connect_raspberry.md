@@ -59,7 +59,7 @@ Windowsで設定を開き，ネットワークとインターネット＞状態�
 ![win-adopter4.png](../../../images/part1/part1_1/win-adopter4.png)
 
 ```{important}
-以上の操作を二つのイーサネット双方に対して行ってください
+以上の操作を2つのイーサネット両方に対して行ってください．
 ```
 
 ### RaspberryPiとの接続確認

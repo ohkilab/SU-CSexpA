@@ -2,7 +2,7 @@
 
 -   a) [ファイル入出力プログラミング](./file_IO_programming "ファイル入出力プログラミング")
 -   b) [ネットワーク入出力プログラミング](./network_IO_programming "ネットワーク入出力プログラミング")
--   c) [入出力性能の計測](./measurement_IO_performance.md "入出力性能の計測")（必須課題）
+-   c) [入出力性能の計測](./measurement_IO_performance.md "入出力性能の計測")（必須）
 -   d) [第一部レポート(初版)](../../report/report.html#id2 "第一部レポート")
 
 ```{admonition} 本日の進捗確認チェックリスト

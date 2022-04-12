@@ -457,11 +457,6 @@ const thebe_selector_output = ".output, .cell_output"
    グループ発表会詳細
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../group_presentation/group_review.html">
-   グループレビュー
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -598,6 +593,11 @@ const thebe_selector_output = ".output, .cell_output"
      指定されたソフトウェアが見つからない，インストール方法や使い方が分からない
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberrypi">
+     RaspberryPiのシャットダウン方法が分からない
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -635,6 +635,11 @@ const thebe_selector_output = ".output, .cell_output"
      指定されたソフトウェアが見つからない，インストール方法や使い方が分からない
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberrypi">
+     RaspberryPiのシャットダウン方法が分からない
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -659,6 +664,17 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id3">
 <h3>指定されたソフトウェアが見つからない，インストール方法や使い方が分からない<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>ソフトウェアのバージョンアップ等のため，インストール画面や設定方法が多少異なる場合があります(例えば，初期ディレクトリの設定方法など)．何をしてもらいたいのか目的を理解していれば，その目的を達成するためのツールや手段は記載している方法以外でも構いませんので，インターネットで調べたり周囲の班員とも相談しながら目的達成していってください．その際，課題ページの修正が必要な部分について教員らに報告しておいてください．更新しておきたいと思いますので．</p>
+</div>
+<div class="section" id="raspberrypi">
+<h3>RaspberryPiのシャットダウン方法が分からない<a class="headerlink" href="#raspberrypi" title="Permalink to this headline">¶</a></h3>
+<p>LANケーブルは指した状態で，以下のいずれかを試してみてください．</p>
+<ul class="simple">
+<li><p>PCからVNCで接続して左上のメニュー（Raspberry Piボタン）からShutdownを選択する</p></li>
+<li><p>PCからSSHで接続して以下のコマンドを実行する</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">shutdown</span> <span class="o">-</span><span class="n">h</span> <span class="n">now</span>
+</pre></div>
+</div>
 <!-- 
 
 ## 第一部
