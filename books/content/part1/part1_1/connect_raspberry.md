@@ -240,6 +240,12 @@ SSH で RaspberryPi にログインします．
 
 ![vm2raspi2.png](../../../images/part1/part1_1/vm2raspi2.png)
 
+SSH接続時に`exit`を打ち込むことで，SSH接続を切ることができます．
+
+```shell
+$ exit
+```
+
 ### VM 上の Linux に PC からファイルを転送
 
 ホスト OS（Windows）からゲスト OS（Linux）にファイルを転送します．
