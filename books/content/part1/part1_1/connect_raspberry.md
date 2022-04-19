@@ -297,12 +297,12 @@ VirtualBox の設定上は外部から SSH 接続できる設定ですが，実�
 - VM→raspberrypi.localでpingが通らない
   - VirtualBoxを最新版に更新or再インストール
 - PC→VMへのファイル転送ができない(pingが通らない)
-  - Windows11の場合に多数の事例あり
+  - Windows11の場合やに多数の事例あり
     - DNSキャッシュをクリアにしてもう一度試す
       - `ipconfig /flushdns`
     - VMのMACアドレスを変更する
     - pingを送り続ける
-    - 再起動を繰り返す
+    - VMとPCの再起動を繰り返す
 - 特定の場合に限らず
   - Windows, RaspberryPiをそれぞれ再起動
 
