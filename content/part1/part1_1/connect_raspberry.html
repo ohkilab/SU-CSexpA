@@ -699,12 +699,17 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     テキストエディタを使った接続 (任意)
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   うまくいかない時のトラブルシューティング
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   テキストエディタを使った接続 (任意)
+  </a>
  </li>
 </ul>
 
@@ -841,12 +846,17 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     テキストエディタを使った接続 (任意)
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   うまくいかない時のトラブルシューティング
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   テキストエディタを使った接続 (任意)
+  </a>
  </li>
 </ul>
 
@@ -889,13 +899,17 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Windowsのネットワークアダプター設定<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
 <p>Windowsで設定を開き，ネットワークとインターネット＞状態を選択してください．下までスクロールすると，「アダプターのオプションを変更する」という項目が見えると思いますので，クリックしてください．</p>
 <p><img alt="win-adopter1.png" src="../../../_images/win-adopter1.png" /></p>
-<p>ここまでの設定が順調であればイーサネットが2つ表示されていると思います．
-人によってはイーサネット名が異なりますが，以下の2つがあればOKです．</p>
+<p>ここまでの設定が順調であればイーサネットが2つ表示されていると思います．</p>
+<p><img alt="win-adopter2.png" src="../../../_images/win-adopter2.png" /></p>
+<p>人によってはイーサネット名が異なりますが，以下の2つがあればOKです．</p>
 <ul class="simple">
 <li><p>PCに付属されているEthernetアダプター（上記だと，Intel(R) Ethernet Connection I219-V）</p></li>
 <li><p>VirtualBox Host-Only Ethernet Adapter</p></li>
 </ul>
-<p><img alt="win-adopter2.png" src="../../../_images/win-adopter2.png" /></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>VirtualBox Host-Only Ethernet Adapterが表示されない場合は，VirtualBoxのバージョンが低い可能性があります．VirtualBox自体のバージョン更新または，最新版の再インストールをしてみてください．再インストールする場合は，コントロールパネルからアンインストールすることでVMのイメージを残したまま実行できます．</p>
+</div>
 <p>右クリックし，プロパティ＞インターネットプロトコル バージョン4(TCP/IP)を選択，その下に表示されているプロパティをクリックしてください．</p>
 <p><img alt="win-adopter3.png" src="../../../_images/win-adopter3.png" /></p>
 <p>チェックボックスで下記の項目が選択されているか確認してください．そうなっていなければ下記の項目を選択してください．</p>
@@ -1067,6 +1081,10 @@ $ sudo apt upgrade
 <p>最初の接続のみ，ホスト鍵を受け入れるか聞かれますので “yes” と打ち込みenterを押してください．
 ユーザ名とパスワードが一致すれば，ログインできます．</p>
 <p><img alt="vm2raspi2.png" src="../../../_images/vm2raspi2.png" /></p>
+<p>SSH接続時に<code class="docutils literal notranslate"><span class="pre">exit</span></code>を打ち込むことで，SSH接続を切ることができます．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">exit</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="vm-linux-pc">
 <h3>VM 上の Linux に PC からファイルを転送<a class="headerlink" href="#vm-linux-pc" title="Permalink to this headline">¶</a></h3>
@@ -1101,14 +1119,54 @@ WinSCP を起動し，接続先のホストとして以下の指定をして接�
 <p>この場合，Windows ファイアウォールの設定を行えば接続が可能になりますが，セキュリティ上のリスクを伴いますので無理に行う必要はありません． 実験では，RaspberryPi 側をサーバプログラム，PC 上のゲスト OS 側をクライアントプログラムとして実験を進めてください．</p>
 </div>
 </div>
+</div>
 <div class="section" id="id9">
-<h3>テキストエディタを使った接続 (任意)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<h2>うまくいかない時のトラブルシューティング<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>windows→raspberrypi.localでpingが通らない</p>
+<ul>
+<li><p>Windows上からIPv4オプションをつけてpingを実行する</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">-4</span> <span class="pre">169.254.xx.xx</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>VM→raspberrypi.localでpingが通らない</p>
+<ul>
+<li><p>VirtualBoxを最新版に更新or再インストール</p></li>
+</ul>
+</li>
+<li><p>PC→VMへのファイル転送ができない(pingが通らない)</p>
+<ul>
+<li><p>Windows11の場合やに多数の事例あり</p>
+<ul>
+<li><p>DNSキャッシュをクリアにしてもう一度試す</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ipconfig</span> <span class="pre">/flushdns</span></code></p></li>
+</ul>
+</li>
+<li><p>VMのMACアドレスを変更する</p></li>
+<li><p>pingを送り続ける</p></li>
+<li><p>VMとPCの再起動を繰り返す</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>特定の場合に限らず</p>
+<ul>
+<li><p>Windows, RaspberryPiをそれぞれ再起動</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>テキストエディタを使った接続 (任意)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 <p>テキストエディタ Atom を用いて開発環境の構築を行います．
 興味のある方は実施してみてください．</p>
 <p>なお， 上記の SSH 接続や WinSCP の設定などが済んでいることを前提として話を進めていきます．
 必ず上記の SSH 接続や WinSCP の設定を済ましてから取り組んでください．</p>
 <p><a class="reference internal" href="environment_building_with_atom.html"><span class="doc std std-doc">Atom を使った環境構築</span></a></p>
-</div>
 </div>
 </div>
 

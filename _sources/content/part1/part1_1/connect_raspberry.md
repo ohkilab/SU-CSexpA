@@ -36,7 +36,6 @@ RaspberryPi と PC を LAN ケーブルで直結します（以下の例では U
 Raspberry Piは「 **microUSB 端子に電源を接続する前に** 」HDMIケーブルを接続しないとモニタを認識しません．モニタに画面が映らないと悩んでいる方はまずチェックしてください
 ```
 
-
 ### Windowsのネットワークアダプター設定
 
 Windowsで設定を開き，ネットワークとインターネット＞状態を選択してください．下までスクロールすると，「アダプターのオプションを変更する」という項目が見えると思いますので，クリックしてください．
@@ -44,12 +43,17 @@ Windowsで設定を開き，ネットワークとインターネット＞状態�
 ![win-adopter1.png](../../../images/part1/part1_1/win-adopter1.png)
 
 ここまでの設定が順調であればイーサネットが2つ表示されていると思います．
+
+![win-adopter2.png](../../../images/part1/part1_1/win-adopter2.png)
+
 人によってはイーサネット名が異なりますが，以下の2つがあればOKです．
 
 - PCに付属されているEthernetアダプター（上記だと，Intel(R) Ethernet Connection I219-V）
 - VirtualBox Host-Only Ethernet Adapter
 
-![win-adopter2.png](../../../images/part1/part1_1/win-adopter2.png)
+```{caution}
+VirtualBox Host-Only Ethernet Adapterが表示されない場合は，VirtualBoxのバージョンが低い可能性があります．VirtualBox自体のバージョン更新または，最新版の再インストールをしてみてください．再インストールする場合は，コントロールパネルからアンインストールすることでVMのイメージを残したまま実行できます．
+```
 
 右クリックし，プロパティ＞インターネットプロトコル バージョン4(TCP/IP)を選択，その下に表示されているプロパティをクリックしてください．
 
@@ -240,6 +244,12 @@ SSH で RaspberryPi にログインします．
 
 ![vm2raspi2.png](../../../images/part1/part1_1/vm2raspi2.png)
 
+SSH接続時に`exit`を打ち込むことで，SSH接続を切ることができます．
+
+```shell
+$ exit
+```
+
 ### VM 上の Linux に PC からファイルを転送
 
 ホスト OS（Windows）からゲスト OS（Linux）にファイルを転送します．
@@ -279,7 +289,24 @@ VirtualBox の設定上は外部から SSH 接続できる設定ですが，実�
 
 この場合，Windows ファイアウォールの設定を行えば接続が可能になりますが，セキュリティ上のリスクを伴いますので無理に行う必要はありません． 実験では，RaspberryPi 側をサーバプログラム，PC 上のゲスト OS 側をクライアントプログラムとして実験を進めてください．
 
-### テキストエディタを使った接続 (任意)
+## うまくいかない時のトラブルシューティング
+
+- windows→raspberrypi.localでpingが通らない
+  - Windows上からIPv4オプションをつけてpingを実行する
+    - `ping -4 169.254.xx.xx`
+- VM→raspberrypi.localでpingが通らない
+  - VirtualBoxを最新版に更新or再インストール
+- PC→VMへのファイル転送ができない(pingが通らない)
+  - Windows11の場合やに多数の事例あり
+    - DNSキャッシュをクリアにしてもう一度試す
+      - `ipconfig /flushdns`
+    - VMのMACアドレスを変更する
+    - pingを送り続ける
+    - VMとPCの再起動を繰り返す
+- 特定の場合に限らず
+  - Windows, RaspberryPiをそれぞれ再起動
+
+## テキストエディタを使った接続 (任意)
 
 テキストエディタ Atom を用いて開発環境の構築を行います．
 興味のある方は実施してみてください．
