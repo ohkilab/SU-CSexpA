@@ -37,13 +37,13 @@
 
 3. もう一度「共有」をクリックし，「リンクのコピー」にある「リンクを知っているShizuoka Universityのユーザーが表示できます ＞」をクリックします．
 
-4. 「編集を許可する」にチェックをつけて，「レビューモードでのみ開く」をオンにして「適用」をクリックします．
+4. 「編集を許可する」にチェックをつけて，「適用」をクリックします．
 
 5. 「リンクをコピーしました」と出るので，Slackのグループチャンネルにリンクを貼り付けて送信します．
 
-<img src="../../_images/review_upload.png" width="48%"> &nbsp;&nbsp; <img src="../../_images/review_uploaded.png" width="48%">
+<img src="../../images/report/peer_review/review_upload.png" width="48%"> &nbsp;&nbsp; <img src="../../images/report/peer_review/review_uploaded.png" width="48%">
 
-<img src="../../_images/review_config.png" width="48%"> &nbsp;&nbsp; <img src="../../_images/review_link_copy.png" width="48%">
+<img src="../../images/report/peer_review/review_config.png" width="48%"> &nbsp;&nbsp; <img src="../../images/report/peer_review/review_link_copy.png" width="48%">
 
 他の人のレポートをレビューする際は以下の手順で行ってください．
 
