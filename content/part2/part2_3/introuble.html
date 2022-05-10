@@ -873,7 +873,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
 <span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">parse_status</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_CR</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">E_FIND_CR</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
 <span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
@@ -883,7 +883,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CR</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_CRLF</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">E_FIND_CRLF</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
 <span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
@@ -893,7 +893,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CR</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_CRLFCR</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">E_FIND_CRLFCR</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
 <span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
@@ -903,7 +903,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="w">        </span><span class="n">parse_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E_FIND_CR</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_CRLFCRLF</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">E_FIND_CRLFCRLF</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">header</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
 <span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 
@@ -915,7 +915,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">E_FIND_NULL</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">E_FIND_NULL</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">body</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
 <span class="w">      </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
