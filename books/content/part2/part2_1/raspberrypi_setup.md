@@ -36,7 +36,7 @@ $ sudo ufw disable
 $ sudo ufw default deny
 $ sudo ufw allow 22/tcp
 $ sudo ufw allow 80/tcp
-$ sudo ufw allow 5210/tcp
+$ sudo ufw allow 5201/tcp
 $ sudo ufw allow 5900/tcp
 $ sudo ufw allow 11111/tcp
 $ sudo ufw enable
