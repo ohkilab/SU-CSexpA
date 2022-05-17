@@ -41,13 +41,9 @@
 
 5. 「リンクをコピーしました」と出るので，Slackのグループチャンネルにリンクを貼り付けて送信します．
 
-![review_upload.png](../../images/report/peer_review/review_upload.png)
+![review_upload.png](../../images/report/peer_review/review_upload.png)![review_uploaded.png](../../images/report/peer_review/review_uploaded.png)
 
-![review_uploaded.png](../../images/report/peer_review/review_uploaded.png)
-
-![review_config.png](../../images/report/peer_review/review_config.png)
-
-![review_link_copy.png](../../images/report/peer_review/review_link_copy.png)
+![review_config.png](../../images/report/peer_review/review_config.png)![review_link_copy.png](../../images/report/peer_review/review_link_copy.png)
 
 他の人のレポートをレビューする際は以下の手順で行ってください．
 

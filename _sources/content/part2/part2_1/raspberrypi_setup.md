@@ -11,7 +11,7 @@ Raspbian では，これらのソフトウェアを apt を使ってインスト
 
 ```shell
 $ sudo apt install apache2 apache2-doc apache2-utils　　　　　　　　　 <--- WEBサーバーのインストール
-$ sudo apt install php7.4 php7.4-mysql apache2-mod-php7.4              <--- PHPのインストール
+$ sudo apt install php7.3 php7.3-mysql apache2-mod-php7.3              <--- PHPのインストール
 $ sudo apt install mariadb-server mariadb-client                       <--- DBのインストール
 ```
 

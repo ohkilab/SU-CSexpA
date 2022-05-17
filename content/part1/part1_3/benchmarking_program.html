@@ -673,7 +673,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>以下の動作を行うクライアントプログラムを開発します．</p>
 <ul class="simple">
-<li><p>1接続あたりM回のEchoBack通信（1メッセージはサイズL Byte）を実施する</p></li>
+<li><p>あるサーバに対して1接続につきM回のEchoBack通信を実施する</p></li>
 <li><p>上記の「M回のEchoBack通信」をN並列で実行する</p></li>
 </ul>
 <p>すなわち，サーバがN台のクライアントから同時に接続を受け，それぞれの接続の中でM回のEchoBack通信を行う状況を作り出します．</p>
@@ -683,21 +683,21 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>サンプルコード<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行するベンチマークプログラムのサンプルを提供するので，それぞれの実験方法の必要に応じて修正等を行って利用してください．</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/day3/tcpbenchmark.tgz">tcpbenchmark</a>（静大のネットワークからのみアクセス可能）</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験A\第一部サンプルコード\tcpbenchmark.tgz</span></code>（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）</p></li>
 </ul>
-<p>基本的な使い方は以下の通りですが，各自ソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やす拡張を行ってもよいでしょう）．</p>
+<p>基本的な使い方は以下の通りですが，それぞれでソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やせる拡張を行ってもよいでしょう）．</p>
 <p>実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./hogehoge</span></code>の様に<strong>管理者権限で実行</strong>をしてみて下さい．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ tcpbenchmark <span class="m">192</span>.168.0.100 <span class="m">1000</span> <span class="m">15</span> <span class="m">100</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ tcpbenchmark <span class="m">192</span>.168.0.100 <span class="m">1000</span> <span class="m">1</span> <span class="m">30</span> <span class="m">100</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>第1引数: 接続先IPアドレス</p></li>
 <li><p>第2引数: 接続先ポート番号</p></li>
-<li><p>第3引数: スレッド数(Nスレッド)</p></li>
-<li><p>第4引数: EchoBackメッセージサイズ(L Byte)</p></li>
-<li><p>第5引数: EchoBack回数(M回)</p></li>
+<li><p>第3引数: 試行数（『「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行する』測定を何回試行するか）</p></li>
+<li><p>第4引数: スレッド数(N)</p></li>
+<li><p>第5引数: EchoBack回数(M)</p></li>
 </ul>
-<p>このコマンド例では「15Byteのメッセージを100回EchoBackする接続を1000並列で実行する」ことになります．</p>
 <div class="section" id="id4">
 <h3>時間計測部分<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．計測開示の時刻と計測終了時の時刻を構造体で管理し，差分を取って所要時間を表示しています．</p>
@@ -802,11 +802,19 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="w">    </span><span class="c1">// 接続時間計測終了</span>
 <span class="w">    </span><span class="n">countEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">connectTime</span><span class="p">));</span><span class="w"></span>
 
+<span class="w">    </span><span class="c1">// 実際の送受信処理の計測の前に接続確認を行う</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csocket is not connected.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failConnectNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
 <span class="w">    </span><span class="c1">// 送受信時間計測開始</span>
 <span class="w">    </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// 送受信処理</span>
-<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="n">ECHOBACKNUM</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="n">ECHOBACKNUM</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failSendRecvNum</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>

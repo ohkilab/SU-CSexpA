@@ -4,7 +4,7 @@
 
 以下の動作を行うクライアントプログラムを開発します．
 
--   1接続あたりM回のEchoBack通信（1メッセージはサイズL Byte）を実施する
+-   あるサーバに対して1接続につきM回のEchoBack通信を実施する
 -   上記の「M回のEchoBack通信」をN並列で実行する
 
 すなわち，サーバがN台のクライアントから同時に接続を受け，それぞれの接続の中でM回のEchoBack通信を行う状況を作り出します．
@@ -15,23 +15,22 @@
 
 「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行するベンチマークプログラムのサンプルを提供するので，それぞれの実験方法の必要に応じて修正等を行って利用してください．
 
+-   [tcpbenchmark](https://exp1.inf.shizuoka.ac.jp/shizudai-only/day3/tcpbenchmark.tgz)（静大のネットワークからのみアクセス可能）
 -   `\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験A\第一部サンプルコード\tcpbenchmark.tgz`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
 
-基本的な使い方は以下の通りですが，各自ソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やす拡張を行ってもよいでしょう）．
+基本的な使い方は以下の通りですが，それぞれでソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やせる拡張を行ってもよいでしょう）．
 
 実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は`sudo ./hogehoge`の様に**管理者権限で実行**をしてみて下さい．
 
 ```shell
- $ tcpbenchmark 192.168.0.100 1000 15 100
+ $ tcpbenchmark 192.168.0.100 1000 1 30 100
 ```
 
 -   第1引数: 接続先IPアドレス
 -   第2引数: 接続先ポート番号
--   第3引数: スレッド数(Nスレッド)
--   第4引数: EchoBackメッセージサイズ(L Byte)
--   第5引数: EchoBack回数(M回)
-
-このコマンド例では「15Byteのメッセージを100回EchoBackする接続を1000並列で実行する」ことになります．
+-   第3引数: 試行数（『「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行する』測定を何回試行するか）
+-   第4引数: スレッド数(N)
+-   第5引数: EchoBack回数(M)
 
 ### 時間計測部分
 
@@ -141,11 +140,19 @@ void printUsedTime(TIMECOUNTER* tc) {
     // 接続時間計測終了
     countEnd(&(tp->connectTime));
 
+    // 実際の送受信処理の計測の前に接続確認を行う
+    if ( sendRecvLoop(csocket, 1) == false ) {
+      fprintf(stderr, "csocket is not connected.\n");
+      tp->result = false;
+      tp->failConnectNum++;
+      continue;
+    }
+
     // 送受信時間計測開始
     countStart(&(tp->sendRecvTime));
 
     // 送受信処理
-    tp->result = sendRecvLoop(csocket, ECHOBACKNUM, tp->id);
+    tp->result = sendRecvLoop(csocket, ECHOBACKNUM);
     if ( tp->result == false ) {
       tp->failSendRecvNum++;
     }
