@@ -110,7 +110,7 @@ Makefileの内容はサンプルコードによって異なりますが，典型
 この指定によって，ソースコード中では `#include "exp1.h"` と記述した場合に `../exp1.h` を読み込むことができるようになります．
 
 ```shell
- CFLAGS=-c -Wall -pedantic-errors -O3 -std=gnu11 -I../
+ CFLAGS=-c -Wall -pedantic-errors -O3 -std=c11 -I../
 ```
 
 ## 実行方法
