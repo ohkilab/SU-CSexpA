@@ -735,8 +735,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="id4">
 <h3>時間計測を行うサンプルコード<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．
-POSIX標準のライブラリは，ANSI標準には含まれませんのでビルド時に <code class="docutils literal notranslate"><span class="pre">-std=c99</span></code> のようにANSIベースでのC99仕様に基づくビルドを指定している場合には，以下のライブラリは利用できません．
-そこで，C99仕様にPOSIX標準及びGNU拡張を追加した <code class="docutils literal notranslate"><span class="pre">-std=gnu99</span></code> を利用するようMakefileを修正しておいてください．</p>
+POSIX標準のライブラリは，ANSI標準には含まれませんのでビルド時に <code class="docutils literal notranslate"><span class="pre">-std=c11</span></code> のようにANSIベースでのC99仕様に基づくビルドを指定している場合には，以下のライブラリは利用できません．
+そこで，C99仕様にPOSIX標準及びGNU拡張を追加した <code class="docutils literal notranslate"><span class="pre">-std=gnu11</span></code> を利用するようMakefileを修正しておいてください．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>

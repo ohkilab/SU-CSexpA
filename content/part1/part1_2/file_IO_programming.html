@@ -1002,7 +1002,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><code class="docutils literal notranslate"><span class="pre">-O3</span></code>は，最適化オプションです．</p>
 <p><code class="docutils literal notranslate"><span class="pre">-I../</span></code> は，include ファイルの探索パスに1つ上のディレクトリを追加する指定です．
 この指定によって，ソースコード中では <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;exp1.h&quot;</span></code> と記述した場合に <code class="docutils literal notranslate"><span class="pre">../exp1.h</span></code> を読み込むことができるようになります．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nv">CFLAGS</span><span class="o">=</span>-c -Wall -pedantic-errors -O3 -std<span class="o">=</span>c11 -I../
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nv">CFLAGS</span><span class="o">=</span>-c -Wall -pedantic-errors -O3 -std<span class="o">=</span>gnu11 -I../
 </pre></div>
 </div>
 </div>
