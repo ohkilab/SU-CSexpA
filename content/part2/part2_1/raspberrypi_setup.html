@@ -649,6 +649,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   よくある質問
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apt">
+     apt によるソフトウェアのインストールができない
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mysqlroot">
+     MySQLのrootパスワードがわからない
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -734,6 +751,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   よくある質問
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apt">
+     apt によるソフトウェアのインストールができない
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mysqlroot">
+     MySQLのrootパスワードがわからない
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -769,11 +803,7 @@ $ sudo apt install mariadb-server mariadb-client                       &lt;--- D
 </div>
 <div class="section" id="id3">
 <h3>ファイアーウォールの設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>ファイアウォールは <code class="docutils literal notranslate"><span class="pre">ufw</span></code> を利用して設定します．新たに Webサーバをインストールしましたので，Webサーバが利用するポート80に対して外部からアクセスできるよう設定しておきます．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo ufw allow <span class="m">80</span>/tcp
-</pre></div>
-</div>
-<p>以下のコマンドを利用して，ポート開放のための設定を行ってください（最後のソフトウェアのアップデートは時間を要しますので時間のある時に実施してください）．</p>
+<p>ファイアウォールは <code class="docutils literal notranslate"><span class="pre">ufw</span></code> を利用して設定します．新たに Webサーバをインストールしましたので，Webサーバが利用するポート80に対して外部からアクセスできるよう設定しておきます．以下のコマンドを利用して，ポート開放のための設定を行ってください（最後のソフトウェアのアップデートは時間を要しますので時間のある時に実施してください）．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt install ufw
 $ sudo ufw disable
 $ sudo ufw default deny
@@ -818,7 +848,7 @@ To                         Action      From
 $ sudo systemctl start apache2.service
 </pre></div>
 </div>
-<p>それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して，IPアドレスを調べてから <strong><a class="reference external" href="http://192.168.1.101/">http://192.168.1.101</a></strong> にアクセスしてみましょう（IPアドレスは適宜読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．</p>
+<p>それでは，Webサーバが起動したことを確認します．左上の地球儀のようなアイコンからブラウザ（Chronium）を起動して，IPアドレスを調べてから <strong><a class="reference external" href="http://192.168.1.101/">http://192.168.1.101</a></strong> にアクセスしてみましょう（IPアドレスは適宜Raspberry PiのIPアドレスに読み替えてください）．以下のようにApache2 Debian Default Pageが表示されれば，Webサーバの起動は成功です．</p>
 <p><img alt="raspi-apache.png" src="../../../_images/raspi-apache.png" /></p>
 <p>アクセスができませんか？できない場合はWebサーバを起動させたRasPi側のファイアーウォールの設定や，学生PCのIPアドレスがWebサーバと通信可能なIPアドレス（同じネットワークアドレスで異なるIPアドレス）となっているかどうか等を確認してみましょう．</p>
 </div>
@@ -895,7 +925,11 @@ $ sudo systemctl start mariadb.service
 </div>
 <div class="section" id="id7">
 <h3>MySQLの初期設定<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<p>初期設定ウィザードが用意されていますので，起動して初期設定を進めます．初期状態では root パスワードは設定されていません（<strong>このrootアカウントはOSのアカウントではなくMySQLサーバ上のアカウントですので誤解のなきよう</strong>）ので，何も入力せず<strong>ENTER</strong>を押します．すると，rootパスワードの設定を求められますので設定します．以降はデフォルトの<strong>Y</strong>でOKです．</p>
+<p>初期設定ウィザードが用意されていますので，起動して初期設定を進めます．初期状態では root パスワードは設定されていません（<strong>このrootアカウントはOSのアカウントではなくMySQLサーバ上のアカウントですので誤解のなきよう</strong>）ので，何も入力せず<strong>ENTER</strong>を押します．いくつかの質問の後にrootパスワードの設定を求められますので設定します．バージョンの違いによりいくつか異なる選択肢が出てくるかもしれませんが，基本的にそれ以外はデフォルトの<strong>Y</strong>でOKです．</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>UnixのCUIでは（Y/n）や（y/N）のように選択肢のどちらかが大文字でどちらかが小文字で記載されていることが多いです．この場合大文字で書かれているほうがデフォルトの選択肢で，Enterだけを押すと自動的に大文字のほうが選択されたことになります．</p>
+</div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo mysql_secure_installation
 </pre></div>
 </div>
@@ -960,29 +994,6 @@ installation should now be secure.
 Thanks for using MariaDB!
 </pre></div>
 </div>
-<p>ここで，もし<strong>MariaDBのrootのパスワードが不明な場合</strong>は，以下の手順で再設定してください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># MariaDBのサービスを停める</span>
-$ sudo systemctl stop mariadb.service
-
-<span class="c1"># MariaDBをセーフモードで立ち上げる</span>
-$ sudo mysqld_safe --skip-grant-tables <span class="p">&amp;</span>
-
-<span class="c1"># MariaDBへrootでログイン</span>
-$ mysql -u root
-
-<span class="c1"># rootのパスワードを設定（MariaDBのコマンドライン上で）</span>
-MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; use mysql<span class="p">;</span>
-MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; <span class="k">select</span> host,user,password,plugin from user<span class="p">;</span>                         <span class="c1"># 念のため確認</span>
-MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; update user <span class="nb">set</span> <span class="nv">password</span><span class="o">=</span>password<span class="o">(</span><span class="s1">&#39;ここにパスワードを記述&#39;</span><span class="o">)</span> where <span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>
-MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; update user <span class="nb">set</span> <span class="nv">plugin</span><span class="o">=</span><span class="s1">&#39;&#39;</span> where <span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>                        <span class="c1"># unix_socketを無効に</span>
-
-MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; flush privileges<span class="p">;</span>
-MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; exit<span class="p">;</span>
-
-<span class="c1"># 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）</span>
-$ sudo reboot
-</pre></div>
-</div>
 <p>次にデフォルトのストレージエンジンを設定します．</p>
 <ul class="simple">
 <li><p>この実験ではAriaを使用します．デフォルトのInnoDBは高機能ですが，格納データが肥大化するという問題があり，今回のような容量の小さなSDカードで大きなデータを扱う場合はSDカードの容量を使い果たしてしまう可能性があります．Ariaはトランザクションをサポートしていない等の制約はありますが，MariaDBが産んだ高機能かつ最新のストレージエンジンです．<a class="reference external" href="https://mariadb.com/kb/en/mariadb/storage-engines/">ストレージエンジンに関してはこちらを参照</a>．</p></li>
@@ -1029,29 +1040,13 @@ default-storage-engine<span class="o">=</span>Aria
 </li>
 </ul>
 <p>初期化時に設定した root パスワードを使って，各ユーザとデータベースを作成します．</p>
-<ul class="simple">
-<li><p>最初のコマンド<code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">ohkiDB</span> <span class="pre">CHARACTER</span> <span class="pre">SET</span> <span class="pre">utf8;</span></code>は 文字コード <strong>utf-8</strong> のデータベース <strong>ohkiDB</strong> を作成します．</p></li>
-<li><p>2番目のコマンド<code class="docutils literal notranslate"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">ohkiDB.*</span> <span class="pre">TO</span> <span class="pre">ohki&#64;localhost</span> <span class="pre">IDENTIFIED</span> <span class="pre">BY</span> <span class="pre">'difficult-password';</span></code>は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．</p></li>
-<li><p>3番目のコマンド <code class="docutils literal notranslate"><span class="pre">FLUSH</span> <span class="pre">PRIVILEGES;</span></code>は2番目のコマンドの結果を即時有効にするためのコマンドです．</p></li>
-<li><p>4番目のコマンド<code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">databases;</span></code>は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が<code class="docutils literal notranslate"><span class="pre">;</span></code>で終わることに気を付けてください．</p></li>
-</ul>
-<p><strong>difficult-password</strong> は当然ですが，みなさん個人個人で考えた難しいパスワードを設定してください．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mysql -u root -p
-</pre></div>
-</div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Enter password: ********
-Welcome to the MariaDB monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
-Your MariaDB connection id is <span class="m">7</span>
-Server version: <span class="m">10</span>.0.23-MariaDB MariaDB Server
-
-Copyright <span class="o">(</span>c<span class="o">)</span> <span class="m">2000</span>, <span class="m">2015</span>, Oracle, MariaDB Corporation Ab and others.
-
-Type <span class="s1">&#39;help;&#39;</span> or <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> help. Type <span class="s1">&#39;\c&#39;</span> to clear the current input statement.
+Enter password: ********
 
 MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; CREATE DATABASE ohkiDB CHARACTER SET utf8<span class="p">;</span>
 Query OK, <span class="m">1</span> row affected <span class="o">(</span><span class="m">0</span>.00 sec<span class="o">)</span>
 
-MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; GRANT ALL PRIVILEGES ON ohkiDB.* TO ohki@localhost IDENTIFIED BY <span class="s1">&#39;difficult-password&#39;</span><span class="p">;</span>
+MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; GRANT ALL PRIVILEGES ON ohkiDB.* TO ohki@localhost IDENTIFIED BY <span class="s1">&#39;difficult-password&#39;</span><span class="p">;</span>  &lt;-自分で難しいパスワードに設定すること
 Query OK, <span class="m">0</span> rows affected <span class="o">(</span><span class="m">0</span>.01 sec<span class="o">)</span>
 
 MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; FLUSH PRIVILEGES<span class="p">;</span>
@@ -1072,18 +1067,15 @@ MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; quit
 Bye
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>最初のコマンド<code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">ohkiDB</span> <span class="pre">CHARACTER</span> <span class="pre">SET</span> <span class="pre">utf8;</span></code>は 文字コード <strong>utf-8</strong> のデータベース <strong>ohkiDB</strong> を作成します．</p></li>
+<li><p>2番目のコマンド<code class="docutils literal notranslate"><span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">ohkiDB.*</span> <span class="pre">TO</span> <span class="pre">ohki&#64;localhost</span> <span class="pre">IDENTIFIED</span> <span class="pre">BY</span> <span class="pre">'difficult-password';</span></code>（<strong>difficult-password</strong>は自分で難しいパスワードに設定すること）は，ohkiDBのすべてのテーブルに対するすべての権限をohkiユーザが持つように設定しています（ただし，localhostからのアクセスに限られ，リモートからデータベースを操作することは許可していません）．</p></li>
+<li><p>3番目のコマンド <code class="docutils literal notranslate"><span class="pre">FLUSH</span> <span class="pre">PRIVILEGES;</span></code>は2番目のコマンドの結果を即時有効にするためのコマンドです．</p></li>
+<li><p>4番目のコマンド<code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">databases;</span></code>は現在のデータベース一覧を表示するコマンドです．いずれのコマンドも末尾が<code class="docutils literal notranslate"><span class="pre">;</span></code>で終わることに気を付けてください．</p></li>
+</ul>
 <p>データベースが作成できたら，そのユーザでデータベースにアクセスできることを確認しましょう（当然，パスワードは各ユーザのものを入力します）．テーブルの作成などWrite権限についても確認した方が良いですが，ここではRead権限の確認をすることでいったん良いことにします．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mysql -u ohki -p
-</pre></div>
-</div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Enter password:
-Welcome to the MariaDB monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span>.
-Your MariaDB connection id is <span class="m">9</span>
-Server version: <span class="m">10</span>.0.23-MariaDB MariaDB Server
-
-Copyright <span class="o">(</span>c<span class="o">)</span> <span class="m">2000</span>, <span class="m">2015</span>, Oracle, MariaDB Corporation Ab and others.
-
-Type <span class="s1">&#39;help;&#39;</span> or <span class="s1">&#39;\h&#39;</span> <span class="k">for</span> help. Type <span class="s1">&#39;\c&#39;</span> to clear the current input statement.
+Enter password: ********
 
 MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; use ohkiDB<span class="p">;</span>
 Database changed
@@ -1094,7 +1086,44 @@ MariaDB <span class="o">[</span>ohkiDB<span class="o">]</span>&gt; quit
 Bye
 </pre></div>
 </div>
-<p>ここで，もしrootのパスワードが不明な場合は，前述の手順で再設定してください（複数人でアクセスするサーバ機の場合，どなたか一人が代表で実施すればOK）．</p>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>よくある質問<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="apt">
+<h3>apt によるソフトウェアのインストールができない<a class="headerlink" href="#apt" title="Permalink to this headline">¶</a></h3>
+<p>以下を確認してみましょう</p>
+<ol class="simple">
+<li><p>インターネットに接続されているか</p></li>
+<li><p>apt update コマンドを最初に実行する</p></li>
+<li><p>apt 関連ファイルがロックされていないか．ロックされているようならロックしているプロセス番号を特定してkillする</p></li>
+</ol>
+</div>
+<div class="section" id="mysqlroot">
+<h3>MySQLのrootパスワードがわからない<a class="headerlink" href="#mysqlroot" title="Permalink to this headline">¶</a></h3>
+<p>もしmysqlのrootパスワードが不明な場合は，以下の手順で再設定してください</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># MariaDBのサービスを停める</span>
+$ sudo systemctl stop mariadb.service
+
+<span class="c1"># MariaDBをセーフモードで立ち上げる</span>
+$ sudo mysqld_safe --skip-grant-tables <span class="p">&amp;</span>
+
+<span class="c1"># MariaDBへrootでログイン</span>
+$ mysql -u root
+
+<span class="c1"># rootのパスワードを設定（MariaDBのコマンドライン上で）</span>
+MariaDB <span class="o">[(</span>none<span class="o">)]</span>&gt; use mysql<span class="p">;</span>
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; <span class="k">select</span> host,user,password,plugin from user<span class="p">;</span>                         <span class="c1"># 念のため確認</span>
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; update user <span class="nb">set</span> <span class="nv">password</span><span class="o">=</span>password<span class="o">(</span><span class="s1">&#39;ここにパスワードを記述&#39;</span><span class="o">)</span> where <span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; update user <span class="nb">set</span> <span class="nv">plugin</span><span class="o">=</span><span class="s1">&#39;&#39;</span> where <span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>                        <span class="c1"># unix_socketを無効に</span>
+
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; flush privileges<span class="p">;</span>
+MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; exit<span class="p">;</span>
+
+<span class="c1"># 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）</span>
+$ sudo reboot
+</pre></div>
 </div>
 </div>
 </div>
