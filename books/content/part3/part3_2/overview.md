@@ -2,8 +2,10 @@
 
 -   a) [DBMSとの接続](./connection_to_dbms "DBMSとの接続")（必須）
 -   b) [最終課題の詳細](./final_task_details "最終課題の詳細")
--   c) [第三部グループ発表会](../part3_5/last_presentation.md "第三部グループ発表会")
--   d) [第三部レポート](../../report/report.html#id6 "第三部レポート")
+-   c) [ベンチマークサーバの説明](./benchmarkserver_description "ベンチマークサーバの説明")
+-   d) [競技ルール](./regulation "競技ルール")
+-   e) [第三部グループ発表会](../part3_5/last_presentation.md "第三部グループ発表会")
+-   f) [第三部レポート](../../report/report.html#id6 "第三部レポート")
 
 ```{admonition} 本日の進捗確認チェックリスト
 - 14:00: PHPからDBMSへアクセスできるようになりましたか？
