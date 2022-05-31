@@ -38,7 +38,7 @@ void test_func(char *msg)
   char buf[16];
   uint32_t z = 0xccbbaa99;
   int i, j;
-  uint64_t base = 0;
+  uint32_t base = 0;
 
   printf("0x%016x: buf\n", buf);
   printf("0x%016x: &y\n", &y);
@@ -48,7 +48,7 @@ void test_func(char *msg)
 
   printf("\n");
   printf("start dump memory\n");
-  base = (uint64_t)&z;
+  base = (uint32_t)&z;
   for(i = 0; i < 18; i++){
     printf("0x%016x: ", base);
     for(j = 0; j < 8; j++){
