@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>DBMSとの接続 &#8212; 情報科学実験A</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   メインページ
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../schedule.html">
    今年度の講義について
@@ -500,90 +515,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/part3/part3_2/connection_to_dbms.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_2/connection_to_dbms.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ohkilab/exp1"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_2/connection_to_dbms.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/part3/part3_2/connection_to_dbms.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    はじめに
@@ -735,12 +840,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>DBMSとの接続</h1>
@@ -908,19 +1012,20 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="dbms">
-<h1>DBMSとの接続<a class="headerlink" href="#dbms" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="dbms">
+<h1>DBMSとの接続<a class="headerlink" href="#dbms" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>一般的なWebシステムは，「クライアント⇔Webサーバ⇔DBMS」という三層構造で構築されることが多いです．
 ちなみに，Webサーバが内部的にサーバサイドのプログラムを実行し動的にコンテンツを生成するような場合，Webサーバと呼ばずにアプリケーションサーバ（APサーバ）と呼ばれることもあります（そのような製品群があります）．</p>
 <p>それでは，いよいよクライアントからのリクエストに対し，WebサーバがDBMS (Data Base Management System)とやり取りして返信するコンテンツを動的に生成する仕組みを実体験していきましょう．</p>
-</div>
-<div class="section" id="mariadb">
-<h2>MariaDBの基礎<a class="headerlink" href="#mariadb" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mariadb">
+<h2>MariaDBの基礎<a class="headerlink" href="#mariadb" title="Permalink to this headline">#</a></h2>
 <p>MariaDB(マリアディービー)とは，「MySQL」から派生したオープンソースのRDBMS（リレーショナルデータベース管理システム）です．拡張性/処理性能/高品質といった特徴を持ち，世界的に使用されているデファクト的な存在で，数多くのLinuxディストリビューションでも採用されています（サービス名はmariadbですが，設定ファイルやコマンドなどmysqlを踏襲してます）．</p>
 <p>MariaDBがまだインストールされていない人は以下のようにインストールしておいてください．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Raspberry Piの場合</span>
@@ -975,20 +1080,20 @@ MariaDB <span class="o">[(</span>mysql<span class="o">)]</span>&gt; exit<span cl
 $ sudo reboot
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
-<h2>コマンドラインからデータベースへアクセスする方法<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id2">
+<h2>コマンドラインからデータベースへアクセスする方法<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>次にコマンドラインからデータベースへアクセスする方法を復習してみましょう．</p>
 <p>ここでは，静岡県の郵便番号リストの登録されたデータベースを作成し，入力した住所の郵便番号を返すようなWebアプリケーションを実装してみましょう．例えば，Webブラウザ上で「城北」と入力すると，住所に城北を含んだ郵便番号のリストが結果のWebページに表示されるというイメージです．</p>
-<div class="section" id="id3">
-<h3>静岡県の郵便番号一覧をダウンロード<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<section id="id3">
+<h3>静岡県の郵便番号一覧をダウンロード<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>郵便番号のリストは，<a class="reference external" href="http://www.post.japanpost.jp/zipcode/download.html">ゆうちょのページ</a>で公開されています．ただし，半角カタカナだったり，特に今回は不要なフィールドが含まれていたりしますので，静岡県の郵便番号と住所を「,」で区切ったデータのみを抽出し，以下のGitリポジトリへ<code class="docutils literal notranslate"><span class="pre">zip-shizuoka.csv</span></code>というファイルで置いておきました．</p>
 <ul class="simple">
 <li><p>GitHubリポジトリ <a class="reference external" href="https://github.com/ohkilab/SU-CSexpA-02">https://github.com/ohkilab/SU-CSexpA-02</a></p></li>
 </ul>
-</div>
-<div class="section" id="id4">
-<h3>テーブルの作成<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id4">
+<h3>テーブルの作成<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>データベースにデータを保存するにはまずテーブルを作らなくてはいけません．</p>
 <p>テーブルは，SQLの<strong>CREATE TABLE</strong>文で作れます．まずMySQLに先ほど作成したユーザ「shizutaro」権限でログインしましょう．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ mysql -D CSexp1DB -u shizutaro -p
@@ -1010,7 +1115,7 @@ $ sudo reboot
 <li><p>列名：以下を参照</p></li>
 </ul>
 <table class="table" id="schema">
-<caption><span class="caption-number">Table 8 </span><span class="caption-text">スキーマ例</span><a class="headerlink" href="#schema" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 8 </span><span class="caption-text">スキーマ例</span><a class="headerlink" href="#schema" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -1059,9 +1164,9 @@ $ sudo reboot
 <li><p>参考2 <a class="reference external" href="http://memopad.bitter.jp/w3c/sql/sql_create_table.html">http://memopad.bitter.jp/w3c/sql/sql_create_table.html</a></p></li>
 <li><p>参考3 <a class="reference external" href="http://yoshinin.blog.fc2.com/blog-entry-126.html">http://yoshinin.blog.fc2.com/blog-entry-126.html</a></p></li>
 </ul>
-</div>
-<div class="section" id="csv">
-<h3>CSVファイルからデータをテーブルへ流し込む<a class="headerlink" href="#csv" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="csv">
+<h3>CSVファイルからデータをテーブルへ流し込む<a class="headerlink" href="#csv" title="Permalink to this headline">#</a></h3>
 <p>テーブルにデータを追加するには<strong>INSERT文</strong>を使いました．ただ，膨大な量のデータを一行一行<strong>INSERT文</strong>で挿入するのはとても大変です．そこで大抵のデータベースには，ファイルからデータを一括でテーブルへ流し込むコマンドがあります．MySQLだと以下のように実行します．</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="ss">&quot;/path/import.csv&quot;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;\r\n&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
@@ -1072,9 +1177,9 @@ $ sudo reboot
 </ul>
 <p>パスやテーブル名は，皆さんの環境に合わせて修正してください．ここで，CSVファイルのパスは，<strong>絶対パス</strong>で記述しましょう．相対パスでも書けますが，MySQLのデータファイルのある位置からの相対パスとなりますので，なかなか期待通りには書けないと思いますから．</p>
 <p>エラーが表示された場合は，例えば，データ型が一致していないといったスキーマの誤りである可能性があります．ご注意ください．</p>
-</div>
-<div class="section" id="id5">
-<h3>テーブルに入ったデータの抽出<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id5">
+<h3>テーブルに入ったデータの抽出<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>テーブルに入ったデータの抽出は，以下のように<strong>SELECT文</strong>で行います．いろいろ試してみてください．</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">zipShizuoka</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
 </pre></div>
@@ -1097,9 +1202,9 @@ $ sudo reboot
 <li><p>各市区町村別がそれぞれ何個の郵便番号を持っているか？(ヒント：<a class="reference external" href="http://dev.mysql.com/doc/refman/5.1/ja/group-by-modifiers.html">GROUP BY句</a>)</p></li>
 <li><p>出力を個数の多い順にソートして表示するには？(ヒント：<a class="reference external" href="https://qiita.com/ozlee/items/b3983c96f23b27d9044d">ORDER BY句</a>)</p></li>
 </ul>
-</div>
-<div class="section" id="id6">
-<h3>高度な問い合わせ例<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id6">
+<h3>高度な問い合わせ例<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>それでは，具体的に高度な問い合わせをどのように作成していったらよいかコツを説明します．</p>
 <p>例えば，「<strong>中区城北</strong>の郵便番号を調べる」にはどうしたらよいでしょうか．<strong>中区</strong>は<strong>addr2</strong>に格納されているし，<strong>城北</strong>は<strong>addr3</strong>に格納されていますので，<strong>中区城北</strong>のような住所の断片はどうやって問い合わせましょうか．</p>
 <p>様々な方法が考えられますが，「<strong>addr1と2と3を連結した文字列に対して，like演算で抽出する</strong>」というような方法を思い浮かべたかもしれません．</p>
@@ -1115,12 +1220,12 @@ $ sudo reboot
 </div>
 <p>さぁどのような結果が得られたでしょう？ちなみに中区城北の郵便番号は<strong>4328011</strong>です．表示されてますか？（表示されない人は何かが足りない？）</p>
 <p>ここまでできたら，いよいよ次はPHPプログラムからデータベースへアクセスしてみましょう．</p>
-</div>
-</div>
-<div class="section" id="php">
-<h2>PHPからデータベースへアクセスする方法<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id7">
-<h3>接続<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="php">
+<h2>PHPからデータベースへアクセスする方法<a class="headerlink" href="#php" title="Permalink to this headline">#</a></h2>
+<section id="id7">
+<h3>接続<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <p>次に，PHPからデータベースへアクセスする方法について説明します．そろそろこんなこともできるかなと思いついたものを調べて実装する力をつけていってほしいと思います．</p>
 <p>まず実現方法を調べるために「<a class="reference external" href="https://www.google.co.jp/search?q=PHP+MySQL">PHP MySQL</a>」で検索してみてください．</p>
 <p>「<a class="reference external" href="http://php.net/manual/ja/book.mysqli.php">PHPのマニュアルページにあるMySQLの関数のリファレンス</a>」等が見つかりましたか？PHPでMySQLへアクセスしたいわけですので，PHPのMySQL関連の関数について調べてみるのが第一です．</p>
@@ -1136,34 +1241,34 @@ $ sudo reboot
 </ul>
 <p>というように必要な引数の使い方が何となく想像できると思います．このような雰囲気で，PHPのソースコードを作成し実際に試してみましょう．</p>
 <p>「<strong>接続に成功しました</strong>」と表示されたら成功です．</p>
-</div>
-<div class="section" id="id8">
-<h3>問い合わせ<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id8">
+<h3>問い合わせ<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
 <p>接続しただけではつまらないですよね．先ほどコマンドラインで実現した郵便番号テーブルからの検索を実現してみましょう．</p>
 <p>データベースへの検索は，問い合わせや<strong>Query</strong>と呼びます．先ほどのMySQL関連の関数の中に<strong>mysqli_query</strong>という関数があることに気づきましたか．</p>
 <p>このように実現したいこととそのキーワードが分かれば，基本的にはホームページを検索することで大抵の情報は見つかります．</p>
 <p>検索力を身に着けて実現したいことを実装していきましょう．</p>
-</div>
-<div class="section" id="id9">
-<h3>補足1: 手続き型とオブジェクト指向型<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id9">
+<h3>補足1: 手続き型とオブジェクト指向型<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="http://php.net/manual/ja/book.mysqli.php">MySQL Improved Extension</a>のライブラリ群は，手続き型の利用方法とオブジェクト指向による利用方法の2通りの利用方法が用意されています．オブジェクト指向の利用方法の方が，モダンなコードで通常きれいなコードになりますのでこの機会にチャレンジしてみてくだい．以下のページの”Example #2 Object-oriented and procedural interface”のサンプルコードが参考になります．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://php.net/manual/ja/mysqli.quickstart.dual-interface.php">Dual procedural and object-oriented interface</a></p></li>
 </ul>
 <p>【注意】 手続き型のインタフェースとオブジェクト指向型のインタフェースは別物です．混在して使うとトラブルの元ですので，ライブラリ中の各関数については，手続き型で書くなら手続き型のインタフェースを使用し，オブジェクト指向型で書くならオブジェクト指向型のインタフェースを利用してください．例えば，手続き型ではmysqli_query( $link, $query ) を使います．mysqli::query( $query )は使えません．当然，mysqli_query( $query )は使えません（文法エラーにはなりませんので注意）．</p>
-</div>
-<div class="section" id="query-statements-vs-prepared-statements">
-<h3>補足2: Queryの設定方法（statements vs. prepared-statements）<a class="headerlink" href="#query-statements-vs-prepared-statements" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="query-statements-vs-prepared-statements">
+<h3>補足2: Queryの設定方法（statements vs. prepared-statements）<a class="headerlink" href="#query-statements-vs-prepared-statements" title="Permalink to this headline">#</a></h3>
 <p>queryの設定方法も2種類の方法が用意されています．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://php.net/manual/ja/mysqli.quickstart.statements.php">完成したSQL文字列を用意し，クエリーを実行する方法</a></p></li>
 <li><p><a class="reference external" href="http://php.net/manual/ja/mysqli.quickstart.prepared-statements.php">パラメータを未定にしたSQL文字列を解析し，その後でパラメータを設定した上でクエリーを実行する方法</a></p></li>
 </ul>
 <p>SQLインジェクション対策という観点から後者の方法が推奨されますので，前者で動作確認した後は，後者の方法を使ってみてください．</p>
-</div>
-</div>
-<div class="section" id="id10">
-<h2>本日の課題について<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id10">
+<h2>本日の課題について<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>以下の仕様を満たすPHPプログラムを実装してください．</p>
 <ul>
@@ -1178,17 +1283,17 @@ $ sudo reboot
 <p><img alt="addr-postcode-search.png" src="../../../_images/addr_postcode_search.png" /></p>
 <p>テキストフィールドに入力された文字列をPHPプログラムで取得する方法は，以下のページを参考にしてください．</p>
 <p><a class="reference external" href="http://php.net/manual/ja/tutorial.forms.php">http://php.net/manual/ja/tutorial.forms.php</a></p>
-<div class="section" id="id11">
-<h3>確認項目<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<section id="id11">
+<h3>確認項目<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
 <p>以下の達成レベルを必ず低いレベルのチェック項目（各レベル最低一つ以上）からクリアしていってください．</p>
-<div class="section" id="c">
-<h4>「可(C)」レベル<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h4>
+<section id="c">
+<h4>「可(C)」レベル<a class="headerlink" href="#c" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>上記要件のアプリケーションを実装する</p></li>
 </ul>
-</div>
-<div class="section" id="b">
-<h4>「良(B)」レベル<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="b">
+<h4>「良(B)」レベル<a class="headerlink" href="#b" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>郵便番号を全国対応にする</p></li>
 <li><p>以下のようなページ装飾系ツールを利用してページを綺麗にデザインする</p>
@@ -1199,9 +1304,9 @@ $ sudo reboot
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="a">
-<h4>「優(A)」レベル<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="a">
+<h4>「優(A)」レベル<a class="headerlink" href="#a" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>住所入力中に候補を表示する（Googleサジェストのような機能）</p></li>
 <li><p>Google Maps等の地図系ツールと連携させる</p>
@@ -1213,19 +1318,19 @@ $ sudo reboot
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="s">
-<h4>「秀(S)」レベル<a class="headerlink" href="#s" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="s">
+<h4>「秀(S)」レベル<a class="headerlink" href="#s" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>「優」レベルをnode.jsで実装する</p></li>
 <li><p>その他，秀に相当すると感じさせる工夫や実装</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id12">
-<h3>進め方<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id13">
-<h4>サンプルコード<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="id12">
+<h3>進め方<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<section id="id13">
+<h4>サンプルコード<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h4>
 <p>以下に、可レベルに達していないサンプルコードを用意しました。</p>
 <p>これを元に実装を進めていっても構いません。</p>
 <p>また、詰まったら下のヒントも参考にしてみてください。</p>
@@ -1321,11 +1426,11 @@ $ sudo reboot
 <span class="x">&lt;/html&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id14">
-<h4>ヒント<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="or-or">
-<h5>任意のカラム（郵便番号 or 住所 or カナ）による入力を受け付ける<a class="headerlink" href="#or-or" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="id14">
+<h4>ヒント<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
+<section id="or-or">
+<h5>任意のカラム（郵便番号 or 住所 or カナ）による入力を受け付ける<a class="headerlink" href="#or-or" title="Permalink to this headline">#</a></h5>
 <p>いくつか方法があるので紹介します</p>
 <p><strong>(方法1)</strong> 該当のカラムをCONCATで繋げたものをLIKEで検索（上の解説を参照）</p>
 <p><strong>(方法2)</strong> 1カラムずつ検索して，検索結果があったものを表示</p>
@@ -1341,9 +1446,9 @@ $ sudo reboot
 </li>
 </ul>
 <p>それぞれのやり方にメリット・デメリットがあります．どのような例外が存在するかについても考えておきましょう．</p>
-</div>
-<div class="section" id="id15">
-<h5>複数ページの実現<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h5>
+</section>
+<section id="id15">
+<h5>複数ページの実現<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h5>
 <p><strong>次のページに行ったら全件表示されてしまう・・・</strong></p>
 <p>検索ワードを次ページに受け渡していないのが原因です．$_REQUEST 変数等を使って検索ワードを次ページに引き渡してあげましょう．</p>
 <p>例）</p>
@@ -1393,12 +1498,12 @@ $ sudo reboot
 <p><strong>(方法2) mysqli_num_rows() を使う</strong></p>
 <p>PHPで mysqli_query() による検索処理を行なった後に mysqli_num_rows() を使って検索結果の全行数を得ることができます．</p>
 <p>実装するアプリケーションごとに，サーバとクライアント間の通信量やそれぞれが行う計算量は異なります．どのような場合にどちらのやり方が有効なのかについても考えてみましょう．</p>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id16">
-<h2>[必須課題]性能評価<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+</section>
+<section id="id16">
+<h2>[必須課題]性能評価<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h2>
 <p>本日実装した住所・郵便番号検索のWebシステムについて，実装内容を報告するとともに，応答時間の計測結果等からボトルネックを分析し，どのようにしたら性能向上させられるか検討し，改善させてみてください．</p>
 <ol class="simple">
 <li><p>アプリケーションの実装について工夫した点があれば説明してください（SABCのどこまで実装を行いましたか？）</p></li>
@@ -1406,21 +1511,21 @@ $ sudo reboot
 <li><p>どのようにしたら性能向上させられるか検討してください．</p></li>
 <li><p>【発展】ボトルネック部分を改善させてみてください．どこまで改善させられるのか試行錯誤してみてください．</p></li>
 </ol>
-<div class="section" id="id17">
-<h3>参考情報<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<section id="id17">
+<h3>参考情報<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://qiita.com/y_fujieda/items/a0a69151cf7307039f74">Chrome Developer Toolsでパフォーマンス計測・改善</a></p></li>
 <li><p><a class="reference external" href="https://qiita.com/nekoneko-wanwan/items/02aed17773833c3ad3b2">ブレークポイントを使ったJavaScriptデバッグを整理してみた【再入門】</a></p></li>
 <li><p><a class="reference external" href="https://qiita.com/shgkt/items/0054670269e1d3aa49b8">JavaScript,jQueryの爆速コーディング、デバッグ方法論の勧め～実践向け逆引き(windows,chrome向け)～</a></p></li>
 <li><p><a class="reference external" href="http://www.brendangregg.com/linuxperf.html">Linux Performance</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id18">
-<h2>おわりに<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id18">
+<h2>おわりに<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h2>
 <p>上記の課題を実装できた人は，Day10の内容を参考に性能評価を行いましょう． 課題の実装について工夫した部分（SABC）についてはレポートで報告してください．</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1444,9 +1549,11 @@ $ sudo reboot
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1462,24 +1569,28 @@ $ sudo reboot
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ohki Lab<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Ohki Lab<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

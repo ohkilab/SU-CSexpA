@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>最終課題の詳細 &#8212; 情報科学実験A</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   メインページ
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../schedule.html">
    今年度の講義について
@@ -500,90 +515,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/part3/part3_2/final_task_details.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_2/final_task_details.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ohkilab/exp1"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_2/final_task_details.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/part3/part3_2/final_task_details.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    はじめに
@@ -689,12 +794,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>最終課題の詳細</h1>
@@ -816,13 +920,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>最終課題の詳細<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>最終課題の詳細<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="id2">
+<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>最終課題は，Webシステムの超高性能化に関する課題です．</p>
 <p>具体的には，1000万行程の大きなデータ（CSV形式）を2つ用意しましたので，Webブラウザで検索キーワードを入力すると，これら2ファイルを統合的に検索し結果をソートして表示するWebアプリケーションを実装してもらいます．何も工夫せず安直に実装すると検索結果が表示されるまで数分かかってしまうこともありますので，三層クライアントサーバ型のWebシステムにおいて，どこにボトルネックが生じうるのか，どのようにボトルネックの箇所が遷移していくのか，グループ内で議論や試行錯誤し，できるだけ多くのリクエストに耐えられる超高性能なWebシステムを実現できるようグループ間で競ってもらいます．様々なアプローチが考えられますが，大きくオンメモリ型か非オンメモリ型かでそれぞれ超高性能なWebシステムを目指してほしいと思います（どちらか一方のみでも構いません）．</p>
 <p>第三部最後のグループ発表会では，各グループの実現した超高性能なWebシステムについて特徴を紹介してもらい，その性能測定結果をアピールしてもらいます．どのような工夫で性能向上させるかは，世の中で実際に使用されうる手法であれば何でも構いません（もし実運用に耐えられないような小手先の仕組みの場合は，参考という形でアピールしてください．実施した内容や検討した内容はポジティブに受け取りますので）．</p>
@@ -837,16 +942,16 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p>もちろん両方に取り組んでもらってもよいですが，限られた時間内で達成感を得られる方に専念した方がよいと思います．また，それぞれ開発したプログラムのソースコード最終版も個別レポートと一緒に提出してもらいます．第三者が眺めて理解しやすいような構造やコメントを意識してください．</p>
-</div>
-<div class="section" id="id3">
-<h2>使用機材について<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id3">
+<h2>使用機材について<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>最終課題には「基礎課題」および「応用課題」の二種類の課題があります． 基礎課題にはRaspberry Piを使用して取り組んでください． 応用課題（超高性能化および自由課題）では，<strong>Raspberry Pi以外の機材（例えば，以前の実験で利用していたNUCが何台かあります）も利用可能</strong>とします． また，<strong>一台だけでなく複数台Raspberry Piを組み合わせた構成も利用可</strong>とします．皆さんの自由な発想による課題へのチャレンジを期待しています．</p>
 <p>ただし，複雑なシステム構成においてはパフォーマンスの計測も困難になることには十分に注意してください．パフォーマンスに影響する要件を抽出し，それぞれが何故，どの程度影響を与えたのかを，公平に評価・レポートすることが重要です．</p>
-</div>
-<div class="section" id="id4">
-<h2>データセットのダウンロード<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="php">
-<h3>PHPのエラー表示設定と確認<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id4">
+<h2>データセットのダウンロード<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<section id="php">
+<h3>PHPのエラー表示設定と確認<a class="headerlink" href="#php" title="Permalink to this headline">#</a></h3>
 <p>デフォルト設定では，PHPでWebアプリケーションを実装した場合，PHP実行時のエラー内容が画面に表示されず正常に動作しているのかしていないのか良く分かりません．また，裏で検索処理に時間を要しているだけなのにPHP実行時間が重たく30秒を超えてしまうような場合，自動的にPHPの実行を停止してしまいます．Webシステムの本番運用ではこのようなデフォルト設定が望ましいですが，Webシステムの開発中は設定を変更した方が便利ですので以下のようにPHPの設定ファイルを修正してください（<a class="reference external" href="https://qiita.com/hide/items/5bfe5b322872c61a6896">よく使う Vim のコマンドまとめ</a>）．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo vi /etc/php.ini
 </pre></div>
@@ -859,9 +964,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="na">display_errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">On</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id5">
-<h3>データセットのダウンロード<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id5">
+<h3>データセットのダウンロード<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>最終課題用の２つのデータセットをダウンロードしてください．それぞれダウンロードするのにそこそこ時間を要しますので余裕をもって事前に，ダウンロードしておくとよいでしょう．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://exp1.inf.shizuoka.ac.jp/shizudai-only/part3/geotag.zip">geotag.zip</a>（約439MB）（静大のネットワークからのみアクセス可能）</p></li>
@@ -869,11 +974,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>どちらも同じファイルなので，可能な方法でダウンロードしてください．解凍すると<code class="docutils literal notranslate"><span class="pre">geotag.csv</span></code> (約1.1GB)と<code class="docutils literal notranslate"><span class="pre">tag.csv</span></code> (約445MB)の2つのファイルが入っています．</p>
 <p>※ パケット容量制限等でどうしてもダウンロードが難しい方はUSBメモリ等でお渡ししますのでSlackにてご相談ください</p>
-<div class="section" id="geotag-csv">
-<h4>geotag.csvの概要<a class="headerlink" href="#geotag-csv" title="Permalink to this headline">¶</a></h4>
+<section id="geotag-csv">
+<h4>geotag.csvの概要<a class="headerlink" href="#geotag-csv" title="Permalink to this headline">#</a></h4>
 <p>Flickrで共有されている<strong>撮影位置の緯度経度</strong>の付いた写真1000万枚のリストになります．</p>
 <table class="table" id="geotag">
-<caption><span class="caption-number">Table 5 </span><span class="caption-text">geotagの概要</span><a class="headerlink" href="#geotag" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">geotagの概要</span><a class="headerlink" href="#geotag" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -908,12 +1013,12 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="tag-csv">
-<h4>tag.csvの概要<a class="headerlink" href="#tag-csv" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="tag-csv">
+<h4>tag.csvの概要<a class="headerlink" href="#tag-csv" title="Permalink to this headline">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">geotag.csv</span></code>に含まれる画像へ付与されているタグのリストになります．IDの重複は許しており，タグ毎に一行となっています．</p>
 <table class="table" id="tag">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">tagの概要</span><a class="headerlink" href="#tag" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">tagの概要</span><a class="headerlink" href="#tag" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -936,10 +1041,10 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="id6">
-<h3>テーブルの作成<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="id6">
+<h3>テーブルの作成<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>テーブルを作成し，ダウンロードしたCSVファイル（データセット）からデータをテーブルへ流し込んでみましょう．参考まで標準的なスキーマを以下に記しておきます．もちろんもっと賢い格納方法についてグループ内で試行錯誤してくれて構いませんので，ぜひ取り組んでみてください（ただし，ここはまだ本質ではありません）．</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">mysqlの設定変更（該当箇所を以下のように変更するか，なければ追記）</span><span class="w"></span>
 <span class="n">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">vi</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">mariadb</span><span class="p">.</span><span class="n">conf</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="mi">50</span><span class="o">-</span><span class="k">server</span><span class="p">.</span><span class="n">cnf</span><span class="w"></span>
@@ -998,9 +1103,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://dev.mysql.com/doc/refman/5.6/ja/index-hints.html">インデックスヒント構文</a></p></li>
 <li><p><a class="reference external" href="http://dev.mysql.com/doc/refman/5.1/ja/show-index.html">SHOW INDEX 構文</a></p></li>
 </ul>
-</div>
-<div class="section" id="id7">
-<h3>テーブル作成がうまくいかない人用の手順<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id7">
+<h3>テーブル作成がうまくいかない人用の手順<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <p>下記手順を試してみてください</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>--mysqlを止める
 $ sudo service mysql stop
@@ -1015,9 +1120,9 @@ DROP TABLE tag,geotag<span class="p">;</span>
 -- 再度テーブルの作成からチャレンジ
 </pre></div>
 </div>
-</div>
-<div class="section" id="id8">
-<h3>インデックスの作成<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id8">
+<h3>インデックスの作成<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
 <p>緯度経度や撮影時刻，タグなどを条件とした検索を効率良く行うため，必要なフィールド用のインデックスを作成してみましょう．ただし，インデックスを作成すると検索は速くなりますが，インデックスの分だけディスク容量を消費しますので注意しましょう（インデックスの作成に必要な容量は計算で見積もることができますので調べてみるとよいでしょう）．</p>
 <p>具体的に，皆さんの環境でインデックスの作成によってどの程度ディスク容量を使用するか試してみましょう．以下のようにコマンドを入力し，インデックスを作成する前のテーブルが消費しているデータ容量をチェックしてみましょう．テーブルが消費しているデータ容量などの詳細は，<strong>information_schema</strong>と呼ばれるDBのpartitionsテーブルへ保存されています．</p>
 <p>data_lengthがテーブルの大きさ，index_lengthがインデックスの大きさ，単位はbyteで確認できます．</p>
@@ -1074,10 +1179,10 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <ul class="simple">
 <li><p><a class="reference external" href="http://dev.mysql.com/doc/refman/5.1/ja/create-index.html">インデックス作成に関するMySQLリファレンス</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id9">
-<h2>基礎課題（全員必須）<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id9">
+<h2>基礎課題（全員必須）<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
 <p><strong>任意のタグを持つ写真の撮影時刻・緯度・経度・URLの一覧を，撮影時刻順で出力するプログラム</strong>を様々な方針で実装してもらいます．</p>
 <p>ここで，任意のタグは静的にハードコーティングするのではなく，Webブラウザの検索フォームからユーザが指定できるよう実装してください．</p>
 <p>イメージを掴みやすくなるようこれから実装するprogA（実装A）～C（実装C）を呼び出すための共通の<code class="docutils literal notranslate"><span class="pre">index.html</span></code>を用意しました．以下のgitリポジトリからサンプルプログラム（<code class="docutils literal notranslate"><span class="pre">index.html</span></code>, <code class="docutils literal notranslate"><span class="pre">progA.php</span></code>, <code class="docutils literal notranslate"><span class="pre">progB.php</span></code>, <code class="docutils literal notranslate"><span class="pre">progC.php</span></code>の４つ）をcloneしてください．これら<code class="docutils literal notranslate"><span class="pre">progA.php</span></code>（実装A）, <code class="docutils literal notranslate"><span class="pre">progB.php</span></code>（実装B）, <code class="docutils literal notranslate"><span class="pre">progC.php</span></code>（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザで<code class="docutils literal notranslate"><span class="pre">index.html</span></code>を表示し，どのような構造になっているか動作を確認してみてください．</p>
@@ -1092,8 +1197,8 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <li><p>撮影時刻の降順で写真を表示すること</p></li>
 <li><p>結果が100件を超える場合，最新のもの100件を表示すること</p></li>
 </ul>
-<div class="section" id="a">
-<h3>実装A<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h3>
+<section id="a">
+<h3>実装A<a class="headerlink" href="#a" title="Permalink to this headline">#</a></h3>
 <p>実装Aは，<strong>データベースを使用せずにCSVファイルを開いて検索するようなプログラム</strong>を実装してください．</p>
 <p>実装Aの仕様を以下に示します．</p>
 <p>【仕様】</p>
@@ -1115,9 +1220,9 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </ul>
 </div>
 <p>ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
-</div>
-<div class="section" id="b">
-<h3>実装B<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="b">
+<h3>実装B<a class="headerlink" href="#b" title="Permalink to this headline">#</a></h3>
 <p>実装Bは，実装Aと同仕様のプログラムを，<strong>データベースを使用して，ただし「i_tag」インデックスは使用しないで検索するようなプログラム</strong>を実装してください．</p>
 <p>実装Bの仕様を以下に示します．</p>
 <p>【仕様】</p>
@@ -1134,9 +1239,9 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </ul>
 </div>
 <p>ロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
-</div>
-<div class="section" id="c">
-<h3>実装C<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="c">
+<h3>実装C<a class="headerlink" href="#c" title="Permalink to this headline">#</a></h3>
 <p>実装Cは，実装Bのプログラムを，<strong>インデックスを使用して検索するプログラム</strong>を実装してください．</p>
 <p>【仕様】</p>
 <ul class="simple">
@@ -1150,9 +1255,9 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <li><p>ユーザが入力したタグは，$_REQUEST[“tag”]に入っています（<code class="docutils literal notranslate"><span class="pre">index.html</span></code>でその設定はすでにされています）．</p></li>
 </ul>
 </div>
-</div>
-<div class="section" id="id10">
-<h3>性能比較<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id10">
+<h3>性能比較<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
 <p>上記，<strong>実装A～C</strong>の性能を，abコマンドを使って性能比較し結果を分析してください．</p>
 <p>上記３実装の性能は恐らく「実装B＜実装A＜実装C」なりそうですが，実装Aの工夫によって「実装B＜実装C＜実装A」も可能かもしれませんね．</p>
 <p>特に<strong>実装Aで超高性能なプログラム</strong>になるよう頑張ってください．</p>
@@ -1178,12 +1283,12 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <p><strong>クライアントサイドのみ</strong>や主メモリ内のみで完結するような，本質的に異なる次元の工夫による実装の性能結果は， <strong>オンメモリ型</strong>であることなど明記し，<strong>参考値</strong>として性能結果を示してください（全体アーキテクチャや本質的な違いなど明確に説明してください）．</p>
 <p>いずれにせよロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
 <p>上記abコマンドの引数（各班の性能差を際立たせるために重めの負荷になるよう設定）で各実装を複数回性能比較するとかなりの時間を要しますので，普段のデバッグ時は軽めの負荷で検証を進めてください．グループ発表や個別レポートに掲載する値は，上記abコマンドの引数の結果でお願いします．もし上記設定値での計測でも時間がかかりすぎて困難な場合は，cの値を下げていき，最終的には-n 1，-c 1での計測でも構いません．ただし，abのパラメータ値は，発表時も個別レポートでも必ず気付きやすいよう強調して明記しておいてください．</p>
-</div>
-</div>
-<div class="section" id="id11">
-<h2>応用課題（分担で①は必須、②は任意）<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id12">
-<h3>①超高性能化（ハイパフォーマンス）チーム<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="id11">
+<h2>応用課題（分担で①は必須、②は任意）<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<section id="id12">
+<h3>①超高性能化（ハイパフォーマンス）チーム<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
 <p>【独自仕様による実装】</p>
 <p>チケット予約サイトのようなWebシステムでは，不特定多数の膨大な同時アクセスに耐えられなければなりません．スケールアップやスケールアウトといった様々なアプローチがありますが，ここでは<strong>実装A</strong>をさらに改良して，<strong>実装C</strong>の速度を上回る検索パフォーマンスを目指しましょう．CSVファイルを前処理して，独自のデータ構造で保存する，Raspberry Piを複数利用しクラスタ化して検索する等，方法は問いません．皆さんの独創的なアプローチを期待しています．</p>
 <ul class="simple">
@@ -1215,9 +1320,9 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </ul>
 <p>【補足】</p>
 <p>Apacheの設定を変更するとグループ全員の測定に影響を与えますので，必ずグループのメンバーの了解を取って，あるいはグループのメンバー全員で協力して実施しましょう．計測対象のホームページは，最終課題の実装でなくても構いません．もし第二部でKeepAlive対応のWebサーバを実装したなら，そのWebサーバで性能計測しても構いません．重要なのは，各自で「仮説」を立てて検証することです．「この設定をこう変更したら，このような性能変化が計測できるかもしれない」というような仮設を立ててから実際に検証しましょう．</p>
-</div>
-<div class="section" id="id13">
-<h3>②自由課題（イマジネーション）チーム<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id13">
+<h3>②自由課題（イマジネーション）チーム<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
 <p>自由に面白いWebシステムを実装してみましょう．</p>
 <p>「Flickrの写真データを用いたシステム」を基本課題としますが，これ以外に面白いWebシステムを思いついた方は自由な発想で取り組んでくれてOKです．</p>
 <p>例えば，写真の撮影位置の緯度経度情報が含まれていますので，検索機能をつけたり，地図へ表示する機能をつけたり，自由な発想で<strong>超興味深い</strong>Webシステムを実装してみましょう．</p>
@@ -1236,13 +1341,13 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </li>
 <li><p>世の中には様々なWeb APIが公開されてますので，Amazon，Google，IBM，Microsoft等が公開している<strong>AI系のAPI</strong>も活用してみると面白くなりそうです</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="id14">
-<h2>おわりに<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id14">
+<h2>おわりに<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
 <p>指示されたことを実施して報告するだけの「ふ～ん．だからどうした？」という報告書ではなく，実施した結果に対して「なぜ？」「どうして？」を考えて仮説を立てて検証してその結果どうなったか，「どうしてそのような結果になったのか？」「へーなるほどね」と感じさせるグループ発表や個別レポートを期待してます．</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1266,9 +1371,11 @@ DROP TABLE tag,geotag<span class="p">;</span>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../../part2/part2_5/overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1284,24 +1391,28 @@ DROP TABLE tag,geotag<span class="p">;</span>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ohki Lab<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Ohki Lab<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

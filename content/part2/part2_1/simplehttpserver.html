@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Simple HTTPサーバの実装 &#8212; 情報科学実験A</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   メインページ
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../schedule.html">
    今年度の講義について
@@ -500,90 +515,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/part2/part2_1/simplehttpserver.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_1/simplehttpserver.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ohkilab/exp1"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_1/simplehttpserver.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/part2/part2_1/simplehttpserver.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    はじめに
@@ -653,12 +758,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Simple HTTPサーバの実装</h1>
@@ -744,13 +848,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="simple-http">
-<h1>Simple HTTPサーバの実装<a class="headerlink" href="#simple-http" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="simple-http">
+<h1>Simple HTTPサーバの実装<a class="headerlink" href="#simple-http" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>最も単純なWebサーバとして，まずは以下に示す仕様の Simple HTTPサーバを実装します．</p>
 <ul class="simple">
 <li><p>GET に応答できること</p></li>
@@ -763,12 +868,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p>「exp1_」という接頭語の付いていない関数は，C言語の標準ライブラリ関数となりますので，manコマンドやGoogle先生で調べてみてください．</p>
 <p>以下に示すソースコードを実装し，各自でSimple HTTPサーバを動作させてみてください．</p>
 <p>ソースコードの簡単な解説も載せましたが，よく分からない部分はグループ内で相談し十分理解し合うようにしてください．</p>
-</div>
-<div class="section" id="id2">
-<h2>ソースコード解説<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id2">
+<h2>ソースコード解説<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>第一部で使用したソースコードと，以下の関数を組み合わせて Simple HTTPサーバを実装します．</p>
-<div class="section" id="main">
-<h3>main()<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h3>
+<section id="main">
+<h3>main()<a class="headerlink" href="#main" title="Permalink to this headline">#</a></h3>
 <p>まずはmain()関数から概説します．</p>
 <p>各自で動作を確認してほしいので，xxxxx という部分は各自の学籍番号の下5桁を記述してください．</p>
 <p>クライアントから接続要求が届いたら，以下を while(1) で無限に繰り返すという単純なプログラムです．</p>
@@ -801,9 +906,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Caution</p>
 <p>sock_listen はクライアントからの接続要求待ち受け用のディスクリプタ，sock_clientはクライアントとのHTTPデータ通信用のディスクリプタですので，無限ループ内で閉じているディスクリプタがどちらか注意してください．</p>
 </div>
-</div>
-<div class="section" id="exp1-http-session">
-<h3>exp1_http_session()<a class="headerlink" href="#exp1-http-session" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exp1-http-session">
+<h3>exp1_http_session()<a class="headerlink" href="#exp1-http-session" title="Permalink to this headline">#</a></h3>
 <p>main()で実行する<a class="reference external" href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a>セッションに関する中心的な処理を記述している関数になります．</p>
 <p>具体的には以下のような処理を行っています．</p>
 <ul class="simple">
@@ -855,9 +960,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span><span class="w"> </span><span class="n">exp1_info_type</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="exp1-parse-header">
-<h3>exp1_parse_header()<a class="headerlink" href="#exp1-parse-header" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exp1-parse-header">
+<h3>exp1_parse_header()<a class="headerlink" href="#exp1-parse-header" title="Permalink to this headline">#</a></h3>
 <p>クライアントからの<a class="reference external" href="https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP.E3.83.A1.E3.83.83.E3.82.BB.E3.83.BC.E3.82.B8">HTTPリクエスト</a>（例：GET / HTTP/1.0）をパース（構文解析）する関数です．</p>
 <p>現時点では，HTTPリクエストの1行目のみを抽出するステートマシン（状態機械）になっています．</p>
 <p>1行目を抽出（PARSE_STATUSかつ’\r’（復帰）でない間）したら，exp1_parse_status()へその行の情報（status（例：GET / HTTP/1.0））を渡します．</p>
@@ -902,9 +1007,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="exp1-parse-status">
-<h3>exp1_parse_status()<a class="headerlink" href="#exp1-parse-status" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exp1-parse-status">
+<h3>exp1_parse_status()<a class="headerlink" href="#exp1-parse-status" title="Permalink to this headline">#</a></h3>
 <p>HTTPリクエスト1行目（例：GET / HTTP/1.0）を解析する関数です．</p>
 <p>HTTPリクエストの1行目に含まれるHTTPメソッドをcmd (例：GET)へ，URI情報をpath (例：/)へ，ステートマシンで抽出し <strong>info</strong> へ格納します．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_parse_status</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">exp1_info_type</span><span class="w"> </span><span class="o">*</span><span class="n">pinfo</span><span class="p">)</span><span class="w"></span>
@@ -953,9 +1058,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="exp1-check-file">
-<h3>exp1_check_file()<a class="headerlink" href="#exp1-check-file" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exp1-check-file">
+<h3>exp1_check_file()<a class="headerlink" href="#exp1-check-file" title="Permalink to this headline">#</a></h3>
 <p>exp1_parse_status()で得られたinfo-&gt;pathから，リクエスト対象の実体へのパス情報へ変換する関数です．</p>
 <p>ファイルやディレクトリ情報を取得可能なシステムコール <a class="reference external" href="https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html">stat()</a> を用いて，ファイルが存在するか，指定されたURI情報がディレクトリ名なのか調査し，HTTPリプライで返すべく適切な<a class="reference external" href="https://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">HTTPステータスコード</a>を <strong>info-&gt;code</strong> へ格納しています．</p>
 <p>また，リクエスト対象のファイルサイズを取得し，HTTPリプライで返すContent-Length用に <strong>info-&gt;size</strong> へ格納しておきます．</p>
@@ -991,9 +1096,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="exp1-http-reply">
-<h3>exp1_http_reply()<a class="headerlink" href="#exp1-http-reply" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exp1-http-reply">
+<h3>exp1_http_reply()<a class="headerlink" href="#exp1-http-reply" title="Permalink to this headline">#</a></h3>
 <p>exp1_parse_header()で抽出された <strong>info</strong> を元に，クライアントへ返すべく適切なHTTPリプライを作成し返します．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_http_reply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">exp1_info_type</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -1023,9 +1128,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="exp1-send-404">
-<h3>exp1_send_404()<a class="headerlink" href="#exp1-send-404" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exp1-send-404">
+<h3>exp1_send_404()<a class="headerlink" href="#exp1-send-404" title="Permalink to this headline">#</a></h3>
 <p>info-&gt;pathで指定されたファイルがhtmlディレクトリに存在しなかった場合（<strong>info-&gt;code</strong> へエラーコード404が入っている場合），「404 Not Found」をクライアントへ返します．</p>
 <p>このサンプルソースコードでは，ステータスコード404はクライアントへ返していますが，404ページ自体は返信してませんのでご注意ください（4XX系を実装する人は適宜作成してください）．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_send_404</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">)</span><span class="w"></span>
@@ -1044,9 +1149,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="exp1-send-file">
-<h3>exp1_send_file()<a class="headerlink" href="#exp1-send-file" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exp1-send-file">
+<h3>exp1_send_file()<a class="headerlink" href="#exp1-send-file" title="Permalink to this headline">#</a></h3>
 <p>info-&gt;real_pathで指定されたファイルがhtmlディレクトリに存在した場合は，そのファイルをfopen()で開き，fread()で読み込める間，読み込めたデータをsend()でクライアントへ分割して返信し，読み込めなくなったらファイルをfclose()します．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">exp1_send_file</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -1076,9 +1181,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="exp1-h">
-<h3>exp1.h<a class="headerlink" href="#exp1-h" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exp1-h">
+<h3>exp1.h<a class="headerlink" href="#exp1-h" title="Permalink to this headline">#</a></h3>
 <p>基本的にこれまで提示したexp1.hと同じと思いますが，念のため再掲しておきます．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
@@ -1104,10 +1209,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pthread.h&gt;</span><span class="cp"></span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>実行方法<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id3">
+<h2>実行方法<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>各自のアカウントでログインし，作成したSimple HTTPサーバのソースコードのあるディレクトリへ移動しコンパイルしておいてください．</p></li>
 <li><p>以下のコマンドを入力して，こちらで用意しておいたサンプルページをダウンロードし解凍しておきます．</p></li>
@@ -1128,13 +1233,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>皆さんの作成したSimple HTTPサーバが正常に動作し，サンプルページとして用意した <code class="docutils literal notranslate"><span class="pre">index.html</span></code>を返してくれたことになります（<code class="docutils literal notranslate"><span class="pre">index.html</span></code>に何が書いてあるか実際に開いて確認してみてください）．</p></li>
 <li><p>test.htmlというサンプルページも作成しておきましたので<code class="docutils literal notranslate"><span class="pre">http://192.168.1.101:xxxxx/test.html</span></code>も試してみてください．)</p></li>
 </ul>
-</div>
-<div class="section" id="id4">
-<h2>おわりに<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id4">
+<h2>おわりに<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p>単純なHTTPのみを処理できるSimple HTTPサーバは，正常に動作しましたか？
 次は，このSimple HTTPサーバの性能を評価するベンチマークプログラムを作成してみましょう．</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1158,9 +1263,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="raspberrypi_setup.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1176,24 +1283,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ohki Lab<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Ohki Lab<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>第三部の準備 &#8212; 情報科学実験A</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   メインページ
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../schedule.html">
    今年度の講義について
@@ -500,90 +515,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/part3/part3_1/preparation.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_1/preparation.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ohkilab/exp1"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_1/preparation.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/part3/part3_1/preparation.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    第三部の概要
@@ -618,12 +723,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>第三部の準備</h1>
@@ -674,13 +778,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>第三部の準備<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>第三部の概要<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>第三部の準備<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="id2">
+<h2>第三部の概要<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>第三部では，「Webブラウザ&lt;=&gt;Webサーバ&lt;=&gt;DBMS」から構成される三層クライアントサーバ型の一般的なWebシステムの構築方法を理解するだけでなく，これまで勉強してきた専門科目やインターネット上の最新技術，情報を駆使してグループで相談しながら，膨大なリクエストに耐えられる超高性能なWebシステムにするにはどうしたらよいのか考えて実現してもらいます．</p>
 <p>具体的には，1000万行程の大きなデータ（CSV形式）を2つ用意しましたので，Webブラウザで検索キーワードを入力すると，これら2ファイルを統合的に検索し結果をソートして表示するWebアプリケーションを実装してもらいます．</p>
 <p>何も工夫せず安直に実装すると検索結果が表示されるまで数分かかってしまうこともありますので，三層クライアントサーバ型のWebシステムにおいて，どこにボトルネックが生じうるのか，どのようにボトルネックの箇所が遷移していくのか，グループ内で議論や試行錯誤し，できるだけ多くのリクエストに耐えられる超高性能なWebシステムを実現できるようグループ間で競ってもらいます．</p>
@@ -702,23 +807,23 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p>それでは，いきなりWebシステムを構築するのも難しいので，以下のステップに従って順を追って第三部の最終課題であるWebシステムを構築していきましょう．</p>
-</div>
-<div class="section" id="id3">
-<h2>第三部で利用する端末について<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id3">
+<h2>第三部で利用する端末について<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>端末は第二部でセットアップした RaspberryPi を引き続き利用します． 今回もインターネットに接続しますので，第二部「<a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html"><span class="doc std std-doc">Raspberry Piのセットアップ</span></a>」を思い出しながら作業してください．</p>
 <div class="admonition- admonition">
 <p class="admonition-title">補足</p>
 <p>インターネットに接続することになりますので，Raspberry Piのソフトウェアの更新を適度におこなってください．</p>
 </div>
-</div>
-<div class="section" id="git">
-<h2>Gitのインストール<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="git">
+<h2>Gitのインストール<a class="headerlink" href="#git" title="Permalink to this headline">#</a></h2>
 <p>まず，プログラムのソースコードなどの変更履歴を記録・追跡するための分散型バージョン管理システムの一つである<a class="reference external" href="http://git-scm.com/">Git（ギット）</a>をインストールします．</p>
 <p>もともとLinuxの開発チームが使用していたGitは，昨今では世界中の技術者に広まってバージョン管理システムの主流となっています．Gitを用いると，普段使っている自分のノートPCといったローカル環境に，過去の全変更履歴を含む完全なリポジトリ（貯蔵庫）の複製を作成できます．つまり，各ローカル環境がリポジトリのサーバとして動作できることになります．これまでの分散型でないバージョン管理システムでは，サーバ上にある1つのリポジトリを利用者が共同で使用するため，利用者が増えると変更内容が衝突し整合性の維持が大変でした．Gitでは，ローカル環境にもコードの変更履歴を保存（コミット）するので，リモートのサーバに常に接続する必要はなく，ネットワークに接続していなくても作業を行えます．</p>
 <p><a class="reference external" href="https://github.com/">GitHub(ギットハブ)</a>は，このGitの仕組みを利用して世界中の人々が開発物を自由に保存，公開できるようにしたWebサービスの名称です．GitHubは，GitHub社によって運営されており，個人・企業問わず無料で利用できます．GitHub上のリポジトリは，基本的に全て公開されますが，有料サービスを利用すると指定ユーザーのみアクセスできるプライベートなリポジトリを作ることもできます．リポジトリに記録するには，コミットという操作を行います．コミットは時系列順につながった状態でリポジトリに格納されていますので，最新のコミットから辿ることで過去の変更履歴やその内容を知ることができます．</p>
 <p>この実験では，主にサンプルソースコードのダウンロードのためにGitを使用しますが，もちろん本来の使い方であるオープンソースソフトウェアの開発を意識して，皆さんの作成したソフトウェアを公開して自己アピールしていただいても構いません（ただし，ソフトウェア公開は各自の責任で実施してください）．</p>
-<div class="section" id="os-raspbian">
-<h3>サーバ端末（OS: Raspbian）へのインストール（必須）<a class="headerlink" href="#os-raspbian" title="Permalink to this headline">¶</a></h3>
+<section id="os-raspbian">
+<h3>サーバ端末（OS: Raspbian）へのインストール（必須）<a class="headerlink" href="#os-raspbian" title="Permalink to this headline">#</a></h3>
 <p>最初のOSインストール時に一緒にgitもインストールされている可能性もあります．端末画面（コマンドライン）で「git」と入力し，コマンドマニュアルが表示された場合は以下の手順は不要です．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ sudo apt install git
 </pre></div>
@@ -728,9 +833,9 @@ const thebe_selector_output = ".output, .cell_output"
 git version <span class="m">2</span>.11.0
 </pre></div>
 </div>
-</div>
-<div class="section" id="pcos-ubuntu">
-<h3>各自ノートPC上のゲストOS（Ubuntu仮想環境）へのインストール<a class="headerlink" href="#pcos-ubuntu" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pcos-ubuntu">
+<h3>各自ノートPC上のゲストOS（Ubuntu仮想環境）へのインストール<a class="headerlink" href="#pcos-ubuntu" title="Permalink to this headline">#</a></h3>
 <p>各自のノートPC上で動作するゲストOS（Ubuntu）へGitをインストールするのも簡単です．以下のような感じでインストールできると思います（必要に応じてPPA (Personal Package Archive)リポジトリを追加してください）．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ sudo apt update
  $ sudo apt install git
@@ -742,9 +847,9 @@ git version <span class="m">2</span>.11.0
  $ git config --global user.email <span class="s2">&quot;hoge@hoge.com&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="pcos-windows">
-<h3>各自ノートPC上のホストOS（Windows）へのインストール<a class="headerlink" href="#pcos-windows" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pcos-windows">
+<h3>各自ノートPC上のホストOS（Windows）へのインストール<a class="headerlink" href="#pcos-windows" title="Permalink to this headline">#</a></h3>
 <p>Windows端末でGitを使用するには，<a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a>をインストールするのが簡単です．GUIもCUI（Windows Powershell）も同時にインストールされますのでお手軽です．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ferret-plus.com/8498">GitHub DesktopはWindows用Gitツール インストールと使い方の解説</a></p></li>
@@ -756,9 +861,9 @@ git version <span class="m">2</span>.11.0
 <li><p><a class="reference external" href="https://www.sourcetreeapp.com/">SourceTree</a></p></li>
 <li><p><a class="reference external" href="https://git-fork.com/">Fork</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -782,9 +887,11 @@ git version <span class="m">2</span>.11.0
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -800,24 +907,28 @@ git version <span class="m">2</span>.11.0
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ohki Lab<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Ohki Lab<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

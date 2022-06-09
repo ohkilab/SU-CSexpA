@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>RaspberryPi の接続 &#8212; 情報科学実験A</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   メインページ
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../schedule.html">
    今年度の講義について
@@ -500,90 +515,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/part1/part1_1/connect_raspberry.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ohkilab/exp1"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_1/connect_raspberry.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ohkilab/exp1"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_1/connect_raspberry.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/part1/part1_1/connect_raspberry.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    概要
@@ -713,12 +818,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>RaspberryPi の接続</h1>
@@ -864,28 +968,29 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="raspberrypi">
-<h1>RaspberryPi の接続<a class="headerlink" href="#raspberrypi" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>概要<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="raspberrypi">
+<h1>RaspberryPi の接続<a class="headerlink" href="#raspberrypi" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>ディスプレイとマウス・キーボードがない状態でRaspberryPiへ接続する方法を説明します．
 最終的な構成は以下のようになります．</p>
 <a class="reference internal image-reference" href="../../../_images/configuration.png"><img alt="RaspberryPiの接続" class="align-center" src="../../../_images/configuration.png" style="width: 400px;" /></a>
 <p>実験中は基本的にこの形式で接続を行ってもらいます．</p>
-</div>
-<div class="section" id="id2">
-<h2>前準備<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id2">
+<h2>前準備<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>本項では<a class="reference internal" href="../../preparation/preparation.html"><span class="doc std std-doc">環境構築及び動作確認</span></a>が完了している前提で作業を行います．まだであれば先に<a class="reference internal" href="../../preparation/preparation.html"><span class="doc std std-doc">環境構築及び動作確認</span></a>を行ってください．RaspberryPiへの接続はmDNSを用いてドメイン名で行います．これらについては説明しないため，詳しく知りたい人はavahi daemonやmDNSで調べてみてください．RaspberryPiの初期設定は以下のようになっています．</p>
 <ul class="simple">
 <li><p>ユーザ名: pi</p></li>
 <li><p>パスワード: raspberry</p></li>
 </ul>
 <p>以降，説明においては，RaspberryPiへの接続はこのユーザー名とパスワードを用いていきます．当然ですが，初期設定のままでは他の人もあなたのRaspberry Piにこのパスワードで接続が行えてしまい大変危険ですので，すぐにパスワードを変更しておきましょう．</p>
-<div class="section" id="raspberrypi-pc-p2p">
-<h3>RaspberryPi と PC の有線ケーブルでの P2P 接続<a class="headerlink" href="#raspberrypi-pc-p2p" title="Permalink to this headline">¶</a></h3>
+<section id="raspberrypi-pc-p2p">
+<h3>RaspberryPi と PC の有線ケーブルでの P2P 接続<a class="headerlink" href="#raspberrypi-pc-p2p" title="Permalink to this headline">#</a></h3>
 <p>RaspberryPi の microUSB 端子に電源を接続します．</p>
 <p><img alt="raspi-usb.jpg" src="../../../_images/400px-raspi-usb.jpg" /></p>
 <p>RaspberryPi と PC を LAN ケーブルで直結します（以下の例では USB 接続の LAN アダプタを使っていますが，PC に備え付けの有線 LAN ポートがあればそれに接続します）．</p>
@@ -894,9 +999,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">モニタを繋ぎたい方向け情報</p>
 <p>Raspberry Piは「 <strong>microUSB 端子に電源を接続する前に</strong> 」HDMIケーブルを接続しないとモニタを認識しません．モニタに画面が映らないと悩んでいる方はまずチェックしてください</p>
 </div>
-</div>
-<div class="section" id="windows">
-<h3>Windowsのネットワークアダプター設定<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="windows">
+<h3>Windowsのネットワークアダプター設定<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h3>
 <p>Windowsで設定を開き，ネットワークとインターネット＞状態を選択してください．下までスクロールすると，「アダプターのオプションを変更する」という項目が見えると思いますので，クリックしてください．</p>
 <p><img alt="win-adopter1.png" src="../../../_images/win-adopter1.png" /></p>
 <p>ここまでの設定が順調であればイーサネットが2つ表示されていると思います．</p>
@@ -922,21 +1027,21 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Important</p>
 <p>以上の操作を2つのイーサネット両方に対して行ってください．</p>
 </div>
-</div>
-<div class="section" id="id3">
-<h3>RaspberryPiとの接続確認<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id3">
+<h3>RaspberryPiとの接続確認<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>コマンドプロンプトから RaspberryPi の IP アドレスに ping を実行し，接続を確認してください．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ping raspberrypi.local
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="pc-raspberry-pi">
-<h2>PC と Raspberry Pi の接続<a class="headerlink" href="#pc-raspberry-pi" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="pc-raspberrypi-vnc">
-<h3>PC と RaspberryPi への VNC による接続<a class="headerlink" href="#pc-raspberrypi-vnc" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="vnc-client">
-<h4>VNC Client による接続<a class="headerlink" href="#vnc-client" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="pc-raspberry-pi">
+<h2>PC と Raspberry Pi の接続<a class="headerlink" href="#pc-raspberry-pi" title="Permalink to this headline">#</a></h2>
+<section id="pc-raspberrypi-vnc">
+<h3>PC と RaspberryPi への VNC による接続<a class="headerlink" href="#pc-raspberrypi-vnc" title="Permalink to this headline">#</a></h3>
+<section id="vnc-client">
+<h4>VNC Client による接続<a class="headerlink" href="#vnc-client" title="Permalink to this headline">#</a></h4>
 <p>VNC を起動し，RaspberryPi の ドメイン名 ( raspberrypi.local ) に接続します．</p>
 <p><img alt="vnc1.png" src="../../../_images/vnc1.png" /></p>
 <p>初回のみセキュリティ警告が出ますので Continue します．</p>
@@ -944,9 +1049,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p><img alt="vnc2.png" src="../../../_images/vnc2.png" /></p>
 <p>デスクトップ画面にログインできます．</p>
 <p><img alt="vnc3.png" src="../../../_images/vnc3.png" /></p>
-</div>
-<div class="section" id="id4">
-<h4>パスワードの変更<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id4">
+<h4>パスワードの変更<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
 <p>初期パスワードのままではセキュリティ上問題がありますので，パスワード変更を行います．ターミナルを開いて，以下のコマンドでパスワード変更をしてください．パスワード変更はコンソールログイン，VNC 接続や SSH 接続，sudo でのコマンド実行など全てに影響します．</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -955,9 +1060,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ passwd
 </pre></div>
 </div>
-</div>
-<div class="section" id="lan">
-<h4>無線 LAN の設定<a class="headerlink" href="#lan" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="lan">
+<h4>無線 LAN の設定<a class="headerlink" href="#lan" title="Permalink to this headline">#</a></h4>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 3B）からは無線接続が困難です．ソフトウェアのアップデート等でインターネットへの接続が必要となる場合には手動で有線を繋ぎ変えて接続を行ってください（どうしても無線を使いたい場合は<a class="reference external" href="https://blog.cles.jp/item/12794">ここ</a>などを参照すると良いかもしれません）</p>
@@ -969,13 +1074,13 @@ $ sudo apt upgrade
 </div>
 <p>また，右上に表示されているアイコンから無線LAN設定を行うことができます．各自接続するWifiの設定を行ってください．</p>
 <p><img alt="wifi.png" src="../../../_images/wifi.png" /></p>
-</div>
-</div>
-<div class="section" id="ssh">
-<h3>SSH クライアントのインストール<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="ssh">
+<h3>SSH クライアントのインストール<a class="headerlink" href="#ssh" title="Permalink to this headline">#</a></h3>
 <p>RaspberryPi へのファイル転送には SSH プロトコルを利用します．SSH プロトコルはターミナル接続用途にもファイル転送用途にも利用できます（通信アプリケーションは異なります）．</p>
-<div class="section" id="id5">
-<h4>Windows を使う場合<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<section id="id5">
+<h4>Windows を使う場合<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
 <p>Web アプリケーション開発に必要なソフトは 3 つです</p>
 <ul class="simple">
 <li><p>SSH (ターミナル接続)</p>
@@ -990,9 +1095,9 @@ $ sudo apt upgrade
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="linux">
-<h4>Linux を使う場合<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="linux">
+<h4>Linux を使う場合<a class="headerlink" href="#linux" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>SSH (ターミナル接続)</p>
 <ul>
@@ -1007,10 +1112,10 @@ $ sudo apt upgrade
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="id6">
-<h3>RaspberryPi へのターミナル接続<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="id6">
+<h3>RaspberryPi へのターミナル接続<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Windows 環境からの接続を例に説明します．</p>
 <ul class="simple">
 <li><p>TeraTerm を起動，RaspberryPi の ドメイン（<code class="docutils literal notranslate"><span class="pre">raspberrypi.local</span></code>）を入力して SSH で接続</p></li>
@@ -1025,9 +1130,9 @@ $ sudo apt upgrade
 <li><p>ログインに成功すればコマンドプロンプトが出てきます．</p></li>
 </ul>
 <p><img alt="tterm3.png" src="../../../_images/tterm3.png" /></p>
-</div>
-<div class="section" id="id7">
-<h3>RaspberryPi へのファイル転送<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id7">
+<h3>RaspberryPi へのファイル転送<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <p>WinSCP を起動します． ログイン画面が開くので新規のホストを設定しログインします．</p>
 <ul class="simple">
 <li><p>転送プロトコル: SFTP</p></li>
@@ -1039,13 +1144,13 @@ $ sudo apt upgrade
 <p>最初にアクセスした時のみセキュリティ警告が出ますので OK してください．</p>
 <p>エクスプローラのようにドラッグ＆ドラップや右クリックメニューでファイルの転送や操作が可能です．</p>
 <p><img alt="winscp2.png" src="../../../_images/winscp2.png" /></p>
-</div>
-</div>
-<div class="section" id="vmraspberrypi">
-<h2>VMからRaspberryPiへの接続<a class="headerlink" href="#vmraspberrypi" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="vmraspberrypi">
+<h2>VMからRaspberryPiへの接続<a class="headerlink" href="#vmraspberrypi" title="Permalink to this headline">#</a></h2>
 <p>VMからRaspberryPiへ接続する方法はいくつかの手段がありますが，ここではリンクローカルアドレスを用いた有線による簡易的な接続方法について説明します（他の方法を試したい方は各自で調べてみてください）．</p>
-<div class="section" id="openssh-server">
-<h3>openssh-serverのインストール<a class="headerlink" href="#openssh-server" title="Permalink to this headline">¶</a></h3>
+<section id="openssh-server">
+<h3>openssh-serverのインストール<a class="headerlink" href="#openssh-server" title="Permalink to this headline">#</a></h3>
 <p>ネットワーク設定を変更する前にVMを起動してください。
 後に行う作業にてssh server が起動していることが前提となりますので，インストールされていない場合は以下のコマンドでインストールします．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ sudo apt-get update
@@ -1053,9 +1158,9 @@ $ sudo apt upgrade
 </pre></div>
 </div>
 <p>作業が終了したらVMの設定を変更しますのでシャットダウンしてください。</p>
-</div>
-<div class="section" id="vm">
-<h3>VMのネットワーク設定<a class="headerlink" href="#vm" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="vm">
+<h3>VMのネットワーク設定<a class="headerlink" href="#vm" title="Permalink to this headline">#</a></h3>
 <p>VirtualBoxを開いて，事前準備で構築したVMを選択し，設定を開きます．ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は<a class="reference external" href="./connect_raspberry.html#windows">Windowsのネットワークアダプタ設定</a>で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」<strong>ではない方</strong>を選択し,OKを押してください．</p>
 <p><img alt="vm-network-setting1.png" src="../../../_images/vm-network-setting1.png" /></p>
 <p>次に選択したVMを起動し，右上のメニューをクリックして有線接続中＞有線設定を選択してください．（有線接続中ではなく，有線オフの場合もあります）</p>
@@ -1066,9 +1171,9 @@ $ sudo apt upgrade
 <p><img alt="vm-network-setting4.png" src="../../../_images/vm-network-setting4.png" /></p>
 <p>設定適用までしばらく時間がかかりますが，ターミナルで<code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">a</span></code>を打ち込み，下記のように<code class="docutils literal notranslate"><span class="pre">169.254</span></code>から始まるアドレスが確認できれば設定完了です．</p>
 <p><img alt="vm-network-setting5.png" src="../../../_images/vm-network-setting5.png" /></p>
-</div>
-<div class="section" id="vm-raspberrypi">
-<h3>VM から RaspberryPi への接続の確認<a class="headerlink" href="#vm-raspberrypi" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="vm-raspberrypi">
+<h3>VM から RaspberryPi への接続の確認<a class="headerlink" href="#vm-raspberrypi" title="Permalink to this headline">#</a></h3>
 <p>VM 上の Linux のターミナルを開いて，RaspberryPi に Ping を送って通信状態を確認します．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ ping raspberrypi.local
 </pre></div>
@@ -1085,9 +1190,9 @@ $ sudo apt upgrade
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">exit</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="vm-linux-pc">
-<h3>VM 上の Linux に PC からファイルを転送<a class="headerlink" href="#vm-linux-pc" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="vm-linux-pc">
+<h3>VM 上の Linux に PC からファイルを転送<a class="headerlink" href="#vm-linux-pc" title="Permalink to this headline">#</a></h3>
 <p>ホスト OS（Windows）からゲスト OS（Linux）にファイルを転送します．</p>
 <p>以下のコマンドでIPアドレスを確認しておいてください．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ip a
@@ -1106,8 +1211,8 @@ WinSCP を起動し，接続先のホストとして以下の指定をして接�
 <p class="admonition-title">Important</p>
 <p>接続するIPアドレスは起動毎に変わる可能性があります．WinSCPで接続する際は事前にVM上でIPアドレスを確認してください．</p>
 </div>
-<div class="section" id="id8">
-<h4>外部から接続する場合<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<section id="id8">
+<h4>外部から接続する場合<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>VirtualBox の設定上は外部から SSH 接続できる設定ですが，実際には Windows ファイアウォールが接続を遮断して接続できない場合がありますので注意してください．</p>
@@ -1117,11 +1222,11 @@ WinSCP を起動し，接続先のホストとして以下の指定をして接�
 </pre></div>
 </div>
 <p>この場合，Windows ファイアウォールの設定を行えば接続が可能になりますが，セキュリティ上のリスクを伴いますので無理に行う必要はありません． 実験では，RaspberryPi 側をサーバプログラム，PC 上のゲスト OS 側をクライアントプログラムとして実験を進めてください．</p>
-</div>
-</div>
-</div>
-<div class="section" id="id9">
-<h2>うまくいかない時のトラブルシューティング<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="id9">
+<h2>うまくいかない時のトラブルシューティング<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>windows→raspberrypi.localでpingが通らない</p>
 <ul>
@@ -1159,16 +1264,16 @@ WinSCP を起動し，接続先のホストとして以下の指定をして接�
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id10">
-<h2>テキストエディタを使った接続 (任意)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id10">
+<h2>テキストエディタを使った接続 (任意)<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
 <p>テキストエディタ Atom を用いて開発環境の構築を行います．
 興味のある方は実施してみてください．</p>
 <p>なお， 上記の SSH 接続や WinSCP の設定などが済んでいることを前提として話を進めていきます．
 必ず上記の SSH 接続や WinSCP の設定を済ましてから取り組んでください．</p>
 <p><a class="reference internal" href="environment_building_with_atom.html"><span class="doc std std-doc">Atom を使った環境構築</span></a></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1192,9 +1297,11 @@ WinSCP を起動し，接続先のホストとして以下の指定をして接�
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1210,24 +1317,28 @@ WinSCP を起動し，接続先のホストとして以下の指定をして接�
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ohki Lab<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Ohki Lab<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
