@@ -10,8 +10,7 @@
 
 シーケンス図などの UML で定義された図を作成する場合は，Illustrator や PowerPoint などのドローソフトで作成しても良いですが，モデリングツールを利用しても良いでしょう．
 
-- [Astah\* UML](https://astah.change-vision.com/ja/product/astah-uml.html)
-  - 有料なので注意
+- [Visual Paradigm Online (VP Online) Free Edition](https://online.visual-paradigm.com/ja/diagrams/solutions/free-sequence-diagram-tool/)
 - [MS Visio: UML シーケンス図を作成する](https://support.office.com/ja-jp/article/UML-%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B-c61c371b-b150-4958-b128-902000133b26)
 - [GitMind](https://gitmind.com/jp/)
   - インストールせずにブラウザ上でも使える無料ツール
