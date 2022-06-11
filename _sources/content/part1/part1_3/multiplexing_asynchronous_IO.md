@@ -7,8 +7,6 @@
 
 - libeventによる多重化
 - libuvによる多重化
-- epollによる多重化
-
 
 ノンブロッキング非同期I/Oライブラリを利用する場合，通常コールバック関数を利用した設計になりますのでこれまでのサンプルコードとは構造が異なりますので注意してください．
 
@@ -23,7 +21,7 @@
 $ sudo apt install libevent-dev
 $ sudo apt install libuv1 libuv1-dev
 ```
-
+v
 # libeventによる多重化
 
 ## はじめに
@@ -208,6 +206,8 @@ TCP/IP通信に必要となる各処理に対するユーザプログラム独�
 
 -   [tcpserveruv](https://exp1.inf.shizuoka.ac.jp/shizudai-only/day4/tcpserveruv.tgz)(学内からのみアクセス可能)
 
+以下にサンプルコードの一部を示します．以下のサンプルコード中でコールバック関数として指定している alloc_buffer, echo_read, on_close などはユーザ側で定義する必要があります．
+
 ### in TCPServerUV.c
 
 ```c
@@ -266,9 +266,3 @@ void on_new_connection(uv_stream_t *server, int status)
   }
 }
 ```
-
-# epollによる多重化
-
-## はじめに
-
-Linux の epoll API を直接利用した場合について，必要なライブラリAPI等の調査・実装を行って計測対象に加えてみてください． 特に libevent, libuv 等のライブラリ関数を利用した場合との性能及び移植性の差異を比較して考察してみてください．
