@@ -88,7 +88,7 @@ webシステムの計測が正常に終了すると，計測結果が表示さ�
 
 ### 在宅用ベンチマークサーバの使用方法
 ベンチマークサーバをダウンロードします．
-- `\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験I\\第三部サンプルデータ\\benchmarkserver.zip`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
+- `\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験A\\第三部サンプルデータ\\benchmarkserver.zip`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
 ダウンロードしたzipファイルを解凍し，解凍したフォルダ内のmain.exeをダブルクリックし，ベンチマークサーバを起動します．
 以下のような警告がでた場合は，「アクセスを許可する」を選択してください．
 ```{image} ../../../images/part3/part3_2/firewall.png
