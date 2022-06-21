@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Day10の目的と概要" href="../part3_1/overview.html" />
-    <link rel="prev" title="Day9の目的と概要" href="../../part2/part2_5/overview.html" />
+    <link rel="next" title="競技ルール" href="regulation.html" />
+    <link rel="prev" title="最終課題" href="overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -336,11 +336,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   最終課題
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../part3_1/overview.html">
    [Day10] Webシステムの基礎
@@ -379,7 +374,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="overview.html">
+  <a class="reference internal" href="../part3_2/overview.html">
    [Day11] Webシステムの設計と実装
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -389,7 +384,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="connection_to_dbms.html">
+    <a class="reference internal" href="../part3_2/connection_to_dbms.html">
      DBMSとの接続（必須）
     </a>
    </li>
@@ -445,6 +440,33 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../part3_5/last_presentation.html">
      第三部グループ発表会
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="overview.html">
+   最終課題
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     最終課題の概要
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="regulation.html">
+     競技ルールの詳細
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="benchmarkserver_description.html">
+     ベンチマークサーバー
     </a>
    </li>
   </ul>
@@ -602,7 +624,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_2/final_task_details.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_final_assignment/final_assignment_details.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -630,7 +652,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/content/part3/part3_2/final_task_details.md"
+        <a href="../../../_sources/content/part3/part3_final_assignment/final_assignment_details.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -745,7 +767,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id9">
-   基礎課題（全員必須）
+   基礎課題1（全員必須）
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -768,21 +790,24 @@ title="Print to PDF"
      性能比較
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
-   応用課題（分担で①は必須、②は任意）
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     応用課題2
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id12">
-     ①超高性能化（ハイパフォーマンス）チーム
+     ①検索サーバ高性能化コンテスト
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apache-mpm">
+     ②Apache MPMによる高速化結果との比較
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id13">
-     ②自由課題（イマジネーション）チーム
+     ③自由課題（イマジネーション）チーム
     </a>
    </li>
   </ul>
@@ -867,7 +892,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id9">
-   基礎課題（全員必須）
+   基礎課題1（全員必須）
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -890,21 +915,24 @@ title="Print to PDF"
      性能比較
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id11">
-   応用課題（分担で①は必須、②は任意）
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     応用課題2
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id12">
-     ①超高性能化（ハイパフォーマンス）チーム
+     ①検索サーバ高性能化コンテスト
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apache-mpm">
+     ②Apache MPMによる高速化結果との比較
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id13">
-     ②自由課題（イマジネーション）チーム
+     ③自由課題（イマジネーション）チーム
     </a>
    </li>
   </ul>
@@ -978,7 +1006,7 @@ title="Print to PDF"
 <h4>geotag.csvの概要<a class="headerlink" href="#geotag-csv" title="Permalink to this headline">#</a></h4>
 <p>Flickrで共有されている<strong>撮影位置の緯度経度</strong>の付いた写真1000万枚のリストになります．</p>
 <table class="table" id="geotag">
-<caption><span class="caption-number">Table 5 </span><span class="caption-text">geotagの概要</span><a class="headerlink" href="#geotag" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 7 </span><span class="caption-text">geotagの概要</span><a class="headerlink" href="#geotag" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -1018,7 +1046,7 @@ title="Print to PDF"
 <h4>tag.csvの概要<a class="headerlink" href="#tag-csv" title="Permalink to this headline">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">geotag.csv</span></code>に含まれる画像へ付与されているタグのリストになります．IDの重複は許しており，タグ毎に一行となっています．</p>
 <table class="table" id="tag">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">tagの概要</span><a class="headerlink" href="#tag" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 8 </span><span class="caption-text">tagの概要</span><a class="headerlink" href="#tag" title="Permalink to this table">#</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -1182,7 +1210,7 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </section>
 </section>
 <section id="id9">
-<h2>基礎課題（全員必須）<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<h2>基礎課題1（全員必須）<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
 <p><strong>任意のタグを持つ写真の撮影時刻・緯度・経度・URLの一覧を，撮影時刻順で出力するプログラム</strong>を様々な方針で実装してもらいます．</p>
 <p>ここで，任意のタグは静的にハードコーティングするのではなく，Webブラウザの検索フォームからユーザが指定できるよう実装してください．</p>
 <p>イメージを掴みやすくなるようこれから実装するprogA（実装A）～C（実装C）を呼び出すための共通の<code class="docutils literal notranslate"><span class="pre">index.html</span></code>を用意しました．以下のgitリポジトリからサンプルプログラム（<code class="docutils literal notranslate"><span class="pre">index.html</span></code>, <code class="docutils literal notranslate"><span class="pre">progA.php</span></code>, <code class="docutils literal notranslate"><span class="pre">progB.php</span></code>, <code class="docutils literal notranslate"><span class="pre">progC.php</span></code>の４つ）をcloneしてください．これら<code class="docutils literal notranslate"><span class="pre">progA.php</span></code>（実装A）, <code class="docutils literal notranslate"><span class="pre">progB.php</span></code>（実装B）, <code class="docutils literal notranslate"><span class="pre">progC.php</span></code>（実装C）の内容を変更することで基礎課題の内容を実施してください．cloneしたら，Webブラウザで<code class="docutils literal notranslate"><span class="pre">index.html</span></code>を表示し，どのような構造になっているか動作を確認してみてください．</p>
@@ -1258,54 +1286,41 @@ DROP TABLE tag,geotag<span class="p">;</span>
 </section>
 <section id="id10">
 <h3>性能比較<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
-<p>上記，<strong>実装A～C</strong>の性能を，abコマンドを使って性能比較し結果を分析してください．</p>
-<p>上記３実装の性能は恐らく「実装B＜実装A＜実装C」なりそうですが，実装Aの工夫によって「実装B＜実装C＜実装A」も可能かもしれませんね．</p>
-<p>特に<strong>実装Aで超高性能なプログラム</strong>になるよう頑張ってください．</p>
-<p>グループ内全員の各実装の性能をグラフ化して比較し，グループ内で一番高性能な各実装を代表としてグループ発表で紹介してください．</p>
-<p>ここで，皆さんの使用しているサーバ機やクライアント機における<strong>CPUのコア数やスレッド数</strong>（ハードウェア的制約），Linuxにおける<strong>ファイルディスクリプタ数の上限</strong>（ソフトウェア的制約）についてもご注意ください． またCPUによっては，高負荷になってCPU温度が高くなると動作周波数を落として性能を抑えるものもあります．何度も連続で負荷試験を行うと計測値が不安定になっていくことがありますのでご注意ください（CPUにヒートシンクを付けたり，CPUファンを付けたりすると多少効果あるかもしれません）．</p>
-<p>【仕様】</p>
-<ul class="simple">
-<li><p>検索するタグは<strong>fiat</strong></p></li>
-<li><p>以下の様にURL中のクエリストリングとして指定すること</p>
-<ul>
-<li><p><a class="reference external" href="http://192.168.1.101/~username/directory/progA.php?tag=fiat">http://192.168.1.101/~username/directory/progA.php?tag=fiat</a></p></li>
-</ul>
-</li>
-<li><p>abのコマンドライン引数は以下の数値を基本とすること（グループ間の性能比較をする際の設定）</p>
-<ul>
-<li><p>-n 20</p></li>
-<li><p>-c 10</p></li>
-</ul>
-</li>
-</ul>
+<p>上記，<strong>実装A～C</strong>の性能を，abコマンドを使って性能比較し結果を分析してください．
+グループ内全員の各実装の性能をグラフ化して比較し，グループ内で一番高性能な各実装を代表としてグループ発表で紹介してください．</p>
+<p>上記3実装の性能は恐らく「実装B＜実装A＜実装C」なりそうですが，実装Aの工夫によって「実装B＜実装C＜実装A」も可能かもしれません．特に，この後の応用課題の結果などを反映して，<strong>実装Aで超高性能なプログラム</strong>になるよう頑張ってください．</p>
 <p>【補足】</p>
 <p>もしAjax等の非同期実行でクエリを発行するような高度な実装をした人は，そのクエリの実行時間が測れるようurlを設定してください．</p>
 <p><strong>クライアントサイドのみ</strong>や主メモリ内のみで完結するような，本質的に異なる次元の工夫による実装の性能結果は， <strong>オンメモリ型</strong>であることなど明記し，<strong>参考値</strong>として性能結果を示してください（全体アーキテクチャや本質的な違いなど明確に説明してください）．</p>
 <p>いずれにせよロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
 <p>上記abコマンドの引数（各班の性能差を際立たせるために重めの負荷になるよう設定）で各実装を複数回性能比較するとかなりの時間を要しますので，普段のデバッグ時は軽めの負荷で検証を進めてください．グループ発表や個別レポートに掲載する値は，上記abコマンドの引数の結果でお願いします．もし上記設定値での計測でも時間がかかりすぎて困難な場合は，cの値を下げていき，最終的には-n 1，-c 1での計測でも構いません．ただし，abのパラメータ値は，発表時も個別レポートでも必ず気付きやすいよう強調して明記しておいてください．</p>
 </section>
-</section>
 <section id="id11">
-<h2>応用課題（分担で①は必須、②は任意）<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<h3>応用課題2<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>分担で①は必須，②は任意でやれるところまで，③は任意で実施してください．</p>
+</section>
 <section id="id12">
-<h3>①超高性能化（ハイパフォーマンス）チーム<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
-<p>【独自仕様による実装】</p>
-<p>チケット予約サイトのようなWebシステムでは，不特定多数の膨大な同時アクセスに耐えられなければなりません．スケールアップやスケールアウトといった様々なアプローチがありますが，ここでは<strong>実装A</strong>をさらに改良して，<strong>実装C</strong>の速度を上回る検索パフォーマンスを目指しましょう．CSVファイルを前処理して，独自のデータ構造で保存する，Raspberry Piを複数利用しクラスタ化して検索する等，方法は問いません．皆さんの独創的なアプローチを期待しています．</p>
+<h3>①検索サーバ高性能化コンテスト<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p>①はprogAの独自仕様による超高性能化をコンテスト形式で実施します．全員必須課題です．</p>
+<p>チケット予約サイトのようなWebシステムでは，不特定多数の膨大な同時アクセスに耐えられなければなりません．スケールアップやスケールアウトといった様々なアプローチがありますが，ここでは<strong>実装A</strong>をさらに改良して，<strong>実装C</strong>の速度を上回る検索パフォーマンスを目指してもらいます．</p>
+<p>検索パフォーマンスはベンチマークサーバを使用して計測し，みなさんの成績を公開しながら進めます．
+最終的に上位のチームを表彰したいと思いますので頑張ってください！</p>
 <ul class="simple">
-<li><p>検索するタグは<strong>実装C</strong>と同様fiat</p>
-<ul>
-<li><p>ただし，fiat以外の検索ワードを入れた際にも正しく動作するように設計すること</p></li>
+<li><p><a class="reference internal" href="benchmarkserver_description.html"><span class="doc std std-doc">ベンチマーク方法</span></a></p></li>
+<li><p><a class="reference internal" href="regulation.html"><span class="doc std std-doc">競技ルール</span></a></p></li>
 </ul>
-</li>
-<li><p>abのコマンドライン引数は以下の数値を基本とすること（グループ間の性能比較をする際の設定）</p>
-<ul>
-<li><p>-n 20</p></li>
-<li><p>-c 10</p></li>
+<p>検索パフォーマンスの向上には，</p>
+<ul class="simple">
+<li><p>CSVファイルを前処理して，独自のデータ構造で保存する</p></li>
+<li><p>Raspberry Piを複数利用しクラスタ化して検索する</p></li>
 </ul>
-</li>
-</ul>
-<p><strong>＜補足＞</strong>最終課題の発表資料では，<strong>実装A</strong>の結果として発表して頂いて構いません．</p>
-<p>【Apache MPMによる高速化結果との比較（任意でやれるところまで）】</p>
+<p>等，色々な方法があると思います．ここで，皆さんの使用しているサーバ機やクライアント機における<strong>CPUのコア数やスレッド数</strong>（ハードウェア的制約），Linuxにおける<strong>ファイルディスクリプタ数の上限</strong>（ソフトウェア的制約）についてもご注意ください． またCPUによっては，高負荷になってCPU温度が高くなると動作周波数を落として性能を抑えるものもあります．何度も連続で負荷試験を行うと計測値が不安定になっていくことがありますのでご注意ください（CPUにヒートシンクを付けたり，CPUファンを付けたりすると多少効果あるかもしれません）．</p>
+<p>皆さんの独創的なアプローチを期待しています！</p>
+<p><strong>＜補足＞</strong>最終課題の発表資料では，<strong>実装A</strong>の結果として発表してください．</p>
+</section>
+<section id="apache-mpm">
+<h3>②Apache MPMによる高速化結果との比較<a class="headerlink" href="#apache-mpm" title="Permalink to this headline">#</a></h3>
+<p>②は任意でやれるところまでの実施としてください．</p>
 <p>Webサーバとして世界的にデファクトとなっているApacheに搭載されているマルチプロセス機能(<strong>Apache MPM</strong>)の性能を用いた高速化を試し，独自実装による高速化結果と比較を行いましょう． Apacheのデフォルト設定では，<strong>Prefork</strong>と呼ばれる手法が指定されてますが，他にも<strong>Worker</strong>や<strong>Event</strong>といった手法も指定できます．</p>
 <p>第二部で自作したWebサーバとの違いも考慮しながら，これらの設定がどのようなものか調査し理解すると共に，実際にどのように性能に違いが出るのか，どうしてそうなるのか論理的な分析をしてください．</p>
 <p>ここで，皆さんの使用しているサーバ機やクライアント機における<strong>CPUのコア数やスレッド数</strong>（ハードウェア的制約），Linuxにおける<strong>ファイルディスクリプタ数の上限</strong>（ソフトウェア的制約）についてもご注意ください． 必須ではありませんが，以下の項目等について評価を行い，独自実装との差を検証してみるとよいでしょう．</p>
@@ -1322,8 +1337,8 @@ DROP TABLE tag,geotag<span class="p">;</span>
 <p>Apacheの設定を変更するとグループ全員の測定に影響を与えますので，必ずグループのメンバーの了解を取って，あるいはグループのメンバー全員で協力して実施しましょう．計測対象のホームページは，最終課題の実装でなくても構いません．もし第二部でKeepAlive対応のWebサーバを実装したなら，そのWebサーバで性能計測しても構いません．重要なのは，各自で「仮説」を立てて検証することです．「この設定をこう変更したら，このような性能変化が計測できるかもしれない」というような仮設を立ててから実際に検証しましょう．</p>
 </section>
 <section id="id13">
-<h3>②自由課題（イマジネーション）チーム<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
-<p>自由に面白いWebシステムを実装してみましょう．</p>
+<h3>③自由課題（イマジネーション）チーム<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p>③は余裕がある方向けの任意課題です．自由に面白いWebシステムを実装してみましょう．</p>
 <p>「Flickrの写真データを用いたシステム」を基本課題としますが，これ以外に面白いWebシステムを思いついた方は自由な発想で取り組んでくれてOKです．</p>
 <p>例えば，写真の撮影位置の緯度経度情報が含まれていますので，検索機能をつけたり，地図へ表示する機能をつけたり，自由な発想で<strong>超興味深い</strong>Webシステムを実装してみましょう．</p>
 <p>【仕様】</p>
@@ -1362,7 +1377,7 @@ DROP TABLE tag,geotag<span class="p">;</span>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/part3/part3_2"
+            path: "./content/part3/part3_final_assignment"
         },
         predefinedOutput: true
     }
@@ -1376,17 +1391,17 @@ DROP TABLE tag,geotag<span class="p">;</span>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../../part2/part2_5/overview.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Day9の目的と概要</p>
+            <p class="prev-next-title">最終課題</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../part3_1/overview.html" title="next page">
+    <a class='right-next' id="next-link" href="regulation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Day10の目的と概要</p>
+        <p class="prev-next-title">競技ルール</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
