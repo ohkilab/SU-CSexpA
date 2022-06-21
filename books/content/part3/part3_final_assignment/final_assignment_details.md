@@ -33,6 +33,11 @@
 $ sudo vi /etc/php.ini
 ```
 
+```{note}
+phpのバージョンによっては /etc/php/X.X/apache2/php.ini などにあるかもしれませんが，置き換えてください．
+```
+
+
 ```ini
 # ブログラムのタイムアウト設定を30 -> 300秒へ変更
 max_execution_time = 300
