@@ -54,7 +54,7 @@ PHPの試験用に教員側で用意したサンプルプログラム（PHP）�
 このリポジトリには，`prog00.php`という名前のサンプルプログラム（PHP）が一つだけ格納されています．GitHub上のリポジトリには様々な方法でアクセス可能ですが，ダウンロードしたいサーバ端末上の端末画面（コマンドライン）で以下のコマンドを入力すればclone（複製）が作成されます．「--depth 1」というオプションは，最新の１バージョンのみダウンロードするという意味です．
 
 ```sh
- $ git clone --depth 1 git@github.com:ohkilab/SU-CSexpA-00.git
+ $ git clone --depth 1 https://github.com/ohkilab/SU-CSexpA-00.git
 ```
 
 実行したカレントディレクトリに，`SU-CSexpA-00`というディレクトリが作成され，そのディレクトリの中に`prog00.php`というファイルがダウンロードされたと思います．
