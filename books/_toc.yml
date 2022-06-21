@@ -94,10 +94,7 @@ parts:
 
   # 第三部
   - caption: 第三部 Webシステムの性能
-    chapters:
-      - file: content/part3/part3_2/final_task_details
-        title: 最終課題
-      
+    chapters:    
       - file: content/part3/part3_1/overview
         title: '[Day10] Webシステムの基礎'
         sections:
@@ -141,6 +138,15 @@ parts:
         - file: content/part3/part3_5/last_presentation
           title: 第三部グループ発表会
 
+      - file: content/part3/part3_final_assignment/overview
+        title: 最終課題
+        sections:
+        - file: content/part3/part3_final_assignment/final_assignment_details
+          title: 最終課題の概要
+        - file: content/part3/part3_final_assignment/regulation
+          title: 競技ルールの詳細
+        - file: content/part3/part3_final_assignment/benchmarkserver_description
+          title: ベンチマークサーバー
 
   # 実験終了後の作業
   - caption: 実験終了後（必須）
