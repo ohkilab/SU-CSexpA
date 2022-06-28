@@ -878,7 +878,7 @@ WebシステムのURLは以下のようになると思います．</p>
 </pre></div>
 </div>
 <p><strong>入力例：</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">192.168.100.49</span><span class="o">/~</span><span class="n">pi</span><span class="o">/</span><span class="n">progA</span><span class="o">.</span><span class="n">php</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">10.70.174.167</span><span class="o">/~</span><span class="n">pi</span><span class="o">/</span><span class="n">progA</span><span class="o">.</span><span class="n">php</span>
 </pre></div>
 </div>
 <p>なお，IPアドレスはRaspberry Piを学内ネットワークに接続した後に取得したIPアドレスに置き換えてください．
@@ -887,11 +887,11 @@ IPアドレスは学内ネットワークに接続後，ターミナルで以下
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../../_images/raspi_ip.png"><img alt="ip aの例" class="align-center" src="../../../_images/raspi_ip.png" style="width: 800px;" /></a>
-<p>上記の場合，<code class="docutils literal notranslate"><span class="pre">192.168.0.124</span></code>がRaspberry PiのIPアドレスとなります．</p>
+<p>上記の場合，<code class="docutils literal notranslate"><span class="pre">10.70.174.167</span></code>がRaspberry PiのIPアドレスとなります．</p>
 <p>フォームに情報を入力した後，計測開始ボタンをクリックします．</p>
 <a class="reference internal image-reference" href="../../../_images/bench-top-example.png"><img alt="ベンチマークサーバのトップ画面 入力例" class="align-center" src="../../../_images/bench-top-example.png" style="width: 800px;" /></a>
 <p>計測開始ボタンをクリックするとキューに追加されます．
-待ちがない場合は，そのままwebシステムの性能の計測を行いますが，先に性能を計測しているグループが存在する場合は，それらのグループの計測が終了するまで待機します．（1グループの計測に最大3分ほどかかります）</p>
+待ちがない場合は，そのままwebシステムの性能の計測を行いますが，先に性能を計測しているグループが存在する場合は，それらのグループの計測が終了するまで待機します．（1グループの計測に最大4分ほどかかります）</p>
 <a class="reference internal image-reference" href="../../../_images/bench-queue.png"><img alt="ベンチマークサーバのqueue待ち画面" class="align-center" src="../../../_images/bench-queue.png" style="width: 800px;" /></a>
 <p>webシステムの計測が正常に終了すると，計測結果が表示されます．</p>
 <a class="reference internal image-reference" href="../../../_images/bench-result.png"><img alt="ベンチマークサーバの計測結果画面" class="align-center" src="../../../_images/bench-result.png" style="width: 800px;" /></a>
@@ -962,7 +962,7 @@ URLの末尾 <a class="reference external" href="http://expa-ranking.s3-website-
 </tr>
 <tr class="row-even"><td><p>-t 数値</p></td>
 <td><p>1リクエストのタイムアウト時間を秒単位で指定</p></td>
-<td><p>2</p></td>
+<td><p>5</p></td>
 </tr>
 <tr class="row-odd"><td><p>-r 数値</p></td>
 <td><p>1の場合のみ計測に使用するタグ名をランダムな順番で選択</p></td>
@@ -970,7 +970,7 @@ URLの末尾 <a class="reference external" href="http://expa-ranking.s3-website-
 </tr>
 <tr class="row-even"><td><p>-s 数値</p></td>
 <td><p>計測に使用するタグ数を指定．-1の場合は，ファイルに記載されているすべてタグを使用</p></td>
-<td><p>100</p></td>
+<td><p>50</p></td>
 </tr>
 <tr class="row-odd"><td><p>-p 文字列</p></td>
 <td><p>計測に使用するタグ名が記載されているファイルのPathを指定</p></td>
