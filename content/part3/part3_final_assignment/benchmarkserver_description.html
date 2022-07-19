@@ -21,7 +21,7 @@
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -735,31 +735,36 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id6">
+   ベンチマークサーバの仕様
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
    在宅用ベンチマークサーバ
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id8">
      在宅用ベンチマークサーバの概要
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id9">
      在宅用ベンチマークサーバの使用方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
+    <a class="reference internal nav-link" href="#id10">
      在宅用ベンチマークサーバのオプションを変更して起動する
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
+      <a class="reference internal nav-link" href="#id11">
        コマンドオプション
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
+      <a class="reference internal nav-link" href="#id12">
        使い方
       </a>
      </li>
@@ -810,31 +815,36 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id6">
+   ベンチマークサーバの仕様
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
    在宅用ベンチマークサーバ
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id8">
      在宅用ベンチマークサーバの概要
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id9">
      在宅用ベンチマークサーバの使用方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
+    <a class="reference internal nav-link" href="#id10">
      在宅用ベンチマークサーバのオプションを変更して起動する
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
+      <a class="reference internal nav-link" href="#id11">
        コマンドオプション
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
+      <a class="reference internal nav-link" href="#id12">
        使い方
       </a>
      </li>
@@ -907,15 +917,28 @@ URLの末尾 <a class="reference external" href="http://expa-ranking.s3-website-
 <p>他のグループに負けないような高性能なwebシステムの設計を目指しましょう．</p>
 </section>
 <section id="id6">
-<h2>在宅用ベンチマークサーバ<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<h2>ベンチマークサーバの仕様<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>ベンチマークサーバでは，Go言語製のベンチマークツール「hey」を用いて，以下のような形式で計測しています．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>hey -n 10 -c 5 -t 5 http://10.70.174.167/~pi/progA.php?tag=fiat
+</pre></div>
+</div>
+<p>タイムアウトの時間(5s)を設定しているため，計測に時間がかかりすぎてしまうと<code class="docutils literal notranslate"><span class="pre">deadline</span> <span class="pre">excceeded</span></code>のようなエラーが出力されます．</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>heyのコマンドオプションの仕様はabコマンドのものと同等です．</p>
+</div>
+<p>また，計測する際にhtmlを取得し，URL内に含まれる<code class="docutils literal notranslate"><span class="pre">.staticflickr.com</span></code>の数をcountしており，100個ない場合は，<code class="docutils literal notranslate"><span class="pre">○○タグのHTMLファイル取得失敗</span></code>のようなエラーが出力されます．</p>
+</section>
 <section id="id7">
-<h3>在宅用ベンチマークサーバの概要<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<h2>在宅用ベンチマークサーバ<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<section id="id8">
+<h3>在宅用ベンチマークサーバの概要<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
 <p>在宅用ベンチマークサーバは，在宅で授業を受けており，予選・本選ベンチマークサーバにアクセスすることができない人向けのベンチマークサーバです．
 在宅用ベンチマークサーバは，Webシステムの性能評価方法の仕様は予選サーバと同等のものですが，計測結果をランキングに反映する機能などはありません．
 在宅用ベンチマークサーバでWebシステムのチューニングを行った後，予選/本選用ベンチマークサーバでのベンチマークを行うなど，工夫を行ってみてください．</p>
 </section>
-<section id="id8">
-<h3>在宅用ベンチマークサーバの使用方法<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<section id="id9">
+<h3>在宅用ベンチマークサーバの使用方法<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
 <p>ベンチマークサーバをダウンロードします．</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験A\\第三部サンプルデータ\\benchmarkserver.zip</span></code>（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
@@ -933,11 +956,11 @@ URLの末尾 <a class="reference external" href="http://expa-ranking.s3-website-
 </div>
 <p>これ以降の操作は予選サーバと同様です．</p>
 </section>
-<section id="id9">
-<h3>在宅用ベンチマークサーバのオプションを変更して起動する<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
-<p>在宅用ベンチマークサーバは，オプションを変更して起動することが可能です．</p>
 <section id="id10">
-<h4>コマンドオプション<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<h3>在宅用ベンチマークサーバのオプションを変更して起動する<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p>在宅用ベンチマークサーバは，オプションを変更して起動することが可能です．</p>
+<section id="id11">
+<h4>コマンドオプション<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
 <table class="table" id="bench-options">
 <caption><span class="caption-number">Table 9 </span><span class="caption-text">コマンドオプション</span><a class="headerlink" href="#bench-options" title="Permalink to this table">#</a></caption>
 <colgroup>
@@ -979,8 +1002,8 @@ URLの末尾 <a class="reference external" href="http://expa-ranking.s3-website-
 </tbody>
 </table>
 </section>
-<section id="id11">
-<h4>使い方<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<section id="id12">
+<h4>使い方<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
 <p>上記のパラメータを変更して起動するためには，コマンドプロンプトから在宅用ベンチマークサーバを起動する必要があります．
 在宅用ベンチマークサーバが存在するフォルダへ移動した後，以下のように実行します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">main</span> <span class="o">-</span><span class="n">n</span> <span class="mi">5</span> 

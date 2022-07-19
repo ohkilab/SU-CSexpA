@@ -21,7 +21,7 @@
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -728,16 +728,21 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   採点方法
+   [重要]2022年度本選での予選からの変更事項
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id6">
-   禁止事項
+   採点方法
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
+   禁止事項
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
    ヒント
   </a>
  </li>
@@ -777,16 +782,21 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   採点方法
+   [重要]2022年度本選での予選からの変更事項
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id6">
-   禁止事項
+   採点方法
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
+   禁止事項
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
    ヒント
   </a>
  </li>
@@ -825,14 +835,44 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="id5">
-<h2>採点方法<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<h2>[重要]2022年度本選での予選からの変更事項<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>ベンチマーク用の検索結果は以下のJSON形式で出力するようにしてください（出力形式による速度の違いを回避するためです）．</p>
+<ul class="simple">
+<li><p>キーとして”tag”と”results”を含む</p></li>
+<li><p>“tag”キーは値として検索タグを保持する</p></li>
+<li><p>“results”キーは検索結果を含む配列を保持する</p></li>
+<li><p>各検索結果は緯度，軽度，撮影時刻，写真のURLを保持する4つのキーから構成される</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;tag&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;検索タグ名&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;results&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;lat&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">緯度</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;lon&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">経度</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;撮影時刻&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;写真のURL&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">...</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;lat&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">緯度</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;lon&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">経度</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;撮影時刻&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;写真のURL&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2>採点方法<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>webシステムの性能値(スコア)の高さを競うものとします．</p></li>
 <li><p>webシステムの性能値は，webシステムのRequest Per Second（1秒間に処理を行うHTTPリクエストの数）で評価し，このスコアが1番高いチームを優勝とします．</p></li>
 </ul>
 </section>
-<section id="id6">
-<h2>禁止事項<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<section id="id7">
+<h2>禁止事項<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>本選において，計測に使用されるタグを推測するために複数のグループで協力する行為を禁止します．</p></li>
 <li><p>ベンチマークサーバを悪用して他グループや学内･学外のシステムに対してリクエストを送る行為を禁止します．</p></li>
@@ -841,8 +881,8 @@ title="Print to PDF"
 <li><p>自宅用ベンチマークサーバを逆コンパイルする行為を禁止します．</p></li>
 </ul>
 </section>
-<section id="id7">
-<h2>ヒント<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<section id="id8">
+<h2>ヒント<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
 <p>検索システムにはキャッシュが存在します．このためMySQLなどでは同じ検索ワードで複数回検索を行うと2回目以降で検索速度が早くなることがあります．(特に本選用ベンチマークサーバは)限られた回数しかベンチマークを実行できず，実行ごとの検索ワードも異なります．このため，特定の検索ワードのみ検索を早くしたり，単純な方法でキャッシュによる高速化を行うことは難しくなっています．どのような単語で検索されても（それが過去に問い合わせされたことがない検索語でも）高速に返答をするためにはどのような方法があるかを考えてみましょう</p>
 </section>
 </section>
