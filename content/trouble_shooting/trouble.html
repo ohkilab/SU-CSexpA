@@ -725,6 +725,31 @@ title="Print to PDF"
      RaspberryPiのシャットダウン方法が分からない
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberrypiping">
+     RaspberryPiにpingが通らない
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberrypi-local">
+     raspberrypi.localに正しいパスワードを入力しても繋がらない
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberrypissh">
+     RaspberryPiとssh通信できない
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sshthe-ecdsa-host-key-for-raspberrypi-local-has-changed">
+     ssh通信しようとするとThe ECDSA host key for raspberrypi.local has changed,～ というエラーが出る
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vnc-vnc-server-identity-check-failed">
+     VNC接続をしようとすると VNC Server identity check failed となる
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -766,6 +791,31 @@ title="Print to PDF"
      RaspberryPiのシャットダウン方法が分からない
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberrypiping">
+     RaspberryPiにpingが通らない
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberrypi-local">
+     raspberrypi.localに正しいパスワードを入力しても繋がらない
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raspberrypissh">
+     RaspberryPiとssh通信できない
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sshthe-ecdsa-host-key-for-raspberrypi-local-has-changed">
+     ssh通信しようとするとThe ECDSA host key for raspberrypi.local has changed,～ というエラーが出る
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vnc-vnc-server-identity-check-failed">
+     VNC接続をしようとすると VNC Server identity check failed となる
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -802,6 +852,42 @@ title="Print to PDF"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">shutdown</span> <span class="o">-</span><span class="n">h</span> <span class="n">now</span>
 </pre></div>
 </div>
+</section>
+<section id="raspberrypiping">
+<h3>RaspberryPiにpingが通らない<a class="headerlink" href="#raspberrypiping" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Day1の「うまくいかない時のトラブルシューティング」を参照。</p></li>
+<li><p>RaspberryPiが起動してない（電源はついていてもOSが起動していない）可能性があります。RaspberryPiをモニタに繋いだ後再起動してみて，画面にRaspberryPiが映るか確認してみると分かります。</p></li>
+<li><p>有線の接触なども確認してみてください。</p></li>
+</ul>
+</section>
+<section id="raspberrypi-local">
+<h3>raspberrypi.localに正しいパスワードを入力しても繋がらない<a class="headerlink" href="#raspberrypi-local" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>多数の実験関係者が接続するネットワーク（たとえばSU-CSexpAのWiFi）を経由して繋いでいないか。</p></li>
+<li><p>接続時の端末指定を IP アドレスでなく raspberrypi.local を使っていないか。</p></li>
+</ul>
+<p>同じネットワークに複数のRaspberryPiがいる場合、あなたではない他の端末が raspberrypi.local の名前を使っている可能性があります（つまり、他の人のRaspiに自分のパスワードで接続しようとしている可能性があります）。共用のWiFiネットワーク等を経由して接続する場合は、IPアドレスを使って端末名を指定して接続するようにするか、RaspberryPiとPCのWiFiをオフにして有線でRaspberryPiとPCを繋ぎ他のRaspiがネットワークに入らないようにして接続してください。</p>
+</section>
+<section id="raspberrypissh">
+<h3>RaspberryPiとssh通信できない<a class="headerlink" href="#raspberrypissh" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>まずpingが通るか。　→”Raspberry Piにpingが通らない”を参照。</p></li>
+<li><p>通信先は正しいか。</p></li>
+<li><p>The ECDSA host key for raspberrypi.local has changed,～ というエラーが出るか？　→”ssh通信しようとするとThe ECDSA host key for raspberrypi.local has changed,～ というエラーが出る”を参照。</p></li>
+</ul>
+</section>
+<section id="sshthe-ecdsa-host-key-for-raspberrypi-local-has-changed">
+<h3>ssh通信しようとするとThe ECDSA host key for raspberrypi.local has changed,～ というエラーが出る<a class="headerlink" href="#sshthe-ecdsa-host-key-for-raspberrypi-local-has-changed" title="Permalink to this headline">#</a></h3>
+<p>.ssh/known_hostsに記載されているサーバリストあるホストのIPが変わってしまった、というエラーです。
+　SSHでは初回接続時に接続先ホストの公開鍵を（ローカルに）保存しておいて、次回接続時にホスト鍵を比較して前回と同じホストに接続したかを確認するような仕組みになっています。このため、IPアドレスが変更されるなどでホスト鍵が変わってしまった時にこのエラーが出ます。今回の環境はmDNSでIPを設定しており、ホスト（Raspi）のIPがたまに変わってしまうためこのエラーが出ると思います。
+　解決策ですが、PCのユーザ(cs～～)フォルダから.ssh/known_hostsファイルを開く→RaspiっぽいIPのホスト鍵（fingerprint）が書いてある行を消す、でいけるはずです。</p>
+</section>
+<section id="vnc-vnc-server-identity-check-failed">
+<h3>VNC接続をしようとすると VNC Server identity check failed となる<a class="headerlink" href="#vnc-vnc-server-identity-check-failed" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>ssh通信を試してみる。</p></li>
+</ul>
 <!-- 
 
 ## 第一部
