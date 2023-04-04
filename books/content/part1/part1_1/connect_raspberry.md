@@ -64,7 +64,7 @@ IPアドレスとサブネットマスクを設定します．
 - IPアドレス:192.168.1.102
 - サブネットマスク:255.255.255.0
 
-![raspi-con4.png](../../../images/part1/part1_1/400px-raspi-con4.png)
+![raspi-con4.png](../../../images/part1/part1_1/static_ip.png)
 
 コマンドプロンプトからipconfigコマンドを実行し，IPアドレスとサブネットマスクが設定されたものであるか確認してください．
 
@@ -105,15 +105,15 @@ VNCを起動し，RaspberryPiのIPアドレス(192.168.1.101)に接続します�
 - ユーザ名:pi
 - パスワード:raspberry
 
-![vnc1.png](../../../images/part1/part1_1/400px-vnc1.png)
+![vnc1.png](../../../images/part1/part1_1/vnc1.png)
 
 初回のみセキュリティ警告が出ますがContinueを押し，ユーザ名とパスワードを入力します．
 
-![vnc3.png](../../../images/part1/part1_1/400px-vnc3.png)
+![vnc2.png](../../../images/part1/part1_1/vnc2.png)
 
 デスクトップ画面にログインできます．
 
-![vnc4.png](../../../images/part1/part1_1/400px-vnc4.png)
+![vnc3.png](../../../images/part1/part1_1/vnc3.png)
 
 ### パスワードの変更
 
@@ -129,7 +129,9 @@ $passwd
 
 ### 無線LANの設定
 
-大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 3B）からは無線接続が困難です．**実験用の仮ネットワークを用意しておりますので担当教員からのパスワードなどの情報開示をお待ちください．**（どうしても大学のネットワークで無線を使いたい場合は[ここ](https://blog.cles.jp/item/12794)などを参照すると良いかもしれません）
+大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 3B）からは無線接続が困難です．（どうしても大学のネットワークで無線を使いたい場合は[ここ](https://blog.cles.jp/item/12794)などを参照すると良いかもしれません）
+
+本講義では作業簡略化のため**実験用の仮ネットワークを用意しておりますので担当教員からのパスワードなどの情報開示をお待ちください．**
 
 右上に表示されているアイコンから無線LAN設定を行うことができます．各自接続するWifiの設定を行ってください．
 
@@ -171,38 +173,26 @@ Windows環境からの接続を例に説明します．
 
 TeraTermを起動，RaspberryPiのIPアドレス（192.168.1.101）を入力してSSHで接続
 
-![tterm1.png](../../../images/part1/part1_1/400px-tterm1.png)
+![tterm1.png](../../../images/part1/part1_1/tterm1.png)
 
 RaspberryPi上のアカウント（pi）でログイン
 
-![tterm3.png](../../../images/part1/part1_1/400px-tterm3.png)
+![tterm2.png](../../../images/part1/part1_1/tterm2.png)
 
-初回のみセキュリティ警告が出てくるので\[続行\]を押す
-
-![tterm2.png](../../../images/part1/part1_1/400px-tterm2.png)
-
-ログインに成功すればコマンドプロンプトが出てきます．
-
-![tterm4.png](../../../images/part1/part1_1/400px-tterm4.png)
+初回のみセキュリティ警告が出てくるので\[続行\]を押します．ログインに成功すればコマンドプロンプトが出てきます．
 
 ## RaspberryPiへのファイル転送
 
 WinSCPを起動します．ログイン画面が開くので新規のホストを設定しログインします．
 
--転送プロトコル:SFTP
--ホスト名:192.168.1.101
--ユーザ名:pi
--パスワード:設定したパスワード
+- 転送プロトコル:SFTP
+- ホスト名:192.168.1.101
+- ユーザ名:pi
+- パスワード:設定したパスワード
 
-![winscp1.png](../../../images/part1/part1_1/600px-winscp1.png)
+![winscp1.png](../../../images/part1/part1_1/winscp1.png)
 
-最初にアクセスした時のみセキュリティ警告が出ますのでOKします．
-
-![winscp2.png](../../../images/part1/part1_1/400px-winscp2.png)
-
-エクスプローラのようにドラッグ＆ドラップや右クリックメニューでファイルの転送や操作が可能です．
-
-![winscp3.png](../../../images/part1/part1_1/600px-winscp3.png)
+最初にアクセスした時のみセキュリティ警告が出ますのでOKします．エクスプローラのようにドラッグ＆ドラップや右クリックメニューでファイルの転送や操作が可能です．
 
 ## VMからRaspberryPiへの接続の確認
 
@@ -244,17 +234,15 @@ $exit
 
 VirtualBoxのメニューから「仮想マシン」→「設定」を開きます．
 
-![scpvm1.png](../../../images/part1/part1_1/400px-scpvm1.png)
+![scpvm1.png](../../../images/part1/part1_1/scpvm1.png)
 
 ネットワークの設定から「高度」タブを開き「ポートフォワーディング」を開きます．
 
-![scpvm2.png](../../../images/part1/part1_1/400px-scpvm2.png)
+![scpvm2.png](../../../images/part1/part1_1/scpvm2.png)
 
-右上のアイコンをクリックして，フォワーディングルールを追加します．
+右上のアイコンをクリックして，フォワーディングルールを追加します．ここでは，ホストOS（Windows）のポート22への接続をゲストOS（Linux）のポート22に転送する設定を行います．
 
-ここでは，ホストOS（Windows）のポート22への接続をゲストOS（Linux）のポート22に転送する設定を行います．
-
-![scpvm3.png](../../../images/part1/part1_1/400px-scpvm3.png)
+![scpvm3.png](../../../images/part1/part1_1/scpvm3.png)
 
 WinSCPを起動し，接続先のホストとして以下の指定して接続します．
 
@@ -262,7 +250,7 @@ WinSCPを起動し，接続先のホストとして以下の指定して接続�
 - ユーザ名:ゲストOSに設定したユーザ名
 - パスワード:ゲストOSに設定したパスワード
 
-![scpvm4.png](../../../images/part1/part1_1/400px-scpvm4.png)
+![scpvm4.png](../../../images/part1/part1_1/scpvm4.png)
 
 ### 外部から接続する場合
 
