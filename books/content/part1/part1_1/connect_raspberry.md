@@ -1,8 +1,11 @@
-# RaspberryPi の接続
+# RaspberryPiの接続（固定IP）
 
 ## 概要
 
-ディスプレイとマウス・キーボードがない状態でRaspberryPiへ接続する方法を説明します．
+実験室以外で実験を行う場合に，ディスプレイとマウス・キーボードがない状態でRaspberryPiへ接続する方法を説明します．
+
+情報科学実験Iで配布したRaspberryPiはEthernetデバイスに固定IP（192.168.1.101）を設定してありますので，それを前提としてPCから接続します．
+
 最終的な構成は以下のようになります．
 
 ```{image} ../../../images/part1/part1_1/configuration.png
@@ -22,13 +25,13 @@
 
 以降，説明においては，RaspberryPiへの接続はこのユーザー名とパスワードを用いていきます．当然ですが，初期設定のままでは他の人もあなたのRaspberry Piにこのパスワードで接続が行えてしまい大変危険ですので，すぐにパスワードを変更しておきましょう．
 
-### RaspberryPi と PC の有線ケーブルでの P2P 接続
+## RaspberryPiとPCの有線ケーブルでのP2P接続
 
-RaspberryPi の microUSB 端子に電源を接続します．
+RaspberryPiのmicroUSB端子に電源を接続します．
 
 ![raspi-usb.jpg](../../../images/part1/part1_1/400px-raspi-usb.jpg)
 
-RaspberryPi と PC を LAN ケーブルで直結します（以下の例では USB 接続の LAN アダプタを使っていますが，PC に備え付けの有線 LAN ポートがあればそれに接続します）．
+RaspberryPiとPCをLANケーブルで直結します（以下の例ではUSB接続のLANアダプタを使っていますが，PCに備え付けの有線LANポートがあればそれに接続します）．
 
 ![raspi-pc.jpg](../../../images/part1/part1_1/raspi-pc.jpg)
 
@@ -36,156 +39,172 @@ RaspberryPi と PC を LAN ケーブルで直結します（以下の例では U
 Raspberry Piは「 **microUSB 端子に電源を接続する前に** 」HDMIケーブルを接続しないとモニタを認識しません．モニタに画面が映らないと悩んでいる方はまずチェックしてください
 ```
 
-### Windowsのネットワークアダプター設定
+## IPアドレスと接続の確認
+
+WindowsPC上のイーサネットデバイスにRaspberryPiと同じサブネットワークのIPアドレス（192.168.1.102）を設定します．
+
+ただし，Windows上で複数のイーサネットデバイスを認識している場合がありますので（特にVirtualBoxなどのVM環境を構築している場合は仮想イーサネットデバイスが存在するはず），RaspberryPiと接続したイーサネットデバイスを確認してから作業を進めてください．
+
+### PCの有線LANデバイスにIPアドレスを設定
 
 Windowsで設定を開き，ネットワークとインターネット＞状態を選択してください．下までスクロールすると，「アダプターのオプションを変更する」という項目が見えると思いますので，クリックしてください．
 
 ![win-adopter1.png](../../../images/part1/part1_1/win-adopter1.png)
 
-ここまでの設定が順調であればイーサネットが2つ表示されていると思います．
+RaspberryPiと接続したイーサネットデバイスのプロパティを開きます．
 
 ![win-adopter2.png](../../../images/part1/part1_1/win-adopter2.png)
 
-人によってはイーサネット名が異なりますが，以下の2つがあればOKです．
-
-- PCに付属されているEthernetアダプター（上記だと，Intel(R) Ethernet Connection I219-V）
-- VirtualBox Host-Only Ethernet Adapter
-
-```{caution}
-VirtualBox Host-Only Ethernet Adapterが表示されない場合は，VirtualBoxのバージョンが低い可能性があります．VirtualBox自体のバージョン更新または，最新版の再インストールをしてみてください．再インストールする場合は，コントロールパネルからアンインストールすることでVMのイメージを残したまま実行できます．
-```
-
-右クリックし，プロパティ＞インターネットプロトコル バージョン4(TCP/IP)を選択，その下に表示されているプロパティをクリックしてください．
+インターネットプロトコルバージョン4（TCP/IPv4）のプロパティを開きます．
 
 ![win-adopter3.png](../../../images/part1/part1_1/win-adopter3.png)
 
-チェックボックスで下記の項目が選択されているか確認してください．そうなっていなければ下記の項目を選択してください．
+IPアドレスとサブネットマスクを設定します．
 
-- IPアドレスを自動的に取得する
-- DNSサーバーのアドレスを自動的に取得する
+- IPアドレス:192.168.1.102
+- サブネットマスク:255.255.255.0
 
-![win-adopter4.png](../../../images/part1/part1_1/win-adopter4.png)
+![raspi-con4.png](../../../images/part1/part1_1/400px-raspi-con4.png)
 
-```{important}
-以上の操作を2つのイーサネット両方に対して行ってください．
+コマンドプロンプトからipconfigコマンドを実行し，IPアドレスとサブネットマスクが設定されたものであるか確認してください．
+
+```shell
+$ipconfig
+
+イーサネット アダプター イーサネット 2:
+…
+   IPv4 アドレス . . . . . . . . . . . .: 192.168.1.102
+   サブネット マスク . . . . . . . . . .: 255.255.255.0
 ```
 
 ### RaspberryPiとの接続確認
 
-コマンドプロンプトから RaspberryPi の IP アドレスに ping を実行し，接続を確認してください．
+コマンドプロンプトからRaspberryPiのIPアドレスにpingを実行し，正しく応答があるか確認してください．
 
+```shell
+$ping 192.168.1.101
+
+192.168.1.101 に ping を送信しています 32 バイトのデータ:
+192.168.1.101 からの応答: バイト数 =32 時間 =18ms TTL=64
+192.168.1.101 からの応答: バイト数 =32 時間 =1ms TTL=64
+192.168.1.101 からの応答: バイト数 =32 時間 =1ms TTL=64
+192.168.1.101 からの応答: バイト数 =32 時間 =1ms TTL=64
+
+192.168.1.101 の ping 統計:
+    パケット数: 送信 = 4、受信 = 4、損失 = 0 (0% の損失)、
+ラウンド トリップの概算時間 (ミリ秒):
+    最小 = 1ms、最大 = 18ms、平均 = 5ms
 ```
-$ ping raspberrypi.local
-```
 
-## PC と Raspberry Pi の接続
+## PCからRaspberryPiへのVNCによる接続
 
-### PC と RaspberryPi への VNC による接続
+### VNCClientによる接続
 
-#### VNC Client による接続
+VNCを起動し，RaspberryPiのIPアドレス(192.168.1.101)に接続します．
 
-VNC を起動し，RaspberryPi の ドメイン名 ( raspberrypi.local ) に接続します．
+- ユーザ名:pi
+- パスワード:raspberry
 
-![vnc1.png](../../../images/part1/part1_1/vnc1.png)
+![vnc1.png](../../../images/part1/part1_1/400px-vnc1.png)
 
-初回のみセキュリティ警告が出ますので Continue します．
+初回のみセキュリティ警告が出ますがContinueを押し，ユーザ名とパスワードを入力します．
 
-ユーザ名とパスワードを入力します．
-
-![vnc2.png](../../../images/part1/part1_1/vnc2.png)
+![vnc3.png](../../../images/part1/part1_1/400px-vnc3.png)
 
 デスクトップ画面にログインできます．
 
-![vnc3.png](../../../images/part1/part1_1/vnc3.png)
+![vnc4.png](../../../images/part1/part1_1/400px-vnc4.png)
 
-#### パスワードの変更
+### パスワードの変更
 
-初期パスワードのままではセキュリティ上問題がありますので，パスワード変更を行います．ターミナルを開いて，以下のコマンドでパスワード変更をしてください．パスワード変更はコンソールログイン，VNC 接続や SSH 接続，sudo でのコマンド実行など全てに影響します．
+初期パスワードのままではセキュリティ上問題がありますので，パスワード変更を行います．ターミナルを開いて，以下のコマンドでパスワード変更をしてください．パスワード変更はコンソールログイン，VNC接続やSSH接続，sudoでのコマンド実行など全てに影響します．ここで設定したパスワードを忘れると復旧は難しいので特に注意してください．
 
 ```{important}
 ここで設定したパスワードを忘れると復旧は難しいので特に注意してください．
 ```
 
 ```shell
- $ passwd
+$passwd
 ```
 
-#### 無線 LAN の設定
+### 無線LANの設定
 
-```{important}
-大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 3B）からは無線接続が困難です．ソフトウェアのアップデート等でインターネットへの接続が必要となる場合には手動で有線を繋ぎ変えて接続を行ってください（どうしても無線を使いたい場合は[ここ](https://blog.cles.jp/item/12794)などを参照すると良いかもしれません）
-```
+大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 3B）からは無線接続が困難です．**実験用の仮ネットワークを用意しておりますので担当教員からのパスワードなどの情報開示をお待ちください．**（どうしても大学のネットワークで無線を使いたい場合は[ここ](https://blog.cles.jp/item/12794)などを参照すると良いかもしれません）
+
+右上に表示されているアイコンから無線LAN設定を行うことができます．各自接続するWifiの設定を行ってください．
+
+![wifi.png](../../../images/part1/part1_1/wifi.png)
 
 RaspberryPiは配布時点の環境が最新版とは限りません．実験では PC と接続している有線/無線 LAN ネットワークを利用しますので，脆弱性対策の観点から実験実施時はこまめにアップデートを行うようにしてください．
 
 ```shell
-$ sudo apt update
-$ sudo apt upgrade
+$sudo apt update
+$sudo apt upgrade
 ```
 
-また，右上に表示されているアイコンから無線LAN設定を行うことができます．各自接続するWifiの設定を行ってください．
+## SSHクライアントのインストール
 
-![wifi.png](../../../images/part1/part1_1/wifi.png)
+RaspberryPiへのファイル転送にはSSHプロトコルを利用します．SSHプロトコルはターミナル接続用途にもファイル転送用途にも利用できます（通信アプリケーションは異なります）．
 
-### SSH クライアントのインストール
+### Windowsを使う場合
 
-RaspberryPi へのファイル転送には SSH プロトコルを利用します．SSH プロトコルはターミナル接続用途にもファイル転送用途にも利用できます（通信アプリケーションは異なります）．
+Webアプリケーション開発に必要なソフトは3つです
 
-#### Windows を使う場合
+- SSH(ターミナル接続)
+  - お勧め:Putty[https://www.putty.org/](https://www.putty.org/)
+  - （お勧め:TeraTerm[https://osdn.net/projects/ttssh2/releases/](https://osdn.net/projects/ttssh2/releases/)）
+- SCP(ファイル転送)
+  - お勧め：WinSCP[http://winscp.net/eng/docs/lang:jp](http://winscp.net/eng/docs/lang:jp)
 
-Web アプリケーション開発に必要なソフトは 3 つです
+### Linuxを使う場合
 
-- SSH (ターミナル接続)
-  - お勧め:Putty [https://www.putty.org/](https://www.putty.org/)
-  - （お勧め:TeraTerm [https://osdn.net/projects/ttssh2/releases/](https://osdn.net/projects/ttssh2/releases/) ）
-- SCP (ファイル転送)
-  - お勧め：WinSCP [http://winscp.net/eng/docs/lang:jp](http://winscp.net/eng/docs/lang:jp)
-
-#### Linux を使う場合
-
-- SSH (ターミナル接続)
-  - 大抵の場合標準で使用できます．コマンドラインから ssh と打ってみてください．
+- SSH(ターミナル接続)
+  - 大抵の場合標準で使用できます．コマンドラインからsshと打ってみてください．
   - [http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230889/](http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230889/)
-- SCP (ファイル転送)
-  - 大抵の場合標準で使用できます．コマンドラインから scp と打ってみてください．
+-SCP(ファイル転送)
+  - 大抵の場合標準で使用できます．コマンドラインからscpと打ってみてください．
   - [http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230878/](http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230878/)
 
-### RaspberryPi へのターミナル接続
+## RaspberryPiへのターミナル接続
 
-Windows 環境からの接続を例に説明します．
+Windows環境からの接続を例に説明します．
 
-- TeraTerm を起動，RaspberryPi の ドメイン（`raspberrypi.local`）を入力して SSH で接続
+TeraTermを起動，RaspberryPiのIPアドレス（192.168.1.101）を入力してSSHで接続
 
-![tterm1.png](../../../images/part1/part1_1/tterm1.png)
+![tterm1.png](../../../images/part1/part1_1/400px-tterm1.png)
 
-- RaspberryPi 上のアカウント（pi）でログイン
+RaspberryPi上のアカウント（pi）でログイン
 
-![tterm2.png](../../../images/part1/part1_1/tterm2.png)
+![tterm3.png](../../../images/part1/part1_1/400px-tterm3.png)
 
-- 初回のみセキュリティ警告が出てくるので\[続行\]を押してください
+初回のみセキュリティ警告が出てくるので\[続行\]を押す
 
-- ログインに成功すればコマンドプロンプトが出てきます．
+![tterm2.png](../../../images/part1/part1_1/400px-tterm2.png)
 
-![tterm3.png](../../../images/part1/part1_1/tterm3.png)
+ログインに成功すればコマンドプロンプトが出てきます．
 
-### RaspberryPi へのファイル転送
+![tterm4.png](../../../images/part1/part1_1/400px-tterm4.png)
 
-WinSCP を起動します． ログイン画面が開くので新規のホストを設定しログインします．
+## RaspberryPiへのファイル転送
 
-- 転送プロトコル: SFTP
-- ホスト名: raspberrypi.local
-- ユーザ名: pi
-- パスワード: 設定したパスワード
+WinSCPを起動します．ログイン画面が開くので新規のホストを設定しログインします．
 
-![winscp1.png](../../../images/part1/part1_1/winscp1.png)
+-転送プロトコル:SFTP
+-ホスト名:192.168.1.101
+-ユーザ名:pi
+-パスワード:設定したパスワード
 
-最初にアクセスした時のみセキュリティ警告が出ますので OK してください．
+![winscp1.png](../../../images/part1/part1_1/600px-winscp1.png)
+
+最初にアクセスした時のみセキュリティ警告が出ますのでOKします．
+
+![winscp2.png](../../../images/part1/part1_1/400px-winscp2.png)
 
 エクスプローラのようにドラッグ＆ドラップや右クリックメニューでファイルの転送や操作が可能です．
 
-![winscp2.png](../../../images/part1/part1_1/winscp2.png)
+![winscp3.png](../../../images/part1/part1_1/600px-winscp3.png)
 
-## VMからRaspberryPiへの接続
+## VMからRaspberryPiへの接続の確認
 
 VMからRaspberryPiへ接続する方法はいくつかの手段がありますが，ここではリンクローカルアドレスを用いた有線による簡易的な接続方法について説明します（他の方法を試したい方は各自で調べてみてください）．
 
@@ -195,123 +214,76 @@ VMからRaspberryPiへ接続する方法はいくつかの手段があります�
 後に行う作業にてssh server が起動していることが前提となりますので，インストールされていない場合は以下のコマンドでインストールします．
 
 ```shell
- $ sudo apt-get update
- $ sudo apt-get install openssh-server
+ $sudo apt-get update
+ $sudo apt-get install openssh-server
 ```
 
-作業が終了したらVMの設定を変更しますのでシャットダウンしてください。
+### VM環境からRaspberryPiへのSSH接続の確認
 
-### VMのネットワーク設定
-
-VirtualBoxを開いて，事前準備で構築したVMを選択し，設定を開きます．ネットワーク設定からアダプター1を選択し，割り当てをブリッジアダプタ―に，名前は[Windowsのネットワークアダプタ設定](./connect_raspberry.html#windows)で確認した二つのイーサネットのうち「VirtualBox Host-Only Ethernet Adopter」**ではない方**を選択し,OKを押してください．
-
-![vm-network-setting1.png](../../../images/part1/part1_1/vm-network-setting1.png)
-
-次に選択したVMを起動し，右上のメニューをクリックして有線接続中＞有線設定を選択してください．（有線接続中ではなく，有線オフの場合もあります）
-
-![vm-network-setting2.png](../../../images/part1/part1_1/vm-network-setting2.png)
-
-有線欄の歯車マークを選択します．
-
-![vm-network-setting3.png](../../../images/part1/part1_1/vm-network-setting3.png)
-
-IPv4>リンクローカルのみにチェックを入れ，適用を押してください．
-
-![vm-network-setting4.png](../../../images/part1/part1_1/vm-network-setting4.png)
-
-設定適用までしばらく時間がかかりますが，ターミナルで`ip a`を打ち込み，下記のように`169.254`から始まるアドレスが確認できれば設定完了です．
-
-![vm-network-setting5.png](../../../images/part1/part1_1/vm-network-setting5.png)
-
-### VM から RaspberryPi への接続の確認
-
-VM 上の Linux のターミナルを開いて，RaspberryPi に Ping を送って通信状態を確認します．
+VM上のLinuxのターミナルを開いて，RaspberryPiにPingを送って通信状態を確認します．
 
 ```shell
- $ ping raspberrypi.local
+$ping 192.168.1.101
 ```
 
-![vm2raspi1.png](../../../images/part1/part1_1/vm2raspi1.png)
-
-SSH で RaspberryPi にログインします．
+SSHでRaspberryPiにログインします．最初の接続のみ，ホスト鍵を受け入れるか聞かれますので"yes"とします．
 
 ```shell
- $ ssh pi@raspberrypi.local
+ $ssh pi@192.168.1.101
  ```
 
-最初の接続のみ，ホスト鍵を受け入れるか聞かれますので "yes" と打ち込みenterを押してください．
-ユーザ名とパスワードが一致すれば，ログインできます．
-
-![vm2raspi2.png](../../../images/part1/part1_1/vm2raspi2.png)
-
-SSH接続時に`exit`を打ち込むことで，SSH接続を切ることができます．
+ユーザ名とパスワードが一致すれば，ログインできます．SSH接続中は`exit`を打ち込むことで，SSH接続を切ることができます．
 
 ```shell
-$ exit
+$exit
 ```
 
-### VM 上の Linux に PC からファイルを転送
+## VM上のLinuxにPCからファイルを転送
 
-ホスト OS（Windows）からゲスト OS（Linux）にファイルを転送します．
+ホストOS（Windows）からゲストOS（Linux）にファイルを転送します．
 
-以下のコマンドでIPアドレスを確認しておいてください．
+VirtualBoxのメニューから「仮想マシン」→「設定」を開きます．
 
-```shell
-$ ip a
-```
+![scpvm1.png](../../../images/part1/part1_1/400px-scpvm1.png)
 
-![scp-vm1.png](../../../images/part1/part1_1/scp-vm1.png)
+ネットワークの設定から「高度」タブを開き「ポートフォワーディング」を開きます．
 
-上記の例では接続するIPアドレスは`169.254.161.171`です．
-WinSCP を起動し，接続先のホストとして以下の指定をして接続します．
+![scpvm2.png](../../../images/part1/part1_1/400px-scpvm2.png)
 
-- ホスト名: 先ほど確認したIPアドレス
-- ユーザ名: ゲスト OS に設定したユーザ名
-- パスワード: ゲスト OS に設定したパスワード
+右上のアイコンをクリックして，フォワーディングルールを追加します．
 
-![scp-vm2.png](../../../images/part1/part1_1/scp-vm2.png)
+ここでは，ホストOS（Windows）のポート22への接続をゲストOS（Linux）のポート22に転送する設定を行います．
 
-```{important}
-接続するIPアドレスは起動毎に変わる可能性があります．WinSCPで接続する際は事前にVM上でIPアドレスを確認してください．
-```
+![scpvm3.png](../../../images/part1/part1_1/400px-scpvm3.png)
 
-#### 外部から接続する場合
+WinSCPを起動し，接続先のホストとして以下の指定して接続します．
+
+- ホスト名:localhost
+- ユーザ名:ゲストOSに設定したユーザ名
+- パスワード:ゲストOSに設定したパスワード
+
+![scpvm4.png](../../../images/part1/part1_1/400px-scpvm4.png)
+
+### 外部から接続する場合
 
 ```{important}
 VirtualBox の設定上は外部から SSH 接続できる設定ですが，実際には Windows ファイアウォールが接続を遮断して接続できない場合がありますので注意してください．
 ```
 
-例えば，RaspberryPi から Windows のイーサネットアダプタに設定した IP アドレスへ SSH 接続を試みると，ユーザ名・パスワードが正しければログインできるはずですが，ログインできない場合があります，
+例えば，RaspberryPiからWindowsのイーサネットアダプタに設定したIPアドレスへSSH接続を試みると，ポートフォワーディング設定並びに，ユーザ名・パスワードが正しければログインできるはずですが，ログインできない場合があります，
 
 ```shell
- $ slogin <VMのIP> -l <VMのユーザー名>
+$ssh <VMのユーザー名>@<VMのIP>
 ```
 
-この場合，Windows ファイアウォールの設定を行えば接続が可能になりますが，セキュリティ上のリスクを伴いますので無理に行う必要はありません． 実験では，RaspberryPi 側をサーバプログラム，PC 上のゲスト OS 側をクライアントプログラムとして実験を進めてください．
+この場合，Windowsファイアウォールの設定を行えば接続が可能になりますが，セキュリティ上のリスクを伴いますので無理に行う必要はありません．実験では，RaspberryPi側をサーバプログラム，PC上のゲストOS側をクライアントプログラムとして実験を進めてください．
 
-## うまくいかない時のトラブルシューティング
+## テキストエディタを使った接続(任意)
 
-- windows→raspberrypi.localでpingが通らない
-  - Windows上からIPv4オプションをつけてpingを実行する
-    - `ping -4 169.254.xx.xx`
-- VM→raspberrypi.localでpingが通らない
-  - VirtualBoxを最新版に更新or再インストール
-- PC→VMへのファイル転送ができない(pingが通らない)
-  - Windows11の場合やに多数の事例あり
-    - DNSキャッシュをクリアにしてもう一度試す
-      - `ipconfig /flushdns`
-    - VMのMACアドレスを変更する
-    - pingを送り続ける
-    - VMとPCの再起動を繰り返す
-- 特定の場合に限らず
-  - Windows, RaspberryPiをそれぞれ再起動
+テキストエディタAtomを用いて開発環境の構築を行います.
+興味のある方は実施してみてください.
 
-## テキストエディタを使った接続 (任意)
+なお,上記のSSH接続やWinSCPの設定などが済んでいることを前提として話を進めていきます.
+必ず上記のSSH接続やWinSCPの設定を済ましてから取り組んでください.
 
-テキストエディタ Atom を用いて開発環境の構築を行います．
-興味のある方は実施してみてください．
-
-なお， 上記の SSH 接続や WinSCP の設定などが済んでいることを前提として話を進めていきます．
-必ず上記の SSH 接続や WinSCP の設定を済ましてから取り組んでください．
-
-[Atom を使った環境構築](./environment_building_with_atom)
+[Atomを使った環境構築](./environment_building_with_atom)
