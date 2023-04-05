@@ -1,48 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>サンプルプログラム(PHP) &#8212; 情報科学実験A</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,56 +61,87 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part3/part3_1/sample_program_php';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="サンプルプログラム(JavaScript)" href="sample_program_js.html" />
     <link rel="prev" title="Webシステムの基礎" href="web_system_basics.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">情報科学実験A</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">情報科学実験A</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -109,768 +151,348 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../schedule.html">
-   今年度の講義について
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  事前準備（在宅）
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../preparation/preparation.html">
-   環境構築および動作確認
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../preparation/preparation.html">環境構築および動作確認</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  第一部 ソケットプログラミング
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part1/part1_1/overview.html">
-   [Day1] 環境構築と実験の開始
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_1/connect_raspberry.html">
-     RaspberryPiの接続
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_1/environment_building_with_atom.html">
-     Atomを使った環境構築（任意）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part1/part1_2/overview.html">
-   [Day2] 通信性能の計測
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">
-     ファイル入出力プログラミング
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">
-     ネットワーク入出力プログラミング
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">
-     入出力性能の計測（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part1/part1_3/overview.html">
-   [Day3] 多対多接続の設計・実装
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_3/multiplexing_server_program.html">
-     サーバプログラムによる多重化
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_3/benchmarking_program.html">
-     ベンチマークプログラムの設計と実装
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_3/performance_measurement.html">
-     性能計測（必須）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_3/multiplexing_asynchronous_IO.html">
-     非同期IOによる多重化
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part1/part1_3/cause_analysis_communication_failure.html">
-     通信失敗の原因分析（発展）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../part1/part1_4/overview.html">
-   [Day4] 第一部レポートピアレビュー
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_1/overview.html">[Day1] 環境構築と実験の開始</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry.html">RaspberryPiの接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/environment_building_with_atom.html">Atomを使った環境構築（任意）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  第二部 Webサーバの実装
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_2/overview.html">[Day2] 通信性能の計測</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">ファイル入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">ネットワーク入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">入出力性能の計測（必須）</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_server_program.html">サーバプログラムによる多重化</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/benchmarking_program.html">ベンチマークプログラムの設計と実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/performance_measurement.html">性能計測（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_asynchronous_IO.html">非同期IOによる多重化</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/cause_analysis_communication_failure.html">通信失敗の原因分析（発展）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../part1/part1_4/overview.html">[Day4] 第一部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webサーバの実装</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part2/part2_1/overview.html">
-   [Day5] Simple HTTPサーバの構築
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html">
-     Raspberry Piのセットアップ
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_1/simplehttpserver.html">
-     Simple HTTPサーバの実装
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_1/httpbenchmark.html">
-     HTTPベンチマークプログラムの実装（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part2/part2_2/overview.html">
-   [Day6] HTTPサーバの高機能化(1)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_2/standardforachievement.html">
-     第二部達成基準
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_2/multipleclient.html">
-     複数クライアント対応（必須）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_2/securityhole.html">
-     セキュリティホール（必須+発展）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_2/httpserver_expansion.html">
-     HTTPサーバ機能拡張（選択）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part2/part2_3/overview.html">
-   [Day7] HTTPサーバの高機能化(2)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_3/introuble.html">
-     第二部の実装で詰まった時の対処法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part2/part2_4/overview.html">
-   [Day8] 第二部グループ発表会
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_4/grouppresentation.html">
-     第二部グループ発表会
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../part2/part2_5/overview.html">
-   [Day9] 第二部レポートピアレビュー
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_1/overview.html">[Day5] Simple HTTPサーバの構築</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  第三部 Webシステムの性能
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_2/overview.html">[Day6] HTTPサーバの高機能化(1)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/standardforachievement.html">第二部達成基準</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/multipleclient.html">複数クライアント対応（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/securityhole.html">セキュリティホール（必須+発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_3/overview.html">[Day7] HTTPサーバの高機能化(2)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_3/introuble.html">第二部の実装で詰まった時の対処法</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_4/overview.html">[Day8] 第二部グループ発表会</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_4/grouppresentation.html">第二部グループ発表会</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../part2/part2_5/overview.html">[Day9] 第二部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第三部 Webシステムの性能</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="overview.html">
-   [Day10] Webシステムの基礎
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="preparation.html">
-     第三部の準備
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="web_system_basics.html">
-     Webシステムの基礎（発展）
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     サンプルプログラム(PHP)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sample_program_js.html">
-     サンプルプログラム(JavaScript)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="benchmark_soft_ab.html">
-     ベンチマークソフトab（Apache Bench）（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part3_2/overview.html">
-   [Day11] Webシステムの設計と実装
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3_2/connection_to_dbms.html">
-     DBMSとの接続（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part3_3/overview.html">
-   [Day12] ベンチマークと分析
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3_3/about_apache_mpm.html">
-     Apache MPMについて
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3_3/useful_links.html">
-     実装の参考となるリンク集
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3_3/websocket.html">
-     WebSocketについて
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3_3/conformation_of_status.html">
-     検討状況の確認（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part3_4/overview.html">
-   [Day13,14] 発表会準備
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part3_5/overview.html">
-   [Day15] 第三部グループ発表会
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3_5/last_presentation.html">
-     第三部グループ発表会
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part3_final_assignment/overview.html">
-   最終課題
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3_final_assignment/final_assignment_details.html">
-     最終課題の概要
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3_final_assignment/regulation.html">
-     競技ルールの詳細
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part3_final_assignment/benchmarkserver_description.html">
-     ベンチマークサーバー
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day10] Webシステムの基礎</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preparation.html">第三部の準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_system_basics.html">Webシステムの基礎（発展）</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">サンプルプログラム(PHP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  実験終了後（必須）
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../end/cleanup.html">
-   実験機材のクリーンアップと解体
-  </a>
- </li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part3_2/overview.html">[Day11] Webシステムの設計と実装</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part3_2/connection_to_dbms.html">DBMSとの接続（必須）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  グループ発表会
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../group_presentation/group_presentation_detail.html">
-   グループ発表会詳細
-  </a>
- </li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part3_3/overview.html">[Day12] ベンチマークと分析</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part3_3/about_apache_mpm.html">Apache MPMについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part3_3/useful_links.html">実装の参考となるリンク集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part3_3/websocket.html">WebSocketについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part3_3/conformation_of_status.html">検討状況の確認（必須）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  レポート
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../report/report.html">
-   レポート詳細
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../report/how_to_write_reports.html">
-   レポートの書き方
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../report/peer_review.html">
-   ピアレビューのやり方
-  </a>
- </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../part3_4/overview.html">[Day13,14] 発表会準備</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part3_5/overview.html">[Day15] 第三部グループ発表会</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part3_5/last_presentation.html">第三部グループ発表会</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  トラブルシューティング
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part3_final_assignment/overview.html">最終課題</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part3_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part3_final_assignment/regulation.html">競技ルールの詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part3_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">実験終了後（必須）</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../trouble_shooting/question.html">
-   質問の行い方
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../trouble_shooting/trouble.html">
-   よくあるトラブル
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../end/cleanup.html">実験機材のクリーンアップと解体</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">グループ発表会</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../group_presentation/group_presentation_detail.html">グループ発表会詳細</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">レポート</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../report/report.html">レポート詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/how_to_write_reports.html">レポートの書き方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/peer_review.html">ピアレビューのやり方</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">トラブルシューティング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/question.html">質問の行い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/trouble.html">よくあるトラブル</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/exp1" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_1/sample_program_php.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
 
 
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/part3/part3_1/sample_program_php.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
   </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/ohkilab/exp1"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part3/part3_1/sample_program_php.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/content/part3/part3_1/sample_program_php.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   はじめに
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   PHPの動作確認
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#git-php">
-   Gitでサンプルプログラム（PHP）をダウンロード
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   サンプルプログラム（PHP）の実行
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     手順
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   サンプルプログラム（PHP）の解説
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     PHPプログラムの配置
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     変数の定義
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     +演算子と.演算子
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#http">
-     HTTPアクセス
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   おわりに
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>サンプルプログラム(PHP)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   はじめに
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   PHPの動作確認
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#git-php">
-   Gitでサンプルプログラム（PHP）をダウンロード
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   サンプルプログラム（PHP）の実行
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     手順
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   サンプルプログラム（PHP）の解説
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     PHPプログラムの配置
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     変数の定義
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     +演算子と.演算子
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#http">
-     HTTPアクセス
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   おわりに
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>サンプルプログラム(PHP)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">はじめに</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">PHPの動作確認</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-php">Gitでサンプルプログラム（PHP）をダウンロード</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">サンプルプログラム（PHP）の実行</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">手順</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">サンプルプログラム（PHP）の解説</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">PHPプログラムの配置</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">変数の定義</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">+演算子と.演算子</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http">HTTPアクセス</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">おわりに</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="php">
-<h1>サンプルプログラム(PHP)<a class="headerlink" href="#php" title="Permalink to this headline">#</a></h1>
+<h1>サンプルプログラム(PHP)<a class="headerlink" href="#php" title="Permalink to this heading">#</a></h1>
 <section id="id1">
-<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2>はじめに<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Webシステムを構築する上で重要となるWebサーバについて，Node.jsを用いたWebサーバを試してみました．次は，代表的なWebサーバ用ソフトウェアであるApacheを用いて，PHPで作成されるWebページを返すような単純なWebシステムを構築してみましょう．</p>
 </section>
 <section id="id2">
-<h2>PHPの動作確認<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>PHPの動作確認<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>まず，サーバ端末上の皆さんのホームディレクトリにあるpublic_htmlディレクトリにあるファイルへ，Webブラウザで表示できるようにUserdir設定を有効にしてください． public_html ディレクトリがない方や，userdirの設定が終わっていない方は，第二部 <a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html"><span class="doc std std-doc">Raspberry_Piのセットアップ</span></a> を参照してください．</p>
 <p>次に，サーバ端末上の皆さんのホームディレクトリにあるpublic_htmlディレクトリへ，以下のような内容で<code class="docutils literal notranslate"><span class="pre">index.php</span></code>というPHPファイルを作成してみてください．もちろんサーバ端末へリモートログインしてファイル作成しても構いませんが，ローカルのノートPC上で作成して，<a class="reference external" href="https://winscp.net/eng/docs/lang:jp">WinSCP</a>のようなSFTPクライアントプログラムを用いてサーバ端末へアップロードする方法も一般的ですので慣れておいてください（WinSCPの画面で，ローカル側からサーバ側へファイルをドラッグすればアップロードされます．ダウンロードは逆になります）．</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
 <span class="nb">phpinfo</span><span class="p">();</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </pre></div>
 </div>
 <p>実際にサーバ端末へアップロードされたかどうか，サーバ端末へリモートログインしてアップロードしたディレクトリでlsコマンドを打って確認してみてください．</p>
@@ -880,35 +502,35 @@ title="Print to PDF"
 </ul>
 <p><img alt="php_version.jpg" src="../../../_images/php_version.jpeg" /></p>
 <p>このようなWebページが表示されればOKです．うまくいかなかった人は，何らかの理由でPHPのインストールがうまくいっていなかった可能性があります．以下のコマンドでPHPを明示的にインストールし直してから，httpd（Webサーバデーモン（一般的にはApache））を再起動（restart）してみてください．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ sudo apt install php
- $ sudo service apache2 restart
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php
+<span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>apache2<span class="w"> </span>restart
 </pre></div>
 </div>
 <p>真っ白な画面が表示される人は，下記作業をしてください．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ sudo vi /etc/apache2/mods-enabled/php7.3.conf
-// <span class="s2">&quot;php7.3.conf&quot;</span>はインストールしたPHPのバージョンのものを選択してください．
-// 「php_admin_flag engine」を「On」に書き換え，保存
- $ sudo service apache2 restart
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/apache2/mods-enabled/php7.3.conf
+//<span class="w"> </span><span class="s2">&quot;php7.3.conf&quot;</span>はインストールしたPHPのバージョンのものを選択してください．
+//<span class="w"> </span>「php_admin_flag<span class="w"> </span>engine」を「On」に書き換え，保存
+<span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>apache2<span class="w"> </span>restart
 </pre></div>
 </div>
 <p>本サンプルプログラムはプログラム中からインターネットへのアクセスが発生します．</p>
 <p>本実験を行う場合は一時的にWiFiをOnにする，ルーター経由でPC接続するなど，RasPiをインターネットアクセス可能な状態にして実験を行なってください．</p>
 </section>
 <section id="git-php">
-<h2>Gitでサンプルプログラム（PHP）をダウンロード<a class="headerlink" href="#git-php" title="Permalink to this headline">#</a></h2>
+<h2>Gitでサンプルプログラム（PHP）をダウンロード<a class="headerlink" href="#git-php" title="Permalink to this heading">#</a></h2>
 <p>PHPの試験用に教員側で用意したサンプルプログラム（PHP）を以下のGitHubリポジトリからサーバ端末へダウンロードします．</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/ohkilab/SU-CSexpA-00">https://github.com/ohkilab/SU-CSexpA-00</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/ohkilab/SU-CSexpA-00">ohkilab/SU-CSexpA-00</a></p></li>
 </ul>
 <p>このリポジトリには，<code class="docutils literal notranslate"><span class="pre">prog00.php</span></code>という名前のサンプルプログラム（PHP）が一つだけ格納されています．GitHub上のリポジトリには様々な方法でアクセス可能ですが，ダウンロードしたいサーバ端末上の端末画面（コマンドライン）で以下のコマンドを入力すればclone（複製）が作成されます．「–depth 1」というオプションは，最新の１バージョンのみダウンロードするという意味です．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span> $ git clone --depth <span class="m">1</span> https://github.com/ohkilab/SU-CSexpA-00.git
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://github.com/ohkilab/SU-CSexpA-00.git
 </pre></div>
 </div>
 <p>実行したカレントディレクトリに，<code class="docutils literal notranslate"><span class="pre">SU-CSexpA-00</span></code>というディレクトリが作成され，そのディレクトリの中に<code class="docutils literal notranslate"><span class="pre">prog00.php</span></code>というファイルがダウンロードされたと思います．</p>
 <p>これを<code class="docutils literal notranslate"><span class="pre">index.php</span></code>という名前へ変更し<code class="docutils literal notranslate"><span class="pre">~/public\_html</span></code>へコピーしてみてください．</p>
 </section>
 <section id="id3">
-<h2>サンプルプログラム（PHP）の実行<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>サンプルプログラム（PHP）の実行<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>本サンプルプログラムはプログラム中からインターネットへのアクセスが発生します．</p>
@@ -917,7 +539,7 @@ title="Print to PDF"
 <p>なお，RasPiがインターネットアクセス可能な状態である場合，皆さんが立ち上げているWebサーバーはインターネット上の見知らぬ誰かからアクセスされる可能性があります（ルーター等を経由していればある程度は安全ですが）．</p>
 <p>ufwなどを使って，特定のIP（今回で言えば，実験に使う皆さんのPC）以外からのWebサーバーへのアクセスを受け付けない，等とすれば安心ですが，設定にはリスクが伴います（間違えると誰からもアクセスできないサーバーになってしまったりします）．ここでは設定を必須としませんが，設定したい方は各自でよく調べた上で設定してみてください，</p>
 <section id="id4">
-<h3>手順<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<h3>手順<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>先ほどと同様に，ノートPC上のWebブラウザから以下のURLを再読み込みしてみてください（ユーザ名の部分は，サーバ端末上に作成した皆さんのアカウント名になります）．</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://192.168.0.200/~%E3%83%A6%E3%83%BC%E3%82%B6%E5%90%8D/">http://192.168.0.200/~ユーザ名/</a></p></li>
@@ -927,7 +549,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="id5">
-<h2>サンプルプログラム（PHP）の解説<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<h2>サンプルプログラム（PHP）の解説<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>これまで皆さんは，<strong>printf</strong>関数と格闘してプログラムの実行結果を綺麗に出力しようと頑張ってきたと思います．Webアプリケーションでは，画像を多用したファンシーなデザインのWebページを簡単に作成するための仕組みがたくさんあります．実際，今回のサンプルプログラム（PHP）は，たった64行で実装されています．ようこそ高級言語の世界へ！</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;</span>
 
@@ -994,7 +616,7 @@ title="Print to PDF"
     <span class="k">echo</span> <span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 <span class="x">  &lt;/body&gt;</span>
 
 <span class="x">&lt;/html&gt;</span>
@@ -1002,13 +624,13 @@ title="Print to PDF"
 </div>
 <p>PHPの使い方に関してはインターネットや書籍で調べてもらうとして，これまで勉強してきたCやJava等のプログラミング言語と比べて理解しにくい所のみを補足しておきます．</p>
 <section id="id6">
-<h3>PHPプログラムの配置<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<h3>PHPプログラムの配置<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <p>今回のサンプルプログラム（PHP）をよく眺めてみてください．PHPの記述は31行目～62行目までしかなく，その外側はHTMLだということに気付くと思います．つまり，PHPのプログラムはHTMLへ埋め込まれる形で，<strong>&lt;?php</strong> と <strong>?&gt;</strong> で囲まれた行に記述します．</p>
 <p>次に，52行目～59行目を見てください．<strong>echo</strong>という関数が並んでいます．これはprintf等と同様に標準出力へデータを出力するための関数です（echoは実際には関数ではなく言語構造のため，例外的に引数に括弧は必要ありません．もちろん括弧を付けてもOKです）．</p>
 <p>echoの引数を見ると，HTMLが入っています．つまり，Webアプリケーションの場合，標準出力に出力された文字列をそのままWebサーバがネットワークを介してWebブラウザへ返します．Webブラウザは，Webサーバから受け取った文字列をHTMLとして解釈し表示しますので，PHPプログラムで<code class="docutils literal notranslate"><span class="pre">&lt;img</span> <span class="pre">src=&quot;画像のURL&quot;&gt;</span></code>というような文字列を出力すると，それを受け取ったWebブラウザは指定されたURLから画像をダウンロードし画面に表示してくれます．</p>
 </section>
 <section id="id7">
-<h3>変数の定義<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<h3>変数の定義<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <p>例えば，32行目では <strong>$Flickr_apikey</strong> という変数を定義し，初期化しています．CやJavaとの違いは主に以下の二点で，変数の型は使用するときに動的に自動的に解釈されます．</p>
 <ul class="simple">
 <li><p>型定義は不要</p></li>
@@ -1017,7 +639,7 @@ title="Print to PDF"
 <p>また，35行目では配列の定義をしています．Cのプログラムでは配列の長さを考えるのは頭を使いましたよね．PHP(や大抵の最近の言語)では，配列の長さを気にせずに必要なだけ必要な時にデータを追加できます（もちろん追加した分のメモリ消費は増えますが）．</p>
 </section>
 <section id="id8">
-<h3>+演算子と.演算子<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<h3>+演算子と.演算子<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <p>PHPでは型定義が不要で，使用する時に初めて型が定義されます．これは便利なようで問題も生じます．</p>
 <p>例えば，以下のようなプログラムを考えましょう．二つの変数に数字が入っています．これを <strong>+</strong> で繋げると当然，足し算結果が出力されます．しかし，数字ではなく文字列の1や2として処理したい場合もあります．文字列同士の連結はJavaでは <strong>+</strong> で繋げられますが，PHPでは型が無いため「文字列同士の連結」か「数値の和算」なのか区別がつきません．そこで，<strong>+</strong> は数値の和算のみにして，文字列の連結には <strong>.</strong> 演算子を使うことになっています．</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
@@ -1026,13 +648,13 @@ title="Print to PDF"
 
 <span class="k">echo</span> <span class="nv">$str1</span><span class="o">+</span><span class="nv">$str2</span><span class="p">;</span>
 <span class="k">echo</span> <span class="nv">$str1</span><span class="o">.</span><span class="nv">$str2</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </pre></div>
 </div>
 <p>先ほどのサンプルプログラム（PHP）における33行目を見てください．ここではFlickrのWebサービスのURLを指定してますが，そのURLの中に，$Flickr_apikeyという文字列が <strong>.</strong> 演算子を使って埋め込まれています．</p>
 </section>
 <section id="http">
-<h3>HTTPアクセス<a class="headerlink" href="#http" title="Permalink to this headline">#</a></h3>
+<h3>HTTPアクセス<a class="headerlink" href="#http" title="Permalink to this heading">#</a></h3>
 <p>写真共有サイトのFlickrでは，Webブラウザから膨大の写真の検索・閲覧もでき，Web APIを介して皆さんの独自プログラムから自由にWebサービスを呼び出して使う事もできます．例えば，以下のURLにアクセスすると，<a class="reference external" href="http://www.flickr.com/services/api/flickr.photos.getRecent.html">flickr.photos.getRecent</a>を利用してFlickrに投稿された最新30画像のURLがXML形式で返ってきます．</p>
 <p><a class="reference external" href="https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&amp;api_key=600dfca58e06413caa4125ce28da02b7&amp;extras=url_s&amp;per_page=30">https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&amp;api_key=600dfca58e06413caa4125ce28da02b7&amp;extras=url_s&amp;per_page=30</a></p>
 <p>また，PHPには様々な便利な関数が用意されています．先ほどのサンプルプログラム（PHP）における34行目を見てください．例えば，<a class="reference external" href="http://php.net/manual/ja/function.file-get-contents.php">file-get-contents</a>という関数は，引数にファイルパスをとり，そのファイルを読み込んで中身を文字列で返すという関数です．引数にURLが指定されると，そのURLへHTTPアクセスして，その結果を文字列で返してくれます．つまり，この関数を用いると，HTTPアクセスだけでなく結果を変数へ格納までしてくれます．</p>
@@ -1040,7 +662,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="id9">
-<h2>おわりに<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<h2>おわりに<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
 <p>これで喜んでたら何も始まりません．皆さんはまだコピペしかしていません．実験はここからです！</p>
 </section>
 </section>
@@ -1057,7 +679,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content/part3/part3_1"
         },
         predefinedOutput: true
@@ -1065,50 +687,119 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="web_system_basics.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Webシステムの基礎</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="web_system_basics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Webシステムの基礎</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="sample_program_js.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="sample_program_js.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">サンプルプログラム(JavaScript)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Ohki Lab<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">はじめに</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">PHPの動作確認</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-php">Gitでサンプルプログラム（PHP）をダウンロード</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">サンプルプログラム（PHP）の実行</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">手順</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">サンプルプログラム（PHP）の解説</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">PHPプログラムの配置</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">変数の定義</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">+演算子と.演算子</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#http">HTTPアクセス</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">おわりに</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ohki Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

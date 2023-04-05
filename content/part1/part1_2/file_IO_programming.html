@@ -1,48 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>ファイル入出力プログラミング &#8212; 情報科学実験A</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,56 +61,87 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part1/part1_2/file_IO_programming';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="ネットワーク入出力プログラミング" href="network_IO_programming.html" />
     <link rel="prev" title="Day2 の目的と概要" href="overview.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">情報科学実験A</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">情報科学実験A</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -109,928 +151,370 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../schedule.html">
-   今年度の講義について
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  事前準備（在宅）
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../preparation/preparation.html">
-   環境構築および動作確認
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../preparation/preparation.html">環境構築および動作確認</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  第一部 ソケットプログラミング
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part1_1/overview.html">
-   [Day1] 環境構築と実験の開始
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1_1/connect_raspberry.html">
-     RaspberryPiの接続
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1_1/environment_building_with_atom.html">
-     Atomを使った環境構築（任意）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="overview.html">
-   [Day2] 通信性能の計測
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     ファイル入出力プログラミング
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="network_IO_programming.html">
-     ネットワーク入出力プログラミング
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="measurement_IO_performance.html">
-     入出力性能の計測（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part1_3/overview.html">
-   [Day3] 多対多接続の設計・実装
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1_3/multiplexing_server_program.html">
-     サーバプログラムによる多重化
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1_3/benchmarking_program.html">
-     ベンチマークプログラムの設計と実装
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1_3/performance_measurement.html">
-     性能計測（必須）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1_3/multiplexing_asynchronous_IO.html">
-     非同期IOによる多重化
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part1_3/cause_analysis_communication_failure.html">
-     通信失敗の原因分析（発展）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part1_4/overview.html">
-   [Day4] 第一部レポートピアレビュー
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1_1/overview.html">[Day1] 環境構築と実験の開始</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1_1/connect_raspberry.html">RaspberryPiの接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1_1/environment_building_with_atom.html">Atomを使った環境構築（任意）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  第二部 Webサーバの実装
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part2/part2_1/overview.html">
-   [Day5] Simple HTTPサーバの構築
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html">
-     Raspberry Piのセットアップ
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_1/simplehttpserver.html">
-     Simple HTTPサーバの実装
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_1/httpbenchmark.html">
-     HTTPベンチマークプログラムの実装（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part2/part2_2/overview.html">
-   [Day6] HTTPサーバの高機能化(1)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_2/standardforachievement.html">
-     第二部達成基準
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_2/multipleclient.html">
-     複数クライアント対応（必須）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_2/securityhole.html">
-     セキュリティホール（必須+発展）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_2/httpserver_expansion.html">
-     HTTPサーバ機能拡張（選択）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part2/part2_3/overview.html">
-   [Day7] HTTPサーバの高機能化(2)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_3/introuble.html">
-     第二部の実装で詰まった時の対処法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part2/part2_4/overview.html">
-   [Day8] 第二部グループ発表会
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part2/part2_4/grouppresentation.html">
-     第二部グループ発表会
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../part2/part2_5/overview.html">
-   [Day9] 第二部レポートピアレビュー
-  </a>
- </li>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day2] 通信性能の計測</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ファイル入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_IO_programming.html">ネットワーク入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measurement_IO_performance.html">入出力性能の計測（必須）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  第三部 Webシステムの性能
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part3/part3_1/overview.html">
-   [Day10] Webシステムの基礎
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_1/preparation.html">
-     第三部の準備
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_1/web_system_basics.html">
-     Webシステムの基礎（発展）
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_1/sample_program_php.html">
-     サンプルプログラム(PHP)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_1/sample_program_js.html">
-     サンプルプログラム(JavaScript)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_1/benchmark_soft_ab.html">
-     ベンチマークソフトab（Apache Bench）（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part3/part3_2/overview.html">
-   [Day11] Webシステムの設計と実装
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_2/connection_to_dbms.html">
-     DBMSとの接続（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part3/part3_3/overview.html">
-   [Day12] ベンチマークと分析
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_3/about_apache_mpm.html">
-     Apache MPMについて
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_3/useful_links.html">
-     実装の参考となるリンク集
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_3/websocket.html">
-     WebSocketについて
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_3/conformation_of_status.html">
-     検討状況の確認（必須）
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../part3/part3_4/overview.html">
-   [Day13,14] 発表会準備
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part3/part3_5/overview.html">
-   [Day15] 第三部グループ発表会
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_5/last_presentation.html">
-     第三部グループ発表会
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../part3/part3_final_assignment/overview.html">
-   最終課題
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_final_assignment/final_assignment_details.html">
-     最終課題の概要
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_final_assignment/regulation.html">
-     競技ルールの詳細
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../part3/part3_final_assignment/benchmarkserver_description.html">
-     ベンチマークサーバー
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1_3/multiplexing_server_program.html">サーバプログラムによる多重化</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../part1_3/benchmarking_program.html">ベンチマークプログラムの設計と実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1_3/performance_measurement.html">性能計測（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1_3/multiplexing_asynchronous_IO.html">非同期IOによる多重化</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../part1_3/cause_analysis_communication_failure.html">通信失敗の原因分析（発展）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  実験終了後（必須）
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../end/cleanup.html">
-   実験機材のクリーンアップと解体
-  </a>
- </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../part1_4/overview.html">[Day4] 第一部レポートピアレビュー</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  グループ発表会
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webサーバの実装</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../group_presentation/group_presentation_detail.html">
-   グループ発表会詳細
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_1/overview.html">[Day5] Simple HTTPサーバの構築</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  レポート
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../report/report.html">
-   レポート詳細
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../report/how_to_write_reports.html">
-   レポートの書き方
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../report/peer_review.html">
-   ピアレビューのやり方
-  </a>
- </li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_2/overview.html">[Day6] HTTPサーバの高機能化(1)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/standardforachievement.html">第二部達成基準</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/multipleclient.html">複数クライアント対応（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/securityhole.html">セキュリティホール（必須+発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  トラブルシューティング
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_3/overview.html">[Day7] HTTPサーバの高機能化(2)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_3/introuble.html">第二部の実装で詰まった時の対処法</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_4/overview.html">[Day8] 第二部グループ発表会</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_4/grouppresentation.html">第二部グループ発表会</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../part2/part2_5/overview.html">[Day9] 第二部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第三部 Webシステムの性能</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../trouble_shooting/question.html">
-   質問の行い方
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../trouble_shooting/trouble.html">
-   よくあるトラブル
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_1/overview.html">[Day10] Webシステムの基礎</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/preparation.html">第三部の準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/web_system_basics.html">Webシステムの基礎（発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/sample_program_php.html">サンプルプログラム(PHP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_2/overview.html">[Day11] Webシステムの設計と実装</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_2/connection_to_dbms.html">DBMSとの接続（必須）</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_3/overview.html">[Day12] ベンチマークと分析</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_3/about_apache_mpm.html">Apache MPMについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_3/useful_links.html">実装の参考となるリンク集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_3/websocket.html">WebSocketについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_3/conformation_of_status.html">検討状況の確認（必須）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../part3/part3_4/overview.html">[Day13,14] 発表会準備</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_5/overview.html">[Day15] 第三部グループ発表会</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_5/last_presentation.html">第三部グループ発表会</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_final_assignment/overview.html">最終課題</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_final_assignment/regulation.html">競技ルールの詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">実験終了後（必須）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../end/cleanup.html">実験機材のクリーンアップと解体</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">グループ発表会</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../group_presentation/group_presentation_detail.html">グループ発表会詳細</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">レポート</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../report/report.html">レポート詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/how_to_write_reports.html">レポートの書き方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/peer_review.html">ピアレビューのやり方</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">トラブルシューティング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/question.html">質問の行い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/trouble.html">よくあるトラブル</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/exp1" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_2/file_IO_programming.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
 
 
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/part1/part1_2/file_IO_programming.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
   </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/ohkilab/exp1"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_2/file_IO_programming.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/content/part1/part1_2/file_IO_programming.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   はじめに
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     参考情報
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   事前準備
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exp1-h">
-   exp1.h
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   ビルド方法
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   実行方法
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     参考情報
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   [必須課題1] コマンドライン引数
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#c">
-     ソースコード: 001.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
-   [必須課題2] システムコールで標準入出力
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     ソースコード: 002.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id13">
-   [必須課題3] システムコールでファイル入出力
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
-     ソースコード: 003.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id15">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id16">
-   [必須課題4] 一般的なファイル入出力
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id17">
-     ソースコード: 004.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id18">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id19">
-   [必須課題5] 文字列を対象としたファイル入出力
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id20">
-     ソースコード: 005.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id21">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id22">
-   [必須課題6] ファイルのコピー
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id23">
-     ソースコード: 006.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id24">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>ファイル入出力プログラミング</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   はじめに
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     参考情報
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
-   事前準備
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exp1-h">
-   exp1.h
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   ビルド方法
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
-   実行方法
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     参考情報
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   [必須課題1] コマンドライン引数
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#c">
-     ソースコード: 001.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id10">
-   [必須課題2] システムコールで標準入出力
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     ソースコード: 002.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id13">
-   [必須課題3] システムコールでファイル入出力
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id14">
-     ソースコード: 003.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id15">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id16">
-   [必須課題4] 一般的なファイル入出力
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id17">
-     ソースコード: 004.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id18">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id19">
-   [必須課題5] 文字列を対象としたファイル入出力
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id20">
-     ソースコード: 005.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id21">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id22">
-   [必須課題6] ファイルのコピー
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id23">
-     ソースコード: 006.c
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id24">
-     実行方法
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ファイル入出力プログラミング</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">はじめに</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">参考情報</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">事前準備</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exp1-h">exp1.h</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">ビルド方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">実行方法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">参考情報</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[必須課題1] コマンドライン引数</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">ソースコード: 001.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">[必須課題2] システムコールで標準入出力</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">ソースコード: 002.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">[必須課題3] システムコールでファイル入出力</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">ソースコード: 003.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">[必須課題4] 一般的なファイル入出力</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">ソースコード: 004.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">[必須課題5] 文字列を対象としたファイル入出力</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">ソースコード: 005.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">[必須課題6] ファイルのコピー</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">ソースコード: 006.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">実行方法</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>ファイル入出力プログラミング<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>ファイル入出力プログラミング<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="id2">
-<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>この課題の目的はネットワークプログラミングを実施する前に，入出力プログラミングの典型例としてファイル入出力プログラミングを確認・復習することです．
 入出力プログラミングで用いる基本的な概念や関数について確認しながら課題を進めてください．</p>
 <p>基本的に任意の入出力に関する振る舞いが，指定したデバイスに対する入出力関数（open, read, writeなど）として抽象化されており，その上で，それらの関数をラッピングする形で特定のデバイス用の入出力関数（fopen, fread, fwrite）が設計されています．</p>
 <section id="id3">
-<h3>参考情報<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>参考情報<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://www.atmarkit.co.jp/ait/articles/1112/13/news117.html">システムコールと標準ライブラリ関数の違いを知る</a></p></li>
 <li><p><a class="reference external" href="http://www.slideshare.net/kaityo256/130613debug">デバッグのコツ</a></p></li>
@@ -1038,7 +522,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="id4">
-<h2>事前準備<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<h2>事前準備<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>1. RaspberryPiにログインする</p></li>
 <li><p>2. ホームディレクトリに以下のサンプルコードファイルをダウンロードする．</p>
@@ -1049,78 +533,78 @@ title="Print to PDF"
 </li>
 <li><p>3. ダウンロードしたサンプルコードファイルを展開する</p></li>
 </ul>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ tar zxvf part1-2B.tgz
- $ ls part1-2B
- <span class="m">001</span>  <span class="m">003</span>  <span class="m">005</span>  007client  008client  009client  010client  exp1.h     exp1lib.h
- <span class="m">002</span>  <span class="m">004</span>  <span class="m">006</span>  007server  008server  009server  010server  exp1lib.c
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>tar<span class="w"> </span>zxvf<span class="w"> </span>part1-2B.tgz
+<span class="w"> </span>$<span class="w"> </span>ls<span class="w"> </span>part1-2B
+<span class="w"> </span><span class="m">001</span><span class="w">  </span><span class="m">003</span><span class="w">  </span><span class="m">005</span><span class="w">  </span>007client<span class="w">  </span>008client<span class="w">  </span>009client<span class="w">  </span>010client<span class="w">  </span>exp1.h<span class="w">     </span>exp1lib.h
+<span class="w"> </span><span class="m">002</span><span class="w">  </span><span class="m">004</span><span class="w">  </span><span class="m">006</span><span class="w">  </span>007server<span class="w">  </span>008server<span class="w">  </span>009server<span class="w">  </span>010server<span class="w">  </span>exp1lib.c
 </pre></div>
 </div>
 </section>
 <section id="exp1-h">
-<h2>exp1.h<a class="headerlink" href="#exp1-h" title="Permalink to this headline">#</a></h2>
+<h2>exp1.h<a class="headerlink" href="#exp1-h" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>各サンプルコードで必要なヘッダファイルが類似しているのでまとめてincludeするヘッダファイルを作成してあります．各サンプルコードで読み込むようにしてください．</p></li>
 </ul>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;strings.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;termios.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;float.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;strings.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;termios.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;float.h&gt;</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/ioctl.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netdb.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/ioctl.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netdb.h&gt;</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/resource.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;dirent.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pthread.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/resource.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;dirent.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pthread.h&gt;</span>
 </pre></div>
 </div>
 </section>
 <section id="id5">
-<h2>ビルド方法<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<h2>ビルド方法<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>各サンプルコードディレクトリ（e.g. <code class="docutils literal notranslate"><span class="pre">001/</span></code>）以下にはビルドのためのMakefileを作成してあります．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ ls
- <span class="m">001</span>.c  Makefile
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>ls
+<span class="w"> </span><span class="m">001</span>.c<span class="w">  </span>Makefile
 </pre></div>
 </div>
 <p>このMakefileを利用して，以下のようにmakeコマンドでソースコードをビルドします．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ make
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>make
 </pre></div>
 </div>
 <p>Makefileの内容はサンプルコードによって異なりますが，典型的には以下のような記述になっています．</p>
-<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span> <span class="nv">CC</span><span class="o">=</span>gcc
- C++<span class="o">=</span>g++
- <span class="nv">LD</span><span class="o">=</span>g++
- <span class="nv">CFLAGS</span><span class="o">=</span>-c -Wall -pedantic-errors -O3 -std<span class="o">=</span>gnu11 -I../
- <span class="nv">LDFLAGS</span><span class="o">=</span>
- <span class="nv">OBJECTS</span><span class="o">=</span><span class="m">001</span>.o
- <span class="nv">EXECUTABLE</span><span class="o">=</span><span class="m">001</span>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span>gcc
+<span class="w"> </span>C++<span class="o">=</span>g++
+<span class="w"> </span><span class="nv">LD</span><span class="o">=</span>g++
+<span class="w"> </span><span class="nv">CFLAGS</span><span class="o">=</span>-c<span class="w"> </span>-Wall<span class="w"> </span>-pedantic-errors<span class="w"> </span>-O3<span class="w"> </span>-std<span class="o">=</span>gnu11<span class="w"> </span>-I../
+<span class="w"> </span><span class="nv">LDFLAGS</span><span class="o">=</span>
+<span class="w"> </span><span class="nv">OBJECTS</span><span class="o">=</span><span class="m">001</span>.o
+<span class="w"> </span><span class="nv">EXECUTABLE</span><span class="o">=</span><span class="m">001</span>
 
- all: <span class="k">$(</span>EXECUTABLE<span class="k">)</span>
+<span class="w"> </span>all:<span class="w"> </span><span class="k">$(</span>EXECUTABLE<span class="k">)</span>
 
- <span class="k">$(</span>EXECUTABLE<span class="k">)</span>: <span class="k">$(</span>OBJECTS<span class="k">)</span>
-         <span class="k">$(</span>LD<span class="k">)</span> <span class="k">$(</span>LDFLAGS<span class="k">)</span> <span class="k">$(</span>OBJECTS<span class="k">)</span> -o <span class="nv">$@</span>
+<span class="w"> </span><span class="k">$(</span>EXECUTABLE<span class="k">)</span>:<span class="w"> </span><span class="k">$(</span>OBJECTS<span class="k">)</span>
+<span class="w">         </span><span class="k">$(</span>LD<span class="k">)</span><span class="w"> </span><span class="k">$(</span>LDFLAGS<span class="k">)</span><span class="w"> </span><span class="k">$(</span>OBJECTS<span class="k">)</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span>
 
- .cpp.o:
-         <span class="k">$(</span>C++<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> $&lt; -o <span class="nv">$@</span>
+<span class="w"> </span>.cpp.o:
+<span class="w">         </span><span class="k">$(</span>C++<span class="k">)</span><span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span>$&lt;<span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span>
 
- .c.o:
-         <span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> $&lt; -o <span class="nv">$@</span>
+<span class="w"> </span>.c.o:
+<span class="w">         </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span>$&lt;<span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span>
 
- clean:
-         -rm -f <span class="si">${</span><span class="nv">EXECUTABLE</span><span class="si">}</span> <span class="si">${</span><span class="nv">EXECUTABLE</span><span class="si">}</span>.exe <span class="si">${</span><span class="nv">OBJECTS</span><span class="si">}</span> core
+<span class="w"> </span>clean:
+<span class="w">         </span>-rm<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">EXECUTABLE</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">EXECUTABLE</span><span class="si">}</span>.exe<span class="w"> </span><span class="si">${</span><span class="nv">OBJECTS</span><span class="si">}</span><span class="w"> </span>core
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">-pedantic-errors</span></code>は，厳密な文法チェックを行うためのオプションです．
@@ -1129,42 +613,42 @@ title="Print to PDF"
 <p><code class="docutils literal notranslate"><span class="pre">-O3</span></code>は，最適化オプションです．</p>
 <p><code class="docutils literal notranslate"><span class="pre">-I../</span></code> は，include ファイルの探索パスに1つ上のディレクトリを追加する指定です．
 この指定によって，ソースコード中では <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;exp1.h&quot;</span></code> と記述した場合に <code class="docutils literal notranslate"><span class="pre">../exp1.h</span></code> を読み込むことができるようになります．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nv">CFLAGS</span><span class="o">=</span>-c -Wall -pedantic-errors -O3 -std<span class="o">=</span>gnu11 -I../
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nv">CFLAGS</span><span class="o">=</span>-c<span class="w"> </span>-Wall<span class="w"> </span>-pedantic-errors<span class="w"> </span>-O3<span class="w"> </span>-std<span class="o">=</span>gnu11<span class="w"> </span>-I../
 </pre></div>
 </div>
 </section>
 <section id="id6">
-<h2>実行方法<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<h2>実行方法<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p>ビルドが成功すると Makefile の以下の箇所で指定されたファイル名（ただし，Windows上のCygwinでビルドした場合は拡張子.exeが付与される）の実行ファイルが作成されます．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> <span class="nv">EXECUTABLE</span><span class="o">=</span><span class="m">001</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nv">EXECUTABLE</span><span class="o">=</span><span class="m">001</span>
 </pre></div>
 </div>
 <p>以下のようにコマンドライン上で実行ファイルのファイル名を指定して実行します（実行に必要な引数などはサンプルコードによって異なります）．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span> $ ./001
- The number of arguments is <span class="m">1</span>
- argument <span class="m">0</span> is ./001
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>./001
+<span class="w"> </span>The<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>arguments<span class="w"> </span>is<span class="w"> </span><span class="m">1</span>
+<span class="w"> </span>argument<span class="w"> </span><span class="m">0</span><span class="w"> </span>is<span class="w"> </span>./001
 </pre></div>
 </div>
 <section id="id7">
-<h3>参考情報<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<h3>参考情報<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://linuxjm.sourceforge.jp/html/GNU_gcc/man1/gcc.1.html">Man page of GCC</a></p></li>
 </ul>
 </section>
 </section>
 <section id="id8">
-<h2>[必須課題1] コマンドライン引数<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<h2>[必須課題1] コマンドライン引数<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <section id="c">
-<h3>ソースコード: 001.c<a class="headerlink" href="#c" title="Permalink to this headline">#</a></h3>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
+<h3>ソースコード: 001.c<a class="headerlink" href="#c" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;The number of arguments is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argc</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">argc</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;argument %d is %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;The number of arguments is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argc</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">argc</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;argument %d is %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
 </pre></div>
 </div>
@@ -1173,36 +657,36 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="id9">
-<h3>実行方法<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<h3>実行方法<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <p>コマンドラインから引数を付けて実行します．
 コマンドライン引数をいろいろ変えてみてソースコードの中身をしっかりと理解してください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./001 hello world
-The number of arguments is <span class="m">3</span>
-argument <span class="m">0</span> is ./001
-argument <span class="m">1</span> is hello
-argument <span class="m">2</span> is world
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./001<span class="w"> </span>hello<span class="w"> </span>world
+The<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>arguments<span class="w"> </span>is<span class="w"> </span><span class="m">3</span>
+argument<span class="w"> </span><span class="m">0</span><span class="w"> </span>is<span class="w"> </span>./001
+argument<span class="w"> </span><span class="m">1</span><span class="w"> </span>is<span class="w"> </span>hello
+argument<span class="w"> </span><span class="m">2</span><span class="w"> </span>is<span class="w"> </span>world
 </pre></div>
 </div>
 </section>
 </section>
 <section id="id10">
-<h2>[必須課題2] システムコールで標準入出力<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
+<h2>[必須課題2] システムコールで標準入出力<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
 <section id="id11">
-<h3>ソースコード: 002.c<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
+<h3>ソースコード: 002.c<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
 
-<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;read %d bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;read %d bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span>
 
-<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;write %d bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;write %d bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>readとwriteは，入出力を行うシステムコールです．</p>
@@ -1216,45 +700,45 @@ argument <span class="m">2</span> is world
 </ul>
 </section>
 <section id="id12">
-<h3>実行方法<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<h3>実行方法<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <p>実行するとキーボードの入力を待ち受けます．</p>
 <p>以下では「aa」と入力してEnterを押しています．</p>
 <p>読み込みが3 bytesになっているのは改行コード(\n)が含まれているからです．</p>
 <p>入力をいろいろと変えながら（例えば “aaaaaa” と入力したらどうなるでしょう）ソースコードの内容と挙動を理解してください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./002
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./002
 aa
-<span class="nb">read</span> <span class="m">3</span> bytes
+<span class="nb">read</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>bytes
 aa
-write <span class="m">3</span> bytes
+write<span class="w"> </span><span class="m">3</span><span class="w"> </span>bytes
 </pre></div>
 </div>
 </section>
 </section>
 <section id="id13">
-<h2>[必須課題3] システムコールでファイル入出力<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h2>
+<h2>[必須課題3] システムコールでファイル入出力<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h2>
 <section id="id14">
-<h3>ソースコード: 003.c<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h3>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
+<h3>ソースコード: 003.c<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [filename]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [filename]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">O_RDONLY</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;file descriptor = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;read %d bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">O_RDONLY</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;file descriptor = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;read %d bytes</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span>
+<span class="w">  </span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span>
+<span class="w">  </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>必須課題2に加えてopenとcloseというシステムコールを使います．</p>
@@ -1264,40 +748,40 @@ write <span class="m">3</span> bytes
 </ul>
 </section>
 <section id="id15">
-<h3>実行方法<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<h3>実行方法<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
 <p>ファイルパスをコマンド引数に指定して実行します．</p>
 <p>コマンド引数をいろいろと変えながらソースコードの内容と挙動を理解してください．</p>
 <p>プログラム実行時のファイル識別子の値と，その値になっている理由を確認してください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./003 ../001/001.c
-file <span class="nv">descriptor</span> <span class="o">=</span> <span class="m">3</span>
-<span class="nb">read</span> <span class="m">4</span> bytes
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./003<span class="w"> </span>../001/001.c
+file<span class="w"> </span><span class="nv">descriptor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
+<span class="nb">read</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>bytes
 </pre></div>
 </div>
 </section>
 </section>
 <section id="id16">
-<h2>[必須課題4] 一般的なファイル入出力<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h2>
+<h2>[必須課題4] 一般的なファイル入出力<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h2>
 <section id="id17">
-<h3>ソースコード: 004.c<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
+<h3>ソースコード: 004.c<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
 
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [filename]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [filename]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">fwrite</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fwrite</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>fopen，fread，fwrite，fcloseは，ファイルの入出力を行うopen，read，write，closeのラッパーです．</p>
@@ -1309,50 +793,50 @@ file <span class="nv">descriptor</span> <span class="o">=</span> <span class="m"
 </ul>
 </section>
 <section id="id18">
-<h3>実行方法<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h3>
+<h3>実行方法<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
 <p>ファイルパスをコマンド引数に指定して実行します．</p>
 <p>コマンド引数をいろいろと変えながらソースコードの内容と挙動を理解してください．</p>
 <p>fwriteのstdoutは，標準出力に対応付けられたファイル構造体へのポインタです．</p>
 <p>プログラム実行時に1024バイトを超えるファイルを指定した場合の挙動とその原因を確認してください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./004 ../001/001.c
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./004<span class="w"> </span>../001/001.c
 <span class="c1">#include &lt;stdio.h&gt;</span>
 
-int main<span class="o">(</span>int argc, char** argv<span class="o">)</span>
+int<span class="w"> </span>main<span class="o">(</span>int<span class="w"> </span>argc,<span class="w"> </span>char**<span class="w"> </span>argv<span class="o">)</span>
 <span class="o">{</span>
-  int i<span class="p">;</span>
+<span class="w">  </span>int<span class="w"> </span>i<span class="p">;</span>
 
-  printf<span class="o">(</span><span class="s2">&quot;The number of arguments is %d\n&quot;</span>, argc<span class="o">)</span><span class="p">;</span>
-  <span class="k">for</span><span class="o">(</span><span class="nv">i</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; argc<span class="p">;</span> i++<span class="o">){</span>
-    printf<span class="o">(</span><span class="s2">&quot;argument %d is %s\n&quot;</span>, i, argv<span class="o">[</span>i<span class="o">])</span><span class="p">;</span>
-  <span class="o">}</span>
+<span class="w">  </span>printf<span class="o">(</span><span class="s2">&quot;The number of arguments is %d\n&quot;</span>,<span class="w"> </span>argc<span class="o">)</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="o">(</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span>argc<span class="p">;</span><span class="w"> </span>i++<span class="o">){</span>
+<span class="w">    </span>printf<span class="o">(</span><span class="s2">&quot;argument %d is %s\n&quot;</span>,<span class="w"> </span>i,<span class="w"> </span>argv<span class="o">[</span>i<span class="o">])</span><span class="p">;</span>
+<span class="w">  </span><span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="id19">
-<h2>[必須課題5] 文字列を対象としたファイル入出力<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h2>
+<h2>[必須課題5] 文字列を対象としたファイル入出力<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h2>
 <section id="id20">
-<h3>ソースコード: 005.c<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
+<h3>ソースコード: 005.c<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
 
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [filename]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [filename]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">fputs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fputs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>fgets，fputsは，文字列の入出力を行うread，writeのラッパーです．</p>
@@ -1362,45 +846,45 @@ int main<span class="o">(</span>int argc, char** argv<span class="o">)</span>
 </ul>
 </section>
 <section id="id21">
-<h3>実行方法<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h3>
+<h3>実行方法<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h3>
 <p>ファイルパスをコマンド引数に指定して実行します．</p>
 <p>コマンド引数をいろいろと変えながらソースコードの内容と挙動を理解してください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ./005 ../001/001.c
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./005<span class="w"> </span>../001/001.c
 <span class="c1">#include &lt;stdio.h&gt;</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="id22">
-<h2>[必須課題6] ファイルのコピー<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h2>
+<h2>[必須課題6] ファイルのコピー<a class="headerlink" href="#id22" title="Permalink to this heading">#</a></h2>
 <section id="id23">
-<h3>ソースコード: 006.c<a class="headerlink" href="#id23" title="Permalink to this headline">#</a></h3>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span><span class="cp"></span>
+<h3>ソースコード: 006.c<a class="headerlink" href="#id23" title="Permalink to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fpr</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fpw</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fpr</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fpw</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [filename]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;usage: %s [filename]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">-1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="n">fpr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">fpw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;tmp.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">fpr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fpw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;tmp.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
 
-<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">fpr</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">fwrite</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">fpw</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">fpr</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fpr</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fpw</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">fpr</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">fwrite</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">fpw</span><span class="p">);</span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">fpr</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fpr</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">fpw</span><span class="p">);</span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
 </pre></div>
 </div>
@@ -1408,23 +892,23 @@ int main<span class="o">(</span>int argc, char** argv<span class="o">)</span>
 <p>上記の例では分かりやすくするためにバッファサイズを4にしています．</p>
 </section>
 <section id="id24">
-<h3>実行方法<a class="headerlink" href="#id24" title="Permalink to this headline">#</a></h3>
+<h3>実行方法<a class="headerlink" href="#id24" title="Permalink to this heading">#</a></h3>
 <p>ファイルパスをコマンド引数に指定して実行します．</p>
 <p>コマンド引数をいろいろと変えながらソースコードの内容と挙動を理解してください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ cat tmp.txt
-cat: tmp.txt: No such file or directory
-$ ./006 ../001/001.c
-$ cat tmp.txt
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>tmp.txt
+cat:<span class="w"> </span>tmp.txt:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+$<span class="w"> </span>./006<span class="w"> </span>../001/001.c
+$<span class="w"> </span>cat<span class="w"> </span>tmp.txt
 <span class="c1">#include &lt;stdio.h&gt;</span>
 
-int main<span class="o">(</span>int argc, char** argv<span class="o">)</span>
+int<span class="w"> </span>main<span class="o">(</span>int<span class="w"> </span>argc,<span class="w"> </span>char**<span class="w"> </span>argv<span class="o">)</span>
 <span class="o">{</span>
-  int i<span class="p">;</span>
+<span class="w">  </span>int<span class="w"> </span>i<span class="p">;</span>
 
-  printf<span class="o">(</span><span class="s2">&quot;The number of arguments is %d\n&quot;</span>, argc<span class="o">)</span><span class="p">;</span>
-  <span class="k">for</span><span class="o">(</span><span class="nv">i</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; argc<span class="p">;</span> i++<span class="o">){</span>
-    printf<span class="o">(</span><span class="s2">&quot;argument %d is %s\n&quot;</span>, i, argv<span class="o">[</span>i<span class="o">])</span><span class="p">;</span>
-  <span class="o">}</span>
+<span class="w">  </span>printf<span class="o">(</span><span class="s2">&quot;The number of arguments is %d\n&quot;</span>,<span class="w"> </span>argc<span class="o">)</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="o">(</span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span>argc<span class="p">;</span><span class="w"> </span>i++<span class="o">){</span>
+<span class="w">    </span>printf<span class="o">(</span><span class="s2">&quot;argument %d is %s\n&quot;</span>,<span class="w"> </span>i,<span class="w"> </span>argv<span class="o">[</span>i<span class="o">])</span><span class="p">;</span>
+<span class="w">  </span><span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -1444,7 +928,7 @@ int main<span class="o">(</span>int argc, char** argv<span class="o">)</span>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content/part1/part1_2"
         },
         predefinedOutput: true
@@ -1452,50 +936,145 @@ int main<span class="o">(</span>int argc, char** argv<span class="o">)</span>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Day2 の目的と概要</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Day2 の目的と概要</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="network_IO_programming.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="network_IO_programming.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">ネットワーク入出力プログラミング</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Ohki Lab<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">はじめに</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">参考情報</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">事前準備</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exp1-h">exp1.h</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">ビルド方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">実行方法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">参考情報</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[必須課題1] コマンドライン引数</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">ソースコード: 001.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">[必須課題2] システムコールで標準入出力</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">ソースコード: 002.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">[必須課題3] システムコールでファイル入出力</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">ソースコード: 003.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">[必須課題4] 一般的なファイル入出力</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">ソースコード: 004.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">[必須課題5] 文字列を対象としたファイル入出力</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">ソースコード: 005.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">実行方法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">[必須課題6] ファイルのコピー</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">ソースコード: 006.c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">実行方法</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ohki Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
