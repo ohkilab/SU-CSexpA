@@ -36,19 +36,19 @@ Webアプリケーション開発に必要なソフトは3つです
 
 - SSH(ターミナル接続)
   - 大抵の場合標準で使用できます．コマンドラインからsshと打ってみてください．
-  - お勧め:Putty[https://www.putty.org/](https://www.putty.org/)
-  - （お勧め:TeraTerm[https://osdn.net/projects/ttssh2/releases/](https://osdn.net/projects/ttssh2/releases/)）
+  - お勧め:[Putty](https://www.putty.org/)
+  - （お勧め:[TeraTerm](https://osdn.net/projects/ttssh2/releases/)）
 - SCP(ファイル転送)
-  - お勧め：WinSCP[http://winscp.net/eng/docs/lang:jp](http://winscp.net/eng/docs/lang:jp)
+  - お勧め：[WinSCP](http://winscp.net/eng/docs/lang:jp)
 
 ### Linuxを使う場合
 
 - SSH(ターミナル接続)
   - 大抵の場合標準で使用できます．コマンドラインからsshと打ってみてください．
-  - [http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230889/](http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230889/)
+  - [【 ssh 】 SSHでリモート・マシンのコマンドを実行する](http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230889/)
 -SCP(ファイル転送)
   - 大抵の場合標準で使用できます．コマンドラインからscpと打ってみてください．
-  - [http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230878/](http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230878/)
+  - [【 scp 】 リモート・マシン間でファイルをコピーする](http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230878/)
 
 ## RaspberryPiへのターミナル接続
 
