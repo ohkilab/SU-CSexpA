@@ -6,8 +6,7 @@
 
 VSCodeの日本語化を行います．英語のまま利用しても構いません．
 
-VSCodeの左に表示されているバーからExtensionsを選択してください．検索ボックスに
-Japanese Language Packを選択，installを押してください
+VSCodeの左に表示されているバーからExtensionsを選択してください．検索ボックスに`Japanese Language Pack`を記入，該当するものを選択し，installを押してください
 
 他にも便利な拡張機能はいくつもあるので，好みの拡張機能をインストールしてください．以下の表は便利な拡張機能の一部です．
 
@@ -34,11 +33,11 @@ Remote-SSHを入力，該当するものを選択してinstallを押してくだ
 
 ![vscode_ssh1.jpg](../../../images/part1/part1_1_4/vscode_ssh1.png)
 
-インストールが終わると左バーに新しいアイコンが追加されていると思います．選択して，画像右上に表示されているようなプラスマークを押下してください．
+インストールが終わると左バーに新しいアイコンが追加されていると思います．選択して，画像右上に表示されているようなプラスマークを押してください．
 
 ![vscode_ssh2.jpg](../../../images/part1/part1_1_4/vscode_ssh2.png)
 
-ウインドウ丈夫に入力欄が出てくると思います．`ssh pi@{RaspberrPiのIPアドレス}`を入力，Enterしてください．
+ウインドウ上部に入力欄が出てくると思います．`ssh pi@{RaspberrPiのIPアドレス}`を入力，Enterしてください．
 
 ![vscode_ssh3.jpg](../../../images/part1/part1_1_4/vscode_ssh3.png)
 
