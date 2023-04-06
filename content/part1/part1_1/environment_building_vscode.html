@@ -471,13 +471,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="vscode">
 <h1>VSCodeを使った環境構築（任意）<a class="headerlink" href="#vscode" title="Permalink to this heading">#</a></h1>
-<p>エディタであるVSCodeを用いて実験で用いる開発環境を整えます。<a class="reference external" href="https://code.visualstudio.com/download">公式のダウンロードページ</a>からPCにVSCodeをダウンロードしてください。</p>
+<p>エディタであるVSCodeを用いて実験で用いる開発環境を整えます．<a class="reference external" href="https://code.visualstudio.com/download">公式のダウンロードページ</a>からPCにVSCodeをダウンロードしてください．</p>
 <section id="id1">
 <h2>各種設定<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>VSCodeの日本語化を行います。英語のまま利用しても構いません。</p>
-<p>VSCodeの左に表示されているバーからExtensionsを選択してください。検索ボックスに
-Japanese Language Packを選択、installを押してください</p>
-<p>他にも便利な拡張機能はいくつもあるので、好みの拡張機能をインストールしてください。以下の表は便利な拡張機能の一部です。</p>
+<p>VSCodeの日本語化を行います．英語のまま利用しても構いません．</p>
+<p>VSCodeの左に表示されているバーからExtensionsを選択してください．検索ボックスに<code class="docutils literal notranslate"><span class="pre">Japanese</span> <span class="pre">Language</span> <span class="pre">Pack</span></code>を記入，該当するものを選択し，installを押してください</p>
+<p>他にも便利な拡張機能はいくつもあるので，好みの拡張機能をインストールしてください．以下の表は便利な拡張機能の一部です．</p>
 <table class="full-width table" id="convenient-package">
 <caption><span class="caption-number">Table 2 </span><span class="caption-text">vscode 便利な拡張機能</span><a class="headerlink" href="#convenient-package" title="Permalink to this table">#</a></caption>
 <thead>
@@ -490,7 +489,7 @@ Japanese Language Packを選択、installを押してください</p>
 <td><p>SSHサーバが稼働しているマシン上のファイルやフォルダをVSCodeで操作可能になります</p></td>
 </tr>
 <tr class="row-odd"><td><p>各言語の統合パック</p></td>
-<td><p>それぞれ言語名で検索すると見つかると思います。デバック機能、フォーマット機能、解析機能などを提供しているため入れておいて損はないでしょう</p></td>
+<td><p>それぞれ言語名で検索すると見つかると思います．デバック機能，フォーマット機能，解析機能などを提供しているため入れておいて損はないでしょう</p></td>
 </tr>
 <tr class="row-even"><td><p>indent-rainbow</p></td>
 <td><p>インデントを見やすくしてくれます</p></td>
@@ -500,19 +499,19 @@ Japanese Language Packを選択、installを押してください</p>
 </section>
 <section id="remote-ssh">
 <h2>Remote-SSHの導入<a class="headerlink" href="#remote-ssh" title="Permalink to this heading">#</a></h2>
-<p>Remote-sshを導入することによりSSHサーバが稼働しているマシン上のファイルやフォルダをVSCodeで操作することが可能になります。</p>
-<p>VSCodeの左に表示されているバーから、Extensionsを選択してください。検索ボックスに
-Remote-SSHを入力、該当するものを選択してinstallを押してください。</p>
+<p>Remote-sshを導入することによりSSHサーバが稼働しているマシン上のファイルやフォルダをVSCodeで操作することが可能になります．</p>
+<p>VSCodeの左に表示されているバーから，Extensionsを選択してください．検索ボックスに
+Remote-SSHを入力，該当するものを選択してinstallを押してください．</p>
 <p><img alt="vscode_ssh1.jpg" src="../../../_images/vscode_ssh1.png" /></p>
-<p>インストールが終わると左バーに新しいアイコンが追加されていると思います。選択して、画像右上に表示されているようなプラスマークを押下してください。</p>
+<p>インストールが終わると左バーに新しいアイコンが追加されていると思います．選択して，画像右上に表示されているようなプラスマークを押してください．</p>
 <p><img alt="vscode_ssh2.jpg" src="../../../_images/vscode_ssh2.png" /></p>
-<p>ウインドウ丈夫に入力欄が出てくると思います。<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pi&#64;{RaspberrPiのIPアドレス}</span></code>を入力、Enterしてください。</p>
+<p>ウインドウ上部に入力欄が出てくると思います．<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pi&#64;{RaspberrPiのIPアドレス}</span></code>を入力，Enterしてください．</p>
 <p><img alt="vscode_ssh3.jpg" src="../../../_images/vscode_ssh3.png" /></p>
-<p>SSHに用いる設定ファイルを聞かれます。画像では一番上の選択肢、<code class="docutils literal notranslate"><span class="pre">ユーザのホームディレクトリ\.ssh\config</span></code>を選択しています。</p>
+<p>SSHに用いる設定ファイルを聞かれます．画像では一番上の選択肢，<code class="docutils literal notranslate"><span class="pre">ユーザのホームディレクトリ\.ssh\config</span></code>を選択しています．</p>
 <p><img alt="vscode_ssh4.jpg" src="../../../_images/vscode_ssh4.png" /></p>
-<p>先程選択した左バーのRemote-SSHのアイコンを再度見て、接続先IPの選択肢を選択してください。パスワード入力を求められますのでpiユーザに設定したパスワードを入力してください。</p>
+<p>先程選択した左バーのRemote-SSHのアイコンを再度見て，接続先IPの選択肢を選択してください．パスワード入力を求められますのでpiユーザに設定したパスワードを入力してください．</p>
 <p><img alt="vscode_ssh5.jpg" src="../../../_images/vscode_ssh5.png" /></p>
-<p>少々時間がかかりますが、下記のような画面になったら設定終了です。操作したいファイル、フォルダを選択してください。</p>
+<p>少々時間がかかりますが，下記のような画面になったら設定終了です．操作したいファイル，フォルダを選択してください．</p>
 <p><img alt="vscode_ssh6.jpg" src="../../../_images/vscode_ssh6.png" /></p>
 </section>
 </section>
