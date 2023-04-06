@@ -36,7 +36,7 @@ RaspberryPiの初期設定は以下のようになっています．
 ```
 
 ```shell
-$passwd
+$ passwd
 ```
 
 ## 無線LANの設定

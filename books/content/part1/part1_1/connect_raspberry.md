@@ -7,7 +7,7 @@
 RaspberryPiのIPアドレスは以下のコマンドを用いて確認します．本講義ではwlan0のIPを高頻度で扱うため確認方法を覚えておくと良いでしょう．
 
 ```shell
-$ip a
+$ ip a
 
 1: lo: ...
 ...
@@ -23,7 +23,7 @@ inet 192.168.100.17/24
 また，WindowsのIPアドレスはコマンドプロンプトにおいて以下のコマンドを用いて確認します．
 
 ```shell
-$ipconfig
+$ ipconfig
 ```
 
 ## SSHクライアントのインストール
@@ -87,8 +87,8 @@ VMからRaspberryPiへ接続する方法はいくつかの手段があります�
 後に行う作業にてssh server が起動していることが前提となりますので，インストールされていない場合は以下のコマンドでインストールします．
 
 ```shell
- $sudo apt-get update
- $sudo apt-get install openssh-server
+$ sudo apt-get update
+$ sudo apt-get install openssh-server
 ```
 
 ### VM環境からRaspberryPiへのSSH接続の確認
@@ -96,19 +96,19 @@ VMからRaspberryPiへ接続する方法はいくつかの手段があります�
 VM上のLinuxのターミナルを開いて，RaspberryPiにPingを送って通信状態を確認します．大かっこの中は適宜読み替えてください．
 
 ```shell
-$ping {確認したRaspberryPiのIPアドレス}
+$ ping {確認したRaspberryPiのIPアドレス}
 ```
 
 SSHでRaspberryPiにログインします．最初の接続のみ，ホスト鍵を受け入れるか聞かれますので"yes"とします．
 
 ```shell
- $ssh {確認したRaspberryPiのIPアドレス}
- ```
+$ ssh {確認したRaspberryPiのIPアドレス}
+```
 
 ユーザ名とパスワードが一致すれば，ログインできます．SSH接続中は`exit`を打ち込むことで，SSH接続を切ることができます．
 
 ```shell
-$exit
+$ exit
 ```
 
 ## VM上のLinuxにPCからファイルを転送
@@ -144,7 +144,7 @@ VirtualBox の設定上は外部から SSH 接続できる設定ですが，実�
 例えば，RaspberryPiからWindowsのイーサネットアダプタに設定したIPアドレスへSSH接続を試みると，ポートフォワーディング設定並びに，ユーザ名・パスワードが正しければログインできるはずですが，ログインできない場合があります，
 
 ```shell
-$ssh <VMのユーザー名>@<VMのIP>
+$ ssh <VMのユーザー名>@<VMのIP>
 ```
 
 この場合，Windowsファイアウォールの設定を行えば接続が可能になりますが，セキュリティ上のリスクを伴いますので無理に行う必要はありません．実験では，RaspberryPi側をサーバプログラム，PC上のゲストOS側をクライアントプログラムとして実験を進めてください．
