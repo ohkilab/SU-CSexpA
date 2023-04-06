@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>モニタがない状況でのRaspberryPiの接続（任意） &#8212; 情報科学実験A</title>
+    <title>Atom を使った環境構築 &#8212; 情報科学実験A</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part1/part1_1/connect_raspberry_non_monitor';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part1/part1_1/environment_building_with_atom';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="VSCodeを使った環境構築（任意）" href="environment_building_vscode.html" />
-    <link rel="prev" title="RaspberryPiの接続" href="connect_raspberry.html" />
+    <link rel="next" title="Day2 の目的と概要" href="../part1_2/overview.html" />
+    <link rel="prev" title="RaspberryPi の接続" href="connect_raspberry.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -160,10 +160,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day1] 環境構築と実験の開始</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="raspberry_setting.html">RaspberryPiのセッティング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect_raspberry.html">RaspberryPiの接続</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">モニタがない状況でのRaspberryPiの接続（任意）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Atomを使った環境構築（任意）</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part1_2/overview.html">[Day2] 通信性能の計測</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -334,7 +332,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_1/connect_raspberry_non_monitor.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_1/environment_building_with_atom.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +362,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../../_sources/content/part1/part1_1/connect_raspberry_non_monitor.md" target="_blank"
+      <li><a href="../../../_sources/content/part1/part1_1/environment_building_with_atom.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -446,7 +444,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>モニタがない状況でのRaspberryPiの接続（任意）</h1>
+    <h1>Atom を使った環境構築</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -456,12 +454,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">IPアドレスと接続の確認</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">RaspberryPiとの接続確認</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vncclient">VNCClientによる接続</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">概要</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Atom 各種設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-ftp">remote-ftp の設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platformio-ide-terminal">platformio-ide-terminal の設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH の設定</a></li>
 </ul>
             </nav>
         </div>
@@ -473,73 +470,265 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="raspberrypi">
-<h1>モニタがない状況でのRaspberryPiの接続（任意）<a class="headerlink" href="#raspberrypi" title="Permalink to this heading">#</a></h1>
-<p>実験室以外で実験を行う場合に，モニタとマウス・キーボードがない状態でRaspberryPiへ接続する方法を説明します．</p>
-<p>モニタなどの周辺機器がない場合、RaspberryPiを操作してIPアドレスを確認することができません．情報科学実験Aで配布したRaspberryPiはEthernetデバイスに固定IP（<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>）を設定してありますので，このIPアドレスをモニタがある状況下で確認するIPアドレスの代わりに使用します．このような周辺機器のない状況下で実験を行う場合実験サイトに記載されているRaspberryPiのIPアドレスは<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>に読み替えて実施してください．</p>
-<p>最終的な構成は以下のようになります．</p>
-<a class="reference internal image-reference" href="../../../_images/configuration.png"><img alt="RaspberryPiの接続" class="align-center" src="../../../_images/configuration.png" style="width: 400px;" /></a>
-<p>RaspberryPiとPCをLANケーブルで直結します（以下の例ではUSB接続のLANアダプタを使っていますが，PCに備え付けの有線LANポートがあればそれに接続します）．</p>
-<p><img alt="raspi-pc.jpg" src="../../../_images/raspi-pc.jpg" /></p>
-<section id="ip">
-<h2>IPアドレスと接続の確認<a class="headerlink" href="#ip" title="Permalink to this heading">#</a></h2>
-<p>WindowsPC上のイーサネットデバイスにRaspberryPiと同じサブネットワークのIPアドレス（<code class="docutils literal notranslate"><span class="pre">192.168.1.102</span></code>）を設定します．</p>
-<p>ただし，Windows上で複数のイーサネットデバイスを認識している場合がありますので（特にVirtualBoxなどのVM環境を構築している場合は仮想イーサネットデバイスが存在するはず），RaspberryPiと接続したイーサネットデバイスを確認してから作業を進めてください．</p>
-<section id="pclanip">
-<h3>PCの有線LANデバイスにIPアドレスを設定<a class="headerlink" href="#pclanip" title="Permalink to this heading">#</a></h3>
-<p>Windowsで設定を開き，ネットワークとインターネット＞状態を選択してください．下までスクロールすると，「アダプターのオプションを変更する」という項目が見えると思いますので，クリックしてください．</p>
-<p><img alt="win-adopter1.png" src="../../../_images/win-adopter1.png" /></p>
-<p>RaspberryPiと接続したイーサネットデバイスのプロパティを開きます．</p>
-<p><img alt="win-adopter2.png" src="../../../_images/win-adopter2.png" /></p>
-<p>インターネットプロトコルバージョン4（TCP/IPv4）のプロパティを開きます．</p>
-<p><img alt="win-adopter3.png" src="../../../_images/win-adopter3.png" /></p>
-<p>IPアドレスとサブネットマスクを設定します．</p>
-<ul class="simple">
-<li><p>IPアドレス:<code class="docutils literal notranslate"><span class="pre">192.168.1.102</span></code></p></li>
-<li><p>サブネットマスク:<code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code></p></li>
-</ul>
-<p><img alt="static_ip.png" src="../../../_images/static_ip.png" /></p>
-<p>コマンドプロンプトからipconfigコマンドを実行し，IPアドレスとサブネットマスクが設定されたものであるか確認してください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">$ipconfig</span>
-
-イーサネット<span class="w"> </span>アダプター<span class="w"> </span>イーサネット<span class="w"> </span><span class="m">2</span>:
-…
-<span class="w">   </span>IPv4<span class="w"> </span>アドレス<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.:<span class="w"> </span><span class="m">192</span>.168.1.102
-<span class="w">   </span>サブネット<span class="w"> </span>マスク<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.:<span class="w"> </span><span class="m">255</span>.255.255.0
-</pre></div>
-</div>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="atom">
+<h1>Atom を使った環境構築<a class="headerlink" href="#atom" title="Permalink to this heading">#</a></h1>
 <section id="id1">
-<h3>RaspberryPiとの接続確認<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>コマンドプロンプトからRaspberryPiのIPアドレスにpingを実行し，正しく応答があるか確認してください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">$ping</span><span class="w"> </span><span class="m">192</span>.168.1.101
-
-<span class="m">192</span>.168.1.101<span class="w"> </span>に<span class="w"> </span>ping<span class="w"> </span>を送信しています<span class="w"> </span><span class="m">32</span><span class="w"> </span>バイトのデータ:
-<span class="m">192</span>.168.1.101<span class="w"> </span>からの応答:<span class="w"> </span><span class="nv">バイト数</span><span class="w"> </span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">時間</span><span class="w"> </span><span class="o">=</span>18ms<span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="m">64</span>
-<span class="m">192</span>.168.1.101<span class="w"> </span>からの応答:<span class="w"> </span><span class="nv">バイト数</span><span class="w"> </span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">時間</span><span class="w"> </span><span class="o">=</span>1ms<span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="m">64</span>
-<span class="m">192</span>.168.1.101<span class="w"> </span>からの応答:<span class="w"> </span><span class="nv">バイト数</span><span class="w"> </span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">時間</span><span class="w"> </span><span class="o">=</span>1ms<span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="m">64</span>
-<span class="m">192</span>.168.1.101<span class="w"> </span>からの応答:<span class="w"> </span><span class="nv">バイト数</span><span class="w"> </span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">時間</span><span class="w"> </span><span class="o">=</span>1ms<span class="w"> </span><span class="nv">TTL</span><span class="o">=</span><span class="m">64</span>
-
-<span class="m">192</span>.168.1.101<span class="w"> </span>の<span class="w"> </span>ping<span class="w"> </span>統計:
-<span class="w">    </span>パケット数:<span class="w"> </span><span class="nv">送信</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span>、受信<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span>、損失<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>%<span class="w"> </span>の損失<span class="o">)</span>、
-ラウンド<span class="w"> </span>トリップの概算時間<span class="w"> </span><span class="o">(</span>ミリ秒<span class="o">)</span>:
-<span class="w">    </span><span class="nv">最小</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>1ms、最大<span class="w"> </span><span class="o">=</span><span class="w"> </span>18ms、平均<span class="w"> </span><span class="o">=</span><span class="w"> </span>5ms
+<h2>概要<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>このページでは, テキストエディター Atom を用いて Raspberry Pi の開発環境を整えます.
+なお, Atom だけでなく VScode にも同じような機能が存在するようですが, 今回は Atom に絞って環境構築を行います.(VScode で環境を整えたい方は各自調べてください)
+この環境構築において, ノート PC の OS は Windows10 としています. Mac 版や Linux 版の Atom でも行えますが, 多少異なる点があると思います.
+以下がページ作成時の環境です.</p>
+<table class="full-width table" id="environment">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">ページ作成時の環境</span><a class="headerlink" href="#environment" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>作製日時</p></th>
+<th class="head"><p>2020/09/01</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ノートPC</p></td>
+<td><p>Dynabook U63(2018年度 生協PC)</p></td>
+</tr>
+<tr class="row-odd"><td><p>OS</p></td>
+<td><p>Windows 10 Pro 1909</p></td>
+</tr>
+<tr class="row-even"><td><p>Atom</p></td>
+<td><p>1.49.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>今回導入する remote-ftp によりファイルの操作を, platformio-ide-terminal により SSH 接続を行います.</p>
+<p>Windows10 バージョン 1803 から, SSH クライアントが組み込まれたため TeraTerm を利用しなくても SSH 接続が可能となりました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">参考となるサイト</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">mimimopu</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">atom_raspberry_pi_programing</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>以下のサイトからテキストエディタ Atom を入手してください.
+<a class="reference external" href="https://atom.io/">Atom 公式サイト</a></p>
+<p>インストール方法がわからない方は『Atom インストール』等で調べればたくさんヒットしますので, 各自調べてみてください.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">インストールの際に参考となるサイト</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">kkaneko</span><span class="o">.</span><span class="n">jp</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">win</span><span class="o">/</span><span class="n">atom</span><span class="o">.</span><span class="n">html</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pg</span><span class="o">-</span><span class="n">happy</span><span class="o">.</span><span class="n">jp</span><span class="o">/</span><span class="n">atom</span><span class="o">-</span><span class="n">texteditor</span><span class="o">.</span><span class="n">html</span>
 </pre></div>
 </div>
 </section>
-</section>
-<section id="vncclient">
-<h2>VNCClientによる接続<a class="headerlink" href="#vncclient" title="Permalink to this heading">#</a></h2>
-<p>VNCを起動し，RaspberryPiのIPアドレス(<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>)に接続します．</p>
+<section id="id2">
+<h2>Atom 各種設定<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>Atom の各種設定を行います.</p>
+<p>とりあえず, Atom の日本語化を行います. 英語のまま利用しても構いません.</p>
+<p>File ＞ Settings ＞ Install</p>
+<p>より, パッケージのダウンロードが行えます. 検索欄に「japanese-menu」と入力し, 一番先頭に来たものをダウンロードします.</p>
+<p><img alt="750px-atom-japanese.jpg" src="../../../_images/750px-atom-japanese.jpg" /></p>
+<p>インストール終了後, Atom を再起動してください.
+これより先の説明では日本語化された Atom で説明を行っていきます. (上記の「File」なら「ファイル」)</p>
+<p>他にも便利なパッケージはいくつもあるので, 好みのパッケージをインストールしてみて下さい.
+以下の表は便利なパッケージの一部です.</p>
+<table class="full-width table" id="convenient-package">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">atom 便利なパッケージ</span><a class="headerlink" href="#convenient-package" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>パッケージ名</p></th>
+<th class="head"><p>用途</p></th>
+<th class="head"><p>リンク</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>japanese-menu</p></td>
+<td><p>Atomが日本語化されます</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/japanese-menu">https://atom.io/packages/japanese-menu</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>remote-ftp</em></p></td>
+<td><p>AtomからFTP・SFTP接続が行えます</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/remote-ftp">https://atom.io/packages/remote-ftp</a></p></td>
+</tr>
+<tr class="row-even"><td><p><em>platformio-ide-terminal</em></p></td>
+<td><p>AtomからWindowsの「コマンドプロンプト」や「PowerShell」が直接利用できます</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/platformio-ide-terminal">https://atom.io/packages/platformio-ide-terminal</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>highlight-selected</p></td>
+<td><p>ダブルクリックした単語全部にハイライトが付きます</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/highlight-selected">https://atom.io/packages/highlight-selected</a></p></td>
+</tr>
+<tr class="row-even"><td><p>minimap</p></td>
+<td><p>ミニマップを表示させることができます.上記のhighlight-selectedでハイライトされたものも反映されます.</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/minimap">https://atom.io/packages/minimap</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>file-type-icons</p></td>
+<td><p>tree-viewに表示されるファイルのアイコンが分かりやすくなります.</p></td>
+<td><p><a class="reference external" href="https://atom.io/packages/file-type-icons%E3%82%AF">https://atom.io/packages/file-type-iconsク</a></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>パッケージ名が 太字 のものは今回の環境構築に置いて必須なパッケージです. インストールしておいてください.</strong></p>
+<p>Atom には無数にパッケージがあるので各自調べてみたら面白そうなのがあるかもしれません.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Atomのパッケージを詳しく紹介しているサイト</p>
 <ul class="simple">
-<li><p>ユーザ名:pi</p></li>
-<li><p>パスワード:raspberry</p></li>
+<li><p><a class="reference external" href="https://www.sejuku.net/blog/3099">https://www.sejuku.net/blog/3099</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/snowsunny/items/f40c3291a580f3215797">https://qiita.com/snowsunny/items/f40c3291a580f3215797</a></p></li>
 </ul>
-<p><img alt="vnc1.png" src="../../../_images/vnc1.png" /></p>
-<p>初回のみセキュリティ警告が出ますがContinueを押し，ユーザ名とパスワードを入力します．</p>
-<p><img alt="vnc2.png" src="../../../_images/vnc2.png" /></p>
-<p>デスクトップ画面にログインできます．</p>
-<p><img alt="vnc3.png" src="../../../_images/vnc3.png" /></p>
+</div>
+</section>
+<section id="remote-ftp">
+<h2>remote-ftp の設定<a class="headerlink" href="#remote-ftp" title="Permalink to this heading">#</a></h2>
+<p>まず, Atom パッケージである「remote-ftp」をインストールしてください.</p>
+<p>remote-ftp は, Atom 上で WinSCP のようなファイル操作を行い, ファイルの編集を Atom 上で行うことができるようになるパッケージです.
+このパッケージを使うことによって, Windows 上から Raspberry Pi 上のファイルを直接編集することができるようになり, Windows と Raspberry Pi 間のファイルの移動の手間がなくなります.</p>
+<p>実際には, Raspberry Pi 上の編集するファイルを指定したフォルダに自動でダウンロードし, ファイルを編集・保存後に自動的に Raspberry Pi へアップロードしています.</p>
+<p><img alt="500px-Atom_remote-ftp.jpg" src="../../../_images/750px-Atom_remote-ftp.jpg" /></p>
+<p>インストールが終了したら, Raspberry Pi との接続設定を行います.
+Atom のメニューバーより</p>
+<p>ファイル ＞ プロジェクトフォルダを追加</p>
+<p>から, Raspberry Pi のファイルを一時保存するフォルダを選択します.
+この指定したフォルダにファイルを保存することによって, Windows 上から編集できるようになっています.
+皆さんがいつもプログラミングで使っているフォルダ等に空フォルダを作って指定していただいて結構です.(フォルダ名も適当な名前で大丈夫です)</p>
+<p>プロジェクトフォルダを追加したら, エディタの左側にツリービューが表示されたと思います.
+（もともと Atom を使っている方は, remote-ftp で利用するプロジェクトフォルダが先頭に来るようにしてください.）</p>
+<p>追加したプロジェクトフォルダは空フォルダなので中には何も入っていないと思います.
+この中に Raspberry Pi と接続を行うための設定ファイルを追加します.
+右の画像のように Atom のメニューバーより</p>
+<p>パッケージ ＞ Remote FTP ＞ Create SFTP config file</p>
+<p>を押すことによって「.ftpconfig」というファイルが作成されます.
+メニューバーでクリックするのは「Create SFTP config file」です. 「Create FTP config file」ではありません.</p>
+<p>生成されたファイルの以下の部分だけを変更してください.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;example.com&quot;</span><span class="p">,</span>
+<span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+<span class="s2">&quot;pass&quot;</span><span class="p">:</span> <span class="s2">&quot;pass&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;raspberrypi.local&quot;</span><span class="p">,</span>
+<span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;pi&quot;</span><span class="p">,</span>
+<span class="s2">&quot;pass&quot;</span><span class="p">:</span> <span class="s2">&quot;raspberry&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p><img alt="750px-Atom-ftp-connect.gif" src="../../../_images/750px-Atom-ftp-connect.gif" /></p>
+<p>接続成功した時の動作（クリックすれば GIF で動きます）</p>
+<p>要するに,</p>
+<ul class="simple">
+<li><p>「host」の部分が接続先</p></li>
+<li><p>「user」がゲスト OS に設定したユーザ名</p></li>
+<li><p>「pass」がゲスト OS に設定したパスワード</p></li>
+</ul>
+<p>となっています. (パスワードを変更した場合は, 「pass」の部分を適宜変更してください)</p>
+<p>変更が終了したら保存してください.</p>
+<p>保存が終わったら, Atom のメニューバーより</p>
+<p>パッケージ ＞ Remote FTP ＞ Toggle</p>
+<p>を押してください.
+押したら左側のツリービューに「Remote」というタブが現れると思います.</p>
+<p>その「Remote」タブを押して, 「Connect」ボタンを押すと Raspberry Pi と接続できます.
+接続できたら設定終了です.</p>
+<p>初期設定では接続先のディレクトリは Raspberry Pi の root になっています. そのため, 編集中のファイルがあるディレクトリまで潜るのが大変な場合があると思います.
+そんなときは最初に設定を行った接続設定ファイルである「.ftpconfig」ファイルの「remote：”/”」の部分を変更することで, 接続先のディレクトリを指定することができます.</p>
+<p>例えば以下のように変更するとします.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;remote&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;remote&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/pi&quot;</span>
+</pre></div>
+</div>
+<p>変更を行ったあとは再接続してください(ツリービュー右クリック →「Disconnect」→「Connect」)</p>
+<p>そうすると, 接続直後から pi ディレクトリの内容がツリービューに表示されたと思います.
+このように, 「remote」要素の設定では, 接続時の接続先ディレクトリを指定することができます.
+しかし, pi ディレクトリより上の階層は行けなくなってしまいますので必要に応じて適宜変更してください.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>参考となるサイト</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html">https://rfs.jp/sb/atom-github/atom_package_remote_ftp.html</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d">https://qiita.com/t_rela/items/07f5f3bbe32745f9fa0d</a></p></li>
+</ul>
+</div>
+</section>
+<section id="platformio-ide-terminal">
+<h2>platformio-ide-terminal の設定<a class="headerlink" href="#platformio-ide-terminal" title="Permalink to this heading">#</a></h2>
+<p>まず, Atom パッケージである「platformio-ide-terminal」をインストールしてください.</p>
+<p>platformio-ide-terminal は, Atom 上で Windows の「コマンドプロンプト」や「PowerShell」を利用することができるパッケージです.</p>
+<p>これを利用して, Raspberry Pi と SSH 接続を行います.</p>
+<p><img alt="atom-terminal.jfif" src="../../../_images/atom-terminal.jfif" /></p>
+<p>インストールが完了したら, エディタの下の部分に右図のような「+」ボタンが新しく表示されているはずです. (表示されない場合は Atom を再起動してみてください)
+これをクリックするとターミナルが開きます.</p>
+<p>または, ショートカットキーとして「ctrl + &#64;」が設定されておりますので、これを利用して開くこともできます.
+ターミナルが起動している状態でこのショートカットを押すとターミナル表示部の表示・収納ができます.</p>
+<p>このパッケージでは複数のターミナルを起動させることもできます.</p>
+<p>初期設定では, 開かれるターミナルは「PowerShell」が設定されています.
+開かれたターミナルがきちんと使えるか, なにかコマンドを打って確認してみます.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>例）$<span class="w"> </span>ping<span class="w"> </span>raspberrypi.local
+</pre></div>
+</div>
+<p>きちんと普通の PowerShell と同様の動作をしましたか？動作していればインストールは完了です.</p>
+<p>ssh コマンドと今回導入した platformio-ide-terminal を使って Raspberry Pi と SSH 接続してみます. 下記のコマンドを実行してみてください. (SSH コマンドが利用できない場合は下のSSH の設定を行ってください)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh<span class="w"> </span>pi@raspberrypi.local
+</pre></div>
+</div>
+<p>入力して Enter を押したあと</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi.local&#39;s password:
+</pre></div>
+</div>
+<p>と表示されますので Raspberry Pi のパスワードを入力してください. (入力した文字列は表示されませんが, きちんと入力されてます)</p>
+<p>パスワードを入力して Enter を押して, いろいろ文字列が表示されてから以下のように表示されれば SSH 接続完了です.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~<span class="w"> </span>$
+</pre></div>
+</div>
+<p>導入は完了しましたが, 使いやすくするためにちょっとだけ設定を変更していきます. 特に必須事項というわけではないです.</p>
+<p>ファイル ＞ 設定 ＞ パッケージ ＞ platformio-ide-terminal ＞ 設定</p>
+<p>から, platformio-ide-terminal の設定を行うことができます.</p>
+<table class="full-width table" id="platformio-ide-terminal-setting">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">platformio-ide-terminalの各種設定</span><a class="headerlink" href="#platformio-ide-terminal-setting" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>設定項目</p></th>
+<th class="head"><p>おすすめ設定</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Core &gt; Auto Run Command</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pi&#64;raspberrypi.local</span></code></p></td>
+<td><p>ターミナルを起動する度に同じSSHコマンドを実行するのは面倒ですよね？ここの設定項目では起動直後に自動的にコマンドを実行させることができますので, SSH接続時のコマンドを入れておきます.Style &gt; Animation Speed	2	ターミナルを表示・収納のスピードを少し速くしておきます.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Style &gt; Default Panel Height</p></td>
+<td><p>250px</p></td>
+<td><p>ここでは表示されるターミナルの高さを指定します.個人によって好みの高さがあると思いますので調節してみてください.</p></td>
+</tr>
+<tr class="row-even"><td><p>Style &gt; Font Size</p></td>
+<td><p>9</p></td>
+<td><p>文字の大きさを設定します.こちらも好みの大きさに調節してみてください.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Style &gt; Theme</p></td>
+<td><p>pro</p></td>
+<td><p>初期設定ではエディタ部とターミナル部の背景が同じで分かりづらいので変更します. proでは背景が黒, 文字色が白となります.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>導入で参考となるサイト</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blanche-toile.com/web/atom-platformio-ide-terminal">https://blanche-toile.com/web/atom-platformio-ide-terminal</a></p></li>
+</ul>
+</div>
+</section>
+<section id="ssh">
+<h2>SSH の設定<a class="headerlink" href="#ssh" title="Permalink to this heading">#</a></h2>
+<p>Windows10 バージョン 1803 から, SSH クライアントが組み込まれました.
+これにより「コマンドプロンプト」や「Power Shell」でも SSH 接続が可能となります.</p>
+<p>まず, SSH コマンドが利用できるか確認します.</p>
+<p>Windows のスタートメニューを右クリック ＞ Windows Power Shell</p>
+<p>をクリックして, PowerShell を起動させます.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh
+</pre></div>
+</div>
+<p>と入力して「認識されません」等のエラーが表示されれば, あなたの PC には ssh クライアントがインストールされていません.</p>
+<p>Windows の「設定」 ＞ アプリ ＞ アプリと機能 ＞ オプション機能</p>
+<p>より「OpenSSH クライアント」を押して, 「インストール」をクリックします.</p>
+<p>インストールが完了したらもう一度コマンドを入力してみてください.
+先程のエラー表示がなくなり, コマンドの利用方法が表示されればインストール完了です.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>参考となるサイト</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mimimopu.com/powershell-ssh-client/">https://mimimopu.com/powershell-ssh-client/</a></p></li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -580,15 +769,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">RaspberryPiの接続</p>
+        <p class="prev-next-title">RaspberryPi の接続</p>
       </div>
     </a>
     <a class="right-next"
-       href="environment_building_vscode.html"
+       href="../part1_2/overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">VSCodeを使った環境構築（任意）</p>
+        <p class="prev-next-title">Day2 の目的と概要</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -610,12 +799,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">IPアドレスと接続の確認</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">RaspberryPiとの接続確認</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vncclient">VNCClientによる接続</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">概要</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Atom 各種設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-ftp">remote-ftp の設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platformio-ide-terminal">platformio-ide-terminal の設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH の設定</a></li>
 </ul>
   </nav></div>
 

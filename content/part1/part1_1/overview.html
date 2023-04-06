@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/part1/part1_1/overview';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="RaspberryPiのセッティング" href="raspberry_setting.html" />
+    <link rel="next" title="RaspberryPi の接続" href="connect_raspberry.html" />
     <link rel="prev" title="環境構築" href="../../preparation/preparation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -160,10 +160,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">[Day1] 環境構築と実験の開始</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="raspberry_setting.html">RaspberryPiのセッティング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect_raspberry.html">RaspberryPiの接続</a></li>
-<li class="toctree-l2"><a class="reference internal" href="connect_raspberry_non_monitor.html">モニタがない状況でのRaspberryPiの接続（任意）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment_building_with_atom.html">Atomを使った環境構築（任意）</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part1_2/overview.html">[Day2] 通信性能の計測</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -467,7 +465,8 @@ document.write(`
 <p class="admonition-title">本日の進捗確認チェックリスト</p>
 <ul class="simple">
 <li><p>13:30: RaspberryPiを起動できましたか？</p></li>
-<li><p>14:30: RaspberryPiにPCからファイルを転送できましたか？</p></li>
+<li><p>14:30: RaspberryPiにPCからVNC接続できましたか？</p></li>
+<li><p>15:00: RaspberryPiにPCからファイルを転送できましたか？</p></li>
 <li><p>15:30: RaspberryPiにVMからSSH接続できましたか？</p></li>
 <li><p>16:00: VM上のLinuxにPCからファイルを転送できましたか？</p>
 <ul>
@@ -521,11 +520,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="raspberry_setting.html"
+       href="connect_raspberry.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">RaspberryPiのセッティング</p>
+        <p class="prev-next-title">RaspberryPi の接続</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
