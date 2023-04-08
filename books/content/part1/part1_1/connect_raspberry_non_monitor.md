@@ -1,4 +1,4 @@
-# モニタがない状況でのRaspberryPiの接続（任意）
+# モニタがない状況でのRaspberryPiの接続
 
 実験室以外で実験を行う場合に，モニタとマウス・キーボードがない状態でRaspberryPiへ接続する方法を説明します．
 
@@ -6,7 +6,7 @@
 
 最終的な構成は以下のようになります．
 
-```{image} ../../../images/part1/part1_1/configuration.png
+```{image} ../../../images/part1/part1_1/non_monitor_configration.png
 :alt: RaspberryPiの接続
 :width: 400px
 :align: center

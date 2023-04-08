@@ -25,7 +25,7 @@ RaspberryPiについてはセットアップ済のイメージをこちらで用
 
 - RaspberryPiのセッティング
 - RaspberryPiの接続
-- モニタがない状況でのRaspberryPiの接続（任意）
+- モニタがない状況でのRaspberryPiの接続（必須）
 - VSCodeを使った環境構築（任意）
 
 ### \[Day2\] 通信性能の計測
