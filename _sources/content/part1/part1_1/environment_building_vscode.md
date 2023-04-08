@@ -1,4 +1,4 @@
-# VSCodeを使った環境構築（任意）
+# VSCodeを使った環境構築
 
 エディタであるVSCodeを用いて実験で用いる開発環境を整えます．[公式のダウンロードページ](https://code.visualstudio.com/download)からPCにVSCodeをダウンロードしてください．
 
