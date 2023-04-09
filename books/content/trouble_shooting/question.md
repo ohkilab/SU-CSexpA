@@ -36,4 +36,4 @@ bash: command not found: tcpbenchmark
 - ping で Raspberry Piから応答が返ってくることを確認した
 - VirtualBox上の $HOME/src/tcpbenchmark にプログラムが存在することを確認した．
 
-このように記載があれば，$PATHが通っていない可能性がある，当該ディレクトリに移動して ```./tcpbenchmark``` を試してみましょう，といったアドバイスをすぐに行うことができます．
+このように記載があれば，$PATHが通っていない可能性がある，当該ディレクトリに移動して ```./tcpbenchmark``` を試してみろ，といったアドバイスをすぐに行うことができます．
