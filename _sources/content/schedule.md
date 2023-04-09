@@ -3,8 +3,8 @@
 ```{admonition} 連絡先
 - 担当教員：大木哲史，野口靖浩，峰野博史
 - 技術部：水野 匠
-- TA：M2竹内，吉田，M1相場，佐藤
-- 質問窓口：Slack もしくは csexp1-staff@ml.inf.shizuoka.ac.jp
+- TA：M2相場，佐藤，平原
+- 質問窓口：Mattermost もしくは csexp1-staff@ml.inf.shizuoka.ac.jp
 ```
 
 ## 講義の日程
