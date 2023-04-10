@@ -22,8 +22,8 @@
 -   ラズパイの配布・回収→対面（例年通り）＋郵送
 
 -   オンラインでの実施のため, グループワークにおいて班員との進捗確認が取りにくい（返信しない学生がいる）ので, 解決策を検討中です.
--   ラズパイのオペレーティングシステム「Raspbian」の正式名称が2020年5月に「Raspberry Pi OS」に変更されました.  
-    
+-   ラズパイのオペレーティングシステム「Raspbian」の正式名称が2020年5月に「Raspberry Pi OS」に変更されました.
+
 
 それに伴い, 実験ページ全体で「Raspbian」の記述を「Raspberry Pi OS（旧：Raspbian）」に変更しました.
 
@@ -93,3 +93,43 @@ Codename:buster
 -   Apache
 
 -   ApacheBench
+
+## 2023年度
+### Raspberry pi情報
+
+```shell
+pi@raspberrypi:~ $ cat /etc/debian_version
+11.6
+pi@raspberrypi:~ $ lsb_release -a
+No LSB modules are available.
+Distributor ID: Raspbian
+Description: Raspbian GNU/Linux 11 (bullseye)
+Release: 11
+Codename: bullseye
+```
+
+設定手順は以下
+
+1. Raspberry Pi OSをSDカードに書き込む
+    - Raspberry Pi OS(32bit)をダウンロード
+    - Raspberry Pi Imagerを使ってSDカードにOSをインストール
+2. 初期セットアップ
+    - country : Japan
+    - ユーザ名とパスワードの設定は変更なし
+        - ユーザ名 : pi
+        - パスワード : raspberry
+    - software updateを行う
+    - セットアップのために一度無線に接続
+3. SSHとVNCをonにする
+    - 設定→Raspberry Piの設定→インターフェイス
+    - SSHとVNCの有効にチェック
+4. 有線のネットワークIPを固定にする
+    - 右上のネットワークのアイコンを右クリック→Wireless&Wired Network Settings
+    - interface eth0を手動で設定する
+        - IPv4 : 192.168.1.101
+        - Router, DNS Servers, DNS Searchは設定しない
+        - チェックボックスは全て外す（Automatically configure empty options & Disable IPv6）
+5. 接続した無線の情報を削除する
+    - /etc/wpa_supplicant/wpa_supplicant.confのnetworkブロックに無線の情報がある
+6. 無線をoffにする
+

@@ -7,7 +7,7 @@
 
 第二部以降で必要になるソフトウェアは，Webサーバ，データベースサーバ，サーバサイドプログラミング言語処理系，サーバサイドプログラミング言語処理系からデータベースにアクセスするためのライブラリです．
 
-Raspbian では，これらのソフトウェアを apt を使ってインストールします．
+Raspberry Pi OS では，これらのソフトウェアを apt を使ってインストールします．
 
 ```shell
 $ sudo apt install apache2 apache2-doc apache2-utils　　　　　　　　　 <--- WEBサーバーのインストール
@@ -95,7 +95,7 @@ apache2.conf    conf-enabled  magic           mods-enabled  sites-available
 conf-available  envvars       mods-available  ports.conf    sites-enabled
 ```
 
-`xxx-available` や `xxx-enabled` というディレクトリがあるのがわかりますか？ RasPiのRaspbian OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに `mods-enabled` の中身を見てみましょう．
+`xxx-available` や `xxx-enabled` というディレクトリがあるのがわかりますか？ RasPiのRaspberry Pi OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに `mods-enabled` の中身を見てみましょう．
 
 ```shell
 $ ls -l /etc/apache2/mods-enabled/
@@ -117,7 +117,7 @@ lrwxrwxrwx 1 root root 29 Mar 11 15:37 status.load -> ../mods-available/status.l
 -   `mods-available`：モジュールを読み込むためのファイル，およびモジュールの設定ファイルの実体を配置
 -   `mods-enabled` ：`mods-available`のうち有効にするモジュールへのシンボリックリンクを配置
 
-となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド`a2enmod`（シンボリックリンクを作成する）および`a2dismod`（シンボリックリンクを削除する）がRaspbianには用意されていますのでこれを使いましょう．
+となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド`a2enmod`（シンボリックリンクを作成する）および`a2dismod`（シンボリックリンクを削除する）がRaspberry Pi OSには用意されていますのでこれを使いましょう．
 
 本題のユーザーディレクトリに関しては既にuserdirというモジュールが`mods-available`にインストールされています．上記の`a2enmod`コマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．
 
