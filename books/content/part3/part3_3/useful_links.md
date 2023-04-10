@@ -162,7 +162,7 @@ $ sudo systemctrl restart mysqld.service         # <--- MySQLサーバを再起�
 $ mysql -u root -p                               # <--- ログイン試行
 ```
 
-## Apache，Linux（Fedora，Raspbian）関係
+## Apache，Linux（Fedora，Raspberry Pi OS）関係
 
 検索してみよう！
 

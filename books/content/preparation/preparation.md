@@ -2,7 +2,7 @@
 
 ## VNCクライアントのインストール
 皆さんのノートPCにインストールされているWindowsから，ネットワーク接続を介してリモートでRaspberry Piのデスクトップ環境を利用するために，VNCクライアント（サーバは不要です）をノートPCのWindowsへインストールしておきます．
-Raspberry Pi上のRaspbian OS に標準でインストールされている VNC Server との接続は，以下の Real VNC のクライアントソフトウェアが接続しやすいようです（他のVNCクライアントソフトウェアでもサーバ側の設定を変更すれば接続可能）．ノートPCのWindowsへクライアント（VNC Viewer）のみをインストールして下さい（WindowsへVNC Serverをインストールする必要はありません）．Real VNC社のVNC Connectは商用ソフトウェアですが，Viewerに関しては Free で配布されています．
+Raspberry Pi上のRaspberry Pi OS に標準でインストールされている VNC Server との接続は，以下の Real VNC のクライアントソフトウェアが接続しやすいようです（他のVNCクライアントソフトウェアでもサーバ側の設定を変更すれば接続可能）．ノートPCのWindowsへクライアント（VNC Viewer）のみをインストールして下さい（WindowsへVNC Serverをインストールする必要はありません）．Real VNC社のVNC Connectは商用ソフトウェアですが，Viewerに関しては Free で配布されています．
 
 [RealVNC](https://www.realvnc.com/en/connect/download/viewer/windows/)
 
@@ -27,7 +27,7 @@ Raspberry Pi上のRaspbian OS に標準でインストールされている VNC 
 [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 本講義用のVMを構築する方法は基本的に1年生の授業で構築した方法と同じです．
-静岡大学情報学部で学年度ごとに用意しているLinux VMとインストールガイドは以下にありますので，参照しながらVM構築を行ってください． 
+静岡大学情報学部で学年度ごとに用意しているLinux VMとインストールガイドは以下にありますので，参照しながらVM構築を行ってください．
 （oooo部分は入学年度で置き換えてください．）
 
 [http://whitebear.cs.inf.shizuoka.ac.jp/linux/oooo/](http://whitebear.cs.inf.shizuoka.ac.jp/linux/oooo/)
