@@ -478,16 +478,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="websocket">
 <h1>WebSocketについて<a class="headerlink" href="#websocket" title="Permalink to this heading">#</a></h1>
-<p>node.jsは，WebブラウザGoogle Chromeに使われているJavaScript実行エンジンv8を用いたサーバサイドのJavaScript実行環境でした．node.jsは，PHPのようにApacheと一体となって動作するようには実装されていませんが，外部モジュールを使ってWebサーバとして動作させることも簡単にできます．一方，HTTPではなく，HTML5の周辺技術としてWebSocketというものもあります．</p>
+<p>Node.jsは，WebブラウザGoogle Chromeに使われているJavaScript実行エンジンv8を用いたサーバサイドのJavaScript実行環境でした．Node.jsは，PHPのようにApacheと一体となって動作するようには実装されていませんが，外部モジュールを使ってWebサーバとして動作させることも簡単にできます．一方，HTTPではなく，HTML5の周辺技術としてWebSocketというものもあります．</p>
 <p>Webでの通信は，長らくHTTPしか選択肢がなく，HTTPのロングポートを使用しなんとか双方向通信を実現してきたという経緯があります．そのため，サーバから任意で情報を送信するプッシュ配信の実装が困難でした．WebSocketは，WebサーバとWebブラウザの双方間にTCPコネクションを構築することができるため，双方がそれぞれ必要に応じて送信を開始できるという特徴を持っています．また，HTTPに比べて小さなデータサイズで必要な情報を送信できるため，小さいメッセージを頻繁にやり取りするような場合はWebSocketがかなり有利となります．</p>
 <p>自由課題の例として，WebSocketを使ってみるのもよいと思います．</p>
 <section id="node-jswebsocket">
 <h2>Node.js環境でのWebSocket導入方法<a class="headerlink" href="#node-jswebsocket" title="Permalink to this heading">#</a></h2>
-<p>node.jsとnpmはすでにインストールされている前提での手順となります．</p>
+<p>Node.jsとnpmはすでにインストールされている前提での手順となります．</p>
 <p><a class="reference external" href="https://qiita.com/okumurakengo/items/c497fba7f16b41146d77">WebSocket(ブラウザAPI)とws(Node.js) の基本</a>　※この辺もご参考まで</p>
 <section id="id1">
 <h3>環境構築<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>まず，皆さんのホームディレクトリにnode.jsのスクリプトを格納するディレクトリを作成しましょう．</p>
+<p>まず，皆さんのホームディレクトリにNode.jsのスクリプトを格納するディレクトリを作成しましょう．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>~/node
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/node
 </pre></div>
@@ -499,9 +499,9 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/nod
 <ul class="simple">
 <li><p><a class="reference external" href="https://npmjs.org/package/websocket">WebSocketモジュールの詳細</a></p></li>
 </ul>
-<p>WebSocketモジュールは，背後でC++で書かれたネイティブコード（インタープリタで動作するJavaScriptやPHP，Javaに対して，予めコンパイルして比較的高速で実行させられる実行形式のバイナリファイルをネイティブコードと呼びます）を実行しています．このネイティブコードを作成するために，C++に対応したGCC（gcc-c++）のインストールと，node.jsのネイティブモジュール対応を行います．その後に，npmでWebSocketをインストールします．以下のようにインストールしてみてください．</p>
+<p>WebSocketモジュールは，背後でC++で書かれたネイティブコード（インタープリタで動作するJavaScriptやPHP，Javaに対して，予めコンパイルして比較的高速で実行させられる実行形式のバイナリファイルをネイティブコードと呼びます）を実行しています．このネイティブコードを作成するために，C++に対応したGCC（gcc-c++）のインストールと，Node.jsのネイティブモジュール対応を行います．その後に，npmでWebSocketをインストールします．以下のようにインストールしてみてください．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gcc-c++<span class="w">         </span><span class="c1"># &lt;--- gcc-c++のインストール（既にインストール済みかも）</span>
-$<span class="w"> </span>sudo<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>node-gyp<span class="w">     </span><span class="c1"># &lt;--- node.jsをネイティブモジュール対応させるモジュールのインストール (既にインストール済みかも）</span>
+$<span class="w"> </span>sudo<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>node-gyp<span class="w">     </span><span class="c1"># &lt;--- Node.jsをネイティブモジュール対応させるモジュールのインストール (既にインストール済みかも）</span>
 $<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>websocket<span class="w">            </span><span class="c1"># &lt;--- WebSocketモジュールのインストール</span>
 </pre></div>
 </div>
@@ -515,7 +515,7 @@ $<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </sp
 </section>
 <section id="mysql">
 <h3>MySQLモジュールのインストール<a class="headerlink" href="#mysql" title="Permalink to this heading">#</a></h3>
-<p>node.jsからMySQLへアクセスしたい場合は，MySQLモジュールを使用します．このように大抵の必要そうなモジュールはすでにあります．NPMのホームページで探してみましょう．</p>
+<p>Node.jsからMySQLへアクセスしたい場合は，MySQLモジュールを使用します．このように大抵の必要そうなモジュールはすでにあります．NPMのホームページで探してみましょう．</p>
 <p><a class="reference external" href="https://npmjs.org/">https://npmjs.org/</a></p>
 <p>検索窓に「<strong>MySQL</strong>」と入力して探してみましょう．結果がたくさん出てきたと思います．<code class="docutils literal notranslate"><span class="pre">node</span></code>に限りませんが，同じ目的を達成するためのモジュールを様々な人が実装してくれています（中には正常に動作しない中途半端なものや意図せぬ動作が埋め込まれたものもありますのでご注意ください）．</p>
 <p>一般的には，評価の高いモジュールや最初に出てきたモジュールを使用することが多いです．とりあえず今回は，最初に出てきた「<a class="reference external" href="https://npmjs.org/package/mysql">MySQL</a>」というものを使用してみましょう．インストール方法もそのページに記載されていますので進めてみてください．サンプルコードもありますので，それらも参考に自分なりにプログラムを作成してみるとよいと思います．</p>
