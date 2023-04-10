@@ -16,7 +16,7 @@ $ sudo apt install mariadb-server mariadb-client                       <--- DB�
 ```
 
 -   接続できない場合
-    -   PCでインストール用パッケージをダウンロード（パッケージは [https://packages.debian.org/buster/](https://packages.debian.org/buster/) などから探せます）
+    -   PCでインストール用パッケージをダウンロード（パッケージは [https://packages.debian.org/bullseye/](https://packages.debian.org/bullseye/) などから探せます）
     -   SCPでパッケージを転送
     -   `dpkg`コマンドでインストール
 
