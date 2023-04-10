@@ -459,7 +459,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">第三部の概要</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">第三部で利用する端末について</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">Gitのインストール</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-raspbian">サーバ端末（OS: Raspbian）へのインストール（必須）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-raspberry-pi-os">サーバ端末（OS: Raspberry Pi OS）へのインストール（必須）</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcos-ubuntu">各自ノートPC上のゲストOS（Ubuntu仮想環境）へのインストール</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcos-windows">各自ノートPC上のホストOS（Windows）へのインストール</a></li>
 </ul>
@@ -515,8 +515,8 @@ document.write(`
 <p>もともとLinuxの開発チームが使用していたGitは，昨今では世界中の技術者に広まってバージョン管理システムの主流となっています．Gitを用いると，普段使っている自分のノートPCといったローカル環境に，過去の全変更履歴を含む完全なリポジトリ（貯蔵庫）の複製を作成できます．つまり，各ローカル環境がリポジトリのサーバとして動作できることになります．これまでの分散型でないバージョン管理システムでは，サーバ上にある1つのリポジトリを利用者が共同で使用するため，利用者が増えると変更内容が衝突し整合性の維持が大変でした．Gitでは，ローカル環境にもコードの変更履歴を保存（コミット）するので，リモートのサーバに常に接続する必要はなく，ネットワークに接続していなくても作業を行えます．</p>
 <p><a class="reference external" href="https://github.com/">GitHub(ギットハブ)</a>は，このGitの仕組みを利用して世界中の人々が開発物を自由に保存，公開できるようにしたWebサービスの名称です．GitHubは，GitHub社によって運営されており，個人・企業問わず無料で利用できます．GitHub上のリポジトリは，基本的に全て公開されますが，有料サービスを利用すると指定ユーザーのみアクセスできるプライベートなリポジトリを作ることもできます．リポジトリに記録するには，コミットという操作を行います．コミットは時系列順につながった状態でリポジトリに格納されていますので，最新のコミットから辿ることで過去の変更履歴やその内容を知ることができます．</p>
 <p>この実験では，主にサンプルソースコードのダウンロードのためにGitを使用しますが，もちろん本来の使い方であるオープンソースソフトウェアの開発を意識して，皆さんの作成したソフトウェアを公開して自己アピールしていただいても構いません（ただし，ソフトウェア公開は各自の責任で実施してください）．</p>
-<section id="os-raspbian">
-<h3>サーバ端末（OS: Raspbian）へのインストール（必須）<a class="headerlink" href="#os-raspbian" title="Permalink to this heading">#</a></h3>
+<section id="os-raspberry-pi-os">
+<h3>サーバ端末（OS: Raspberry Pi OS）へのインストール（必須）<a class="headerlink" href="#os-raspberry-pi-os" title="Permalink to this heading">#</a></h3>
 <p>最初のOSインストール時に一緒にgitもインストールされている可能性もあります．端末画面（コマンドライン）で「git」と入力し，コマンドマニュアルが表示された場合は以下の手順は不要です．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
 </pre></div>
@@ -628,7 +628,7 @@ git<span class="w"> </span>version<span class="w"> </span><span class="m">2</spa
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">第三部の概要</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">第三部で利用する端末について</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">Gitのインストール</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-raspbian">サーバ端末（OS: Raspbian）へのインストール（必須）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-raspberry-pi-os">サーバ端末（OS: Raspberry Pi OS）へのインストール（必須）</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcos-ubuntu">各自ノートPC上のゲストOS（Ubuntu仮想環境）へのインストール</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcos-windows">各自ノートPC上のホストOS（Windows）へのインストール</a></li>
 </ul>

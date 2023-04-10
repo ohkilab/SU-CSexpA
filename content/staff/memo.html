@@ -465,6 +465,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">ソフトウェア情報</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2023年度</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberry-pi">Raspberry pi情報</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -575,6 +579,68 @@ Codename:buster
 </ul>
 </section>
 </section>
+<section id="id9">
+<h2>2023年度<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<section id="raspberry-pi">
+<h3>Raspberry pi情報<a class="headerlink" href="#raspberry-pi" title="Permalink to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~<span class="w"> </span>$<span class="w"> </span>cat<span class="w"> </span>/etc/debian_version
+<span class="m">11</span>.6
+pi@raspberrypi:~<span class="w"> </span>$<span class="w"> </span>lsb_release<span class="w"> </span>-a
+No<span class="w"> </span>LSB<span class="w"> </span>modules<span class="w"> </span>are<span class="w"> </span>available.
+Distributor<span class="w"> </span>ID:<span class="w"> </span>Raspbian
+Description:<span class="w"> </span>Raspbian<span class="w"> </span>GNU/Linux<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="o">(</span>bullseye<span class="o">)</span>
+Release:<span class="w"> </span><span class="m">11</span>
+Codename:<span class="w"> </span>bullseye
+</pre></div>
+</div>
+<p>設定手順は以下</p>
+<ol class="arabic simple">
+<li><p>Raspberry Pi OSをSDカードに書き込む</p>
+<ul class="simple">
+<li><p>Raspberry Pi OS(32bit)をダウンロード</p></li>
+<li><p>Raspberry Pi Imagerを使ってSDカードにOSをインストール</p></li>
+</ul>
+</li>
+<li><p>初期セットアップ</p>
+<ul class="simple">
+<li><p>country : Japan</p></li>
+<li><p>ユーザ名とパスワードの設定は変更なし</p>
+<ul>
+<li><p>ユーザ名 : pi</p></li>
+<li><p>パスワード : raspberry</p></li>
+</ul>
+</li>
+<li><p>software updateを行う</p></li>
+<li><p>セットアップのために一度無線に接続</p></li>
+</ul>
+</li>
+<li><p>SSHとVNCをonにする</p>
+<ul class="simple">
+<li><p>設定→Raspberry Piの設定→インターフェイス</p></li>
+<li><p>SSHとVNCの有効にチェック</p></li>
+</ul>
+</li>
+<li><p>有線のネットワークIPを固定にする</p>
+<ul class="simple">
+<li><p>右上のネットワークのアイコンを右クリック→Wireless&amp;Wired Network Settings</p></li>
+<li><p>interface eth0を手動で設定する</p>
+<ul>
+<li><p>IPv4 : 192.168.1.101</p></li>
+<li><p>Router, DNS Servers, DNS Searchは設定しない</p></li>
+<li><p>チェックボックスは全て外す（Automatically configure empty options &amp; Disable IPv6）</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>接続した無線の情報を削除する</p>
+<ul class="simple">
+<li><p>/etc/wpa_supplicant/wpa_supplicant.confのnetworkブロックに無線の情報がある</p></li>
+</ul>
+</li>
+<li><p>無線をoffにする</p></li>
+</ol>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -635,6 +701,10 @@ Codename:buster
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">連絡</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">新規・更新ページ情報</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">ソフトウェア情報</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2023年度</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberry-pi">Raspberry pi情報</a></li>
 </ul>
 </li>
 </ul>

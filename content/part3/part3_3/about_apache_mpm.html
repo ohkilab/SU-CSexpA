@@ -461,14 +461,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefork-apache2-2">prefork（Apache2.2までのデフォルト設定）</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worker">worker</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-apache2-4">event（Apache2.4からのデフォルト設定）</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raspbian-os">＜Raspbian OSは以下の手順＞</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberry-pi-os">＜Raspberry Pi OSは以下の手順＞</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-os">＜Fedora OSは以下の手順＞</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">性能計測のコツ</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">＜Raspbian OSの場合＞</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">＜Raspberry Pi OSの場合＞</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">＜Fedora OSの場合＞</a></li>
 </ul>
 </li>
@@ -519,8 +519,8 @@ document.write(`
 <section id="event-apache2-4">
 <h3>event（Apache2.4からのデフォルト設定）<a class="headerlink" href="#event-apache2-4" title="Permalink to this heading">#</a></h3>
 <p>eventは，workerの一種でマルチスレッドで動作する．workerとの違いはKeep-Alive（持続的接続）の処理方法である．workerやpreforkは，Keep-Aliveの持続性を保つために一度利用したスレッド・プロセスをそのまま待機させている．しかしクライアントからの接続が持続的に行われる可能性は保証されているわけではないため，待機していること自体が無駄になる可能性もある．そこで，Keep-Aliveの処理を別のスレッドに割り振って通信を処理する．この方式は長らく実験的サポートであったが，バージョン2.4.1から正式に採用された．</p>
-<section id="raspbian-os">
-<h4>＜Raspbian OSは以下の手順＞<a class="headerlink" href="#raspbian-os" title="Permalink to this heading">#</a></h4>
+<section id="raspberry-pi-os">
+<h4>＜Raspberry Pi OSは以下の手順＞<a class="headerlink" href="#raspberry-pi-os" title="Permalink to this heading">#</a></h4>
 <p>Apacheでは一般的に，設定は <code class="docutils literal notranslate"><span class="pre">/etc/apache2/apache2.conf</span></code> や <code class="docutils literal notranslate"><span class="pre">/etc/apache2/httpd.conf</span></code> に記述しますが，複数のモジュールを使うとこれらの設定ファイルが長くなりすぎて理解困難になってしまいます．そこで最近は，<code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-enabled</span></code> や <code class="docutils literal notranslate"><span class="pre">/etc/apache2/modes-enabled</span></code> 等のディレクトリ配下に読み込ませたい設定ファイルを用意した上でApacheを起動させればよいようになっています．以下に基本的な流れを説明しておきます．</p>
 <p>まず，必要なモジュールをインストールすると，設定ファイルは <code class="docutils literal notranslate"><span class="pre">/etc/apache2/modes-available</span></code> に「モジュール名.load や モジュール名.conf」として用意されます．ここで，インストールできるモジュールリストは以下のコマンドで確認でき，インストールもできます．</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt<span class="w"> </span>search<span class="w"> </span>libapache2-mod<span class="w">                            </span>&lt;-----<span class="w"> </span>モジュールリストの確認
@@ -634,7 +634,7 @@ ab<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span>
 <p>次に気になるのは，Apacheの設定をどのように変更すると，この「<strong>処理しきれなくなるポイント</strong>」がどのように変化するのかを把握することです．Apacheの設定をどのように変更するかは，どのMPMモジュールを使用しているかにも依存しますが，基本的には<a class="reference external" href="http://httpd.apache.org/docs/2.0/ja/mod/mpm_common.html#maxclients">MaxClients</a>に設定されている値を変えながら調べてけばよいです．その他にも様々な設定値がありますので，周囲と相談しながら試行錯誤してみてください．</p>
 <p>例えば，Apacheの設定における<strong>MaxRequestWorkers（Apache2.4以前はMaxClients）<strong>を</strong>10</strong>といった極端に少ない値に設定して負荷試験を実施してみてください．このMaxClientsの値を変化させることで，「<strong>処理しきれなくなるポイント</strong>」がどのように変化していくのか計測しながらApacheの並列処理の仕組みを考察していってもよいと思います．</p>
 <section id="id3">
-<h3>＜Raspbian OSの場合＞<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>＜Raspberry Pi OSの場合＞<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/mods-available</span></code> ディレクトリ配下にある <code class="docutils literal notranslate"><span class="pre">mpm_event.conf</span></code> や <code class="docutils literal notranslate"><span class="pre">mpm_prefork.conf</span></code> や <code class="docutils literal notranslate"><span class="pre">mpm_worker.conf</span></code> の設定を変更し，各モジュールを有効化して試してみてください．</p>
 <p>Apache MPM（Apache公式ページの解説）</p>
 <ul class="simple">
@@ -778,14 +778,14 @@ ab<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefork-apache2-2">prefork（Apache2.2までのデフォルト設定）</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worker">worker</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-apache2-4">event（Apache2.4からのデフォルト設定）</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raspbian-os">＜Raspbian OSは以下の手順＞</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberry-pi-os">＜Raspberry Pi OSは以下の手順＞</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-os">＜Fedora OSは以下の手順＞</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">性能計測のコツ</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">＜Raspbian OSの場合＞</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">＜Raspberry Pi OSの場合＞</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">＜Fedora OSの場合＞</a></li>
 </ul>
 </li>

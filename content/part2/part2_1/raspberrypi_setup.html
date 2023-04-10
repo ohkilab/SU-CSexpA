@@ -501,7 +501,7 @@ document.write(`
 <section id="id2">
 <h3>実験で利用するソフトウェアのインストール<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>第二部以降で必要になるソフトウェアは，Webサーバ，データベースサーバ，サーバサイドプログラミング言語処理系，サーバサイドプログラミング言語処理系からデータベースにアクセスするためのライブラリです．</p>
-<p>Raspbian では，これらのソフトウェアを apt を使ってインストールします．</p>
+<p>Raspberry Pi OS では，これらのソフトウェアを apt を使ってインストールします．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2<span class="w"> </span>apache2-doc<span class="w"> </span>apache2-utils<span class="w">　　　　　　　　　 </span>&lt;---<span class="w"> </span>WEBサーバーのインストール
 $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php7.4<span class="w"> </span>php7.4-mysql<span class="w"> </span>libapache2-mod-php7.4<span class="w">              </span>&lt;---<span class="w"> </span>PHPのインストール
 $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mariadb-server<span class="w"> </span>mariadb-client<span class="w">                       </span>&lt;---<span class="w"> </span>DBのインストール
@@ -510,7 +510,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>
 <ul class="simple">
 <li><p>接続できない場合</p>
 <ul>
-<li><p>PCでインストール用パッケージをダウンロード（パッケージは <a class="reference external" href="https://packages.debian.org/buster/">https://packages.debian.org/buster/</a> などから探せます）</p></li>
+<li><p>PCでインストール用パッケージをダウンロード（パッケージは <a class="reference external" href="https://packages.debian.org/bullseye/">https://packages.debian.org/bullseye/</a> などから探せます）</p></li>
 <li><p>SCPでパッケージを転送</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dpkg</span></code>コマンドでインストール</p></li>
 </ul>
@@ -581,7 +581,7 @@ apache2.conf<span class="w">    </span>conf-enabled<span class="w">  </span>magi
 conf-available<span class="w">  </span>envvars<span class="w">       </span>mods-available<span class="w">  </span>ports.conf<span class="w">    </span>sites-enabled
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">xxx-available</span></code> や <code class="docutils literal notranslate"><span class="pre">xxx-enabled</span></code> というディレクトリがあるのがわかりますか？ RasPiのRaspbian OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに <code class="docutils literal notranslate"><span class="pre">mods-enabled</span></code> の中身を見てみましょう．</p>
+<p><code class="docutils literal notranslate"><span class="pre">xxx-available</span></code> や <code class="docutils literal notranslate"><span class="pre">xxx-enabled</span></code> というディレクトリがあるのがわかりますか？ RasPiのRaspberry Pi OSでは．Apache各設定ファイルのうち普段は利用しないファイルを「available」，現在利用するファイルを「enabled」というフォルダに置くことになっています．ここで，試しに <code class="docutils literal notranslate"><span class="pre">mods-enabled</span></code> の中身を見てみましょう．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/etc/apache2/mods-enabled/
 total<span class="w"> </span><span class="m">0</span>
 lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">36</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">15</span>:37<span class="w"> </span>access_compat.load<span class="w"> </span>-&gt;<span class="w"> </span>../mods-available/access_compat.load
@@ -601,7 +601,7 @@ lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </spa
 <li><p><code class="docutils literal notranslate"><span class="pre">mods-available</span></code>：モジュールを読み込むためのファイル，およびモジュールの設定ファイルの実体を配置</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mods-enabled</span></code> ：<code class="docutils literal notranslate"><span class="pre">mods-available</span></code>のうち有効にするモジュールへのシンボリックリンクを配置</p></li>
 </ul>
-<p>となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド<code class="docutils literal notranslate"><span class="pre">a2enmod</span></code>（シンボリックリンクを作成する）および<code class="docutils literal notranslate"><span class="pre">a2dismod</span></code>（シンボリックリンクを削除する）がRaspbianには用意されていますのでこれを使いましょう．</p>
+<p>となります．このうち，シンボリックリンクを作成する作業についてはこれをサポートするコマンド<code class="docutils literal notranslate"><span class="pre">a2enmod</span></code>（シンボリックリンクを作成する）および<code class="docutils literal notranslate"><span class="pre">a2dismod</span></code>（シンボリックリンクを削除する）がRaspberry Pi OSには用意されていますのでこれを使いましょう．</p>
 <p>本題のユーザーディレクトリに関しては既にuserdirというモジュールが<code class="docutils literal notranslate"><span class="pre">mods-available</span></code>にインストールされています．上記の<code class="docutils literal notranslate"><span class="pre">a2enmod</span></code>コマンドを使って有効にしておきましょう．コマンド実行後は Apache の再起動をお忘れなく．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>a2enmod<span class="w"> </span>userdir
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
