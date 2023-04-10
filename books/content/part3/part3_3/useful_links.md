@@ -177,4 +177,4 @@ $ mysql -u root -p                               # <--- ログイン試行
 
 ## Node.js関係
 
--   [node.jsリファレンス](https://nodejs.org/docs/latest-v10.x/api/)
+-   [Node.jsリファレンス](https://nodejs.org/docs/latest-v10.x/api/)
