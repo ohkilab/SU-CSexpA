@@ -102,7 +102,7 @@ $ ping {確認したRaspberryPiのIPアドレス}
 SSHでRaspberryPiにログインします．最初の接続のみ，ホスト鍵を受け入れるか聞かれますので"yes"とします．
 
 ```shell
-$ ssh {確認したRaspberryPiのIPアドレス}
+$ ssh pi@{確認したRaspberryPiのIPアドレス}
 ```
 
 ユーザ名とパスワードが一致すれば，ログインできます．SSH接続中は`exit`を打ち込むことで，SSH接続を切ることができます．
