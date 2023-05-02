@@ -494,17 +494,17 @@ document.write(`
 </ul>
 <p>基本的な使い方は以下の通りですが，各自ソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やす拡張を行ってもよいでしょう）．</p>
 <p>実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./hogehoge</span></code>の様に<strong>管理者権限で実行</strong>をしてみて下さい．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>tcpbenchmark<span class="w"> </span><span class="m">192</span>.168.0.100<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">100</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>tcpbenchmark<span class="w"> </span><span class="m">192</span>.168.0.100<span class="w"> </span><span class="m">10000</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="m">100</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>第1引数: 接続先IPアドレス</p></li>
 <li><p>第2引数: 接続先ポート番号</p></li>
-<li><p>第3引数: スレッド数(Nスレッド)</p></li>
-<li><p>第4引数: EchoBackメッセージサイズ(L Byte)</p></li>
-<li><p>第5引数: EchoBack回数(M回)</p></li>
+<li><p>第3引数: 総トライアル数</p></li>
+<li><p>第4引数: 多重度の指定（スレッド数）</p></li>
+<li><p>第5引数: コネクションごとのEchoBack通信回数</p></li>
 </ul>
-<p>このコマンド例では「15Byteのメッセージを100回EchoBackする接続を1000並列で実行する」ことになります．</p>
+<p>このコマンド例では「15回EchoBackする接続を1000並列で10回実行する」ことになります．</p>
 <section id="id4">
 <h3>時間計測部分<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．計測開示の時刻と計測終了時の時刻を構造体で管理し，差分を取って所要時間を表示しています．</p>
