@@ -21,7 +21,7 @@
 $ sudo apt install libevent-dev
 $ sudo apt install libuv1 libuv1-dev
 ```
-v
+
 # libeventによる多重化
 
 ## はじめに
