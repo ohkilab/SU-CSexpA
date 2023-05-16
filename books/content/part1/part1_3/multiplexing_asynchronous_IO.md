@@ -38,7 +38,7 @@ $ sudo apt install libevent-dev
 異なるソケットに対応する処理（このサンプルコードの場合，初回接続時，接続後の各クライアントとの通信時）を1つの大きなループの中で条件分岐で記述するのではなく，別のコールバック関数で記述することができます．
 また，OS依存の関数呼び出し（epoll や kqueue など）をライブラリ関数内に隠蔽することでコードの移植性を保っています．
 
--   [tcpserverle](\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験A\第一部サンプルコード\tcpserverle.tgz)(学内からのみアクセス可能)
+-   [tcpserverle サンプルコード](https://github.com/ohkilab/SU-CSexpA-day3-tcpserverle)
 
 ### in TCPServerLE.c
 
@@ -204,7 +204,7 @@ $ sudo apt install libuv1 libuv1-dev
 
 TCP/IP通信に必要となる各処理に対するユーザプログラム独自の処理をコールバックで実現することで，ユーザプログラム側で待ち状態となることを減らします．TCP/IP通信に必要となる各処理（bind, listen, accept, get\_sockname, read, write, close, ...）が libuv のライブラリ関数で置き換えられており，通信相手からの通信受信時の処理をコールバック関数で実現しています．
 
--   [tcpserveruv](\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験A\第一部サンプルコード\tcpserveruv.tgz)(学内からのみアクセス可能)
+-   [tcpserveruv サンプルコード](https://github.com/ohkilab/SU-CSexpA-day3-tcpserveruv)
 
 以下にサンプルコードの一部を示します．以下のサンプルコード中でコールバック関数として指定している alloc_buffer, echo_read, on_close などはユーザ側で定義する必要があります．
 

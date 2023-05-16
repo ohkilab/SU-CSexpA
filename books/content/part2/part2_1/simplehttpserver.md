@@ -388,11 +388,7 @@ void exp1_send_file(int sock, char* filename)
 -   以下のコマンドを入力して，こちらで用意しておいたサンプルページをダウンロードし解凍しておきます．
 
 ```
- $ wget http://exp1.inf.shizuoka.ac.jp/images/3/31/day6.zip 
-```
-
-```
- $ unzip day6.zip 
+ $ git clone https://github.com/ohkilab/SU-CSexp1-day6
 ```
 
 -   先ほどコンパイルした各自のSimple HTTPサーバのプログラムを実行します．
