@@ -1,4 +1,5 @@
 # よくあるトラブル
+
 ask に投稿された質問事項などを随時追加していく予定です
 
 ## 全体
@@ -10,13 +11,37 @@ ask に投稿された質問事項などを随時追加していく予定です
 ### RaspberryPiのシャットダウン方法が分からない
 
 LANケーブルは指した状態で，以下のいずれかを試してみてください．
+
 - PCからVNCで接続して左上のメニュー（Raspberry Piボタン）からShutdownを選択する
 - PCからSSHで接続して以下のコマンドを実行する
-```
+
+```shell
 sudo shutdown -h now
 ```
 
-<!-- 
+### RaspberryPiにpingが通らない
+
+- Day1の「うまくいかない時のトラブルシューティング」を参照。
+- RaspberryPiが起動してない（電源はついていてもOSが起動していない）可能性があります。RaspberryPiをモニタに繋いだ後再起動してみて，画面にRaspberryPiが映るか確認してみると分かります。
+- 有線の接触なども確認してみてください。
+
+### RaspberryPiとssh通信できない
+
+- まずpingが通るか。　→"Raspberry Piにpingが通らない"を参照。
+- 通信先は正しいか。
+- The ECDSA host key for raspberrypi.local has changed,～ というエラーが出るか？　→"ssh通信しようとするとThe ECDSA host key for raspberrypi.local has changed,～ というエラーが出る"を参照。
+
+### ssh通信しようとするとThe ECDSA host key for raspberrypi.local has changed,～ というエラーが出る
+
+　.ssh/known_hostsに記載されているサーバリストあるホストのIPが変わってしまった、というエラーです。
+　SSHでは初回接続時に接続先ホストの公開鍵を（ローカルに）保存しておいて、次回接続時にホスト鍵を比較して前回と同じホストに接続したかを確認するような仕組みになっています。このため、IPアドレスが変更されるなどでホスト鍵が変わってしまった時にこのエラーが出ます。今回の環境はmDNSでIPを設定しており、ホスト（Raspi）のIPがたまに変わってしまうためこのエラーが出ると思います。
+　解決策ですが、PCのユーザ(cs～～)フォルダから.ssh/known_hostsファイルを開く→RaspiっぽいIPのホスト鍵（fingerprint）が書いてある行を消す、でいけるはずです。
+
+### VNC接続をしようとすると VNC Server identity check failed となる
+
+- ssh通信を試してみる。
+
+<!--
 
 ## 第一部
 
@@ -28,7 +53,7 @@ sudo shutdown -h now
 
 ### 用語の説明
 
-編集中 
+編集中
 
 -->
 
