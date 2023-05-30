@@ -586,7 +586,7 @@ document.write(`
 </pre></div>
 </div>
 <p>皆さんの実装したプログラムが，どのようにメモリ上に展開され実行されているか理解できると様々な意図せぬ動作の解決に役立ちます． ちなみに，上記の出力は分かりやすさを重視するために，以下のようにしてASLRを解除した場合の出力になります．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>kernel.randomize_va_space<span class="o">=</span><span class="m">0</span><span class="w"> </span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>kernel.randomize_va_space<span class="o">=</span><span class="m">0</span>
 </pre></div>
 </div>
 <div class="admonition hint">
@@ -619,7 +619,7 @@ document.write(`
 </ul>
 <p>参考URL</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html">バッファオーバーラン ～その１・こうして起こる～</a></p></li>
+<li><p><a class="reference external" href="https://web.archive.org/web/20210426084806/http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html">バッファオーバーラン ～その１・こうして起こる～（アーカイブ記事）</a></p></li>
 <li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2014/03/14/151011">単純なスタックバッファオーバーフロー攻撃をやってみる</a></p></li>
 <li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2014/07/06/185125">x86とx64の両方で動くシェルコードを書いてみる</a></p></li>
 <li><p><a class="reference external" href="http://inaz2.hatenablog.com/entry/2014/07/31/010158">x64でROP stager + Return-to-dl-resolve + __libc_csu_init gadgetsによるASLR+DEP回避をやってみる</a></p></li>
