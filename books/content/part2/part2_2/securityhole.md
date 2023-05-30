@@ -148,8 +148,9 @@ Simple HTTPサーバにはこの脆弱性がありますので，クライアン
 
 参考URL
 
--   [バッファオーバーラン ～その１・こうして起こる～](http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html)
+
 -   [バッファオーバーラン ～その１・こうして起こる～（アーカイブ記事）](https://web.archive.org/web/20210426084806/http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html)
+-   [単純なスタックバッファオーバーフロー攻撃をやってみる](http://inaz2.hatenablog.com/entry/2014/03/14/151011)
 -   [x86とx64の両方で動くシェルコードを書いてみる](http://inaz2.hatenablog.com/entry/2014/07/06/185125)
 -   [x64でROP stager + Return-to-dl-resolve + \_\_libc\_csu\_init gadgetsによるASLR+DEP回避をやってみる](http://inaz2.hatenablog.com/entry/2014/07/31/010158)
 -   [ARMで単純なスタックバッファオーバーフロー攻撃をやってみる](http://inaz2.hatenablog.com/entry/2015/03/06/220345)
