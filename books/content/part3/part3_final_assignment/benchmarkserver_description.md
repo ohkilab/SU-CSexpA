@@ -89,7 +89,7 @@ webシステムの計測が終了すると，計測結果が表示されます�
 
 ## ベンチマークサーバの仕様
 ### 計測結果のステータス
-計測結果画面には，「Success」の他に，「Connection Failed」，「Validation Error」ステータスについても表示されることがあります．
+計測結果画面には，「Success」の他に，「Connection Failed」，「Validation Error」，「Timeout」ステータスについても表示されることがあります．
 
 ```{image} ../../../images/part3/part3_2/result_connection_failed.png
 :alt: 接続失敗画面
@@ -103,5 +103,12 @@ webシステムの計測が終了すると，計測結果が表示されます�
 :align: center
 ```
 
+```{image} ../../../images/part3/part3_2/result_timeout.png
+:alt: タイムアウト画面
+:width: 800px
+:align: center
+```
+
 「Connection Failed」ステータスは，ベンチマークサーバとの接続に失敗した場合に表示されます．IPアドレスやサーバーの起動を確認してください．
 「Validation Error」ステータスは，レスポンスの形式が異なる場合に表示されます．[競技ルール](./regulation.md "レスポンス形式")を今一度確認してください．
+「Timeout」ステータスは，決められた時間内にレスポンスが返却されなかった場合に表示されます．
