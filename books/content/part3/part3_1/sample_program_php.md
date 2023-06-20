@@ -123,7 +123,7 @@ ufwなどを使って，特定のIP（今回で言えば，実験に使う皆さ
   <body>
     <h1>Flickrに最近アップロードされた500枚</h1>
 <?php
-$Flickr_apikey = "600dfca58e06413caa4125ce28da02b7";
+$Flickr_apikey = "XXXXXXXXXXXX"; API Keyの取得方法については別ページを参照
 $Flickr_getRecent = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=".$Flickr_apikey."&extras=url_s&per_page=500&format=php_serial";
 $result = unserialize(file_get_contents($Flickr_getRecent));
 $colors = array(
@@ -160,6 +160,12 @@ foreach($result["photos"]["photo"] as $k => $photo){
 ```
 
 PHPの使い方に関してはインターネットや書籍で調べてもらうとして，これまで勉強してきたCやJava等のプログラミング言語と比べて理解しにくい所のみを補足しておきます．
+
+### Flickr API Keyの取得
+上記コードでは Flickr API Key はXXXXXXXXとなっていますが，これは自分で取得したAPI Keyに置き換えましょう．
+Flickr API Keyの取得方法についてはこちらのページを参照してください．
+
+- [Flickr API Keyの取得方法](../../part3/part3_1/flickr_api.md)
 
 ### PHPプログラムの配置
 
