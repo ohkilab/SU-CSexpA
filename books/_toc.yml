@@ -112,6 +112,8 @@ parts:
             title: サンプルプログラム(JavaScript)
           - file: content/part3/part3_1/benchmark_soft_ab
             title: ベンチマークソフトab（Apache Bench）（必須）
+          - file: content/part3/part3_1/flickr_api
+            title: Flickr API Keyの取得
 
       - file: content/part3/part3_2/overview
         title: "[Day11] Webシステムの設計と実装"
