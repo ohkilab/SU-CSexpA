@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">サンプルプログラム(PHP)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flickr_api.html">Flickr API Keyの取得</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part3_2/overview.html">[Day11] Webシステムの設計と実装</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -464,6 +465,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">サンプルプログラム（PHP）の解説</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flickr-api-key">Flickr API Keyの取得</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">PHPプログラムの配置</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">変数の定義</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">+演算子と.演算子</a></li>
@@ -588,7 +590,7 @@ document.write(`
 <span class="x">  &lt;body&gt;</span>
 <span class="x">    &lt;h1&gt;Flickrに最近アップロードされた500枚&lt;/h1&gt;</span>
 <span class="cp">&lt;?php</span>
-<span class="nv">$Flickr_apikey</span> <span class="o">=</span> <span class="s2">&quot;600dfca58e06413caa4125ce28da02b7&quot;</span><span class="p">;</span>
+<span class="nv">$Flickr_apikey</span> <span class="o">=</span> <span class="s2">&quot;XXXXXXXXXXXX&quot;</span><span class="p">;</span> <span class="nx">API</span> <span class="nx">Keyの取得方法については別ページを参照</span>
 <span class="nv">$Flickr_getRecent</span> <span class="o">=</span> <span class="s2">&quot;https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&amp;api_key=&quot;</span><span class="o">.</span><span class="nv">$Flickr_apikey</span><span class="o">.</span><span class="s2">&quot;&amp;extras=url_s&amp;per_page=500&amp;format=php_serial&quot;</span><span class="p">;</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nb">unserialize</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$Flickr_getRecent</span><span class="p">));</span>
 <span class="nv">$colors</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -625,6 +627,14 @@ document.write(`
 </pre></div>
 </div>
 <p>PHPの使い方に関してはインターネットや書籍で調べてもらうとして，これまで勉強してきたCやJava等のプログラミング言語と比べて理解しにくい所のみを補足しておきます．</p>
+<section id="flickr-api-key">
+<h3>Flickr API Keyの取得<a class="headerlink" href="#flickr-api-key" title="Permalink to this heading">#</a></h3>
+<p>上記コードでは Flickr API Key はXXXXXXXXとなっていますが，これは自分で取得したAPI Keyに置き換えましょう．
+Flickr API Keyの取得方法についてはこちらのページを参照してください．</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="flickr_api.html"><span class="doc std std-doc">Flickr API Keyの取得方法</span></a></p></li>
+</ul>
+</section>
 <section id="id6">
 <h3>PHPプログラムの配置<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <p>今回のサンプルプログラム（PHP）をよく眺めてみてください．PHPの記述は31行目～62行目までしかなく，その外側はHTMLだということに気付くと思います．つまり，PHPのプログラムはHTMLへ埋め込まれる形で，<strong>&lt;?php</strong> と <strong>?&gt;</strong> で囲まれた行に記述します．</p>
@@ -744,6 +754,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">サンプルプログラム（PHP）の解説</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flickr-api-key">Flickr API Keyの取得</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">PHPプログラムの配置</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">変数の定義</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">+演算子と.演算子</a></li>

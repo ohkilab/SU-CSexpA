@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../part3_1/sample_program_php.html">サンプルプログラム(PHP)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part3_1/sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part3_1/benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part3_1/flickr_api.html">Flickr API Keyの取得</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part3_2/overview.html">[Day11] Webシステムの設計と実装</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -475,7 +476,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b">実装B</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">実装C</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">性能比較</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">応用課題2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">応用課題（一部必須）</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">①検索サーバ高性能化コンテスト</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-mpm">②Apache MPMによる高速化結果との比較</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">③自由課題（イマジネーション）チーム</a></li>
@@ -830,10 +833,10 @@ DROP<span class="w"> </span>TABLE<span class="w"> </span>tag,geotag<span class="
 <p>いずれにせよロジカルな仮説を立てて様々な工夫を試行錯誤をしてみてください．その内容を個別レポートで適切にアピールしてあると高評価になると思います．</p>
 <p>上記abコマンドの引数（各班の性能差を際立たせるために重めの負荷になるよう設定）で各実装を複数回性能比較するとかなりの時間を要しますので，普段のデバッグ時は軽めの負荷で検証を進めてください．グループ発表や個別レポートに掲載する値は，上記abコマンドの引数の結果でお願いします．もし上記設定値での計測でも時間がかかりすぎて困難な場合は，cの値を下げていき，最終的には-n 1，-c 1での計測でも構いません．ただし，abのパラメータ値は，発表時も個別レポートでも必ず気付きやすいよう強調して明記しておいてください．</p>
 </section>
-<section id="id11">
-<h3>応用課題2<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
-<p>分担で①は必須，②は任意でやれるところまで，③は任意で実施してください．</p>
 </section>
+<section id="id11">
+<h2>応用課題（一部必須）<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<p>分担で①は必須，②は任意でやれるところまで，③は任意で実施してください．</p>
 <section id="id12">
 <h3>①検索サーバ高性能化コンテスト<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <p>①はprogAの独自仕様による超高性能化をコンテスト形式で実施します．全員必須課題です．</p>
@@ -985,7 +988,9 @@ DROP<span class="w"> </span>TABLE<span class="w"> </span>tag,geotag<span class="
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b">実装B</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">実装C</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">性能比較</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">応用課題2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">応用課題（一部必須）</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">①検索サーバ高性能化コンテスト</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-mpm">②Apache MPMによる高速化結果との比較</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">③自由課題（イマジネーション）チーム</a></li>
