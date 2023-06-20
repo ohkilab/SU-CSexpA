@@ -457,12 +457,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">競技内容</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">競技日程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">予選と本選でのベンチマークサーバの違い</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[重要]2022年度本選での予選からの変更事項</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">採点方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">禁止事項</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">ヒント</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">検索サーバ高性能化コンテストの独自仕様</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">採点方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">競技日程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">予選と本選でのベンチマークサーバの違い</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">禁止事項</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">ヒント</a></li>
 </ul>
             </nav>
         </div>
@@ -483,14 +483,104 @@ document.write(`
 ベンチマークのランキングはリアルタイムに確認可能ですので，1位を目指して頑張ってください．</p>
 </section>
 <section id="id3">
-<h2>競技日程<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<p>本競技は予選期間・本選期間からなります．各期間は講義スケジュールのページを確認してください</p>
+<h2>検索サーバ高性能化コンテストの独自仕様<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>各班の出力形式による速度の違いを回避するために，以下のJSON形式で出力するようにしてください．</p>
+<ul class="simple">
+<li><p>Content-Type：<code class="docutils literal notranslate"><span class="pre">application/json</span></code></p></li>
+<li><p>パラメータ</p></li>
+</ul>
+<table class="table" id="bench-options">
+<thead>
+<tr class="row-odd"><th class="head"><p>キー</p></th>
+<th class="head"><p>タイプ</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>tag</p></td>
+<td><p>string</p></td>
+<td><p>タグ名</p></td>
+</tr>
+<tr class="row-odd"><td><p>results</p></td>
+<td><p>[]TagResult</p></td>
+<td><p>そのタグが含まれるレコードの一覧で撮影時刻降順（最新順）．ただし，撮影時刻が同じレコードの順序は問いません．また，100件を超える場合は上位100件のみを返してください．</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>TagResult</p></li>
+</ul>
+<table class="table" id="id4">
+<thead>
+<tr class="row-odd"><th class="head"><p>キー</p></th>
+<th class="head"><p>タイプ</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>lat</p></td>
+<td><p>float</p></td>
+<td><p>緯度</p></td>
+</tr>
+<tr class="row-odd"><td><p>lon</p></td>
+<td><p>float</p></td>
+<td><p>経度</p></td>
+</tr>
+<tr class="row-even"><td><p>date</p></td>
+<td><p>string(<code class="docutils literal notranslate"><span class="pre">^\d{4}-\d{2}-\d{2}</span> <span class="pre">\d{2}:\d{2}:\d{2}</span></code>)</p></td>
+<td><p>撮影時刻</p></td>
+</tr>
+<tr class="row-odd"><td><p>url</p></td>
+<td><p>string(<code class="docutils literal notranslate"><span class="pre">^http[s]?://farm\d\.static\.flickr\.com/\d+/.+\.jpg$</span></code>)</p></td>
+<td><p>写真のURL</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>例</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;tag&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;flamingofilter&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;results&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;lat&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">37.616333</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;lon&quot;</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">77.527664</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2012-08-01 11:11:04&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://farm9.static.flickr.com/8226/8569131977_60823a1a25.jpg&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;lat&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">43.922165</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;lon&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">4.786333</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2012-07-09 19:02:43&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://farm9.static.flickr.com/8107/8484932516_ca2fa47cf0.jpg&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;lat&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">44.192333</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;lon&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">4.741333</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2012-07-09 19:00:57&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://farm9.static.flickr.com/8384/8483835779_d9a8eccde2.jpg&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>採点方法<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>webシステムの性能値(スコア)の高さを競うものとします．</p></li>
+<li><p>webシステムの性能値は，webシステムのRequest Per Second（1秒間に処理を行うHTTPリクエストの数）で評価し，このスコアが1番高いチームを優勝とします．</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>競技日程<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>本競技は予選期間・本選期間からなります．各期間は講義スケジュールのページを確認してください．</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../schedule.html"><span class="doc std std-doc">講義スケジュール</span></a></p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>予選と本選でのベンチマークサーバの違い<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<section id="id7">
+<h2>予選と本選でのベンチマークサーバの違い<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <p>予選用と本選ではベンチマークサーバの仕様が若干異なります．
 以下に予選と本戦での違いを記載します．</p>
 <ul class="simple">
@@ -498,56 +588,23 @@ document.write(`
 <li><p><strong>タグ</strong>：予選では計測に使用されるタグに条件はありません．本選ではグループ内の異なる計測で同じタグは使用されません（異なるグループ間の計測で同じタグが使用されることはあります）．</p></li>
 </ul>
 </section>
-<section id="id5">
-<h2>[重要]2022年度本選での予選からの変更事項<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
-<p>ベンチマーク用の検索結果は以下のJSON形式で出力するようにしてください（出力形式による速度の違いを回避するためです）．</p>
-<ul class="simple">
-<li><p>キーとして”tag”と”results”を含む</p></li>
-<li><p>“tag”キーは値として検索タグを保持する</p></li>
-<li><p>“results”キーは検索結果を含む配列を保持する</p></li>
-<li><p>各検索結果は緯度，軽度，撮影時刻，写真のURLを保持する4つのキーから構成される</p></li>
-</ul>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;tag&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;検索タグ名&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;results&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;lat&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">緯度</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;lon&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">経度</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;撮影時刻&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;写真のURL&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">...</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;lat&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">緯度</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;lon&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">経度</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;撮影時刻&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;写真のURL&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-<section id="id6">
-<h2>採点方法<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>webシステムの性能値(スコア)の高さを競うものとします．</p></li>
-<li><p>webシステムの性能値は，webシステムのRequest Per Second（1秒間に処理を行うHTTPリクエストの数）で評価し，このスコアが1番高いチームを優勝とします．</p></li>
-</ul>
-</section>
-<section id="id7">
-<h2>禁止事項<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<section id="id8">
+<h2>禁止事項<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>本選において，計測に使用されるタグを推測するために複数のグループで協力する行為を禁止します．</p></li>
 <li><p>ベンチマークサーバを悪用して他グループや学内･学外のシステムに対してリクエストを送る行為を禁止します．</p></li>
 <li><p>ベンチマークサーバに直接アクセスを試みる行為を禁止します．</p></li>
 <li><p>ベンチマークサーバにループなどを使用して大量の計測リクエストを送信する行為を禁止します．</p></li>
-<li><p>自宅用ベンチマークサーバを逆コンパイルする行為を禁止します．</p></li>
 </ul>
 </section>
-<section id="id8">
-<h2>ヒント<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
-<p>検索システムにはキャッシュが存在します．このためMySQLなどでは同じ検索ワードで複数回検索を行うと2回目以降で検索速度が早くなることがあります．(特に本選用ベンチマークサーバは)限られた回数しかベンチマークを実行できず，実行ごとの検索ワードも異なります．このため，特定の検索ワードのみ検索を早くしたり，単純な方法でキャッシュによる高速化を行うことは難しくなっています．どのような単語で検索されても（それが過去に問い合わせされたことがない検索語でも）高速に返答をするためにはどのような方法があるかを考えてみましょう</p>
+<section id="id9">
+<h2>ヒント<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<p>検索システムにはキャッシュが存在します．このためMySQLなどでは同じ検索ワードで複数回検索を行うと2回目以降で検索速度が早くなることがあります．(特に本選用ベンチマークサーバは)限られた回数しかベンチマークを実行できず，実行ごとの検索ワードも異なります．このため，特定の検索ワードのみ検索を早くしたり，単純な方法でキャッシュによる高速化を行うことは難しくなっています．どのような単語で検索されても（それが過去に問い合わせされたことがない検索語でも）高速に返答をするためにはどのような方法があるかを考えてみましょう．</p>
+<p>また，イメージを掴みやすくなるよう，いつくかの言語でサンプルプログラムを用意しました．HTTPリクエスト・レスポンスの確認など参考にしてみてください．
+ただし，高速化は一切行われていません．これをベースとして高速化を行うのも良いですし，全く新しいものを開発していて頂いても構いません．</p>
+<ul class="simple">
+<li><p><a class="github reference external" href="https://github.com/ohkilab/SU-expA-final-references">ohkilab/SU-expA-final-references</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -619,12 +676,12 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">競技内容</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">競技日程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">予選と本選でのベンチマークサーバの違い</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">[重要]2022年度本選での予選からの変更事項</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">採点方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">禁止事項</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">ヒント</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">検索サーバ高性能化コンテストの独自仕様</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">採点方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">競技日程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">予選と本選でのベンチマークサーバの違い</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">禁止事項</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">ヒント</a></li>
 </ul>
   </nav></div>
 
