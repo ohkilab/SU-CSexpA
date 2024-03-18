@@ -26,6 +26,8 @@ parts:
             title: RaspberryPiの接続
           - file: content/part1/part1_1/connect_raspberry_non_monitor
             title: モニタがない状況でのRaspberryPiの接続
+          - file: content/part1/part1_1/update
+            title: ソフトウェアのアップデート
           - file: content/part1/part1_1/environment_building_vscode
             title: VSCodeを使った環境構築（任意）
 
