@@ -6,7 +6,7 @@
 
 最終的な構成は以下のようになります．
 
-```{image} ../../../images/part1/part1_1/non_monitor_configration.png
+```{image} ../../../images/part1/part1_1/configration_wired.png
 :alt: RaspberryPiの接続
 :width: 400px
 :align: center
