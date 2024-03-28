@@ -1,6 +1,9 @@
 # Day1 の目的と概要
 
--   a) [RaspberryPiの接続](./connect_raspberry.md)
+- a) [RaspberryPiのセッティング](./raspberry_setting.md)
+- b) [RaspberryPiの接続](./connect_raspberry.md)
+- c) [モニタがない状況でのRaspberryPiの接続](./connect_raspberry_non_monitor.md)
+- d) [ソフトウェアのアップデート](./update.md)
 
 ```{admonition} 本日の進捗確認チェックリスト
 - 13:30: RaspberryPiを起動できましたか？
