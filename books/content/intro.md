@@ -24,8 +24,9 @@ RaspberryPiについてはセットアップ済のイメージをこちらで用
 ### \[Day1\] 環境構築と実験の開始
 
 - RaspberryPiのセッティング
-- RaspberryPiの接続
-- モニタがない状況でのRaspberryPiの接続（必須）
+- RaspberryPiの有線接続
+- RaspberryPiの無線接続
+- ソフトウェアのアップデート
 - VSCodeを使った環境構築（任意）
 
 ### \[Day2\] 通信性能の計測
