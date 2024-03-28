@@ -163,6 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">RaspberryPiのセッティング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect_raspberry.html">RaspberryPiの接続</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect_raspberry_non_monitor.html">モニタがない状況でのRaspberryPiの接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">ソフトウェアのアップデート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
 </ul>
 </li>
@@ -459,8 +460,9 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前準備</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">モニタと電源の接続</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">パスワードの変更</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">初期設定</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lan">無線LANの設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sshvnc">SSH、VNCサーバの有効化</a></li>
 </ul>
             </nav>
         </div>
@@ -474,7 +476,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="raspberrypi">
 <h1>RaspberryPiのセッティング<a class="headerlink" href="#raspberrypi" title="Permalink to this heading">#</a></h1>
-<p>実験はラズパイとPCの２つの機材を用いて図のような形式で実験を行います。</p>
+<p>実験はラズパイとPCの２つの機材を用いて図のような形式で実験を行います．</p>
 <a class="reference internal image-reference" href="../../../_images/configuration.png"><img alt="RaspberryPiの接続" class="align-center" src="../../../_images/configuration.png" style="width: 400px;" /></a>
 <section id="id1">
 <h2>前準備<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
@@ -482,38 +484,41 @@ document.write(`
 </section>
 <section id="id2">
 <h2>モニタと電源の接続<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<p>Raspberry Piは「 <strong>microUSB 端子に電源を接続する前に</strong> 」HDMIケーブルを接続しないとモニタを認識しません．実験では基本モニタを用いて実施しますので必ず電源接続前にHDMIケーブルを接続するようにしましょう．</p>
-<p>RaspberryPiのmicroUSB端子に電源を接続します．</p>
+<p>Raspberry Piは「 <strong>USB C端子に電源を接続する前に</strong> 」HDMIケーブルを接続しないとモニタを認識しません．実験では基本モニタを用いて実施しますので必ず電源接続前にHDMIケーブルを接続するようにしましょう．</p>
+<p>RaspberryPiのUSB C端子に電源を接続します．</p>
 <p><img alt="raspi-usb.jpg" src="../../../_images/400px-raspi-usb.jpg" /></p>
 </section>
 <section id="id3">
-<h2>パスワードの変更<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<p>RaspberryPiの初期設定は以下のようになっています．</p>
+<h2>初期設定<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>電源をつけるとRaspberryPiの初期設定画面が表示されます．設定項目としては以下のようなものがあります． <strong>ユーザー名は簡略化のためpiとしてください．パスワードは適時設定し，忘れないように必ずメモをしておいてください※．</strong> また，wifi接続とアップデートは後に実施するためスキップしてください．</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>※パスワード変更はコンソールログイン，VNC接続やSSH接続，sudoでのコマンド実行など全てに影響します．ここで設定したパスワードを忘れると復旧は難しいので特に注意してメモを取るなどの対策をとってください．</p>
+</div>
+<ul class="simple">
+<li><p>言語選択</p></li>
+<li><p>ユーザ名，パスワード設定</p></li>
+<li><p>wifi接続（スキップしてください）</p></li>
+<li><p>アップデート（スキップしてください）</p></li>
+</ul>
+<p>以降，講義資料内の説明においては下記ユーザー名とパスワードを用いるものとします．</p>
 <ul class="simple">
 <li><p>ユーザ名: pi</p></li>
 <li><p>パスワード: raspberry</p></li>
 </ul>
-<p>以降，説明においては，RaspberryPiへの接続はこのユーザー名とパスワードを用いていきます．当然ですが，初期設定のままでは他の人もあなたのRaspberry Piにこのパスワードで接続が行えてしまい大変危険ですので，すぐにパスワードを変更しておきましょう．</p>
-<p>ターミナルを開いて，以下のコマンドでパスワード変更をしてください．パスワード変更はコンソールログイン，VNC接続やSSH接続，sudoでのコマンド実行など全てに影響します．ここで設定したパスワードを忘れると復旧は難しいので特に注意してください．</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>ここで設定したパスワードを忘れると復旧は難しいので特に注意してください．</p>
-</div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>passwd
-</pre></div>
-</div>
 </section>
 <section id="lan">
 <h2>無線LANの設定<a class="headerlink" href="#lan" title="Permalink to this heading">#</a></h2>
-<p>大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 3B）からは無線接続が困難です．（どうしても大学のネットワークで無線を使いたい場合は<a class="reference external" href="https://blog.cles.jp/item/12794">ここ</a>などを参照すると良いかもしれません）</p>
-<p>本講義では作業簡略化のため<strong>実験用の仮ネットワークを用意しておりますので担当教員からのパスワードなどの情報開示をお待ちください．</strong></p>
+<p>大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 4）からは無線接続が困難です．本講義では作業簡略化のため<strong>実験用の仮ネットワークを用意しておりますので担当教員からのパスワードなどの情報開示をお待ちください．</strong></p>
 <p>右上に表示されているアイコンから無線LAN設定を行うことができます．情報開示次第各自接続するWifiの設定を行ってください．</p>
 <p><img alt="wifi.png" src="../../../_images/wifi.png" /></p>
-<p>RaspberryPiは配布時点の環境が最新版とは限りません．実験ではPCと接続している有線/無線LANネットワークを利用しますので，脆弱性対策の観点から実験実施時はこまめにアップデートを行うようにしてください．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">$sudo</span><span class="w"> </span>apt<span class="w"> </span>update
-<span class="nv">$sudo</span><span class="w"> </span>apt<span class="w"> </span>upgrade
-</pre></div>
-</div>
+</section>
+<section id="sshvnc">
+<h2>SSH、VNCサーバの有効化<a class="headerlink" href="#sshvnc" title="Permalink to this heading">#</a></h2>
+<p>PCからRaspberryPiに接続するため，SSH，VNCを有効化します．左上のアイコンから<code class="docutils literal notranslate"><span class="pre">設定＞RaspberryPiの設定</span></code>を選択してください．</p>
+<p><img alt="ssh_vnc1.png" src="../../../_images/ssh_vnc1.png" /></p>
+<p>ウインドウが開くので，SSHとVNCのトグルスイッチを有効にしてください．</p>
+<p><img alt="ssh_vnc2.png" src="../../../_images/ssh_vnc2.png" /></p>
 </section>
 </section>
 
@@ -586,8 +591,9 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前準備</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">モニタと電源の接続</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">パスワードの変更</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">初期設定</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lan">無線LANの設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sshvnc">SSH、VNCサーバの有効化</a></li>
 </ul>
   </nav></div>
 
