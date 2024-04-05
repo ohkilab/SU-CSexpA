@@ -78,7 +78,7 @@ int main( int argc, char* argv[] ) {
 このアプリケーション層でのバッファのサイズを様々に変更して，より深い計測・分析を進めることで read/write, fread/fwrite の違い（関数内でのバッファリング処理との関係）やその理由を更にはっきりさせることができるでしょう．
 以下のサイト等も参考にしながら実際に試してみて結果を分析し深く考察してみてください．
 
--   参考: [Man page of setvbuf](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/setbuf.3.html)
+-   参考: [Man page of setvbuf](https://nxmnpg.lemoda.net/ja/3/setvbuf)
 -   参考：[システムコールと標準ライブラリ関数の違いを知る](http://www.atmarkit.co.jp/ait/articles/1112/13/news117.html)
 -   参考：[バッファリング有り無し](http://www1.cts.ne.jp/~clab/hsample/File/File11/File11.html)
 ```
@@ -108,5 +108,5 @@ int main( int argc, char* argv[] ) {
 以下のサイトで紹介されている変更は，現在動作しているKernelのパラメータを変更するものです．
 変更の結果は，OSの挙動に影響を及ぼします．自分だけではなく，OS自体やサーバ上で動作しているサービス類，同じサーバにログインしている他の人にも影響することになりますので注意してください．
 
--   参考: [【sysctl】Linux カーネルパラメータのチューニング](https://fisproject.jp/2017/04/tuning-kernel-parameters-for-linux/)
+-   参考: [ Linux カーネルパラメータのチューニング ](https://qiita.com/ryuichi1208/items/3bb7a270fe650b2f7260)
 ```

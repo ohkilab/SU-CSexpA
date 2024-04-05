@@ -130,7 +130,7 @@ Makefileの内容はサンプルコードによって異なりますが，典型
 
 ### 参考情報
 
--   [Man page of GCC](http://linuxjm.sourceforge.jp/html/GNU_gcc/man1/gcc.1.html)
+-   [Man page of GCC](https://nxmnpg.lemoda.net/ja/1/gcc)
 
 ## \[必須課題1\] コマンドライン引数
 
@@ -149,7 +149,7 @@ int main(int argc, char** argv) {
 
 ```
 
--   参考: [Man page of printf](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/printf.3.html)
+-   参考: [Man page of printf](https://nxm.npg.lemoda.net/ja/3/printf)
 
 ### 実行方法
 
@@ -187,8 +187,8 @@ int main(int argc, char** argv) {
 
 readとwriteは，入出力を行うシステムコールです．
 
--   [Man page of read](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man2/read.2.html)
--   [Man page of write](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man2/write.2.html)
+-   [Man page of read](https://nxmnpg.lemoda.net/ja/2/read)
+-   [Man page of write](https://nxmnpg.lemoda.net/ja/2/write)
 
 readとwriteで与えられている引数のファイル記述子(fd: file descriptor)は，0が標準入力，1が標準出力を意味しています．
 
@@ -243,8 +243,8 @@ int main(int argc, char** argv) {
 
 必須課題2に加えてopenとcloseというシステムコールを使います．
 
--   参考: [Man page of open](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man2/open.2.html)
--   参考: [Man page of close](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man2/close.2.html)
+-   参考: [Man page of open](https://nxmnpg.lemoda.net/ja/2/open)
+-   参考: [Man page of close](https://nxmnpg.lemoda.net/ja/2/close)
 
 ### 実行方法
 
@@ -288,10 +288,10 @@ int main(int argc, char** argv) {
 
 fopen，fread，fwrite，fcloseは，ファイルの入出力を行うopen，read，write，closeのラッパーです．
 
--   [Man page of fopen](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fopen.3.html)
--   [Man page of fread](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fread.3.html)
--   [Man page of fwrite](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fwrite.3.html)
--   [Man page of fclose](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/fclose.3.html)
+-   [Man page of fopen](https://nxmnpg.lemoda.net/ja/3/fopen)
+-   [Man page of fread](https://nxmnpg.lemoda.net/ja/3/fread)
+-   [Man page of fwrite](https://nxmnpg.lemoda.net/ja/3/fread)
+-   [Man page of fclose](https://nxmnpg.lemoda.net/ja/3/fclose)
 
 ### 実行方法
 
@@ -346,8 +346,8 @@ int main(int argc, char** argv) {
 
 fgets，fputsは，文字列の入出力を行うread，writeのラッパーです．
 
--   [Man page of puts](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/putc.3.html)
--   [Man page of fgets](http://linuxjm.sourceforge.jp/html/LDP_man-pages/man3/getc.3.html)
+-   [Man page of puts](https://nxmnpg.lemoda.net/ja/3/puts)
+-   [Man page of fgets](https://nxmnpg.lemoda.net/ja/3/fgets)
 
 ### 実行方法
 
