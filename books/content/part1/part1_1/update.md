@@ -7,3 +7,5 @@ RaspberryPiは配布時点の環境が最新版とは限りません．実験で
 $sudo apt update
 $sudo apt upgrade
 ```
+
+また，RaspberryPiのChromiumについて，起動すると画面がちかちかしてうまく使えない症状が例年発生しています．可能であればRaspberryPiにFireFoxをインストールしておくことをお勧めします．
