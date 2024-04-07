@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>RaspberryPiの接続 &#8212; 情報科学実験A</title>
+    <title>RaspberryPiの無線接続 &#8212; 情報科学実験A</title>
   
   
   
@@ -61,10 +61,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part1/part1_1/connect_raspberry';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part1/part1_1/connect_raspberry_wireless';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="モニタがない状況でのRaspberryPiの接続" href="connect_raspberry_non_monitor.html" />
+    <link rel="next" title="RaspberryPiの有線接続" href="connect_raspberry_wired.html" />
     <link rel="prev" title="RaspberryPiのセッティング" href="raspberry_setting.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -161,8 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day1] 環境構築と実験の開始</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="raspberry_setting.html">RaspberryPiのセッティング</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">RaspberryPiの接続</a></li>
-<li class="toctree-l2"><a class="reference internal" href="connect_raspberry_non_monitor.html">モニタがない状況でのRaspberryPiの接続</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">RaspberryPiの無線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connect_raspberry_wired.html">RaspberryPiの有線接続</a></li>
 <li class="toctree-l2"><a class="reference internal" href="update.html">ソフトウェアのアップデート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
 </ul>
@@ -336,7 +336,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_1/connect_raspberry.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_1/connect_raspberry_wireless.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +366,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../../_sources/content/part1/part1_1/connect_raspberry.md" target="_blank"
+      <li><a href="../../../_sources/content/part1/part1_1/connect_raspberry_wireless.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -448,7 +448,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>RaspberryPiの接続</h1>
+    <h1>RaspberryPiの無線接続</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -458,25 +458,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">IPアドレスの確認方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSHクライアントのインストール</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windowsを使う場合</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linuxを使う場合</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">RaspberryPiへのターミナル接続</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">RaspberryPiへのファイル転送</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmraspberrypi">VMからRaspberryPiへの接続の確認</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openssh-server">openssh-serverのインストール</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmraspberrypissh">VM環境からRaspberryPiへのSSH接続の確認</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmlinuxpc">VM上のLinuxにPCからファイルを転送</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">モニタがない状況でのRaspberryPiの接続</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">外部から接続する場合（任意）</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">エディタを使った接続（任意）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypiip">RaspberryPiのIPアドレスの確認方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcraspberrypissh">PCからRaspberryPiへのSSH接続</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcraspberrypi">PCからRaspberryPiへのファイル転送</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmraspberrypissh">VM環境からRaspberryPiへのSSH接続</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcvm">PCからVM環境へのファイル転送</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">外部から接続する場合（任意）</a></li>
 </ul>
             </nav>
         </div>
@@ -489,10 +476,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="raspberrypi">
-<h1>RaspberryPiの接続<a class="headerlink" href="#raspberrypi" title="Permalink to this heading">#</a></h1>
-<p>２つの機材を用いて作業を行なう都合上，ファイルのやり取りなどで通信を行う必要が発生します．本項では主にRaspberryPiとPCの通信を行う方法をいくつか紹介します．</p>
-<section id="ip">
-<h2>IPアドレスの確認方法<a class="headerlink" href="#ip" title="Permalink to this heading">#</a></h2>
+<h1>RaspberryPiの無線接続<a class="headerlink" href="#raspberrypi" title="Permalink to this heading">#</a></h1>
+<p>２つの機材を用いて作業を行なう都合上，ファイルのやり取りなどで通信を行う必要が発生します．本項では主にRaspberryPiとPCを無線で接続して通信を行う方法をいくつか紹介します．</p>
+<section id="raspberrypiip">
+<h2>RaspberryPiのIPアドレスの確認方法<a class="headerlink" href="#raspberrypiip" title="Permalink to this heading">#</a></h2>
 <p>RaspberryPiのIPアドレスは以下のコマンドを用いて確認します．本講義ではwlan0のIPを高頻度で扱うため確認方法を覚えておくと良いでしょう．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ip<span class="w"> </span>a
 
@@ -511,53 +498,23 @@ inet<span class="w"> </span><span class="m">192</span>.168.100.17/24
 </pre></div>
 </div>
 </section>
-<section id="ssh">
-<h2>SSHクライアントのインストール<a class="headerlink" href="#ssh" title="Permalink to this heading">#</a></h2>
-<p>RaspberryPiへのファイル転送にはSSHプロトコルを利用します．SSHプロトコルはターミナル接続用途にもファイル転送用途にも利用できます（通信アプリケーションは異なります）．</p>
-<section id="windows">
-<h3>Windowsを使う場合<a class="headerlink" href="#windows" title="Permalink to this heading">#</a></h3>
-<p>Webアプリケーション開発に必要なソフトは3つです</p>
-<ul class="simple">
-<li><p>SSH(ターミナル接続)</p>
-<ul>
-<li><p>大抵の場合標準で使用できます．コマンドラインからsshと打ってみてください．</p></li>
-<li><p>お勧め:<a class="reference external" href="https://www.putty.org/">Putty</a></p></li>
-<li><p>（お勧め:<a class="reference external" href="https://osdn.net/projects/ttssh2/releases/">TeraTerm</a>）</p></li>
-</ul>
-</li>
-<li><p>SCP(ファイル転送)</p>
-<ul>
-<li><p>お勧め：<a class="reference external" href="http://winscp.net/eng/docs/lang:jp">WinSCP</a></p></li>
-</ul>
-</li>
-</ul>
+<section id="pcraspberrypissh">
+<h2>PCからRaspberryPiへのSSH接続<a class="headerlink" href="#pcraspberrypissh" title="Permalink to this heading">#</a></h2>
+<p>コマンドプロンプトを開いて，RaspberryPiにPingを送って通信状態を確認します．大かっこの中は適宜読み替えてください．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ping<span class="w"> </span><span class="o">{</span>確認したRaspberryPiのIPアドレス<span class="o">}</span>
+</pre></div>
+</div>
+<p>SSHでRaspberryPiにログインします．最初の接続のみ，ホスト鍵を受け入れるか聞かれますので”yes”とします．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh<span class="w"> </span>pi@<span class="o">{</span>確認したRaspberryPiのIPアドレス<span class="o">}</span>
+</pre></div>
+</div>
+<p>ユーザ名とパスワードが一致すればログインできます．SSH接続中は<code class="docutils literal notranslate"><span class="pre">exit</span></code>を打ち込むことで，SSH接続を切ることができます．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">exit</span>
+</pre></div>
+</div>
 </section>
-<section id="linux">
-<h3>Linuxを使う場合<a class="headerlink" href="#linux" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>SSH(ターミナル接続)</p>
-<ul>
-<li><p>大抵の場合標準で使用できます．コマンドラインからsshと打ってみてください．</p></li>
-<li><p><a class="reference external" href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230889/">【 ssh 】 SSHでリモート・マシンのコマンドを実行する</a>
--SCP(ファイル転送)</p></li>
-<li><p>大抵の場合標準で使用できます．コマンドラインからscpと打ってみてください．</p></li>
-<li><p><a class="reference external" href="http://itpro.nikkeibp.co.jp/article/COLUMN/20060227/230878/">【 scp 】 リモート・マシン間でファイルをコピーする</a></p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<section id="id1">
-<h2>RaspberryPiへのターミナル接続<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>Windows環境からの接続を例に説明します．</p>
-<p>TeraTermを起動，RaspberryPiのIPアドレスを入力して先程確認したIPアドレスを打ち込み（画像では<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>）SSHで接続</p>
-<p><img alt="tterm1.png" src="../../../_images/tterm1.png" /></p>
-<p>RaspberryPi上のアカウント（pi）でログイン</p>
-<p><img alt="tterm2.png" src="../../../_images/tterm2.png" /></p>
-<p>初回のみセキュリティ警告が出てくるので[続行]を押します．ログインに成功すればコマンドプロンプトが出てきます．</p>
-</section>
-<section id="id2">
-<h2>RaspberryPiへのファイル転送<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<section id="pcraspberrypi">
+<h2>PCからRaspberryPiへのファイル転送<a class="headerlink" href="#pcraspberrypi" title="Permalink to this heading">#</a></h2>
 <p>WinSCPを起動します．ログイン画面が開くので新規のホストを設定しログインします．</p>
 <ul class="simple">
 <li><p>転送プロトコル:SFTP</p></li>
@@ -568,21 +525,9 @@ inet<span class="w"> </span><span class="m">192</span>.168.100.17/24
 <p><img alt="winscp1.png" src="../../../_images/winscp1.png" /></p>
 <p>最初にアクセスした時のみセキュリティ警告が出ますのでOKします．エクスプローラのようにドラッグ＆ドラップや右クリックメニューでファイルの転送や操作が可能です．</p>
 </section>
-<section id="vmraspberrypi">
-<h2>VMからRaspberryPiへの接続の確認<a class="headerlink" href="#vmraspberrypi" title="Permalink to this heading">#</a></h2>
-<p>VMからRaspberryPiへ接続する方法はいくつかの手段がありますが，ここではリンクローカルアドレスを用いた有線による簡易的な接続方法について説明します（他の方法を試したい方は各自で調べてみてください）．</p>
-<section id="openssh-server">
-<h3>openssh-serverのインストール<a class="headerlink" href="#openssh-server" title="Permalink to this heading">#</a></h3>
-<p>ネットワーク設定を変更する前にVMを起動してください．
-後に行う作業にてssh server が起動していることが前提となりますので，インストールされていない場合は以下のコマンドでインストールします．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>openssh-server
-</pre></div>
-</div>
-</section>
 <section id="vmraspberrypissh">
-<h3>VM環境からRaspberryPiへのSSH接続の確認<a class="headerlink" href="#vmraspberrypissh" title="Permalink to this heading">#</a></h3>
-<p>VM上のLinuxのターミナルを開いて，RaspberryPiにPingを送って通信状態を確認します．大かっこの中は適宜読み替えてください．</p>
+<h2>VM環境からRaspberryPiへのSSH接続<a class="headerlink" href="#vmraspberrypissh" title="Permalink to this heading">#</a></h2>
+<p>VM上のLinuxのターミナルを開いて，RaspberryPiにPingを送って通信状態を確認します．手順はWindows上での接続と同様です．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ping<span class="w"> </span><span class="o">{</span>確認したRaspberryPiのIPアドレス<span class="o">}</span>
 </pre></div>
 </div>
@@ -595,9 +540,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </s
 </pre></div>
 </div>
 </section>
-</section>
-<section id="vmlinuxpc">
-<h2>VM上のLinuxにPCからファイルを転送<a class="headerlink" href="#vmlinuxpc" title="Permalink to this heading">#</a></h2>
+<section id="pcvm">
+<h2>PCからVM環境へのファイル転送<a class="headerlink" href="#pcvm" title="Permalink to this heading">#</a></h2>
 <p>ホストOS（Windows）からゲストOS（Linux）にファイルを転送します．</p>
 <p>VirtualBoxのメニューから「仮想マシン」→「設定」を開きます．</p>
 <p><img alt="scpvm1.png" src="../../../_images/scpvm1.png" /></p>
@@ -613,30 +557,17 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </s
 </ul>
 <p><img alt="scpvm4.png" src="../../../_images/scpvm4.png" /></p>
 </section>
-<section id="id3">
-<h2>モニタがない状況でのRaspberryPiの接続<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<p>また，実験室以外で実験を行う場合に，モニタとマウス・キーボードがない状態でRaspberryPiへ接続したい場合があります．別で設定を行うことで対応できますので実施してください．</p>
-<p><a class="reference internal" href="connect_raspberry_non_monitor.html"><span class="doc std std-doc">モニタがない状況でのRaspberryPiの接続（任意）</span></a></p>
-<section id="id4">
-<h3>外部から接続する場合（任意）<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<section id="id1">
+<h2>外部から接続する場合（任意）<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>VirtualBox の設定上は外部から SSH 接続できる設定ですが，実際には Windows ファイアウォールが接続を遮断して接続できない場合がありますので注意してください．</p>
+<p>VirtualBoxの設定上は外部からSSH接続できる設定ですが，実際にはWindowsファイアウォールが接続を遮断して接続できない場合がありますので注意してください．</p>
 </div>
 <p>例えば，RaspberryPiからWindowsのイーサネットアダプタに設定したIPアドレスへSSH接続を試みると，ポートフォワーディング設定並びに，ユーザ名・パスワードが正しければログインできるはずですが，ログインできない場合があります，</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh<span class="w"> </span>&lt;VMのユーザー名&gt;@&lt;VMのIP&gt;
 </pre></div>
 </div>
 <p>この場合，Windowsファイアウォールの設定を行えば接続が可能になりますが，セキュリティ上のリスクを伴いますので無理に行う必要はありません．実験では，RaspberryPi側をサーバプログラム，PC上のゲストOS側をクライアントプログラムとして実験を進めてください．</p>
-</section>
-</section>
-<section id="id5">
-<h2>エディタを使った接続（任意）<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
-<p>VSCodeを用いて開発環境の構築を行います.
-興味のある方は実施してみてください.</p>
-<p>なお,上記のSSH接続やWinSCPの設定などが済んでいることを前提として話を進めていきます.
-必ず上記のSSH接続やWinSCPの設定を済ましてから取り組んでください.</p>
-<p><a class="reference internal" href="environment_building_vscode.html"><span class="doc std std-doc">VSCodeを使った環境構築</span></a></p>
 </section>
 </section>
 
@@ -681,11 +612,11 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </s
       </div>
     </a>
     <a class="right-next"
-       href="connect_raspberry_non_monitor.html"
+       href="connect_raspberry_wired.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">モニタがない状況でのRaspberryPiの接続</p>
+        <p class="prev-next-title">RaspberryPiの有線接続</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -707,25 +638,12 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">IPアドレスの確認方法</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSHクライアントのインストール</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windowsを使う場合</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linuxを使う場合</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">RaspberryPiへのターミナル接続</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">RaspberryPiへのファイル転送</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmraspberrypi">VMからRaspberryPiへの接続の確認</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openssh-server">openssh-serverのインストール</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vmraspberrypissh">VM環境からRaspberryPiへのSSH接続の確認</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmlinuxpc">VM上のLinuxにPCからファイルを転送</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">モニタがない状況でのRaspberryPiの接続</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">外部から接続する場合（任意）</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">エディタを使った接続（任意）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypiip">RaspberryPiのIPアドレスの確認方法</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcraspberrypissh">PCからRaspberryPiへのSSH接続</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcraspberrypi">PCからRaspberryPiへのファイル転送</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vmraspberrypissh">VM環境からRaspberryPiへのSSH接続</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcvm">PCからVM環境へのファイル転送</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">外部から接続する場合（任意）</a></li>
 </ul>
   </nav></div>
 

@@ -161,8 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part1/part1_1/overview.html">[Day1] 環境構築と実験の開始</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../part1/part1_1/raspberry_setting.html">RaspberryPiのセッティング</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part1/part1_1/connect_raspberry.html">RaspberryPiの接続</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part1/part1_1/connect_raspberry_non_monitor.html">モニタがない状況でのRaspberryPiの接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/part1_1/connect_raspberry_wireless.html">RaspberryPiの無線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1/part1_1/connect_raspberry_wired.html">RaspberryPiの有線接続</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/part1_1/update.html">ソフトウェアのアップデート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1/part1_1/environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
 </ul>
@@ -458,12 +458,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vnc">VNCクライアントのインストール</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-boxvm">Virtual BoxとVMの準備</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">概要</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-boxlinux-vm">Virtual BoxとLinux VMの導入</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vnc">VNCクライアントのインストール</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mattermost">Mattermostへの登録</a></li>
 </ul>
             </nav>
@@ -478,17 +478,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>環境構築<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<section id="vnc">
-<h2>VNCクライアントのインストール<a class="headerlink" href="#vnc" title="Permalink to this heading">#</a></h2>
-<p>皆さんのノートPCにインストールされているWindowsから，ネットワーク接続を介してリモートでRaspberry Piのデスクトップ環境を利用するために，VNCクライアント（サーバは不要です）をノートPCのWindowsへインストールしておきます．
-Raspberry Pi上のRaspberry Pi OS に標準でインストールされている VNC Server との接続は，以下の Real VNC のクライアントソフトウェアが接続しやすいようです（他のVNCクライアントソフトウェアでもサーバ側の設定を変更すれば接続可能）．ノートPCのWindowsへクライアント（VNC Viewer）のみをインストールして下さい（WindowsへVNC Serverをインストールする必要はありません）．Real VNC社のVNC Connectは商用ソフトウェアですが，Viewerに関しては Free で配布されています．</p>
-<p><a class="reference external" href="https://www.realvnc.com/en/connect/download/viewer/windows/">RealVNC</a></p>
-<blockquote>
-<div><p>RealVNC社の “Frequently asked questions” より引用
-Do I need to license the software?
-No. VNC® Viewer is always free to use. Just accept the EULA the first time you run.</p>
-</div></blockquote>
-</section>
 <section id="virtual-boxvm">
 <h2>Virtual BoxとVMの準備<a class="headerlink" href="#virtual-boxvm" title="Permalink to this heading">#</a></h2>
 <section id="id2">
@@ -510,6 +499,17 @@ No. VNC® Viewer is always free to use. Just accept the EULA the first time you 
 <p><a class="reference external" href="http://whitebear.cs.inf.shizuoka.ac.jp/linux/oooo/">http://whitebear.cs.inf.shizuoka.ac.jp/linux/oooo/</a></p>
 <p>新規VMの追加設定は後にも行います．上記ページのダウンロード後の設定手順を終えたらそのままにしておいてください．</p>
 </section>
+</section>
+<section id="vnc">
+<h2>VNCクライアントのインストール<a class="headerlink" href="#vnc" title="Permalink to this heading">#</a></h2>
+<p>皆さんのノートPCにインストールされているWindowsから，ネットワーク接続を介してリモートでRaspberry Piのデスクトップ環境を利用するために，VNCクライアント（サーバは不要です）をノートPCのWindowsへインストールしておきます．
+Raspberry Pi上のRaspberry Pi OSに標準でインストールされているVNC Serverとの接続は，以下のReal VNCのクライアントソフトウェアが接続しやすいようです（他のVNCクライアントソフトウェアでもサーバ側の設定を変更すれば接続可能）．ノートPCのWindowsへクライアント（VNC Viewer）のみをインストールして下さい（WindowsへVNC Serverをインストールする必要はありません）．Real VNC社のVNC Connectは商用ソフトウェアですが，Viewerに関しては無償で配布されています．</p>
+<p><a class="reference external" href="https://www.realvnc.com/en/connect/download/viewer/windows/">RealVNC</a></p>
+<blockquote>
+<div><p>RealVNC社の “Frequently asked questions” より引用
+Do I need to license the software?
+No. VNC® Viewer is always free to use. Just accept the EULA the first time you run.</p>
+</div></blockquote>
 </section>
 <section id="mattermost">
 <h2>Mattermostへの登録<a class="headerlink" href="#mattermost" title="Permalink to this heading">#</a></h2>
@@ -584,12 +584,12 @@ No. VNC® Viewer is always free to use. Just accept the EULA the first time you 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vnc">VNCクライアントのインストール</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-boxvm">Virtual BoxとVMの準備</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">概要</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-boxlinux-vm">Virtual BoxとLinux VMの導入</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vnc">VNCクライアントのインストール</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mattermost">Mattermostへの登録</a></li>
 </ul>
   </nav></div>

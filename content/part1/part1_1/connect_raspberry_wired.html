@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>モニタがない状況でのRaspberryPiの接続 &#8212; 情報科学実験A</title>
+    <title>RaspberryPiの有線接続 &#8212; 情報科学実験A</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part1/part1_1/connect_raspberry_non_monitor';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part1/part1_1/connect_raspberry_wired';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="ソフトウェアのアップデート" href="update.html" />
-    <link rel="prev" title="RaspberryPiの接続" href="connect_raspberry.html" />
+    <link rel="prev" title="RaspberryPiの無線接続" href="connect_raspberry_wireless.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -161,8 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day1] 環境構築と実験の開始</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="raspberry_setting.html">RaspberryPiのセッティング</a></li>
-<li class="toctree-l2"><a class="reference internal" href="connect_raspberry.html">RaspberryPiの接続</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">モニタがない状況でのRaspberryPiの接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connect_raspberry_wireless.html">RaspberryPiの無線接続</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">RaspberryPiの有線接続</a></li>
 <li class="toctree-l2"><a class="reference internal" href="update.html">ソフトウェアのアップデート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
 </ul>
@@ -336,7 +336,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_1/connect_raspberry_non_monitor.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ohkilab/exp1/issues/new?title=Issue%20on%20page%20%2Fcontent/part1/part1_1/connect_raspberry_wired.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +366,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../../_sources/content/part1/part1_1/connect_raspberry_non_monitor.md" target="_blank"
+      <li><a href="../../../_sources/content/part1/part1_1/connect_raspberry_wired.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -448,7 +448,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>モニタがない状況でのRaspberryPiの接続</h1>
+    <h1>RaspberryPiの有線接続</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -458,11 +458,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">IPアドレスと接続の確認</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">RaspberryPiとの接続確認</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypilanip">RaspberryPiの有線LANデバイスにIPアドレスを設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">接続確認</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vncclient">VNCClientによる接続</a></li>
 </ul>
             </nav>
@@ -476,19 +474,38 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="raspberrypi">
-<h1>モニタがない状況でのRaspberryPiの接続<a class="headerlink" href="#raspberrypi" title="Permalink to this heading">#</a></h1>
-<p>実験室以外で実験を行う場合に，モニタとマウス・キーボードがない状態でRaspberryPiへ接続する方法を説明します．</p>
-<p>モニタなどの周辺機器がない場合、RaspberryPiを操作してIPアドレスを確認することができません．情報科学実験Aで配布したRaspberryPiはEthernetデバイスに固定IP（<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>）を設定してありますので，このIPアドレスをモニタがある状況下で確認するIPアドレスの代わりに使用します．このような周辺機器のない状況下で実験を行う場合実験サイトに記載されているRaspberryPiのIPアドレスは<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>に読み替えて実施してください．</p>
+<h1>RaspberryPiの有線接続<a class="headerlink" href="#raspberrypi" title="Permalink to this heading">#</a></h1>
+<p>実験室以外で実験を行う時，モニタやマウス・キーボードがなくIPを確認できないことがあります．このような場合にRaspberryPiへ接続できるようにします．</p>
+<p>皆さんは実験室で作業をしているはずなので目の前にモニタなどがありますが，自宅などで作業を行うときは機材が十分に揃っていないことがあるかと思います．このような状況下でも作業ができるように，LANケーブルのみで接続できるような有線接続のための設定をしておくと便利です</p>
 <p>最終的な構成は以下のようになります．</p>
-<a class="reference internal image-reference" href="../../../_images/non_monitor_configration.png"><img alt="RaspberryPiの接続" class="align-center" src="../../../_images/non_monitor_configration.png" style="width: 400px;" /></a>
-<p>RaspberryPiとPCをLANケーブルで直結します（以下の例ではUSB接続のLANアダプタを使っていますが，PCに備え付けの有線LANポートがあればそれに接続します）．</p>
-<p><img alt="raspi-pc.jpg" src="../../../_images/raspi-pc.jpg" /></p>
-<section id="ip">
-<h2>IPアドレスと接続の確認<a class="headerlink" href="#ip" title="Permalink to this heading">#</a></h2>
+<a class="reference internal image-reference" href="../../../_images/configration_wired.png"><img alt="RaspberryPiの接続" class="align-center" src="../../../_images/configration_wired.png" style="width: 400px;" /></a>
+<section id="raspberrypilanip">
+<h2>RaspberryPiの有線LANデバイスにIPアドレスを設定<a class="headerlink" href="#raspberrypilanip" title="Permalink to this heading">#</a></h2>
+<p>情報科学実験Aで配布したRaspberryPiのEthernetデバイスに固定IP（<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>）を設定します．</p>
+<p>RaspberryPiで<code class="docutils literal notranslate"><span class="pre">/etc/dhcpcd.conf</span></code>を開いてください．下記のような<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">interface</span> <span class="pre">eth0</span></code>から始まる記述を探します．</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># interface eth0
+# static ip_address=192.168.0.10/24
+# static ip6_address=fd51:42f8:caae:d92e::ff/64
+# static routers=192.168.0.1 8.8.8.8 fd51:42f8:caae:d92e::1
+</pre></div>
+</div>
+<p>全ての行頭から<code class="docutils literal notranslate"><span class="pre">#</span></code>を削除し，<code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">ip_address</span></code>の項目を<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>に，<code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">routers</span></code>の項目を<code class="docutils literal notranslate"><span class="pre">192.168.1.1</span></code>に書き換えてください</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface eth0
+static ip_address=192.168.1.101/24
+static ip6_address=fd51:42f8:caae:d92e::ff/64
+static routers=192.168.1.1 8.8.8.8 fd51:42f8:caae:d92e::1
+</pre></div>
+</div>
+<p>以下のコマンドを実行します．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>networking
+</pre></div>
+</div>
+<p>これでRaspberryPi側の設定は完了です．以降の本資料において記載されているRaspberryPiのIPアドレスは全て無線で接続する際のIPアドレスです．よって，有線接続で実験を行う場合，実験サイトに記載されているRaspberryPiのIPアドレスは<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>に読み替えて実施してください．</p>
+</section>
+<section id="pclanip">
+<h2>PCの有線LANデバイスにIPアドレスを設定<a class="headerlink" href="#pclanip" title="Permalink to this heading">#</a></h2>
 <p>WindowsPC上のイーサネットデバイスにRaspberryPiと同じサブネットワークのIPアドレス（<code class="docutils literal notranslate"><span class="pre">192.168.1.102</span></code>）を設定します．</p>
 <p>ただし，Windows上で複数のイーサネットデバイスを認識している場合がありますので（特にVirtualBoxなどのVM環境を構築している場合は仮想イーサネットデバイスが存在するはず），RaspberryPiと接続したイーサネットデバイスを確認してから作業を進めてください．</p>
-<section id="pclanip">
-<h3>PCの有線LANデバイスにIPアドレスを設定<a class="headerlink" href="#pclanip" title="Permalink to this heading">#</a></h3>
 <p>Windowsで設定を開き，ネットワークとインターネット＞状態を選択してください．下までスクロールすると，「アダプターのオプションを変更する」という項目が見えると思いますので，クリックしてください．</p>
 <p><img alt="win-adopter1.png" src="../../../_images/win-adopter1.png" /></p>
 <p>RaspberryPiと接続したイーサネットデバイスのプロパティを開きます．</p>
@@ -512,7 +529,9 @@ document.write(`
 </div>
 </section>
 <section id="id1">
-<h3>RaspberryPiとの接続確認<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h2>接続確認<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>RaspberryPiとPCをLANケーブルで直結します（以下の例ではUSB接続のLANアダプタを使っていますが，PCに備え付けの有線LANポートがあればそれに接続します）．</p>
+<p><img alt="raspi-pc.jpg" src="../../../_images/raspi-pc.jpg" /></p>
 <p>コマンドプロンプトからRaspberryPiのIPアドレスにpingを実行し，正しく応答があるか確認してください．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ping<span class="w"> </span><span class="m">192</span>.168.1.101
 
@@ -528,7 +547,6 @@ document.write(`
 <span class="w">    </span><span class="nv">最小</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>1ms、最大<span class="w"> </span><span class="o">=</span><span class="w"> </span>18ms、平均<span class="w"> </span><span class="o">=</span><span class="w"> </span>5ms
 </pre></div>
 </div>
-</section>
 </section>
 <section id="vncclient">
 <h2>VNCClientによる接続<a class="headerlink" href="#vncclient" title="Permalink to this heading">#</a></h2>
@@ -577,12 +595,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="connect_raspberry.html"
+       href="connect_raspberry_wireless.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">RaspberryPiの接続</p>
+        <p class="prev-next-title">RaspberryPiの無線接続</p>
       </div>
     </a>
     <a class="right-next"
@@ -612,11 +630,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">IPアドレスと接続の確認</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">RaspberryPiとの接続確認</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypilanip">RaspberryPiの有線LANデバイスにIPアドレスを設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">接続確認</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vncclient">VNCClientによる接続</a></li>
 </ul>
   </nav></div>

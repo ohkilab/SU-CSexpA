@@ -2,7 +2,7 @@
 
 実験はラズパイとPCの２つの機材を用いて図のような形式で実験を行います．
 
-```{image} ../../../images/part1/part1_1/configuration.png
+```{image} ../../../images/part1/part1_1/configuration_wireless.png
 :alt: RaspberryPiの接続
 :width: 400px
 :align: center
