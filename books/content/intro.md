@@ -116,10 +116,12 @@ RaspberryPiについてはセットアップ済のイメージをこちらで用
 - [質問の行い方](trouble_shooting/question)
 - [よくあるトラブル](trouble_shooting/trouble)
 
-### スタッフ向け情報
+```{important}
+よくあるトラブルへの対応方法や、記載事項の修正など、本Webサイトへの追記・修正リクエストは随時受け付けています．
+リクエストがある場合下記GitHubレポジトリへのpull-requestあるいはIssueとしてお送りください（最終成績に加味します）．
 
-- [内部向け:各回の進め方](staff/procedure)
-- [内部向け:備忘録(次年度への引継ぎメモ)](staff/memo)
+https://github.com/ohkilab/SU-CSexpA/
+```
 
 ### 過去のページ
 
