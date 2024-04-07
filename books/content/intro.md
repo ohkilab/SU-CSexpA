@@ -1,8 +1,8 @@
 # メインページ
 ```{admonition} Staff
 - 担当教員：大木哲史，野口靖浩，峰野博史
-- 技術部：水野 匠
-- TA：M2相場，佐藤，平原，M1岡野，小嶋
+- 技術部：水野匠，小澤卓也
+- TA：M2岡野，小嶋，M1笹，高橋
 - 質問窓口：Mattermost もしくは csexp1-staff@ml.inf.shizuoka.ac.jp
 ```
 
@@ -24,8 +24,9 @@ RaspberryPiについてはセットアップ済のイメージをこちらで用
 ### \[Day1\] 環境構築と実験の開始
 
 - RaspberryPiのセッティング
-- RaspberryPiの接続
-- モニタがない状況でのRaspberryPiの接続（必須）
+- RaspberryPiの有線接続
+- RaspberryPiの無線接続
+- ソフトウェアのアップデート
 - VSCodeを使った環境構築（任意）
 
 ### \[Day2\] 通信性能の計測
@@ -106,7 +107,7 @@ RaspberryPiについてはセットアップ済のイメージをこちらで用
 
 ## 実験終了後（必須）
 
-- [実験機材のクリーンアップと解体](end/cleanup)　※必須
+- [実験機材の返却](end/cleanup)　※必須
 
 ## その他
 
@@ -115,10 +116,12 @@ RaspberryPiについてはセットアップ済のイメージをこちらで用
 - [質問の行い方](trouble_shooting/question)
 - [よくあるトラブル](trouble_shooting/trouble)
 
-### スタッフ向け情報
+```{important}
+よくあるトラブルへの対応方法や、記載事項の修正など、本Webサイトへの追記・修正リクエストは随時受け付けています．
+リクエストがある場合下記GitHubレポジトリへのpull-requestあるいはIssueとしてお送りください（最終成績に加味します）．
 
-- [内部向け:各回の進め方](staff/procedure)
-- [内部向け:備忘録(次年度への引継ぎメモ)](staff/memo)
+https://github.com/ohkilab/SU-CSexpA/
+```
 
 ### 過去のページ
 
