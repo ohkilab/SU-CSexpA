@@ -48,13 +48,29 @@ WindowsPC上のイーサネットデバイスにRaspberryPiと同じサブネッ
 
 ただし，Windows上で複数のイーサネットデバイスを認識している場合がありますので（特にVirtualBoxなどのVM環境を構築している場合は仮想イーサネットデバイスが存在するはず），RaspberryPiと接続したイーサネットデバイスを確認してから作業を進めてください．
 
+また，Windows 10と11で途中までの操作が異なります．それぞれの項目を参照してください．
+
+### Windows 10の場合
+
 Windowsで設定を開き，ネットワークとインターネット＞状態を選択してください．下までスクロールすると，「アダプターのオプションを変更する」という項目が見えると思いますので，クリックしてください．
 
-![win-adopter1.png](../../../images/part1/part1_1/win-adopter1.png)
+![win-adopter1.png](../../../images/part1/part1_1/win10-adopter1.png)
 
 RaspberryPiと接続したイーサネットデバイスのプロパティを開きます．
 
-![win-adopter2.png](../../../images/part1/part1_1/win-adopter2.png)
+![win-adopter2.png](../../../images/part1/part1_1/win10-adopter2.png)
+
+### Windows 11の場合
+
+Windowsで設定を開き，ネットワークとインターネットを選択，下までスクロールしてネットワークの詳細設定を選択してください．
+
+![win11-adopter1.png](../../../images/part1/part1_1/win11-adopter1.png)
+
+RaspberryPiと接続したイーサネットデバイスを選択し，その他のアダプターオプションを選択してください．
+
+![win11-adopter2.png](../../../images/part1/part1_1/win11-adopter2.png)
+
+### 【Windows 10/11共通】イーサネットのプロパティ変更
 
 インターネットプロトコルバージョン4（TCP/IPv4）のプロパティを開きます．
 
