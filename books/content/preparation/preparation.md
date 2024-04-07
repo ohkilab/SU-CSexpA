@@ -1,18 +1,9 @@
 # 環境構築
 
-## VNCクライアントのインストール
-皆さんのノートPCにインストールされているWindowsから，ネットワーク接続を介してリモートでRaspberry Piのデスクトップ環境を利用するために，VNCクライアント（サーバは不要です）をノートPCのWindowsへインストールしておきます．
-Raspberry Pi上のRaspberry Pi OS に標準でインストールされている VNC Server との接続は，以下の Real VNC のクライアントソフトウェアが接続しやすいようです（他のVNCクライアントソフトウェアでもサーバ側の設定を変更すれば接続可能）．ノートPCのWindowsへクライアント（VNC Viewer）のみをインストールして下さい（WindowsへVNC Serverをインストールする必要はありません）．Real VNC社のVNC Connectは商用ソフトウェアですが，Viewerに関しては Free で配布されています．
-
-[RealVNC](https://www.realvnc.com/en/connect/download/viewer/windows/)
-
-> RealVNC社の "Frequently asked questions" より引用
-> Do I need to license the software?
-> No. VNC® Viewer is always free to use. Just accept the EULA the first time you run.
-
 ## Virtual BoxとVMの準備
 
 ### 概要
+
 従来，情報科学実験Aではグループを構成して実験を進める計画になっています．
 基本的には皆さんのノートPCとRaspberry Pi間での通信実験を行いますが，たとえばグループ内の複数のRaspberry Pi間での通信を行うことで，通信環境の違いによる通信性能への影響を計測・分析することもあります．様々な場合に対応できるように，ここでは各自のノートPC上にLinux環境を構築しておきましょう．
 
@@ -34,5 +25,17 @@ Raspberry Pi上のRaspberry Pi OS に標準でインストールされている 
 
 新規VMの追加設定は後にも行います．上記ページのダウンロード後の設定手順を終えたらそのままにしておいてください．
 
+## VNCクライアントのインストール
+
+皆さんのノートPCにインストールされているWindowsから，ネットワーク接続を介してリモートでRaspberry Piのデスクトップ環境を利用するために，VNCクライアント（サーバは不要です）をノートPCのWindowsへインストールしておきます．
+Raspberry Pi上のRaspberry Pi OSに標準でインストールされているVNC Serverとの接続は，以下のReal VNCのクライアントソフトウェアが接続しやすいようです（他のVNCクライアントソフトウェアでもサーバ側の設定を変更すれば接続可能）．ノートPCのWindowsへクライアント（VNC Viewer）のみをインストールして下さい（WindowsへVNC Serverをインストールする必要はありません）．Real VNC社のVNC Connectは商用ソフトウェアですが，Viewerに関しては無償で配布されています．
+
+[RealVNC](https://www.realvnc.com/en/connect/download/viewer/windows/)
+
+> RealVNC社の "Frequently asked questions" より引用
+> Do I need to license the software?
+> No. VNC® Viewer is always free to use. Just accept the EULA the first time you run.
+
 ## Mattermostへの登録
+
 本年度は学生間の連絡にMattermostを使います．機材配布時に配った資料を参考に，Mattermostへの参加登録を済ませておいてください．

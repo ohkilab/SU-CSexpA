@@ -22,10 +22,10 @@ parts:
         sections:
           - file: content/part1/part1_1/raspberry_setting
             title: RaspberryPiのセッティング
-          - file: content/part1/part1_1/connect_raspberry
-            title: RaspberryPiの接続
-          - file: content/part1/part1_1/connect_raspberry_non_monitor
-            title: モニタがない状況でのRaspberryPiの接続
+          - file: content/part1/part1_1/connect_raspberry_wireless
+            title: RaspberryPiの無線接続
+          - file: content/part1/part1_1/connect_raspberry_wired
+            title: RaspberryPiの有線接続
           - file: content/part1/part1_1/update
             title: ソフトウェアのアップデート
           - file: content/part1/part1_1/environment_building_vscode
