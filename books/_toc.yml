@@ -160,7 +160,7 @@ parts:
   - caption: 実験終了後（必須）
     chapters:
       - file: content/end/cleanup
-        title: 実験機材のクリーンアップと解体
+        title: 実験機材の返却
 
   - caption: グループ発表会
     chapters:
