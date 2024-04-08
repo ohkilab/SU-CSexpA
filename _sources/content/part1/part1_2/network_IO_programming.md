@@ -28,56 +28,38 @@ TCP接続を行うためのサーバ側ライブラリです（情報科学実�
 プログラムの各行が何を行っているのか，コードリーディングして確認してください．
 
 ```c
-int exp1_tcp_listen(const char* port) {
+int exp1_tcp_listen(int port) {
+	int sock;
+	struct sockaddr_in addr;
+	int yes = 1;
+	int ret;
 
-  struct addrinfo hints;
-  memset(&hints, 0, sizeof(hints));
-  hints.ai_family = AF_INET;
-  hints.ai_socktype = SOCK_STREAM;
-  hints.ai_flags = AI_PASSIVE;
+	sock = socket(AF_INET, SOCK_STREAM, 0);
+	if (sock < 0) {
+		perror("socket");
+		exit(1);
+	}
 
-  int errcode = 0;
-  struct addrinfo* res;
-  if ((errcode = getaddrinfo(NULL, port, &hints, &res)) != 0) {
-    fprintf(stderr, "getaddrinfo():%s\n", gai_strerror(errcode));
-    return (-1);
-  }
+	bzero((char *) &addr, sizeof(addr));
+	addr.sin_family = AF_INET;
+	addr.sin_addr.s_addr = htonl(INADDR_ANY);
+	addr.sin_port = htons(port);
+	setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes));
 
-  int sock = 0;
-  sock = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
-  if (sock == -1) {
-    perror("socket");
-    freeaddrinfo(res);
-    return (-1);
-  }
+	ret = bind(sock, (struct sockaddr *) &addr, sizeof(addr));
+	if (ret < 0) {
+		perror("bind");
+		exit(1);
+	}
 
-  int socket_option = 1;
-  socklen_t socket_option_size = sizeof(socket_option);
-  if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &socket_option,
-        socket_option_size) == -1) {
-    perror("setsockopt");
-    close(sock);
-    freeaddrinfo(res);
-    return (-1);
-  }
+	ret = listen(sock, 5);
+	if (ret < 0 {
+		perror("reader: listen");
+		close(sock);
+		exit(-1);
+	}
 
-  int binderr = bind(sock, res->ai_addr, res->ai_addrlen);
-  if (binderr == -1) {
-    perror("bind");
-    close(sock);
-    freeaddrinfo(res);
-    return (-1);
-  }
-
-  int listenerr = listen(sock, SOMAXCONN);
-  if (listenerr == -1) {
-    perror("listen");
-    close(sock);
-    freeaddrinfo(res);
-    return (-1);
-  }
-  freeaddrinfo(res);
-  return (sock);
+	return sock;
 }
 ```
 
@@ -88,40 +70,24 @@ TCP接続を行うためのクライアント側ライブラリです（情報�
 プログラムの各行が何を行っているのか，コードリーディングして確認してください．
 
 ```c
-int exp1_tcp_connect(const char *hostname, const char* port) {
+int exp1_tcp_connect(const char *hostname, int port) {
+	int sock;
+	int ret;
+	struct sockaddr_in addr;
+	struct hostent *host;
 
-  struct addrinfo hints;
-  memset(&hints, 0, sizeof(hints));
-  hints.ai_family = AF_INET;
-  hints.ai_socktype = SOCK_STREAM;
+	sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	addr.sin_family = AF_INET;
+	host = gethostbyname(hostname);
+	addr.sin_addr = *(struct in_addr *) (host->h_addr_list[0]);
+	addr.sin_port = htons(port);
 
-  struct addrinfo* res = NULL;
-  int errcode = 0;
-  errcode = getaddrinfo(hostname, port, &hints, &res);
-  if (errcode != 0) {
-    fprintf(stderr, "getaddrinfo():%s\n", gai_strerror(errcode));
-    return (-1);
-  }
-
-  int soc = 0;
-  soc = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
-  if (soc == -1) {
-    perror("socket");
-    freeaddrinfo(res);
-    return (-1);
-  }
-
-  int connerr = 0;
-  connerr = connect(soc, res->ai_addr, res->ai_addrlen);
-  if (connerr == -1) {
-    perror("connect");
-    close(soc);
-    freeaddrinfo(res);
-    return (-1);
-  }
-
-  freeaddrinfo(res);
-  return (soc);
+	ret = connect(sock, (struct sockaddr *) &addr, sizeof addr);
+	if (ret < 0) {
+		return -1;
+	} else {
+		return sock;
+	}
 }
 ```
 
@@ -176,7 +142,7 @@ int main(int argc, char** argv) {
   int ret = 0;
   char buf[1024];
 
-  sock_listen = exp1_tcp_listen("11111");
+  sock_listen = exp1_tcp_listen(11111);
   sock_client = accept(sock_listen, &addr, (socklen_t*) &len);
   ret = read(sock_client, buf, 1024);
   write(1, buf, ret);
@@ -203,7 +169,7 @@ int main(int argc, char** argv) {
     exit(-1);
   }
 
-  sock = exp1_tcp_connect(argv[1], "11111");
+  sock = exp1_tcp_connect(argv[1], 11111);
   p = fgets(buf, 1024, stdin);
   write(sock, p, strlen(p));
   close(sock);
@@ -259,7 +225,7 @@ int main(int argc, char** argv) {
   int ret = 0;
   char buf[1024];
 
-  sock_listen = exp1_tcp_listen("11111");
+  sock_listen = exp1_tcp_listen(11111);
   sock_client = accept(sock_listen, &addr, (socklen_t*) &len);
   ret = recv(sock_client, buf, 1024, 0);
   write(1, buf, ret);
@@ -288,7 +254,7 @@ int main(int argc, char** argv) {
     exit(-1);
   }
 
-  sock = exp1_tcp_connect(argv[1], "11111");
+  sock = exp1_tcp_connect(argv[1], 11111);
   p = fgets(buf, 1024, stdin);
   send(sock, p, strlen(p), 0);
   close(sock);
@@ -334,12 +300,12 @@ int main(int argc, char** argv) {
   int sock_listen;
   int sock_client;
   struct sockaddr addr;
-  int len;
-  int ret;
+  int len = 0;
+  int ret = 0;
   char buf[1024];
   FILE* fp;
 
-  sock_listen = exp1_tcp_listen("11111");
+  sock_listen = exp1_tcp_listen(11111);
   sock_client = accept(sock_listen, &addr, (socklen_t*) &len);
 
   fp = fopen("tmp.txt", "w");
@@ -373,7 +339,7 @@ int main(int argc, char** argv) {
     exit(-1);
   }
 
-  sock = exp1_tcp_connect(argv[1], "11111");
+  sock = exp1_tcp_connect(argv[1], 11111);
   fp = fopen(argv[2], "r");
   ret = fread(buf, sizeof(char), 1024, fp);
   while(ret > 0) {
@@ -422,7 +388,7 @@ int main(int argc, char** argv) {
   int ret = 0;
   char buf[1024];
 
-  sock_listen = exp1_tcp_listen("11111");
+  sock_listen = exp1_tcp_listen(11111);
   sock_client = accept(sock_listen, &addr, (socklen_t*) &len);
   ret = recv(sock_client, buf, 1024, 0);
   write(1, buf, ret);
@@ -451,7 +417,7 @@ int main(int argc, char** argv) {
     exit(-1);
   }
 
-  sock = exp1_tcp_connect(argv[1], "11111");
+  sock = exp1_tcp_connect(argv[1], 11111);
   p = fgets(buf, 1024, stdin);
   send(sock, p, strlen(p), 0);
   ret = recv(sock, buf, sizeof(buf), 0);
