@@ -461,9 +461,14 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前準備</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">モニタと電源の接続</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">初期設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">初期設定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">初期設定が未実施の場合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">初期設定が実施済みの場合</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lan">無線LANの設定</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sshvnc">SSH、VNCサーバの有効化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">電源の切断方法</a></li>
 </ul>
             </nav>
         </div>
@@ -491,6 +496,9 @@ document.write(`
 </section>
 <section id="id3">
 <h2>初期設定<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>都合上，一部の方のRaspberryPiでは初期設定が未実施です．未実施の場合と実施済みの場合でそれぞれ実施する事項が異なるため各自参照して実施するようにしてください．</p>
+<section id="id4">
+<h3>初期設定が未実施の場合<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>電源をつけるとRaspberryPiの初期設定画面が表示されます．設定項目としては以下のようなものがあります． <strong>ユーザー名は簡略化のためpiとしてください．パスワードは適時設定し，忘れないように必ずメモをしておいてください※．</strong> また，wifi接続とアップデートは後に実施するためスキップしてください．</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -503,10 +511,20 @@ document.write(`
 <li><p>アップデート（スキップしてください）</p></li>
 </ul>
 <p>以降，講義資料内の説明においては下記ユーザー名とパスワードを用いるものとします．</p>
+</section>
+<section id="id5">
+<h3>初期設定が実施済みの場合<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<p>初期設定画面が出てこない場合は初期設定が完了しています．以下のユーザ情報を使用してログインしてください．</p>
 <ul class="simple">
 <li><p>ユーザ名: pi</p></li>
 <li><p>パスワード: raspberry</p></li>
 </ul>
+<p>なお，デフォルトのパスワードを用いるのは辞書攻撃などに対して脆弱であるため大変危険です．ターミナル上でpasswdコマンドを用いてパスワードを変更しておきましょう．</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>※パスワード変更はコンソールログイン，VNC接続やSSH接続，sudoでのコマンド実行など全てに影響します．ここで設定したパスワードを忘れると復旧は難しいので特に注意してメモを取るなどの対策をとってください．</p>
+</div>
+</section>
 </section>
 <section id="lan">
 <h2>無線LANの設定<a class="headerlink" href="#lan" title="Permalink to this heading">#</a></h2>
@@ -520,6 +538,14 @@ document.write(`
 <p><img alt="ssh_vnc1.png" src="../../../_images/ssh_vnc1.png" /></p>
 <p>ウインドウが開くので，SSHとVNCのトグルスイッチを有効にしてください．</p>
 <p><img alt="ssh_vnc2.png" src="../../../_images/ssh_vnc2.png" /></p>
+</section>
+<section id="id6">
+<h2>電源の切断方法<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>RaspberryPiの電源切断方法は2通りあります．ここで電源を切断する必要はありませんが，覚えておくと良いでしょう．</p>
+<ol class="arabic simple">
+<li><p>画面上でシャットダウン：左上のメニュー（RaspberryPiボタン）から<code class="docutils literal notranslate"><span class="pre">ログアウト</span></code>→<code class="docutils literal notranslate"><span class="pre">Shutdown</span></code>を選択</p></li>
+<li><p>ターミナルからシャットダウン：<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">shutdown</span> <span class="pre">-h</span> <span class="pre">now</span></code></p></li>
+</ol>
 </section>
 </section>
 
@@ -592,9 +618,14 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">前準備</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">モニタと電源の接続</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">初期設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">初期設定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">初期設定が未実施の場合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">初期設定が実施済みの場合</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lan">無線LANの設定</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sshvnc">SSH、VNCサーバの有効化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">電源の切断方法</a></li>
 </ul>
   </nav></div>
 

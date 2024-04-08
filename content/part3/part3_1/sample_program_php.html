@@ -519,8 +519,6 @@ document.write(`
 <span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>apache2<span class="w"> </span>restart
 </pre></div>
 </div>
-<p>本サンプルプログラムはプログラム中からインターネットへのアクセスが発生します．</p>
-<p>本実験を行う場合は一時的にWiFiをOnにする，ルーター経由でPC接続するなど，RasPiをインターネットアクセス可能な状態にして実験を行なってください．</p>
 </section>
 <section id="git-php">
 <h2>Gitでサンプルプログラム（PHP）をダウンロード<a class="headerlink" href="#git-php" title="Permalink to this heading">#</a></h2>
@@ -537,13 +535,8 @@ document.write(`
 </section>
 <section id="id3">
 <h2>サンプルプログラム（PHP）の実行<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>本サンプルプログラムはプログラム中からインターネットへのアクセスが発生します．</p>
-<p>本実験を行う場合は一時的にWiFiをOnにする，ルーター経由でPC接続するなど，RasPiをインターネットアクセス可能な状態にして実験を行なってください．</p>
-</div>
-<p>なお，RasPiがインターネットアクセス可能な状態である場合，皆さんが立ち上げているWebサーバーはインターネット上の見知らぬ誰かからアクセスされる可能性があります（ルーター等を経由していればある程度は安全ですが）．</p>
-<p>ufwなどを使って，特定のIP（今回で言えば，実験に使う皆さんのPC）以外からのWebサーバーへのアクセスを受け付けない，等とすれば安心ですが，設定にはリスクが伴います（間違えると誰からもアクセスできないサーバーになってしまったりします）．ここでは設定を必須としませんが，設定したい方は各自でよく調べた上で設定してみてください，</p>
+<p>本サンプルプログラムはプログラム中からインターネットへのアクセスが発生します．本実験を行う場合はRaspberryPiをインターネットアクセス可能な状態にして実験を行なってください．</p>
+<p>なお，RaspberryPiがインターネットアクセス可能な状態である場合，皆さんが立ち上げているWebサーバーはインターネット上の見知らぬ誰かからアクセスされる可能性があります（ルーター等を経由していればある程度は安全ですが）．ufwなどを使って，特定のIP（今回で言えば，実験に使う皆さんのPC）以外からのWebサーバーへのアクセスを受け付けない，等とすれば安心ですが，設定にはリスクが伴います（間違えると誰からもアクセスできないサーバーになってしまったりします）．ここでは設定を必須としませんが，設定したい方は各自でよく調べた上で設定してみてください，</p>
 <section id="id4">
 <h3>手順<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>先ほどと同様に，ノートPC上のWebブラウザから以下のURLを再読み込みしてみてください（ユーザ名の部分は，サーバ端末上に作成した皆さんのアカウント名になります）．</p>
@@ -596,12 +589,12 @@ document.write(`
 <span class="nv">$Flickr_getRecent</span> <span class="o">=</span> <span class="s2">&quot;https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&amp;api_key=&quot;</span><span class="o">.</span><span class="nv">$Flickr_apikey</span><span class="o">.</span><span class="s2">&quot;&amp;extras=url_s&amp;per_page=500&amp;format=php_serial&quot;</span><span class="p">;</span>
 <span class="nv">$result</span> <span class="o">=</span> <span class="nb">unserialize</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$Flickr_getRecent</span><span class="p">));</span>
 <span class="nv">$colors</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s2">&quot;#f39700&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e60012&quot;</span><span class="p">,</span>	<span class="s2">&quot;#9caeb7&quot;</span><span class="p">,</span>	<span class="s2">&quot;#00a7db&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;#009944&quot;</span><span class="p">,</span>	<span class="s2">&quot;#d7c447&quot;</span><span class="p">,</span>	<span class="s2">&quot;#9b7cb6&quot;</span><span class="p">,</span>	<span class="s2">&quot;#00ada9&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;#bb641d&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e85298&quot;</span><span class="p">,</span>	<span class="s2">&quot;#0079c2&quot;</span><span class="p">,</span>	<span class="s2">&quot;#6cbb5a&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;#b6007a&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e5171f&quot;</span><span class="p">,</span>	<span class="s2">&quot;#522886&quot;</span><span class="p">,</span>	<span class="s2">&quot;#0078ba&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;#019a66&quot;</span><span class="p">,</span>	<span class="s2">&quot;#e44d93&quot;</span><span class="p">,</span>	<span class="s2">&quot;#814721&quot;</span><span class="p">,</span>	<span class="s2">&quot;#a9cc51&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;#ee7b1a&quot;</span><span class="p">,</span>	<span class="s2">&quot;#00a0de&quot;</span><span class="p">);</span>
+  <span class="s2">&quot;#f39700&quot;</span><span class="p">,</span> <span class="s2">&quot;#e60012&quot;</span><span class="p">,</span> <span class="s2">&quot;#9caeb7&quot;</span><span class="p">,</span> <span class="s2">&quot;#00a7db&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#009944&quot;</span><span class="p">,</span> <span class="s2">&quot;#d7c447&quot;</span><span class="p">,</span> <span class="s2">&quot;#9b7cb6&quot;</span><span class="p">,</span> <span class="s2">&quot;#00ada9&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#bb641d&quot;</span><span class="p">,</span> <span class="s2">&quot;#e85298&quot;</span><span class="p">,</span> <span class="s2">&quot;#0079c2&quot;</span><span class="p">,</span> <span class="s2">&quot;#6cbb5a&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#b6007a&quot;</span><span class="p">,</span> <span class="s2">&quot;#e5171f&quot;</span><span class="p">,</span> <span class="s2">&quot;#522886&quot;</span><span class="p">,</span> <span class="s2">&quot;#0078ba&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#019a66&quot;</span><span class="p">,</span> <span class="s2">&quot;#e44d93&quot;</span><span class="p">,</span> <span class="s2">&quot;#814721&quot;</span><span class="p">,</span> <span class="s2">&quot;#a9cc51&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;#ee7b1a&quot;</span><span class="p">,</span> <span class="s2">&quot;#00a0de&quot;</span><span class="p">);</span>
 <span class="nv">$c</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="k">foreach</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s2">&quot;photos&quot;</span><span class="p">][</span><span class="s2">&quot;photo&quot;</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$k</span> <span class="o">=&gt;</span> <span class="nv">$photo</span><span class="p">){</span>
   <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$photo</span><span class="p">[</span><span class="s2">&quot;url_s&quot;</span><span class="p">])){</span>

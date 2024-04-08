@@ -460,7 +460,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">全体</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">指定されたソフトウェアが見つからない，インストール方法や使い方が分からない</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypi">RaspberryPiのシャットダウン方法が分からない</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypiping">RaspberryPiにpingが通らない</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypissh">RaspberryPiとssh通信できない</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sshthe-ecdsa-host-key-for-raspberrypi-local-has-changed">ssh通信しようとするとThe ECDSA host key for raspberrypi.local has changed,～ というエラーが出る</a></li>
@@ -487,17 +486,6 @@ document.write(`
 <section id="id3">
 <h3>指定されたソフトウェアが見つからない，インストール方法や使い方が分からない<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>ソフトウェアのバージョンアップ等のため，インストール画面や設定方法が多少異なる場合があります(例えば，初期ディレクトリの設定方法など)．何をしてもらいたいのか目的を理解していれば，その目的を達成するためのツールや手段は記載している方法以外でも構いませんので，インターネットで調べたり周囲の班員とも相談しながら目的達成していってください．その際，課題ページの修正が必要な部分について教員らに報告しておいてください．更新しておきたいと思いますので．</p>
-</section>
-<section id="raspberrypi">
-<h3>RaspberryPiのシャットダウン方法が分からない<a class="headerlink" href="#raspberrypi" title="Permalink to this heading">#</a></h3>
-<p>LANケーブルは指した状態で，以下のいずれかを試してみてください．</p>
-<ul class="simple">
-<li><p>PCからVNCで接続して左上のメニュー（Raspberry Piボタン）からShutdownを選択する</p></li>
-<li><p>PCからSSHで接続して以下のコマンドを実行する</p></li>
-</ul>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>shutdown<span class="w"> </span>-h<span class="w"> </span>now
-</pre></div>
-</div>
 </section>
 <section id="raspberrypiping">
 <h3>RaspberryPiにpingが通らない<a class="headerlink" href="#raspberrypiping" title="Permalink to this heading">#</a></h3>
@@ -608,7 +596,6 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">全体</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">指定されたソフトウェアが見つからない，インストール方法や使い方が分からない</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypi">RaspberryPiのシャットダウン方法が分からない</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypiping">RaspberryPiにpingが通らない</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypissh">RaspberryPiとssh通信できない</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sshthe-ecdsa-host-key-for-raspberrypi-local-has-changed">ssh通信しようとするとThe ECDSA host key for raspberrypi.local has changed,～ というエラーが出る</a></li>

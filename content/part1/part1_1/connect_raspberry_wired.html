@@ -460,7 +460,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypilanip">RaspberryPiの有線LANデバイスにIPアドレスを設定</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10">Windows 10の場合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-11">Windows 11の場合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10-11">【Windows 10/11共通】イーサネットのプロパティ変更</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">接続確認</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vncclient">VNCClientによる接続</a></li>
 </ul>
@@ -507,10 +512,23 @@ static routers=192.168.1.1 8.8.8.8 fd51:42f8:caae:d92e::1
 <h2>PCの有線LANデバイスにIPアドレスを設定<a class="headerlink" href="#pclanip" title="Permalink to this heading">#</a></h2>
 <p>WindowsPC上のイーサネットデバイスにRaspberryPiと同じサブネットワークのIPアドレス（<code class="docutils literal notranslate"><span class="pre">192.168.1.102</span></code>）を設定します．</p>
 <p>ただし，Windows上で複数のイーサネットデバイスを認識している場合がありますので（特にVirtualBoxなどのVM環境を構築している場合は仮想イーサネットデバイスが存在するはず），RaspberryPiと接続したイーサネットデバイスを確認してから作業を進めてください．</p>
+<p>また，Windows 10と11で途中までの操作が異なります．それぞれの項目を参照してください．</p>
+<section id="windows-10">
+<h3>Windows 10の場合<a class="headerlink" href="#windows-10" title="Permalink to this heading">#</a></h3>
 <p>Windowsで設定を開き，ネットワークとインターネット＞状態を選択してください．下までスクロールすると，「アダプターのオプションを変更する」という項目が見えると思いますので，クリックしてください．</p>
-<p><img alt="win-adopter1.png" src="../../../_images/win-adopter1.png" /></p>
+<p><img alt="win-adopter1.png" src="../../../_images/win10-adopter1.png" /></p>
 <p>RaspberryPiと接続したイーサネットデバイスのプロパティを開きます．</p>
-<p><img alt="win-adopter2.png" src="../../../_images/win-adopter2.png" /></p>
+<p><img alt="win-adopter2.png" src="../../../_images/win10-adopter2.png" /></p>
+</section>
+<section id="windows-11">
+<h3>Windows 11の場合<a class="headerlink" href="#windows-11" title="Permalink to this heading">#</a></h3>
+<p>Windowsで設定を開き，ネットワークとインターネットを選択，下までスクロールしてネットワークの詳細設定を選択してください．</p>
+<p><img alt="win11-adopter1.png" src="../../../_images/win11-adopter1.png" /></p>
+<p>RaspberryPiと接続したイーサネットデバイスを選択し，その他のアダプターオプションを選択してください．</p>
+<p><img alt="win11-adopter2.png" src="../../../_images/win11-adopter2.png" /></p>
+</section>
+<section id="windows-10-11">
+<h3>【Windows 10/11共通】イーサネットのプロパティ変更<a class="headerlink" href="#windows-10-11" title="Permalink to this heading">#</a></h3>
 <p>インターネットプロトコルバージョン4（TCP/IPv4）のプロパティを開きます．</p>
 <p><img alt="win-adopter3.png" src="../../../_images/win-adopter3.png" /></p>
 <p>IPアドレスとサブネットマスクを設定します．</p>
@@ -528,6 +546,7 @@ static routers=192.168.1.1 8.8.8.8 fd51:42f8:caae:d92e::1
 <span class="w">   </span>サブネット<span class="w"> </span>マスク<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.<span class="w"> </span>.:<span class="w"> </span><span class="m">255</span>.255.255.0
 </pre></div>
 </div>
+</section>
 </section>
 <section id="id1">
 <h2>接続確認<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
@@ -632,7 +651,12 @@ static routers=192.168.1.1 8.8.8.8 fd51:42f8:caae:d92e::1
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypilanip">RaspberryPiの有線LANデバイスにIPアドレスを設定</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10">Windows 10の場合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-11">Windows 11の場合</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10-11">【Windows 10/11共通】イーサネットのプロパティ変更</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">接続確認</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vncclient">VNCClientによる接続</a></li>
 </ul>
