@@ -12,20 +12,13 @@
 -   [システムコールと標準ライブラリ関数の違いを知る](http://www.atmarkit.co.jp/ait/articles/1112/13/news117.html)
 -   [デバッグのコツ](http://www.slideshare.net/kaityo256/130613debug)
 
-## 事前準備
+## サンプルコード
 
--   1\. RaspberryPiにログインする
--   2\. ホームディレクトリに以下のサンプルコードファイルをダウンロードする．
-    -   `\\fs.inf.in.shizuoka.ac.jp\share\class\情報科学実験A\第一部サンプルコード\part1-2B.tgz`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
+ファイル入出力プログラミング，ネットワーク入出力プログラミングのセクションで利用するプログラムのサンプルコードを提供します．必要に応じて修正等を行って利用してください．
 
--   3\. ダウンロードしたサンプルコードファイルを展開する
+-  [day2 サンプルコード](https://github.com/ohkilab/SU-CSexpA-day2)
 
-```shell
- $ tar zxvf part1-2B.tgz
- $ ls part1-2B
- 001  003  005  007client  008client  009client  010client  exp1.h     exp1lib.h
- 002  004  006  007server  008server  009server  010server  exp1lib.c
-```
+
 
 ## exp1.h
 
@@ -149,7 +142,7 @@ int main(int argc, char** argv) {
 
 ```
 
--   参考: [Man page of printf](https://nxm.npg.lemoda.net/ja/3/printf)
+-   参考: [Man page of printf](https://nxmnpg.lemoda.net/ja/3/printf)
 
 ### 実行方法
 
