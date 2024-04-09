@@ -152,7 +152,6 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
 <ul class="nav bd-sidenav">
@@ -466,14 +465,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">きれいなグラフの作成方法</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[必須課題1] バッファサイズを変更した場合のファイルコピー性能</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">要件</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">[必須課題2] バッファサイズを変更した場合の通信性能</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">要件</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[必須課題1] バッファサイズを変更した場合のファイルコピー性能</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[必須課題2] バッファサイズを変更した場合の通信性能</a></li>
 </ul>
             </nav>
         </div>
@@ -544,20 +537,18 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 </section>
 <section id="id7">
 <h2>[必須課題1] バッファサイズを変更した場合のファイルコピー性能<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
-<section id="id8">
-<h3>要件<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <p>ユーザプログラム中のバッファサイズを変更した場合のread，writeとfread，fwriteの性能を比較してください．</p>
 <p>正確な計測・比較のために行った工夫を整理し報告してください．その上で，性能の差について要因を調査して考察を行ってください．</p>
 <p>他グループの報告するグラフとの性能比較を容易にするために，今回の性能比較のグラフを作成する場合には，横軸をバッファサイズ，縦軸をファイルのコピーに要した時間としてください（その際，実験条件の検討や記載が不十分ですと，公平な実験条件での結果かどうか不明確になりますのでご注意ください）．</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>ファイル入出力プログラミングの「<span class="xref myst">必須課題6 ファイルのコピー</span>」のソースコードを拡張します．
+<p><a class="reference internal" href="file_IO_programming.html"><span class="doc std std-doc">ファイル入出力プログラミング</span></a>の「必須課題6 ファイルのコピー」のソースコードを拡張します．
 このプログラムでは <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">buf[]</span></code> が，アプリケーション層でのバッファになっています．</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p><strong>更に先に進む人向け</strong></p>
-<p>標準ライブラリのファイル入出力関数 (先頭が f で始まる入出力関数群）は，関数内でバッファリング処理を行っています．
+<p>標準ライブラリのファイル入出力関数 （先頭が f で始まる入出力関数群）は，関数内でバッファリング処理を行っています．
 もし，計測したread/write, fread/fwrite の性能に違いがあるとしたら，関数内でのバッファリングの違いによるものかもしれません．
 このアプリケーション層でのバッファのサイズを様々に変更して，より深い計測・分析を進めることで read/write, fread/fwrite の違い（関数内でのバッファリング処理との関係）やその理由を更にはっきりさせることができるでしょう．
 以下のサイト等も参考にしながら実際に試してみて結果を分析し深く考察してみてください．</p>
@@ -568,17 +559,14 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 </ul>
 </div>
 </section>
-</section>
-<section id="id9">
-<h2>[必須課題2] バッファサイズを変更した場合の通信性能<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
-<section id="id10">
-<h3>要件<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<section id="id8">
+<h2>[必須課題2] バッファサイズを変更した場合の通信性能<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <p>ユーザプログラム中のバッファサイズを変更した場合のread，writeとrecv，sendの性能を比較してください．</p>
 <p>正確な計測・比較のために行った工夫を整理し報告してください．その上で，性能の差について要因を調査して考察を行ってください．</p>
 <p>他グループの報告のグラフとの比較を容易にするために，今回の性能比較のグラフを作成する場合には，横軸をバッファサイズ，縦軸をファイルの送信あるいは受信に要した時間としてください（その際，実験条件の検討や記載が不十分ですと，公平な実験条件での結果かどうか不明確になりますのでご注意ください）．</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>ネットワーク入出力プログラミングの「<span class="xref myst">必須課題9 ファイル送受信</span>」のソースコードを拡張します． このプログラムでは <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">buf[]</span></code> がアプリケーション層でのバッファになっています．</p>
+<p><a class="reference internal" href="network_IO_programming.html"><span class="doc std std-doc">ネットワーク入出力プログラミング</span></a>の「必須課題9 ファイル送受信」のソースコードを拡張します． このプログラムでは <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">buf[]</span></code> がアプリケーション層でのバッファになっています．</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -595,7 +583,6 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 </ul>
 </div>
 </div>
-</section>
 </section>
 </section>
 
@@ -673,14 +660,8 @@ POSIX標準のライブラリは，ANSI標準には含まれませんのでビ�
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">きれいなグラフの作成方法</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[必須課題1] バッファサイズを変更した場合のファイルコピー性能</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">要件</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">[必須課題2] バッファサイズを変更した場合の通信性能</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">要件</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[必須課題1] バッファサイズを変更した場合のファイルコピー性能</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[必須課題2] バッファサイズを変更した場合の通信性能</a></li>
 </ul>
   </nav></div>
 

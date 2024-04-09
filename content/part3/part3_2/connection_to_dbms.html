@@ -152,7 +152,6 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
 <ul class="nav bd-sidenav">
@@ -591,7 +590,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>reboot
 <h3>テーブルの作成<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>データベースにデータを保存するにはまずテーブルを作らなくてはいけません．</p>
 <p>テーブルは，SQLの<strong>CREATE TABLE</strong>文で作れます．まずMySQLに先ほど作成したユーザ「shizutaro」権限でログインしましょう．</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>mysql<span class="w"> </span>-D<span class="w"> </span>CSexp1DB<span class="w"> </span>-u<span class="w"> </span>shizutaro<span class="w"> </span>-p
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mysql<span class="w"> </span>-D<span class="w"> </span>CSexp1DB<span class="w"> </span>-u<span class="w"> </span>shizutaro<span class="w"> </span>-p
 </pre></div>
 </div>
 <p>MySQLのプロンプトが返ってきたら，SQLコマンドを受け付ける状態になっています．ダウンロードしたCSVファイルをじっくり眺めて，スキーマを決めましょう．スキーマを決めたら，<strong>CREATE TABLE</strong>文を作ってコマンドラインから発行しましょう．</p>
@@ -674,7 +673,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>reboot
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">zipShizuoka</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>+---------+---------------+---------------------+-----------------------------+--------+------------+----------------------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+---------+---------------+---------------------+-----------------------------+--------+------------+----------------------+
 | zip     | kana1         | kana2               | kana3                       | addr1  | addr2      | addr3                |
 +---------+---------------+---------------------+-----------------------------+--------+------------+----------------------+
 | 4220000 | シズオカケン  | シズオカシアオイク  | イカニケイサイガ ナイバアイ | 静岡県 | 静岡市葵区 | 以下に掲載がない場合 |
@@ -682,7 +681,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>reboot
 | 4212309 | シズオカケン  | シズオカシアオイク  | アイブチ                    | 静岡県 | 静岡市葵区 | 相渕                 |
 +---------+---------------+---------------------+-----------------------------+--------+------------+----------------------+
 3 rows in set (0.00 sec)
-
 </pre></div>
 </div>
 <p>以下に示すようなデータを抽出できるような<strong>SELECT文</strong>を考えてみてください．</p>
@@ -947,42 +945,42 @@ $<span class="w"> </span>sudo<span class="w"> </span>reboot
 </div>
 <p><strong>特定の範囲のデータをとってくる</strong></p>
 <p>「LIMIT オフセット値, 件数」，もしくは「LIMIT 件数 OFFSET オフセット値」といったSQL文を記載することで指定の範囲のデータを取得することができます．オフセットをいくつにすればよいかはページ番号さえわかれば計算できますよね？</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">SELECT</span> <span class="nb">zip</span> <span class="kn">from</span> <span class="nn">zipShizuoka</span> <span class="n">LIMIT</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">;</span>
-<span class="o">+---------+</span>
-<span class="o">|</span> <span class="nb">zip</span>     <span class="o">|</span>
-<span class="o">+---------+</span>
-<span class="o">|</span> <span class="mi">4200838</span> <span class="o">|</span>
-<span class="o">|</span> <span class="mi">4212309</span> <span class="o">|</span>
-<span class="o">|</span> <span class="mi">4211307</span> <span class="o">|</span> <span class="o">&lt;--</span> <span class="mi">3</span><span class="n">件目</span>
-<span class="o">|</span> <span class="mi">4200017</span> <span class="o">|</span>
-<span class="o">|</span> <span class="mi">4211305</span> <span class="o">|</span>
-<span class="o">+---------+</span>
-<span class="mi">5</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; SELECT zip from zipShizuoka LIMIT 1, 5;
++---------+
+| zip     |
++---------+
+| 4200838 |
+| 4212309 |
+| 4211307 | &lt;-- 3件目
+| 4200017 |
+| 4211305 |
++---------+
+5 rows in set (0.00 sec)
 
-<span class="o">&gt;</span> <span class="n">SELECT</span> <span class="nb">zip</span> <span class="kn">from</span> <span class="nn">zipShizuoka</span> <span class="n">LIMIT</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">;</span>
-<span class="o">+---------+</span>
-<span class="o">|</span> <span class="nb">zip</span>     <span class="o">|</span>
-<span class="o">+---------+</span>
-<span class="o">|</span> <span class="mi">4211307</span> <span class="o">|</span> <span class="o">&lt;--</span> <span class="mi">3</span><span class="n">件目が先頭にきている</span>
-<span class="o">|</span> <span class="mi">4200017</span> <span class="o">|</span>
-<span class="o">|</span> <span class="mi">4211305</span> <span class="o">|</span>
-<span class="o">|</span> <span class="mi">4200963</span> <span class="o">|</span>
-<span class="o">|</span> <span class="mi">4200948</span> <span class="o">|</span>
-<span class="o">+---------+</span>
-<span class="mi">5</span> <span class="n">rows</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+&gt; SELECT zip from zipShizuoka LIMIT 3, 5;
++---------+
+| zip     |
++---------+
+| 4211307 | &lt;-- 3件目が先頭にきている
+| 4200017 |
+| 4211305 |
+| 4200963 |
+| 4200948 |
++---------+
+5 rows in set (0.00 sec)
 </pre></div>
 </div>
 <p><strong>検索結果の全レコード数を数える</strong></p>
 <p>ページ番号 3/20 といったような全体のページ数を計算したい場合，検索結果の全レコード数を毎回取得する必要があります． 上記のOFFSETを使ったSQLだと常にLIMITで指定した件数が返されるため，全件数が取得できません．方法として， 全件数を計算するSQLを発行するか，全件を取得してPHP側で数え上げるかのどちらかを行う必要があります．</p>
 <p><strong>(方法1) COUNT() 関数を使う</strong></p>
 <p>COUNT() 関数を使うことでSELECT文により選択されたレコードの件数を得ることができます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span> <span class="n">FROM</span> <span class="n">zipShizuoka</span> <span class="n">WHERE</span> <span class="n">kana1</span> <span class="n">LIKE</span> <span class="s1">&#39;%ハママツ%&#39;</span><span class="p">;</span>
-<span class="o">+-------+</span>
-<span class="o">|</span> <span class="n">count</span> <span class="o">|</span>
-<span class="o">+-------+</span>
-<span class="o">|</span>   <span class="mi">477</span> <span class="o">|</span>
-<span class="o">+-------+</span>
-<span class="mi">1</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">set</span> <span class="p">(</span><span class="mf">0.02</span> <span class="n">sec</span><span class="p">)</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; SELECT COUNT(*) as count FROM zipShizuoka WHERE kana1 LIKE &#39;%ハママツ%&#39;;
++-------+
+| count |
++-------+
+|   477 |
++-------+
+1 row in set (0.02 sec)
 </pre></div>
 </div>
 <p><strong>(方法2) mysqli_num_rows() を使う</strong></p>
