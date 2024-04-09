@@ -697,13 +697,10 @@ Raspberry Piと各自のノートPC上に構築したLinux環境を利用して�
 <p class="admonition-title">Hint</p>
 <p>サーバー側のIPアドレスを確認する方法:<code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">a</span></code></p>
 </div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>便宜上本講義ではRaspberry Pi等のIPアドレスを<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>と表記していますが、IPアドレスは起動毎に変わる可能性があります．必ず事前に確認するようにしましょう．</p>
-</div>
-<p>サーバ側が192.168.1.101の場合は以下のように入力します．</p>
-<p>入力待ち受け状態になるので文字列を入力してEnterを押すとサーバ側に文字列が表示されます．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./007client<span class="w"> </span><span class="m">192</span>.168.1.101
+<p>以下のように入力します．</p>
+<p>1行目を入力すると入力待ち受け状態になるので，文字列を入力してEnterを押すとサーバ側に文字列が表示されます．</p>
+<p>下の例では「hello world」と入力しています．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./007client<span class="w"> </span><span class="o">{</span>あなたのサーバのIPアドレス<span class="o">}</span>
 hello<span class="w"> </span>world
 </pre></div>
 </div>
@@ -773,10 +770,10 @@ hello<span class="w"> </span>world
 <section id="id12">
 <h3>クライアント側実行方法<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <p>サーバのIPアドレスを指定して実行します．</p>
-<p>サーバ側が192.168.1.101の場合は以下のように入力します．</p>
-<p>入力待ち受け状態になるので文字列を入力してEnterを押すとサーバ側に文字列が表示されます．</p>
+<p>以下のように入力します．</p>
+<p>1行目を入力すると入力待ち受け状態になるので，文字列を入力してEnterを押すとサーバ側に文字列が表示されます．</p>
 <p>下の例では「hello world」と入力しています．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./008client<span class="w"> </span><span class="m">192</span>.168.1.101
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./008client<span class="w"> </span><span class="o">{</span>あなたのサーバのIPアドレス<span class="o">}</span>
 hello<span class="w"> </span>world
 </pre></div>
 </div>
@@ -856,9 +853,9 @@ hello<span class="w"> </span>world
 <section id="id17">
 <h3>クライアント側実行方法<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
 <p>サーバのIPアドレスと送信したいファイル名を指定して実行します．</p>
-<p>サーバ側が192.168.1.101の場合は以下のように入力します．</p>
+<p>以下のように入力します．</p>
 <p>サーバー側の「<code class="docutils literal notranslate"><span class="pre">tmp.txt</span></code>」にファイルがコピーされれば正常動作です．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./009client<span class="w"> </span><span class="m">192</span>.168.1.101<span class="w"> </span>../001/001.c
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./009client<span class="w"> </span><span class="o">{</span>あなたのサーバのIPアドレス<span class="o">}</span><span class="w"> </span>../001/001.c
 </pre></div>
 </div>
 </section>
@@ -929,10 +926,10 @@ hello<span class="w"> </span>world
 <section id="id21">
 <h3>クライアント側実行方法<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h3>
 <p>サーバのIPアドレスを指定して実行します．</p>
-<p>サーバ側が192.168.1.101の場合は以下のように入力します．</p>
-<p>入力待ち受け状態になるので文字列を入力してEnterを押すとサーバ側に文字列が表示されます．</p>
+<p>以下のように入力します．</p>
+<p>1行目を入力すると入力待ち受け状態になるので，文字列を入力してEnterを押すとサーバ側に文字列が表示されます．</p>
 <p>さらに入力した文字がエコーバックされてclientのところに表示されます．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./010client<span class="w"> </span><span class="m">192</span>.168.1.101
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./010client<span class="w"> </span><span class="o">{</span>あなたのサーバのIPアドレス<span class="o">}</span>
 hello<span class="w"> </span>world
 hello<span class="w"> </span>world
 </pre></div>
