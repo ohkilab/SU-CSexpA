@@ -1,7 +1,7 @@
 # Day4の目的と概要
 
--   a) [ピアレビュー](../../report/peer_review "ピアレビュー")
--   b) [第一部レポート(最終版)](../../report/report.html#id5)
+- a) [ピアレビュー](../../report/peer_review "ピアレビュー")
+- b) [第一部レポート(最終版)](../../report/report "第一部レポート")
 
 ```{admonition} 本日の進捗確認チェックリスト
 - 14:00: ピアレビューを実施しましたか？

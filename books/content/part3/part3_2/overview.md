@@ -1,8 +1,8 @@
 # Day11の目的と概要
 
--   a) [DBMSとの接続](./connection_to_dbms "DBMSとの接続")（必須）
--   b) [最終課題詳細の確認](../part3_final_assignment/final_assignment_details.md "最終課題の確認")
--   c) [第三部レポート](../../report/report.html#id6 "第三部レポート")
+- a) [DBMSとの接続](./connection_to_dbms "DBMSとの接続")（必須）
+- b) [最終課題詳細の確認](../part3_final_assignment/final_assignment_details "最終課題の確認")
+- c) [第三部レポート](../../report/report "第三部レポート")
 
 ```{admonition} 本日の進捗確認チェックリスト
 - 14:00: PHPからDBMSへアクセスできるようになりましたか？
@@ -10,6 +10,7 @@
 - 16:00: 「良(B)」or 「優(A)」レベルの実装ができましたか？
 - 17:00: 各自の実装の性能を分析しボトルネックが分かりましたか？
 ```
+
 ## はじめに
 
 本日は，最終課題の詳細を理解するとともに，実施するための環境構築やツールの使い方を理解してください．
