@@ -458,7 +458,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypilanip">RaspberryPiの有線LANデバイスにIPアドレスを設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypilanip">RaspberryPiの有線LANデバイスにIPアドレスを設定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberry-pi-linux">補足）Raspberry Pi（Linux）でのファイル編集方法</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10">Windows 10の場合</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-11">Windows 11の場合</a></li>
@@ -506,6 +509,24 @@ static routers=192.168.1.1 8.8.8.8 fd51:42f8:caae:d92e::1
 </pre></div>
 </div>
 <p>これでRaspberryPi側の設定は完了です．以降の本資料において記載されているRaspberryPiのIPアドレスは全て無線で接続する際のIPアドレスです．よって，有線接続で実験を行う場合，実験サイトに記載されているRaspberryPiのIPアドレスは<code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code>に読み替えて実施してください．</p>
+<section id="raspberry-pi-linux">
+<h3>補足）Raspberry Pi（Linux）でのファイル編集方法<a class="headerlink" href="#raspberry-pi-linux" title="Permalink to this heading">#</a></h3>
+<p>Raspberry Pi（より一般的にはLinux）でのファイル編集方法は色々あります．GUIが使える場合はファイルマネージャから目的のファイルを探してダブルクリックすれば，標準のテキストエディタ（RaspiであればLeafpadなど）で編集が可能ですので，この方法を使うのが楽でしょう．</p>
+<p>ただし，常にGUIが使えるわけではありません．たとえばWebサービスを提供するアプリケーションサーバやDBサーバなどには，そもそもGUIが搭載されておらず，SSHなどを利用してリモートからCUIでアクセスすることがほとんどです．このような場合にファイルを編集するにはどうすれば良いでしょうか？
+そのために，viやemacsといったCUIから利用可能なテキストエディタが存在します．たとえば，上記の<code class="docutils literal notranslate"><span class="pre">/etc/dhcpcd.conf</span></code>をCUIからviで編集したい場合，以下のコマンドでファイルを編集してください．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/dhcpcd.conf
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>/etc/dhcpcd.conf はシステムファイルのため，ユーザによる編集権限がありません．
+このような場合 sudo を前につけて管理者権限で編集を行います．
+くれぐれも編集内容には気をつけて作業を行なってください．
+編集前のファイルをバックアップしておくと安心です．</p>
+</div>
+<p>CUIのテキストエディタ（たとえばvi）の利用方法は少し特殊です．これに関してはインターネット上に多くの解説サイトが存在します．
+特に将来エンジニアを目指す方は使うことになる可能性が高いツールですので，この機会に自分で探して使えるようになっておくと良いでしょう．</p>
+</section>
 </section>
 <section id="pclanip">
 <h2>PCの有線LANデバイスにIPアドレスを設定<a class="headerlink" href="#pclanip" title="Permalink to this heading">#</a></h2>
@@ -649,7 +670,10 @@ static routers=192.168.1.1 8.8.8.8 fd51:42f8:caae:d92e::1
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypilanip">RaspberryPiの有線LANデバイスにIPアドレスを設定</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberrypilanip">RaspberryPiの有線LANデバイスにIPアドレスを設定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberry-pi-linux">補足）Raspberry Pi（Linux）でのファイル編集方法</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pclanip">PCの有線LANデバイスにIPアドレスを設定</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-10">Windows 10の場合</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-11">Windows 11の場合</a></li>
