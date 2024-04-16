@@ -38,7 +38,7 @@ Raspberry Pi上のRaspberry Pi OSに標準でインストールされているVN
 
 ## WinSCPのインストール
 
-みなさんのノートPCにインストールされているWindowsから、ネットワーク接続を介してリモートでRaspberryPiとのファイル共有をするために、WinSCPをノートPCのWindowsへインストールしておきます。
+みなさんのノートPCにインストールされているWindowsから，ネットワーク接続を介してリモートでRaspberryPiとのファイル共有をするために，WinSCPをノートPCのWindowsへインストールしておきます．
 
 [WinSCP](https://winscp.net/eng/download.php)
 
