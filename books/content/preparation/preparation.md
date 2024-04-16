@@ -36,6 +36,12 @@ Raspberry Pi上のRaspberry Pi OSに標準でインストールされているVN
 > Do I need to license the software?
 > No. VNC® Viewer is always free to use. Just accept the EULA the first time you run.
 
+## WinSCPのインストール
+
+みなさんのノートPCにインストールされているWindowsから、ネットワーク接続を介してリモートでRaspberryPiとのファイル共有をするために、WinSCPをノートPCのWindowsへインストールしておきます。
+
+[WinSCP](https://winscp.net/eng/download.php)
+
 ## Mattermostへの登録
 
 本年度は学生間の連絡にMattermostを使います．機材配布時に配った資料を参考に，Mattermostへの参加登録を済ませておいてください．
