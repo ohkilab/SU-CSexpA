@@ -549,7 +549,21 @@ inet<span class="w"> </span><span class="m">192</span>.168.100.17/24
 <p><img alt="scpvm2.png" src="../../../_images/scpvm2.png" /></p>
 <p>右上のアイコンをクリックして，フォワーディングルールを追加します．ここでは，ホストOS（Windows）のポート22への接続をゲストOS（Linux）のポート22に転送する設定を行います．</p>
 <p><img alt="scpvm3.png" src="../../../_images/scpvm3.png" /></p>
-<p>WinSCPを起動し，接続先のホストとして以下の指定して接続します．</p>
+<p>VM環境を起動し，以下のコマンドを実行してください．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openssh-server
+</pre></div>
+</div>
+<p>以下のコマンドでopenssh-serverの起動状況を確認できます．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>ssh
+ssh.service<span class="w"> </span>-<span class="w"> </span>...
+...
+<span class="w">  </span>Active:<span class="w"> </span>active<span class="w"> </span><span class="o">(</span>running<span class="o">)</span><span class="w"> </span>since<span class="w"> </span>...
+...
+</pre></div>
+</div>
+<p>ステータスがActiveであれば正常に動作しています．
+WinSCPを起動し，接続先のホストとして以下の指定して接続します．</p>
 <ul class="simple">
 <li><p>ホスト名:localhost</p></li>
 <li><p>ユーザ名:ゲストOSに設定したユーザ名</p></li>

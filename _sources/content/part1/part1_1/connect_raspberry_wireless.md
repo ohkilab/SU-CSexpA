@@ -95,6 +95,24 @@ VirtualBoxのメニューから「仮想マシン」→「設定」を開きま�
 
 ![scpvm3.png](../../../images/part1/part1_1/scpvm3.png)
 
+VM環境を起動し，以下のコマンドを実行してください．
+
+```shell
+$ sudo apt update
+$ sudo apt install openssh-server
+```
+
+以下のコマンドでopenssh-serverの起動状況を確認できます．
+
+```shell
+$ systemctl status ssh
+ssh.service - ...
+...
+  Active: active (running) since ...
+...
+```
+
+ステータスがActiveであれば正常に動作しています．
 WinSCPを起動し，接続先のホストとして以下の指定して接続します．
 
 - ホスト名:localhost
