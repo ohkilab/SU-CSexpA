@@ -233,7 +233,7 @@ bool start(const int portNum) {
 }
 ```
 
-### in libserver.h
+### in libserver.c
 
 ```c
 void on_new_connection(uv_stream_t *server, int status)
