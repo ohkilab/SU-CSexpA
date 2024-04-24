@@ -661,7 +661,8 @@ document.write(`
 <p>マルチスレッドを用いてサーバプログラムを多重化します．</p>
 <p>以下にEchoBackのプログラムを題材として，サーバ側プログラムのアクセプト周辺のサンプルコードを示します（サンプルコード内で呼び出しているechoBackLoop関数（前回までのEchoBack通信部分のコードと大差ないので内容は未掲載）が実際に通信を行う部分になりますので，その関数に適切なスレッドを割り当て，適切なソケットと共に実行することが各サンプルコードの主眼になります）．</p>
 <p>サーバ側プログラム全体は示しませんので、前回のサンプルコードを改良して複数クライアントに対応するサーバプログラムを完成させてください．
-以下のサンプルコードは pthread ライブラリを利用していますので，ビルド時に<code class="docutils literal notranslate"><span class="pre">-lpthread</span></code>オプションを指定する必要があります．</p>
+以下のサンプルコードは pthread ライブラリを利用していますので，ビルド時に<code class="docutils literal notranslate"><span class="pre">-pthread</span></code>オプションを指定する必要があります．
+Day2で配布したMakefileを再利用する場合，ファイル内で<code class="docutils literal notranslate"><span class="pre">LDFLAGS=-pthread</span></code>と記述してください．</p>
 </section>
 <section id="id7">
 <h2>サンプルコード<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
