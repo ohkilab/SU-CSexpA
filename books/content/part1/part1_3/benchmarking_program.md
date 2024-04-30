@@ -4,8 +4,8 @@
 
 以下の動作を行うクライアントプログラムを開発します．
 
--   1接続あたりM回のEchoBack通信（1メッセージはサイズL Byte）を実施する
--   上記の「M回のEchoBack通信」をN並列で実行する
+- 1接続あたりM回のEchoBack通信（1メッセージはサイズL Byte）を実施する
+- 上記の「M回のEchoBack通信」をN並列で実行する
 
 すなわち，サーバがN台のクライアントから同時に接続を受け，それぞれの接続の中でM回のEchoBack通信を行う状況を作り出します．
 
@@ -15,23 +15,27 @@
 
 「M回のEchoBack通信を行う送受信ループ」をN並列（スレッド）で実行するベンチマークプログラムのサンプルを提供するので，それぞれの実験方法の必要に応じて修正等を行って利用してください．
 
--  [tcpbenchmark サンプルコード](https://github.com/ohkilab/SU-CSexpA-day3-tcpbenchmark)
+- [tcpbenchmark サンプルコード](https://github.com/ohkilab/SU-CSexpA-day3-tcpbenchmark)
 
 基本的な使い方は以下の通りですが，各自ソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やす拡張を行ってもよいでしょう）．
 
 実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は`sudo ./hogehoge`の様に**管理者権限で実行**をしてみて下さい．
 
 ```shell
- $ tcpbenchmark 192.168.0.100 10000 10 1000 15
+$ tcpbenchmark 192.168.0.100 10000 3 5 2
 ```
 
--   第1引数: 接続先IPアドレス
--   第2引数: 接続先ポート番号
--   第3引数: 総トライアル数
--   第4引数: 多重度の指定（スレッド数）
--   第5引数: コネクションごとのEchoBack通信回数
+- 第1引数: 接続先IPアドレス
+- 第2引数: 接続先ポート番号
+- 第3引数: 多重度の指定（スレッド数）
+- 第4引数: メッセージサイズ
+- 第5引数: メッセージ送信回数
 
-このコマンド例では「15回EchoBackする接続を1000並列で10回実行する」ことになります．
+このコマンド例では「192.168.0.185の10000番ポートに3スレッド同時アクセスを⾏い，各スレッドでは『5バイトのメッセージを送信し，その応答を受け取る』ことを2回実施する」ことになります．
+
+以下のPDFにはもう少し詳細な説明が記載してあります．適時参照してください．
+
+[TCPBenchMark.pdf](../../../resources/tcpbenchmark.pdf)
 
 ### 時間計測部分
 
@@ -71,10 +75,14 @@ void printUsedTime(TIMECOUNTER* tc) {
 
 ```c
   for (int i = 0; i < tplistNum; i++) {
-    THREADPARAM* tp = (THREADPARAM*) malloc(sizeof(THREADPARAM));
+    THREADPARAM *tp = (THREADPARAM *)malloc(sizeof(THREADPARAM));
+    tp->id = i;
     strcpy(tp->serverInfo.hostName, hostName);
     strcpy(tp->serverInfo.portNum, portNum);
     tp->result = false;
+    tp->failedConnectNum = 0;
+    tp->failedSendRecvLoopNum = 0;
+    tp->failedSendRecvNum = 0;
     tplist[i] = tp;
 
     if (pthread_create(&threadId[i], &attr, thread_func, tp)) {
@@ -145,9 +153,12 @@ void printUsedTime(TIMECOUNTER* tc) {
     countStart(&(tp->sendRecvTime));
 
     // 送受信処理
-    tp->result = sendRecvLoop(csocket, ECHOBACKNUM, tp->id);
-    if ( tp->result == false ) {
-      tp->failSendRecvNum++;
+    int successCount = sendRecvLoop(csocket, msg, strlen(msg), ECHOBACKNUM, tp->id, RESPONSE_POSTFIX);
+    if (successCount == ECHOBACKNUM) {
+      tp->result = true;
+    } else {
+      tp->failedSendRecvNum += (ECHOBACKNUM - successCount);
+      tp->failedSendRecvLoopNum++;
     }
 
     // 送受信時間計測終了
