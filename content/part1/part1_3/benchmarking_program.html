@@ -496,17 +496,19 @@ document.write(`
 </ul>
 <p>基本的な使い方は以下の通りですが，各自ソースコードリーディングを行い，何をどのように計測しているのかを把握してから利用するようにして下さい． また，スレッド数も1プロセスのリソース制限がありますので無制限に増やせる訳ではありません（必要に応じてマルチプロセスとマルチスレッドを組み合わせるなどして並列数を増やす拡張を行ってもよいでしょう）．</p>
 <p>実行環境によってはこのベンチマークプログラムがPermissionError等で実行を拒否される場合があるようです． そういった場合は<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./hogehoge</span></code>の様に<strong>管理者権限で実行</strong>をしてみて下さい．</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>tcpbenchmark<span class="w"> </span><span class="m">192</span>.168.0.100<span class="w"> </span><span class="m">10000</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="m">15</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>tcpbenchmark<span class="w"> </span><span class="m">192</span>.168.0.100<span class="w"> </span><span class="m">10000</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">2</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>第1引数: 接続先IPアドレス</p></li>
 <li><p>第2引数: 接続先ポート番号</p></li>
-<li><p>第3引数: 総トライアル数</p></li>
-<li><p>第4引数: 多重度の指定（スレッド数）</p></li>
-<li><p>第5引数: コネクションごとのEchoBack通信回数</p></li>
+<li><p>第3引数: 多重度の指定（スレッド数）</p></li>
+<li><p>第4引数: メッセージサイズ</p></li>
+<li><p>第5引数: メッセージ送信回数</p></li>
 </ul>
-<p>このコマンド例では「15回EchoBackする接続を1000並列で10回実行する」ことになります．</p>
+<p>このコマンド例では「192.168.0.185の10000番ポートに3スレッド同時アクセスを⾏い，各スレッドでは『5バイトのメッセージを送信し，その応答を受け取る』ことを2回実施する」ことになります．</p>
+<p>以下のPDFにはもう少し詳細な説明が記載してあります．適時参照してください．</p>
+<p><a class="reference download internal" download="" href="../../../_downloads/a0512b4b5824785e829b22ee126fb940/tcpbenchmark.pdf"><span class="xref download myst">TCPBenchMark.pdf</span></a></p>
 <section id="id4">
 <h3>時間計測部分<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>POSIX標準ではナノ秒単位で時間を扱うことができるライブラリが提供されています．計測開示の時刻と計測終了時の時刻を構造体で管理し，差分を取って所要時間を表示しています．</p>
@@ -542,10 +544,14 @@ document.write(`
 <h3>スレッドの生成と計測部分<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <p>単位時間あたりの処理能力を計測する必要があるので，スレッド生成処理のタイムラグを除外するために，予め全てのスレッドを生成しておき，スタートフラグを以って全スレッドが並行してサーバに接続開始するように設計しています．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tplistNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">THREADPARAM</span><span class="o">*</span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">THREADPARAM</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">THREADPARAM</span><span class="p">));</span>
+<span class="w">    </span><span class="n">THREADPARAM</span><span class="w"> </span><span class="o">*</span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">THREADPARAM</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">THREADPARAM</span><span class="p">));</span>
+<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">serverInfo</span><span class="p">.</span><span class="n">hostName</span><span class="p">,</span><span class="w"> </span><span class="n">hostName</span><span class="p">);</span>
 <span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">serverInfo</span><span class="p">.</span><span class="n">portNum</span><span class="p">,</span><span class="w"> </span><span class="n">portNum</span><span class="p">);</span>
 <span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failedConnectNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failedSendRecvLoopNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failedSendRecvNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="n">tplist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tp</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">threadId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">attr</span><span class="p">,</span><span class="w"> </span><span class="n">thread_func</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
@@ -615,9 +621,12 @@ document.write(`
 <span class="w">    </span><span class="n">countStart</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">sendRecvTime</span><span class="p">));</span>
 
 <span class="w">    </span><span class="c1">// 送受信処理</span>
-<span class="w">    </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="n">ECHOBACKNUM</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failSendRecvNum</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">successCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sendRecvLoop</span><span class="p">(</span><span class="n">csocket</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">msg</span><span class="p">),</span><span class="w"> </span><span class="n">ECHOBACKNUM</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">RESPONSE_POSTFIX</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">successCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ECHOBACKNUM</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failedSendRecvNum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">ECHOBACKNUM</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">successCount</span><span class="p">);</span>
+<span class="w">      </span><span class="n">tp</span><span class="o">-&gt;</span><span class="n">failedSendRecvLoopNum</span><span class="o">++</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">// 送受信時間計測終了</span>
