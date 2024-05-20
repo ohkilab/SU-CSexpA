@@ -16,7 +16,7 @@
 
 HTTPのステータスコードは，[HTTPステータスコード - Wikipedia](http://ja.wikipedia.org/wiki/HTTP%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89)にも大凡まとまっています．3XX系のステータスコードはリダイレクションするためのステータスコードになります．最低でも301，302，303の3種類は実装してみてください．
 
--   [リダイレクト時のステータスコードには何を使えばいいか？](http://www.symmetric.co.jp/blog/archives/123)
+-   [HTTPリダイレクト4種類の違いとは？](https://sw-dev-blog.symmetric.jp/archives/123)
 -   [新人コーダーに知っておいて欲しいリダイレクトの基本](http://html-coding.co.jp/knowhow/tips/000572/)
 
 ブラウザのデベロッパーツールを使って適切に動作しているか確認してみてください．
