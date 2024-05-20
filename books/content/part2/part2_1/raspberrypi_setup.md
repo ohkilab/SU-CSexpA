@@ -11,7 +11,7 @@ Raspberry Pi OS では，これらのソフトウェアを apt を使ってイ�
 
 ```shell
 $ sudo apt install apache2 apache2-doc apache2-utils　　　　　　　　　 <--- WEBサーバーのインストール
-$ sudo apt install php7.4 php7.4-mysql libapache2-mod-php7.4              <--- PHPのインストール
+$ sudo apt install php8.0 php8.0-mysql libapache2-mod-php8.0              <--- PHPのインストール
 $ sudo apt install mariadb-server mariadb-client                       <--- DBのインストール
 ```
 
