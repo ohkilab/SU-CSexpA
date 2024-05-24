@@ -59,22 +59,21 @@ $ sudo systemctl restart apache2
 
 ```sh
 #mod_phpやmpm_preforkを無効にして，mpm_workerを有効に
-$ sudo a2dismod php7.3
+$ sudo a2dismod php8.0
 $ sudo a2dismod mpm_prefork
 $ sudo a2dismod mpm_event
 $ sudo a2enmod mpm_worker
 
 $ sudo apt-get update
-$ sudo apt install php-fpm libapache2-mod-fcgid
-#自動的にphp7.3-fpmといった最新バージョンがインストールされるはず
+$ sudo apt install php8.0-fpm libapache2-mod-fcgid
 #FPM (FastCGI Process Manager) は PHP の FastCGI 実装のひとつで，主に高負荷のサイトでリソース管理の安全運用な追加機能を用意しています
 
-$ sudo a2enconf php7.3-fpm     <--- conf なので注意！
+$ sudo a2enconf php8.0-fpm     <--- conf なので注意！
 
 #proxy_fcgi_moduleが必要なのでこれも有効にする
 $ sudo a2enmod proxy_fcgi     <--- mod なので注意！
 
-$ sudo systemctl restart php7.3-fpm
+$ sudo systemctl restart php8.0-fpm
 $ sudo systemctl restart apache2
 ```
 
@@ -85,8 +84,8 @@ $ sudo systemctl restart apache2
 #apache2が正常動作しているか確認
 $ sudo systemctl status apache2
 
-#php7.3-fpmが正常動作しているか確認
-$ sudo systemctl status php7.3-fpm
+#php8.0-fpmが正常動作しているか確認
+$ sudo systemctl status php8.0-fpm
 
 #apache2の現在有効なモジュールを確認（fcgid_moduleがあればOK）
 $ apache2ctl -M
