@@ -1,4 +1,5 @@
 # セキュリティホール
+
 ## はじめに
 
 まず最初に十分理解していいただきたいのは，以下の実験内容は教育目的であって絶対に悪用しないでください．
@@ -13,24 +14,28 @@
 
 ここでは，セキュリティホールの基本であるバッファオーバフローを利用した攻撃方法について理解し，実際に以下のステップを実験用端末で試してみてセキュリティホールを実感してください．
 
--   \[必須課題\]セグメンテーションフォルト
--   \[必須課題\]脆弱性のあるプログラムの実行
--   \[発展課題\]バッファオーバーフロー
--   \[発展課題\]バッファオーバーランで任意のコマンドを実行
--   \[発展課題\]バッファオーバーランでリモートからシェルに接続
+- \[必須課題\]セグメンテーションフォルト
+- \[必須課題\]脆弱性のあるプログラムの実行
+- \[発展課題\]バッファオーバーフロー
+- \[発展課題\]バッファオーバーランで任意のコマンドを実行
+- \[発展課題\]バッファオーバーランでリモートからシェルに接続
 
 上から順番に少しずつ攻撃を高度化したものになります．つまり，一番下に示すリモートサーバのシェルに接続できれば，ホームページの改竄もできてしまいます．
 
-ここで，昨今のOSはデフォルトでは以下の対策が施されていますので，今回は**敢えて体験できるよう以下の設定を解除**してから実施してください．その他にも最新のセキュリティ対策が施されている場合がありますので，状況に応じて解除して実施してください．ただし，レポートにはその旨をしっかり記述し，読み手が同様の実験結果を再現するのに必要な情報をしっかり記述してください（レポート内容が正しいか（コピペや虚偽でないか），こちらでも試して確認する場合がありますので）．
+ここで，昨今のOSはデフォルトでは以下の対策が施されていますので，今回は**敢えて体験できるよう以下の設定を解除**する場合があります．その他にも最新のセキュリティ対策が施されている場合がありますので，状況に応じて解除して実施してください．ただし，レポートにはその旨をしっかり記述し，読み手が同様の実験結果を再現するのに必要な情報をしっかり記述してください（レポート内容が正しいか（コピペや虚偽でないか），こちらでも試して確認する場合がありますので）．
 
--   [アドレス空間レイアウトのランダマイズ化](http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E7%A9%BA%E9%96%93%E9%85%8D%E7%BD%AE%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%8C%96)（ASLR: Address Space Layout Randomization）を実験のために無効化：`$ sudo sysctl -w kernel.randomize\_va\_space=0`
--   [データ実行防止](http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2) （DEP: Data Execution Prevention）と[スタック保護(リンク先の11ページ)](https://www.ipa.go.jp/files/000013695.pdf)（SSP: stack-smashing protection）を実験のために無効化：　`$ gcc -z execstack -fno-stack-protector xxxx.c`
+- [アドレス空間配置のランダム化](https://docs.oracle.com/cd/E39368_01/security/ol_aslr_sec.html)（ASLR: Address Space Layout Randomization）を実験のために無効化：`$ sudo sysctl -w kernel.randomize\_va\_space=0`
+
+- [データ実行防止](http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2) （DEP: Data Execution Prevention）と[スタック保護](https://www.intel.com/content/www/us/en/docs/cpp-compiler/developer-guide-reference/2021-8/fstack-protector.html)（SSP: stack-smashing protection）を実験のために無効化：`$ gcc -z execstack -fno-stack-protector xxxx.c`
 
 ## \[必須課題\] セグメンテーションフォルト
 
 下記プログラムにおいて，セグメンテーションフォルトが発生する理由について考察してください． また，セグメンテーションフォルトとは何か説明してください
+
 ```c
-#include "exp1.h"
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
 
 void test_func(char *msg)
 {
@@ -76,13 +81,14 @@ int main()
   test_func(data);
 }
 ```
+
 余裕のある人は上記の条件下でもセグメンテーションフォルトが発生しないようにプログラムを変更してみましょう．
 
 ## \[必須課題\] 脆弱性のあるプログラムの実行
 
-以下に示す上記プログラムの実行結果について，どのような動作の結果なのか説明してください
+以下に示す上記プログラムの実行結果について，どのような動作の結果なのか説明してください．
 
-```
+```text
 0x00000000ffffe5d0: data
 0x00000000ffffe60c: &x
 0x00000000004006e8: main
@@ -114,15 +120,12 @@ end dump memory
 
 Segmentation fault (core dumped)
 ```
-皆さんの実装したプログラムが，どのようにメモリ上に展開され実行されているか理解できると様々な意図せぬ動作の解決に役立ちます． ちなみに，上記の出力は分かりやすさを重視するために，以下のようにしてASLRを解除した場合の出力になります．
+
+皆さんの実装したプログラムがどのようにメモリ上に展開され実行されているか理解できると様々な意図せぬ動作の解決に役立ちます．ちなみに，上記の出力は下記のようにしてASLRを解除した場合の出力となります．
 
 ```shell
  $ sudo sysctl -w kernel.randomize_va_space=0
 ```
-```{hint}
--   [バッファオーバーラン ～その１・こうして起こる～](http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html)
-```
-
 
 ## \[発展課題\]バッファオーバーフロー
 
@@ -130,32 +133,31 @@ Segmentation fault (core dumped)
 
 Simple HTTPサーバにはこの脆弱性がありますので，クライアント側プログラムを工夫することで，バッファオーバーフローを生じさせSimple HTTPサーバを停止させる攻撃ができます．Simple HTTPサーバプログラムのどこに脆弱性があり，その結果，どのようにクライアント側プログラムを工夫するとバッファオーバーフローが生じるのか検討し，実際に試してみてください．レポートには以下の項目を記述してください．
 
--   攻撃用のクライアント側ソースコード（該当部のみでよい）
--   Simple HTTPサーバが停止していることの分かるスクリーンショット
--   上記の解説
+- 攻撃用のクライアント側ソースコード（該当部のみでよい）
+- Simple HTTPサーバが停止していることの分かるスクリーンショット
+- 上記の解説
 
--   対策用のサーバ側ソースコード（該当部のみでよい）
--   Simple HTTPサーバが停止しなくなったことの分かるスクリーンショット
--   上記の解説
+- 対策用のサーバ側ソースコード（該当部のみでよい）
+- Simple HTTPサーバが停止しなくなったことの分かるスクリーンショット
+- 上記の解説
 
 ## \[発展課題\]バッファオーバーランで任意のコマンドを実行
 
 バッファオーバーフローを利用して，サーバ側でシェルを起動できれば任意のコマンドを実行させることができるようになります．例えば以下のようなサイトもありますので，参考にして実現してみてください．要約すると，次のようなデータを送り込めばよいことになります．gdbを使用してメモリ上の値を分析しながら実施すると具体的なイメージがわくと思います（ちなみにSSP (Stack-Smashing Protection)も無効にしておきましょう）．サーバ側でシェルを起動できると，サーバプログラムを実行した端末画面で任意のコマンドを入力し実行できるようになります（サーバ側の端末画面で入力できてもあまり意味ないですが）．
 
--   シェルコード（シェルを起動するコード）を作成する
--   データ中にシェルコードを含める
--   バッファ長の適切な位置にシェルコードの先頭アドレスを入れておく
+- シェルコード（シェルを起動するコード）を作成する
+- データ中にシェルコードを含める
+- バッファ長の適切な位置にシェルコードの先頭アドレスを入れておく
 
 参考URL
 
-
--   [バッファオーバーラン ～その１・こうして起こる～（アーカイブ記事）](https://web.archive.org/web/20210426084806/http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html)
--   [単純なスタックバッファオーバーフロー攻撃をやってみる](http://inaz2.hatenablog.com/entry/2014/03/14/151011)
--   [x86とx64の両方で動くシェルコードを書いてみる](http://inaz2.hatenablog.com/entry/2014/07/06/185125)
--   [x64でROP stager + Return-to-dl-resolve + \_\_libc\_csu\_init gadgetsによるASLR+DEP回避をやってみる](http://inaz2.hatenablog.com/entry/2014/07/31/010158)
--   [ARMで単純なスタックバッファオーバーフロー攻撃をやってみる](http://inaz2.hatenablog.com/entry/2015/03/06/220345)
--   [Linux ARM用のシェルコードを書いてみる](http://inaz2.hatenablog.com/entry/2015/03/06/020437)
--   [Lab: ARM Assembly Shellcode From Zero to ARM Assembly Bind Shellcode](https://azeria-labs.com/downloads/HITB-v1.0.pdf)
+- [バッファオーバーラン ～その１・こうして起こる～（アーカイブ記事）](https://web.archive.org/web/20210426084806/http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html)
+- [単純なスタックバッファオーバーフロー攻撃をやってみる](http://inaz2.hatenablog.com/entry/2014/03/14/151011)
+- [x86とx64の両方で動くシェルコードを書いてみる](http://inaz2.hatenablog.com/entry/2014/07/06/185125)
+- [x64でROP stager + Return-to-dl-resolve + \_\_libc\_csu\_init gadgetsによるASLR+DEP回避をやってみる](http://inaz2.hatenablog.com/entry/2014/07/31/010158)
+- [ARMで単純なスタックバッファオーバーフロー攻撃をやってみる](http://inaz2.hatenablog.com/entry/2015/03/06/220345)
+- [Linux ARM用のシェルコードを書いてみる](http://inaz2.hatenablog.com/entry/2015/03/06/020437)
+- [Lab: ARM Assembly Shellcode From Zero to ARM Assembly Bind Shellcode](https://azeria-labs.com/downloads/HITB-v1.0.pdf)
 
 ## \[発展課題\]バッファオーバーランでリモートからシェルに接続
 
@@ -163,15 +165,16 @@ Simple HTTPサーバにはこの脆弱性がありますので，クライアン
 
 参考URL
 
--   [侵入者の攻撃手法とその対策](http://www.atmarkit.co.jp/ait/articles/0211/23/news001.html)
--   [スタックバッファオーバーフローによる標準入力からのシェル起動](http://inaz2.hatenablog.com/entry/2014/03/15/065034)
--   [ネットワークソケットを利用したシェル起動](http://inaz2.hatenablog.com/entry/2014/05/16/035057)
--   [SLAE: Shell Reverse TCP Shellcode (Linux/x86)](https://www.rcesecurity.com/2014/07/slae-shell-reverse-tcp-shellcode-linux-x86/)
--   [Return-Oriented Programmingで64ビットLinuxを攻撃する手法](http://postd.cc/64-bit-linux-return-oriented-programming/)
--   [pwn合宿 ～夏の陣～](http://rintaro.hateblo.jp/entry/2015/09/08/173521)
+- [侵入者の攻撃手法とその対策](http://www.atmarkit.co.jp/ait/articles/0211/23/news001.html)
+- [スタックバッファオーバーフローによる標準入力からのシェル起動](http://inaz2.hatenablog.com/entry/2014/03/15/065034)
+- [ネットワークソケットを利用したシェル起動](http://inaz2.hatenablog.com/entry/2014/05/16/035057)
+- [SLAE: Shell Reverse TCP Shellcode (Linux/x86)](https://www.rcesecurity.com/2014/07/slae-shell-reverse-tcp-shellcode-linux-x86/)
+- [Return-Oriented Programmingで64ビットLinuxを攻撃する手法](http://postd.cc/64-bit-linux-return-oriented-programming/)
+- [pwn合宿 ～夏の陣～](http://rintaro.hateblo.jp/entry/2015/09/08/173521)
 
 ## おわりに
 
+アドレス空間のランダム化は実験が終了次第元の設定に戻しておきましょう．`sysctl -w kernel.randomize\_va\_space=2`
 以上のようにセキュリティホールに対するサイバー攻防の発展は凄まじいですが，十分理解していいただきたいのは，この実験内容は教育目的ですので倫理観を持って絶対に悪用しないでください．
 
 なお，静岡大学では，enPiT Basic SecCap 夏季特別講義として本内容を高度化した「サイバー攻防基礎演習」を行う予定です．余裕がある方は下記内容を先取りして取り組んでくれても構いません．また，今回の実験にも役にたつ情報が多く記載されていますので，ご参考にしてください．

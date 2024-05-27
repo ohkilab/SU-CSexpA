@@ -494,16 +494,18 @@ document.write(`
 <li><p>[発展課題]バッファオーバーランでリモートからシェルに接続</p></li>
 </ul>
 <p>上から順番に少しずつ攻撃を高度化したものになります．つまり，一番下に示すリモートサーバのシェルに接続できれば，ホームページの改竄もできてしまいます．</p>
-<p>ここで，昨今のOSはデフォルトでは以下の対策が施されていますので，今回は<strong>敢えて体験できるよう以下の設定を解除</strong>してから実施してください．その他にも最新のセキュリティ対策が施されている場合がありますので，状況に応じて解除して実施してください．ただし，レポートにはその旨をしっかり記述し，読み手が同様の実験結果を再現するのに必要な情報をしっかり記述してください（レポート内容が正しいか（コピペや虚偽でないか），こちらでも試して確認する場合がありますので）．</p>
+<p>ここで，昨今のOSはデフォルトでは以下の対策が施されていますので，今回は<strong>敢えて体験できるよう以下の設定を解除</strong>する場合があります．その他にも最新のセキュリティ対策が施されている場合がありますので，状況に応じて解除して実施してください．ただし，レポートにはその旨をしっかり記述し，読み手が同様の実験結果を再現するのに必要な情報をしっかり記述してください（レポート内容が正しいか（コピペや虚偽でないか），こちらでも試して確認する場合がありますので）．</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E7%A9%BA%E9%96%93%E9%85%8D%E7%BD%AE%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%8C%96">アドレス空間レイアウトのランダマイズ化</a>（ASLR: Address Space Layout Randomization）を実験のために無効化：<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">sysctl</span> <span class="pre">-w</span> <span class="pre">kernel.randomize\_va\_space=0</span></code></p></li>
-<li><p><a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2">データ実行防止</a> （DEP: Data Execution Prevention）と<a class="reference external" href="https://www.ipa.go.jp/files/000013695.pdf">スタック保護(リンク先の11ページ)</a>（SSP: stack-smashing protection）を実験のために無効化：　<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">gcc</span> <span class="pre">-z</span> <span class="pre">execstack</span> <span class="pre">-fno-stack-protector</span> <span class="pre">xxxx.c</span></code></p></li>
+<li><p><a class="reference external" href="https://docs.oracle.com/cd/E39368_01/security/ol_aslr_sec.html">アドレス空間配置のランダム化</a>（ASLR: Address Space Layout Randomization）を実験のために無効化：<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">sysctl</span> <span class="pre">-w</span> <span class="pre">kernel.randomize\_va\_space=0</span></code></p></li>
+<li><p><a class="reference external" href="http://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E5%AE%9F%E8%A1%8C%E9%98%B2%E6%AD%A2">データ実行防止</a> （DEP: Data Execution Prevention）と<a class="reference external" href="https://www.intel.com/content/www/us/en/docs/cpp-compiler/developer-guide-reference/2021-8/fstack-protector.html">スタック保護</a>（SSP: stack-smashing protection）を実験のために無効化：<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">gcc</span> <span class="pre">-z</span> <span class="pre">execstack</span> <span class="pre">-fno-stack-protector</span> <span class="pre">xxxx.c</span></code></p></li>
 </ul>
 </section>
 <section id="id3">
 <h2>[必須課題] セグメンテーションフォルト<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>下記プログラムにおいて，セグメンテーションフォルトが発生する理由について考察してください． また，セグメンテーションフォルトとは何か説明してください</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;exp1.h&quot;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">test_func</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">)</span>
 <span class="p">{</span>
@@ -554,48 +556,42 @@ document.write(`
 </section>
 <section id="id4">
 <h2>[必須課題] 脆弱性のあるプログラムの実行<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
-<p>以下に示す上記プログラムの実行結果について，どのような動作の結果なのか説明してください</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mh">0x00000000ffffe5d0</span><span class="p">:</span> <span class="n">data</span>
-<span class="mh">0x00000000ffffe60c</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">x</span>
-<span class="mh">0x00000000004006e8</span><span class="p">:</span> <span class="n">main</span>
-<span class="mh">0x00000000ffffe590</span><span class="p">:</span> <span class="n">buf</span>
-<span class="mh">0x00000000ffffe5a4</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">y</span>
-<span class="mh">0x00000000ffffe5d0</span><span class="p">:</span> <span class="n">msg</span>
-<span class="mh">0x00000000ffffe58c</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">z</span>
+<p>以下に示す上記プログラムの実行結果について，どのような動作の結果なのか説明してください．</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0x00000000ffffe5d0: data
+0x00000000ffffe60c: &amp;x
+0x00000000004006e8: main
+0x00000000ffffe590: buf
+0x00000000ffffe5a4: &amp;y
+0x00000000ffffe5d0: msg
+0x00000000ffffe58c: &amp;z
 
-<span class="n">start</span> <span class="n">dump</span> <span class="n">memory</span>
-<span class="mh">0x00000000ffffe58c</span><span class="p">:</span> <span class="mi">99</span><span class="n">aabbccd0e5ffff</span>
-<span class="mh">0x00000000ffffe594</span><span class="p">:</span> <span class="n">ff7f0000d0e5ffff</span>
-<span class="mh">0x00000000ffffe59c</span><span class="p">:</span> <span class="n">ff7f00000f094000</span>
-<span class="mh">0x00000000ffffe5a4</span><span class="p">:</span> <span class="mi">5566778803000000</span>
-<span class="mh">0x00000000ffffe5ac</span><span class="p">:</span> <span class="mi">00000000</span><span class="n">ace5ffff</span>
-<span class="mh">0x00000000ffffe5b4</span><span class="p">:</span> <span class="n">ff7f0000b4e5ffff</span>
-<span class="mh">0x00000000ffffe5bc</span><span class="p">:</span> <span class="n">ff7f000010e6ffff</span>
-<span class="mh">0x00000000ffffe5c4</span><span class="p">:</span> <span class="n">ff7f0000a4074000</span>
-<span class="mh">0x00000000ffffe5cc</span><span class="p">:</span> <span class="mi">0000000061626364</span>
-<span class="mh">0x00000000ffffe5d4</span><span class="p">:</span> <span class="mi">65666768696</span><span class="n">a6b6c</span>
-<span class="mh">0x00000000ffffe5dc</span><span class="p">:</span> <span class="mi">6</span><span class="n">d6e6f7071727374</span>
-<span class="mh">0x00000000ffffe5e4</span><span class="p">:</span> <span class="mi">7576777861626364</span>
-<span class="mh">0x00000000ffffe5ec</span><span class="p">:</span> <span class="mi">65666768696</span><span class="n">a6b6c</span>
-<span class="mh">0x00000000ffffe5f4</span><span class="p">:</span> <span class="mi">6</span><span class="n">d6e6f7071727374</span>
-<span class="mh">0x00000000ffffe5fc</span><span class="p">:</span> <span class="mf">7576777800e6</span><span class="n">ffff</span>
-<span class="mh">0x00000000ffffe604</span><span class="p">:</span> <span class="n">ff7f000000000000</span>
-<span class="mh">0x00000000ffffe60c</span><span class="p">:</span> <span class="mi">1122334400000000</span>
-<span class="mh">0x00000000ffffe614</span><span class="p">:</span> <span class="mi">000000005</span><span class="n">ded2114</span>
-<span class="n">end</span> <span class="n">dump</span> <span class="n">memory</span>
+start dump memory
+0x00000000ffffe58c: 99aabbccd0e5ffff
+0x00000000ffffe594: ff7f0000d0e5ffff
+0x00000000ffffe59c: ff7f00000f094000
+0x00000000ffffe5a4: 5566778803000000
+0x00000000ffffe5ac: 00000000ace5ffff
+0x00000000ffffe5b4: ff7f0000b4e5ffff
+0x00000000ffffe5bc: ff7f000010e6ffff
+0x00000000ffffe5c4: ff7f0000a4074000
+0x00000000ffffe5cc: 0000000061626364
+0x00000000ffffe5d4: 65666768696a6b6c
+0x00000000ffffe5dc: 6d6e6f7071727374
+0x00000000ffffe5e4: 7576777861626364
+0x00000000ffffe5ec: 65666768696a6b6c
+0x00000000ffffe5f4: 6d6e6f7071727374
+0x00000000ffffe5fc: 7576777800e6ffff
+0x00000000ffffe604: ff7f000000000000
+0x00000000ffffe60c: 1122334400000000
+0x00000000ffffe614: 000000005ded2114
+end dump memory
 
-<span class="n">Segmentation</span> <span class="n">fault</span> <span class="p">(</span><span class="n">core</span> <span class="n">dumped</span><span class="p">)</span>
+Segmentation fault (core dumped)
 </pre></div>
 </div>
-<p>皆さんの実装したプログラムが，どのようにメモリ上に展開され実行されているか理解できると様々な意図せぬ動作の解決に役立ちます． ちなみに，上記の出力は分かりやすさを重視するために，以下のようにしてASLRを解除した場合の出力になります．</p>
+<p>皆さんの実装したプログラムがどのようにメモリ上に展開され実行されているか理解できると様々な意図せぬ動作の解決に役立ちます．ちなみに，上記の出力は下記のようにしてASLRを解除した場合の出力となります．</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>kernel.randomize_va_space<span class="o">=</span><span class="m">0</span>
 </pre></div>
-</div>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://www.ipa.go.jp/security/awareness/vendor/programmingv1/b06_01.html">バッファオーバーラン ～その１・こうして起こる～</a></p></li>
-</ul>
 </div>
 </section>
 <section id="id5">
@@ -645,7 +641,8 @@ document.write(`
 </section>
 <section id="id8">
 <h2>おわりに<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
-<p>以上のようにセキュリティホールに対するサイバー攻防の発展は凄まじいですが，十分理解していいただきたいのは，この実験内容は教育目的ですので倫理観を持って絶対に悪用しないでください．</p>
+<p>アドレス空間のランダム化は実験が終了次第元の設定に戻しておきましょう．<code class="docutils literal notranslate"><span class="pre">sysctl</span> <span class="pre">-w</span> <span class="pre">kernel.randomize\_va\_space=2</span></code>
+以上のようにセキュリティホールに対するサイバー攻防の発展は凄まじいですが，十分理解していいただきたいのは，この実験内容は教育目的ですので倫理観を持って絶対に悪用しないでください．</p>
 <p>なお，静岡大学では，enPiT Basic SecCap 夏季特別講義として本内容を高度化した「サイバー攻防基礎演習」を行う予定です．余裕がある方は下記内容を先取りして取り組んでくれても構いません．また，今回の実験にも役にたつ情報が多く記載されていますので，ご参考にしてください．</p>
 <p><a class="reference external" href="https://seccap.inf.shizuoka.ac.jp/pbl/">enPiT サイバー攻防基礎演習サイト</a></p>
 </section>
