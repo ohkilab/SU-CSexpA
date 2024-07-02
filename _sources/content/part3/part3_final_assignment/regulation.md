@@ -110,4 +110,4 @@ TagResult
 また，イメージを掴みやすくなるよう，いつくかの言語でサンプルプログラムを用意しました．HTTPリクエスト・レスポンスの確認など参考にしてみてください．
 ただし，高速化は一切行われていません．これをベースとして高速化を行うのも良いですし，全く新しいものを開発していて頂いても構いません．
 
-- [https://github.com/ohkilab/SU-expA-final-references](https://github.com/ohkilab/SU-expA-final-references)
+- [https://github.com/ohkilab/SU-CSexpA-final-references](https://github.com/ohkilab/SU-CSexpA-final-references)
