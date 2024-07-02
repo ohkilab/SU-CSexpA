@@ -52,9 +52,7 @@ display_errors = On
 
 最終課題用の２つのデータセットをダウンロードしてください．それぞれダウンロードするのにそこそこ時間を要しますので余裕をもって事前に，ダウンロードしておくとよいでしょう．
 
-
--   [geotag.zip](https://exp1.inf.shizuoka.ac.jp/shizudai-only/part3/geotag.zip)（約439MB）（静大のネットワークからのみアクセス可能）
--   `\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験I\\第三部サンプルデータ\\geotag.zip`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
+-   `\\fs.inf.in.shizuoka.ac.jp\\share\\class\\情報科学実験A\\第三部サンプルデータ\\geotag.zip`（静大のネットワーク内からはWindowsファイル共有にて．外部からはVPNを利用してアクセス可能）
 
 どちらも同じファイルなので，可能な方法でダウンロードしてください．解凍すると`geotag.csv` (約1.1GB)と`tag.csv` (約445MB)の2つのファイルが入っています．
 
