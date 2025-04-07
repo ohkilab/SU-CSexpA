@@ -54,11 +54,41 @@ RaspberryPiのUSB C端子に電源を接続します．
 
 ## 無線LANの設定
 
-大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 4）からは無線接続が困難です．本講義では作業簡略化のため**実験用の仮ネットワークを用意しておりますので担当教員からのパスワードなどの情報開示をお待ちください．**
+大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 4）からは通常の方法では無線接続が困難です．
+学内無線LANを利用したい方は以下の方法でセットアップを以下の方法でセットアップを行ってください．
 
-右上に表示されているアイコンから無線LAN設定を行うことができます．情報開示次第各自接続するWifiの設定を行ってください．
+```shell
+# パスワードのハッシュを取得（静大IDに対応するパスワードを入力）
+$ read -s pass
+（静大IDに対応するパスワードを入力する）
+$ echo -n "$pass" | iconv -t utf16le | openssl md4
+（stdin）=（ハッシュ値）
+# ハッシュ値をメモっておく
+$ unset pass
+```
 
-![wifi.png](../../../images/part1/part1_1/wifi.png)
+/etc/wpa_supplicant/wpa_supplicant.conf に以下の内容を追記
+
+```
+network={
+   ssid ="WRL-SUCCES-S3"
+#  ssid="eduroam" <- eduroamの時はこちら
+   priority=1
+   proto=RSN
+   key_mgmt=WPA-EAP
+   pairwise=CCMP
+   auth_alg=OPEN
+   eap=PEAP
+   identity="静大ID"
+#  identity="静大ID@shizuoka.ac.jp" <- eduroamの時はこちら
+   password=hash：静大IDに対するバスワードのハッシュ値
+   phase1="peaplabel=0"
+   phase2="auth=MSCHAPV2"
+}
+```
+
+書き換えが終わったら再起動すると接続が有効になります．
+
 
 ## SSH、VNCサーバの有効化
 

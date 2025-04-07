@@ -5,7 +5,6 @@
 - c) [性能計測](./performance_measurement "性能計測") (必須)
 - d) [非同期I/Oによる多重化](./multiplexing_asynchronous_IO "非同期I/Oによる多重化") (発展)
 - e) [通信失敗の原因分析](./cause_analysis_communication_failure "通信失敗の原因分析") (発展)
-- f) [第一部レポート(初版)](../../report/report "第一部レポート")
 
 ```{admonition} 本日の進捗確認チェックリスト
 - 13:30: 多重化したサーバプログラムの動作を確認できましたか？
