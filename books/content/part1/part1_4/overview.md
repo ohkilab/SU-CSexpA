@@ -1,4 +1,4 @@
-# Day5の目的と概要
+# Day4の目的と概要
 
 -   a) [Raspberry Piのセットアップ](./raspberrypi_setup "Raspberry Piのセットアップ")
 -   b) [Simple HTTPサーバの実装](./simplehttpserver "Simple HTTPサーバの実装")
