@@ -275,7 +275,7 @@ SQLインジェクション対策という観点から後者の方法が推奨�
   - 条件に合致するエントリーをテーブル形式で表示する
   - 表示が多すぎる時は複数ページへ分割する
 
-![addr-postcode-search.png](../../../images/part3/part3_2/addr_postcode_search.png)
+![addr-postcode-search.png](../../../images/part2/part2_2/addr_postcode_search.png)
 
 テキストフィールドに入力された文字列をPHPプログラムで取得する方法は，以下のページを参考にしてください．
 

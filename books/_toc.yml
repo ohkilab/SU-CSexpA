@@ -56,104 +56,100 @@ parts:
             title: 通信失敗の原因分析（発展）
 
       - file: content/part1/part1_4/overview
-        title: "[Day4] 第一部レポートピアレビュー"
-
-  # 第二部
-  - caption: 第二部 Webサーバの実装
-    chapters:
-      - file: content/part2/part2_1/overview
-        title: "[Day5] Simple HTTPサーバの構築"
+        title: "[Day4] Simple HTTPサーバの構築"
         sections:
-          - file: content/part2/part2_1/raspberrypi_setup
+          - file: content/part1/part1_4/raspberrypi_setup
             title: Raspberry Piのセットアップ
-          - file: content/part2/part2_1/simplehttpserver
+          - file: content/part1/part1_4/simplehttpserver
             title: Simple HTTPサーバの実装
-          - file: content/part2/part2_1/httpbenchmark
+          - file: content/part1/part1_4/httpbenchmark
             title: HTTPベンチマークプログラムの実装（必須）
 
-      - file: content/part2/part2_2/overview
-        title: "[Day6] HTTPサーバの高機能化(1)"
+      - file: content/part1/part1_5/overview
+        title: "[Day5] HTTPサーバの高機能化"
         sections:
-          - file: content/part2/part2_2/standardforachievement
-            title: 第二部達成基準
-          - file: content/part2/part2_2/multipleclient
+          - file: content/part1/part1_5/standardforachievement
+            title: 第一部達成基準
+          - file: content/part1/part1_5/multipleclient
             title: 複数クライアント対応（必須）
-          - file: content/part2/part2_2/securityhole
+          - file: content/part1/part1_5/securityhole
             title: セキュリティホール（必須+発展）
-          - file: content/part2/part2_2/httpserver_expansion
+          - file: content/part1/part1_5/httpserver_expansion
             title: HTTPサーバ機能拡張（選択）
+          - file: content/part1/part1_5/introuble
+            title: 第一部の実装で詰まった時の対処法
 
-      - file: content/part2/part2_3/overview
-        title: "[Day7] HTTPサーバの高機能化(2)"
+      - file: content/part1/part1_6/overview
+        title: "[Day6] 第一部グループ発表会"
         sections:
-          - file: content/part2/part2_3/introuble
-            title: 第二部の実装で詰まった時の対処法
+          - file: content/part1/part1_6/grouppresentation
+            title: 第一部グループ発表会
 
-      - file: content/part2/part2_4/overview
-        title: "[Day8] 第二部グループ発表会"
-        sections:
-          - file: content/part2/part2_4/grouppresentation
-            title: 第二部グループ発表会
+      - file: content/part1/part1_7/overview
+        title: "[Day7] 第一部レポートピアレビュー"
 
-      - file: content/part2/part2_5/overview
-        title: "[Day9] 第二部レポートピアレビュー"
-
-  # 第三部
-  - caption: 第三部 Webシステムの性能
+  # 第二部
+  - caption: 第二部 Webシステムの性能
     chapters:
-      - file: content/part3/part3_1/overview
-        title: "[Day10] Webシステムの基礎"
+      - file: content/part2/part2_1/overview
+        title: "[Day8] Webシステムの基礎"
         sections:
-          - file: content/part3/part3_1/preparation
-            title: 第三部の準備
-          - file: content/part3/part3_1/web_system_basics
+          - file: content/part2/part2_1/preparation
+            title: 第二部の準備
+          - file: content/part2/part2_1/web_system_basics
             title: Webシステムの基礎（発展）
-          - file: content/part3/part3_1/sample_program_php
+          - file: content/part2/part2_1/sample_program_php
             title: サンプルプログラム(PHP)
-          - file: content/part3/part3_1/sample_program_js
+          - file: content/part2/part2_1/sample_program_js
             title: サンプルプログラム(JavaScript)
-          - file: content/part3/part3_1/benchmark_soft_ab
+          - file: content/part2/part2_1/benchmark_soft_ab
             title: ベンチマークソフトab（Apache Bench）（必須）
-          - file: content/part3/part3_1/flickr_api
+          - file: content/part2/part2_1/flickr_api
             title: Flickr API Keyの取得
 
-      - file: content/part3/part3_2/overview
-        title: "[Day11] Webシステムの設計と実装"
+      - file: content/part2/part2_2/overview
+        title: "[Day9] Webシステムの設計と実装 (1)"
         sections:
-          - file: content/part3/part3_2/connection_to_dbms
+          - file: content/part2/part2_2/connection_to_dbms
             title: DBMSとの接続（必須）
-        # - file: content/part3/part3_2/final_task_details
+        # - file: content/part2/part2_2/final_task_details
         #   title: 最終課題の詳細
 
-      - file: content/part3/part3_3/overview
-        title: "[Day12] ベンチマークと分析"
-        sections:
-          - file: content/part3/part3_3/about_apache_mpm
-            title: Apache MPMについて
-          - file: content/part3/part3_3/useful_links
-            title: 実装の参考となるリンク集
-          - file: content/part3/part3_3/websocket
-            title: WebSocketについて
-          - file: content/part3/part3_3/conformation_of_status
-            title: 検討状況の確認（必須）
+      - file: content/part2/part2_3/overview
+        title: "[Day10] Webシステムの設計と実装 (2)"
 
-      - file: content/part3/part3_4/overview
+      - file: content/part2/part2_4/overview
+        title: "[Day11] ベンチマークと分析"
+        sections:
+          - file: content/part2/part2_4/about_apache_mpm
+            title: Apache MPMについて
+          - file: content/part2/part2_4/useful_links
+            title: 実装の参考となるリンク集
+          - file: content/part2/part2_4/websocket
+            title: WebSocketについて
+          - file: content/part2/part2_4/conformation_of_status
+            title: 検討状況の確認（必須）
+      
+      - file: content/part2/part2_5/overview
+        title: "[Day12] パフォーマンスチューニング"
+
+      - file: content/part2/part2_6/overview
         title: "[Day13,14] 発表会準備"
 
-      - file: content/part3/part3_5/overview
-        title: "[Day15] 第三部グループ発表会"
+      - file: content/part2/part2_7/overview
+        title: "[Day15] 第二部グループ発表会"
         sections:
-          - file: content/part3/part3_5/last_presentation
-            title: 第三部グループ発表会
+          - file: content/part2/part2_7/last_presentation
+            title: 第二部グループ発表会
 
-      - file: content/part3/part3_final_assignment/overview
+      - file: content/part2/part2_final_assignment/overview
         title: 最終課題
         sections:
-          - file: content/part3/part3_final_assignment/final_assignment_details
+          - file: content/part2/part2_final_assignment/final_assignment_details
             title: 最終課題の概要
-          - file: content/part3/part3_final_assignment/regulation
+          - file: content/part2/part2_final_assignment/regulation
             title: 競技ルールの詳細
-          - file: content/part3/part3_final_assignment/benchmarkserver_description
+          - file: content/part2/part2_final_assignment/benchmarkserver_description
             title: ベンチマークサーバー
 
   # 実験終了後の作業

@@ -6,7 +6,7 @@ Webシステムを構築する上で重要となるWebサーバについて，No
 
 ## PHPの動作確認
 
-まず，サーバ端末上の皆さんのホームディレクトリにあるpublic\_htmlディレクトリにあるファイルへ，Webブラウザで表示できるようにUserdir設定を有効にしてください． public\_html ディレクトリがない方や，userdirの設定が終わっていない方は，第二部 [Raspberry\_Piのセットアップ](../../part2/part2_1/raspberrypi_setup "Raspberry Piのセットアップ") を参照してください．
+まず，サーバ端末上の皆さんのホームディレクトリにあるpublic\_htmlディレクトリにあるファイルへ，Webブラウザで表示できるようにUserdir設定を有効にしてください． public\_html ディレクトリがない方や，userdirの設定が終わっていない方は，第一部 [Raspberry\_Piのセットアップ](../../part1/part1_1/raspberry_setting "Raspberry Piのセットアップ") を参照してください．
 
 次に，サーバ端末上の皆さんのホームディレクトリにあるpublic\_htmlディレクトリへ，以下のような内容で`index.php`というPHPファイルを作成してみてください．もちろんサーバ端末へリモートログインしてファイル作成しても構いませんが，ローカルのノートPC上で作成して，[WinSCP](https://winscp.net/eng/docs/lang:jp)のようなSFTPクライアントプログラムを用いてサーバ端末へアップロードする方法も一般的ですので慣れておいてください（WinSCPの画面で，ローカル側からサーバ側へファイルをドラッグすればアップロードされます．ダウンロードは逆になります）．
 
@@ -22,7 +22,7 @@ phpinfo();
 
 - [http://192.168.1.101/~ユーザ名/](http://192.168.1.101/~%E3%83%A6%E3%83%BC%E3%82%B6%E5%90%8D/)
 
-![php_version.jpg](../../../images/part3/part3_1/php_version.jpeg)
+![php_version.jpg](../../../images/part2/part2_1/php_version.jpeg)
 
 このようなWebページが表示されればOKです．うまくいかなかった人は，何らかの理由でPHPのインストールがうまくいっていなかった可能性があります．以下のコマンドでPHPを明示的にインストールし直してから，httpd（Webサーバデーモン（一般的にはApache））を再起動（restart）してみてください．
 
@@ -68,7 +68,7 @@ PHPの試験用に教員側で用意したサンプルプログラム（PHP）�
 
 - [http://192.168.0.200/~ユーザ名/](http://192.168.0.200/~%E3%83%A6%E3%83%BC%E3%82%B6%E5%90%8D/)
 
-![flickr_sample.jpg](../../../images/part3/part3_1/flickr_sample.jpeg)
+![flickr_sample.jpg](../../../images/part2/part2_1/flickr_sample.jpeg)
 
 このようなWebページが表示されたらOKです．このサンプルプログラム（PHP）はFlickrという写真共有サービスの写真を表示しています．Flickrには何十億枚という写真が共有されており，今も時々刻々と増加し続けていますが，アクセスした時点で最新の500枚をWebブラウザ上に表示するプログラムになっています．Web APIを用いると，外部のSNSやWebサービスと連携した魅力的なWebアプリケーションを簡単に実現することができます．
 
@@ -155,7 +155,7 @@ PHPの使い方に関してはインターネットや書籍で調べてもら�
 上記コードでは Flickr API Key はXXXXXXXXとなっていますが，これは自分で取得したAPI Keyに置き換えましょう．
 Flickr API Keyの取得方法についてはこちらのページを参照してください．
 
-- [Flickr API Keyの取得方法](../../part3/part3_1/flickr_api.md)
+- [Flickr API Keyの取得方法](../../part2/part2_1/flickr_api.md)
 
 ### PHPプログラムの配置
 
@@ -200,7 +200,7 @@ echo $str1.$str2;
 
 また，PHPには様々な便利な関数が用意されています．先ほどのサンプルプログラム（PHP）における34行目を見てください．例えば，[file-get-contents](http://php.net/manual/ja/function.file-get-contents.php)という関数は，引数にファイルパスをとり，そのファイルを読み込んで中身を文字列で返すという関数です．引数にURLが指定されると，そのURLへHTTPアクセスして，その結果を文字列で返してくれます．つまり，この関数を用いると，HTTPアクセスだけでなく結果を変数へ格納までしてくれます．
 
-第二部の実験で，苦労してHTTPを話すプログラムを実装したと思います．PHPやWeb APIを使用することで，とても簡単に凝ったWebアプリケーションを実装することができます． FlickrのWeb APIは，XML以外にもJSONやJSONPといったJavaScriptと親和性の高いフォーマットだけでなく，php\_serialというPHPと親和性の高いフォーマットで結果を返してもらうことができます． 今回のサンプルプログラム（PHP）の33行目のflickr.photos.getRecentでは，php\_serialというフォーマットで結果を返すよう指定しています． このフォーマットでエンコードされた文字列は，**deserialize**という関数を用いてPHPのオブジェクトモデル（シングルトン・配列・連想配列・オブジェクト）に変換できます．
+第一部の実験で，苦労してHTTPを話すプログラムを実装したと思います．PHPやWeb APIを使用することで，とても簡単に凝ったWebアプリケーションを実装することができます． FlickrのWeb APIは，XML以外にもJSONやJSONPといったJavaScriptと親和性の高いフォーマットだけでなく，php\_serialというPHPと親和性の高いフォーマットで結果を返してもらうことができます． 今回のサンプルプログラム（PHP）の33行目のflickr.photos.getRecentでは，php\_serialというフォーマットで結果を返すよう指定しています． このフォーマットでエンコードされた文字列は，**deserialize**という関数を用いてPHPのオブジェクトモデル（シングルトン・配列・連想配列・オブジェクト）に変換できます．
 
 ## おわりに
 
