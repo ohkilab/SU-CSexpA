@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DBMSとの接続 &#8212; 情報科学実験A</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part2/part2_2/connection_to_dbms';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Day10の目的と概要" href="../part2_3/overview.html" />
+    <link rel="prev" title="Day9の目的と概要" href="overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">情報科学実験A</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preparation/preparation.html">環境構築および動作確認</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_1/overview.html">[Day1] 環境構築と実験の開始</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/raspberry_setting.html">RaspberryPiのセッティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wireless.html">RaspberryPiの無線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wired.html">RaspberryPiの有線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/update.html">ソフトウェアのアップデート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_2/overview.html">[Day2] 通信性能の計測</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">ファイル入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">ネットワーク入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">入出力性能の計測（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_server_program.html">サーバプログラムによる多重化</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/benchmarking_program.html">ベンチマークプログラムの設計と実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/performance_measurement.html">性能計測（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_asynchronous_IO.html">非同期IOによる多重化</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/cause_analysis_communication_failure.html">通信失敗の原因分析（発展）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_4/overview.html">[Day4] Simple HTTPサーバの構築</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_5/overview.html">[Day5] HTTPサーバの高機能化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/standardforachievement.html">第一部達成基準</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/multipleclient.html">複数クライアント対応（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/securityhole.html">セキュリティホール（必須+発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/introuble.html">第一部の実装で詰まった時の対処法</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_6/overview.html">[Day6] 第一部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_6/grouppresentation.html">第一部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../part1/part1_7/overview.html">[Day7] 第一部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webシステムの性能</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_1/overview.html">[Day8] Webシステムの基礎</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/preparation.html">第二部の準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/web_system_basics.html">Webシステムの基礎（発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_php.html">サンプルプログラム(PHP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/flickr_api.html">Flickr API Keyの取得</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day9] Webシステムの設計と実装 (1)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">DBMSとの接続（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_3/overview.html">[Day10] Webシステムの設計と実装 (2)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_4/overview.html">[Day11] ベンチマークと分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/about_apache_mpm.html">Apache MPMについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/useful_links.html">実装の参考となるリンク集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/websocket.html">WebSocketについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/conformation_of_status.html">検討状況の確認（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_5/overview.html">[Day12] パフォーマンスチューニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_6/overview.html">[Day13,14] 発表会準備</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_7/overview.html">[Day15] 第二部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_7/last_presentation.html">第二部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_final_assignment/overview.html">最終課題</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/regulation.html">競技ルールの詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">実験終了後（必須）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../end/cleanup.html">実験機材の返却</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">グループ発表会</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../group_presentation/group_presentation_detail.html">グループ発表会詳細</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">レポート</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../report/report.html">レポート詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/how_to_write_reports.html">レポートの書き方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/peer_review.html">ピアレビューのやり方</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">トラブルシューティング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/question.html">質問の行い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/trouble.html">よくあるトラブル</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_2/connection_to_dbms.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/part2/part2_2/connection_to_dbms.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DBMSとの接続</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">はじめに</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mariadb">MariaDBの基礎</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">コマンドラインからデータベースへアクセスする方法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">静岡県の郵便番号一覧をダウンロード</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">テーブルの作成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#csv">CSVファイルからデータをテーブルへ流し込む</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">テーブルに入ったデータの抽出</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">高度な問い合わせ例</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#php">PHPからデータベースへアクセスする方法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">接続</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">問い合わせ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">補足1: 手続き型とオブジェクト指向型</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-statements-vs-prepared-statements">補足2: Queryの設定方法（statements vs. prepared-statements）</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本日の課題について</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">確認項目</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c">「可(C)」レベル</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b">「良(B)」レベル</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a">「優(A)」レベル</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#s">「秀(S)」レベル</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">進め方</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">サンプルコード</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">ヒント</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#or-or">任意のカラム（郵便番号 or 住所 or カナ）による入力を受け付ける</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">複数ページの実現</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">[必須課題]性能評価</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">参考情報</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">おわりに</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dbms">
+<h1>DBMSとの接続<a class="headerlink" href="#dbms" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>一般的なWebシステムは，「クライアント⇔Webサーバ⇔DBMS」という三層構造で構築されることが多いです．
+ちなみに，Webサーバが内部的にサーバサイドのプログラムを実行し動的にコンテンツを生成するような場合，Webサーバと呼ばずにアプリケーションサーバ（APサーバ）と呼ばれることもあります（そのような製品群があります）．</p>
+<p>それでは，いよいよクライアントからのリクエストに対し，WebサーバがDBMS (Data Base Management System)とやり取りして返信するコンテンツを動的に生成する仕組みを実体験していきましょう．</p>
+</section>
+<section id="mariadb">
+<h2>MariaDBの基礎<a class="headerlink" href="#mariadb" title="Link to this heading">#</a></h2>
+<p>MariaDB(マリアディービー)とは，「MySQL」から派生したオープンソースのRDBMS（リレーショナルデータベース管理システム）です．拡張性/処理性能/高品質といった特徴を持ち，世界的に使用されているデファクト的な存在で，数多くのLinuxディストリビューションでも採用されています（サービス名はmariadbですが，設定ファイルやコマンドなどmysqlを踏襲してます）．</p>
+<p>MariaDBがまだインストールされていない人は以下のようにインストールしておいてください．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Raspberry Piの場合</span>
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mariadb-server
+<span class="c1"># Fedoraの場合</span>
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>mariadb-server
+
+<span class="c1"># 以下共通</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mariadb
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mariadb
+
+<span class="c1"># 初期設定（初期状態ではrootパスワードは設定されていないので，何も入力せず&lt;b&gt;ENTER&lt;/b&gt;を押す．すると新規にrootパスワード設定できる．以降は全て&lt;b&gt;Y&lt;/b&gt;でOK）</span>
+$<span class="w"> </span>sudo<span class="w"> </span>mysql_secure_installation
+</pre></div>
+</div>
+<p>インストールできたら，以下のようにデータベースとデータベースユーザを作成します．データベース名とユーザ名は，各自で好きな名前を付けてください．以下の例では，データベース名「<strong>CSexp1DB</strong>」，ユーザ名「<strong>shizutaro</strong>」を作成しています．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># データベースユーザ作成のために rootでmysqlにログイン</span>
+$<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
+<span class="c1"># MariaDBのrootパスワードを入力</span>
+
+データベース「CSexp1DB」を作成
+&gt;<span class="w"> </span>CREATE<span class="w"> </span>DATABASE<span class="w"> </span>CSexp1DB<span class="p">;</span>
+
+--全てのSQL文を発行できるユーザ「shizutaro」の作成（パスワードのhogehogeは適当に決めて書き換えてください）
+&gt;<span class="w"> </span>GRANT<span class="w"> </span>ALL<span class="w"> </span>PRIVILEGES<span class="w"> </span>ON<span class="w"> </span>CSexp1DB.*<span class="w"> </span>TO<span class="w"> </span>shizutaro@localhost<span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">&#39;hogehoge&#39;</span><span class="p">;</span>
+&gt;<span class="w"> </span>FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span>
+
+--mysqlからshellのコマンドラインへ戻るには<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>or<span class="w"> </span>quit
+&gt;<span class="w"> </span><span class="nb">exit</span>
+</pre></div>
+</div>
+<p>ここで，もし<strong>MariaDBのrootのパスワードが不明な場合</strong>は，以下の手順で再設定してください．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># MariaDBのサービスを停める</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mariadb.service
+
+<span class="c1"># MariaDBをセーフモードで立ち上げる</span>
+$<span class="w"> </span>sudo<span class="w"> </span>mysqld_safe<span class="w"> </span>--skip-grant-tables<span class="w"> </span><span class="p">&amp;</span>
+
+<span class="c1"># MariaDBへrootでログイン</span>
+$<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root
+
+<span class="c1"># rootのパスワードを設定（MariaDBのコマンドライン上で）</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>use<span class="w"> </span>mysql<span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>host,user,password,plugin<span class="w"> </span>from<span class="w"> </span>user<span class="p">;</span><span class="w">                         </span><span class="c1"># 念のため確認</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>update<span class="w"> </span>user<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">password</span><span class="o">=</span>password<span class="o">(</span><span class="s1">&#39;ここにパスワードを記述&#39;</span><span class="o">)</span><span class="w"> </span>where<span class="w"> </span><span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>update<span class="w"> </span>user<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">plugin</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>where<span class="w"> </span><span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">                        </span><span class="c1"># unix_socketを無効に</span>
+
+MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>flush<span class="w"> </span>privileges<span class="p">;</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>exit<span class="p">;</span>
+
+<span class="c1"># 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）</span>
+$<span class="w"> </span>sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>コマンドラインからデータベースへアクセスする方法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>次にコマンドラインからデータベースへアクセスする方法を復習してみましょう．</p>
+<p>ここでは，静岡県の郵便番号リストの登録されたデータベースを作成し，入力した住所の郵便番号を返すようなWebアプリケーションを実装してみましょう．例えば，Webブラウザ上で「城北」と入力すると，住所に城北を含んだ郵便番号のリストが結果のWebページに表示されるというイメージです．</p>
+<section id="id3">
+<h3>静岡県の郵便番号一覧をダウンロード<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>郵便番号のリストは，<a class="reference external" href="http://www.post.japanpost.jp/zipcode/download.html">ゆうちょのページ</a>で公開されています．ただし，半角カタカナだったり，特に今回は不要なフィールドが含まれていたりしますので，静岡県の郵便番号と住所を「,」で区切ったデータのみを抽出し，以下のGitリポジトリへ<code class="docutils literal notranslate"><span class="pre">zip-shizuoka.csv</span></code>というファイルで置いておきました．</p>
+<ul class="simple">
+<li><p>GitHubリポジトリ <a class="github reference external" href="https://github.com/ohkilab/SU-CSexpA-02">ohkilab/SU-CSexpA-02</a></p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>テーブルの作成<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>データベースにデータを保存するにはまずテーブルを作らなくてはいけません．</p>
+<p>テーブルは，SQLの<strong>CREATE TABLE</strong>文で作れます．まずMySQLに先ほど作成したユーザ「shizutaro」権限でログインしましょう．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mysql<span class="w"> </span>-D<span class="w"> </span>CSexp1DB<span class="w"> </span>-u<span class="w"> </span>shizutaro<span class="w"> </span>-p
+</pre></div>
+</div>
+<p>MySQLのプロンプトが返ってきたら，SQLコマンドを受け付ける状態になっています．ダウンロードしたCSVファイルをじっくり眺めて，スキーマを決めましょう．スキーマを決めたら，<strong>CREATE TABLE</strong>文を作ってコマンドラインから発行しましょう．</p>
+<ul class="simple">
+<li><p>CREATE文を作る際に考慮すべき点</p>
+<ul>
+<li><p>フィールドは何個あるか？</p></li>
+<li><p>各フィールドの名前を何にするか？</p></li>
+<li><p>各フィールドの<a class="reference external" href="https://dev.mysql.com/doc/refman/5.6/ja/data-types.html">データ型</a>を何にするか？</p></li>
+</ul>
+</li>
+</ul>
+<p>以降の作業で，グループ内で相談しやすいよう以下のようにテーブル名と列名を共通にしておきましょう．</p>
+<ul class="simple">
+<li><p>テーブル名：<strong>zipShizuoka</strong></p></li>
+<li><p>列名：以下を参照</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table" id="schema">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">スキーマ例</span><a class="headerlink" href="#schema" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>列名</p></th>
+<th class="head"><p>概要</p></th>
+<th class="head"><p>例</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>zip</p></td>
+<td><p>郵便番号</p></td>
+<td><p>4328011</p></td>
+</tr>
+<tr class="row-odd"><td><p>kana1</p></td>
+<td><p>都道府県名(全角カナ)</p></td>
+<td><p>シズオカケン</p></td>
+</tr>
+<tr class="row-even"><td><p>kana2</p></td>
+<td><p>市区町村名(全角カナ)</p></td>
+<td><p>ハママツシナカク</p></td>
+</tr>
+<tr class="row-odd"><td><p>kana3</p></td>
+<td><p>その他住所(全角カナ)</p></td>
+<td><p>ジョウホク</p></td>
+</tr>
+<tr class="row-even"><td><p>addr1</p></td>
+<td><p>都道府県名</p></td>
+<td><p>静岡県</p></td>
+</tr>
+<tr class="row-odd"><td><p>addr2</p></td>
+<td><p>市区町村名</p></td>
+<td><p>浜松市中区</p></td>
+</tr>
+<tr class="row-even"><td><p>addr3</p></td>
+<td><p>その他住所</p></td>
+<td><p>城北</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>CREATE TABLE</strong>文そのものを忘れてしまった人は，インターネットから情報を集めて復習しましょう．</p>
+<ul class="simple">
+<li><p>参考1 <a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/create-table.html">https://dev.mysql.com/doc/refman/8.0/en/create-table.html</a></p></li>
+<li><p>参考2 <a class="reference external" href="http://memopad.bitter.jp/w3c/sql/sql_create_table.html">http://memopad.bitter.jp/w3c/sql/sql_create_table.html</a></p></li>
+<li><p>参考3 <a class="reference external" href="http://yoshinin.blog.fc2.com/blog-entry-126.html">http://yoshinin.blog.fc2.com/blog-entry-126.html</a></p></li>
+</ul>
+</section>
+<section id="csv">
+<h3>CSVファイルからデータをテーブルへ流し込む<a class="headerlink" href="#csv" title="Link to this heading">#</a></h3>
+<p>テーブルにデータを追加するには<strong>INSERT文</strong>を使いました．ただ，膨大な量のデータを一行一行<strong>INSERT文</strong>で挿入するのはとても大変です．そこで大抵のデータベースには，ファイルからデータを一括でテーブルへ流し込むコマンドがあります．MySQLだと以下のように実行します．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="ss">&quot;/path/import.csv&quot;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;\r\n&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>CSVファイルのパス（上記例だと<code class="docutils literal notranslate"><span class="pre">/path/import.csv</span></code>）は，git cloneをホームディレクトリで実行したなら<code class="docutils literal notranslate"><span class="pre">/home/各自のアカウント名/CSexp1-02/zip-shizuoka.csv</span></code>というような感じ</p></li>
+<li><p><strong>table_name</strong>はこの課題では，zipShizuoka</p></li>
+</ul>
+<p>パスやテーブル名は，皆さんの環境に合わせて修正してください．ここで，CSVファイルのパスは，<strong>絶対パス</strong>で記述しましょう．相対パスでも書けますが，MySQLのデータファイルのある位置からの相対パスとなりますので，なかなか期待通りには書けないと思いますから．</p>
+<p>エラーが表示された場合は，例えば，データ型が一致していないといったスキーマの誤りである可能性があります．ご注意ください．</p>
+</section>
+<section id="id5">
+<h3>テーブルに入ったデータの抽出<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>テーブルに入ったデータの抽出は，以下のように<strong>SELECT文</strong>で行います．いろいろ試してみてください．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">zipShizuoka</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+---------+---------------+---------------------+-----------------------------+--------+------------+----------------------+
+| zip     | kana1         | kana2               | kana3                       | addr1  | addr2      | addr3                |
++---------+---------------+---------------------+-----------------------------+--------+------------+----------------------+
+| 4220000 | シズオカケン  | シズオカシアオイク  | イカニケイサイガ ナイバアイ | 静岡県 | 静岡市葵区 | 以下に掲載がない場合 |
+| 4200838 | シズオカケン  | シズオカシアオイク  | アイオイチョウ              | 静岡県 | 静岡市葵区 | 相生町               |
+| 4212309 | シズオカケン  | シズオカシアオイク  | アイブチ                    | 静岡県 | 静岡市葵区 | 相渕                 |
++---------+---------------+---------------------+-----------------------------+--------+------------+----------------------+
+3 rows in set (0.00 sec)
+</pre></div>
+</div>
+<p>以下に示すようなデータを抽出できるような<strong>SELECT文</strong>を考えてみてください．</p>
+<ul class="simple">
+<li><p>「城北」が住所に含まれる地域の郵便番号を表示するには？(ヒント：<a class="reference external" href="http://dev.mysql.com/doc/refman/4.1/ja/string-comparison-functions.html">LIKE演算子</a>)</p></li>
+<li><p>郵便番号を辞書順で降順にソートして表示するには？(ヒント：<a class="reference external" href="https://gihyo.jp/dev/serial/01/mysql-road-construction-news/0147">ORDER BY句</a>)</p></li>
+<li><p>各市区町村別がそれぞれ何個の郵便番号を持っているか？(ヒント：<a class="reference external" href="http://dev.mysql.com/doc/refman/5.1/ja/group-by-modifiers.html">GROUP BY句</a>)</p></li>
+<li><p>出力を個数の多い順にソートして表示するには？(ヒント：<a class="reference external" href="https://qiita.com/ozlee/items/b3983c96f23b27d9044d">ORDER BY句</a>)</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>高度な問い合わせ例<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>それでは，具体的に高度な問い合わせをどのように作成していったらよいかコツを説明します．</p>
+<p>例えば，「<strong>中区城北</strong>の郵便番号を調べる」にはどうしたらよいでしょうか．<strong>中区</strong>は<strong>addr2</strong>に格納されているし，<strong>城北</strong>は<strong>addr3</strong>に格納されていますので，<strong>中区城北</strong>のような住所の断片はどうやって問い合わせましょうか．</p>
+<p>様々な方法が考えられますが，「<strong>addr1と2と3を連結した文字列に対して，like演算で抽出する</strong>」というような方法を思い浮かべたかもしれません．</p>
+<p>では，文字列を連結するにはどうしたらよさそうでしょうか．MariaDBのリファレンスマニュアルを探したりすれば，使えそうな文字列関数が見つかるかもしれません．</p>
+<p><a class="reference external" href="https://mariadb.com/kb/en/mariadb/string-functions/">MariaDBリファレンスマニュアル 文字列関数</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">CONCAT(str1,str2,...)</span></code>という関数がありますね．引数を全て連結した文字列を返す関数ですので，これが使えるかもしれません．連結したいのは，<strong>addr1</strong>，<strong>addr2</strong>，<strong>addr3</strong>ですから以下の様にできそうです．</p>
+<p><code class="docutils literal notranslate"><span class="pre">CONCAT(addr1,addr2,addr3)</span></code></p>
+<p>この関数の返す文字列の一部に，<strong>中区城北</strong>が含まれていればよいわけですから，SQLのWHERE句は次のように書けそうです．</p>
+<p><code class="docutils literal notranslate"><span class="pre">CONCAT(addr1,addr2,addr3)</span> <span class="pre">like</span> <span class="pre">'%中区城北%'</span></code></p>
+<p>つまり，テーブル名<strong>zipShizuoka</strong>から<strong>中区城北</strong>が含まれている文字列の郵便番号<strong>zip</strong>を返すSQL文は，以下のように書けそうです．</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">zip</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">zipShizuoka</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">addr1</span><span class="p">,</span><span class="n">addr2</span><span class="p">,</span><span class="n">addr3</span><span class="p">)</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%中区城北%&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>さぁどのような結果が得られたでしょう？ちなみに中区城北の郵便番号は<strong>4328011</strong>です．表示されてますか？（表示されない人は何かが足りない？）</p>
+<p>ここまでできたら，いよいよ次はPHPプログラムからデータベースへアクセスしてみましょう．</p>
+</section>
+</section>
+<section id="php">
+<h2>PHPからデータベースへアクセスする方法<a class="headerlink" href="#php" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h3>接続<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>次に，PHPからデータベースへアクセスする方法について説明します．そろそろこんなこともできるかなと思いついたものを調べて実装する力をつけていってほしいと思います．</p>
+<p>まず実現方法を調べるために「<a class="reference external" href="https://www.google.co.jp/search?q=PHP+MySQL">PHP MySQL</a>」で検索してみてください．</p>
+<p>「<a class="reference external" href="http://php.net/manual/ja/book.mysqli.php">PHPのマニュアルページにあるMySQLの関数のリファレンス</a>」等が見つかりましたか？PHPでMySQLへアクセスしたいわけですので，PHPのMySQL関連の関数について調べてみるのが第一です．</p>
+<p>PHPのMySQL関連の関数といっても山のようにあります．MySQLに<strong>接続</strong>したいわけですから，きっと<strong>connect</strong>というキーワードが絡んでいそうです．</p>
+<p>ページをよく眺めると，<a class="reference external" href="http://jp2.php.net/manual/ja/function.mysqli-connect.php">mysqli_connect</a>という関数がありますね！</p>
+<p>早速クリックしてみるとこの関数の使い方が説明されています．これを見ると<strong>mysqli_connect</strong>は<strong>mysqli::__construct</strong>という関数の別名であり，５つの引数をとる事がわかります．</p>
+<ul class="simple">
+<li><p><strong>host</strong>：サーバ上のブログラムからサーバ上のプログラムへ接続するので，これはこのままで大丈夫だろうな</p></li>
+<li><p><strong>username</strong>：きっとユーザ名のことだろう．先に作成した<strong>CSexp1</strong>というMySQLのユーザ名を入れれば良いだろう</p></li>
+<li><p><strong>passwd</strong>：きっとMySQLのユーザ名に対するパスワードだろうな．．．</p></li>
+<li><p><strong>dbname</strong>：きっとMySQLのデータベース名だろうな．．．</p></li>
+<li><p><strong>port</strong>：きっと接続先ホストのポート番号だろうな．．．</p></li>
+</ul>
+<p>というように必要な引数の使い方が何となく想像できると思います．このような雰囲気で，PHPのソースコードを作成し実際に試してみましょう．</p>
+<p>「<strong>接続に成功しました</strong>」と表示されたら成功です．</p>
+</section>
+<section id="id8">
+<h3>問い合わせ<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>接続しただけではつまらないですよね．先ほどコマンドラインで実現した郵便番号テーブルからの検索を実現してみましょう．</p>
+<p>データベースへの検索は，問い合わせや<strong>Query</strong>と呼びます．先ほどのMySQL関連の関数の中に<strong>mysqli_query</strong>という関数があることに気づきましたか．</p>
+<p>このように実現したいこととそのキーワードが分かれば，基本的にはホームページを検索することで大抵の情報は見つかります．</p>
+<p>検索力を身に着けて実現したいことを実装していきましょう．</p>
+</section>
+<section id="id9">
+<h3>補足1: 手続き型とオブジェクト指向型<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="http://php.net/manual/ja/book.mysqli.php">MySQL Improved Extension</a>のライブラリ群は，手続き型の利用方法とオブジェクト指向による利用方法の2通りの利用方法が用意されています．オブジェクト指向の利用方法の方が，モダンなコードで通常きれいなコードになりますのでこの機会にチャレンジしてみてくだい．以下のページの”Example #2 Object-oriented and procedural interface”のサンプルコードが参考になります．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://php.net/manual/ja/mysqli.quickstart.dual-interface.php">Dual procedural and object-oriented interface</a></p></li>
+</ul>
+<p>【注意】 手続き型のインタフェースとオブジェクト指向型のインタフェースは別物です．混在して使うとトラブルの元ですので，ライブラリ中の各関数については，手続き型で書くなら手続き型のインタフェースを使用し，オブジェクト指向型で書くならオブジェクト指向型のインタフェースを利用してください．例えば，手続き型ではmysqli_query( $link, $query ) を使います．mysqli::query( $query )は使えません．当然，mysqli_query( $query )は使えません（文法エラーにはなりませんので注意）．</p>
+</section>
+<section id="query-statements-vs-prepared-statements">
+<h3>補足2: Queryの設定方法（statements vs. prepared-statements）<a class="headerlink" href="#query-statements-vs-prepared-statements" title="Link to this heading">#</a></h3>
+<p>queryの設定方法も2種類の方法が用意されています．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://php.net/manual/ja/mysqli.quickstart.statements.php">完成したSQL文字列を用意し，クエリーを実行する方法</a></p></li>
+<li><p><a class="reference external" href="http://php.net/manual/ja/mysqli.quickstart.prepared-statements.php">パラメータを未定にしたSQL文字列を解析し，その後でパラメータを設定した上でクエリーを実行する方法</a></p></li>
+</ul>
+<p>SQLインジェクション対策という観点から後者の方法が推奨されますので，前者で動作確認した後は，後者の方法を使ってみてください．</p>
+</section>
+</section>
+<section id="id10">
+<h2>本日の課題について<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>以下の仕様を満たすPHPプログラムを実装してください．</p>
+<ul>
+<li><p>「郵便番号」or「住所」or「住所のカナ」の入力を受け付ける</p></li>
+<li><p>入力は一部でも良い</p></li>
+<li><p>入力が何であるかを自動判別する</p></li>
+<li><p>条件に合致するエントリーをテーブル形式で表示する</p></li>
+<li><p>表示が多すぎる時は複数ページへ分割する</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="addr-postcode-search.png" src="../../../_images/addr_postcode_search.png" /></p>
+<p>テキストフィールドに入力された文字列をPHPプログラムで取得する方法は，以下のページを参考にしてください．</p>
+<p><a class="reference external" href="http://php.net/manual/ja/tutorial.forms.php">http://php.net/manual/ja/tutorial.forms.php</a></p>
+<section id="id11">
+<h3>確認項目<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>以下の達成レベルを必ず低いレベルのチェック項目（各レベル最低一つ以上）からクリアしていってください．</p>
+<section id="c">
+<h4>「可(C)」レベル<a class="headerlink" href="#c" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>上記要件のアプリケーションを実装する</p></li>
+</ul>
+</section>
+<section id="b">
+<h4>「良(B)」レベル<a class="headerlink" href="#b" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>郵便番号を全国対応にする</p></li>
+<li><p>以下のようなページ装飾系ツールを利用してページを綺麗にデザインする</p>
+<ul>
+<li><p><a class="reference external" href="http://getbootstrap.com/">Bootstrap</a></p></li>
+<li><p><a class="reference external" href="http://webix.com/">Webix</a></p></li>
+<li><p>などなど</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="a">
+<h4>「優(A)」レベル<a class="headerlink" href="#a" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>住所入力中に候補を表示する（Googleサジェストのような機能）</p></li>
+<li><p>Google Maps等の地図系ツールと連携させる</p>
+<ul>
+<li><p><a class="reference external" href="https://developers.google.com/maps/documentation/javascript/?hl=ja">Google Maps API</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple?hl=ja">ジオコーディング</a></p></li>
+<li><p><a class="reference external" href="http://openlayers.org/">OpenLayers</a></p></li>
+<li><p>などなど</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="s">
+<h4>「秀(S)」レベル<a class="headerlink" href="#s" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>「優」レベルをNode.jsで実装する</p></li>
+<li><p>その他，秀に相当すると感じさせる工夫や実装</p></li>
+</ul>
+</section>
+</section>
+<section id="id12">
+<h3>進め方<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h4>サンプルコード<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<p>以下に、可レベルに達していないサンプルコードを用意しました。</p>
+<p>これを元に実装を進めていっても構いません。</p>
+<p>また、詰まったら下のヒントも参考にしてみてください。</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;html&gt;</span>
+<span class="x">  &lt;head&gt;</span>
+<span class="x">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="x">    &lt;title&gt;科学科実験Aサンプルプログラム&lt;/title&gt;</span>
+<span class="x">  &lt;/head&gt;</span>
+
+<span class="x">  &lt;body&gt;</span>
+<span class="x">    &lt;h1&gt;住所検索&lt;/h1&gt;</span>
+
+<span class="x">    &lt;form action=&quot;sample.php&quot; method=&quot;GET&quot;&gt;</span>
+<span class="x">      &lt;input type=&quot;text&quot; name=&quot;keyword&quot;&gt;</span>
+<span class="x">      &lt;input type=&quot;hidden&quot; name=&quot;page&quot; value=&quot;1&quot;&gt;</span>
+<span class="x">      &lt;input type=&quot;submit&quot; value=&quot;検索&quot;&gt;</span>
+<span class="x">    &lt;/form&gt;</span>
+<span class="cp">&lt;?php</span>
+<span class="c1"># 初期設定</span>
+<span class="nv">$mysqli</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mysqli</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="s1">&#39;dbname&#39;</span><span class="p">);</span>
+
+<span class="c1"># mysqlとの接続</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">connect_error</span><span class="p">;</span>
+  <span class="k">exit</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">set_charset</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1"># クエリの受け取り</span>
+<span class="nv">$keyword</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;keyword&#39;</span><span class="p">];</span>
+<span class="c1"># keywordクエリの中身が何もなかった場合終了</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$keyword</span><span class="p">)</span> <span class="o">||</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$keyword</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">exit</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$keyword</span><span class="s2">&quot;</span><span class="o">.</span> <span class="s2">&quot;の検索結果&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+
+<span class="c1"># クエリの受け取り</span>
+<span class="nv">$page</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;page&#39;</span><span class="p">];</span>
+
+<span class="c1"># pageクエリの中身が何もなかった場合、もしくはpage番号が負の数であれば1を入れる</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$page</span><span class="p">)</span> <span class="o">||</span> <span class="nv">$page</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$page</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1"># 入力データの形式を判定</span>
+<span class="nv">$addr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="nv">$zip</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="nv">$kana</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">preg_match</span><span class="p">(</span><span class="s2">&quot;/^[0-9]+$/&quot;</span><span class="p">,</span> <span class="nv">$keyword</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nv">$zip</span> <span class="o">=</span> <span class="nv">$keyword</span><span class="p">;</span>
+<span class="c1"># 興味がある方は正規表現を用いてカタカナを場合分けする方法を調べてみてください</span>
+<span class="c1"># } else if (preg_match(&quot;&quot;, $keyword)){</span>
+<span class="c1">#   $kana = $keyword;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nv">$addr</span> <span class="o">=</span> <span class="nv">$keyword</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># CONCATを用いて入力されたものを結合して検索</span>
+<span class="nv">$query</span> <span class="o">=</span> <span class="s2">&quot;SELECT addr2, addr3, zip FROM zipShizuoka WHERE CONCAT(addr1, addr2, addr3) like ? AND CONCAT(kana1, kana2, kana3) like ? AND zip like ? LIMIT ?, 10&quot;</span><span class="p">;</span>
+
+<span class="nv">$addr</span> <span class="o">=</span> <span class="s1">&#39;%&#39;</span><span class="o">.</span><span class="nv">$addr</span><span class="o">.</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<span class="nv">$zip</span> <span class="o">=</span> <span class="s1">&#39;%&#39;</span><span class="o">.</span><span class="nv">$zip</span><span class="o">.</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<span class="nv">$kana</span> <span class="o">=</span> <span class="s1">&#39;%&#39;</span><span class="o">.</span><span class="nv">$kana</span><span class="o">.</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+
+<span class="c1"># offset値を訂正してください</span>
+<span class="nv">$offset</span> <span class="o">=</span> <span class="nv">$page</span><span class="p">;</span>
+
+<span class="c1"># オフセット含めて10件のみ検索</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$query</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bind_param</span><span class="p">(</span><span class="s2">&quot;sssi&quot;</span><span class="p">,</span> <span class="nv">$addr</span><span class="p">,</span> <span class="nv">$kana</span><span class="p">,</span> <span class="nv">$zip</span><span class="p">,</span> <span class="nv">$offset</span><span class="p">);</span>
+  <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+  <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">bind_result</span><span class="p">(</span><span class="nv">$addr2</span><span class="p">,</span> <span class="nv">$addr3</span><span class="p">,</span> <span class="nv">$zipcode</span><span class="p">);</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$addr2</span><span class="s2"> </span><span class="si">$addr3</span><span class="s2"> </span><span class="si">$zipcode</span><span class="s2">&quot;</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">&quot;db error&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># mysqlとの接続をやめる</span>
+<span class="nv">$mysqli</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="x">  &lt;/body&gt;</span>
+
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h4>ヒント<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<section id="or-or">
+<h5>任意のカラム（郵便番号 or 住所 or カナ）による入力を受け付ける<a class="headerlink" href="#or-or" title="Link to this heading">#</a></h5>
+<p>いくつか方法があるので紹介します</p>
+<p><strong>(方法1)</strong> 該当のカラムをCONCATで繋げたものをLIKEで検索（上の解説を参照）</p>
+<p><strong>(方法2)</strong> 1カラムずつ検索して，検索結果があったものを表示</p>
+<ul class="simple">
+<li><p>検索結果があったかどうかは　mysqli_num_rows() の行数で確認できます</p></li>
+</ul>
+<p><strong>(方法3)</strong> 入力データの形式を正規表現(preg_match()等)で判定して特定のカラムを検索</p>
+<ul class="simple">
+<li><p>以下のサイト等で正規表現が正しいかどうかのチェックができます．カタカナの正規表現は少し複雑ですが検索等して調べてみましょう！</p>
+<ul>
+<li><p><a class="reference external" href="http://okumocchi.jp/php/re.php">PHP: preg_match() / JavaScript: match() 正規表現チェッカー ver3.0</a></p></li>
+</ul>
+</li>
+</ul>
+<p>それぞれのやり方にメリット・デメリットがあります．どのような例外が存在するかについても考えておきましょう．</p>
+</section>
+<section id="id15">
+<h5>複数ページの実現<a class="headerlink" href="#id15" title="Link to this heading">#</a></h5>
+<p><strong>次のページに行ったら全件表示されてしまう・・・</strong></p>
+<p>検索ワードを次ページに受け渡していないのが原因です．$_REQUEST 変数等を使って検索ワードを次ページに引き渡してあげましょう．</p>
+<p>例）</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;a href=&quot;./index.php?page=</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$page </span><span class="cp">?&gt;</span><span class="x">&amp;search=</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$_REQUEST</span><span class="p">[</span><span class="s2">&quot;search&quot;</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;次のページへ&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p><strong>特定の範囲のデータをとってくる</strong></p>
+<p>「LIMIT オフセット値, 件数」，もしくは「LIMIT 件数 OFFSET オフセット値」といったSQL文を記載することで指定の範囲のデータを取得することができます．オフセットをいくつにすればよいかはページ番号さえわかれば計算できますよね？</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; SELECT zip from zipShizuoka LIMIT 1, 5;
++---------+
+| zip     |
++---------+
+| 4200838 |
+| 4212309 |
+| 4211307 | &lt;-- 3件目
+| 4200017 |
+| 4211305 |
++---------+
+5 rows in set (0.00 sec)
+
+&gt; SELECT zip from zipShizuoka LIMIT 3, 5;
++---------+
+| zip     |
++---------+
+| 4211307 | &lt;-- 3件目が先頭にきている
+| 4200017 |
+| 4211305 |
+| 4200963 |
+| 4200948 |
++---------+
+5 rows in set (0.00 sec)
+</pre></div>
+</div>
+<p><strong>検索結果の全レコード数を数える</strong></p>
+<p>ページ番号 3/20 といったような全体のページ数を計算したい場合，検索結果の全レコード数を毎回取得する必要があります． 上記のOFFSETを使ったSQLだと常にLIMITで指定した件数が返されるため，全件数が取得できません．方法として， 全件数を計算するSQLを発行するか，全件を取得してPHP側で数え上げるかのどちらかを行う必要があります．</p>
+<p><strong>(方法1) COUNT() 関数を使う</strong></p>
+<p>COUNT() 関数を使うことでSELECT文により選択されたレコードの件数を得ることができます．</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; SELECT COUNT(*) as count FROM zipShizuoka WHERE kana1 LIKE &#39;%ハママツ%&#39;;
++-------+
+| count |
++-------+
+|   477 |
++-------+
+1 row in set (0.02 sec)
+</pre></div>
+</div>
+<p><strong>(方法2) mysqli_num_rows() を使う</strong></p>
+<p>PHPで mysqli_query() による検索処理を行なった後に mysqli_num_rows() を使って検索結果の全行数を得ることができます．</p>
+<p>実装するアプリケーションごとに，サーバとクライアント間の通信量やそれぞれが行う計算量は異なります．どのような場合にどちらのやり方が有効なのかについても考えてみましょう．</p>
+</section>
+</section>
+</section>
+</section>
+<section id="id16">
+<h2>[必須課題]性能評価<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<p>本日実装した住所・郵便番号検索のWebシステムについて，実装内容を報告するとともに，応答時間の計測結果等からボトルネックを分析し，どのようにしたら性能向上させられるか検討し，改善させてみてください．</p>
+<ol class="arabic simple">
+<li><p>アプリケーションの実装について工夫した点があれば説明してください（SABCのどこまで実装を行いましたか？）</p></li>
+<li><p>応答時間を計測し，各クエリの処理時間などまで詳細な分析結果を示したり，各種性能分析コマンドを駆使してボトルネックの原因を考察してください．</p></li>
+<li><p>どのようにしたら性能向上させられるか検討してください．</p></li>
+<li><p>【発展】ボトルネック部分を改善させてみてください．どこまで改善させられるのか試行錯誤してみてください．</p></li>
+</ol>
+<section id="id17">
+<h3>参考情報<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/y_fujieda/items/a0a69151cf7307039f74">Chrome Developer Toolsでパフォーマンス計測・改善</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/nekoneko-wanwan/items/02aed17773833c3ad3b2">ブレークポイントを使ったJavaScriptデバッグを整理してみた【再入門】</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/shgkt/items/0054670269e1d3aa49b8">JavaScript,jQueryの爆速コーディング、デバッグ方法論の勧め～実践向け逆引き(windows,chrome向け)～</a></p></li>
+<li><p><a class="reference external" href="http://www.brendangregg.com/linuxperf.html">Linux Performance</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id18">
+<h2>おわりに<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
+<p>上記の課題を実装できた人は，Day10の内容を参考に性能評価を行いましょう． 課題の実装について工夫した部分（SABC）についてはレポートで報告してください．</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/part2/part2_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Day9の目的と概要</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../part2_3/overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Day10の目的と概要</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">はじめに</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mariadb">MariaDBの基礎</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">コマンドラインからデータベースへアクセスする方法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">静岡県の郵便番号一覧をダウンロード</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">テーブルの作成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#csv">CSVファイルからデータをテーブルへ流し込む</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">テーブルに入ったデータの抽出</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">高度な問い合わせ例</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#php">PHPからデータベースへアクセスする方法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">接続</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">問い合わせ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">補足1: 手続き型とオブジェクト指向型</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-statements-vs-prepared-statements">補足2: Queryの設定方法（statements vs. prepared-statements）</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本日の課題について</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">確認項目</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c">「可(C)」レベル</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b">「良(B)」レベル</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a">「優(A)」レベル</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#s">「秀(S)」レベル</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">進め方</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">サンプルコード</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">ヒント</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#or-or">任意のカラム（郵便番号 or 住所 or カナ）による入力を受け付ける</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">複数ページの実現</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">[必須課題]性能評価</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">参考情報</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">おわりに</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ohki Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

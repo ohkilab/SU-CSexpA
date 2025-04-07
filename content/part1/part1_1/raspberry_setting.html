@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>RaspberryPiのセッティング &#8212; 情報科学実験A</title>
   
@@ -15,52 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/part1/part1_1/raspberry_setting';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -75,19 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -109,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,6 +137,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -137,10 +148,22 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     <p class="title logo__title">情報科学実験A</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -159,21 +182,21 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day1] 環境構築と実験の開始</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day1] 環境構築と実験の開始</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">RaspberryPiのセッティング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect_raspberry_wireless.html">RaspberryPiの無線接続</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connect_raspberry_wired.html">RaspberryPiの有線接続</a></li>
 <li class="toctree-l2"><a class="reference internal" href="update.html">ソフトウェアのアップデート</a></li>
 <li class="toctree-l2"><a class="reference internal" href="environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part1_2/overview.html">[Day2] 通信性能の計測</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1_2/overview.html">[Day2] 通信性能の計測</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../part1_2/file_IO_programming.html">ファイル入出力プログラミング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1_2/network_IO_programming.html">ネットワーク入出力プログラミング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part1_2/measurement_IO_performance.html">入出力性能の計測（必須）</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../part1_3/multiplexing_server_program.html">サーバプログラムによる多重化</a></li>
 
 
@@ -185,67 +208,63 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="../part1_3/cause_analysis_communication_failure.html">通信失敗の原因分析（発展）</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../part1_4/overview.html">[Day4] 第一部レポートピアレビュー</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1_4/overview.html">[Day4] Simple HTTPサーバの構築</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1_4/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1_4/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1_4/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webサーバの実装</span></p>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1_5/overview.html">[Day5] HTTPサーバの高機能化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1_5/standardforachievement.html">第一部達成基準</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../part1_5/multipleclient.html">複数クライアント対応（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1_5/securityhole.html">セキュリティホール（必須+発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1_5/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part1_5/introuble.html">第一部の実装で詰まった時の対処法</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part1_6/overview.html">[Day6] 第一部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part1_6/grouppresentation.html">第一部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part1_7/overview.html">[Day7] 第一部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webシステムの性能</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_1/overview.html">[Day5] Simple HTTPサーバの構築</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_1/overview.html">[Day8] Webシステムの基礎</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/preparation.html">第二部の準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/web_system_basics.html">Webシステムの基礎（発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/sample_program_php.html">サンプルプログラム(PHP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_1/flickr_api.html">Flickr API Keyの取得</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_2/overview.html">[Day6] HTTPサーバの高機能化(1)</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/standardforachievement.html">第二部達成基準</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/multipleclient.html">複数クライアント対応（必須）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/securityhole.html">セキュリティホール（必須+発展）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_2/overview.html">[Day9] Webシステムの設計と実装 (1)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_2/connection_to_dbms.html">DBMSとの接続（必須）</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_3/overview.html">[Day7] HTTPサーバの高機能化(2)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_3/introuble.html">第二部の実装で詰まった時の対処法</a></li>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../part2/part2_3/overview.html">[Day10] Webシステムの設計と実装 (2)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_4/overview.html">[Day11] ベンチマークと分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_4/about_apache_mpm.html">Apache MPMについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_4/useful_links.html">実装の参考となるリンク集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_4/websocket.html">WebSocketについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_4/conformation_of_status.html">検討状況の確認（必須）</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_4/overview.html">[Day8] 第二部グループ発表会</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_4/grouppresentation.html">第二部グループ発表会</a></li>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../part2/part2_5/overview.html">[Day12] パフォーマンスチューニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../part2/part2_6/overview.html">[Day13,14] 発表会準備</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_7/overview.html">[Day15] 第二部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_7/last_presentation.html">第二部グループ発表会</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../part2/part2_5/overview.html">[Day9] 第二部レポートピアレビュー</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/part2_final_assignment/overview.html">最終課題</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_final_assignment/regulation.html">競技ルールの詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/part2_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">第三部 Webシステムの性能</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_1/overview.html">[Day10] Webシステムの基礎</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/preparation.html">第三部の準備</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/web_system_basics.html">Webシステムの基礎（発展）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/sample_program_php.html">サンプルプログラム(PHP)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_1/flickr_api.html">Flickr API Keyの取得</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_2/overview.html">[Day11] Webシステムの設計と実装</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_2/connection_to_dbms.html">DBMSとの接続（必須）</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_3/overview.html">[Day12] ベンチマークと分析</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_3/about_apache_mpm.html">Apache MPMについて</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_3/useful_links.html">実装の参考となるリンク集</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_3/websocket.html">WebSocketについて</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_3/conformation_of_status.html">検討状況の確認（必須）</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../part3/part3_4/overview.html">[Day13,14] 発表会準備</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_5/overview.html">[Day15] 第三部グループ発表会</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_5/last_presentation.html">第三部グループ発表会</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/part3_final_assignment/overview.html">最終課題</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_final_assignment/regulation.html">競技ルールの詳細</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../part3/part3_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
-</ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">実験終了後（必須）</span></p>
 <ul class="nav bd-sidenav">
@@ -280,7 +299,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -289,14 +308,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -418,26 +437,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -477,27 +498,28 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="raspberrypi">
-<h1>RaspberryPiのセッティング<a class="headerlink" href="#raspberrypi" title="Permalink to this heading">#</a></h1>
+<h1>RaspberryPiのセッティング<a class="headerlink" href="#raspberrypi" title="Link to this heading">#</a></h1>
 <p>実験はラズパイとPCの２つの機材を用いて図のような形式で実験を行います．</p>
-<a class="reference internal image-reference" href="../../../_images/configuration_wireless.png"><img alt="RaspberryPiの接続" class="align-center" src="../../../_images/configuration_wireless.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/configuration_wireless.png"><img alt="RaspberryPiの接続" class="align-center" src="../../../_images/configuration_wireless.png" style="width: 400px;" />
+</a>
 <section id="id1">
-<h2>前準備<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>前準備<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>本項では<a class="reference internal" href="../../preparation/preparation.html"><span class="doc std std-doc">環境構築及び動作確認</span></a>が完了している前提で作業を行います．まだであれば先に<a class="reference internal" href="../../preparation/preparation.html"><span class="doc std std-doc">環境構築及び動作確認</span></a>を行ってください．</p>
 </section>
 <section id="id2">
-<h2>モニタと電源の接続<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>モニタと電源の接続<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>Raspberry Piは「 <strong>USB C端子に電源を接続する前に</strong> 」HDMIケーブルを接続しないとモニタを認識しません．実験では基本モニタを用いて実施しますので必ず電源接続前にHDMIケーブルを接続するようにしましょう．</p>
 <p>RaspberryPiのUSB C端子に電源を接続します．</p>
 <p><img alt="raspi-usb.jpg" src="../../../_images/400px-raspi-usb.jpg" /></p>
 </section>
 <section id="id3">
-<h2>初期設定<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>初期設定<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>都合上，一部の方のRaspberryPiでは初期設定が未実施です．未実施の場合と実施済みの場合でそれぞれ実施する事項が異なるため各自参照して実施するようにしてください．</p>
 <section id="id4">
-<h3>初期設定が未実施の場合<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3>初期設定が未実施の場合<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>電源をつけるとRaspberryPiの初期設定画面が表示されます．設定項目としては以下のようなものがあります． <strong>ユーザー名は簡略化のためpiとしてください．パスワードは適時設定し，忘れないように必ずメモをしておいてください※．</strong> また，wifi接続とアップデートは後に実施するためスキップしてください．</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -512,7 +534,7 @@ document.write(`
 <p>以降，講義資料内の説明においては下記ユーザー名とパスワードを用いるものとします．</p>
 </section>
 <section id="id5">
-<h3>初期設定が実施済みの場合<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h3>初期設定が実施済みの場合<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>初期設定画面が出てこない場合は初期設定が完了しています．以下のユーザ情報を使用してログインしてください．</p>
 <ul class="simple">
 <li><p>ユーザ名: pi</p></li>
@@ -526,20 +548,47 @@ document.write(`
 </section>
 </section>
 <section id="lan">
-<h2>無線LANの設定<a class="headerlink" href="#lan" title="Permalink to this heading">#</a></h2>
-<p>大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 4）からは無線接続が困難です．本講義では作業簡略化のため<strong>実験用の仮ネットワークを用意しておりますので担当教員からのパスワードなどの情報開示をお待ちください．</strong></p>
-<p>右上に表示されているアイコンから無線LAN設定を行うことができます．情報開示次第各自接続するWifiの設定を行ってください．</p>
-<p><img alt="wifi.png" src="../../../_images/wifi.png" /></p>
+<h2>無線LANの設定<a class="headerlink" href="#lan" title="Link to this heading">#</a></h2>
+<p>大学のネットワークはWPA2-Enterpriseを使用しているため実験機材（Raspberry Pi 4）からは通常の方法では無線接続が困難です．
+学内無線LANを利用したい方は以下の方法でセットアップを以下の方法でセットアップを行ってください．</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># パスワードのハッシュを取得（静大IDに対応するパスワードを入力）</span>
+$<span class="w"> </span><span class="nb">read</span><span class="w"> </span>-s<span class="w"> </span>pass
+（静大IDに対応するパスワードを入力する）
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$pass</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>iconv<span class="w"> </span>-t<span class="w"> </span>utf16le<span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>md4
+（stdin）<span class="o">=</span>（ハッシュ値）
+<span class="c1"># ハッシュ値をメモっておく</span>
+$<span class="w"> </span><span class="nb">unset</span><span class="w"> </span>pass
+</pre></div>
+</div>
+<p>/etc/wpa_supplicant/wpa_supplicant.conf に以下の内容を追記</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>network={
+   ssid =&quot;WRL-SUCCES-S3&quot;
+#  ssid=&quot;eduroam&quot; &lt;- eduroamの時はこちら
+   priority=1
+   proto=RSN
+   key_mgmt=WPA-EAP
+   pairwise=CCMP
+   auth_alg=OPEN
+   eap=PEAP
+   identity=&quot;静大ID&quot;
+#  identity=&quot;静大ID@shizuoka.ac.jp&quot; &lt;- eduroamの時はこちら
+   password=hash：静大IDに対するバスワードのハッシュ値
+   phase1=&quot;peaplabel=0&quot;
+   phase2=&quot;auth=MSCHAPV2&quot;
+}
+</pre></div>
+</div>
+<p>書き換えが終わったら再起動すると接続が有効になります．</p>
 </section>
 <section id="sshvnc">
-<h2>SSH、VNCサーバの有効化<a class="headerlink" href="#sshvnc" title="Permalink to this heading">#</a></h2>
+<h2>SSH、VNCサーバの有効化<a class="headerlink" href="#sshvnc" title="Link to this heading">#</a></h2>
 <p>PCからRaspberryPiに接続するため，SSH，VNCを有効化します．左上のアイコンから<code class="docutils literal notranslate"><span class="pre">設定＞RaspberryPiの設定</span></code>を選択してください．</p>
 <p><img alt="ssh_vnc1.png" src="../../../_images/ssh_vnc1.png" /></p>
 <p>ウインドウが開くので，SSHとVNCのトグルスイッチを有効にしてください．</p>
 <p><img alt="ssh_vnc2.png" src="../../../_images/ssh_vnc2.png" /></p>
 </section>
 <section id="id6">
-<h2>電源の切断方法<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h2>電源の切断方法<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>RaspberryPiの電源切断方法は2通りあります．ここで電源を切断する必要はありませんが，覚えておくと良いでしょう．</p>
 <ol class="arabic simple">
 <li><p>画面上でシャットダウン：左上のメニュー（RaspberryPiボタン）から<code class="docutils literal notranslate"><span class="pre">ログアウト</span></code>→<code class="docutils literal notranslate"><span class="pre">Shutdown</span></code>を選択</p></li>
@@ -573,11 +622,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="overview.html"
@@ -597,10 +645,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -608,6 +653,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -646,9 +692,10 @@ By Ohki Lab
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -672,8 +719,8 @@ By Ohki Lab
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

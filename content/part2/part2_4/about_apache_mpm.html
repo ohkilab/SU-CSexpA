@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Apache MPMについて &#8212; 情報科学実験A</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part2/part2_4/about_apache_mpm';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="実装の参考となるリンク集" href="useful_links.html" />
+    <link rel="prev" title="Day11の目的と概要" href="overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">情報科学実験A</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preparation/preparation.html">環境構築および動作確認</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_1/overview.html">[Day1] 環境構築と実験の開始</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/raspberry_setting.html">RaspberryPiのセッティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wireless.html">RaspberryPiの無線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wired.html">RaspberryPiの有線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/update.html">ソフトウェアのアップデート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_2/overview.html">[Day2] 通信性能の計測</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">ファイル入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">ネットワーク入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">入出力性能の計測（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_server_program.html">サーバプログラムによる多重化</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/benchmarking_program.html">ベンチマークプログラムの設計と実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/performance_measurement.html">性能計測（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_asynchronous_IO.html">非同期IOによる多重化</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/cause_analysis_communication_failure.html">通信失敗の原因分析（発展）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_4/overview.html">[Day4] Simple HTTPサーバの構築</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_5/overview.html">[Day5] HTTPサーバの高機能化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/standardforachievement.html">第一部達成基準</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/multipleclient.html">複数クライアント対応（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/securityhole.html">セキュリティホール（必須+発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/introuble.html">第一部の実装で詰まった時の対処法</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_6/overview.html">[Day6] 第一部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_6/grouppresentation.html">第一部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../part1/part1_7/overview.html">[Day7] 第一部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webシステムの性能</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_1/overview.html">[Day8] Webシステムの基礎</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/preparation.html">第二部の準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/web_system_basics.html">Webシステムの基礎（発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_php.html">サンプルプログラム(PHP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/flickr_api.html">Flickr API Keyの取得</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_2/overview.html">[Day9] Webシステムの設計と実装 (1)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_2/connection_to_dbms.html">DBMSとの接続（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_3/overview.html">[Day10] Webシステムの設計と実装 (2)</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day11] ベンチマークと分析</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Apache MPMについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="useful_links.html">実装の参考となるリンク集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websocket.html">WebSocketについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conformation_of_status.html">検討状況の確認（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_5/overview.html">[Day12] パフォーマンスチューニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_6/overview.html">[Day13,14] 発表会準備</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_7/overview.html">[Day15] 第二部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_7/last_presentation.html">第二部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_final_assignment/overview.html">最終課題</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/regulation.html">競技ルールの詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">実験終了後（必須）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../end/cleanup.html">実験機材の返却</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">グループ発表会</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../group_presentation/group_presentation_detail.html">グループ発表会詳細</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">レポート</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../report/report.html">レポート詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/how_to_write_reports.html">レポートの書き方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/peer_review.html">ピアレビューのやり方</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">トラブルシューティング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/question.html">質問の行い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/trouble.html">よくあるトラブル</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_4/about_apache_mpm.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/part2/part2_4/about_apache_mpm.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Apache MPMについて</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">概要</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mpm-wikipedia">MPMモジュールの種類（Wikipediaより）</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefork-apache2-2">prefork（Apache2.2までのデフォルト設定）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worker">worker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-apache2-4">event（Apache2.4からのデフォルト設定）</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberry-pi-os">＜Raspberry Pi OSは以下の手順＞</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-os">＜Fedora OSは以下の手順＞</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">性能計測のコツ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">＜Raspberry Pi OSの場合＞</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">＜Fedora OSの場合＞</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">チューニングスクリプト</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="apache-mpm">
+<h1>Apache MPMについて<a class="headerlink" href="#apache-mpm" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Apache MPM (Multi Processing Module)とは，多数のWebブラウザからの接続要求をどのように処理するかをモジュール化したもので，設定ファイルを編集することで処理方法を変えることができます．</p>
+<p>例えば，これまでの実験課題で，プログラムをマルチプロセスで実装するか，マルチスレッドで実装するか検討し実装したと思いますが，Apacheはこの部分がモジュール化されており，管理者の要望に応じてマルチプロセスでもマルチスレッドでもどちらでも運用できるようになっています．</p>
+<p>MPMについて参考なりそうなリンクをいくつか掲載しておきます．他にもありますので適宜検索してみてください．</p>
+<ul class="simple">
+<li><p>MPMとは何か？</p>
+<ul>
+<li><p><a class="reference external" href="http://httpd.apache.org/docs/2.4/ja/mpm.html">マルチプロセッシングモジュール</a>（Apache公式ページの解説）</p></li>
+<li><p><a class="reference external" href="http://unoh.github.io/2008/03/21/apache_mpm.html">Apache MPM の基礎をしっかりと理解しよう！</a>（内容はちょっと古いです）</p></li>
+</ul>
+</li>
+<li><p>設定のチューニングについて</p>
+<ul>
+<li><p><a class="reference external" href="http://www.drk7.jp/MT/archives/001594.html">Apache2 - worker MPM のプロセス＆スレッド数のチューニング</a>（内容はちょっと古いです）</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="mpm-wikipedia">
+<h2>MPMモジュールの種類（Wikipediaより）<a class="headerlink" href="#mpm-wikipedia" title="Link to this heading">#</a></h2>
+<section id="prefork-apache2-2">
+<h3>prefork（Apache2.2までのデフォルト設定）<a class="headerlink" href="#prefork-apache2-2" title="Link to this heading">#</a></h3>
+<p>preforkは，「スレッドを使わず，先行して fork を行なうウェブサーバ」である．Apacheは伝統的に親プロセスを1つ持ち，クライアントからリクエストが来ると自分自身をコピーして子プロセスを起動する（これをforkという）．実際の通信は子プロセスが受け持つ．そのため，通信している数だけ子プロセスが起動することになる．この時，クライアントからリクエストを受けたあとでforkするとfork完了までに待ち時間が出来て通信のパフォーマンスが遅くなる．そのため，あらかじめいくつかの子プロセスをforkしておき，forkの待ち時間をなくす方式をとっている．この方式が「prefork」である．すなわち“pre（＝前もって・先行して）”forkしておく，という意味である．</p>
+<p>preforkのメリットは，forkされた子プロセス1つ1つが対応する通信を受け持つため，ある子プロセスが何らかの原因でフリーズしたとしても，他の子プロセスには影響を及ぼすことが無く通信を継続できる．このため安定した通信を行うことができる．一方，クライアントが多くなればなるほど子プロセスの数も増えるため，使用メモリ量やCPU負荷が比例的に増大していく．preforkで多数のクライアントをさばくには，それに応じた大量のメモリと高速なCPUが必要となる．</p>
+</section>
+<section id="worker">
+<h3>worker<a class="headerlink" href="#worker" title="Link to this heading">#</a></h3>
+<p>workerは，「マルチスレッドとマルチプロセスのハイブリッド型サーバ」である．Apacheの子プロセス1つ1つがマルチスレッドで動作し，スレッド1つが1つのクライアントを受け持つ方式である．すなわち，1つのプロセスがマルチスレッドを利用して複数の通信の面倒を見る．この点で1つのプロセスが1つの通信をみるpreforkとは異なる．また多くの子プロセスを起動せずに済むため，メモリの使用量も減らすことができる．</p>
+</section>
+<section id="event-apache2-4">
+<h3>event（Apache2.4からのデフォルト設定）<a class="headerlink" href="#event-apache2-4" title="Link to this heading">#</a></h3>
+<p>eventは，workerの一種でマルチスレッドで動作する．workerとの違いはKeep-Alive（持続的接続）の処理方法である．workerやpreforkは，Keep-Aliveの持続性を保つために一度利用したスレッド・プロセスをそのまま待機させている．しかしクライアントからの接続が持続的に行われる可能性は保証されているわけではないため，待機していること自体が無駄になる可能性もある．そこで，Keep-Aliveの処理を別のスレッドに割り振って通信を処理する．この方式は長らく実験的サポートであったが，バージョン2.4.1から正式に採用された．</p>
+<section id="raspberry-pi-os">
+<h4>＜Raspberry Pi OSは以下の手順＞<a class="headerlink" href="#raspberry-pi-os" title="Link to this heading">#</a></h4>
+<p>Apacheでは一般的に，設定は <code class="docutils literal notranslate"><span class="pre">/etc/apache2/apache2.conf</span></code> や <code class="docutils literal notranslate"><span class="pre">/etc/apache2/httpd.conf</span></code> に記述しますが，複数のモジュールを使うとこれらの設定ファイルが長くなりすぎて理解困難になってしまいます．そこで最近は，<code class="docutils literal notranslate"><span class="pre">/etc/apache2/conf-enabled</span></code> や <code class="docutils literal notranslate"><span class="pre">/etc/apache2/modes-enabled</span></code> 等のディレクトリ配下に読み込ませたい設定ファイルを用意した上でApacheを起動させればよいようになっています．以下に基本的な流れを説明しておきます．</p>
+<p>まず，必要なモジュールをインストールすると，設定ファイルは <code class="docutils literal notranslate"><span class="pre">/etc/apache2/modes-available</span></code> に「モジュール名.load や モジュール名.conf」として用意されます．ここで，インストールできるモジュールリストは以下のコマンドで確認でき，インストールもできます．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>apt<span class="w"> </span>search<span class="w"> </span>libapache2-mod<span class="w">                            </span>&lt;-----<span class="w"> </span>モジュールリストの確認
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libapache2-mod-モジュール名<span class="w">         </span>&lt;-----<span class="w"> </span>必要なモジュールのインストール
+</pre></div>
+</div>
+<p>次に，インストールされた modes-available にあるモジュールの中から，実際にApacheに読み込ませてモジュールを有効にしたい場合は以下のコマンドを実行します．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>a2enmod<span class="w"> </span>モジュール名<span class="w">      </span>&lt;---<span class="w"> </span>モジュールの有効化
+$<span class="w"> </span>sudo<span class="w"> </span>a2dismod<span class="w"> </span>モジュール名<span class="w">      </span>&lt;---<span class="w"> </span>モジュールの無効化
+</pre></div>
+</div>
+<p>最後に，apache2を再起動して有効化したモジュールを反映させて起動します．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+</pre></div>
+</div>
+<p>ということで本題ですが，PHP には，モジュール版（Webサーバのプロセスの中でPHPを実行）とCGI版（Webサーバとは別のプロセスで実行）という二種類があります．モジュール版のmod_phpはスレッドセーフではないため，Apache2をmpm_eventやmpm_workerで運用している場合は使用できません．つまり，mod_phpは，mpm_prefork専用です．そのため，モジュール版のmod_phpを無効にして，mpm_worker等でも使用できるCGI版のmod_fcgidを有効にし，FastCGIデーモンによるPHP環境を構築してみましょう（速度面では同一プロセス内で実行されるモジュール版，リソース管理の安全面からはCGI版と，サーバの運用用途によって使い分けてください）．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1">#mod_phpやmpm_preforkを無効にして，mpm_workerを有効に</span>
+$<span class="w"> </span>sudo<span class="w"> </span>a2dismod<span class="w"> </span>php8.0
+$<span class="w"> </span>sudo<span class="w"> </span>a2dismod<span class="w"> </span>mpm_prefork
+$<span class="w"> </span>sudo<span class="w"> </span>a2dismod<span class="w"> </span>mpm_event
+$<span class="w"> </span>sudo<span class="w"> </span>a2enmod<span class="w"> </span>mpm_worker
+
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php8.0-fpm<span class="w"> </span>libapache2-mod-fcgid
+<span class="c1">#FPM (FastCGI Process Manager) は PHP の FastCGI 実装のひとつで，主に高負荷のサイトでリソース管理の安全運用な追加機能を用意しています</span>
+
+$<span class="w"> </span>sudo<span class="w"> </span>a2enconf<span class="w"> </span>php8.0-fpm<span class="w">     </span>&lt;---<span class="w"> </span>conf<span class="w"> </span>なので注意！
+
+<span class="c1">#proxy_fcgi_moduleが必要なのでこれも有効にする</span>
+$<span class="w"> </span>sudo<span class="w"> </span>a2enmod<span class="w"> </span>proxy_fcgi<span class="w">     </span>&lt;---<span class="w"> </span>mod<span class="w"> </span>なので注意！
+
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>php8.0-fpm
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+</pre></div>
+</div>
+<p>特にエラー等表示されなかった場合は，正常動作しているか確認してみてください．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1">#apache2が正常動作しているか確認</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>apache2
+
+<span class="c1">#php8.0-fpmが正常動作しているか確認</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>php8.0-fpm
+
+<span class="c1">#apache2の現在有効なモジュールを確認（fcgid_moduleがあればOK）</span>
+$<span class="w"> </span>apache2ctl<span class="w"> </span>-M
+</pre></div>
+</div>
+<p>以前作成した以下の <code class="docutils literal notranslate"><span class="pre">index.php</span></code> をWebブラウザで表示（<code class="docutils literal notranslate"><span class="pre">localhost/~pi/index.php</span></code> 等）したときに，「Server API: FPM/FastCGI」というような表示が出ればOKです．</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="nb">phpinfo</span><span class="p">();</span>
+<span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p>どうにもうまういかない方は，apache2を再インストールして試してみるのが早いかもしれません． （configファイル等だけでなく依存パッケージ含めて完全にapache2をアンインストールしたい場合は，<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">autoremove</span> <span class="pre">--purge</span> <span class="pre">apache2</span></code> ですが，どこからやり直したいかによって以下で十分な場合が多いと思います）</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>apache2<span class="w"> </span>stop
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span>--purge<span class="w"> </span>apache2<span class="w">       </span>&lt;---<span class="w"> </span>purgeオプション付けてconfigファイル等も削除（依存パッケージは残す）
+
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>apache2.service
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2.service
+$<span class="w"> </span>sudo<span class="w"> </span>a2enmod<span class="w"> </span>userdir
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+</pre></div>
+</div>
+<p>これで，<code class="docutils literal notranslate"><span class="pre">localhost/~pi</span></code> 等へアクセスして <code class="docutils literal notranslate"><span class="pre">index.html</span></code>が表示されたら，上記のMPMの内容を再度試してみてください．</p>
+</section>
+<section id="fedora-os">
+<h4>＜Fedora OSは以下の手順＞<a class="headerlink" href="#fedora-os" title="Link to this heading">#</a></h4>
+<p>Apacheの設定ファイルを修正することで簡単に設定変更できます．設定ファイル修正後は，Apacheの再起動を忘れずに！</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/httpd/conf.modules.d/00-mpm.conf
+</pre></div>
+</div>
+<p>有効にしたいMPMモジュールについて<strong>LoadModule</strong>の行頭にある <strong>#</strong> を外して，無効にしたいMPMモジュールの行頭に <strong>#</strong> を挿入してください．</p>
+<p>設定ファイル修正後は，Apacheの再起動を忘れずに！</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="c"># Select the MPM module which should be used by uncommenting exactly</span>
+<span class="c"># one of the following LoadModule lines:</span>
+
+<span class="c"># prefork MPM: Implements a non-threaded, pre-forking web server</span>
+<span class="c"># See: http://httpd.apache.org/docs/2.4/mod/prefork.html</span>
+<span class="nb">LoadModule</span><span class="w"> </span>mpm_prefork_module<span class="w"> </span>modules/mod_mpm_prefork.so
+
+<span class="c"># worker MPM: Multi-Processing Module implementing a hybrid</span>
+<span class="c"># multi-threaded multi-process web server</span>
+<span class="c"># See: http://httpd.apache.org/docs/2.4/mod/worker.html</span>
+<span class="c">#</span>
+<span class="c">#LoadModule mpm_worker_module modules/mod_mpm_worker.so</span>
+
+<span class="c"># event MPM: A variant of the worker MPM with the goal of consuming</span>
+<span class="c"># threads only for connections with active processing</span>
+<span class="c"># See: http://httpd.apache.org/docs/2.4/mod/event.html</span>
+<span class="c">#</span>
+<span class="c">#LoadModule mpm_event_module modules/mod_mpm_event.so</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="id2">
+<h2>性能計測のコツ<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>性能計測でまず気になるのは，「<strong>どの程度の同時接続数までエラーなく処理できるか？</strong>」です．そのため，まずは<code class="docutils literal notranslate"><span class="pre">ab</span></code>のパラメータを大まかに変えながら「<strong>処理しきれなくなるポイント</strong>」あるいは「<strong>性能が大きく低下するポイント</strong>」を探りましょう．大まかな感触を得られたら，その周辺の負荷でパラメータを細かく変えながら詳細な性能曲線を探っていきましょう．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ab<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">100</span><span class="w"> </span>→リクエスト正常終了（Requests<span class="w"> </span>per<span class="w"> </span>second<span class="w"> </span><span class="m">36</span>.74<span class="o">)</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">3000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">300</span><span class="w"> </span>→リクエスト正常終了（Requests<span class="w"> </span>per<span class="w"> </span>second<span class="w"> </span><span class="m">37</span>.77<span class="o">)</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">500</span><span class="w"> </span>→リクエスト正常終了（Requests<span class="w"> </span>per<span class="w"> </span>second<span class="w"> </span><span class="m">37</span>.58<span class="o">)</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">6000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">600</span><span class="w"> </span>→リクエスト正常終了（Requests<span class="w"> </span>per<span class="w"> </span>second<span class="w"> </span><span class="m">38</span>.13<span class="o">)</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">7000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">700</span><span class="w"> </span>→リクエスト正常終了（Requests<span class="w"> </span>per<span class="w"> </span>second<span class="w"> </span><span class="m">37</span>.19<span class="o">)</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">8000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">800</span><span class="w"> </span>→リクエスト失敗（apr_recv<span class="w"> </span>:<span class="w"> </span>Connection<span class="w"> </span>timed<span class="w"> </span>out<span class="o">)</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">9000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">900</span><span class="w"> </span>→リクエスト失敗（apr_recv<span class="w"> </span>:<span class="w"> </span>Connection<span class="w"> </span>timed<span class="w"> </span>out<span class="o">)</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">10000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">1000</span><span class="w"> </span>→リクエスト失敗（apr_recv<span class="w"> </span>:<span class="w"> </span>Connection<span class="w"> </span>timed<span class="w"> </span>out<span class="o">)</span>
+</pre></div>
+</div>
+<p>次に気になるのは，Apacheの設定をどのように変更すると，この「<strong>処理しきれなくなるポイント</strong>」がどのように変化するのかを把握することです．Apacheの設定をどのように変更するかは，どのMPMモジュールを使用しているかにも依存しますが，基本的には<a class="reference external" href="http://httpd.apache.org/docs/2.0/ja/mod/mpm_common.html#maxclients">MaxClients</a>に設定されている値を変えながら調べてけばよいです．その他にも様々な設定値がありますので，周囲と相談しながら試行錯誤してみてください．</p>
+<p>例えば，Apacheの設定における<strong>MaxRequestWorkers（Apache2.4以前はMaxClients）<strong>を</strong>10</strong>といった極端に少ない値に設定して負荷試験を実施してみてください．このMaxClientsの値を変化させることで，「<strong>処理しきれなくなるポイント</strong>」がどのように変化していくのか計測しながらApacheの並列処理の仕組みを考察していってもよいと思います．</p>
+<section id="id3">
+<h3>＜Raspberry Pi OSの場合＞<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/apache2/mods-available</span></code> ディレクトリ配下にある <code class="docutils literal notranslate"><span class="pre">mpm_event.conf</span></code> や <code class="docutils literal notranslate"><span class="pre">mpm_prefork.conf</span></code> や <code class="docutils literal notranslate"><span class="pre">mpm_worker.conf</span></code> の設定を変更し，各モジュールを有効化して試してみてください．</p>
+<p>Apache MPM（Apache公式ページの解説）</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://httpd.apache.org/docs/2.4/en/mod/prefork.html">Apache MPM prefork</a></p></li>
+<li><p><a class="reference external" href="https://httpd.apache.org/docs/2.4/en/mod/event.html">Apache MPM event</a></p></li>
+<li><p><a class="reference external" href="https://httpd.apache.org/docs/2.4/en/mod/worker.html">Apache MPM worker</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>＜mpm_prefork_module デフォルト設定＞
+   StartServers 5
+   MinSpareServers 5
+   MaxSpareServers 10
+   MaxRequestWorkers 150
+   MaxConnectionsPerChild 0
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>＜mpm_event_module デフォルト設定＞
+   StartServers 2
+   MinSpareThreads 25
+   MaxSpareThreads 75
+   ThreadLimit 64
+   ThreadsPerChild 25
+   MaxRequestWorkers 150
+   MaxConnectionsPerChild 0
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>＜mpm_worker_module デフォルト設定＞
+   StartServers 2
+   MinSpareThreads 25
+   MaxSpareThreads 75
+   ThreadLimit 64
+   ThreadsPerChild 25
+   MaxRequestWorkers 150
+   MaxConnectionsPerChild 0
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>＜Fedora OSの場合＞<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://heartbeats.jp/hbblog/2015/02/apache-mpm.html"><strong>Apache HTTP Server: MPMパラメータ チートシート</strong></a></p>
+<p>＜Preforkデフォルト設定＞</p>
+<p>Timeout 300</p>
+<p>KeepAlive On</p>
+<p>MaxKeepAliveRequests 500</p>
+<p>KeepAliveTimeout 10</p>
+<p><strong>StartServers: 5</strong> (最初に起動するプロセスの数; 起動時のみ使用)</p>
+<p>MaxClients: 500 (ピーク時の負荷を処理するための合計プロセス数)ピーク時のリクエスト処理用に作成する子プロセス数を決定</p>
+<p><strong>ServerLimit: 500</strong> (プロセス存続期間中のMaxClientsの最大構成値)MaxClientsがデフォルトよりも高い値に設定されている場合，ServerLimit値には残りのパラメータより高い値を設定する必要がある</p>
+<p>MinSpareServers, MaxSpareServers: 運用中はこれらの値で親プロセスがリクエスト処理用の子プロセス作成を規制</p>
+<p>MaxRequestsPerChild: 0 （各子プロセスが処理するリクエスト数の制限を設定．0はプロセスが失効しないことを示す）</p>
+<p>＜Workerデフォルト設定＞</p>
+<p>Timeout 300</p>
+<p>KeepAlive On</p>
+<p>MaxKeepAliveRequests 500</p>
+<p>KeepAliveTimeout 10</p>
+<p><strong>StartServers: 3</strong> (最初に起動するプロセスの数．起動時のみ使用)</p>
+<p>MaxClients: 500 (ピーク時の負荷を処理するための合計プロセス数．ピーク時のリクエスト処理用に作成する子プロセス数を決定）</p>
+<p><strong>ServerLimit: 25</strong> (プロセス存続期間中のMaxClientsの最大構成値．MaxClientsがデフォルトよりも高い値に設定されている場合，ServerLimit値には残りのパラメータより高い値を設定する必要がある）</p>
+<p>MinSpareServers, MaxSpareServers: 運用中はこれらの値で親プロセスがリクエスト処理用の子プロセス作成を規制</p>
+<p><strong>ThreadsPerChild: 25</strong> (単一のhttpdプロセス内のワーカー・スレッド数)</p>
+<p>MaxRequestsPerChild: 0 (各子プロセスが処理するリクエスト数の制限を設定．0はプロセスが失効しないことを示す)</p>
+</section>
+</section>
+<section id="id5">
+<h2>チューニングスクリプト<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>Apache のMaxClientsの設定値を自動計算するスクリプトもあるようです．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/bezeklik/items/85f4001a2517be5fe4c0">Apache チューニングスクリプト（MaxClientsを自動計算する）</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/part2/part2_4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Day11の目的と概要</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="useful_links.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">実装の参考となるリンク集</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">概要</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mpm-wikipedia">MPMモジュールの種類（Wikipediaより）</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefork-apache2-2">prefork（Apache2.2までのデフォルト設定）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worker">worker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-apache2-4">event（Apache2.4からのデフォルト設定）</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raspberry-pi-os">＜Raspberry Pi OSは以下の手順＞</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-os">＜Fedora OSは以下の手順＞</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">性能計測のコツ</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">＜Raspberry Pi OSの場合＞</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">＜Fedora OSの場合＞</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">チューニングスクリプト</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ohki Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

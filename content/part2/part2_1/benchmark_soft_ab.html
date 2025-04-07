@@ -1,0 +1,792 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ベンチマークソフトab（Apache Bench） &#8212; 情報科学実験A</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part2/part2_1/benchmark_soft_ab';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Flickr API Keyの取得方法" href="flickr_api.html" />
+    <link rel="prev" title="サンプルプログラム(JavaScript)" href="sample_program_js.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">情報科学実験A</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preparation/preparation.html">環境構築および動作確認</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_1/overview.html">[Day1] 環境構築と実験の開始</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/raspberry_setting.html">RaspberryPiのセッティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wireless.html">RaspberryPiの無線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wired.html">RaspberryPiの有線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/update.html">ソフトウェアのアップデート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_2/overview.html">[Day2] 通信性能の計測</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">ファイル入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">ネットワーク入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">入出力性能の計測（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_server_program.html">サーバプログラムによる多重化</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/benchmarking_program.html">ベンチマークプログラムの設計と実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/performance_measurement.html">性能計測（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_asynchronous_IO.html">非同期IOによる多重化</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/cause_analysis_communication_failure.html">通信失敗の原因分析（発展）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_4/overview.html">[Day4] Simple HTTPサーバの構築</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_5/overview.html">[Day5] HTTPサーバの高機能化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/standardforachievement.html">第一部達成基準</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/multipleclient.html">複数クライアント対応（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/securityhole.html">セキュリティホール（必須+発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/introuble.html">第一部の実装で詰まった時の対処法</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_6/overview.html">[Day6] 第一部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_6/grouppresentation.html">第一部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../part1/part1_7/overview.html">[Day7] 第一部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webシステムの性能</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day8] Webシステムの基礎</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preparation.html">第二部の準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_system_basics.html">Webシステムの基礎（発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample_program_php.html">サンプルプログラム(PHP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flickr_api.html">Flickr API Keyの取得</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_2/overview.html">[Day9] Webシステムの設計と実装 (1)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_2/connection_to_dbms.html">DBMSとの接続（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_3/overview.html">[Day10] Webシステムの設計と実装 (2)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_4/overview.html">[Day11] ベンチマークと分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/about_apache_mpm.html">Apache MPMについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/useful_links.html">実装の参考となるリンク集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/websocket.html">WebSocketについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/conformation_of_status.html">検討状況の確認（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_5/overview.html">[Day12] パフォーマンスチューニング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_6/overview.html">[Day13,14] 発表会準備</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_7/overview.html">[Day15] 第二部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_7/last_presentation.html">第二部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_final_assignment/overview.html">最終課題</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/regulation.html">競技ルールの詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">実験終了後（必須）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../end/cleanup.html">実験機材の返却</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">グループ発表会</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../group_presentation/group_presentation_detail.html">グループ発表会詳細</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">レポート</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../report/report.html">レポート詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/how_to_write_reports.html">レポートの書き方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/peer_review.html">ピアレビューのやり方</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">トラブルシューティング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/question.html">質問の行い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/trouble.html">よくあるトラブル</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_1/benchmark_soft_ab.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/part2/part2_1/benchmark_soft_ab.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ベンチマークソフトab（Apache Bench）</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">はじめに</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ab-apache-http-server-benchmarking-tool">ab: Apache HTTP server benchmarking tool</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">使い方</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-bench">[必須課題] Apache Benchによる性能計測結果の分析</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">おわりに</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ab-apache-bench">
+<h1>ベンチマークソフトab（Apache Bench）<a class="headerlink" href="#ab-apache-bench" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>はじめに<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Webシステムを構築する上で，どの程度のアクセス数に耐えられるのか予めWebシステムの性能を知っておくことは重要です．単純な静的なコンテンツから成る静的ホームページであれば，大した負荷がかからないかもしれませんが，アクセス時にDBMSへ問い合わせして返信するコンテンツを動的に生成するような動的ホームページの場合，Webシステムを構成するハードウェアの性能や，使用する各種ソフトウェアの性能によって，同時に処理できるアクセス数の上限に大きな差が生じる場合があります．</p>
+<p>本日の実験ではまず，Webシステムへ負荷をかけて定量的な性能評価を行うことのできるツールの使い方を身に着けてください（くれぐれも外部のWebシステムに対し試してみることはしないでくださいね）．</p>
+</section>
+<section id="ab-apache-http-server-benchmarking-tool">
+<h2>ab: Apache HTTP server benchmarking tool<a class="headerlink" href="#ab-apache-http-server-benchmarking-tool" title="Link to this heading">#</a></h2>
+<p>デファクトスタンダードのWebサーバといえるApacheは，<code class="docutils literal notranslate"><span class="pre">ab</span></code>（Apache Bench）というベンチマーク用のコマンドも一緒についています．このコマンドは，Webサーバに大量の同時アクセスを行い，1秒あたりのリクエスト処理数といった性能（スループット）を計測することができます．DoS (Denial of Service)攻撃と同様に，宛先に向け一度に大量のリクエストを送信しますので，くれぐれも実行時のオプション指定に誤りがないよう注意して実行してください．リクエストに対する応答が返ってきたらすぐに次のリクエストを発行するという動作を繰り返します．</p>
+<section id="id2">
+<h3>使い方<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><strong>ab</strong> [ <strong>-A</strong> <em>auth-username:password</em> ] [ <strong>-b</strong> <em>windowsize</em> ] [ <strong>-c</strong> <em>concurrency</em> ] [ <strong>-C</strong> <em>cookie-name=value</em> ] [ <strong>-d</strong> ] [ <strong>-e</strong> <em>csv-file</em> ] [ <strong>-f</strong> <em>protocol</em> ] [ <strong>-g</strong> <em>gnu-plot-file</em> ] [ <strong>-h</strong> ] [ <strong>-H</strong> <em>custom-header</em> ] [ <strong>-i</strong> ] [ <strong>-k</strong> ] [ <strong>-n</strong> <em>requests</em> ] [ <strong>-p</strong> <em>POST-file</em> ] [ <strong>-P</strong> <em>proxy-auth-username:password</em> ] [ <strong>-q</strong> ] [ <strong>-r</strong> ] [ <strong>-s</strong> ][ <strong>-S</strong> ] [ <strong>-t</strong> <em>timelimit</em> ] [ <strong>-T</strong> <em>content-type</em> ] [ <strong>-v</strong> <em>verbosity</em>] [ <strong>-V</strong> ] [ <strong>-w</strong> ] [ <strong>-x</strong> <em>-attributes</em> ] [ <strong>-X</strong> <em>proxy[:port]</em> ] [ <strong>-y</strong> <em>-attributes</em> ][ <strong>-z</strong> <em>-attributes</em> ] [ <strong>-Z</strong> <em>ciphersuite</em> ] [http[s]://]host-name[:port]/path</p>
+<div class="pst-scrollable-table-container"><table class="table" id="options">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">コマンドオプション</span><a class="headerlink" href="#options" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>オプション</p></th>
+<th class="head"><p>意味</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-n 数値</p></td>
+<td><p>テストで発行するリクエストの回数を数値で指定</p></td>
+</tr>
+<tr class="row-odd"><td><p>-c 数値</p></td>
+<td><p>テストで同時に発行するリクエストの数を数値で指定</p></td>
+</tr>
+<tr class="row-even"><td><p>-t 数値</p></td>
+<td><p>サーバからのレスポンスの待ち時間（秒）を数値で指定</p></td>
+</tr>
+<tr class="row-odd"><td><p>-p ファイル名</p></td>
+<td><p>サーバへ送信するファイルがある場合に指定</p></td>
+</tr>
+<tr class="row-even"><td><p>-T コンテンツタイプ</p></td>
+<td><p>サーバへ送信するコンテンツヘッダを指定</p></td>
+</tr>
+<tr class="row-odd"><td><p>-v 数値</p></td>
+<td><p>指定した数値に応じた動作情報を表示</p></td>
+</tr>
+<tr class="row-even"><td><p>-w</p></td>
+<td><p>結果をHTMLで出力</p></td>
+</tr>
+<tr class="row-odd"><td><p>-x 属性</p></td>
+<td><p>HTML出力のtableタグに属性を追加（BORDERなど）</p></td>
+</tr>
+<tr class="row-even"><td><p>-y 属性</p></td>
+<td><p>HTML出力のtrタグに属性を追加</p></td>
+</tr>
+<tr class="row-odd"><td><p>-z 属性</p></td>
+<td><p>HTML出力のtdまたはthタグに属性を追加</p></td>
+</tr>
+<tr class="row-even"><td><p>-C ‘Cookie名称=値’</p></td>
+<td><p>Cookie値を渡してテストする</p></td>
+</tr>
+<tr class="row-odd"><td><p>-A ユーザー名:パスワード</p></td>
+<td><p>ベーシック認証が必要なコンテンツにテストする</p></td>
+</tr>
+<tr class="row-even"><td><p>-P ユーザー名:パスワード</p></td>
+<td><p>認証の必要なプロキシを通じてテストする</p></td>
+</tr>
+<tr class="row-odd"><td><p>-X プロキシサーバ:port</p></td>
+<td><p>プロキシ経由でリクエストする場合に指定</p></td>
+</tr>
+<tr class="row-even"><td><p>-V</p></td>
+<td><p>abのバージョン番号を表示</p></td>
+</tr>
+<tr class="row-odd"><td><p>-k</p></td>
+<td><p>HTTP/1.1のKeepAliveを有効にしてテストする</p></td>
+</tr>
+<tr class="row-even"><td><p>-h</p></td>
+<td><p>abのヘルプを表示</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>基本的には，-nと-cオプションを使うことが多いです．例えば，100ユーザが同時に1リクエストを発行する場合は<code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">100</span> <span class="pre">-c</span> <span class="pre">100</span></code>，100ユーザが同時に10リクエストを発行する場合，リクエスト総数は100ユーザ×10リクエスト=1000リクエストなので<code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">1000</span> <span class="pre">-c</span> <span class="pre">100</span></code>を指定することになります．<code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">10</span> <span class="pre">-c</span> <span class="pre">100</span></code>と指定して，100ユーザが合計10リクエスト発行するということはできませんからご注意ください（Total発行リクエスト数が少ないよというエラーメッセージが表示されます）．</p>
+<ul class="simple">
+<li><p>-n：リクエストの総数を指定</p></li>
+<li><p>-c：同時に発行するリクエスト数を指定</p></li>
+</ul>
+<p>ここまでの段階で，皆さんのWebサーバのユーザディレクトリには，<code class="docutils literal notranslate"><span class="pre">index.php</span></code>，<code class="docutils literal notranslate"><span class="pre">prog00.php</span></code>，<code class="docutils literal notranslate"><span class="pre">prog01.html</span></code>という3つのファイルが作成されているはずです．例えば，<code class="docutils literal notranslate"><span class="pre">index.php</span></code>に対するスループットを計測するには，以下のように入力してみてください．結果の例もその下に示しておきます（負荷をかけるWebサーバのIPアドレスは適宜変更してください）．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ ab -n 100 -c 10 http://192.168.1.101/~ユーザ名/index.php
+ This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+ Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+ Licensed to The Apache Software Foundation, http://www.apache.org/
+
+ Benchmarking localhost (be patient).....done
+
+
+ Server Software:        Apache/2.2.22
+ Server Hostname:        localhost
+ Server Port:            80
+
+ Document Path:          /
+ Document Length:        4609 bytes
+
+ Concurrency Level:      10
+ Time taken for tests:   0.012 seconds
+ Complete requests:      100
+ Failed requests:        0
+ Write errors:           0
+ Non-2xx responses:      106
+ Total transferred:      509542 bytes
+ HTML transferred:       488554 bytes
+ Requests per second:    8444.52 [#/sec] (mean)
+ Time per request:       1.184 [ms] (mean)
+ Time per request:       0.118 [ms] (mean, across all concurrent requests)
+ Transfer rate:          42019.90 [Kbytes/sec] received
+
+ Connection Times (ms)
+               min  mean[+/-sd] median   max
+ Connect:        0    0   0.1      0       1
+ Processing:     0    1   0.2      1       1
+ Waiting:        0    0   0.1      0       1
+ Total:          1    1   0.2      1       2
+
+ Percentage of the requests served within a certain time (ms)
+   50%      1
+   66%      1
+   75%      1
+   80%      1
+   90%      1
+   95%      2
+   98%      2
+   99%      2
+  100%      2 (longest request)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Complete</span> <span class="pre">requests:</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">100</span></code>が，正常に応答のあったリクエスト数です．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Failed</span> <span class="pre">requests:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span></code>が，正常な応答のなかったリクエスト数です．</p></li>
+</ul>
+<p>上記の例では，リクエスト総数100に対して，Complete requestsが100，Failed requestsが0ですから，全てのリクエストに対し応答を正常に得られたことを示しています．</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Requests</span> <span class="pre">per</span> <span class="pre">second:</span> <span class="pre">8444.52</span> <span class="pre">[#sec]</span> <span class="pre">(mean)</span></code>が，単位時間（一般的には1秒）あたり何回のリクエストを発行できたか（応答があったか）の総数です．</p></li>
+</ul>
+<p>一般的には，この<strong>Requests per second</strong>の値が高くなることが求められます．</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Time</span> <span class="pre">per</span> <span class="pre">request:</span> <span class="pre">1.184</span> <span class="pre">[ms]</span> <span class="pre">(mean)</span></code>が，全リクエストの発行時間（全リクエストの応答時間）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Time</span> <span class="pre">per</span> <span class="pre">request:</span> <span class="pre">0.118</span> <span class="pre">[ms]</span> <span class="pre">(mean,</span> <span class="pre">across</span> <span class="pre">all</span> <span class="pre">concurrent</span> <span class="pre">requests)</span></code>が，1リクエストあたりの平均発行時間（1リクエストの平均応答時間）</p></li>
+</ul>
+<p>-n と -cで指定する値を徐々に増やして検証していくことで，どの程度のリクエスト数まで耐えられそうか性能評価ができます．具体的には，<strong>Failed requestsが0でなくなった時</strong>が，そのWebサーバの許容負荷の限界値と考えることができます．</p>
+<p>ただし，<code class="docutils literal notranslate"><span class="pre">ab</span></code>で発行される全てのリクエストは指定したURLに対するものでしかありません．一般的なWebアクセスは様々なURLへ行われますので，厳密に言うと許容負荷の限界値そのものとは言えませんからご注意ください．様々なURLへ遷移する負荷パターンモデルを様々なユーザ数で設定できるような商用ベンチマークツールもあります．</p>
+</section>
+<section id="apache-bench">
+<h3>[必須課題] Apache Benchによる性能計測結果の分析<a class="headerlink" href="#apache-bench" title="Link to this heading">#</a></h3>
+<p>皆さんのWebサーバのユーザディレクトリ<code class="docutils literal notranslate"><span class="pre">public_html</span></code>にある<code class="docutils literal notranslate"><span class="pre">prog00.php</span></code>と<code class="docutils literal notranslate"><span class="pre">prog01.html</span></code>に対して，<code class="docutils literal notranslate"><span class="pre">ab</span></code>で負荷をかけ<code class="docutils literal notranslate"><span class="pre">Requests</span> <span class="pre">per</span> <span class="pre">second</span></code>の値を比較し，その結果が何を意味しているか考察してください．</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">prog00.php</span></code>と<code class="docutils literal notranslate"><span class="pre">prog01.html</span></code>の結果に，明確な差が出ましたか？それはどうしてでしょうか？キャプチャしたトラフィックを分析しながら説明してください．</p></li>
+<li><p>今回の結果を踏まえて，どのような時にどのように実装するのがよさそうか自由に考察してください（ハードウェア，ソフトウェア，アルゴリズムとデータ構造の側面からなど）．</p></li>
+<li><p>【発展】興味ある人は考察した内容を実際に試してみて，定量的かつ論理的に考察を深めてみてください．</p></li>
+</ol>
+<p>ここで，<code class="docutils literal notranslate"><span class="pre">ab</span></code>はWebサーバ上で実行するのではなく，皆さんのノートPC上のUbuntuから<code class="docutils literal notranslate"><span class="pre">ab</span></code>コマンドで負荷試験を実行することに気を付けてください（皆さんのノートPCからネットワーク越しにRaspberry Piへ．なぜか分かりますよね？負荷試験ツールの実行にも負荷がかかりますから，同じハードウェア上で動作させたら正確な性能を計測できませんよね）．また，<code class="docutils literal notranslate"><span class="pre">ab</span></code>コマンドがないよとエラーの表示される方は，以下のコマンドなどで<code class="docutils literal notranslate"><span class="pre">ab</span></code>コマンドをインストールしてください．</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2-utils
+</pre></div>
+</div>
+<p>各ページへ負荷をかける際，負荷試験の条件をそろえるために同時接続数と総リクエスト数は，<code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">25</span> <span class="pre">-c</span> <span class="pre">5</span></code>といったように同じにしてください．また目的にもよりますが，ここでの各負荷試験では，<strong>時間を空けずに連続して何度も実行しない</strong>ようにしましょう．その理由は今回の負荷試験で使用するサンプルページは，内部的にFlickrに対してHTTPリクエストを発行しています．つまり，-cを高い値にしてしまうと，大量のリクエストが静大（やあなたの自宅）からFlickrへ発行されることになりますので，FlickrにしてみればDoS攻撃だと捉えられるかもしれません（学内情報基盤センタや，あなたの自宅が契約しているISPからDoS攻撃の可能性ということで調査依頼メールが来るかもしれませんのでご注意ください）．またCPUによっては，高負荷になってCPU温度が高くなると動作周波数を落として性能を抑えるものもあります．何度も連続で負荷試験を行うと計測値が不安定になっていくことがありますのでご注意ください．</p>
+<p>さらに，これも重要ですが，実験用に構築したRaspberry Pi上のWebサーバへ負荷試験を行う際は，ノートPC上のベンチマークソフトからのアクセス以外の意図せぬネットワークアクセス（たとえば，ブラウザによる通信など）が発生する可能性を可能な限り少なくして行いましょう．またバックグラウンドで動作する不要なサービスはできるだけ起動しないように設定しておくことも重要です．意図していたよりも多くの負荷がかかってしまうと，正しい性能評価ができません．また今後実際にこのような負荷試験を行うことがあった場合は，くれぐれもサービス提供中の本番サーバで実施することはやめましょう．</p>
+</section>
+</section>
+<section id="id3">
+<h2>おわりに<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ab</span></code>を用いて，Webシステムへ負荷をかけて定量的な性能評価を行う基本的な方法は分かりましたか？</p>
+<p>また，一般的な使い方におけるPHPとjavascriptの特徴も理解できましたか？</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/part2/part2_1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sample_program_js.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">サンプルプログラム(JavaScript)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="flickr_api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Flickr API Keyの取得方法</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">はじめに</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ab-apache-http-server-benchmarking-tool">ab: Apache HTTP server benchmarking tool</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">使い方</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-bench">[必須課題] Apache Benchによる性能計測結果の分析</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">おわりに</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ohki Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
