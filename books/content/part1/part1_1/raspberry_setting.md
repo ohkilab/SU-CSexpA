@@ -71,7 +71,7 @@ $ unset pass
 
 ```
 network={
-   ssid ="WRL-SUCCES-S3"
+   ssid="WRL-SUCCES-S3"
 #  ssid="eduroam" <- eduroamの時はこちら
    priority=1
    proto=RSN
