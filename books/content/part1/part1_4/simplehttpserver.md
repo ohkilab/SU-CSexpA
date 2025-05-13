@@ -392,7 +392,7 @@ void exp1_send_file(int sock, char* filename)
 ```
 
 -   先ほどコンパイルした各自のSimple HTTPサーバのプログラムを実行します．
--   Webブラウザで`http://192.168.1.101:xxxxx`(xxxxxは学籍番号の下5桁)と入力してEnterしてみてください．「It Works!」とWebブラウザ上に表示されたら成功です．
+-   Webブラウザで`http://192.168.1.101:xxxxx`と入力してEnterしてみてください．「It Works!」とWebブラウザ上に表示されたら成功です．
     -   ufwでRaspberry Pi側のポートxxxxx番を解放することを忘れないように
 -   皆さんの作成したSimple HTTPサーバが正常に動作し，サンプルページとして用意した `index.html`を返してくれたことになります（`index.html`に何が書いてあるか実際に開いて確認してみてください）．
 -   test.htmlというサンプルページも作成しておきましたので`http://192.168.1.101:xxxxx/test.html`も試してみてください．)
