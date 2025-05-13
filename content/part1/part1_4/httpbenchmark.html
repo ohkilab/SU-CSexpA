@@ -613,7 +613,7 @@ document.write(`
 <section id="exp1-eval-thread">
 <h3>exp1_eval_thread()<a class="headerlink" href="#exp1-eval-thread" title="Link to this heading">#</a></h3>
 <p>exp1_eval_thread()では，HTTPのGETリクエストを作成してSimple HTTPサーバへTCPで接続（exp1_tcp_connect()）します</p>
-<p>Simple HTTPサーバのプログラム中に待ち受けポート番号は皆さんの学籍番号の下5桁を入力したと思いますが，HTTPベンチマークプログラムが接続する相手のポート番号xxxxxにも自分の学籍番号の下5桁を入力してください．</p>
+<p>HTTPベンチマークプログラムが接続する相手のポート番号xxxxxにはSimple HTTPサーバのプログラム中に記述した待ち受けポート番号と同じものを入力してください</p>
 <p>接続エラーがあった場合には，exp1_session_error()でエラーカウントを増加させます．</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">exp1_eval_thread</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">param</span><span class="p">)</span>
 <span class="w"> </span><span class="p">{</span>
