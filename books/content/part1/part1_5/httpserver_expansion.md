@@ -79,7 +79,7 @@ exp1\_check\_file()関数を拡張していくのが楽と思います．
 
 昨今のWebブラウザはほぼ対応済みのHTML5による動画再生へ対応させてください．
 
--   [videoタグで動画を埋め込む ★HTML5リファレンス](http://www.htmq.com/html5/004.shtml)
+- [<video>: The Video Embed element - Mdn Web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video)
 
 ## Ajaxへの対応
 
