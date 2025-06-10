@@ -55,18 +55,17 @@ console.log('Server running at http://192.168.1.101:8080/');
 ```
 
 ```
- $ cd /var/www/html
- $ sudo vi /var/www/html/test.js
- $ node test.js
+ $ vi ~/test.js
+ $ node ~/test.js
 ```
 
 -   [http://192.168.1.101:8080/](http://192.168.1.101:8080/)
 
-もし手元のノートPCから上記Webサーバへ接続できない場合は，サーバ端末上のファイアウォールの設定を確認してみてください．例えば，ポート番号10080に対してTCP通信を許可するには，以下のように入力すると設定を変更できます．
+もし手元のノートPCから上記Webサーバへ接続できない場合は，サーバ端末上のファイアウォールの設定を確認してみてください．例えば，ポート番号10000に対してTCP通信を許可するには，以下のように入力すると設定を変更できます．
 
 ```
 $ sudo ufw disable
-$ sudo ufw allow 10080/tcp
+$ sudo ufw allow 10000/tcp
 $ sudo ufw enable
 ```
 
