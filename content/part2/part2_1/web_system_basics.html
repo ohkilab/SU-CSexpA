@@ -539,17 +539,16 @@ $ sudo apt-get install -y nodejs
 <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Server running at http://192.168.1.101:8080/&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ cd /var/www/html
- $ sudo vi /var/www/html/test.js
- $ node test.js
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ vi ~/test.js
+ $ node ~/test.js
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><a class="reference external" href="http://192.168.1.101:8080/">http://192.168.1.101:8080/</a></p></li>
 </ul>
-<p>もし手元のノートPCから上記Webサーバへ接続できない場合は，サーバ端末上のファイアウォールの設定を確認してみてください．例えば，ポート番号10080に対してTCP通信を許可するには，以下のように入力すると設定を変更できます．</p>
+<p>もし手元のノートPCから上記Webサーバへ接続できない場合は，サーバ端末上のファイアウォールの設定を確認してみてください．例えば，ポート番号10000に対してTCP通信を許可するには，以下のように入力すると設定を変更できます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ufw disable
-$ sudo ufw allow 10080/tcp
+$ sudo ufw allow 10000/tcp
 $ sudo ufw enable
 </pre></div>
 </div>
