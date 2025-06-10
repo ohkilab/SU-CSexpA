@@ -56,7 +56,7 @@ console.log('Server running at http://192.168.1.101:8080/');
 
 ```
  $ vi ~/test.js
- $ node test.js
+ $ node ~/test.js
 ```
 
 -   [http://192.168.1.101:8080/](http://192.168.1.101:8080/)
