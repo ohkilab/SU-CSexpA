@@ -52,24 +52,27 @@ $ mysql -u root -p
 # MariaDBのサービスを停める
 $ sudo systemctl stop mariadb.service
 
-# MariaDBをセーフモードで立ち上げる
-$ sudo mysqld_safe --skip-grant-tables &
+# ネットワーキングと付与テーブルをスキップ
+$ sudo systemctl set-environment MYSQLD_OPTS="--skip-networking --skip-grant-tables"
+
+# MariaDBのサービスを再スタート
+$ sudo systemctl start mysql.service
 
 # MariaDBへrootでログイン
 $ mysql -u root
 
 # rootのパスワードを設定（MariaDBのコマンドライン上で）
 MariaDB [(none)]> use mysql;
-MariaDB [(mysql)]> select host,user,password,plugin from user;                         # 念のため確認
-MariaDB [(mysql)]> update user set password=password('ここにパスワードを記述') where User='root';
-MariaDB [(mysql)]> update user set plugin='' where User='root';                        # unix_socketを無効に
-
+MariaDB [(mysql)]> flush privileges; # 権限をフラッシュ
+MariaDB [(mysql)]> ALTER USER 'root'@'localhost' IDENTIFIED BY 'YOUR_PASSWORD'; # YOUR_PASSWORDを編集
 MariaDB [(mysql)]> flush privileges;
 MariaDB [(mysql)]> exit;
 
-# 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）
+# 再起動
 $ sudo reboot
 ```
+
+- 参考 [Ubuntu 22.04 で MySQL ルートパスワードを変更する方法](https://ja.linux-console.net/?p=14768)
 
 ## コマンドラインからデータベースへアクセスする方法
 
