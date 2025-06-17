@@ -52,20 +52,23 @@ $ mysql -u root -p
 # MariaDBのサービスを停める
 $ sudo systemctl stop mariadb.service
 
-# MariaDBをセーフモードで立ち上げる
-$ sudo mysqld_safe --skip-grant-tables &
+# ネットワーキングと付与テーブルをスキップ
+$ sudo systemctl set-environment MYSQLD_OPTS="--skip-networking --skip-grant-tables"
+
+# MariaDBのサービスを再スタート
+$ sudo systemctl start mysql.service
 
 # MariaDBへrootでログイン
 $ mysql -u root
 
 # rootのパスワードを設定（MariaDBのコマンドライン上で）
 MariaDB [(none)]> use mysql;
-MariaDB [(mysql)]> flush privileges;
-MariaDB [(mysql)]> ALTER USER 'root'@'localhost' IDENTIFIED BY 'YOUR_PASSWORD';
+MariaDB [(mysql)]> flush privileges; # 権限をフラッシュ
+MariaDB [(mysql)]> ALTER USER 'root'@'localhost' IDENTIFIED BY 'YOUR_PASSWORD'; # YOUR_PASSWORDを編集
 MariaDB [(mysql)]> flush privileges;
 MariaDB [(mysql)]> exit;
 
-# 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）
+# 再起動
 $ sudo reboot
 ```
 
