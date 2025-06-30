@@ -576,25 +576,29 @@ $<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># MariaDBのサービスを停める</span>
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mariadb.service
 
-<span class="c1"># MariaDBをセーフモードで立ち上げる</span>
-$<span class="w"> </span>sudo<span class="w"> </span>mysqld_safe<span class="w"> </span>--skip-grant-tables<span class="w"> </span><span class="p">&amp;</span>
+<span class="c1"># ネットワーキングと付与テーブルをスキップ</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>set-environment<span class="w"> </span><span class="nv">MYSQLD_OPTS</span><span class="o">=</span><span class="s2">&quot;--skip-networking --skip-grant-tables&quot;</span>
+
+<span class="c1"># MariaDBのサービスを再スタート</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mysql.service
 
 <span class="c1"># MariaDBへrootでログイン</span>
 $<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root
 
 <span class="c1"># rootのパスワードを設定（MariaDBのコマンドライン上で）</span>
 MariaDB<span class="w"> </span><span class="o">[(</span>none<span class="o">)]</span>&gt;<span class="w"> </span>use<span class="w"> </span>mysql<span class="p">;</span>
-MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>host,user,password,plugin<span class="w"> </span>from<span class="w"> </span>user<span class="p">;</span><span class="w">                         </span><span class="c1"># 念のため確認</span>
-MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>update<span class="w"> </span>user<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">password</span><span class="o">=</span>password<span class="o">(</span><span class="s1">&#39;ここにパスワードを記述&#39;</span><span class="o">)</span><span class="w"> </span>where<span class="w"> </span><span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>
-MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>update<span class="w"> </span>user<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">plugin</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>where<span class="w"> </span><span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">                        </span><span class="c1"># unix_socketを無効に</span>
-
+MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>flush<span class="w"> </span>privileges<span class="p">;</span><span class="w"> </span><span class="c1"># 権限をフラッシュ</span>
+MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>ALTER<span class="w"> </span>USER<span class="w"> </span><span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">&#39;YOUR_PASSWORD&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1"># YOUR_PASSWORDを編集</span>
 MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>flush<span class="w"> </span>privileges<span class="p">;</span>
 MariaDB<span class="w"> </span><span class="o">[(</span>mysql<span class="o">)]</span>&gt;<span class="w"> </span>exit<span class="p">;</span>
 
-<span class="c1"># 簡単のため再起動（もちろんセーフモードで起動したMariaDBをkillしてもOK）</span>
+<span class="c1"># 再起動</span>
 $<span class="w"> </span>sudo<span class="w"> </span>reboot
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>参考 <a class="reference external" href="https://ja.linux-console.net/?p=14768">Ubuntu 22.04 で MySQL ルートパスワードを変更する方法</a></p></li>
+</ul>
 </section>
 <section id="id2">
 <h2>コマンドラインからデータベースへアクセスする方法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
