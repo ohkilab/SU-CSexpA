@@ -1,0 +1,1189 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ボトルネック分析手法 &#8212; 情報科学実験A</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part2/part2_5/02_analysis_methods';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="アーキテクチャ特性の理解" href="03_implementation_characteristics.html" />
+    <link rel="prev" title="パフォーマンスチューニング基礎" href="01_fundamentals.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">情報科学実験A</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preparation/preparation.html">環境構築および動作確認</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_1/overview.html">[Day1] 環境構築と実験の開始</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/raspberry_setting.html">RaspberryPiのセッティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wireless.html">RaspberryPiの無線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wired.html">RaspberryPiの有線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/update.html">ソフトウェアのアップデート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_2/overview.html">[Day2] 通信性能の計測</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">ファイル入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">ネットワーク入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">入出力性能の計測（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_server_program.html">サーバプログラムによる多重化</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/benchmarking_program.html">ベンチマークプログラムの設計と実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/performance_measurement.html">性能計測（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_asynchronous_IO.html">非同期IOによる多重化</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/cause_analysis_communication_failure.html">通信失敗の原因分析（発展）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_4/overview.html">[Day4] Simple HTTPサーバの構築</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_5/overview.html">[Day5] HTTPサーバの高機能化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/standardforachievement.html">第一部達成基準</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/multipleclient.html">複数クライアント対応（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/securityhole.html">セキュリティホール（必須+発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/introuble.html">第一部の実装で詰まった時の対処法</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_6/overview.html">[Day6] 第一部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_6/grouppresentation.html">第一部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../part1/part1_7/overview.html">[Day7] 第一部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webシステムの性能</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_1/overview.html">[Day8] Webシステムの基礎</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/preparation.html">第二部の準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/web_system_basics.html">Webシステムの基礎（発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_php.html">サンプルプログラム(PHP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/flickr_api.html">Flickr API Keyの取得</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_2/overview.html">[Day9] Webシステムの設計と実装 (1)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_2/connection_to_dbms.html">DBMSとの接続（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_3/overview.html">[Day10] Webシステムの設計と実装 (2)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_4/overview.html">[Day11] ベンチマークと分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/about_apache_mpm.html">Apache MPMについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/useful_links.html">実装の参考となるリンク集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/websocket.html">WebSocketについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/conformation_of_status.html">検討状況の確認（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day12] パフォーマンスチューニング</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_fundamentals.html">パフォーマンスチューニング基礎</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ボトルネック分析手法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_implementation_characteristics.html">実装Aのパフォーマンス特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_performance_tuning.html">パフォーマンスチューニングガイド</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_6/overview.html">[Day13,14] 発表会準備</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_7/overview.html">[Day15] 第二部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_7/last_presentation.html">第二部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_final_assignment/overview.html">最終課題</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/regulation.html">競技ルールの詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">実験終了後（必須）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../end/cleanup.html">実験機材の返却</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">グループ発表会</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../group_presentation/group_presentation_detail.html">グループ発表会詳細</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">レポート</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../report/report.html">レポート詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/how_to_write_reports.html">レポートの書き方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/peer_review.html">ピアレビューのやり方</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">トラブルシューティング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/question.html">質問の行い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/trouble.html">よくあるトラブル</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_5/02_analysis_methods.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/part2/part2_5/02_analysis_methods.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ボトルネック分析手法</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">測定・分析の重要性</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">分析手法の全体像</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">システム全体の性能測定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ab">abコマンドによる性能測定</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">基本的な使用法</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">重要な測定指標</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">負荷レベルの設定</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">ベンチマークサーバでの計測</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">予選期間の特徴</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本選期間の特徴</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">計測結果の解釈</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">各層での分析ポイント</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">フロントエンド層（ブラウザ）</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">分析対象</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">測定方法</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web">アプリケーション層（Webサーバ）</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apache">Apache設定の影響</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#php">PHP実行時間の測定</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">データ層（データベース）</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">クエリ実行時間の測定</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">インデックス使用状況の確認</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">システムリソース監視</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cpu">CPU使用率の監視</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">メモリ使用量の監視</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o">ディスクI/O監視</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">ボトルネック判別手法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">制約型の特定</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">CPU制約型の判別</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">メモリ制約型の判別</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">I/O制約型の判別</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">制約型別の最適化戦略</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">分析結果の可視化</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">性能データのグラフ化</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">時系列グラフ</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">箱ひげ図</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">積み上げグラフ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">分析時の注意点</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">1. キャッシュ効果の考慮</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">2. 負荷状況の統一</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">3. 測定の再現性</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">次のステップ</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>ボトルネック分析手法<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>測定・分析の重要性<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>「測定できないものは改善できない」という原則は，性能最適化において特に重要です．適切な測定と分析なしに行われる最適化は，しばしば間違った方向に向かい，貴重な時間と労力を無駄にしてしまいます．</p>
+<section id="id3">
+<h3>分析手法の全体像<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>ボトルネック分析は以下の4つの段階で段階的に進めます：</p>
+<ol class="arabic simple">
+<li><p><strong>システム全体の性能測定</strong> - Webアプリケーション全体のレスポンス時間とスループットを測定</p></li>
+<li><p><strong>各層での詳細分析</strong> - フロントエンド，アプリケーション，データベース層ごとの問題特定</p></li>
+<li><p><strong>システムリソース分析</strong> - CPU，メモリ，ディスクI/Oの使用状況を監視</p></li>
+<li><p><strong>ボトルネック判別</strong> - 制約の種類（CPU/メモリ/I/O制約型）を特定し，最適化戦略を決定</p></li>
+</ol>
+</section>
+</section>
+<section id="id4">
+<h2>システム全体の性能測定<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="ab">
+<h3>abコマンドによる性能測定<a class="headerlink" href="#ab" title="Link to this heading">#</a></h3>
+<p>Apache Benchマーク（ab）は，Webサーバの性能を測定する標準的なツールです．</p>
+<section id="id5">
+<h4>基本的な使用法<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 基本的な計測（100リクエスト，同時実行数10）</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-c<span class="w"> </span><span class="m">10</span><span class="w"> </span>http://localhost/progA.php?tag<span class="o">=</span>beach
+
+<span class="c1"># 詳細結果の出力</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">50</span><span class="w"> </span>-v<span class="w"> </span><span class="m">2</span><span class="w"> </span>http://10.70.174.167/~pi/progA.php?tag<span class="o">=</span>dog
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h4>重要な測定指標<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p><strong>Time per request（平均応答時間）</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Time</span> <span class="n">per</span> <span class="n">request</span><span class="p">:</span>       <span class="mf">2847.123</span> <span class="p">[</span><span class="n">ms</span><span class="p">]</span> <span class="p">(</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Requests per second（スループット）</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Requests</span> <span class="n">per</span> <span class="n">second</span><span class="p">:</span>    <span class="mf">0.35</span> <span class="p">[</span><span class="c1">#/sec] (mean)</span>
+</pre></div>
+</div>
+<p><strong>Transfer rate（転送速度）</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Transfer</span> <span class="n">rate</span><span class="p">:</span>          <span class="mf">45.23</span> <span class="p">[</span><span class="n">Kbytes</span><span class="o">/</span><span class="n">sec</span><span class="p">]</span> <span class="n">received</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h4>負荷レベルの設定<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>負荷レベルやタグはサンプルですが，開発・デバッグ用や性能比較用，高負荷テスト用などに分けて実験をすると良いでしょう．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 軽量テスト（開発・デバッグ用）</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span>http://your-server/progA.php?tag<span class="o">=</span><span class="nb">test</span>
+
+<span class="c1"># 標準テスト（性能比較用）</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-c<span class="w"> </span><span class="m">10</span><span class="w"> </span>http://your-server/progA.php?tag<span class="o">=</span><span class="nb">test</span>
+
+<span class="c1"># 高負荷テスト（最終評価用）</span>
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">50</span><span class="w"> </span>http://your-server/progA.php?tag<span class="o">=</span><span class="nb">test</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id8">
+<h3>ベンチマークサーバでの計測<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>ベンチマークサーバは予選と本選で異なる設定となっているので注意が必要です．また，返答される計測結果から得られる情報も異なるので以下を参考にサーバの改善を行うようにしてください．</p>
+<section id="id9">
+<h4>予選期間の特徴<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>計測回数制限なし</p></li>
+<li><p>任意のタグで測定可能</p></li>
+<li><p>開発・デバッグに最適</p></li>
+</ul>
+</section>
+<section id="id10">
+<h4>本選期間の特徴<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>最大10回まで</strong>の計測制限</p></li>
+<li><p><strong>異なるタグ</strong>での測定（グループ内で重複不可）</p></li>
+<li><p><strong>未知のタグ</strong>での検索が前提</p></li>
+</ul>
+</section>
+<section id="id11">
+<h4>計測結果の解釈<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<p><strong>Success（成功）</strong></p>
+<ul class="simple">
+<li><p>正常に計測完了</p></li>
+<li><p>Request Per Second（RPS）が評価対象</p></li>
+</ul>
+<p><strong>Connection Failed（接続失敗）</strong></p>
+<ul class="simple">
+<li><p>IPアドレス確認</p></li>
+<li><p>Webサーバ起動状態確認</p></li>
+<li><p>ファイアウォール設定確認</p></li>
+</ul>
+<p><strong>Validation Error（検証エラー）</strong></p>
+<ul class="simple">
+<li><p>JSON形式の確認</p></li>
+<li><p>Content-Type: application/json</p></li>
+<li><p>必須フィールドの確認</p></li>
+</ul>
+<p><strong>Timeout（タイムアウト）</strong></p>
+<ul class="simple">
+<li><p>処理時間の最適化が必要</p></li>
+<li><p>制限時間内での応答が必要</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="id12">
+<h2>各層での分析ポイント<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<p>システム全体の性能測定で問題を特定したら，次は各層での詳細分析を行います．Webアプリケーションは複数の層で構成されており，それぞれ異なる特性とボトルネックを持ちます．</p>
+<section id="id13">
+<h3>フロントエンド層（ブラウザ）<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>フロントエンド層は，ユーザーが直接操作するWebブラウザ上での処理を担当します．HTMLレンダリング，JavaScriptの実行，CSS適用，Ajax通信などが主な処理となり，ユーザーの体感性能に直結します．特にネットワーク通信の遅延やJavaScript処理の重さが，ユーザーエクスペリエンスに大きく影響するため，適切な測定と分析が重要です．</p>
+<section id="id14">
+<h4>分析対象<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>HTMLレンダリング時間</p></li>
+<li><p>JavaScriptの実行時間</p></li>
+<li><p>CSSの適用時間</p></li>
+<li><p>Ajax通信の待機時間</p></li>
+</ul>
+</section>
+<section id="id15">
+<h4>測定方法<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// JavaScript実行時間測定</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s1">&#39;search-execution&#39;</span><span class="p">);</span>
+<span class="c1">// 検索処理</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">&#39;search-execution&#39;</span><span class="p">);</span>
+
+<span class="c1">// ネットワーク通信時間測定</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">startTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/progA.php?tag=beach&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">endTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`通信時間: </span><span class="si">${</span><span class="nx">endTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">startTime</span><span class="si">}</span><span class="sb">ms`</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="web">
+<h3>アプリケーション層（Webサーバ）<a class="headerlink" href="#web" title="Link to this heading">#</a></h3>
+<p>アプリケーション層は，Webサーバ上でビジネスロジックを実行する中核的な処理層です．PHP等のスクリプトによるデータ処理，ファイルI/O，検索・ソート処理などが行われ，アプリケーション全体の性能を大きく左右します．Apache設定，PHP実行時間，メモリ使用量の最適化により，大幅な性能向上が期待できる層でもあります．</p>
+<section id="apache">
+<h4>Apache設定の影響<a class="headerlink" href="#apache" title="Link to this heading">#</a></h4>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="c"># プロセス数の確認</span>
+<span class="nb">ps</span><span class="w"> </span>aux<span class="w"> </span>|<span class="w"> </span>grep<span class="w"> </span>apache
+
+<span class="c"># 接続数の確認</span>
+<span class="nb">netstat</span><span class="w"> </span>-an<span class="w"> </span>|<span class="w"> </span>grep<span class="w"> </span>:80<span class="w"> </span>|<span class="w"> </span>wc<span class="w"> </span>-l
+
+<span class="c"># エラーログの確認</span>
+<span class="nb">tail</span><span class="w"> </span>-f<span class="w"> </span><span class="sx">/var/log/apache2/error.log</span>
+</pre></div>
+</div>
+</section>
+<section id="php">
+<h4>PHP実行時間の測定<a class="headerlink" href="#php" title="Link to this heading">#</a></h4>
+<p><strong>基本的な実行時間測定</strong></p>
+<p>関数名などはサンプルなので各自で置き換えてください．また，言語はPHPに限りません．</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// PHP実行時間測定</span>
+<span class="nv">$start_time</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// 検索処理</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nx">searchPhotos</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;tag&#39;</span><span class="p">]);</span>
+
+<span class="nv">$end_time</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nv">$execution_time</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$end_time</span> <span class="o">-</span> <span class="nv">$start_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// ミリ秒</span>
+<span class="nb">error_log</span><span class="p">(</span><span class="s2">&quot;実行時間: </span><span class="si">{</span><span class="nv">$execution_time</span><span class="si">}</span><span class="s2">ms&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p><strong>詳細なプロファイリング</strong></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// 処理段階別の実行時間測定</span>
+<span class="nv">$profile</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// ファイル読み込み時間</span>
+<span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;file_read_start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">&#39;/data/geotag.csv&#39;</span><span class="p">);</span>
+<span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;file_read_end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// 検索処理時間</span>
+<span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;search_start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nv">$results</span> <span class="o">=</span> <span class="nx">performSearch</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;tag&#39;</span><span class="p">]);</span>
+<span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;search_end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// ソート処理時間</span>
+<span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;sort_start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nb">usort</span><span class="p">(</span><span class="nv">$results</span><span class="p">,</span> <span class="s1">&#39;sortByDate&#39;</span><span class="p">);</span>
+<span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;sort_end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// 結果出力</span>
+<span class="nv">$file_read_time</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;file_read_end&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;file_read_start&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="nv">$search_time</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;search_end&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;search_start&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="nv">$sort_time</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;sort_end&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;sort_start&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="nv">$total_time</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="nv">$profile</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+
+<span class="nb">error_log</span><span class="p">(</span><span class="s2">&quot;ファイル読み込み: </span><span class="si">{</span><span class="nv">$file_read_time</span><span class="si">}</span><span class="s2">ms&quot;</span><span class="p">);</span>
+<span class="nb">error_log</span><span class="p">(</span><span class="s2">&quot;検索処理: </span><span class="si">{</span><span class="nv">$search_time</span><span class="si">}</span><span class="s2">ms&quot;</span><span class="p">);</span>
+<span class="nb">error_log</span><span class="p">(</span><span class="s2">&quot;ソート処理: </span><span class="si">{</span><span class="nv">$sort_time</span><span class="si">}</span><span class="s2">ms&quot;</span><span class="p">);</span>
+<span class="nb">error_log</span><span class="p">(</span><span class="s2">&quot;合計実行時間: </span><span class="si">{</span><span class="nv">$total_time</span><span class="si">}</span><span class="s2">ms&quot;</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id16">
+<h3>データ層（データベース）<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<p>データ層は，データの永続化とクエリ処理を担当する基盤層です．大量のデータから必要な情報を効率的に検索・取得する責任があり，インデックスの有無やクエリの最適化によって性能が大きく変動します．特にフルテーブルスキャンやN+1問題などは，アプリケーション全体のボトルネックとなりやすいため，綿密な分析が必要です．なお，本最終課題は主にCSVファイルの検索が課題となっていますので，データベースの改善については対象外（任意）となっています．</p>
+<section id="id17">
+<h4>クエリ実行時間の測定<a class="headerlink" href="#id17" title="Link to this heading">#</a></h4>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- クエリ実行時間の有効化</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">profiling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">-- 検索クエリの実行</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%beach%&#39;</span><span class="p">;</span>
+
+<span class="c1">-- 実行時間の確認</span>
+<span class="k">SHOW</span><span class="w"> </span><span class="n">PROFILES</span><span class="p">;</span>
+
+<span class="c1">-- 詳細なプロファイル情報</span>
+<span class="k">SHOW</span><span class="w"> </span><span class="n">PROFILE</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">QUERY</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="id18">
+<h4>インデックス使用状況の確認<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- インデックス使用状況の確認</span>
+<span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;beach&#39;</span><span class="p">;</span>
+
+<span class="c1">-- インデックス効果の比較</span>
+<span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">IGNORE</span><span class="w"> </span><span class="k">INDEX</span><span class="p">(</span><span class="n">i_tag</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;beach&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id19">
+<h3>システムリソース監視<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<p><strong>注意</strong>: <code class="docutils literal notranslate"><span class="pre">iostat</span></code>コマンドがない場合は，以下のコマンドでインストールしてください：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>sysstat
+</pre></div>
+</div>
+<section id="cpu">
+<h4>CPU使用率の監視<a class="headerlink" href="#cpu" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># リアルタイム監視</span>
+top
+
+<span class="c1"># Apache特定プロセスの確認</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>apache2
+
+<span class="c1"># 統計情報の取得</span>
+iostat<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">10</span>
+</pre></div>
+</div>
+</section>
+<section id="id20">
+<h4>メモリ使用量の監視<a class="headerlink" href="#id20" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># メモリ使用状況</span>
+free<span class="w"> </span>-h
+
+<span class="c1"># プロセス別メモリ使用量</span>
+ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%mem<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
+</pre></div>
+</div>
+</section>
+<section id="i-o">
+<h4>ディスクI/O監視<a class="headerlink" href="#i-o" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ディスクI/O統計</span>
+iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">10</span>
+
+<span class="c1"># プロセス別I/O統計（iotopがある場合）</span>
+iotop<span class="w"> </span>-o
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="id21">
+<h2>ボトルネック判別手法<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
+<section id="id22">
+<h3>制約型の特定<a class="headerlink" href="#id22" title="Link to this heading">#</a></h3>
+<p>収集したデータから，システムの制約がCPU，メモリ，I/Oのどこにあるかを判別します．</p>
+<section id="id23">
+<h4>CPU制約型の判別<a class="headerlink" href="#id23" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CPU使用率が高い（80%以上）状態を確認</span>
+top
+iostat<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span>
+
+<span class="c1"># 判別基準：</span>
+<span class="c1"># - CPU使用率: 80%以上継続</span>
+<span class="c1"># - Load Average: CPUコア数を上回る</span>
+<span class="c1"># - iowait: 低い（10%以下）</span>
+</pre></div>
+</div>
+<p><strong>特徴:</strong></p>
+<ul class="simple">
+<li><p>計算集約的な処理（検索，ソート，文字列操作）</p></li>
+<li><p>CPUコア数を増やすか，アルゴリズム最適化が有効</p></li>
+</ul>
+</section>
+<section id="id24">
+<h4>メモリ制約型の判別<a class="headerlink" href="#id24" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># メモリ使用状況とスワップの確認</span>
+free<span class="w"> </span>-h
+cat<span class="w"> </span>/proc/meminfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;(MemAvailable|SwapTotal|SwapFree)&#39;</span>
+
+<span class="c1"># 判別基準：</span>
+<span class="c1"># - 利用可能メモリ: 物理メモリの10%以下</span>
+<span class="c1"># - スワップ使用: 発生している</span>
+<span class="c1"># - ページフォルト: 頻発</span>
+</pre></div>
+</div>
+<p><strong>特徴:</strong></p>
+<ul class="simple">
+<li><p>大容量データの処理時にパフォーマンス急激な低下</p></li>
+<li><p>スワップ発生によるディスクI/O増加</p></li>
+<li><p>メモリ増設または効率的なデータ構造が必要</p></li>
+</ul>
+</section>
+<section id="id25">
+<h4>I/O制約型の判別<a class="headerlink" href="#id25" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ディスクI/O状況の確認</span>
+iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span>
+
+<span class="c1"># 判別基準：</span>
+<span class="c1"># - %util: 80%以上</span>
+<span class="c1"># - await: 応答時間が長い（10ms以上）</span>
+<span class="c1"># - iowait: CPUのI/O待機時間が高い（20%以上）</span>
+</pre></div>
+</div>
+<p><strong>特徴:</strong></p>
+<ul class="simple">
+<li><p>ファイル読み込み，データベースアクセスでの遅延</p></li>
+<li><p>キャッシュ，インデックス，SSD化が有効</p></li>
+</ul>
+</section>
+</section>
+<section id="id26">
+<h3>制約型別の最適化戦略<a class="headerlink" href="#id26" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>制約型</p></th>
+<th class="head"><p>主な症状</p></th>
+<th class="head"><p>最適化手法</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU制約型</p></td>
+<td><p>CPU使用率高，計算処理遅延</p></td>
+<td><p>アルゴリズム最適化，並列処理，キャッシュ</p></td>
+</tr>
+<tr class="row-odd"><td><p>メモリ制約型</p></td>
+<td><p>スワップ発生，メモリ不足</p></td>
+<td><p>データ構造効率化，ストリーミング処理</p></td>
+</tr>
+<tr class="row-even"><td><p>I/O制約型</p></td>
+<td><p>ディスクアクセス遅延</p></td>
+<td><p>インデックス，キャッシュ，SSD化</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="id27">
+<h2>分析結果の可視化<a class="headerlink" href="#id27" title="Link to this heading">#</a></h2>
+<section id="id28">
+<h3>性能データのグラフ化<a class="headerlink" href="#id28" title="Link to this heading">#</a></h3>
+<p>測定データを可視化することで，ボトルネックや改善効果を明確に示すことができます．</p>
+<section id="id29">
+<h4>時系列グラフ<a class="headerlink" href="#id29" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>実装A/B/Cの性能推移</p></li>
+<li><p>最適化前後の比較</p></li>
+</ul>
+</section>
+<section id="id30">
+<h4>箱ひげ図<a class="headerlink" href="#id30" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>複数回測定結果のばらつき</p></li>
+<li><p>異常値の検出</p></li>
+</ul>
+</section>
+<section id="id31">
+<h4>積み上げグラフ<a class="headerlink" href="#id31" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>処理時間の内訳</p></li>
+<li><p>各段階の処理時間</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="id32">
+<h2>分析時の注意点<a class="headerlink" href="#id32" title="Link to this heading">#</a></h2>
+<section id="id33">
+<h3>1. キャッシュ効果の考慮<a class="headerlink" href="#id33" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># MySQLキャッシュのクリア</span>
+mysql&gt;<span class="w"> </span>RESET<span class="w"> </span>QUERY<span class="w"> </span>CACHE<span class="p">;</span>
+
+<span class="c1"># ファイルシステムキャッシュのクリア</span>
+sudo<span class="w"> </span>sync<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo 3 &gt; /proc/sys/vm/drop_caches&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="id34">
+<h3>2. 負荷状況の統一<a class="headerlink" href="#id34" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>CPU温度による性能変動</p></li>
+<li><p>他プロセスの影響</p></li>
+<li><p>ネットワーク状況</p></li>
+</ul>
+</section>
+<section id="id35">
+<h3>3. 測定の再現性<a class="headerlink" href="#id35" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>同一条件での複数回測定</p></li>
+<li><p>統計的な有意性の確認</p></li>
+<li><p>環境要因の記録</p></li>
+</ul>
+</section>
+</section>
+<section id="id36">
+<h2>次のステップ<a class="headerlink" href="#id36" title="Link to this heading">#</a></h2>
+<p>ボトルネック分析手法を習得したら，次は具体的な実装パターンごとの性能特性を理解しましょう．以降では，実装Aのアーキテクチャ特性と主要なボトルネックを詳しく分析し，改善方法の案について解説していきます．</p>
+<p>各実装の特性を理解することで，ここで学んだ分析手法をより効果的に活用できるようになります．</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/part2/part2_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_fundamentals.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">パフォーマンスチューニング基礎</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_implementation_characteristics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">アーキテクチャ特性の理解</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">測定・分析の重要性</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">分析手法の全体像</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">システム全体の性能測定</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ab">abコマンドによる性能測定</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">基本的な使用法</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">重要な測定指標</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">負荷レベルの設定</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">ベンチマークサーバでの計測</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">予選期間の特徴</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">本選期間の特徴</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">計測結果の解釈</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">各層での分析ポイント</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">フロントエンド層（ブラウザ）</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">分析対象</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">測定方法</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web">アプリケーション層（Webサーバ）</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#apache">Apache設定の影響</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#php">PHP実行時間の測定</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">データ層（データベース）</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">クエリ実行時間の測定</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">インデックス使用状況の確認</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">システムリソース監視</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cpu">CPU使用率の監視</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">メモリ使用量の監視</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o">ディスクI/O監視</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">ボトルネック判別手法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">制約型の特定</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">CPU制約型の判別</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">メモリ制約型の判別</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">I/O制約型の判別</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">制約型別の最適化戦略</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">分析結果の可視化</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">性能データのグラフ化</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">時系列グラフ</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">箱ひげ図</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">積み上げグラフ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">分析時の注意点</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">1. キャッシュ効果の考慮</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">2. 負荷状況の統一</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">3. 測定の再現性</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">次のステップ</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ohki Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

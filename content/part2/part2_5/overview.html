@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Day12の目的と概要 &#8212; 情報科学実験A</title>
+    <title>パフォーマンスチューニング解説 &#8212; 情報科学実験A</title>
   
   
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/part2/part2_5/overview';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Day13, 14の目的と概要" href="../part2_6/overview.html" />
+    <link rel="next" title="パフォーマンスチューニング基礎" href="01_fundamentals.html" />
     <link rel="prev" title="検討状況の確認" href="../part2_4/conformation_of_status.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -253,7 +253,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../part2_4/conformation_of_status.html">検討状況の確認（必須）</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">[Day12] パフォーマンスチューニング</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">[Day12] パフォーマンスチューニング</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_fundamentals.html">パフォーマンスチューニング基礎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_analysis_methods.html">ボトルネック分析手法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_implementation_characteristics.html">実装Aのパフォーマンス特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_performance_tuning.html">パフォーマンスチューニングガイド</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../part2_6/overview.html">[Day13,14] 発表会準備</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part2_7/overview.html">[Day15] 第二部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../part2_7/last_presentation.html">第二部グループ発表会</a></li>
@@ -469,7 +475,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Day12の目的と概要</h1>
+    <h1>パフォーマンスチューニング解説</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -479,7 +485,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">パフォーマンスチューニング</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">概要</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学習目標</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">構成</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span class="xref myst">1. パフォーマンスチューニング基礎</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span class="xref myst">2. ボトルネック分析手法</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a"><span class="xref myst">3. 実装Aのパフォーマンス特性</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><span class="xref myst">4. パフォーマンスチューニングガイド</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">注意事項</a></li>
 </ul>
             </nav>
         </div>
@@ -491,12 +506,71 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="day12">
-<h1>Day12の目的と概要<a class="headerlink" href="#day12" title="Link to this heading">#</a></h1>
-<section id="id1">
-<h2>パフォーマンスチューニング<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>本ページの内容は更新中です．公開まで今しばらくお待ちください</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>パフォーマンスチューニング解説<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>概要<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>最終課題で取り組むWebシステムの超高性能化について，理論と実践の両面から体系的に解説します．1000万件の大規模データを扱う検索システムにおいて，どのようにボトルネックを特定し，効果的な最適化を行うかを学びます．</p>
 </section>
+<section id="id3">
+<h2>学習目標<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>システム全体のボトルネック分析手法を習得する</p></li>
+<li><p>実装Aの性能特性とボトルネック箇所を理解する</p></li>
+<li><p>オンメモリ型・非オンメモリ型の最適化手法を身につける</p></li>
+<li><p>制約型判別（CPU/メモリ/I/O）による最適化戦略を策定できる</p></li>
+<li><p>コンテスト特有の制約に対応する戦略を策定できる</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>構成<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3><a class="reference internal" href="01_fundamentals.html"><span class="std std-doc">1. パフォーマンスチューニング基礎</span></a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>課題の背景（1000万件データの高速検索）</p></li>
+<li><p>三層クライアントサーバアーキテクチャの理解</p></li>
+<li><p>ボトルネックの概念（CPU/メモリ/ディスクI/O/ネットワーク）</p></li>
+<li><p>最適化の基本原則と優先順位</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3><a class="reference internal" href="02_analysis_methods.html"><span class="std std-doc">2. ボトルネック分析手法</span></a><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>4段階の分析アプローチ: システム全体→各層詳細→リソース分析→制約型判別</p></li>
+<li><p>各層での分析: フロントエンド層，アプリケーション層，データ層の特性</p></li>
+<li><p>システムリソース監視: CPU使用率，メモリ使用量，ディスクI/O測定</p></li>
+<li><p>制約型判別手法: CPU制約型，メモリ制約型，I/O制約型の特定方法</p></li>
+</ul>
+</section>
+<section id="a">
+<h3><a class="reference internal" href="03_implementation_characteristics.html"><span class="std std-doc">3. 実装Aのパフォーマンス特性</span></a><a class="headerlink" href="#a" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>アーキテクチャ特性: CSVファイル直接読み込み方式</p></li>
+<li><p>性能特性: シンプル構造の長所とファイルI/O重の短所</p></li>
+<li><p>ボトルネック分析: ファイル読み込み，CSV解析，検索・ソート処理</p></li>
+<li><p>最適化戦略: 高速化アプローチへの導入</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3><a class="reference internal" href="04_performance_tuning.html"><span class="std std-doc">4. パフォーマンスチューニングガイド</span></a><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>オンメモリ型最適化: HashMap構造による前処理とO(1)検索</p></li>
+<li><p>非オンメモリ型最適化: ストリーミング処理，バイナリインデックス化</p></li>
+<li><p>実践的チューニング: 段階的最適化と仮説検証手法</p></li>
+<li><p>コンテスト対応: 制約下での戦略的アプローチ</p></li>
+</ul>
+</section>
+</section>
+<section id="id8">
+<h2>注意事項<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>実際の最適化作業は，必ずバックアップを取ってから行ってください</p></li>
+<li><p>本解説のコード例は学習目的であり，本番環境での使用前にはセキュリティ・安定性の十分な検証が必要です</p></li>
+<li><p>性能数値は環境に依存するため，自分の環境での測定結果を重視してください</p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -539,11 +613,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../part2_6/overview.html"
+       href="01_fundamentals.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Day13, 14の目的と概要</p>
+        <p class="prev-next-title">パフォーマンスチューニング基礎</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -563,7 +637,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">パフォーマンスチューニング</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">概要</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学習目標</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">構成</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span class="xref myst">1. パフォーマンスチューニング基礎</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span class="xref myst">2. ボトルネック分析手法</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a"><span class="xref myst">3. 実装Aのパフォーマンス特性</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><span class="xref myst">4. パフォーマンスチューニングガイド</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">注意事項</a></li>
 </ul>
   </nav></div>
 
