@@ -585,14 +585,14 @@ document.write(`
 <h2>システム全体の性能測定<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <section id="ab">
 <h3>abコマンドによる性能測定<a class="headerlink" href="#ab" title="Link to this heading">#</a></h3>
-<p>Apache Benchマーク（ab）は，Webサーバの性能を測定する標準的なツールです．</p>
+<p>Apache Bench（ab）は，Webサーバの性能を測定する標準的なツールです．</p>
 <section id="id5">
 <h4>基本的な使用法<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 基本的な計測（100リクエスト，同時実行数10）</span>
-ab<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-c<span class="w"> </span><span class="m">10</span><span class="w"> </span>http://localhost/progA.php?tag<span class="o">=</span>beach
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-c<span class="w"> </span><span class="m">10</span><span class="w"> </span>http://your-servers/progA.php?tag<span class="o">=</span>beach
 
 <span class="c1"># 詳細結果の出力</span>
-ab<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">50</span><span class="w"> </span>-v<span class="w"> </span><span class="m">2</span><span class="w"> </span>http://10.70.174.167/~pi/progA.php?tag<span class="o">=</span>dog
+ab<span class="w"> </span>-n<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">50</span><span class="w"> </span>-v<span class="w"> </span><span class="m">2</span><span class="w"> </span>http://your-server/~pi/progA.php?tag<span class="o">=</span>dog
 </pre></div>
 </div>
 </section>
