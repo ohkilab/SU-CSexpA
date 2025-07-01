@@ -132,6 +132,15 @@ parts:
       
       - file: content/part2/part2_5/overview
         title: "[Day12] パフォーマンスチューニング"
+        sections:
+          - file: content/part2/part2_5/01_fundamentals
+            title: パフォーマンスチューニング基礎
+          - file: content/part2/part2_5/02_analysis_methods
+            title: ボトルネック分析手法
+          - file: content/part2/part2_5/03_implementation_characteristics
+            title: 実装Aのパフォーマンス特性
+          - file: content/part2/part2_5/04_performance_tuning
+            title: パフォーマンスチューニングガイド
 
       - file: content/part2/part2_6/overview
         title: "[Day13,14] 発表会準備"
