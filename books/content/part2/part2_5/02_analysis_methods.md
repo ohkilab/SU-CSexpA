@@ -17,16 +17,16 @@
 
 ### abコマンドによる性能測定
 
-Apache Benchマーク（ab）は，Webサーバの性能を測定する標準的なツールです．
+Apache Bench（ab）は，Webサーバの性能を測定する標準的なツールです．
 
 #### 基本的な使用法
 
 ```bash
 # 基本的な計測（100リクエスト，同時実行数10）
-ab -n 100 -c 10 http://localhost/progA.php?tag=beach
+ab -n 100 -c 10 http://your-servers/progA.php?tag=beach
 
 # 詳細結果の出力
-ab -n 1000 -c 50 -v 2 http://10.70.174.167/~pi/progA.php?tag=dog
+ab -n 1000 -c 50 -v 2 http://your-server/~pi/progA.php?tag=dog
 ```
 
 #### 重要な測定指標
