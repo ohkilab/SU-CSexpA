@@ -2,7 +2,7 @@
 ```{admonition} Staff
 - 担当教員：大木哲史，野口靖浩，峰野博史
 - 技術部：水野匠，小澤卓也
-- TA：M2笹，高橋，M1徳増，牧野
+- TA：M2徳増，牧野，M1上田，濱本
 - 質問窓口：Mattermost もしくは csexp1-staff@ml.inf.shizuoka.ac.jp
 ```
 
