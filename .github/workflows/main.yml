@@ -9,13 +9,15 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions: write-all
+
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
   deploy-book:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     # Install dependencies
     - name: Setup Python
@@ -24,16 +26,37 @@ jobs:
         python-version: '3.10'
 
     - name: Install dependencies
-      run: pip install -r ./books/requirements.txt
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r books/requirements.txt
+
+    - name: Clean previous build
+      run: |
+        jupyter-book clean books/ || true
 
     # Build the book
     - name: Build the book
-      run: jupyter-book build books
+      run: |
+        jupyter-book build books
 
+    - name: Verify build output
+      run: |
+          echo "Current directory:"
+          pwd
+          echo "Repository root:"
+          ls -la
+          echo "books directory:"
+          ls -la books
+          echo "books/_build directory:"
+          ls -la books/_build
+          echo "books/_build/html directory:"
+          ls -la books/_build/html
+          
     # Push the book's HTML to github-pages
-    - name: GitHub Pages action
-      uses: peaceiris/actions-gh-pages@v3.6.1
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./books/_build/html
+        force_orphan: true
