@@ -38,19 +38,6 @@ jobs:
     - name: Build the book
       run: |
         jupyter-book build books
-
-    - name: Verify build output
-      run: |
-        echo "Current directory:"
-        pwd
-        echo "Repository root:"
-        ls -la
-        echo "books directory:"
-        ls -la books
-        echo "_build directory:"
-        ls -la _build
-        echo "_build/html directory:"
-        ls -la _build/html
           
     # Push the book's HTML to github-pages
     - name: Deploy to GitHub Pages
@@ -58,5 +45,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
-        publish_dir: ./_build/html
+        publish_dir: ./books/_build/html
         force_orphan: true
