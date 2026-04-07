@@ -41,16 +41,16 @@ jobs:
 
     - name: Verify build output
       run: |
-          echo "Current directory:"
-          pwd
-          echo "Repository root:"
-          ls -la
-          echo "books directory:"
-          ls -la books
-          echo "books/_build directory:"
-          ls -la books/_build
-          echo "books/_build/html directory:"
-          ls -la books/_build/html
+        echo "Current directory:"
+        pwd
+        echo "Repository root:"
+        ls -la
+        echo "books directory:"
+        ls -la books
+        echo "_build directory:"
+        ls -la _build
+        echo "_build/html directory:"
+        ls -la _build/html
           
     # Push the book's HTML to github-pages
     - name: Deploy to GitHub Pages
