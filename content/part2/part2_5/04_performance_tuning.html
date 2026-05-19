@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>パフォーマンスチューニングガイド &#8212; 情報科学実験A</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part2/part2_5/04_performance_tuning';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Day13, 14の目的と概要" href="../part2_6/overview.html" />
+    <link rel="prev" title="アーキテクチャ特性の理解" href="03_implementation_characteristics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">情報科学実験A</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preparation/preparation.html">環境構築および動作確認</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_1/overview.html">[Day1] 環境構築と実験の開始</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/raspberry_setting.html">RaspberryPiのセッティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wireless.html">RaspberryPiの無線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wired.html">RaspberryPiの有線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/update.html">ソフトウェアのアップデート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_2/overview.html">[Day2] 通信性能の計測</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">ファイル入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">ネットワーク入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">入出力性能の計測（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_server_program.html">サーバプログラムによる多重化</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/benchmarking_program.html">ベンチマークプログラムの設計と実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/performance_measurement.html">性能計測（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_asynchronous_IO.html">非同期IOによる多重化</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/cause_analysis_communication_failure.html">通信失敗の原因分析（発展）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_4/overview.html">[Day4] Simple HTTPサーバの構築</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_5/overview.html">[Day5] HTTPサーバの高機能化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/standardforachievement.html">第一部達成基準</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/multipleclient.html">複数クライアント対応（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/securityhole.html">セキュリティホール（必須+発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/introuble.html">第一部の実装で詰まった時の対処法</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_6/overview.html">[Day6] 第一部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_6/grouppresentation.html">第一部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../part1/part1_7/overview.html">[Day7] 第一部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webシステムの性能</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_1/overview.html">[Day8] Webシステムの基礎</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/preparation.html">第二部の準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/web_system_basics.html">Webシステムの基礎（発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_php.html">サンプルプログラム(PHP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/flickr_api.html">Flickr API Keyの取得</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_2/overview.html">[Day9] Webシステムの設計と実装 (1)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_2/connection_to_dbms.html">DBMSとの接続（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_3/overview.html">[Day10] Webシステムの設計と実装 (2)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_4/overview.html">[Day11] ベンチマークと分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/about_apache_mpm.html">Apache MPMについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/useful_links.html">実装の参考となるリンク集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/websocket.html">WebSocketについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/conformation_of_status.html">検討状況の確認（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day12] パフォーマンスチューニング</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_fundamentals.html">パフォーマンスチューニング基礎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_analysis_methods.html">ボトルネック分析手法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_implementation_characteristics.html">実装Aのパフォーマンス特性</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">パフォーマンスチューニングガイド</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_6/overview.html">[Day13,14] 発表会準備</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_7/overview.html">[Day15] 第二部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_7/last_presentation.html">第二部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_final_assignment/overview.html">最終課題</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/regulation.html">競技ルールの詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">実験終了後（必須）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../end/cleanup.html">実験機材の返却</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">グループ発表会</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../group_presentation/group_presentation_detail.html">グループ発表会詳細</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">レポート</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../report/report.html">レポート詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/how_to_write_reports.html">レポートの書き方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/peer_review.html">ピアレビューのやり方</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">トラブルシューティング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/question.html">質問の行い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/trouble.html">よくあるトラブル</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_5/04_performance_tuning.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/part2/part2_5/04_performance_tuning.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>パフォーマンスチューニングガイド</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">高速化アプローチ概要</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">オンメモリ型最適化の考え方</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">実装例：ハッシュテーブル構造</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">非オンメモリ型最適化の考え方</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">実装例：ストリーミング処理とインデックス化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#os">OS・ハードウェア最適化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">実践的チューニング手順</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">段階的最適化アプローチ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">仮説検証の手法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">コンテスト特有の考慮事項</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">制約への対応</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>パフォーマンスチューニングガイド<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>高速化アプローチ概要<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>実装Aのボトルネック分析を踏まえ，効果的な最適化手法を選択する必要があります．高速化アプローチは大きく「オンメモリ型」と「非オンメモリ型」の2つに分類され，それぞれメモリ使用量と性能のトレードオフが異なります．システムの制約と要求性能に応じて適切なアプローチを選択しましょう．</p>
+<section id="id3">
+<h3>オンメモリ型最適化の考え方<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>オンメモリ型最適化は，Webアプリケーションの性能向上において最も効果的な手法の一つです．この手法では，データを主メモリ（RAM）に展開し，ディスクI/Oを最小限に抑えることで劇的な性能向上を実現します．</p>
+<p>従来のアプローチでは，リクエストごとにファイルを読み込み，線形検索を行うため，データ量が増加するにつれて処理時間が急激に増加します．これに対し，オンメモリ型では事前にデータを効率的な構造でメモリに配置することで，検索処理を高速化します．</p>
+<p><strong>基本戦略の詳細:</strong></p>
+<p>事前処理でのインデックス構造構築は，アプリケーション起動時またはデータ更新時に一度だけ実行される重い処理です．この段階で，HashMap（連想配列）やTrie構造などの効率的なデータ構造を活用し，検索時間計算量をO(n)からO(1)またはO(log n)に改善します．</p>
+<p>ただし，メモリ使用量とのトレードオフを慎重に考慮する必要があります．全データをメモリに展開すると数百MB〜数GBのメモリを消費する可能性があるため，利用可能なメモリ容量とアプリケーションの要件を天秤にかけて判断する必要があります．</p>
+<p><strong>実装の方向性:</strong></p>
+<p>CSVファイルの全データをハッシュテーブルに読み込む処理では，タグをキーとした連想配列を構築し，O(1)での高速アクセスを実現します．さらに，各タグに対応する写真データを日付順でソート済みの配列として事前構築しておくことで，上位N件の取得も高速化できます．</p>
+<section id="id4">
+<h4>実装例：ハッシュテーブル構造<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p><strong>前処理によるハッシュテーブル構築</strong></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// タグをキーとしたハッシュテーブル</span>
+<span class="nv">$tag_index</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;beach&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">123</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span> <span class="o">=&gt;</span> <span class="mf">35.1</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span> <span class="o">=&gt;</span> <span class="mf">139.7</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2023-01-01&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">456</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span> <span class="o">=&gt;</span> <span class="mf">35.2</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span> <span class="o">=&gt;</span> <span class="mf">139.8</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2023-01-02&#39;</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;mountain&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="c1">// ...</span>
+    <span class="p">]</span>
+<span class="p">];</span>
+<span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h3>非オンメモリ型最適化の考え方<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>非オンメモリ型最適化は，メモリ制約がある環境や，データサイズがメモリ容量を大幅に超える場合に有効な手法です．この手法では，ディスクI/Oや分散処理を効率化することで，限られたメモリリソースでも高い性能を実現します．</p>
+<p>メモリに全データを展開できない制約下では，いかに効率的にディスクアクセスを行うかが性能の鍵となります．連続的なディスクアクセス，適切なバッファサイズの設定，そして処理の並列化により，メモリ使用量を抑えながらも実用的な性能を達成できます．</p>
+<p><strong>ストリーミング処理の利点:</strong></p>
+<p>ストリーミング処理は，大容量データを少量ずつ読み込みながら処理する手法です．これにより，データサイズに関係なく一定のメモリ使用量で処理が可能になります．ただし，処理時間は増加するため，メモリ使用量と処理時間のトレードオフを考慮する必要があります．</p>
+<p><strong>並列処理による高速化:</strong></p>
+<p>大容量ファイルを複数の小さなチャンクに分割し，それらを複数のプロセスまたはスレッドで並列処理することで，CPUの複数コアを効果的に活用できます．特に検索処理のような独立性の高い処理では，理論上はプロセス数に比例した性能向上が期待できます．</p>
+<p>キャッシュ階層の設計も重要な要素です．よく検索されるタグの結果をメモリキャッシュに保存し，中程度の頻度のものをSSDキャッシュに，それ以外をディスクから読み込むという多層構造により，平均的な応答時間を大幅に改善できる可能性があります．</p>
+<section id="id6">
+<h4>実装例：ストリーミング処理とインデックス化<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p><strong>ストリーミング読み込み</strong></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// 一度に全て読み込まない</span>
+<span class="nv">$handle</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s1">&#39;/data/geotag.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">);</span>
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nb">feof</span><span class="p">(</span><span class="nv">$handle</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$line</span> <span class="o">=</span> <span class="nb">fgets</span><span class="p">(</span><span class="nv">$handle</span><span class="p">,</span> <span class="mi">4096</span><span class="p">);</span>
+    <span class="c1">// 行単位で処理</span>
+<span class="p">}</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p><strong>バイナリインデックス作成</strong></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// CSVを事前に高速検索可能な形式に変換</span>
+<span class="k">function</span> <span class="nf">createBinaryIndex</span><span class="p">(</span><span class="nv">$csv_file</span><span class="p">,</span> <span class="nv">$index_file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$index</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nv">$handle</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$csv_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">);</span>
+    <span class="nv">$position</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="k">while</span> <span class="p">((</span><span class="nv">$data</span> <span class="o">=</span> <span class="nb">fgetcsv</span><span class="p">(</span><span class="nv">$handle</span><span class="p">))</span> <span class="o">!==</span> <span class="k">FALSE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$tag</span> <span class="o">=</span> <span class="nv">$data</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// タグ列</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$index</span><span class="p">[</span><span class="nv">$tag</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$index</span><span class="p">[</span><span class="nv">$tag</span><span class="p">]</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="p">}</span>
+        <span class="nv">$index</span><span class="p">[</span><span class="nv">$tag</span><span class="p">][]</span> <span class="o">=</span> <span class="nv">$position</span><span class="p">;</span>
+        <span class="nv">$position</span> <span class="o">=</span> <span class="nb">ftell</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="nb">file_put_contents</span><span class="p">(</span><span class="nv">$index_file</span><span class="p">,</span> <span class="nb">serialize</span><span class="p">(</span><span class="nv">$index</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span>
+</pre></div>
+</div>
+<p>これ以外にも様々な効率的な構造が存在しますので，自分で調べて実装を行い，比較してみると良いでしょう．</p>
+</section>
+</section>
+</section>
+<section id="os">
+<h2>OS・ハードウェア最適化<a class="headerlink" href="#os" title="Link to this heading">#</a></h2>
+<p>アプリケーションコードがいくら最適化されていても，その下層にあるOS設定やハードウェア設定が適切でなければ，本来の性能を発揮することはできません．特に高負荷環境や大規模システムでは，これらの低レベル最適化の効果は顕著に現れます．たとえば，以下のような項目が考えられますので，それぞれの意味を調べながら調整をしてみると良いでしょう．</p>
+<p><strong>システムリソースの効率的な管理:</strong></p>
+<ul class="simple">
+<li><p>ファイルディスクリプタ上限の調整</p></li>
+<li><p>CPU親和性の設定</p></li>
+<li><p>メモリ管理パラメータの調整</p></li>
+</ul>
+<p><strong>ストレージ性能の最大化:</strong></p>
+<ul class="simple">
+<li><p>ファイルシステムマウントオプションの選択</p></li>
+<li><p>I/Oスケジューラーの選択．</p></li>
+<li><p>SSD機能の設定（TRIM機能の有効化やアライメント設定：ただしSSDを用いている場合のみ）</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>実践的チューニング手順<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h3>段階的最適化アプローチ<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>性能最適化において最も重要なのは，体系的かつ段階的なアプローチを取ることです．無計画な最適化は，しばしば予期しない副作用を引き起こし，かえって性能を悪化させる原因となります．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. 現状分析・計測 → 2. ボトルネック特定 → 3. 仮説立案 → 4. 実装・検証 → 5. 効果測定
+                               ↑                                                    ↓
+                               ←←←←←← 6. 継続的改善 ←←←←←←←←←←←←←←←←
+</pre></div>
+</div>
+<p>このサイクルを繰り返すことで，継続的かつ確実な性能向上を実現できます．各段階において，前の段階の結果を基に次の行動を決定することが重要です．</p>
+<p><strong>第1段階：現状分析・計測</strong></p>
+<p>最適化の出発点は，現在の性能を正確に把握することです．主観的な「遅い」という感覚ではなく，具体的な数値による現状把握が必要です．この段階では，レスポンス時間，スループット，リソース使用率などの基本メトリクスを収集します．</p>
+<p><strong>第2段階：ボトルネック特定</strong></p>
+<p>収集したデータを分析し，性能のボトルネックとなっている箇所を特定します．CPU，メモリ，ディスクI/O，ネットワークのどこに問題があるのか，またアプリケーションレベルとインフラレベルのどちらに原因があるのかを明確にします．</p>
+</section>
+<section id="id9">
+<h3>仮説検証の手法<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>性能最適化における仮説検証は，科学的な手法に基づいて行うことが重要です．直感や経験に頼って最適化を行った場合，期待した結果を得られないだけでなく，新たな問題を引き起こす可能性もあります．充分に注意して臨みましょう．</p>
+<p><strong>実験設計の基本原則:</strong></p>
+<p><strong>一度に1つの変更を適用する</strong>：最適化の効果を正確に評価するための基本原則です．複数の変更を同時に行うと，どの変更が性能向上に貢献したのか，または性能悪化の原因なのかを特定できなくなります．</p>
+<p><strong>複数回の測定により信頼性を確保する</strong>：測定結果のバラツキや外部要因の影響を考慮するために必要です．特にWebアプリケーションの性能は，キャッシュ状態，システム負荷，ネットワーク状態などの影響を受けやすいです．複数回の測定から得られる統計的な評価結果を用いることを原則としましょう．</p>
+<p><strong>ベースライン測定を行う</strong>：ベースライン測定とは，最適化の効果を定量的に評価するための基準点となる測定のことです．このベースラインを確立し，最適化を行う前の性能を正確に記録しておくことが，最適化後の改善率を正しく計算するための重要な要素となります．</p>
+<p>統計的有意性の確認は，測定された性能向上が偶然の結果ではなく，真の改善であることを統計的に証明するための手法です．t検定やウィルコクソンの符号付順位検定などの統計手法を用いて，測定結果の信頼性を定量的に評価することが理想です．</p>
+</section>
+</section>
+<section id="id10">
+<h2>コンテスト特有の考慮事項<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h3>制約への対応<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<p>コンテスト環境では，実際のプロダクション環境とは異なる特殊な制約が存在します．これらの制約を正しく理解し，適切な戦略で対応しましょう．</p>
+<p><strong>計測回数制限への戦略的アプローチ:</strong></p>
+<p>本選での10回制限は，無制限に試行錯誤できる予選期間との最大の違いです．この制約下では，予選期間での十分な準備が必要となります．各最適化手法の効果を事前に十分検証し，本選での実行順序や戦略を検討しておく必要があります．</p>
+<p>限られた機会を最大限活用するために，段階的な最適化計画を立てておきましょう．たとえば，初回の1-2回で基本動作とベースライン性能を確認し，中盤の3-7回で主要な最適化を段階的に適用し，終盤の8-10回で最終調整と最高性能の追求を行うといったような戦略を立てておくと，効果的に本戦にチャレンジすることができます．</p>
+<p>また，予期しない問題が発生した場合に備えて，安定動作が保証された版，中程度の性能向上が期待できる版，最高性能を狙うリスクのある版を事前に準備し，状況に応じて選択できるようにしておくなども有効です．</p>
+<p><strong>未知のタグへの対応:</strong></p>
+<p>コンテストの現実的な制約を模擬した環境となっており，未知のタグへの対応が求められます．このため，特定のタグに特化した最適化ではなく，どのようなタグに対しても安定した性能を発揮できる汎用的な検索システムを実装しなくてはなりません．たとえば以下のような戦略を検討してみると良いでしょう．</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/part2/part2_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_implementation_characteristics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">アーキテクチャ特性の理解</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../part2_6/overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Day13, 14の目的と概要</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">高速化アプローチ概要</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">オンメモリ型最適化の考え方</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">実装例：ハッシュテーブル構造</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">非オンメモリ型最適化の考え方</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">実装例：ストリーミング処理とインデックス化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#os">OS・ハードウェア最適化</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">実践的チューニング手順</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">段階的最適化アプローチ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">仮説検証の手法</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">コンテスト特有の考慮事項</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">制約への対応</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ohki Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
