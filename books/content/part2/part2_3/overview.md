@@ -2,6 +2,8 @@
 
 - a) [最終課題詳細の確認](../part2_final_assignment/final_assignment_details "最終課題の確認")
 - b) [第二部レポートについて](../../report/report "第二部レポートについて")
+- c) [第二部達成基準](./standardforachievement "第二部達成基準")
+
 
 ```{admonition} 本日の進捗確認チェックリスト
 - 14:00: 最終課題の内容を理解し、グループ内で共有しましたか？
