@@ -1,2 +1,6 @@
 books/_build
+.python-version
 .DS_Store
+main.py
+uv.lock
+pyproject.toml

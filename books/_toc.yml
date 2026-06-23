@@ -117,6 +117,9 @@ parts:
 
       - file: content/part2/part2_3/overview
         title: "[Day10] Webシステムの設計と実装 (2)"
+        sections:
+          - file: content/part2/part2_3/standardforachievement
+            title: 第二部達成基準
 
       - file: content/part2/part2_4/overview
         title: "[Day11] ベンチマークと分析"
