@@ -71,6 +71,14 @@ sudo dhclient -r eth0
 sudo systemctl restart networking
 ```
 
+なお，情報学部1号館実験室で有線接続する場合，以下の図のように`PIP`と書かれた情報コンセントを使用してください．
+
+```{image} ../../images/trouble_shooting/Ethernet_Outlet.jpg
+:alt: 情報コンセントの写真
+:width: 800px
+:align: center
+```
+
 ## 有線-無線の優先度変更方法
 
 有線と無線のどちらが優先されているか確認します．
