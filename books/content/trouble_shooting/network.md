@@ -51,7 +51,7 @@ sudo wpa_cli -i eth0 terminate
 新しい設定で接続します．
 ```bash
 # 作った設定で接続
-sudo wpa_supplicant -B -i etho -c /etc/wpa_supplicant/wpa_supplicant_wired.conf -D wired
+sudo wpa_supplicant -B -i eth0 -c /etc/wpa_supplicant/wpa_supplicant_wired.conf -D wired
 # IPアドレスの再取得
 sudo dhclient eth0
 ```
