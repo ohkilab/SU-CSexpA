@@ -194,5 +194,7 @@ parts:
         title: 質問の行い方
       - file: content/trouble_shooting/trouble
         title: よくあるトラブル
+      - file: content/trouble_shooting/network
+        title: ネットワーク設定
       # - file: content/trouble_shooting/uninstall
       #   title: 各アプリケーションのアンインストール方法
