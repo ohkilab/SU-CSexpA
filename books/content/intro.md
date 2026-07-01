@@ -115,6 +115,7 @@ RaspberryPiについてはセットアップ済のイメージをこちらで用
 
 - [質問の行い方](trouble_shooting/question)
 - [よくあるトラブル](trouble_shooting/trouble)
+- [ネットワーク設定](trouble_shooting/network)
 
 ```{important}
 よくあるトラブルへの対応方法や、記載事項の修正など、本Webサイトへの追記・修正リクエストは随時受け付けています．
