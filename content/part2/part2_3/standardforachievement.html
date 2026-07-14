@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>第二部達成基準 &#8212; 情報科学実験A</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/part2/part2_3/standardforachievement';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Day11の目的と概要" href="../part2_4/overview.html" />
+    <link rel="prev" title="Day10の目的と概要" href="overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">情報科学実験A</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    メインページ
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">今年度の講義について</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">事前準備（在宅）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preparation/preparation.html">環境構築および動作確認</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第一部 ソケットプログラミング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_1/overview.html">[Day1] 環境構築と実験の開始</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/raspberry_setting.html">RaspberryPiのセッティング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wireless.html">RaspberryPiの無線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/connect_raspberry_wired.html">RaspberryPiの有線接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/update.html">ソフトウェアのアップデート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_1/environment_building_vscode.html">VSCodeを使った環境構築（任意）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_2/overview.html">[Day2] 通信性能の計測</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/file_IO_programming.html">ファイル入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/network_IO_programming.html">ネットワーク入出力プログラミング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_2/measurement_IO_performance.html">入出力性能の計測（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_3/overview.html">[Day3] 多対多接続の設計・実装</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_server_program.html">サーバプログラムによる多重化</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/benchmarking_program.html">ベンチマークプログラムの設計と実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/performance_measurement.html">性能計測（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/multiplexing_asynchronous_IO.html">非同期IOによる多重化</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_3/cause_analysis_communication_failure.html">通信失敗の原因分析（発展）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_4/overview.html">[Day4] Simple HTTPサーバの構築</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/raspberrypi_setup.html">Raspberry Piのセットアップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/simplehttpserver.html">Simple HTTPサーバの実装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_4/httpbenchmark.html">HTTPベンチマークプログラムの実装（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_5/overview.html">[Day5] HTTPサーバの高機能化</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/standardforachievement.html">第一部達成基準</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/multipleclient.html">複数クライアント対応（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/securityhole.html">セキュリティホール（必須+発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/httpserver_expansion.html">HTTPサーバ機能拡張（選択）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_5/introuble.html">第一部の実装で詰まった時の対処法</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/part1_6/overview.html">[Day6] 第一部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/part1_6/grouppresentation.html">第一部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../part1/part1_7/overview.html">[Day7] 第一部レポートピアレビュー</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">第二部 Webシステムの性能</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_1/overview.html">[Day8] Webシステムの基礎</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/preparation.html">第二部の準備</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/web_system_basics.html">Webシステムの基礎（発展）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_php.html">サンプルプログラム(PHP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/sample_program_js.html">サンプルプログラム(JavaScript)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/benchmark_soft_ab.html">ベンチマークソフトab（Apache Bench）（必須）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_1/flickr_api.html">Flickr API Keyの取得</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_2/overview.html">[Day9] Webシステムの設計と実装 (1)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_2/connection_to_dbms.html">DBMSとの接続（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">[Day10] Webシステムの設計と実装 (2)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">第二部達成基準</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_4/overview.html">[Day11] ベンチマークと分析</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/about_apache_mpm.html">Apache MPMについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/useful_links.html">実装の参考となるリンク集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/websocket.html">WebSocketについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_4/conformation_of_status.html">検討状況の確認（必須）</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_5/overview.html">[Day12] パフォーマンスチューニング</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_5/01_fundamentals.html">パフォーマンスチューニング基礎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_5/02_analysis_methods.html">ボトルネック分析手法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_5/03_implementation_characteristics.html">実装Aのパフォーマンス特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_5/04_performance_tuning.html">パフォーマンスチューニングガイド</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../part2_6/overview.html">[Day13,14] 発表会準備</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_7/overview.html">[Day15] 第二部グループ発表会</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_7/last_presentation.html">第二部グループ発表会</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part2_final_assignment/overview.html">最終課題</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/final_assignment_details.html">最終課題の概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/regulation.html">競技ルールの詳細</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part2_final_assignment/benchmarkserver_description.html">ベンチマークサーバー</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">実験終了後（必須）</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../end/cleanup.html">実験機材の返却</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">グループ発表会</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../group_presentation/group_presentation_detail.html">グループ発表会詳細</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">レポート</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../report/report.html">レポート詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/how_to_write_reports.html">レポートの書き方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../report/peer_review.html">ピアレビューのやり方</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">トラブルシューティング</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/question.html">質問の行い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/trouble.html">よくあるトラブル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trouble_shooting/network.html">ネットワーク設定</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ohkilab/SU-CSexpA/issues/new?title=Issue%20on%20page%20%2Fcontent/part2/part2_3/standardforachievement.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/part2/part2_3/standardforachievement.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>第二部達成基準</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">第二部達成基準</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day8day12">Day8からDay12および最終課題の必須課題（単位取得のための必須項目）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">発展課題（必須ではないが加点となる）</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">達成基準に関するもう少し詳しい解説</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ab-apache-bench">ベンチマークソフトab（Apache Bench）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbms">DBMSとの接続</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">「可(C)」レベル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b">「良(B)」レベル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a">「優(A)」レベル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">「秀(S)」レベル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">性能評価</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day11">検討状況の確認（Day11必須課題）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">最終課題：基礎課題</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">実装A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">実装B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">実装C</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">性能比較</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">最終課題：応用課題①（検索サーバ高性能化コンテスト）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-mpm">最終課題：応用課題②（Apache MPMによる高速化）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">最終課題：応用課題③（自由課題・イマジネーション）</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>第二部達成基準<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>第二部における各課題の達成基準を次のようにまとめます．</p>
+<section id="day8day12">
+<h2>Day8からDay12および最終課題の必須課題（単位取得のための必須項目）<a class="headerlink" href="#day8day12" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Day8 「ベンチマークソフトab（Apache Bench）」を用いてWebサーバの性能計測を実施する</p></li>
+<li><p>Day9 「DBMSとの接続」において「可(C)」レベル以上のWebアプリケーションを実装し，性能評価の結果について報告する</p></li>
+<li><p>Day10 Day9の実装をベースに設計・実装を継続し，グループ内で各自の実装内容を共有する</p></li>
+<li><p>Day11 「検討状況の確認（必須）」として，Day11時点での基礎課題の性能を計測し，グループ発表に向けた性能向上方針を検討してレポートに記載する</p></li>
+<li><p>Day12 パフォーマンスチューニングに取り組み，ボトルネックを分析して改善した結果を報告する</p></li>
+<li><p>最終課題 「基礎課題1（全員必須）」として実装A・実装B・実装Cを全て実装し，性能比較の結果を報告する</p></li>
+<li><p>最終課題 「応用課題①（検索サーバ高性能化コンテスト）」に参加し，実装Aをさらに改良した結果を報告する</p></li>
+</ul>
+<p>なお，性能比較等において設定する計測条件については各自で工夫すること</p>
+</section>
+<section id="id2">
+<h2>発展課題（必須ではないが加点となる）<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Day8 「Webシステムの基礎（発展）」の内容についてまとめて報告する</p></li>
+<li><p>Day9 「DBMSとの接続」において「良(B)」・「優(A)」・「秀(S)」レベルの実装を行い報告する</p></li>
+<li><p>Day9 「DBMSとの接続」における性能評価において，ボトルネック部分を改善させた結果を報告する（発展）</p></li>
+<li><p>Day11 「自由課題（イマジネーション）チーム」として現時点での検討状況を整理しプロトタイプ実装の問題点を報告する</p></li>
+<li><p>最終課題 「応用課題②（Apache MPMによる高速化）」を実施し，独自実装との性能比較を報告する</p></li>
+<li><p>最終課題 「応用課題③（自由課題・イマジネーション）」として独創的なWebシステムを実装して報告する</p></li>
+</ul>
+<p>また，レポートへの取り組みにあたっては，まずはグループリーダーを決めてください（もちろんグループリーダーが全責任を負うわけではありません．リーダーを担当することでグループワークの苦労を実感すると思いますが，就職活動等でアピールできる経験になりますから一度は担当してみた方がよいです．また，メンバとしての役割も重要ですから，リーダーに求められること，メンバに求められることが何かも意識してみてください）．グループリーダーを中心に班員全員が各項目を理解できるよう話し合いをし，必須課題のそれぞれの実装の詳細まで全員で理解を深めてください．まずは必須課題のそれぞれを分担して実装してください．それぞれの実装を共有してお互いに実装内容を説明し合って理解を深めてください．もし興味深い実装をしている人がいたら，その部分を強調してアピールしてください（内容によりますが加点要因として考慮します）．</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>達成基準に関するもう少し詳しい解説<a class="headerlink" href="#id3" title="Link to this heading">#</a></h1>
+<p>各課題が必須/発展であるかについては上記を参照してください</p>
+<section id="ab-apache-bench">
+<h2>ベンチマークソフトab（Apache Bench）<a class="headerlink" href="#ab-apache-bench" title="Link to this heading">#</a></h2>
+<p>abコマンドを用いてWebサーバの性能を計測できることが最低限の確認事項です．単にコマンドを実行するだけでなく，計測条件（同時接続数やリクエスト数）を変えたときにどのような違いが生じるか，その理由についても班内で議論しておきましょう．</p>
+</section>
+<section id="dbms">
+<h2>DBMSとの接続<a class="headerlink" href="#dbms" title="Link to this heading">#</a></h2>
+<section id="c">
+<h3>「可(C)」レベル<a class="headerlink" href="#c" title="Link to this heading">#</a></h3>
+<p>最低限，以下を確認できればOKです．</p>
+<ol class="arabic simple">
+<li><p>「郵便番号」・「住所」・「住所のカナ」のいずれかによる検索入力を受け付けること</p></li>
+<li><p>条件に合致するエントリーをテーブル形式で表示すること</p></li>
+<li><p>表示件数が多い場合に複数ページへ分割して表示すること</p></li>
+</ol>
+</section>
+<section id="b">
+<h3>「良(B)」レベル<a class="headerlink" href="#b" title="Link to this heading">#</a></h3>
+<p>最低限，以下を確認できればOKです．</p>
+<ol class="arabic simple">
+<li><p>「可(C)」レベルの全要件を満たしていること</p></li>
+<li><p>郵便番号を全国対応にすること，または BootstrapやWebix 等のUIツールでページをデザインすること</p></li>
+</ol>
+</section>
+<section id="a">
+<h3>「優(A)」レベル<a class="headerlink" href="#a" title="Link to this heading">#</a></h3>
+<p>最低限，以下を確認できればOKです．</p>
+<ol class="arabic simple">
+<li><p>「良(B)」レベルの全要件を満たしていること</p></li>
+<li><p>住所入力中に候補を表示するサジェスト機能，またはGoogle Maps等の地図系ツールとの連携を実装していること</p></li>
+</ol>
+</section>
+<section id="s">
+<h3>「秀(S)」レベル<a class="headerlink" href="#s" title="Link to this heading">#</a></h3>
+<p>最低限，以下を確認できればOKです．</p>
+<ol class="arabic simple">
+<li><p>「優(A)」レベルの全要件を満たしていること</p></li>
+<li><p>「優(A)」レベルの内容をNode.jsで実装するなど，秀に相当する工夫や実装を行っていること</p></li>
+</ol>
+</section>
+<section id="id4">
+<h3>性能評価<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>実装した住所・郵便番号検索Webシステムについて，以下を実施してください．</p>
+<ol class="arabic simple">
+<li><p>実装内容（C/B/A/Sのどのレベルまで実装したか）と工夫した点を説明する</p></li>
+<li><p>応答時間を計測し，各クエリの処理時間などの詳細な分析結果を示すこと，および各種性能分析コマンドを駆使してボトルネックの原因を考察すること</p></li>
+<li><p>性能向上のための改善案を検討してレポートに記載すること</p></li>
+<li><p>【発展】ボトルネック部分を実際に改善し，どこまで改善できるか試行錯誤した結果を報告すること</p></li>
+</ol>
+</section>
+</section>
+<section id="day11">
+<h2>検討状況の確認（Day11必須課題）<a class="headerlink" href="#day11" title="Link to this heading">#</a></h2>
+<p>Day11時点での以下の事項を整理してレポートに記載してください．</p>
+<ol class="arabic simple">
+<li><p><strong>基礎課題の検討状況</strong>：Day11時点での性能を計測すること．グループ発表に向けてどのようにしたら性能向上させられるかの方針を検討した結果を記載すること．仮説を立てた上で実験を行い，仮説と異なる結果が得られた場合にはその原因を更に検証してください（その結果をレポートにまとめてください）．</p></li>
+<li><p><strong>超高性能化の検討状況</strong>：現時点での性能を計測し，グループ発表に向けた性能向上方針の検討結果をレポートに含めること．</p></li>
+<li><p><strong>（自由課題に取り組む班のみ）</strong> 現時点での自由課題の検討状況をグループ内で共有すること．完成のイメージが分かるよう現在の検討状況を整理した上で，完成までの問題点を洗い出し，Day12時点でのプロトタイプ実装の問題点としてレポートに記載すること．</p></li>
+</ol>
+</section>
+<section id="id5">
+<h2>最終課題：基礎課題<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>Flickrの写真データ（geotag.csv・tag.csv，各約1,000万件）を用いて，「任意のタグを持つ写真の撮影時刻・緯度・経度・URLの一覧を撮影時刻降順で出力するWebアプリケーション」を以下の3種類の方針で実装してください．いずれの実装においても，ユーザがWebブラウザの検索フォームからタグを指定でき，最大100件を表示するという共通仕様を満たしてください．</p>
+<section id="id6">
+<h3>実装A<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p><strong>データベースを使用せず，CSVファイルを直接開いて検索するプログラム（progA.php）</strong> を実装できればOKです．
+独自インデックスの実装など，何らかの工夫によって実装Cの速度を上回ることを目指してください．</p>
+</section>
+<section id="id7">
+<h3>実装B<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p><strong>データベースを使用するが，i_tagインデックスを使用しないで検索するプログラム（progB.php）</strong> を実装できればOKです．</p>
+<p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">tag</span> <span class="pre">IGNORE</span> <span class="pre">INDEX(i_tag)</span> <span class="pre">WHERE</span> <span class="pre">tag</span> <span class="pre">like</span> <span class="pre">'...'</span></code> のようにインデックスを明示的に除外してください．</p>
+</section>
+<section id="id8">
+<h3>実装C<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p><strong>データベースおよびi_tagインデックスを使用して検索するプログラム（progC.php）</strong> を実装できればOKです．</p>
+</section>
+<section id="id9">
+<h3>性能比較<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>実装A〜Cの性能をabコマンドで計測し，結果を分析してください．グループ内全員の各実装の性能をグラフ化して比較してください．グループ発表ではグループ内で最も高性能な実装を紹介するとともにメンバー間で性能差が生じた原因について考察できると良いでしょう．性能は概ね「実装B ＜ 実装A ＜ 実装C」になると予想されますが，実装Aの工夫次第では「実装B ＜ 実装C ＜ 実装A」も可能です．計測条件（abのパラメータなど）は発表資料およびレポートに必ず明記してください．</p>
+</section>
+</section>
+<section id="id10">
+<h2>最終課題：応用課題①（検索サーバ高性能化コンテスト）<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>全員必須課題です．
+実装Aをさらに改良して実装Cの速度を上回る検索パフォーマンスを目指し，ベンチマークサーバを使って計測した結果を報告できればOKです．
+性能向上の手法は世の中で実際に使用される手法であれば何でも構いません（例：CSVファイルの前処理・独自データ構造による保存，Raspberry Piの複数台クラスタ化，オンメモリ処理など）．クライアントサイドのみやオンメモリで完結するような実装は，その旨を明記した上で参考値として示してください．</p>
+</section>
+<section id="apache-mpm">
+<h2>最終課題：応用課題②（Apache MPMによる高速化）<a class="headerlink" href="#apache-mpm" title="Link to this heading">#</a></h2>
+<p>任意課題です（発展）．
+Apacheのマルチプロセス機能（Prefork・Worker・Event）の設定を変更し，独自実装との性能差を比較してください．最低限，以下を実施できればOKです．</p>
+<ol class="arabic simple">
+<li><p>Apache MPMの各方式について要点を整理し，どのような結果になるか論理的な仮説を立てる</p></li>
+<li><p>MPM各方式の計測結果を可視化し，なぜそうなったのか（なぜ仮説通りにならなかったのか）論理的に考察する</p></li>
+<li><p>KeepAliveのON/OFFが性能に与える影響を測定し考察する</p></li>
+</ol>
+</section>
+<section id="id11">
+<h2>最終課題：応用課題③（自由課題・イマジネーション）<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p>任意課題（余裕がある方向け）です．
+Raspi上に構築したFlickr写真情報データセット，あるいはそれに準ずる大規模データセットを用いた興味深いWebシステムを自由な発想で実装してください．例えば，地図との連携，AI系APIの活用，WebSocketやServer-Sent Eventsを用いたリアルタイム更新など，独創的なアプローチを期待しています．最低限，以下を確認できればOKです．</p>
+<ol class="arabic simple">
+<li><p>グループ内で自由課題のテーマが重複しないよう事前に意識合わせができていること</p></li>
+<li><p>対象とする写真が10万件以上であること（Flickrの写真データを直接利用する場合も含む）</p></li>
+<li><p>実装した内容と工夫点，ならびにどの程度大変だったかをアピールできること</p></li>
+</ol>
+<p>それぞれの仕様をどこまで実装するか任せますので，何をどこまで実装したのか，どの程度難しかったのか，どの程度加点するのがよさそうか上手にアピールしてください．実施した内容や検討した内容はポジティブに受け取ります．</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/part2/part2_3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Day10の目的と概要</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../part2_4/overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Day11の目的と概要</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">第二部達成基準</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day8day12">Day8からDay12および最終課題の必須課題（単位取得のための必須項目）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">発展課題（必須ではないが加点となる）</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">達成基準に関するもう少し詳しい解説</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ab-apache-bench">ベンチマークソフトab（Apache Bench）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbms">DBMSとの接続</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">「可(C)」レベル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b">「良(B)」レベル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a">「優(A)」レベル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#s">「秀(S)」レベル</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">性能評価</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day11">検討状況の確認（Day11必須課題）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">最終課題：基礎課題</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">実装A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">実装B</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">実装C</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">性能比較</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">最終課題：応用課題①（検索サーバ高性能化コンテスト）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apache-mpm">最終課題：応用課題②（Apache MPMによる高速化）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">最終課題：応用課題③（自由課題・イマジネーション）</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ohki Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
